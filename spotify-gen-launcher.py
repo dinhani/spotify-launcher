@@ -318,11 +318,11 @@ with doc:
     script("$('.ui.rating').rating();")
 
 # write to file
-with open("data/spotify-launcher.html", "w", encoding="utf-8") as f:
+with open("docs/index.html", "w", encoding="utf-8") as f:
     f.write(str(doc))
 
 # write summary
-with open("data/classificao.txt", "w", encoding="utf-8") as f:
+with open("docs/classificao.txt", "w", encoding="utf-8") as f:
     for tag in TAGS_ORDER:
         f.write("\n")
         f.write(tag + ":\n")
