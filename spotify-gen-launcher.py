@@ -213,6 +213,14 @@ for artist in artists_df.to_dicts():
 # ------------------------------------------------------------------------------
 
 CSS_INLINE = """
+.extra.content::after {
+    display: none !important;
+}
+@media only screen and (max-width: 991.9px) {
+    .artist-image {
+        height: 200px !important;
+    }
+}
 @media only screen and (min-width: 992px) {
     body {
         height:100%;
@@ -221,6 +229,9 @@ CSS_INLINE = """
     .artists-wrapper {
         height: 98vh;
         overflow-y: scroll;
+    }
+    .artist-image {
+        height: 140px !important;
     }
 }
 """
@@ -258,8 +269,8 @@ def menu_categories():
 def menu_sort():
     with div(cls="ui fluid vertical menu"):
         div("🎶 Nome", cls="ui active item", onClick="sort(this, 'name', 'asc')")
-        div("👤 Seguidores", cls="ui item", onClick="sort(this, 'followers', 'desc')")
         div("🔥 Popularidade", cls="ui item", onClick="sort(this, 'popularity', 'desc')")
+        div("👤 Seguidores", cls="ui item", onClick="sort(this, 'followers', 'desc')")
         div("💿 Discos", cls="ui item", onClick="sort(this, 'albums', 'desc')")
 
 
@@ -272,21 +283,21 @@ def cards(artists: list[dict]):
             for artist in artists:
                 followers_precision = 1 if artist["followers.total"] >= 1_000_000 else 0
 
-                with div(cls="ui eight wide mobile two wide computer column artist", style="padding: 0.25rem;", data_name=artist["name"], data_followers=str(artist["followers.total"]), data_popularity=str(artist["popularity"]), data_albums=str(artist["album_count"])):
+                with div(cls="ui eight wide mobile four wide tablet two wide computer column artist", style="padding: 0.25rem;", data_name=artist["name"], data_followers=str(artist["followers.total"]), data_popularity=str(artist["popularity"]), data_albums=str(artist["album_count"])):
                     with a(cls="ui card", href=f"spotify:artist:{artist["id"]}", style="width: 100%"):
                         # image
                         with div(cls="image"):
-                            img(src=artist["image"], cls="ui image artist-image", style="height: 140px; object-fit: cover;")
+                            img(src=artist["image"], cls="ui image artist-image", style="object-fit: cover;")
 
                         # header
                         with div(cls="content", style="padding: 0.5rem;"):
                             div(artist["name"], cls="ui small header", style="white-space: nowrap; overflow:hidden; text-overflow: ellipsis;")
 
                         # footer
-                        with div(cls="extra content", style="padding: 0.5rem;"):
-                            span("👤" + millify(artist["followers.total"], precision=followers_precision))
-                            span("🔥" + str(artist["popularity"]))
-                            span("💿" + str(artist["album_count"]))
+                        with div(cls="extra content", style="padding: 0.5rem; display: flex; justify-content: space-between"):
+                            div("🔥" + str(artist["popularity"]), style="width: 33.333%; text-align: left;")
+                            div("👤" + millify(artist["followers.total"], precision=followers_precision), style="width: 33.333%; text-align: center;")
+                            div("💿" + str(artist["album_count"]), style="width: 33.333%; text-align: right")
 
 
 def tab_id(tag: str) -> str:
