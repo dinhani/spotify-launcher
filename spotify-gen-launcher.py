@@ -212,7 +212,20 @@ for artist in artists_df.to_dicts():
 # Generate HTML
 # ------------------------------------------------------------------------------
 
-JS_SORT_FUNCTION = """
+CSS_INLINE = """
+@media only screen and (min-width: 992px) {
+    body {
+        height:100%;
+        overflow-y: hidden;
+    }
+    .artists-wrapper {
+        height: 98vh;
+        overflow-y: scroll;
+    }
+}
+"""
+
+JS_INLINE_SORT_FUNCTION = """
 function sort(button, attribute, order) {
     $(button).addClass('active');
     $(button).siblings().removeClass('active');
@@ -252,7 +265,7 @@ def menu_sort():
 
 def cards(artists: list[dict]):
     # scroll
-    with div(style="height: 98vh; overflow-y: scroll;"):
+    with div(cls="artists-wrapper"):
         # grid
         with div(cls="ui padded grid artists"):
             # cards
@@ -263,7 +276,7 @@ def cards(artists: list[dict]):
                     with a(cls="ui card", href=f"spotify:artist:{artist["id"]}", style="width: 100%"):
                         # image
                         with div(cls="image"):
-                            img(src=artist["image"], cls="ui image", style="height: 140px; object-fit: cover;")
+                            img(src=artist["image"], cls="ui image artist-image", style="height: 140px; object-fit: cover;")
 
                         # header
                         with div(cls="content", style="padding: 0.5rem;"):
@@ -284,15 +297,16 @@ doc = html(style="height:100%;")
 with doc:
     # head
     with head():
+        meta(name="viewport", content="width=device-width, initial-scale=1")
         script(src = "https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js")
         script(src = "https://cdn.jsdelivr.net/npm/jquery-address@1.6.0/src/jquery.address.js")
         script(src = "https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min.js")
         link(href =  "https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min.css", rel = "stylesheet")
-
-        script(JS_SORT_FUNCTION)
+        style(CSS_INLINE)
+        script(JS_INLINE_SORT_FUNCTION)
 
     # body
-    with body(cls="ui fluid container", style="height:100%; overflow-y: hidden;"):
+    with body(cls="ui fluid container"):
         with div(cls="ui padded grid"):
             # ------------------------------------------------------------------
             # Menu
