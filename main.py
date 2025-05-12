@@ -144,7 +144,7 @@ def menu_sorting(mobile):
 
 def menu_wrapper(label: str, mobile: bool):
     if mobile:
-        with div(label, cls="title"):
+        with div(label, cls="title", style="font-size: 1.42857143rem;"):
             i(cls="right dropdown icon")
         with div(cls="content", style="padding-bottom: 0.5rem;"):
             return div(cls="ui fluid vertical secondary menu")
@@ -234,7 +234,7 @@ with doc:
             # Scroll to top
             # ------------------------------------------------------------------
             with div(cls="sixteen wide column mobile tablet only"):
-                div("⬆️ Back to top", cls="ui fluid button", onClick="window.scrollTo({top:0})")
+                div("⬆️ Back to top", cls="ui fluid huge button", onClick="window.scrollTo({top:0})")
 
 
     # script
