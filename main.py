@@ -14,6 +14,7 @@ logging.info("🚀 Starting script")
 from collections import defaultdict
 from data import *
 from dominate.tags import *
+from dominate.util import raw
 from millify import millify
 import polars
 
@@ -28,7 +29,6 @@ OUTPUT_SUMMARY = "docs/summary.txt"
 # Parse artists tags
 # ------------------------------------------------------------------------------
 artists_by_tag = defaultdict(list)
-
 
 logging.info(f"📄 Reading CSV file: {INPUT_ARTISTS}")
 artists_df = polars.read_csv(INPUT_ARTISTS, separator="\t")
@@ -106,10 +106,26 @@ CSS_GLOBAL = """
 }
 """
 
+JS_FUNC_TAB = """
+function tab(tabPath) {
+    // change header
+    var id = "#mobile-menu-item-" + tabPath.replace("tab-", "");
+    var title = $(id).find("span").last().text();
+    $("#mobile-menu-header-filter").text("Filter: " + title)
+}
+"""
+
 JS_FUNC_SORT = """
-function sort(button, attribute, order) {
-    $(button).addClass('active');
-    $(button).siblings().removeClass('active');
+function sort(element, attribute, order) {
+    // change header
+    var title = $(element).text().replace(/[\\p{Emoji_Presentation}\\p{Extended_Pictographic}]/gu, '');
+    $("#mobile-menu-header-sort").text("Sort:" + title);
+
+    // mark active
+    $(element).addClass('active');
+    $(element).siblings().removeClass('active');
+
+    // reorder
     $('.artists').each(function(_, artists) {
         var sorted = $(artists).find('.artist').sort(function(a, b) {
             var valA = $(a).data(attribute);
@@ -127,18 +143,26 @@ function sort(button, attribute, order) {
 }
 """
 
-def menu_category(mobile: bool):
-    with menu_wrapper(mobile, "Category"):
+def menu_filter(mobile: bool):
+    with menu_wrapper(mobile, "Filter", "filter"):
+        kind = "mobile" if mobile else "desktop"
         label_size = "" if mobile else "tiny"
+
         for index, tag in enumerate(TAGS_ORDER):
             artists = artists_by_tag[tag]
             active = "active" if index == 0 else ""
-            with div(cls=f"{active} link item", data_tab=tab_id(tag)):
+
+            with div(cls=f"{active} link item",
+                    id=f"{kind}-menu-item-{id(tag)}",
+                    data_tab=tab_id(tag),
+                    data_tab_name=tag
+                ):
                 span(f"{len(artists)}", cls=f"ui {label_size} label")
                 span(tag)
 
-def menu_sorting(mobile):
-    with menu_wrapper(mobile, "Sorting"):
+def menu_sort(mobile):
+    label = "Sort: Name" if mobile else "Sort"
+    with menu_wrapper(mobile, label, "sort"):
         div("🎶 Name", cls="ui active link item", onClick="sort(this, 'name', 'asc')", style=CSS_STYLE_NOWRAP)
         div("🔥 Popularity (artist)", cls="ui link item", onClick="sort(this, 'popularity', 'desc')", style=CSS_STYLE_NOWRAP)
         div("🏆 Popularity (song)", cls="ui link item", onClick="sort(this, 'song-popularity', 'desc')", style=CSS_STYLE_NOWRAP)
@@ -147,12 +171,15 @@ def menu_sorting(mobile):
         div("📅 Last Release", cls="ui link item", onClick="sort(this, 'last-release', 'desc')", style=CSS_STYLE_NOWRAP)
         div("🔔 Last Follow", cls="ui link item", onClick="sort(this, 'last-follow', 'asc')", style=CSS_STYLE_NOWRAP)
 
-def menu_wrapper(mobile: bool, label: str):
+def menu_wrapper(mobile: bool, label: str, id: str):
     active = "" if mobile else "active"
+    kind = "mobile" if mobile else "desktop"
     font_size = "1.71428571rem" if mobile else "1.28571429rem"
+
     with div(cls=f"{active} title", style=f"font-size: {font_size};"):
-            span(label)
+            span(label, id=f"{kind}-menu-header-{id}")
             i(cls="right dropdown icon")
+
     with div(cls=f"{active} content", style="padding: 0;"):
         return div(cls="ui fluid vertical attached menu", style="margin: 0; border-left: 0; border-right: 0; border-bottom: 0;")
 
@@ -192,9 +219,11 @@ def cards(artists: list[dict]):
                             div("💿" + str(artist["album_count"]), style=CSS_STYLE_NOWRAP)
 
 
+def id(tag: str) -> str:
+    return tag.lower().translate(str.maketrans("", "", "():/")).translate(str.maketrans("ãéó", "aeo")).replace(" ", "-").strip()
+
 def tab_id(tag: str) -> str:
-    id = tag.lower().translate(str.maketrans("", "", "():/")).translate(str.maketrans("ãéó", "aeo")).replace(" ", "-").strip()
-    return f"tab-{id}"
+    return f"tab-{id(tag)}"
 
 doc = html(style="height:100%;")
 with doc:
@@ -205,8 +234,9 @@ with doc:
         script(src = "https://cdn.jsdelivr.net/npm/jquery-address@1.6.0/src/jquery.address.js")
         script(src = "https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min.js")
         link(href =  "https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min.css", rel = "stylesheet")
-        style(CSS_GLOBAL)
-        script(JS_FUNC_SORT)
+        style(raw(CSS_GLOBAL))
+        script(raw(JS_FUNC_TAB))
+        script(raw(JS_FUNC_SORT))
 
     # body
     with body(cls="ui fluid container"):
@@ -216,16 +246,16 @@ with doc:
             # ------------------------------------------------------------------
             with div(cls="sixteen wide mobile tablet only   column", style="padding: 0.5rem"):
                 with div(cls="ui fluid styled mobile accordion"):
-                    menu_category(mobile=True)
-                    menu_sorting(mobile=True)
+                    menu_filter(mobile=True)
+                    menu_sort(mobile=True)
 
             # ------------------------------------------------------------------
             # Menu (desktop)
             # ------------------------------------------------------------------
             with div(cls="computer only three wide computer   two wide large screen   two wide widescreen   column", style="padding: 0.5rem"):
                 with div(cls="ui fluid styled desktop accordion"):
-                    menu_category(mobile=False)
-                    menu_sorting(mobile=False)
+                    menu_filter(mobile=False)
+                    menu_sort(mobile=False)
 
             # ------------------------------------------------------------------
             # Content
@@ -247,7 +277,7 @@ with doc:
 
 
     # script
-    script("$('.menu .item').tab({history:true, historyType: 'hash'});")
+    script("$('.menu .item').tab({history:true, historyType: 'hash', onLoad: tab});")
     script("$('.ui.accordion.desktop').accordion({exclusive:false});")
     script("$('.ui.accordion.mobile').accordion({exclusive:true});")
 
