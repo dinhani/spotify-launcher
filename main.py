@@ -152,7 +152,7 @@ def menu_wrapper(mobile: bool, label: str):
     with div(cls=f"{active} title", style=f"font-size: {font_size};"):
             span(label)
             i(cls="right dropdown icon")
-    with div(cls=f"{active} content", style="padding: 0rem;"):
+    with div(cls=f"{active} content", style="padding: 0;"):
         return div(cls="ui fluid vertical attached menu", style="margin: 0; border-left: 0; border-right: 0; border-bottom: 0;")
 
 def cards(artists: list[dict]):
