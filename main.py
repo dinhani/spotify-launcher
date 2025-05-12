@@ -5,7 +5,7 @@ import sys
 import logging
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s.%(msecs)03d | %(levelname)-5s | %(message)s',
+    format='%(asctime)s.%(msecs)03d | %(levelname).4s | %(message)s',
     datefmt='%H:%M:%S',
     handlers=[logging.StreamHandler(sys.stdout)]
 )
@@ -66,8 +66,8 @@ for artist in artists_df.to_dicts():
             tagged.add(tag)
 
     # rule: extreme cannot be traditional
-    if T_ROCK_EXTREME in tagged and T_ROCK_TRADITIONAL in tagged:
-        tagged.remove(T_ROCK_TRADITIONAL)
+    if T_ROCK_EXTREME_METAL in tagged and T_ROCK_HEAVY_METAL in tagged:
+        tagged.remove(T_ROCK_HEAVY_METAL)
 
     # add tags
     artist["tags"] = tagged
@@ -81,7 +81,10 @@ for artist in artists_df.to_dicts():
 # ------------------------------------------------------------------------------
 logging.info("🧱 Generating HTML")
 
+
 CSS_STYLE_NOWRAP = "white-space: nowrap; "
+
+CSS_STYLE_MENU_ITEM = CSS_STYLE_NOWRAP + "padding: 0.6rem; "
 
 CSS_GLOBAL = """
 .extra.content::after {
@@ -120,7 +123,7 @@ JS_FUNC_ONTAB = """
 function onTab(tabPath) {
     // change header
     var id = "#mobile-menu-item-" + tabPath.replace("tab-", "");
-    var title = removeEmoji($(id).data("tab-name")).replace("::", ": ");
+    var title = removeEmoji($(id).data("tab-name"));
     $("#mobile-menu-header-filter").text("Filter: " + title)
 }
 """
@@ -161,14 +164,15 @@ def menu_filter(mobile: bool):
         for index, tag in enumerate(TAGS_ORDER):
             artists = artists_by_tag[tag]
 
-            item_display = tag.split("::")[-1]
+            item_display = tag.split(" - ")[-1]
             item_active = "active" if index == 0 else ""
-            item_header = "header disabled" if tag.startswith("Header::") else ""
+            item_header = "header disabled" if tag.startswith("Header - ") else ""
 
             with div(cls=f"{item_active} {item_header} link item",
                     id=f"{kind}-menu-item-{id(tag)}",
                     data_tab=tab_id(tag),
-                    data_tab_name=tag
+                    data_tab_name=tag,
+                    style=CSS_STYLE_MENU_ITEM
                 ):
                 span(item_display)
                 if not item_header:
@@ -177,13 +181,13 @@ def menu_filter(mobile: bool):
 def menu_sort(mobile):
     label = "Sort: Name" if mobile else "Sort"
     with menu_wrapper(mobile, label, "sort"):
-        div("🎶 Name", cls="ui active link item", onClick="sort(this, 'name', 'asc')", style=CSS_STYLE_NOWRAP)
-        div("🔥 Popularity (artist)", cls="ui link item", onClick="sort(this, 'popularity', 'desc')", style=CSS_STYLE_NOWRAP)
-        div("🏆 Popularity (song)", cls="ui link item", onClick="sort(this, 'song-popularity', 'desc')", style=CSS_STYLE_NOWRAP)
-        div("👤 Followers", cls="ui link item", onClick="sort(this, 'followers', 'desc')", style=CSS_STYLE_NOWRAP)
-        div("💿 Albums", cls="ui link item", onClick="sort(this, 'albums', 'desc')", style=CSS_STYLE_NOWRAP)
-        div("📅 Last Release", cls="ui link item", onClick="sort(this, 'last-release', 'desc')", style=CSS_STYLE_NOWRAP)
-        div("🔔 Last Follow", cls="ui link item", onClick="sort(this, 'last-follow', 'asc')", style=CSS_STYLE_NOWRAP)
+        div("🎶 Name", cls="ui active link item", onClick="sort(this, 'name', 'asc')", style=CSS_STYLE_MENU_ITEM)
+        div("🔥 Popularity (artist)", cls="ui link item", onClick="sort(this, 'popularity', 'desc')", style=CSS_STYLE_MENU_ITEM)
+        div("🏆 Popularity (song)", cls="ui link item", onClick="sort(this, 'song-popularity', 'desc')", style=CSS_STYLE_MENU_ITEM)
+        div("👤 Followers", cls="ui link item", onClick="sort(this, 'followers', 'desc')", style=CSS_STYLE_MENU_ITEM)
+        div("💿 Albums", cls="ui link item", onClick="sort(this, 'albums', 'desc')", style=CSS_STYLE_MENU_ITEM)
+        div("📅 Last Release", cls="ui link item", onClick="sort(this, 'last-release', 'desc')", style=CSS_STYLE_MENU_ITEM)
+        div("🔔 Last Follow", cls="ui link item", onClick="sort(this, 'last-follow', 'asc')", style=CSS_STYLE_MENU_ITEM)
 
 def menu_wrapper(mobile: bool, label: str, id: str):
     active = "" if mobile else "active"
@@ -234,7 +238,7 @@ def cards(artists: list[dict]):
 
 
 def id(tag: str) -> str:
-    return tag.lower().replace("::", "-").translate(str.maketrans("", "", "():/")).translate(str.maketrans("ãéó", "aeo")).replace(" ", "-").strip()
+    return tag.lower().translate(str.maketrans("", "", "():/")).translate(str.maketrans("ãéó", "aeo")).replace(" ", "-").strip()
 
 def tab_id(tag: str) -> str:
     return f"tab-{id(tag)}"
@@ -309,5 +313,11 @@ with open(OUTPUT_SUMMARY, "w", encoding="utf-8", newline="\n") as f:
         f.write(tag + ":\n")
         for artist in artists_by_tag[tag]:
             f.write("* " + artist["name"] + "\n")
+
+# verify untouched keys
+logging.info("🧱 Checking untouched keys")
+for key in TAGS.untouched_keys():
+    logging.warning(f"🛑 Untouched key: {key}")
+
 
 logging.info("✅ Done")

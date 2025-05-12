@@ -206,13 +206,14 @@ Others:
 * Hollywood Burns
 * Madredeus
 
-Header::Rock / Metal:
+Header - Rock / Metal:
 
-Rock::All:
+Rock - All:
 * ANGRA
 * Agent Fresco
 * Ahab
 * Alestorm
+* Almora
 * Altaria
 * Alvvays
 * Amorphis
@@ -220,6 +221,7 @@ Rock::All:
 * Aquaria
 * Arch Enemy
 * Arcturus
+* Arkona
 * Audioslave
 * Avantasia
 * Ayreon
@@ -227,6 +229,7 @@ Rock::All:
 * Blind Guardian
 * Borknagar
 * Boz Scaggs
+* Braia
 * Brujeria
 * Camp Claude
 * Carcass
@@ -241,9 +244,11 @@ Rock::All:
 * Doomsword
 * Dream Theater
 * Edguy
+* Eldhrimnir
 * Eluveitie
 * Eterna
 * Fafnir
+* Faun
 * Gamma Ray
 * Gojira
 * Gotthard
@@ -272,13 +277,16 @@ Rock::All:
 * Massacration
 * Metallica
 * Muse
+* Mägo de Oz
 * Narnia
 * Necrophagist
 * Nervosa
 * Nightwish
+* OMNIA
 * Oficina G3
 * Opeth
 * Orphaned Land
+* Otyg
 * Ozzy Osbourne
 * Pantera
 * Pearl Jam
@@ -312,12 +320,13 @@ Rock::All:
 * Whitesnake
 * Wintersun
 * Wussy
+* Ye Banished Privateers
 * Zonata
 
-Rock::Favorites:
+Rock - Favorites:
 * Iced Earth
 
-Rock::Extreme:
+Rock - Extreme Metal:
 * Amorphis
 * Arch Enemy
 * Arcturus
@@ -344,7 +353,7 @@ Rock::Extreme:
 * Torture Squad
 * Wintersun
 
-Rock::Traditional:
+Rock - Heavy Metal:
 * ANGRA
 * Agent Fresco
 * Ahab
@@ -409,7 +418,35 @@ Rock::Traditional:
 * Whitesnake
 * Zonata
 
-Rock::Rock:
+Rock - Folk Metal:
+* Alestorm
+* Almora
+* Amorphis
+* Arkona
+* Blind Guardian
+* Borknagar
+* Braia
+* Doomsword
+* Eldhrimnir
+* Eluveitie
+* Faun
+* Haggard
+* Heidevolk
+* Kamelot
+* Korpiklaani
+* Mägo de Oz
+* OMNIA
+* Orphaned Land
+* Otyg
+* Sólstafir
+* Therion
+* Tuatha de Danann
+* Turisas
+* Týr
+* Wintersun
+* Ye Banished Privateers
+
+Rock - Rock:
 * Alvvays
 * Audioslave
 * Barns Courtney
@@ -430,90 +467,50 @@ Rock::Rock:
 * Volbeat
 * Wussy
 
-Header::Folk:
+Header - Folk:
 
-Folk::All:
-* Alestorm
+Folk - All:
 * AlicebanD
-* Almora
 * Amanda Palmer
 * American Murder Song
-* Amorphis
-* Arkona
 * Bitter Ruin
-* Blind Guardian
-* Borknagar
 * Braia
 * Caprice
 * Celtic Woman
 * Confraria da Costa
 * Diablo Swing Orchestra
 * Dirt Poor Robins
-* Doomsword
-* Eldhrimnir
 * Eliza Rickman
 * Eluveitie
 * Faun
 * Ghost Quartet
-* Haggard
-* Heidevolk
-* Kamelot
 * Kim Tillman
-* Korpiklaani
 * Leandra
 * Major Parkinson
-* Mägo de Oz
 * OMNIA
-* Orphaned Land
-* Otyg
 * Steam Powered Giraffe
-* Sólstafir
 * The Cog is Dead
 * The Dead South
 * The Dresden Dolls
-* Therion
 * Tuatha de Danann
-* Turisas
-* Týr
 * Unwoman
-* Wintersun
-* Ye Banished Privateers
 
-Folk::Favorites:
+Folk - Favorites:
+* Eliza Rickman
+* Steam Powered Giraffe
 
-Folk::Folk:
-* Alestorm
-* Almora
-* Amorphis
-* Arkona
-* Blind Guardian
-* Borknagar
+Folk - Folk:
 * Braia
 * Caprice
 * Celtic Woman
 * Confraria da Costa
-* Doomsword
-* Eldhrimnir
 * Eluveitie
 * Faun
-* Haggard
-* Heidevolk
-* Kamelot
-* Korpiklaani
-* Mägo de Oz
 * OMNIA
-* Orphaned Land
-* Otyg
-* Sólstafir
 * The Dead South
-* Therion
 * Tuatha de Danann
-* Turisas
-* Týr
-* Wintersun
-* Ye Banished Privateers
 
-Folk::Steampunk:
+Folk - Steampunk:
 * AlicebanD
 * Amanda Palmer
 * American Murder Song
@@ -530,9 +527,9 @@ Folk::Steampunk:
 * The Dresden Dolls
 * Unwoman
 
-Header::Alternative:
+Header - Alternative:
 
-Alt::All:
+Alt - All:
 * AURORA
 * Agnes Obel
 * Alela Diane
@@ -600,9 +597,9 @@ Alt::All:
 * Zella Day
 * aeseaes
 
-Alt::Favorites:
+Alt - Favorites:
 
-Alt::Atmospheric:
+Alt - Atmospheric:
 * AURORA
 * Agnes Obel
 * Anastasia Minster
@@ -633,7 +630,7 @@ Alt::Atmospheric:
 * Vaults
 * aeseaes
 
-Alt::Energetic:
+Alt - Energetic:
 * Aqua
 * BROODS
 * CHVRCHES
@@ -659,7 +656,7 @@ Alt::Energetic:
 * Yelle
 * Zella Day
 
-Alt::Vox/Guitar:
+Alt - Vox/Guitar:
 * Alela Diane
 * Angus & Julia Stone
 * Bear's Den
