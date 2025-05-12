@@ -1,5 +1,5 @@
 
-All::All:
+All:
 * ANGRA
 * AURORA
 * Agent Fresco
@@ -200,7 +200,7 @@ All::All:
 * Zonata
 * aeseaes
 
-Others::Others:
+Others:
 * Cesária Evora
 * Deolinda
 * Hollywood Burns

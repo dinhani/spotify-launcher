@@ -40,7 +40,7 @@ function removeEmoji(s) {
 function onTab(tabPath) {
     // change header
     var id = "#mobile-menu-item-" + tabPath.replace("tab-", "");
-    var title = removeEmoji($(id).find("span").last().text());
+    var title = removeEmoji($(id).data("tab-name")).replace("::", " (") + ")";
     $("#mobile-menu-header-filter").text("Filter: " + title)
 }
 </script>
@@ -48,7 +48,7 @@ function onTab(tabPath) {
 function sort(element, attribute, order) {
     // change header
     var title = removeEmoji($(element).text());
-    $("#mobile-menu-header-sort").text("Sort:" + title);
+    $("#mobile-menu-header-sort").text("Sort: " + title);
 
     // mark active
     $(element).addClass('active');
@@ -81,11 +81,11 @@ function sort(element, attribute, order) {
           </div>
           <div class=" content" style="padding: 0;">
             <div class="ui fluid vertical attached menu" style="margin: 0; border-left: 0; border-right: 0; border-bottom: 0;">
-              <div class="active  link item" data-tab="tab-all-all" data-tab-name="All::All" id="mobile-menu-item-all-all">
+              <div class="active  link item" data-tab="tab-all" data-tab-name="All" id="mobile-menu-item-all">
                 <span>All</span>
                 <span class="ui  label">199</span>
               </div>
-              <div class="  link item" data-tab="tab-others-others" data-tab-name="Others::Others" id="mobile-menu-item-others-others">
+              <div class="  link item" data-tab="tab-others" data-tab-name="Others" id="mobile-menu-item-others">
                 <span>Others</span>
                 <span class="ui  label">4</span>
               </div>
@@ -179,11 +179,11 @@ function sort(element, attribute, order) {
           </div>
           <div class="active content" style="padding: 0;">
             <div class="ui fluid vertical attached menu" style="margin: 0; border-left: 0; border-right: 0; border-bottom: 0;">
-              <div class="active  link item" data-tab="tab-all-all" data-tab-name="All::All" id="desktop-menu-item-all-all">
+              <div class="active  link item" data-tab="tab-all" data-tab-name="All" id="desktop-menu-item-all">
                 <span>All</span>
                 <span class="ui tiny label">199</span>
               </div>
-              <div class="  link item" data-tab="tab-others-others" data-tab-name="Others::Others" id="desktop-menu-item-others-others">
+              <div class="  link item" data-tab="tab-others" data-tab-name="Others" id="desktop-menu-item-others">
                 <span>Others</span>
                 <span class="ui tiny label">4</span>
               </div>
@@ -271,7 +271,7 @@ function sort(element, attribute, order) {
         </div>
       </div>
       <div class="sixteen wide mobile tablet   thirteen wide computer   fourteen wide large screen   fourteen wide widescreen   column" style="padding: 0.5rem;">
-        <div class="ui tab" data-tab="tab-all-all">
+        <div class="ui tab" data-tab="tab-all">
           <div class="artists-wrapper">
             <div class="ui padded grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="3" data-followers="46426" data-last-follow="28" data-last-release="2025-04-25" data-name="aeseaes" data-popularity="45" data-song-popularity="50" style="padding: 0.25rem;">
@@ -3859,7 +3859,7 @@ function sort(element, attribute, order) {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-others-others">
+        <div class="ui tab" data-tab="tab-others">
           <div class="artists-wrapper">
             <div class="ui padded grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="20" data-followers="436820" data-last-follow="16" data-last-release="2013-03-04" data-name="Cesária Evora" data-popularity="68" data-song-popularity="61" style="padding: 0.25rem;">

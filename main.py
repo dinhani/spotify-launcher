@@ -120,7 +120,7 @@ JS_FUNC_ONTAB = """
 function onTab(tabPath) {
     // change header
     var id = "#mobile-menu-item-" + tabPath.replace("tab-", "");
-    var title = removeEmoji($(id).find("span").last().text());
+    var title = removeEmoji($(id).data("tab-name")).replace("::", " (") + ")";
     $("#mobile-menu-header-filter").text("Filter: " + title)
 }
 """
@@ -129,7 +129,7 @@ JS_FUNC_SORT = """
 function sort(element, attribute, order) {
     // change header
     var title = removeEmoji($(element).text());
-    $("#mobile-menu-header-sort").text("Sort:" + title);
+    $("#mobile-menu-header-sort").text("Sort: " + title);
 
     // mark active
     $(element).addClass('active');
@@ -161,7 +161,7 @@ def menu_filter(mobile: bool):
         for index, tag in enumerate(TAGS_ORDER):
             artists = artists_by_tag[tag]
 
-            item_display = tag.split("::")[1]
+            item_display = tag.split("::")[-1]
             item_active = "active" if index == 0 else ""
             item_header = "header disabled" if tag.startswith("Header::") else ""
 
