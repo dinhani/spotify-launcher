@@ -206,9 +206,7 @@ Others:
 * Hollywood Burns
 * Madredeus
 
-Header - Rock / Metal:
-
-Rock - All:
+Rock:
 * ANGRA
 * Agent Fresco
 * Ahab
@@ -467,9 +465,7 @@ Rock - Rock:
 * Volbeat
 * Wussy
 
-Header - Folk:
-
-Folk - All:
+Folk:
 * AlicebanD
 * Amanda Palmer
 * American Murder Song
@@ -527,9 +523,7 @@ Folk - Steampunk:
 * The Dresden Dolls
 * Unwoman
 
-Header - Alternative:
-
-Alt - All:
+Alternative:
 * AURORA
 * Agnes Obel
 * Alela Diane

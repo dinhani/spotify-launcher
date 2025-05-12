@@ -4,22 +4,19 @@
 T_ALL = "All"
 T_OTHERS = "Others"
 #
-T_ROCK_SEP = "Header - Rock / Metal"
-T_ROCK_ALL = "Rock - All"
+T_ROCK_ALL = "Rock"
 T_ROCK_FAVORITES = "Rock - Favorites"
 T_ROCK_EXTREME_METAL = "Rock - Extreme Metal"
 T_ROCK_HEAVY_METAL = "Rock - Heavy Metal"
 T_ROCK_FOLK_METAL = "Rock - Folk Metal"
 T_ROCK = "Rock - Rock"
 #
-T_FOLK_SEP = "Header - Folk"
-T_FOLK_ALL = "Folk - All"
+T_FOLK_ALL = "Folk"
 T_FOLK_FAVORITES = "Folk - Favorites"
 T_FOLK = "Folk - Folk"
 T_STEAMPUNK = "Folk - Steampunk"
 #
-T_ALT_SEP = "Header - Alternative"
-T_ALT_ALL = "Alt - All"
+T_ALT_ALL = "Alternative"
 T_ALT_FAVORITES = "Alt - Favorites"
 T_ALT_ATMOSPHERIC = "Alt - Atmospheric"
 T_ALT_ENERGETIC = "Alt - Energetic"
@@ -32,7 +29,7 @@ TAGS_ORDER = [
     T_ALL,
     T_OTHERS,
     #
-    T_ROCK_SEP,
+    # T_ROCK_SEP,
     T_ROCK_ALL,
     T_ROCK_FAVORITES,
     T_ROCK_EXTREME_METAL,
@@ -40,13 +37,11 @@ TAGS_ORDER = [
     T_ROCK_FOLK_METAL,
     T_ROCK,
     #
-    T_FOLK_SEP,
     T_FOLK_ALL,
     T_FOLK_FAVORITES,
     T_FOLK,
     T_STEAMPUNK,
     #
-    T_ALT_SEP,
     T_ALT_ALL,
     T_ALT_FAVORITES,
     T_ALT_ATMOSPHERIC,
