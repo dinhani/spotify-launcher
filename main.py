@@ -206,7 +206,7 @@ with doc:
             # Menu (mobile)
             # ------------------------------------------------------------------
             with div(cls="sixteen wide mobile tablet only   column", style="padding: 0.5rem"):
-                with div(cls="ui fluid styled accordion"):
+                with div(cls="ui fluid styled mobile accordion"):
                     menu_category(desktop=True)
                     menu_sorting(desktop=True)
 
@@ -214,7 +214,7 @@ with doc:
             # Menu (desktop)
             # ------------------------------------------------------------------
             with div(cls="computer only three wide computer   two wide large screen   two wide widescreen   column", style="padding: 0.5rem"):
-                with div(cls="ui fluid styled accordion"):
+                with div(cls="ui fluid styled desktop accordion"):
                     menu_category(desktop=False)
                     menu_sorting(desktop=False)
 
@@ -239,7 +239,8 @@ with doc:
 
     # script
     script("$('.menu .item').tab({history:true, historyType: 'hash'});")
-    script("$('.ui.accordion').accordion({exclusive:false});")
+    script("$('.ui.accordion.desktop').accordion({exclusive:false});")
+    script("$('.ui.accordion.mobile').accordion({exclusive:true});")
 
 # write to file
 logging.info(f"💾 Writing: {OUTPUT_LAUNCHER}")
