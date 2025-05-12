@@ -125,7 +125,7 @@ function sort(button, attribute, order) {
 """
 
 def menu_category(mobile: bool):
-    with menu_wrapper("Category", mobile):
+    with menu_wrapper("Category", "filter", mobile):
         for index, tag in enumerate(TAGS_ORDER):
             artists = artists_by_tag[tag]
             active = "active" if index == 0 else ""
@@ -134,7 +134,7 @@ def menu_category(mobile: bool):
                 span(tag)
 
 def menu_sorting(mobile):
-    with menu_wrapper("Sorting", mobile):
+    with menu_wrapper("Sorting", "sort", mobile):
         div("🎶 Name", cls="ui active item", onClick="sort(this, 'name', 'asc')", style=CSS_STYLE_NOWRAP)
         div("🔥 Popularity", cls="ui item", onClick="sort(this, 'popularity', 'desc')", style=CSS_STYLE_NOWRAP)
         div("👤 Followers", cls="ui item", onClick="sort(this, 'followers', 'desc')", style=CSS_STYLE_NOWRAP)
@@ -142,9 +142,11 @@ def menu_sorting(mobile):
         div("🔔 Last Follow", cls="ui item", onClick="sort(this, 'last-follow', 'asc')", style=CSS_STYLE_NOWRAP)
         div("📅 Last Release", cls="ui item", onClick="sort(this, 'last-release', 'desc')", style=CSS_STYLE_NOWRAP)
 
-def menu_wrapper(label: str, mobile: bool):
+def menu_wrapper(label: str, icon: str, mobile: bool):
     if mobile:
-        with div(label, cls="title", style="font-size: 1.42857143rem;"):
+        with div(cls="title", style="font-size: 1.28571429rem;"):
+            i(cls=icon + " icon")
+            span(label)
             i(cls="right dropdown icon")
         with div(cls="content", style="padding-bottom: 0.5rem;"):
             return div(cls="ui fluid vertical secondary menu")
@@ -234,7 +236,7 @@ with doc:
             # Scroll to top
             # ------------------------------------------------------------------
             with div(cls="sixteen wide column mobile tablet only"):
-                div("⬆️ Back to top", cls="ui fluid huge button", onClick="window.scrollTo({top:0})")
+                div("⬆️ Back to top", cls="ui fluid big button", onClick="window.scrollTo({top:0})")
 
 
     # script

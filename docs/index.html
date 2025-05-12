@@ -53,7 +53,9 @@ function sort(button, attribute, order) {
     <div class="ui padded grid">
       <div class="sixteen wide mobile tablet only   column" style="padding: 0.5rem">
         <div class="ui fluid styled accordion">
-          <div class="title" style="font-size: 1.42857143rem;">Category<i class="right dropdown icon"></i></div>
+          <div class="title" style="font-size: 1.28571429rem;"><i class="filter icon"></i>
+            <span>Category</span><i class="right dropdown icon"></i>
+          </div>
           <div class="content" style="padding-bottom: 0.5rem;">
             <div class="ui fluid vertical secondary menu">
               <div class="active item" data-tab="tab-all">
@@ -98,7 +100,9 @@ function sort(button, attribute, order) {
               </div>
             </div>
           </div>
-          <div class="title" style="font-size: 1.42857143rem;">Sorting<i class="right dropdown icon"></i></div>
+          <div class="title" style="font-size: 1.28571429rem;"><i class="sort icon"></i>
+            <span>Sorting</span><i class="right dropdown icon"></i>
+          </div>
           <div class="content" style="padding-bottom: 0.5rem;">
             <div class="ui fluid vertical secondary menu">
               <div class="ui active item" onClick="sort(this, 'name', 'asc')" style="white-space: nowrap;">🎶 Name</div>
@@ -6541,7 +6545,7 @@ function sort(button, attribute, order) {
         </div>
       </div>
       <div class="sixteen wide column mobile tablet only">
-        <div class="ui fluid huge button" onClick="window.scrollTo({top:0})">⬆️ Back to top</div>
+        <div class="ui fluid big button" onClick="window.scrollTo({top:0})">⬆️ Back to top</div>
       </div>
     </div>
   </body>
