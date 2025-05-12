@@ -127,17 +127,18 @@ function sort(button, attribute, order) {
 }
 """
 
-def menu_category(desktop: bool):
-    with menu_wrapper(desktop, "Category"):
+def menu_category(mobile: bool):
+    with menu_wrapper(mobile, "Category"):
         for index, tag in enumerate(TAGS_ORDER):
             artists = artists_by_tag[tag]
             active = "active" if index == 0 else ""
             with div(cls=f"{active} link item", data_tab=tab_id(tag)):
-                span(f"{len(artists)}", cls="ui tiny label")
+                label_size = "" if mobile else "tiny"
+                span(f"{len(artists)}", cls="ui {label_size} label")
                 span(tag)
 
-def menu_sorting(desktop):
-    with menu_wrapper(desktop, "Sorting"):
+def menu_sorting(mobile):
+    with menu_wrapper(mobile, "Sorting"):
         div("🎶 Name", cls="ui active link item", onClick="sort(this, 'name', 'asc')", style=CSS_STYLE_NOWRAP)
         div("🔥 Popularity", cls="ui link item", onClick="sort(this, 'popularity', 'desc')", style=CSS_STYLE_NOWRAP)
         div("👤 Followers", cls="ui link item", onClick="sort(this, 'followers', 'desc')", style=CSS_STYLE_NOWRAP)
@@ -214,16 +215,16 @@ with doc:
             # ------------------------------------------------------------------
             with div(cls="sixteen wide mobile tablet only   column", style="padding: 0.5rem"):
                 with div(cls="ui fluid styled mobile accordion"):
-                    menu_category(desktop=True)
-                    menu_sorting(desktop=True)
+                    menu_category(mobile=True)
+                    menu_sorting(mobile=True)
 
             # ------------------------------------------------------------------
             # Menu (desktop)
             # ------------------------------------------------------------------
             with div(cls="computer only three wide computer   two wide large screen   two wide widescreen   column", style="padding: 0.5rem"):
                 with div(cls="ui fluid styled desktop accordion"):
-                    menu_category(desktop=False)
-                    menu_sorting(desktop=False)
+                    menu_category(mobile=False)
+                    menu_sorting(mobile=False)
 
             # ------------------------------------------------------------------
             # Content
