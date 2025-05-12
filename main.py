@@ -196,7 +196,7 @@ def menu_wrapper(mobile: bool, label: str, id: str):
     kind = "mobile" if mobile else "desktop"
     font_size = "1.71428571rem" if mobile else "1.28571429rem"
 
-    with div(cls=f"{active} title", style=f"font-size: {font_size};"):
+    with div(cls=f"{active} title", style=f"font-size: {font_size}; padding-left: 0.75rem; padding-right: 0.75rem;"):
             span(label, id=f"{kind}-menu-header-{id}")
             i(cls="right dropdown icon")
 
