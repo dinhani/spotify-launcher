@@ -1,6 +1,6 @@
 id	name	genres	popularity	followers.total	image	album_count	last_release	top_song	top_song_popularity	last_follow
 7IAXZaLTb6nkJr8RmVPn5y	ANGRA	power metal|melodic metal|symphonic metal|progressive metal|speed metal|metal|heavy metal	54	487403	https://i.scdn.co/image/ab6761610000517466ed9eef4c4f85369167a555	16	2024-10-11	Carry On	55	154
-1WgXqy2Dd70QQOU7Ay074N	AURORA	norwegian pop|art pop	77	4404502	https://i.scdn.co/image/ab67616100005174eefc6f13cec94fe613a6c1c8	7	2025-05-02	Into the Unknown	76	158
+1WgXqy2Dd70QQOU7Ay074N	AURORA	norwegian pop|art pop	77	4404502	https://i.scdn.co/image/ab67616100005174eefc6f13cec94fe613a6c1c8	7	2025-05-02	Runaway	75	158
 11bnNpakfiBkP6MqpyrRjD	Agent Fresco	progressive metal|progressive rock|djent	30	40327	https://i.scdn.co/image/ab67616100005174f0a9ba21bfc2663f5bdbaa93	2	2015-08-07	Dark Water	38	25
 1rKrEdI6GKirxWHxIUPYms	Agnes Obel	chamber pop	60	906453	https://i.scdn.co/image/ab67616100005174312fa20da6b19e20d9b07974	7	2024-01-05	Familiar	64	192
 2N8XkSGgBeH1VrFHxbarbz	Ahab	doom metal|sludge metal|drone	26	46406	https://i.scdn.co/image/ab67616100005174d703832bf1b415d25dd665a5	6	2023-01-13	Old Thunder	31	48
@@ -26,7 +26,7 @@ id	name	genres	popularity	followers.total	image	album_count	last_release	top_son
 2RSApl0SXcVT8Yiy4UaPSt	Ayreon	progressive metal|progressive rock|symphonic metal|power metal|symphonic rock	45	166755	https://i.scdn.co/image/ab676161000051745ea5bd8eda16661ab36bb166	15	2024-05-17	Comatose	38	172
 5r5Va4lVQ1zjEfbJSrmCsS	BROODS		53	488435	https://i.scdn.co/image/ab67616100005174f528c4566d4237721063f237	4	2022-02-18	Bridges	49	126
 5tFRohaO5yEsuJxmMnlCO9	Barns Courtney	gothic country	64	585063	https://i.scdn.co/image/ab676161000051744bbc056671282e390b4c6b46	3	2024-07-19	Glitter & Gold	72	147
-0nJaMZM8paoA5HEUTUXPqi	Bear's Den	folk pop|indie folk	58	329829	https://i.scdn.co/image/ab676161000051749b3993b7de9e5e75e78cddc0	6	2022-07-22	Above the Clouds of Pompeii	61	163
+0nJaMZM8paoA5HEUTUXPqi	Bear's Den	folk pop|indie folk	58	329829	https://i.scdn.co/image/ab676161000051749b3993b7de9e5e75e78cddc0	6	2022-07-22	Sophie	53	163
 6qqNVTkY8uBg9cP3Jd7DAH	Billie Eilish		95	111594128	https://i.scdn.co/image/ab676161000051744a21b4760d2ecb7b0dcdc8da	3	2024-05-17	BIRDS OF A FEATHER	100	94
 02YLJJnWC7YQVixkjEBRn7	Billie Marten		58	338394	https://i.scdn.co/image/ab67616100005174bbe4050d8b1d6ede32ef2b4f	4	2023-04-07	Feeling	64	157
 2WX2uTcsvV5OnS0inACecP	Birdy		71	3753433	https://i.scdn.co/image/ab67616100005174778483686ae247c1906f02fb	7	2023-08-22	Skinny Love	74	162
@@ -37,7 +37,7 @@ id	name	genres	popularity	followers.total	image	album_count	last_release	top_son
 75za1DDTZxAuofPA5k2Vqh	Braia	folk metal|celtic	6	2293	https://i.scdn.co/image/ab676161000051744404ed1038dc9875946bfa75	3	2021-05-07	Tempos Idos	5	135
 1VV61UepOgsPiOjljK6mBY	Brujeria	grindcore|death metal|metal|groove metal	41	171397	https://i.scdn.co/image/ab67616100005174e2188c4aeafce8fec837b5c4	5	2023-09-15	Don Quijote Marihuana	43	20
 4s2RfNqVSy0S6oD9RkUJv4	Burning Peacocks	french indie pop|french pop	24	12802	https://i.scdn.co/image/ab6761610000517464bbb2243aed05023f68cb63	1	2016-10-28	Tears of Lava	36	168
-3CjlHNtplJyTf9npxaPl5w	CHVRCHES	synthpop	64	1411729	https://i.scdn.co/image/ab6761610000517415e5ae2c6a8cdf07ed0253ae	8	2025-04-11	Here With Me	76	36
+3CjlHNtplJyTf9npxaPl5w	CHVRCHES	synthpop	64	1411729	https://i.scdn.co/image/ab6761610000517415e5ae2c6a8cdf07ed0253ae	8	2025-04-11	The Mother We Share	59	36
 0TNyEQ0n7diilLgG1ozfrB	Camp Claude	french indie pop	40	52514	https://i.scdn.co/image/ab6761610000517453569a1e2161e7f1844fff52	3	2023-04-14	Old Downtown	52	37
 5wc0IxnlWp9pqSduPbyvZh	Caprice	neoclassical|neofolk|medieval|celtic|darkwave	29	8621	https://i.scdn.co/image/ab67616d00001e02db761341fff3fd32886dfc85	12	2024-12-13	Faeries Stole Bridget	23	23
 5lhaM01nwvsMZpmPY2HVER	Carcass	death metal|grindcore|melodic death metal|metal	50	440847	https://i.scdn.co/image/ab67616100005174f8ec9d92b03893c45fe4e1db	14	2021-09-17	Black Star	50	79
@@ -65,12 +65,12 @@ id	name	genres	popularity	followers.total	image	album_count	last_release	top_son
 4j0K5gPOQZYpiaz3vc9dzx	Eliza Rickman	dark cabaret|baroque pop	29	15666	https://i.scdn.co/image/ab67616100005174a920ac1c8edf62bf5df3be41	2	2015-10-20	Pretty Little Head	40	106
 5X0N2k3qMnI8kSrGJT3kfT	Eluveitie	folk metal|symphonic metal|melodic death metal|pirate metal|medieval metal|melodic metal|power metal|celtic|metal|celtic rock|medieval|folk	59	602319	https://i.scdn.co/image/ab67616100005174e8581fc1b573119b7eb0b69b	12	2025-04-25	The Call of the Mountains	60	42
 1AH3dkZgX0ffLTjajoALpm	Eterna	christian rock|power metal|melodic metal	7	9492	https://i.scdn.co/image/ab67616d00001e0255efc9bca451651ecb180b9d	1	1970-01-01	Epiphany	11	125
-3FIsBWNLmqLvTQnhJLAWUJ	Ex:Re	art pop	39	92482	https://i.scdn.co/image/ab67616100005174ff6ac0028956852c37bfc38e	2	2021-02-19	Shadows	44	129
+3FIsBWNLmqLvTQnhJLAWUJ	Ex:Re	art pop	39	92482	https://i.scdn.co/image/ab67616100005174ff6ac0028956852c37bfc38e	2	2021-02-19	Misery Is a Butterfly	35	129
 5RAi7QWsIaVSDEEcEphCGC	Fafnir	melodic death metal	0	147	https://i.scdn.co/image/ab67616d00001e02ece90bb09ec26c3f700d29af	1	2015-03-29	Protect our Land	0	101
-2wPOgnQ6eW3X73uIJZ4YFE	Faun	medieval|medieval metal|celtic|folk metal|neofolk|folk	53	403608	https://i.scdn.co/image/ab6761610000517411ca0c0a8c59dffb940bb762	11	2022-04-22	Tanz mit mir	59	170
+2wPOgnQ6eW3X73uIJZ4YFE	Faun	medieval|medieval metal|celtic|folk metal|neofolk|folk	53	403608	https://i.scdn.co/image/ab6761610000517411ca0c0a8c59dffb940bb762	11	2022-04-22	Federkleid	53	170
 21egYD1eInY6bGFcniCRT1	First Aid Kit	indie folk|folk	63	1249162	https://i.scdn.co/image/ab676161000051740ea606b49bea278def7337e3	7	2023-07-07	My Silver Lining	68	43
-1moxjboGR7GNWYIMWsRjgG	Florence + The Machine	baroque pop	80	7103488	https://i.scdn.co/image/ab67616100005174e3c37f869b830d1cf1ec829a	11	2024-10-25	Say My Name - Remix	84	7
-7uTDwdxKfkZtEfjpofiYwr	Frøkedal	norwegian pop	22	6020	https://i.scdn.co/image/ab676161000051745332edf0f4c97533c466e21d	4	2024-06-14	Indie	36	98
+1moxjboGR7GNWYIMWsRjgG	Florence + The Machine	baroque pop	80	7103488	https://i.scdn.co/image/ab67616100005174e3c37f869b830d1cf1ec829a	11	2024-10-25	Dog Days Are Over	78	7
+7uTDwdxKfkZtEfjpofiYwr	Frøkedal	norwegian pop	22	6020	https://i.scdn.co/image/ab676161000051745332edf0f4c97533c466e21d	4	2024-06-14	The Man Who Isn't Here	25	98
 5Vj7LABYdzz3ZBt1EhDIoQ	Gabrielle Shonk		23	12221	https://i.scdn.co/image/ab67616100005174903bcd211fdd8009f8aa81aa	2	2023-02-24	Habit	35	156
 6LZE884lDIsCSLHuTplfGp	Gamma Ray	power metal|speed metal|melodic metal|metal|heavy metal|symphonic metal	44	300602	https://i.scdn.co/image/ab6772690000dd221110b1a024312710e7c796c4	19	2023-04-21	Valley of the Kings	42	141
 1blgL26JbtaUUKUEMR6Hs2	Gemma Hayes		41	28011	https://i.scdn.co/image/ab676161000051748b8379950d3d09c5caa2b4fa	6	2024-09-27	Wicked Game	50	49
@@ -90,35 +90,35 @@ id	name	genres	popularity	followers.total	image	album_count	last_release	top_son
 0gsIXiV7rw5I9wJaxgoOdB	In Mourning	melodic death metal|progressive metal|melodic metal|death metal|doom metal	32	58886	https://i.scdn.co/image/ab67616100005174c4938adff9a4cd8a65626c1d	8	2022-04-01	Colossus	36	75
 6mdiAmATAx73kdxrNrnlao	Iron Maiden	heavy metal|metal|hard rock|rock	74	9968525	https://i.scdn.co/image/ab67616100005174f9978ad4808f6f2723124d19	29	2021-09-03	The Trooper (2015 Remaster)	64	179
 5TEGxYftTkeKmLXkZjHNUE	Jeanne Added	french indie pop	39	73596	https://i.scdn.co/image/ab6761610000517432796fde17e62b8b605f4767	3	2022-09-30	Mutate	41	77
-5Mq7iqCWBzofK39FBqblNc	Jessie Ware		59	783280	https://i.scdn.co/image/ab67616100005174dcbf8b16eaea624592b29a35	6	2023-04-28	Heaven In Your Arms	57	118
-5SaDyTQkjAAdrsmhPzrmw2	Jorn	power metal|hard rock|melodic metal|heavy metal|metal	50	94262	https://i.scdn.co/image/ab67616100005174f1310d077ecfed399b5c7ca9	13	2022-06-17	Lightbringer	56	56
-25eQCECJH4VTpBYV9jhpyE	Joyce Jonathan	french pop|variété française|chanson	51	325522	https://i.scdn.co/image/ab67616100005174edffd0846f25c8c889ec011c	5	2022-03-11	Les filles d'aujourd'hui	59	72
+5Mq7iqCWBzofK39FBqblNc	Jessie Ware		59	783280	https://i.scdn.co/image/ab67616100005174dcbf8b16eaea624592b29a35	6	2023-04-28	Free Yourself	56	118
+5SaDyTQkjAAdrsmhPzrmw2	Jorn	power metal|hard rock|melodic metal|heavy metal|metal	50	94262	https://i.scdn.co/image/ab67616100005174f1310d077ecfed399b5c7ca9	13	2022-06-17	I Walk Alone	43	56
+25eQCECJH4VTpBYV9jhpyE	Joyce Jonathan	french pop|variété française|chanson	51	325522	https://i.scdn.co/image/ab67616100005174edffd0846f25c8c889ec011c	5	2022-03-11	Je ne sais pas	56	72
 2tRsMl4eGxwoNabM08Dm4I	Judas Priest	heavy metal|metal|hard rock|glam metal|speed metal	68	4367938	https://i.scdn.co/image/ab676161000051744b3cfc24737acb15e73e8bd6	26	2024-09-13	Breaking the Law	73	174
-5ektKXWvSR9FjUExrpg1xK	Juniper Vale		45	84899	https://i.scdn.co/image/ab676161000051744fe3ea8bce13c5547f15fad8	4	2025-03-07	Call the Nightingale	48	39
+5ektKXWvSR9FjUExrpg1xK	Juniper Vale		45	84899	https://i.scdn.co/image/ab676161000051744fe3ea8bce13c5547f15fad8	4	2025-03-07	Bird Song	45	39
 6zyPKJ4ePhYLsBEy4A6BVX	Kaleida		50	97916	https://i.scdn.co/image/ab67616100005174afbf0047d86bc92316322de6	4	2025-01-24	Think	61	6
 7gTbq5nTZGQIUgjEGXQpOS	Kamelot	power metal|symphonic metal|melodic metal|gothic metal|progressive metal|symphonic rock|metal|speed metal|folk metal	51	403439	https://i.scdn.co/image/ab676161000051742436e28f65483f0af02ba27d	17	2023-03-17	When the Lights Are Down	52	95
-2jan3WAlx8QSZ2C7fCVX69	Kim Tillman	dark cabaret	19	1457	https://i.scdn.co/image/ab676161000051748e2088e361ea9563c9eab6ee	2	2021-11-11	Evelyn	37	57
+2jan3WAlx8QSZ2C7fCVX69	Kim Tillman	dark cabaret	19	1457	https://i.scdn.co/image/ab676161000051748e2088e361ea9563c9eab6ee	2	2021-11-11	Russian Roulette	7	57
 0J2gE1fVwnMhsh0OxUpUPT	Klone	progressive metal|progressive rock|groove metal|djent	36	38547	https://i.scdn.co/image/ab67616100005174ced2e88aa31aa30faa6727f6	12	2024-11-08	Breach	40	14
 521Yl3LUvD7G9dMRO4fpCy	Korpiklaani	folk metal|pirate metal|power metal|metal|folk|medieval metal|melodic metal	52	434722	https://i.scdn.co/image/ab67616100005174da501752b6e2f5c6ed2e98eb	13	2024-04-05	Vodka	57	83
 3IPsbVbc2hVQMU50DZu9gD	Korzus	thrash metal|groove metal|speed metal	25	33215	https://i.scdn.co/image/ab67616d00001e02fc92f3ac28a54b02b1ea2799	8	2014-01-01	Truth	29	65
 6y6iXD929Jqq0xc6lgwhl1	LAUREL		55	117646	https://i.scdn.co/image/ab676161000051744a0dd31073713471189c6c61	2	2024-10-18	Life Worth Living	62	50
 57ekbx9PSS4ORs5wTZMSYp	Lacrimosa	gothic metal|symphonic metal|darkwave|symphonic rock	49	274516	https://i.scdn.co/image/ab676161000051748bcc7c755fe5f1e3c97b641b	23	2025-03-07	Lichtgestalt	47	24
-1HY2Jd0NmPuamShAr6KMms	Lady Gaga	art pop|pop	94	37780887	https://i.scdn.co/image/ab67616100005174aadc18cac8d48124357c38e6	16	2025-03-07	Die With A Smile	91	96
+1HY2Jd0NmPuamShAr6KMms	Lady Gaga	art pop|pop	94	37780887	https://i.scdn.co/image/ab67616100005174aadc18cac8d48124357c38e6	16	2025-03-07	Abracadabra	89	96
 00FQb4jTyendYWaN8pK0wa	Lana Del Rey		92	47364343	https://i.scdn.co/image/ab67616100005174b99cacf8acd5378206767261	11	2023-03-24	Young And Beautiful	89	44
 0bbL6moYLUu792U2ZdWgXU	Las Aves	french indie pop	38	21142	https://i.scdn.co/image/ab67616100005174d02eebb0f62a5d75772187e3	2	2019-08-30	N.E.M.	51	153
 0k1pcFhNBUhc3L7cFfUMYP	Leandra	dark cabaret|darkwave|ebm	11	2179	https://i.scdn.co/image/ab67616d00001e02cb636743335635ce85621d8e	2	2013-01-01	The Art of Dreaming	6	70
 63qODcvBCdG2kTguOJkEqJ	Leaves' Eyes	symphonic metal|gothic metal|melodic metal|symphonic rock|folk metal|power metal|metal	38	186794	https://i.scdn.co/image/ab67616100005174a9b8dde1174266891f5e0117	13	2025-03-07	Chain of the Golden Horn	38	100
 4lgrzShsg2FLA89UM2fdO5	Leprous	progressive metal|progressive rock|djent	50	277330	https://i.scdn.co/image/ab676161000051741b4f5be8bb7577040d9f4f93	10	2024-08-30	From the Flame	49	21
-67FB4n52MgexGQIG8s0yUH	Lola Young		82	1058681	https://i.scdn.co/image/ab6761610000517435d858c545fe337d3a152d65	3	2024-06-21	Like Him (feat. Lola Young)	91	17
+67FB4n52MgexGQIG8s0yUH	Lola Young		82	1058681	https://i.scdn.co/image/ab6761610000517435d858c545fe337d3a152d65	3	2024-06-21	Messy	90	17
 3Bd1cgCjtCI32PYvDC3ynO	London Grammar		66	1617702	https://i.scdn.co/image/ab6761610000517403fca863ba2e1e379ad19998	5	2024-09-27	Californian Soil	51	198
-0TwM0vzeyhAMTegVdIq8rx	Lor		45	41732	https://i.scdn.co/image/ab6761610000517444082ff996851c566f1f7432	4	2024-10-11	Rosa	49	73
+0TwM0vzeyhAMTegVdIq8rx	Lor		45	41732	https://i.scdn.co/image/ab6761610000517444082ff996851c566f1f7432	4	2024-10-11	Aquarius	44	73
 163tK9Wjr9P9DmM0AVK7lm	Lorde		83	10323286	https://i.scdn.co/image/ab67616100005174aa69380a8d5203257611662d	3	2021-11-05	What Was That	90	45
 14SgKNlOCKAI0PfRD1HnWh	Lordi	metal	51	276761	https://i.scdn.co/image/ab67616100005174ccf15374ddb07f19a38ef26f	20	2025-03-21	Fangoria	38	121
 4MVyzYMgTwdP7Z49wAZHx0	Lynyrd Skynyrd	southern rock|classic rock|rock	76	5631260	https://i.scdn.co/image/ab67616100005174451eb07ddc6e68d3e474c2bf	36	2024-10-04	Sweet Home Alabama	84	105
 4SqTiwOEdYrNayaGMkc7ia	LÉON		58	384460	https://i.scdn.co/image/ab67616100005174cc0a763cee1bb7e3d38dd230	3	2022-03-04	You and I	61	109
 6CwfuxIqcltXDGjfZsMd9A	MARINA		76	5998970	https://i.scdn.co/image/ab676161000051744b482c79edd367dea0258224	6	2022-04-29	Bubblegum Bitch	79	22
 3mlxV3eHtMwvoOSLzR6CFj	Madredeus	fado	42	121948	https://i.scdn.co/image/ec67d1712d80983ba2d36a14c74f1f0f3513a41a	15	2015-12-18	O Pastor	46	124
-5baLALm4KxY0I4z4OjumiZ	Major Parkinson	dark cabaret|progressive rock|norwegian pop|avant-garde	28	16783	https://i.scdn.co/image/ab676161000051743a136a9528a3d46e81d257f4	7	2022-10-07	Heart of Hickory	31	13
+5baLALm4KxY0I4z4OjumiZ	Major Parkinson	dark cabaret|progressive rock|norwegian pop|avant-garde	28	16783	https://i.scdn.co/image/ab676161000051743a136a9528a3d46e81d257f4	7	2022-10-07	Algorithm Is a Dancer	26	13
 6jpJdxnuPB2E6PfGuj2ihI	Malefactor	melodic death metal|death metal	14	3541	https://i.scdn.co/image/ab67616d00001e02bc1647ee96635958fa464a42	7	2017-09-23	The Sentinels	16	74
 5DGJC3n9DS0Y9eY5ul9y0O	Marika Hackman		46	145270	https://i.scdn.co/image/ab6761610000517425e0d38b941335ddcf8724e0	7	2024-01-12	I Follow Rivers	53	187
 7GhebLBMgszGbtbmjq4HHB	Massacration	brazilian rock	39	134541	https://i.scdn.co/image/ab67616100005174b91d2194b5672661ee7536f4	5	2024-07-12	Metal Is The Law	43	46
@@ -134,7 +134,7 @@ id	name	genres	popularity	followers.total	image	album_count	last_release	top_son
 4dwdTW1Lfiq0cM8nBAqIIz	Of Monsters and Men	folk pop|indie folk	70	3592778	https://i.scdn.co/image/ab67616100005174ce5451b5cc60faf1992e969a	6	2022-12-09	Little Talks	83	199
 0gO5Vbklho8yrBrUdHhuLH	Oficina G3	christian rock|gospel|brazilian gospel	55	827449	https://i.scdn.co/image/ab6761610000517484b8e23eed0e28d067a7a653	17	2024-05-07	Aos Pés da Cruz	53	110
 46CuxapoPjUfIOiXdNq7qM	Oh Land		39	155380	https://i.scdn.co/image/ab67616100005174faa1f165e28ebe15028cfdeb	8	2023-09-29	Speak out Now	36	102
-5cIc3SBFuBLVxJz58W2tU9	Oh Wonder		67	1089559	https://i.scdn.co/image/ab67616100005174a1bbe478917fbc2c2e48c7c9	5	2022-10-07	The Way Life Goes (feat. Oh Wonder)	80	111
+5cIc3SBFuBLVxJz58W2tU9	Oh Wonder		67	1089559	https://i.scdn.co/image/ab67616100005174a1bbe478917fbc2c2e48c7c9	5	2022-10-07	Landslide	64	111
 0ybFZ2Ab08V8hueghSXm6E	Opeth	progressive metal|progressive rock|metal|death metal|melodic death metal	60	1065854	https://i.scdn.co/image/ab6761610000517445e1bb6e5285297f9e55e550	24	2024-11-22	Windowpane	57	143
 7xTMxqAmbtE0Nce5lz7t0h	Orphaned Land	folk metal|progressive metal|symphonic metal	33	85544	https://i.scdn.co/image/ab6761610000517457fa807b972641f73df43af7	12	2023-12-01	Like Orpheus	31	181
 4hD4mPSJhofWU9bSqChPJF	Otyg	folk metal|pirate metal|folk	15	14130	https://i.scdn.co/image/ab67616d00001e02461f7ae9613484b950f309a0	1	2008-01-01	Trollslottet	22	175
@@ -144,7 +144,7 @@ id	name	genres	popularity	followers.total	image	album_count	last_release	top_son
 2EXpthNgSeTDeX8nGwxppp	Paris Paloma		71	674378	https://i.scdn.co/image/ab67616100005174e3405040145b2ab1d8e25651	1	2024-08-30	LABOUR - the cacophony	81	1
 1w5Kfo2jwwIPruYS2UWh56	Pearl Jam	grunge|rock|post-grunge	77	9578087	https://i.scdn.co/image/ab67616100005174e431fb8ba17cdee73e4ce08a	20	2024-10-07	Even Flow	82	4
 1r1uxoy19fzMxunt3ONAkG	Phoebe Bridgers		79	2829982	https://i.scdn.co/image/ab67616100005174626686e362d30246e816cc5b	2	2020-06-18	Scott Street	79	131
-6G7P1WNRTlg3FxiYaW0hYh	Prudence	synthwave	38	10442	https://i.scdn.co/image/ab6761610000517460838c1cb9dbfbe653498851	1	2021-05-28	Zenith	54	99
+6G7P1WNRTlg3FxiYaW0hYh	Prudence	synthwave	38	10442	https://i.scdn.co/image/ab6761610000517460838c1cb9dbfbe653498851	1	2021-05-28	Offenses	18	99
 0zQfrabOFYf36Ikb6PXcCY	Rhapsody	power metal|symphonic metal|melodic metal|speed metal|metal|folk metal	51	510913	https://i.scdn.co/image/ab67616100005174902fae03243cae6e08caf99a	8	2006-01-23	Emerald Sword	56	86
 7MZvYitgCWAOaKjxdm2S17	Rosemary & Garlic		38	36419	https://i.scdn.co/image/ab67616100005174740a1b076762016571652324	2	2023-03-17	Old Now	45	136
 5tIkXJTex4JY7cv9mmgAZx	Ruelle		64	631064	https://i.scdn.co/image/ab67616100005174be619ddc3152f4474f51d623	3	2024-11-22	War Of Hearts	74	152
@@ -164,7 +164,7 @@ id	name	genres	popularity	followers.total	image	album_count	last_release	top_son
 73p7913nnreqv6jbWpeNb1	Storm Corrosion	progressive rock|progressive metal	22	49130	https://i.scdn.co/image/539cd7acf4c7845392ddad7fac53a1cc191f748f	1	2012-07-05	Storm Corrosion	31	41
 1O8CSXsPwEqxcoBE360PPO	Stratovarius	power metal|melodic metal|symphonic metal|speed metal|metal|progressive metal|heavy metal	56	714579	https://i.scdn.co/image/ab676161000051744733f393ad04f47b31edaadb	19	2022-09-23	Black Diamond	59	78
 7CBWyowmR42IU3HTrUVbfB	Stress		0	57	https://i.scdn.co/image/ab67616d00001e0285409ce30871556383e12059	1	2018-06-08	Sodoma e Gomorra	0	116
-5j4HeCoUlzhfWtjAfM1acR	Stromae	french pop	77	3755948	https://i.scdn.co/image/ab67616100005174cc129f1c9b5047760d66aae2	3	2022-07-27	Ma Meilleure Ennemie (from the series Arcane League of Legends)	82	108
+5j4HeCoUlzhfWtjAfM1acR	Stromae	french pop	77	3755948	https://i.scdn.co/image/ab67616100005174cc129f1c9b5047760d66aae2	3	2022-07-27	Alors on danse - Radio Edit	81	108
 27bhelNsrdlX5Y5H7yigfg	Suldusk	neofolk|black metal	25	14372	https://i.scdn.co/image/ab676161000051743b6aab0fe6e17eca8d08648f	2	2024-03-01	The Elm	36	53
 0Wkm45quqfx3NepJpXDvwE	Superorganism	art pop	48	251680	https://i.scdn.co/image/ab67616100005174129b75867f33503e8719e089	5	2023-07-28	Something For Your M.I.N.D.	60	97
 54KCNI7URCrG6yjQK3Ukow	Susanne Sundfør	norwegian pop|art pop	55	246861	https://i.scdn.co/image/ab67616100005174f0557a17909c68a926d21186	10	2023-04-28	Fade Away	54	159
