@@ -1,35 +1,55 @@
-import logging
-
 # ------------------------------------------------------------------------------
 # Tags: display names
 # ------------------------------------------------------------------------------
-T_ALT_ATMOSPHERIC = "Atmospheric"
-T_ALT_ENERGITIC = "Energetic"
-T_ALT_VOICE_GUITAR = "Vox/Guitar"
-T_FOLK = "Folk"
-T_INDIE = "Indie"
-T_METAL_EXTREME = "Extreme Metal"
-T_METAL_ALL = "Metal (All)"
-T_METAL_TRADITIONAL = "Traditional Metal"
-T_OTHERS = "Others"
-T_ROCK = "Rock"
-T_STEAMPUNK = "Steampunk"
-T_ALL = "All"
+T_ALL = "All::All"
+T_OTHERS = "Others::Others"
+#
+T_ROCK_SEP = "Header::Rock / Metal"
+T_ROCK_ALL = "Rock::All"
+T_ROCK_FAVORITES = "Rock::Favorites"
+T_ROCK_EXTREME = "Rock::Extreme"
+T_ROCK_TRADITIONAL = "Rock::Traditional"
+T_ROCK = "Rock::Rock"
+#
+T_FOLK_SEP = "Header::Folk"
+T_FOLK_ALL = "Folk::All"
+T_FOLK_FAVORITES = "Folk::Favorites"
+T_FOLK = "Folk::Folk"
+T_STEAMPUNK = "Folk::Steampunk"
+#
+T_ALT_SEP = "Header::Alternative"
+T_ALT_ALL = "Alt::All"
+T_ALT_FAVORITES = "Alt::Favorites"
+T_ALT_ATMOSPHERIC = "Alt::Atmospheric"
+T_ALT_ENERGETIC = "Alt::Energetic"
+T_ALT_VOICE_GUITAR = "Alt::Vox/Guitar"
 
 # ------------------------------------------------------------------------------
 # Tag Order: used in the menu
 # ------------------------------------------------------------------------------
 TAGS_ORDER = [
     T_ALL,
-    T_METAL_TRADITIONAL,
-    T_METAL_EXTREME,
+    T_OTHERS,
+    #
+    T_ROCK_SEP,
+    T_ROCK_ALL,
+    T_ROCK_FAVORITES,
+    T_ROCK_EXTREME,
+    T_ROCK_TRADITIONAL,
     T_ROCK,
+    #
+    T_FOLK_SEP,
+    T_FOLK_ALL,
+    T_FOLK_FAVORITES,
     T_FOLK,
     T_STEAMPUNK,
+    #
+    T_ALT_SEP,
+    T_ALT_ALL,
+    T_ALT_FAVORITES,
     T_ALT_ATMOSPHERIC,
+    T_ALT_ENERGETIC,
     T_ALT_VOICE_GUITAR,
-    T_ALT_ENERGITIC,
-    T_OTHERS
 ]
 
 # ------------------------------------------------------------------------------
@@ -37,9 +57,17 @@ TAGS_ORDER = [
 # ------------------------------------------------------------------------------
 TAGS_INVERTED = {
     # --------------------------------------------------------------------------
-    # Metal
+    # Rock
     # --------------------------------------------------------------------------
-    T_METAL_TRADITIONAL: [
+    T_ROCK_ALL: [
+        T_ROCK,
+        T_ROCK_EXTREME,
+        T_ROCK_TRADITIONAL
+    ],
+    T_ROCK_FAVORITES: [
+        "+Iced Earth",
+    ],
+    T_ROCK_TRADITIONAL: [
         "-Gotthard",
         "+Massacration",
         "+Stress",
@@ -54,7 +82,7 @@ TAGS_INVERTED = {
         "thrash metal",
         "doom metal"
     ],
-    T_METAL_EXTREME: [
+    T_ROCK_EXTREME: [
         "-Therion",
         "black metal",
         "death metal",
@@ -80,6 +108,10 @@ TAGS_INVERTED = {
     # --------------------------------------------------------------------------
     # Folk / Steampunk
     # --------------------------------------------------------------------------
+    T_FOLK_ALL: [
+        T_FOLK,
+        T_STEAMPUNK
+    ],
     T_FOLK: [
         "-Leaves' Eyes",
         "-Nightwish",
@@ -98,6 +130,14 @@ TAGS_INVERTED = {
     # --------------------------------------------------------------------------
     # Alternativo
     # --------------------------------------------------------------------------
+    T_ALT_ALL: [
+        T_ALT_ATMOSPHERIC,
+        T_ALT_ENERGETIC,
+        T_ALT_VOICE_GUITAR
+    ],
+    T_ALT_FAVORITES: [
+        "London Grammar"
+    ],
     T_ALT_ATMOSPHERIC: [
         "+aeseaes",
         "+AURORA",
@@ -130,7 +170,7 @@ TAGS_INVERTED = {
         "+Vaults",
         "chamber pop"
     ],
-    T_ALT_ENERGITIC: [
+    T_ALT_ENERGETIC: [
         "+BROODS",
         "+Claire Rosinkranz",
         "+Jessie Ware",

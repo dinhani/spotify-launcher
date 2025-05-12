@@ -1,5 +1,5 @@
 
-All:
+All::All:
 * ANGRA
 * AURORA
 * Agent Fresco
@@ -200,7 +200,151 @@ All:
 * Zonata
 * aeseaes
 
-Traditional Metal:
+Others::Others:
+* Cesária Evora
+* Deolinda
+* Hollywood Burns
+* Madredeus
+
+Header::Rock / Metal:
+
+Rock::All:
+* ANGRA
+* Agent Fresco
+* Ahab
+* Alestorm
+* Altaria
+* Alvvays
+* Amorphis
+* Annihilator
+* Aquaria
+* Arch Enemy
+* Arcturus
+* Audioslave
+* Avantasia
+* Ayreon
+* Barns Courtney
+* Blind Guardian
+* Borknagar
+* Boz Scaggs
+* Brujeria
+* Camp Claude
+* Carcass
+* Circle II Circle
+* Creed
+* Crypta
+* Death
+* Deathstars
+* Demons & Wizards
+* Diablo Swing Orchestra
+* Dio
+* Doomsword
+* Dream Theater
+* Edguy
+* Eluveitie
+* Eterna
+* Fafnir
+* Gamma Ray
+* Gojira
+* Gotthard
+* Haggard
+* Haken
+* Heidevolk
+* Hellish War
+* Helloween
+* Holy Soldier
+* Iced Earth
+* Imagine Dragons
+* In Mourning
+* Iron Maiden
+* Jorn
+* Judas Priest
+* Kamelot
+* Klone
+* Korpiklaani
+* Korzus
+* Lacrimosa
+* Leaves' Eyes
+* Leprous
+* Lordi
+* Lynyrd Skynyrd
+* Malefactor
+* Massacration
+* Metallica
+* Muse
+* Narnia
+* Necrophagist
+* Nervosa
+* Nightwish
+* Oficina G3
+* Opeth
+* Orphaned Land
+* Ozzy Osbourne
+* Pantera
+* Pearl Jam
+* Rhapsody
+* Sabaton
+* Satyricon
+* Scorpions
+* Sentenced
+* Septicflesh
+* Sepultura
+* Soen
+* Soilwork
+* Sonata Arctica
+* Static-X
+* Storm Corrosion
+* Stratovarius
+* Stress
+* Suldusk
+* Syd Matters
+* Symphony X
+* System Of A Down
+* Sólstafir
+* Tame Impala
+* Therion
+* Torture Squad
+* Tuatha de Danann
+* Turisas
+* Type O Negative
+* Týr
+* Volbeat
+* Whitesnake
+* Wintersun
+* Wussy
+* Zonata
+
+Rock::Favorites:
+* Iced Earth
+
+Rock::Extreme:
+* Amorphis
+* Arch Enemy
+* Arcturus
+* Borknagar
+* Brujeria
+* Carcass
+* Crypta
+* Death
+* Eluveitie
+* Fafnir
+* Gojira
+* In Mourning
+* Malefactor
+* Necrophagist
+* Nervosa
+* Opeth
+* Satyricon
+* Sentenced
+* Septicflesh
+* Sepultura
+* Soilwork
+* Suldusk
+* Sólstafir
+* Torture Squad
+* Wintersun
+
+Rock::Traditional:
 * ANGRA
 * Agent Fresco
 * Ahab
@@ -265,34 +409,7 @@ Traditional Metal:
 * Whitesnake
 * Zonata
 
-Extreme Metal:
-* Amorphis
-* Arch Enemy
-* Arcturus
-* Borknagar
-* Brujeria
-* Carcass
-* Crypta
-* Death
-* Eluveitie
-* Fafnir
-* Gojira
-* In Mourning
-* Malefactor
-* Necrophagist
-* Nervosa
-* Opeth
-* Satyricon
-* Sentenced
-* Septicflesh
-* Sepultura
-* Soilwork
-* Suldusk
-* Sólstafir
-* Torture Squad
-* Wintersun
-
-Rock:
+Rock::Rock:
 * Alvvays
 * Audioslave
 * Barns Courtney
@@ -313,7 +430,58 @@ Rock:
 * Volbeat
 * Wussy
 
-Folk:
+Header::Folk:
+
+Folk::All:
+* Alestorm
+* AlicebanD
+* Almora
+* Amanda Palmer
+* American Murder Song
+* Amorphis
+* Arkona
+* Bitter Ruin
+* Blind Guardian
+* Borknagar
+* Braia
+* Caprice
+* Celtic Woman
+* Confraria da Costa
+* Diablo Swing Orchestra
+* Dirt Poor Robins
+* Doomsword
+* Eldhrimnir
+* Eliza Rickman
+* Eluveitie
+* Faun
+* Ghost Quartet
+* Haggard
+* Heidevolk
+* Kamelot
+* Kim Tillman
+* Korpiklaani
+* Leandra
+* Major Parkinson
+* Mägo de Oz
+* OMNIA
+* Orphaned Land
+* Otyg
+* Steam Powered Giraffe
+* Sólstafir
+* The Cog is Dead
+* The Dead South
+* The Dresden Dolls
+* Therion
+* Tuatha de Danann
+* Turisas
+* Týr
+* Unwoman
+* Wintersun
+* Ye Banished Privateers
+
+Folk::Favorites:
+
+Folk::Folk:
 * Alestorm
 * Almora
 * Amorphis
@@ -345,7 +513,7 @@ Folk:
 * Wintersun
 * Ye Banished Privateers
 
-Steampunk:
+Folk::Steampunk:
 * AlicebanD
 * Amanda Palmer
 * American Murder Song
@@ -362,7 +530,79 @@ Steampunk:
 * The Dresden Dolls
 * Unwoman
 
-Atmospheric:
+Header::Alternative:
+
+Alt::All:
+* AURORA
+* Agnes Obel
+* Alela Diane
+* Anastasia Minster
+* Angus & Julia Stone
+* Aqua
+* BROODS
+* Bear's Den
+* Billie Eilish
+* Billie Marten
+* Birdy
+* Burning Peacocks
+* CHVRCHES
+* Cathedrals
+* Claire Rosinkranz
+* Cocoon
+* Daughter
+* Eliza Rickman
+* Ex:Re
+* First Aid Kit
+* Florence + The Machine
+* Frøkedal
+* Gabrielle Shonk
+* Gemma Hayes
+* HÆLOS
+* Jeanne Added
+* Jessie Ware
+* Joyce Jonathan
+* Juniper Vale
+* Kaleida
+* LAUREL
+* Lady Gaga
+* Lana Del Rey
+* Las Aves
+* Leandra
+* Lola Young
+* London Grammar
+* Lor
+* Lorde
+* LÉON
+* MARINA
+* Marika Hackman
+* Michelle Gurevich
+* Of Monsters and Men
+* Oh Land
+* Oh Wonder
+* PHILDEL
+* Paris Paloma
+* Phoebe Bridgers
+* Prudence
+* Rosemary & Garlic
+* Ruelle
+* Sidney Gish
+* Soap&Skin
+* Stromae
+* Superorganism
+* Susanne Sundfør
+* Sóley
+* The Dø
+* The Staves
+* The xx
+* Vaults
+* Vengaboys
+* Yelle
+* Zella Day
+* aeseaes
+
+Alt::Favorites:
+
+Alt::Atmospheric:
 * AURORA
 * Agnes Obel
 * Anastasia Minster
@@ -393,22 +633,7 @@ Atmospheric:
 * Vaults
 * aeseaes
 
-Vox/Guitar:
-* Alela Diane
-* Angus & Julia Stone
-* Bear's Den
-* Billie Marten
-* Cocoon
-* First Aid Kit
-* Frøkedal
-* Gabrielle Shonk
-* LAUREL
-* Marika Hackman
-* Michelle Gurevich
-* Sidney Gish
-* The Staves
-
-Energetic:
+Alt::Energetic:
 * Aqua
 * BROODS
 * CHVRCHES
@@ -434,8 +659,17 @@ Energetic:
 * Yelle
 * Zella Day
 
-Others:
-* Cesária Evora
-* Deolinda
-* Hollywood Burns
-* Madredeus
+Alt::Vox/Guitar:
+* Alela Diane
+* Angus & Julia Stone
+* Bear's Den
+* Billie Marten
+* Cocoon
+* First Aid Kit
+* Frøkedal
+* Gabrielle Shonk
+* LAUREL
+* Marika Hackman
+* Michelle Gurevich
+* Sidney Gish
+* The Staves

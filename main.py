@@ -41,32 +41,36 @@ for artist in artists_df.to_dicts():
         genres = []
     else:
         genres = genres.split("|")
-    tags = {T_ALL}
+    tagged = {T_ALL}
 
     # match genres
     for genre in genres:
         tag = TAGS.get(genre)
         if tag:
-            tags.add(tag)
+            tagged.add(tag)
 
     # match names (positive)
     tag = TAGS.get(f"+{artist["name"]}")
     if tag:
-        tags.add(tag)
+        tagged.add(tag)
 
     # match names (negative)
     tag = TAGS.get(f"-{artist["name"]}")
     if tag:
-        tags.remove(tag)
+        tagged.remove(tag)
 
-    # specific rules
-    if T_METAL_EXTREME in tags and T_METAL_TRADITIONAL in tags:
-        tags.remove(T_METAL_TRADITIONAL)
-    if T_METAL_TRADITIONAL in tags or T_METAL_EXTREME in tags:
-        tags.add(T_METAL_ALL)
+    # match other tags
+    for tagged_tag in tagged.copy():
+        tag = TAGS.get(tagged_tag)
+        if tag:
+            tagged.add(tag)
+
+    # rule: extreme cannot be traditional
+    if T_ROCK_EXTREME in tagged and T_ROCK_TRADITIONAL in tagged:
+        tagged.remove(T_ROCK_TRADITIONAL)
 
     # add tags
-    artist["tags"] = tags
+    artist["tags"] = tagged
     for tag in artist["tags"]:
         artists_by_tag[tag].append(artist)
     if len(artist["tags"]) == 1:
@@ -106,11 +110,17 @@ CSS_GLOBAL = """
 }
 """
 
-JS_FUNC_TAB = """
-function tab(tabPath) {
+JS_FUNC_REMOVE_EMOJI = """
+function removeEmoji(s) {
+    return s.replace(/[\\p{Emoji_Presentation}\\p{Extended_Pictographic}]/gu, '').trim()
+}
+"""
+
+JS_FUNC_ONTAB = """
+function onTab(tabPath) {
     // change header
     var id = "#mobile-menu-item-" + tabPath.replace("tab-", "");
-    var title = $(id).find("span").last().text();
+    var title = removeEmoji($(id).find("span").last().text());
     $("#mobile-menu-header-filter").text("Filter: " + title)
 }
 """
@@ -118,7 +128,7 @@ function tab(tabPath) {
 JS_FUNC_SORT = """
 function sort(element, attribute, order) {
     // change header
-    var title = $(element).text().replace(/[\\p{Emoji_Presentation}\\p{Extended_Pictographic}]/gu, '');
+    var title = removeEmoji($(element).text());
     $("#mobile-menu-header-sort").text("Sort:" + title);
 
     // mark active
@@ -150,15 +160,19 @@ def menu_filter(mobile: bool):
 
         for index, tag in enumerate(TAGS_ORDER):
             artists = artists_by_tag[tag]
-            active = "active" if index == 0 else ""
 
-            with div(cls=f"{active} link item",
+            item_display = tag.split("::")[1]
+            item_active = "active" if index == 0 else ""
+            item_header = "header disabled" if tag.startswith("Header::") else ""
+
+            with div(cls=f"{item_active} {item_header} link item",
                     id=f"{kind}-menu-item-{id(tag)}",
                     data_tab=tab_id(tag),
                     data_tab_name=tag
                 ):
-                span(f"{len(artists)}", cls=f"ui {label_size} label")
-                span(tag)
+                span(item_display)
+                if not item_header:
+                    span(f"{len(artists)}", cls=f"ui {label_size} label")
 
 def menu_sort(mobile):
     label = "Sort: Name" if mobile else "Sort"
@@ -220,7 +234,7 @@ def cards(artists: list[dict]):
 
 
 def id(tag: str) -> str:
-    return tag.lower().translate(str.maketrans("", "", "():/")).translate(str.maketrans("ãéó", "aeo")).replace(" ", "-").strip()
+    return tag.lower().replace("::", "-").translate(str.maketrans("", "", "():/")).translate(str.maketrans("ãéó", "aeo")).replace(" ", "-").strip()
 
 def tab_id(tag: str) -> str:
     return f"tab-{id(tag)}"
@@ -235,7 +249,8 @@ with doc:
         script(src = "https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min.js")
         link(href =  "https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min.css", rel = "stylesheet")
         style(raw(CSS_GLOBAL))
-        script(raw(JS_FUNC_TAB))
+        script(raw(JS_FUNC_REMOVE_EMOJI))
+        script(raw(JS_FUNC_ONTAB))
         script(raw(JS_FUNC_SORT))
 
     # body
@@ -253,7 +268,7 @@ with doc:
             # Menu (desktop)
             # ------------------------------------------------------------------
             with div(cls="computer only three wide computer   two wide large screen   two wide widescreen   column", style="padding: 0.5rem"):
-                with div(cls="ui fluid styled desktop accordion", style="max-height: 100vh; overflow: hidden; overflow-y: scroll"):
+                with div(cls="ui fluid styled desktop accordion", style="max-height: 98vh; overflow: hidden; overflow-y: scroll"):
                     menu_filter(mobile=False)
                     menu_sort(mobile=False)
 
@@ -277,7 +292,7 @@ with doc:
 
 
     # script
-    script("$('.menu .item').tab({history:true, historyType: 'hash', onLoad: tab});")
+    script("$('.menu .item').tab({history:true, historyType: 'hash', onLoad: onTab});")
     script("$('.ui.accordion.desktop').accordion({exclusive:false});")
     script("$('.ui.accordion.mobile').accordion({exclusive:true});")
 
