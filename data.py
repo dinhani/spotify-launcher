@@ -1,8 +1,8 @@
 # ------------------------------------------------------------------------------
 # Tags: display names
 # ------------------------------------------------------------------------------
-T_ALL = "All::All"
-T_OTHERS = "Others::Others"
+T_ALL = "All"
+T_OTHERS = "Others"
 #
 T_ROCK_SEP = "Header::Rock / Metal"
 T_ROCK_ALL = "Rock::All"
