@@ -77,7 +77,7 @@ for artist in artists_df.to_dicts():
 # ------------------------------------------------------------------------------
 logging.info("🧱 Generating HTML")
 
-CSS_STYLE_NOWRAP = "white-space: nowrap;"
+CSS_STYLE_NOWRAP = "white-space: nowrap; "
 
 CSS_GLOBAL = """
 .extra.content::after {
@@ -124,34 +124,31 @@ function sort(button, attribute, order) {
 }
 """
 
-def menu_category(mobile: bool):
-    with menu_wrapper("Category", "filter", mobile):
+def menu_category(desktop: bool):
+    with menu_wrapper(desktop, "Category"):
         for index, tag in enumerate(TAGS_ORDER):
             artists = artists_by_tag[tag]
             active = "active" if index == 0 else ""
-            with div(cls=f"{active} item", data_tab=tab_id(tag)):
+            with div(cls=f"{active} link item", data_tab=tab_id(tag)):
                 span(f"{len(artists)}", cls="ui tiny label")
                 span(tag)
 
-def menu_sorting(mobile):
-    with menu_wrapper("Sorting", "sort", mobile):
-        div("🎶 Name", cls="ui active item", onClick="sort(this, 'name', 'asc')", style=CSS_STYLE_NOWRAP)
-        div("🔥 Popularity", cls="ui item", onClick="sort(this, 'popularity', 'desc')", style=CSS_STYLE_NOWRAP)
-        div("👤 Followers", cls="ui item", onClick="sort(this, 'followers', 'desc')", style=CSS_STYLE_NOWRAP)
-        div("💿 Albums", cls="ui item", onClick="sort(this, 'albums', 'desc')", style=CSS_STYLE_NOWRAP)
-        div("🔔 Last Follow", cls="ui item", onClick="sort(this, 'last-follow', 'asc')", style=CSS_STYLE_NOWRAP)
-        div("📅 Last Release", cls="ui item", onClick="sort(this, 'last-release', 'desc')", style=CSS_STYLE_NOWRAP)
+def menu_sorting(desktop):
+    with menu_wrapper(desktop, "Sorting"):
+        div("🎶 Name", cls="ui active link item", onClick="sort(this, 'name', 'asc')", style=CSS_STYLE_NOWRAP)
+        div("🔥 Popularity", cls="ui link item", onClick="sort(this, 'popularity', 'desc')", style=CSS_STYLE_NOWRAP)
+        div("👤 Followers", cls="ui link item", onClick="sort(this, 'followers', 'desc')", style=CSS_STYLE_NOWRAP)
+        div("💿 Albums", cls="ui link item", onClick="sort(this, 'albums', 'desc')", style=CSS_STYLE_NOWRAP)
+        div("🔔 Last Follow", cls="ui link item", onClick="sort(this, 'last-follow', 'asc')", style=CSS_STYLE_NOWRAP)
+        div("📅 Last Release", cls="ui link item", onClick="sort(this, 'last-release', 'desc')", style=CSS_STYLE_NOWRAP)
 
-def menu_wrapper(label: str, icon: str, mobile: bool):
-    if mobile:
-        with div(cls="title", style="font-size: 1.28571429rem;"):
-            i(cls=icon + " icon")
+def menu_wrapper(mobile: bool, label: str):
+    active = "active" if not mobile else " "
+    with div(cls=f"{active} title", style="font-size: 1.28571429rem;"):
             span(label)
             i(cls="right dropdown icon")
-        with div(cls="content", style="padding-bottom: 0.5rem;"):
-            return div(cls="ui fluid vertical secondary menu")
-    else:
-        return div(cls="ui fluid vertical menu")
+    with div(cls=f"{active} content", style="padding: 0rem;"):
+        return div(cls="ui fluid vertical attached menu", style="margin: 0; border-left: 0; border-right: 0; border-bottom: 0;")
 
 def cards(artists: list[dict]):
     # scroll
@@ -176,7 +173,7 @@ def cards(artists: list[dict]):
                             img(src=artist["image"], cls="ui image artist-image", style="object-fit: cover;")
 
                         # header
-                        with div(cls="content", style="padding: 0.5rem 0.5rem;"):
+                        with div(cls="content", style="padding: 0.5rem;"):
                             div(artist["name"], cls="ui small header", style=f"{CSS_STYLE_NOWRAP} overflow:hidden; text-overflow: ellipsis;")
 
                         # footer
@@ -210,15 +207,16 @@ with doc:
             # ------------------------------------------------------------------
             with div(cls="sixteen wide mobile tablet only   column", style="padding: 0.5rem"):
                 with div(cls="ui fluid styled accordion"):
-                    menu_category(mobile=True)
-                    menu_sorting(mobile=True)
+                    menu_category(desktop=True)
+                    menu_sorting(desktop=True)
 
             # ------------------------------------------------------------------
             # Menu (desktop)
             # ------------------------------------------------------------------
             with div(cls="computer only three wide computer   two wide large screen   two wide widescreen   column", style="padding: 0.5rem"):
-                menu_category(mobile=False)
-                menu_sorting(mobile=False)
+                with div(cls="ui fluid styled accordion"):
+                    menu_category(desktop=False)
+                    menu_sorting(desktop=False)
 
             # ------------------------------------------------------------------
             # Content
@@ -241,7 +239,7 @@ with doc:
 
     # script
     script("$('.menu .item').tab({history:true, historyType: 'hash'});")
-    script("$('.ui.accordion').accordion();")
+    script("$('.ui.accordion').accordion({exclusive:false});")
 
 # write to file
 logging.info(f"💾 Writing: {OUTPUT_LAUNCHER}")
