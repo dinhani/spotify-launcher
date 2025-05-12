@@ -179,7 +179,9 @@ def cards(artists: list[dict]):
 
                         # header
                         with div(cls="content", style="padding: 0.5rem;"):
-                            div(artist["name"], cls="ui small header", style=f"{CSS_STYLE_NOWRAP} overflow:hidden; text-overflow: ellipsis;")
+                            div(artist["name"], cls="ui small header", style=f"{CSS_STYLE_NOWRAP} overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem")
+                            with div(cls="meta"):
+                                div(artist["top_song"], style=f"{CSS_STYLE_NOWRAP} overflow:hidden; text-overflow: ellipsis;")
 
                         # footer
                         with div(cls="extra content", style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between"):
