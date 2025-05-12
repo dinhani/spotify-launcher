@@ -148,11 +148,8 @@ def menu_sorting(mobile):
 
 def menu_wrapper(mobile: bool, label: str):
     active = "active" if not mobile else " "
-    if mobile:
-        font_size = "1.71428571rem"
-    else:
-        font_size = "1.28571429rem"
-    with div(cls=f"{active} title", style="font-size: {font_size};"):
+    font_size = "1.71428571rem" if mobile else "1.28571429rem"
+    with div(cls=f"{active} title", style=f"font-size: {font_size};"):
             span(label)
             i(cls="right dropdown icon")
     with div(cls=f"{active} content", style="padding: 0rem;"):
