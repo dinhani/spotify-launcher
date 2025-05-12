@@ -134,7 +134,7 @@ def menu_category(mobile: bool):
             active = "active" if index == 0 else ""
             with div(cls=f"{active} link item", data_tab=tab_id(tag)):
                 label_size = "" if mobile else "tiny"
-                span(f"{len(artists)}", cls="ui {label_size} label")
+                span(f"{len(artists)}", cls=f"ui {label_size} label")
                 span(tag)
 
 def menu_sorting(mobile):
