@@ -4,25 +4,26 @@
 T_ALL = "All"
 T_OTHERS = "Others"
 #
-T_ROCK_SEP = "Header::Rock / Metal"
-T_ROCK_ALL = "Rock::All"
-T_ROCK_FAVORITES = "Rock::Favorites"
-T_ROCK_EXTREME = "Rock::Extreme"
-T_ROCK_TRADITIONAL = "Rock::Traditional"
-T_ROCK = "Rock::Rock"
+T_ROCK_SEP = "Header - Rock / Metal"
+T_ROCK_ALL = "Rock - All"
+T_ROCK_FAVORITES = "Rock - Favorites"
+T_ROCK_EXTREME_METAL = "Rock - Extreme Metal"
+T_ROCK_HEAVY_METAL = "Rock - Heavy Metal"
+T_ROCK_FOLK_METAL = "Rock - Folk Metal"
+T_ROCK = "Rock - Rock"
 #
-T_FOLK_SEP = "Header::Folk"
-T_FOLK_ALL = "Folk::All"
-T_FOLK_FAVORITES = "Folk::Favorites"
-T_FOLK = "Folk::Folk"
-T_STEAMPUNK = "Folk::Steampunk"
+T_FOLK_SEP = "Header - Folk"
+T_FOLK_ALL = "Folk - All"
+T_FOLK_FAVORITES = "Folk - Favorites"
+T_FOLK = "Folk - Folk"
+T_STEAMPUNK = "Folk - Steampunk"
 #
-T_ALT_SEP = "Header::Alternative"
-T_ALT_ALL = "Alt::All"
-T_ALT_FAVORITES = "Alt::Favorites"
-T_ALT_ATMOSPHERIC = "Alt::Atmospheric"
-T_ALT_ENERGETIC = "Alt::Energetic"
-T_ALT_VOICE_GUITAR = "Alt::Vox/Guitar"
+T_ALT_SEP = "Header - Alternative"
+T_ALT_ALL = "Alt - All"
+T_ALT_FAVORITES = "Alt - Favorites"
+T_ALT_ATMOSPHERIC = "Alt - Atmospheric"
+T_ALT_ENERGETIC = "Alt - Energetic"
+T_ALT_VOICE_GUITAR = "Alt - Vox/Guitar"
 
 # ------------------------------------------------------------------------------
 # Tag Order: used in the menu
@@ -34,8 +35,9 @@ TAGS_ORDER = [
     T_ROCK_SEP,
     T_ROCK_ALL,
     T_ROCK_FAVORITES,
-    T_ROCK_EXTREME,
-    T_ROCK_TRADITIONAL,
+    T_ROCK_EXTREME_METAL,
+    T_ROCK_HEAVY_METAL,
+    T_ROCK_FOLK_METAL,
     T_ROCK,
     #
     T_FOLK_SEP,
@@ -57,17 +59,18 @@ TAGS_ORDER = [
 # ------------------------------------------------------------------------------
 TAGS_INVERTED = {
     # --------------------------------------------------------------------------
-    # Rock
+    # Rock / Metal
     # --------------------------------------------------------------------------
     T_ROCK_ALL: [
         T_ROCK,
-        T_ROCK_EXTREME,
-        T_ROCK_TRADITIONAL
+        T_ROCK_EXTREME_METAL,
+        T_ROCK_HEAVY_METAL,
+        T_ROCK_FOLK_METAL,
     ],
     T_ROCK_FAVORITES: [
         "+Iced Earth",
     ],
-    T_ROCK_TRADITIONAL: [
+    T_ROCK_HEAVY_METAL: [
         "-Gotthard",
         "+Massacration",
         "+Stress",
@@ -82,7 +85,16 @@ TAGS_INVERTED = {
         "thrash metal",
         "doom metal"
     ],
-    T_ROCK_EXTREME: [
+    T_ROCK_FOLK_METAL: [
+        "-Leaves' Eyes",
+        "-Nightwish",
+        "-Rhapsody",
+        "-Sabaton",
+        "-Sonata Arctica",
+        "folk metal",
+        "viking metal"
+    ],
+    T_ROCK_EXTREME_METAL: [
         "-Therion",
         "black metal",
         "death metal",
@@ -112,17 +124,14 @@ TAGS_INVERTED = {
         T_FOLK,
         T_STEAMPUNK
     ],
+    T_FOLK_FAVORITES: [
+        "+Eliza Rickman",
+        "+Steam Powered Giraffe"
+    ],
     T_FOLK: [
-        "-Leaves' Eyes",
-        "-Nightwish",
-        "-Rhapsody",
-        "-Sabaton",
-        "-Sonata Arctica",
         "+Confraria da Costa",
         "+The Dead South",
         "celtic",
-        "folk metal",
-        "viking metal"
     ],
     T_STEAMPUNK: [
         "dark cabaret"
@@ -136,7 +145,7 @@ TAGS_INVERTED = {
         T_ALT_VOICE_GUITAR
     ],
     T_ALT_FAVORITES: [
-        "London Grammar"
+        "+London Grammar"
     ],
     T_ALT_ATMOSPHERIC: [
         "+aeseaes",
@@ -211,7 +220,8 @@ TAGS_INVERTED = {
     ]
 }
 
-TAGS = {}
+from dict import ProxyDict
+TAGS = ProxyDict()
 for tag, patterns in TAGS_INVERTED.items():
     for pattern in patterns:
         TAGS[pattern] = tag

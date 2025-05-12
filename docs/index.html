@@ -40,7 +40,7 @@ function removeEmoji(s) {
 function onTab(tabPath) {
     // change header
     var id = "#mobile-menu-item-" + tabPath.replace("tab-", "");
-    var title = removeEmoji($(id).data("tab-name")).replace("::", ": ");
+    var title = removeEmoji($(id).data("tab-name"));
     $("#mobile-menu-header-filter").text("Filter: " + title)
 }
 </script>
@@ -81,76 +81,80 @@ function sort(element, attribute, order) {
           </div>
           <div class=" content" style="padding: 0;">
             <div class="ui fluid vertical attached menu" style="margin: 0; border-left: 0; border-right: 0; border-bottom: 0;">
-              <div class="active  link item" data-tab="tab-all" data-tab-name="All" id="mobile-menu-item-all">
+              <div class="active  link item" data-tab="tab-all" data-tab-name="All" id="mobile-menu-item-all" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>All</span>
                 <span class="ui  label">199</span>
               </div>
-              <div class="  link item" data-tab="tab-others" data-tab-name="Others" id="mobile-menu-item-others">
+              <div class="  link item" data-tab="tab-others" data-tab-name="Others" id="mobile-menu-item-others" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>Others</span>
                 <span class="ui  label">4</span>
               </div>
-              <div class=" header disabled link item" data-tab="tab-header-rock--metal" data-tab-name="Header::Rock / Metal" id="mobile-menu-item-header-rock--metal">
+              <div class=" header disabled link item" data-tab="tab-header---rock--metal" data-tab-name="Header - Rock / Metal" id="mobile-menu-item-header---rock--metal" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>Rock / Metal</span>
               </div>
-              <div class="  link item" data-tab="tab-rock-all" data-tab-name="Rock::All" id="mobile-menu-item-rock-all">
+              <div class="  link item" data-tab="tab-rock---all" data-tab-name="Rock - All" id="mobile-menu-item-rock---all" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>All</span>
-                <span class="ui  label">104</span>
+                <span class="ui  label">113</span>
               </div>
-              <div class="  link item" data-tab="tab-rock-favorites" data-tab-name="Rock::Favorites" id="mobile-menu-item-rock-favorites">
+              <div class="  link item" data-tab="tab-rock---favorites" data-tab-name="Rock - Favorites" id="mobile-menu-item-rock---favorites" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>Favorites</span>
                 <span class="ui  label">1</span>
               </div>
-              <div class="  link item" data-tab="tab-rock-extreme" data-tab-name="Rock::Extreme" id="mobile-menu-item-rock-extreme">
-                <span>Extreme</span>
+              <div class="  link item" data-tab="tab-rock---extreme-metal" data-tab-name="Rock - Extreme Metal" id="mobile-menu-item-rock---extreme-metal" style="white-space: nowrap; padding: 0.6rem; ">
+                <span>Extreme Metal</span>
                 <span class="ui  label">25</span>
               </div>
-              <div class="  link item" data-tab="tab-rock-traditional" data-tab-name="Rock::Traditional" id="mobile-menu-item-rock-traditional">
-                <span>Traditional</span>
+              <div class="  link item" data-tab="tab-rock---heavy-metal" data-tab-name="Rock - Heavy Metal" id="mobile-menu-item-rock---heavy-metal" style="white-space: nowrap; padding: 0.6rem; ">
+                <span>Heavy Metal</span>
                 <span class="ui  label">63</span>
               </div>
-              <div class="  link item" data-tab="tab-rock-rock" data-tab-name="Rock::Rock" id="mobile-menu-item-rock-rock">
+              <div class="  link item" data-tab="tab-rock---folk-metal" data-tab-name="Rock - Folk Metal" id="mobile-menu-item-rock---folk-metal" style="white-space: nowrap; padding: 0.6rem; ">
+                <span>Folk Metal</span>
+                <span class="ui  label">26</span>
+              </div>
+              <div class="  link item" data-tab="tab-rock---rock" data-tab-name="Rock - Rock" id="mobile-menu-item-rock---rock" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>Rock</span>
                 <span class="ui  label">19</span>
               </div>
-              <div class=" header disabled link item" data-tab="tab-header-folk" data-tab-name="Header::Folk" id="mobile-menu-item-header-folk">
+              <div class=" header disabled link item" data-tab="tab-header---folk" data-tab-name="Header - Folk" id="mobile-menu-item-header---folk" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>Folk</span>
               </div>
-              <div class="  link item" data-tab="tab-folk-all" data-tab-name="Folk::All" id="mobile-menu-item-folk-all">
+              <div class="  link item" data-tab="tab-folk---all" data-tab-name="Folk - All" id="mobile-menu-item-folk---all" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>All</span>
-                <span class="ui  label">45</span>
+                <span class="ui  label">24</span>
               </div>
-              <div class="  link item" data-tab="tab-folk-favorites" data-tab-name="Folk::Favorites" id="mobile-menu-item-folk-favorites">
+              <div class="  link item" data-tab="tab-folk---favorites" data-tab-name="Folk - Favorites" id="mobile-menu-item-folk---favorites" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>Favorites</span>
-                <span class="ui  label">0</span>
+                <span class="ui  label">2</span>
               </div>
-              <div class="  link item" data-tab="tab-folk-folk" data-tab-name="Folk::Folk" id="mobile-menu-item-folk-folk">
+              <div class="  link item" data-tab="tab-folk---folk" data-tab-name="Folk - Folk" id="mobile-menu-item-folk---folk" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>Folk</span>
-                <span class="ui  label">30</span>
+                <span class="ui  label">9</span>
               </div>
-              <div class="  link item" data-tab="tab-folk-steampunk" data-tab-name="Folk::Steampunk" id="mobile-menu-item-folk-steampunk">
+              <div class="  link item" data-tab="tab-folk---steampunk" data-tab-name="Folk - Steampunk" id="mobile-menu-item-folk---steampunk" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>Steampunk</span>
                 <span class="ui  label">15</span>
               </div>
-              <div class=" header disabled link item" data-tab="tab-header-alternative" data-tab-name="Header::Alternative" id="mobile-menu-item-header-alternative">
+              <div class=" header disabled link item" data-tab="tab-header---alternative" data-tab-name="Header - Alternative" id="mobile-menu-item-header---alternative" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>Alternative</span>
               </div>
-              <div class="  link item" data-tab="tab-alt-all" data-tab-name="Alt::All" id="mobile-menu-item-alt-all">
+              <div class="  link item" data-tab="tab-alt---all" data-tab-name="Alt - All" id="mobile-menu-item-alt---all" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>All</span>
                 <span class="ui  label">66</span>
               </div>
-              <div class="  link item" data-tab="tab-alt-favorites" data-tab-name="Alt::Favorites" id="mobile-menu-item-alt-favorites">
+              <div class="  link item" data-tab="tab-alt---favorites" data-tab-name="Alt - Favorites" id="mobile-menu-item-alt---favorites" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>Favorites</span>
                 <span class="ui  label">0</span>
               </div>
-              <div class="  link item" data-tab="tab-alt-atmospheric" data-tab-name="Alt::Atmospheric" id="mobile-menu-item-alt-atmospheric">
+              <div class="  link item" data-tab="tab-alt---atmospheric" data-tab-name="Alt - Atmospheric" id="mobile-menu-item-alt---atmospheric" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>Atmospheric</span>
                 <span class="ui  label">29</span>
               </div>
-              <div class="  link item" data-tab="tab-alt-energetic" data-tab-name="Alt::Energetic" id="mobile-menu-item-alt-energetic">
+              <div class="  link item" data-tab="tab-alt---energetic" data-tab-name="Alt - Energetic" id="mobile-menu-item-alt---energetic" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>Energetic</span>
                 <span class="ui  label">24</span>
               </div>
-              <div class="  link item" data-tab="tab-alt-voxguitar" data-tab-name="Alt::Vox/Guitar" id="mobile-menu-item-alt-voxguitar">
+              <div class="  link item" data-tab="tab-alt---voxguitar" data-tab-name="Alt - Vox/Guitar" id="mobile-menu-item-alt---voxguitar" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>Vox/Guitar</span>
                 <span class="ui  label">13</span>
               </div>
@@ -161,13 +165,13 @@ function sort(element, attribute, order) {
           </div>
           <div class=" content" style="padding: 0;">
             <div class="ui fluid vertical attached menu" style="margin: 0; border-left: 0; border-right: 0; border-bottom: 0;">
-              <div class="ui active link item" onClick="sort(this, 'name', 'asc')" style="white-space: nowrap; ">🎶 Name</div>
-              <div class="ui link item" onClick="sort(this, 'popularity', 'desc')" style="white-space: nowrap; ">🔥 Popularity (artist)</div>
-              <div class="ui link item" onClick="sort(this, 'song-popularity', 'desc')" style="white-space: nowrap; ">🏆 Popularity (song)</div>
-              <div class="ui link item" onClick="sort(this, 'followers', 'desc')" style="white-space: nowrap; ">👤 Followers</div>
-              <div class="ui link item" onClick="sort(this, 'albums', 'desc')" style="white-space: nowrap; ">💿 Albums</div>
-              <div class="ui link item" onClick="sort(this, 'last-release', 'desc')" style="white-space: nowrap; ">📅 Last Release</div>
-              <div class="ui link item" onClick="sort(this, 'last-follow', 'asc')" style="white-space: nowrap; ">🔔 Last Follow</div>
+              <div class="ui active link item" onClick="sort(this, 'name', 'asc')" style="white-space: nowrap; padding: 0.6rem; ">🎶 Name</div>
+              <div class="ui link item" onClick="sort(this, 'popularity', 'desc')" style="white-space: nowrap; padding: 0.6rem; ">🔥 Popularity (artist)</div>
+              <div class="ui link item" onClick="sort(this, 'song-popularity', 'desc')" style="white-space: nowrap; padding: 0.6rem; ">🏆 Popularity (song)</div>
+              <div class="ui link item" onClick="sort(this, 'followers', 'desc')" style="white-space: nowrap; padding: 0.6rem; ">👤 Followers</div>
+              <div class="ui link item" onClick="sort(this, 'albums', 'desc')" style="white-space: nowrap; padding: 0.6rem; ">💿 Albums</div>
+              <div class="ui link item" onClick="sort(this, 'last-release', 'desc')" style="white-space: nowrap; padding: 0.6rem; ">📅 Last Release</div>
+              <div class="ui link item" onClick="sort(this, 'last-follow', 'asc')" style="white-space: nowrap; padding: 0.6rem; ">🔔 Last Follow</div>
             </div>
           </div>
         </div>
@@ -179,76 +183,80 @@ function sort(element, attribute, order) {
           </div>
           <div class="active content" style="padding: 0;">
             <div class="ui fluid vertical attached menu" style="margin: 0; border-left: 0; border-right: 0; border-bottom: 0;">
-              <div class="active  link item" data-tab="tab-all" data-tab-name="All" id="desktop-menu-item-all">
+              <div class="active  link item" data-tab="tab-all" data-tab-name="All" id="desktop-menu-item-all" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>All</span>
                 <span class="ui tiny label">199</span>
               </div>
-              <div class="  link item" data-tab="tab-others" data-tab-name="Others" id="desktop-menu-item-others">
+              <div class="  link item" data-tab="tab-others" data-tab-name="Others" id="desktop-menu-item-others" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>Others</span>
                 <span class="ui tiny label">4</span>
               </div>
-              <div class=" header disabled link item" data-tab="tab-header-rock--metal" data-tab-name="Header::Rock / Metal" id="desktop-menu-item-header-rock--metal">
+              <div class=" header disabled link item" data-tab="tab-header---rock--metal" data-tab-name="Header - Rock / Metal" id="desktop-menu-item-header---rock--metal" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>Rock / Metal</span>
               </div>
-              <div class="  link item" data-tab="tab-rock-all" data-tab-name="Rock::All" id="desktop-menu-item-rock-all">
+              <div class="  link item" data-tab="tab-rock---all" data-tab-name="Rock - All" id="desktop-menu-item-rock---all" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>All</span>
-                <span class="ui tiny label">104</span>
+                <span class="ui tiny label">113</span>
               </div>
-              <div class="  link item" data-tab="tab-rock-favorites" data-tab-name="Rock::Favorites" id="desktop-menu-item-rock-favorites">
+              <div class="  link item" data-tab="tab-rock---favorites" data-tab-name="Rock - Favorites" id="desktop-menu-item-rock---favorites" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>Favorites</span>
                 <span class="ui tiny label">1</span>
               </div>
-              <div class="  link item" data-tab="tab-rock-extreme" data-tab-name="Rock::Extreme" id="desktop-menu-item-rock-extreme">
-                <span>Extreme</span>
+              <div class="  link item" data-tab="tab-rock---extreme-metal" data-tab-name="Rock - Extreme Metal" id="desktop-menu-item-rock---extreme-metal" style="white-space: nowrap; padding: 0.6rem; ">
+                <span>Extreme Metal</span>
                 <span class="ui tiny label">25</span>
               </div>
-              <div class="  link item" data-tab="tab-rock-traditional" data-tab-name="Rock::Traditional" id="desktop-menu-item-rock-traditional">
-                <span>Traditional</span>
+              <div class="  link item" data-tab="tab-rock---heavy-metal" data-tab-name="Rock - Heavy Metal" id="desktop-menu-item-rock---heavy-metal" style="white-space: nowrap; padding: 0.6rem; ">
+                <span>Heavy Metal</span>
                 <span class="ui tiny label">63</span>
               </div>
-              <div class="  link item" data-tab="tab-rock-rock" data-tab-name="Rock::Rock" id="desktop-menu-item-rock-rock">
+              <div class="  link item" data-tab="tab-rock---folk-metal" data-tab-name="Rock - Folk Metal" id="desktop-menu-item-rock---folk-metal" style="white-space: nowrap; padding: 0.6rem; ">
+                <span>Folk Metal</span>
+                <span class="ui tiny label">26</span>
+              </div>
+              <div class="  link item" data-tab="tab-rock---rock" data-tab-name="Rock - Rock" id="desktop-menu-item-rock---rock" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>Rock</span>
                 <span class="ui tiny label">19</span>
               </div>
-              <div class=" header disabled link item" data-tab="tab-header-folk" data-tab-name="Header::Folk" id="desktop-menu-item-header-folk">
+              <div class=" header disabled link item" data-tab="tab-header---folk" data-tab-name="Header - Folk" id="desktop-menu-item-header---folk" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>Folk</span>
               </div>
-              <div class="  link item" data-tab="tab-folk-all" data-tab-name="Folk::All" id="desktop-menu-item-folk-all">
+              <div class="  link item" data-tab="tab-folk---all" data-tab-name="Folk - All" id="desktop-menu-item-folk---all" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>All</span>
-                <span class="ui tiny label">45</span>
+                <span class="ui tiny label">24</span>
               </div>
-              <div class="  link item" data-tab="tab-folk-favorites" data-tab-name="Folk::Favorites" id="desktop-menu-item-folk-favorites">
+              <div class="  link item" data-tab="tab-folk---favorites" data-tab-name="Folk - Favorites" id="desktop-menu-item-folk---favorites" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>Favorites</span>
-                <span class="ui tiny label">0</span>
+                <span class="ui tiny label">2</span>
               </div>
-              <div class="  link item" data-tab="tab-folk-folk" data-tab-name="Folk::Folk" id="desktop-menu-item-folk-folk">
+              <div class="  link item" data-tab="tab-folk---folk" data-tab-name="Folk - Folk" id="desktop-menu-item-folk---folk" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>Folk</span>
-                <span class="ui tiny label">30</span>
+                <span class="ui tiny label">9</span>
               </div>
-              <div class="  link item" data-tab="tab-folk-steampunk" data-tab-name="Folk::Steampunk" id="desktop-menu-item-folk-steampunk">
+              <div class="  link item" data-tab="tab-folk---steampunk" data-tab-name="Folk - Steampunk" id="desktop-menu-item-folk---steampunk" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>Steampunk</span>
                 <span class="ui tiny label">15</span>
               </div>
-              <div class=" header disabled link item" data-tab="tab-header-alternative" data-tab-name="Header::Alternative" id="desktop-menu-item-header-alternative">
+              <div class=" header disabled link item" data-tab="tab-header---alternative" data-tab-name="Header - Alternative" id="desktop-menu-item-header---alternative" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>Alternative</span>
               </div>
-              <div class="  link item" data-tab="tab-alt-all" data-tab-name="Alt::All" id="desktop-menu-item-alt-all">
+              <div class="  link item" data-tab="tab-alt---all" data-tab-name="Alt - All" id="desktop-menu-item-alt---all" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>All</span>
                 <span class="ui tiny label">66</span>
               </div>
-              <div class="  link item" data-tab="tab-alt-favorites" data-tab-name="Alt::Favorites" id="desktop-menu-item-alt-favorites">
+              <div class="  link item" data-tab="tab-alt---favorites" data-tab-name="Alt - Favorites" id="desktop-menu-item-alt---favorites" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>Favorites</span>
                 <span class="ui tiny label">0</span>
               </div>
-              <div class="  link item" data-tab="tab-alt-atmospheric" data-tab-name="Alt::Atmospheric" id="desktop-menu-item-alt-atmospheric">
+              <div class="  link item" data-tab="tab-alt---atmospheric" data-tab-name="Alt - Atmospheric" id="desktop-menu-item-alt---atmospheric" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>Atmospheric</span>
                 <span class="ui tiny label">29</span>
               </div>
-              <div class="  link item" data-tab="tab-alt-energetic" data-tab-name="Alt::Energetic" id="desktop-menu-item-alt-energetic">
+              <div class="  link item" data-tab="tab-alt---energetic" data-tab-name="Alt - Energetic" id="desktop-menu-item-alt---energetic" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>Energetic</span>
                 <span class="ui tiny label">24</span>
               </div>
-              <div class="  link item" data-tab="tab-alt-voxguitar" data-tab-name="Alt::Vox/Guitar" id="desktop-menu-item-alt-voxguitar">
+              <div class="  link item" data-tab="tab-alt---voxguitar" data-tab-name="Alt - Vox/Guitar" id="desktop-menu-item-alt---voxguitar" style="white-space: nowrap; padding: 0.6rem; ">
                 <span>Vox/Guitar</span>
                 <span class="ui tiny label">13</span>
               </div>
@@ -259,13 +267,13 @@ function sort(element, attribute, order) {
           </div>
           <div class="active content" style="padding: 0;">
             <div class="ui fluid vertical attached menu" style="margin: 0; border-left: 0; border-right: 0; border-bottom: 0;">
-              <div class="ui active link item" onClick="sort(this, 'name', 'asc')" style="white-space: nowrap; ">🎶 Name</div>
-              <div class="ui link item" onClick="sort(this, 'popularity', 'desc')" style="white-space: nowrap; ">🔥 Popularity (artist)</div>
-              <div class="ui link item" onClick="sort(this, 'song-popularity', 'desc')" style="white-space: nowrap; ">🏆 Popularity (song)</div>
-              <div class="ui link item" onClick="sort(this, 'followers', 'desc')" style="white-space: nowrap; ">👤 Followers</div>
-              <div class="ui link item" onClick="sort(this, 'albums', 'desc')" style="white-space: nowrap; ">💿 Albums</div>
-              <div class="ui link item" onClick="sort(this, 'last-release', 'desc')" style="white-space: nowrap; ">📅 Last Release</div>
-              <div class="ui link item" onClick="sort(this, 'last-follow', 'asc')" style="white-space: nowrap; ">🔔 Last Follow</div>
+              <div class="ui active link item" onClick="sort(this, 'name', 'asc')" style="white-space: nowrap; padding: 0.6rem; ">🎶 Name</div>
+              <div class="ui link item" onClick="sort(this, 'popularity', 'desc')" style="white-space: nowrap; padding: 0.6rem; ">🔥 Popularity (artist)</div>
+              <div class="ui link item" onClick="sort(this, 'song-popularity', 'desc')" style="white-space: nowrap; padding: 0.6rem; ">🏆 Popularity (song)</div>
+              <div class="ui link item" onClick="sort(this, 'followers', 'desc')" style="white-space: nowrap; padding: 0.6rem; ">👤 Followers</div>
+              <div class="ui link item" onClick="sort(this, 'albums', 'desc')" style="white-space: nowrap; padding: 0.6rem; ">💿 Albums</div>
+              <div class="ui link item" onClick="sort(this, 'last-release', 'desc')" style="white-space: nowrap; padding: 0.6rem; ">📅 Last Release</div>
+              <div class="ui link item" onClick="sort(this, 'last-follow', 'asc')" style="white-space: nowrap; padding: 0.6rem; ">🔔 Last Follow</div>
             </div>
           </div>
         </div>
@@ -3937,12 +3945,12 @@ function sort(element, attribute, order) {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-header-rock--metal">
+        <div class="ui tab" data-tab="tab-header---rock--metal">
           <div class="artists-wrapper">
             <div class="ui padded grid artists"></div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-rock-all">
+        <div class="ui tab" data-tab="tab-rock---all">
           <div class="artists-wrapper">
             <div class="ui padded grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="2" data-followers="40327" data-last-follow="25" data-last-release="2015-08-07" data-name="Agent Fresco" data-popularity="30" data-song-popularity="38" style="padding: 0.25rem;">
@@ -3996,6 +4004,24 @@ function sort(element, attribute, order) {
                     <div style="white-space: nowrap; ">🔥57</div>
                     <div style="white-space: nowrap; ">👤698k</div>
                     <div style="white-space: nowrap; ">💿10</div>
+                  </div>
+                </a>
+              </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="1" data-followers="36567" data-last-follow="189" data-last-release="2008-02-21" data-name="Almora" data-popularity="28" data-song-popularity="40" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:5rThgU18h0ejIeElIlLWkS" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616d00001e02181bf0a71bfb7e1886e88d74" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Almora</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Kıyamet Senfonisi</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥28</div>
+                    <div style="white-space: nowrap; ">👤37k</div>
+                    <div style="white-space: nowrap; ">💿1</div>
                   </div>
                 </a>
               </div>
@@ -4143,6 +4169,24 @@ function sort(element, attribute, order) {
                   </div>
                 </a>
               </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="12" data-followers="121471" data-last-follow="171" data-last-release="2023-06-16" data-name="Arkona" data-popularity="35" data-song-popularity="42" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:6AJ9HQ2Ptp1WWEfBFvR5fF" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab676161000051741e1dab9447f2869f9d918afa" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Arkona</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Yarilo</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥35</div>
+                    <div style="white-space: nowrap; ">👤121k</div>
+                    <div style="white-space: nowrap; ">💿12</div>
+                  </div>
+                </a>
+              </div>
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="3" data-followers="4915271" data-last-follow="3" data-last-release="2006-08-29" data-name="Audioslave" data-popularity="73" data-song-popularity="85" style="padding: 0.25rem;">
                 <a class="ui card" href="spotify:artist:2ziB7fzrXBoh1HUPS6sVFn" style="width: 100%">
                   <div class="image">
@@ -4266,6 +4310,24 @@ function sort(element, attribute, order) {
                     <div style="white-space: nowrap; ">🔥59</div>
                     <div style="white-space: nowrap; ">👤841k</div>
                     <div style="white-space: nowrap; ">💿24</div>
+                  </div>
+                </a>
+              </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="3" data-followers="2293" data-last-follow="135" data-last-release="2021-05-07" data-name="Braia" data-popularity="6" data-song-popularity="5" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:75za1DDTZxAuofPA5k2Vqh" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab676161000051744404ed1038dc9875946bfa75" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Braia</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Tempos Idos</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥6</div>
+                    <div style="white-space: nowrap; ">👤2k</div>
+                    <div style="white-space: nowrap; ">💿3</div>
                   </div>
                 </a>
               </div>
@@ -4521,6 +4583,24 @@ function sort(element, attribute, order) {
                   </div>
                 </a>
               </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="3" data-followers="5471" data-last-follow="107" data-last-release="2022-06-01" data-name="Eldhrimnir" data-popularity="17" data-song-popularity="18" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:34hTVEdKCODfOd1PKFclTh" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616100005174d760ec9d37033606f98ea3c3" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Eldhrimnir</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Naul, Deus da Cerveja</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥17</div>
+                    <div style="white-space: nowrap; ">👤5k</div>
+                    <div style="white-space: nowrap; ">💿3</div>
+                  </div>
+                </a>
+              </div>
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="12" data-followers="602319" data-last-follow="42" data-last-release="2025-04-25" data-name="Eluveitie" data-popularity="59" data-song-popularity="60" style="padding: 0.25rem;">
                 <a class="ui card" href="spotify:artist:5X0N2k3qMnI8kSrGJT3kfT" style="width: 100%">
                   <div class="image">
@@ -4572,6 +4652,24 @@ function sort(element, attribute, order) {
                     <div style="white-space: nowrap; ">🔥0</div>
                     <div style="white-space: nowrap; ">👤147</div>
                     <div style="white-space: nowrap; ">💿1</div>
+                  </div>
+                </a>
+              </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="11" data-followers="403608" data-last-follow="170" data-last-release="2022-04-22" data-name="Faun" data-popularity="53" data-song-popularity="53" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:2wPOgnQ6eW3X73uIJZ4YFE" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab6761610000517411ca0c0a8c59dffb940bb762" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Faun</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Federkleid</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥53</div>
+                    <div style="white-space: nowrap; ">👤404k</div>
+                    <div style="white-space: nowrap; ">💿11</div>
                   </div>
                 </a>
               </div>
@@ -5079,6 +5177,24 @@ function sort(element, attribute, order) {
                   </div>
                 </a>
               </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="26" data-followers="4619425" data-last-follow="69" data-last-release="2024-01-26" data-name="Mägo de Oz" data-popularity="69" data-song-popularity="72" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:5ZNxiPcbKgaNcBrERMpqeu" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab676161000051741bd9fe536b5ce55994bec649" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Mägo de Oz</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Fiesta Pagana</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥69</div>
+                    <div style="white-space: nowrap; ">👤4.6M</div>
+                    <div style="white-space: nowrap; ">💿26</div>
+                  </div>
+                </a>
+              </div>
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="11" data-followers="43117" data-last-follow="130" data-last-release="2023-03-17" data-name="Narnia" data-popularity="31" data-song-popularity="32" style="padding: 0.25rem;">
                 <a class="ui card" href="spotify:artist:5bodTAJqKphEDB3ItIq4Hc" style="width: 100%">
                   <div class="image">
@@ -5169,6 +5285,24 @@ function sort(element, attribute, order) {
                   </div>
                 </a>
               </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="11" data-followers="187182" data-last-follow="68" data-last-release="2018-03-30" data-name="OMNIA" data-popularity="42" data-song-popularity="49" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:6frUTw3CamrF5NAGaQchBS" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616100005174ac7723001efd33a45c2bb7bd" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">OMNIA</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Fee Ra Huri</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥42</div>
+                    <div style="white-space: nowrap; ">👤187k</div>
+                    <div style="white-space: nowrap; ">💿11</div>
+                  </div>
+                </a>
+              </div>
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="24" data-followers="1065854" data-last-follow="143" data-last-release="2024-11-22" data-name="Opeth" data-popularity="60" data-song-popularity="57" style="padding: 0.25rem;">
                 <a class="ui card" href="spotify:artist:0ybFZ2Ab08V8hueghSXm6E" style="width: 100%">
                   <div class="image">
@@ -5202,6 +5336,24 @@ function sort(element, attribute, order) {
                     <div style="white-space: nowrap; ">🔥33</div>
                     <div style="white-space: nowrap; ">👤86k</div>
                     <div style="white-space: nowrap; ">💿12</div>
+                  </div>
+                </a>
+              </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="1" data-followers="14130" data-last-follow="175" data-last-release="2008-01-01" data-name="Otyg" data-popularity="15" data-song-popularity="22" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:4hD4mPSJhofWU9bSqChPJF" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616d00001e02461f7ae9613484b950f309a0" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Otyg</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Trollslottet</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥15</div>
+                    <div style="white-space: nowrap; ">👤14k</div>
+                    <div style="white-space: nowrap; ">💿1</div>
                   </div>
                 </a>
               </div>
@@ -5799,6 +5951,24 @@ function sort(element, attribute, order) {
                   </div>
                 </a>
               </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="6" data-followers="52059" data-last-follow="29" data-last-release="2025-04-11" data-name="Ye Banished Privateers" data-popularity="45" data-song-popularity="50" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:16f8bHHqNwQWgqWMYyS9ij" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab6761610000517411bc9a75f89462593c3b095f" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Ye Banished Privateers</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">You and Me and the Devil Makes Three</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥45</div>
+                    <div style="white-space: nowrap; ">👤52k</div>
+                    <div style="white-space: nowrap; ">💿6</div>
+                  </div>
+                </a>
+              </div>
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="3" data-followers="11730" data-last-follow="138" data-last-release="2002-09-20" data-name="Zonata" data-popularity="14" data-song-popularity="24" style="padding: 0.25rem;">
                 <a class="ui card" href="spotify:artist:6EiP4zf8DuisqFZFtoXS49" style="width: 100%">
                   <div class="image">
@@ -5820,7 +5990,7 @@ function sort(element, attribute, order) {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-rock-favorites">
+        <div class="ui tab" data-tab="tab-rock---favorites">
           <div class="artists-wrapper">
             <div class="ui padded grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="22" data-followers="379174" data-last-follow="103" data-last-release="2022-05-27" data-name="Iced Earth" data-popularity="48" data-song-popularity="49" style="padding: 0.25rem;">
@@ -5844,7 +6014,7 @@ function sort(element, attribute, order) {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-rock-extreme">
+        <div class="ui tab" data-tab="tab-rock---extreme-metal">
           <div class="artists-wrapper">
             <div class="ui padded grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="23" data-followers="334351" data-last-follow="91" data-last-release="2024-09-03" data-name="Amorphis" data-popularity="49" data-song-popularity="48" style="padding: 0.25rem;">
@@ -6300,7 +6470,7 @@ function sort(element, attribute, order) {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-rock-traditional">
+        <div class="ui tab" data-tab="tab-rock---heavy-metal">
           <div class="artists-wrapper">
             <div class="ui padded grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="2" data-followers="40327" data-last-follow="25" data-last-release="2015-08-07" data-name="Agent Fresco" data-popularity="30" data-song-popularity="38" style="padding: 0.25rem;">
@@ -7440,7 +7610,481 @@ function sort(element, attribute, order) {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-rock-rock">
+        <div class="ui tab" data-tab="tab-rock---folk-metal">
+          <div class="artists-wrapper">
+            <div class="ui padded grid artists">
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="10" data-followers="697520" data-last-follow="117" data-last-release="2022-06-24" data-name="Alestorm" data-popularity="57" data-song-popularity="59" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:3OpqU68JpZlzvjAJj3B2Da" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab676161000051749ad0af7fa3272c5d1197c277" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Alestorm</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Drink</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥57</div>
+                    <div style="white-space: nowrap; ">👤698k</div>
+                    <div style="white-space: nowrap; ">💿10</div>
+                  </div>
+                </a>
+              </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="1" data-followers="36567" data-last-follow="189" data-last-release="2008-02-21" data-name="Almora" data-popularity="28" data-song-popularity="40" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:5rThgU18h0ejIeElIlLWkS" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616d00001e02181bf0a71bfb7e1886e88d74" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Almora</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Kıyamet Senfonisi</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥28</div>
+                    <div style="white-space: nowrap; ">👤37k</div>
+                    <div style="white-space: nowrap; ">💿1</div>
+                  </div>
+                </a>
+              </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="23" data-followers="334351" data-last-follow="91" data-last-release="2024-09-03" data-name="Amorphis" data-popularity="49" data-song-popularity="48" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:2UOVgpgiNTC6KK0vSC77aD" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616100005174d843a566ac64b933b3f2229d" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Amorphis</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">The Bee</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥49</div>
+                    <div style="white-space: nowrap; ">👤334k</div>
+                    <div style="white-space: nowrap; ">💿23</div>
+                  </div>
+                </a>
+              </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="12" data-followers="121471" data-last-follow="171" data-last-release="2023-06-16" data-name="Arkona" data-popularity="35" data-song-popularity="42" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:6AJ9HQ2Ptp1WWEfBFvR5fF" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab676161000051741e1dab9447f2869f9d918afa" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Arkona</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Yarilo</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥35</div>
+                    <div style="white-space: nowrap; ">👤121k</div>
+                    <div style="white-space: nowrap; ">💿12</div>
+                  </div>
+                </a>
+              </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="20" data-followers="762103" data-last-follow="87" data-last-release="2024-08-02" data-name="Blind Guardian" data-popularity="55" data-song-popularity="58" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:7jxJ25p0pPjk0MStloN6o6" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab6761610000517426139a78b669ae67aacde9f3" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Blind Guardian</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">The Bard's Song - In the Forest - Remastered 2007</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥55</div>
+                    <div style="white-space: nowrap; ">👤762k</div>
+                    <div style="white-space: nowrap; ">💿20</div>
+                  </div>
+                </a>
+              </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="14" data-followers="106389" data-last-follow="47" data-last-release="2024-02-23" data-name="Borknagar" data-popularity="35" data-song-popularity="37" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:0vxxsjcDy61x5zvrOqwHIL" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab6761610000517428e028c642117dc411386f77" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Borknagar</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Up North</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥35</div>
+                    <div style="white-space: nowrap; ">👤106k</div>
+                    <div style="white-space: nowrap; ">💿14</div>
+                  </div>
+                </a>
+              </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="3" data-followers="2293" data-last-follow="135" data-last-release="2021-05-07" data-name="Braia" data-popularity="6" data-song-popularity="5" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:75za1DDTZxAuofPA5k2Vqh" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab676161000051744404ed1038dc9875946bfa75" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Braia</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Tempos Idos</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥6</div>
+                    <div style="white-space: nowrap; ">👤2k</div>
+                    <div style="white-space: nowrap; ">💿3</div>
+                  </div>
+                </a>
+              </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="4" data-followers="11568" data-last-follow="196" data-last-release="2011-02-28" data-name="Doomsword" data-popularity="15" data-song-popularity="19" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:31R0Xxb1rS7j4d0jmNIBdl" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616d00001e0245ab732659218408d14e083a" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Doomsword</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Days of High Adventure</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥15</div>
+                    <div style="white-space: nowrap; ">👤12k</div>
+                    <div style="white-space: nowrap; ">💿4</div>
+                  </div>
+                </a>
+              </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="3" data-followers="5471" data-last-follow="107" data-last-release="2022-06-01" data-name="Eldhrimnir" data-popularity="17" data-song-popularity="18" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:34hTVEdKCODfOd1PKFclTh" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616100005174d760ec9d37033606f98ea3c3" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Eldhrimnir</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Naul, Deus da Cerveja</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥17</div>
+                    <div style="white-space: nowrap; ">👤5k</div>
+                    <div style="white-space: nowrap; ">💿3</div>
+                  </div>
+                </a>
+              </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="12" data-followers="602319" data-last-follow="42" data-last-release="2025-04-25" data-name="Eluveitie" data-popularity="59" data-song-popularity="60" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:5X0N2k3qMnI8kSrGJT3kfT" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616100005174e8581fc1b573119b7eb0b69b" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Eluveitie</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">The Call of the Mountains</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥59</div>
+                    <div style="white-space: nowrap; ">👤602k</div>
+                    <div style="white-space: nowrap; ">💿12</div>
+                  </div>
+                </a>
+              </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="11" data-followers="403608" data-last-follow="170" data-last-release="2022-04-22" data-name="Faun" data-popularity="53" data-song-popularity="53" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:2wPOgnQ6eW3X73uIJZ4YFE" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab6761610000517411ca0c0a8c59dffb940bb762" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Faun</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Federkleid</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥53</div>
+                    <div style="white-space: nowrap; ">👤404k</div>
+                    <div style="white-space: nowrap; ">💿11</div>
+                  </div>
+                </a>
+              </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="6" data-followers="206615" data-last-follow="177" data-last-release="2011-05-20" data-name="Haggard" data-popularity="45" data-song-popularity="50" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:7wHPtfK57nbFkg3k16BV5O" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab676161000051741ae2c605ad6073543555390b" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Haggard</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Herr Mannelig</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥45</div>
+                    <div style="white-space: nowrap; ">👤207k</div>
+                    <div style="white-space: nowrap; ">💿6</div>
+                  </div>
+                </a>
+              </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="7" data-followers="124209" data-last-follow="151" data-last-release="2023-02-24" data-name="Heidevolk" data-popularity="37" data-song-popularity="44" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:0A2YaO4tUFeJVNn5Hvjfxa" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab6761610000517415c381df4bc53f87d72d3434" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Heidevolk</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Vulgaris Magistralis - Bonus Track</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥37</div>
+                    <div style="white-space: nowrap; ">👤124k</div>
+                    <div style="white-space: nowrap; ">💿7</div>
+                  </div>
+                </a>
+              </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="17" data-followers="403439" data-last-follow="95" data-last-release="2023-03-17" data-name="Kamelot" data-popularity="51" data-song-popularity="52" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:7gTbq5nTZGQIUgjEGXQpOS" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab676161000051742436e28f65483f0af02ba27d" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Kamelot</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">When the Lights Are Down</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥51</div>
+                    <div style="white-space: nowrap; ">👤403k</div>
+                    <div style="white-space: nowrap; ">💿17</div>
+                  </div>
+                </a>
+              </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="13" data-followers="434722" data-last-follow="83" data-last-release="2024-04-05" data-name="Korpiklaani" data-popularity="52" data-song-popularity="57" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:521Yl3LUvD7G9dMRO4fpCy" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616100005174da501752b6e2f5c6ed2e98eb" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Korpiklaani</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Vodka</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥52</div>
+                    <div style="white-space: nowrap; ">👤435k</div>
+                    <div style="white-space: nowrap; ">💿13</div>
+                  </div>
+                </a>
+              </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="26" data-followers="4619425" data-last-follow="69" data-last-release="2024-01-26" data-name="Mägo de Oz" data-popularity="69" data-song-popularity="72" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:5ZNxiPcbKgaNcBrERMpqeu" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab676161000051741bd9fe536b5ce55994bec649" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Mägo de Oz</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Fiesta Pagana</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥69</div>
+                    <div style="white-space: nowrap; ">👤4.6M</div>
+                    <div style="white-space: nowrap; ">💿26</div>
+                  </div>
+                </a>
+              </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="11" data-followers="187182" data-last-follow="68" data-last-release="2018-03-30" data-name="OMNIA" data-popularity="42" data-song-popularity="49" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:6frUTw3CamrF5NAGaQchBS" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616100005174ac7723001efd33a45c2bb7bd" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">OMNIA</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Fee Ra Huri</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥42</div>
+                    <div style="white-space: nowrap; ">👤187k</div>
+                    <div style="white-space: nowrap; ">💿11</div>
+                  </div>
+                </a>
+              </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="12" data-followers="85544" data-last-follow="181" data-last-release="2023-12-01" data-name="Orphaned Land" data-popularity="33" data-song-popularity="31" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:7xTMxqAmbtE0Nce5lz7t0h" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab6761610000517457fa807b972641f73df43af7" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Orphaned Land</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Like Orpheus</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥33</div>
+                    <div style="white-space: nowrap; ">👤86k</div>
+                    <div style="white-space: nowrap; ">💿12</div>
+                  </div>
+                </a>
+              </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="1" data-followers="14130" data-last-follow="175" data-last-release="2008-01-01" data-name="Otyg" data-popularity="15" data-song-popularity="22" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:4hD4mPSJhofWU9bSqChPJF" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616d00001e02461f7ae9613484b950f309a0" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Otyg</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Trollslottet</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥15</div>
+                    <div style="white-space: nowrap; ">👤14k</div>
+                    <div style="white-space: nowrap; ">💿1</div>
+                  </div>
+                </a>
+              </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="8" data-followers="154101" data-last-follow="18" data-last-release="2024-11-08" data-name="Sólstafir" data-popularity="37" data-song-popularity="42" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:721C5U5rM8J0jjq6IQuSBK" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab6761610000517463a602b51cbb2d1971b2ac60" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Sólstafir</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Fjara</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥37</div>
+                    <div style="white-space: nowrap; ">👤154k</div>
+                    <div style="white-space: nowrap; ">💿8</div>
+                  </div>
+                </a>
+              </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="26" data-followers="349939" data-last-follow="178" data-last-release="2023-12-15" data-name="Therion" data-popularity="50" data-song-popularity="47" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:5c8Cw62ZYj9XO6iDLRDEsi" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab676161000051749a7f93205c66fe4181cede4a" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Therion</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Litany Of The Fallen</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥50</div>
+                    <div style="white-space: nowrap; ">👤350k</div>
+                    <div style="white-space: nowrap; ">💿26</div>
+                  </div>
+                </a>
+              </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="11" data-followers="38356" data-last-follow="183" data-last-release="2023-12-01" data-name="Tuatha de Danann" data-popularity="26" data-song-popularity="26" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:13LUK4MSLSmDpI6D3lJqEn" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab6761610000517433e35abe5829d3c811a2416d" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Tuatha de Danann</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Believe it's true!</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥26</div>
+                    <div style="white-space: nowrap; ">👤38k</div>
+                    <div style="white-space: nowrap; ">💿11</div>
+                  </div>
+                </a>
+              </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="4" data-followers="208424" data-last-follow="140" data-last-release="2013-09-03" data-name="Turisas" data-popularity="45" data-song-popularity="57" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:0ykT1si9XRFPmEvWOnf4YI" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/fb12f668e2295f0f3b9c644447bdc0b58f5867b4" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Turisas</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Rasputin</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥45</div>
+                    <div style="white-space: nowrap; ">👤208k</div>
+                    <div style="white-space: nowrap; ">💿4</div>
+                  </div>
+                </a>
+              </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="10" data-followers="235321" data-last-follow="197" data-last-release="2024-04-12" data-name="Týr" data-popularity="44" data-song-popularity="49" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:6TmGNPW2oDM5uaXBILozGa" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab676161000051748201145b953841a3828095b3" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Týr</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Blood of Heroes</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥44</div>
+                    <div style="white-space: nowrap; ">👤235k</div>
+                    <div style="white-space: nowrap; ">💿10</div>
+                  </div>
+                </a>
+              </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="5" data-followers="222826" data-last-follow="10" data-last-release="2024-08-30" data-name="Wintersun" data-popularity="44" data-song-popularity="49" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:6ui6SwChan7c1KYBQCqGKV" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616100005174673ac2f12cdeddee958c2ebe" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Wintersun</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Beyond the Dark Sun</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥44</div>
+                    <div style="white-space: nowrap; ">👤223k</div>
+                    <div style="white-space: nowrap; ">💿5</div>
+                  </div>
+                </a>
+              </div>
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="6" data-followers="52059" data-last-follow="29" data-last-release="2025-04-11" data-name="Ye Banished Privateers" data-popularity="45" data-song-popularity="50" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:16f8bHHqNwQWgqWMYyS9ij" style="width: 100%">
+                  <div class="image">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab6761610000517411bc9a75f89462593c3b095f" style="object-fit: cover;">
+                  </div>
+                  <div class="content" style="padding: 0.5rem;">
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Ye Banished Privateers</div>
+                    <div class="meta">
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">You and Me and the Devil Makes Three</div>
+                    </div>
+                  </div>
+                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
+                    <div style="white-space: nowrap; ">🔥45</div>
+                    <div style="white-space: nowrap; ">👤52k</div>
+                    <div style="white-space: nowrap; ">💿6</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ui tab" data-tab="tab-rock---rock">
           <div class="artists-wrapper">
             <div class="ui padded grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="3" data-followers="609021" data-last-follow="120" data-last-release="2022-10-07" data-name="Alvvays" data-popularity="60" data-song-popularity="65" style="padding: 0.25rem;">
@@ -7788,32 +8432,14 @@ function sort(element, attribute, order) {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-header-folk">
+        <div class="ui tab" data-tab="tab-header---folk">
           <div class="artists-wrapper">
             <div class="ui padded grid artists"></div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-folk-all">
+        <div class="ui tab" data-tab="tab-folk---all">
           <div class="artists-wrapper">
             <div class="ui padded grid artists">
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="10" data-followers="697520" data-last-follow="117" data-last-release="2022-06-24" data-name="Alestorm" data-popularity="57" data-song-popularity="59" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:3OpqU68JpZlzvjAJj3B2Da" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab676161000051749ad0af7fa3272c5d1197c277" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Alestorm</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Drink</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥57</div>
-                    <div style="white-space: nowrap; ">👤698k</div>
-                    <div style="white-space: nowrap; ">💿10</div>
-                  </div>
-                </a>
-              </div>
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="2" data-followers="32177" data-last-follow="85" data-last-release="2011-03-30" data-name="AlicebanD" data-popularity="46" data-song-popularity="49" style="padding: 0.25rem;">
                 <a class="ui card" href="spotify:artist:4r4F8WTxKS7hsSWVzlu6rY" style="width: 100%">
                   <div class="image">
@@ -7829,24 +8455,6 @@ function sort(element, attribute, order) {
                     <div style="white-space: nowrap; ">🔥46</div>
                     <div style="white-space: nowrap; ">👤32k</div>
                     <div style="white-space: nowrap; ">💿2</div>
-                  </div>
-                </a>
-              </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="1" data-followers="36567" data-last-follow="189" data-last-release="2008-02-21" data-name="Almora" data-popularity="28" data-song-popularity="40" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:5rThgU18h0ejIeElIlLWkS" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616d00001e02181bf0a71bfb7e1886e88d74" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Almora</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Kıyamet Senfonisi</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥28</div>
-                    <div style="white-space: nowrap; ">👤37k</div>
-                    <div style="white-space: nowrap; ">💿1</div>
                   </div>
                 </a>
               </div>
@@ -7886,42 +8494,6 @@ function sort(element, attribute, order) {
                   </div>
                 </a>
               </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="23" data-followers="334351" data-last-follow="91" data-last-release="2024-09-03" data-name="Amorphis" data-popularity="49" data-song-popularity="48" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:2UOVgpgiNTC6KK0vSC77aD" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616100005174d843a566ac64b933b3f2229d" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Amorphis</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">The Bee</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥49</div>
-                    <div style="white-space: nowrap; ">👤334k</div>
-                    <div style="white-space: nowrap; ">💿23</div>
-                  </div>
-                </a>
-              </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="12" data-followers="121471" data-last-follow="171" data-last-release="2023-06-16" data-name="Arkona" data-popularity="35" data-song-popularity="42" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:6AJ9HQ2Ptp1WWEfBFvR5fF" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab676161000051741e1dab9447f2869f9d918afa" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Arkona</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Yarilo</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥35</div>
-                    <div style="white-space: nowrap; ">👤121k</div>
-                    <div style="white-space: nowrap; ">💿12</div>
-                  </div>
-                </a>
-              </div>
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="3" data-followers="19556" data-last-follow="122" data-last-release="2023-09-08" data-name="Bitter Ruin" data-popularity="38" data-song-popularity="44" style="padding: 0.25rem;">
                 <a class="ui card" href="spotify:artist:6q5M5a5hW48QjbDc0xuTtU" style="width: 100%">
                   <div class="image">
@@ -7937,42 +8509,6 @@ function sort(element, attribute, order) {
                     <div style="white-space: nowrap; ">🔥38</div>
                     <div style="white-space: nowrap; ">👤20k</div>
                     <div style="white-space: nowrap; ">💿3</div>
-                  </div>
-                </a>
-              </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="20" data-followers="762103" data-last-follow="87" data-last-release="2024-08-02" data-name="Blind Guardian" data-popularity="55" data-song-popularity="58" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:7jxJ25p0pPjk0MStloN6o6" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab6761610000517426139a78b669ae67aacde9f3" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Blind Guardian</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">The Bard's Song - In the Forest - Remastered 2007</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥55</div>
-                    <div style="white-space: nowrap; ">👤762k</div>
-                    <div style="white-space: nowrap; ">💿20</div>
-                  </div>
-                </a>
-              </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="14" data-followers="106389" data-last-follow="47" data-last-release="2024-02-23" data-name="Borknagar" data-popularity="35" data-song-popularity="37" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:0vxxsjcDy61x5zvrOqwHIL" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab6761610000517428e028c642117dc411386f77" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Borknagar</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Up North</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥35</div>
-                    <div style="white-space: nowrap; ">👤106k</div>
-                    <div style="white-space: nowrap; ">💿14</div>
                   </div>
                 </a>
               </div>
@@ -8084,42 +8620,6 @@ function sort(element, attribute, order) {
                   </div>
                 </a>
               </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="4" data-followers="11568" data-last-follow="196" data-last-release="2011-02-28" data-name="Doomsword" data-popularity="15" data-song-popularity="19" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:31R0Xxb1rS7j4d0jmNIBdl" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616d00001e0245ab732659218408d14e083a" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Doomsword</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Days of High Adventure</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥15</div>
-                    <div style="white-space: nowrap; ">👤12k</div>
-                    <div style="white-space: nowrap; ">💿4</div>
-                  </div>
-                </a>
-              </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="3" data-followers="5471" data-last-follow="107" data-last-release="2022-06-01" data-name="Eldhrimnir" data-popularity="17" data-song-popularity="18" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:34hTVEdKCODfOd1PKFclTh" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616100005174d760ec9d37033606f98ea3c3" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Eldhrimnir</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Naul, Deus da Cerveja</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥17</div>
-                    <div style="white-space: nowrap; ">👤5k</div>
-                    <div style="white-space: nowrap; ">💿3</div>
-                  </div>
-                </a>
-              </div>
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="2" data-followers="15666" data-last-follow="106" data-last-release="2015-10-20" data-name="Eliza Rickman" data-popularity="29" data-song-popularity="40" style="padding: 0.25rem;">
                 <a class="ui card" href="spotify:artist:4j0K5gPOQZYpiaz3vc9dzx" style="width: 100%">
                   <div class="image">
@@ -8192,60 +8692,6 @@ function sort(element, attribute, order) {
                   </div>
                 </a>
               </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="6" data-followers="206615" data-last-follow="177" data-last-release="2011-05-20" data-name="Haggard" data-popularity="45" data-song-popularity="50" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:7wHPtfK57nbFkg3k16BV5O" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab676161000051741ae2c605ad6073543555390b" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Haggard</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Herr Mannelig</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥45</div>
-                    <div style="white-space: nowrap; ">👤207k</div>
-                    <div style="white-space: nowrap; ">💿6</div>
-                  </div>
-                </a>
-              </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="7" data-followers="124209" data-last-follow="151" data-last-release="2023-02-24" data-name="Heidevolk" data-popularity="37" data-song-popularity="44" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:0A2YaO4tUFeJVNn5Hvjfxa" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab6761610000517415c381df4bc53f87d72d3434" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Heidevolk</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Vulgaris Magistralis - Bonus Track</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥37</div>
-                    <div style="white-space: nowrap; ">👤124k</div>
-                    <div style="white-space: nowrap; ">💿7</div>
-                  </div>
-                </a>
-              </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="17" data-followers="403439" data-last-follow="95" data-last-release="2023-03-17" data-name="Kamelot" data-popularity="51" data-song-popularity="52" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:7gTbq5nTZGQIUgjEGXQpOS" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab676161000051742436e28f65483f0af02ba27d" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Kamelot</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">When the Lights Are Down</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥51</div>
-                    <div style="white-space: nowrap; ">👤403k</div>
-                    <div style="white-space: nowrap; ">💿17</div>
-                  </div>
-                </a>
-              </div>
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="2" data-followers="1457" data-last-follow="57" data-last-release="2021-11-11" data-name="Kim Tillman" data-popularity="19" data-song-popularity="7" style="padding: 0.25rem;">
                 <a class="ui card" href="spotify:artist:2jan3WAlx8QSZ2C7fCVX69" style="width: 100%">
                   <div class="image">
@@ -8261,24 +8707,6 @@ function sort(element, attribute, order) {
                     <div style="white-space: nowrap; ">🔥19</div>
                     <div style="white-space: nowrap; ">👤1k</div>
                     <div style="white-space: nowrap; ">💿2</div>
-                  </div>
-                </a>
-              </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="13" data-followers="434722" data-last-follow="83" data-last-release="2024-04-05" data-name="Korpiklaani" data-popularity="52" data-song-popularity="57" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:521Yl3LUvD7G9dMRO4fpCy" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616100005174da501752b6e2f5c6ed2e98eb" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Korpiklaani</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Vodka</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥52</div>
-                    <div style="white-space: nowrap; ">👤435k</div>
-                    <div style="white-space: nowrap; ">💿13</div>
                   </div>
                 </a>
               </div>
@@ -8318,24 +8746,6 @@ function sort(element, attribute, order) {
                   </div>
                 </a>
               </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="26" data-followers="4619425" data-last-follow="69" data-last-release="2024-01-26" data-name="Mägo de Oz" data-popularity="69" data-song-popularity="72" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:5ZNxiPcbKgaNcBrERMpqeu" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab676161000051741bd9fe536b5ce55994bec649" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Mägo de Oz</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Fiesta Pagana</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥69</div>
-                    <div style="white-space: nowrap; ">👤4.6M</div>
-                    <div style="white-space: nowrap; ">💿26</div>
-                  </div>
-                </a>
-              </div>
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="11" data-followers="187182" data-last-follow="68" data-last-release="2018-03-30" data-name="OMNIA" data-popularity="42" data-song-popularity="49" style="padding: 0.25rem;">
                 <a class="ui card" href="spotify:artist:6frUTw3CamrF5NAGaQchBS" style="width: 100%">
                   <div class="image">
@@ -8354,42 +8764,6 @@ function sort(element, attribute, order) {
                   </div>
                 </a>
               </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="12" data-followers="85544" data-last-follow="181" data-last-release="2023-12-01" data-name="Orphaned Land" data-popularity="33" data-song-popularity="31" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:7xTMxqAmbtE0Nce5lz7t0h" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab6761610000517457fa807b972641f73df43af7" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Orphaned Land</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Like Orpheus</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥33</div>
-                    <div style="white-space: nowrap; ">👤86k</div>
-                    <div style="white-space: nowrap; ">💿12</div>
-                  </div>
-                </a>
-              </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="1" data-followers="14130" data-last-follow="175" data-last-release="2008-01-01" data-name="Otyg" data-popularity="15" data-song-popularity="22" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:4hD4mPSJhofWU9bSqChPJF" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616d00001e02461f7ae9613484b950f309a0" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Otyg</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Trollslottet</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥15</div>
-                    <div style="white-space: nowrap; ">👤14k</div>
-                    <div style="white-space: nowrap; ">💿1</div>
-                  </div>
-                </a>
-              </div>
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="14" data-followers="159451" data-last-follow="185" data-last-release="2024-08-09" data-name="Steam Powered Giraffe" data-popularity="47" data-song-popularity="54" style="padding: 0.25rem;">
                 <a class="ui card" href="spotify:artist:1yqs45BSh7457Flyhmdv7f" style="width: 100%">
                   <div class="image">
@@ -8405,24 +8779,6 @@ function sort(element, attribute, order) {
                     <div style="white-space: nowrap; ">🔥47</div>
                     <div style="white-space: nowrap; ">👤159k</div>
                     <div style="white-space: nowrap; ">💿14</div>
-                  </div>
-                </a>
-              </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="8" data-followers="154101" data-last-follow="18" data-last-release="2024-11-08" data-name="Sólstafir" data-popularity="37" data-song-popularity="42" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:721C5U5rM8J0jjq6IQuSBK" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab6761610000517463a602b51cbb2d1971b2ac60" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Sólstafir</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Fjara</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥37</div>
-                    <div style="white-space: nowrap; ">👤154k</div>
-                    <div style="white-space: nowrap; ">💿8</div>
                   </div>
                 </a>
               </div>
@@ -8480,24 +8836,6 @@ function sort(element, attribute, order) {
                   </div>
                 </a>
               </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="26" data-followers="349939" data-last-follow="178" data-last-release="2023-12-15" data-name="Therion" data-popularity="50" data-song-popularity="47" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:5c8Cw62ZYj9XO6iDLRDEsi" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab676161000051749a7f93205c66fe4181cede4a" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Therion</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Litany Of The Fallen</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥50</div>
-                    <div style="white-space: nowrap; ">👤350k</div>
-                    <div style="white-space: nowrap; ">💿26</div>
-                  </div>
-                </a>
-              </div>
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="11" data-followers="38356" data-last-follow="183" data-last-release="2023-12-01" data-name="Tuatha de Danann" data-popularity="26" data-song-popularity="26" style="padding: 0.25rem;">
                 <a class="ui card" href="spotify:artist:13LUK4MSLSmDpI6D3lJqEn" style="width: 100%">
                   <div class="image">
@@ -8513,42 +8851,6 @@ function sort(element, attribute, order) {
                     <div style="white-space: nowrap; ">🔥26</div>
                     <div style="white-space: nowrap; ">👤38k</div>
                     <div style="white-space: nowrap; ">💿11</div>
-                  </div>
-                </a>
-              </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="4" data-followers="208424" data-last-follow="140" data-last-release="2013-09-03" data-name="Turisas" data-popularity="45" data-song-popularity="57" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:0ykT1si9XRFPmEvWOnf4YI" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/fb12f668e2295f0f3b9c644447bdc0b58f5867b4" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Turisas</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Rasputin</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥45</div>
-                    <div style="white-space: nowrap; ">👤208k</div>
-                    <div style="white-space: nowrap; ">💿4</div>
-                  </div>
-                </a>
-              </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="10" data-followers="235321" data-last-follow="197" data-last-release="2024-04-12" data-name="Týr" data-popularity="44" data-song-popularity="49" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:6TmGNPW2oDM5uaXBILozGa" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab676161000051748201145b953841a3828095b3" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Týr</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Blood of Heroes</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥44</div>
-                    <div style="white-space: nowrap; ">👤235k</div>
-                    <div style="white-space: nowrap; ">💿10</div>
                   </div>
                 </a>
               </div>
@@ -8570,161 +8872,54 @@ function sort(element, attribute, order) {
                   </div>
                 </a>
               </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="5" data-followers="222826" data-last-follow="10" data-last-release="2024-08-30" data-name="Wintersun" data-popularity="44" data-song-popularity="49" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:6ui6SwChan7c1KYBQCqGKV" style="width: 100%">
+            </div>
+          </div>
+        </div>
+        <div class="ui tab" data-tab="tab-folk---favorites">
+          <div class="artists-wrapper">
+            <div class="ui padded grid artists">
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="2" data-followers="15666" data-last-follow="106" data-last-release="2015-10-20" data-name="Eliza Rickman" data-popularity="29" data-song-popularity="40" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:4j0K5gPOQZYpiaz3vc9dzx" style="width: 100%">
                   <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616100005174673ac2f12cdeddee958c2ebe" style="object-fit: cover;">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616100005174a920ac1c8edf62bf5df3be41" style="object-fit: cover;">
                   </div>
                   <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Wintersun</div>
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Eliza Rickman</div>
                     <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Beyond the Dark Sun</div>
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Pretty Little Head</div>
                     </div>
                   </div>
                   <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥44</div>
-                    <div style="white-space: nowrap; ">👤223k</div>
-                    <div style="white-space: nowrap; ">💿5</div>
+                    <div style="white-space: nowrap; ">🔥29</div>
+                    <div style="white-space: nowrap; ">👤16k</div>
+                    <div style="white-space: nowrap; ">💿2</div>
                   </div>
                 </a>
               </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="6" data-followers="52059" data-last-follow="29" data-last-release="2025-04-11" data-name="Ye Banished Privateers" data-popularity="45" data-song-popularity="50" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:16f8bHHqNwQWgqWMYyS9ij" style="width: 100%">
+              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="14" data-followers="159451" data-last-follow="185" data-last-release="2024-08-09" data-name="Steam Powered Giraffe" data-popularity="47" data-song-popularity="54" style="padding: 0.25rem;">
+                <a class="ui card" href="spotify:artist:1yqs45BSh7457Flyhmdv7f" style="width: 100%">
                   <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab6761610000517411bc9a75f89462593c3b095f" style="object-fit: cover;">
+                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab676161000051741b9743970d802c36233125b3" style="object-fit: cover;">
                   </div>
                   <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Ye Banished Privateers</div>
+                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Steam Powered Giraffe</div>
                     <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">You and Me and the Devil Makes Three</div>
+                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Honeybee</div>
                     </div>
                   </div>
                   <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥45</div>
-                    <div style="white-space: nowrap; ">👤52k</div>
-                    <div style="white-space: nowrap; ">💿6</div>
+                    <div style="white-space: nowrap; ">🔥47</div>
+                    <div style="white-space: nowrap; ">👤159k</div>
+                    <div style="white-space: nowrap; ">💿14</div>
                   </div>
                 </a>
               </div>
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-folk-favorites">
-          <div class="artists-wrapper">
-            <div class="ui padded grid artists"></div>
-          </div>
-        </div>
-        <div class="ui tab" data-tab="tab-folk-folk">
+        <div class="ui tab" data-tab="tab-folk---folk">
           <div class="artists-wrapper">
             <div class="ui padded grid artists">
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="10" data-followers="697520" data-last-follow="117" data-last-release="2022-06-24" data-name="Alestorm" data-popularity="57" data-song-popularity="59" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:3OpqU68JpZlzvjAJj3B2Da" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab676161000051749ad0af7fa3272c5d1197c277" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Alestorm</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Drink</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥57</div>
-                    <div style="white-space: nowrap; ">👤698k</div>
-                    <div style="white-space: nowrap; ">💿10</div>
-                  </div>
-                </a>
-              </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="1" data-followers="36567" data-last-follow="189" data-last-release="2008-02-21" data-name="Almora" data-popularity="28" data-song-popularity="40" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:5rThgU18h0ejIeElIlLWkS" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616d00001e02181bf0a71bfb7e1886e88d74" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Almora</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Kıyamet Senfonisi</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥28</div>
-                    <div style="white-space: nowrap; ">👤37k</div>
-                    <div style="white-space: nowrap; ">💿1</div>
-                  </div>
-                </a>
-              </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="23" data-followers="334351" data-last-follow="91" data-last-release="2024-09-03" data-name="Amorphis" data-popularity="49" data-song-popularity="48" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:2UOVgpgiNTC6KK0vSC77aD" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616100005174d843a566ac64b933b3f2229d" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Amorphis</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">The Bee</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥49</div>
-                    <div style="white-space: nowrap; ">👤334k</div>
-                    <div style="white-space: nowrap; ">💿23</div>
-                  </div>
-                </a>
-              </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="12" data-followers="121471" data-last-follow="171" data-last-release="2023-06-16" data-name="Arkona" data-popularity="35" data-song-popularity="42" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:6AJ9HQ2Ptp1WWEfBFvR5fF" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab676161000051741e1dab9447f2869f9d918afa" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Arkona</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Yarilo</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥35</div>
-                    <div style="white-space: nowrap; ">👤121k</div>
-                    <div style="white-space: nowrap; ">💿12</div>
-                  </div>
-                </a>
-              </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="20" data-followers="762103" data-last-follow="87" data-last-release="2024-08-02" data-name="Blind Guardian" data-popularity="55" data-song-popularity="58" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:7jxJ25p0pPjk0MStloN6o6" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab6761610000517426139a78b669ae67aacde9f3" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Blind Guardian</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">The Bard's Song - In the Forest - Remastered 2007</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥55</div>
-                    <div style="white-space: nowrap; ">👤762k</div>
-                    <div style="white-space: nowrap; ">💿20</div>
-                  </div>
-                </a>
-              </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="14" data-followers="106389" data-last-follow="47" data-last-release="2024-02-23" data-name="Borknagar" data-popularity="35" data-song-popularity="37" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:0vxxsjcDy61x5zvrOqwHIL" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab6761610000517428e028c642117dc411386f77" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Borknagar</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Up North</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥35</div>
-                    <div style="white-space: nowrap; ">👤106k</div>
-                    <div style="white-space: nowrap; ">💿14</div>
-                  </div>
-                </a>
-              </div>
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="3" data-followers="2293" data-last-follow="135" data-last-release="2021-05-07" data-name="Braia" data-popularity="6" data-song-popularity="5" style="padding: 0.25rem;">
                 <a class="ui card" href="spotify:artist:75za1DDTZxAuofPA5k2Vqh" style="width: 100%">
                   <div class="image">
@@ -8797,42 +8992,6 @@ function sort(element, attribute, order) {
                   </div>
                 </a>
               </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="4" data-followers="11568" data-last-follow="196" data-last-release="2011-02-28" data-name="Doomsword" data-popularity="15" data-song-popularity="19" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:31R0Xxb1rS7j4d0jmNIBdl" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616d00001e0245ab732659218408d14e083a" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Doomsword</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Days of High Adventure</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥15</div>
-                    <div style="white-space: nowrap; ">👤12k</div>
-                    <div style="white-space: nowrap; ">💿4</div>
-                  </div>
-                </a>
-              </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="3" data-followers="5471" data-last-follow="107" data-last-release="2022-06-01" data-name="Eldhrimnir" data-popularity="17" data-song-popularity="18" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:34hTVEdKCODfOd1PKFclTh" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616100005174d760ec9d37033606f98ea3c3" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Eldhrimnir</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Naul, Deus da Cerveja</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥17</div>
-                    <div style="white-space: nowrap; ">👤5k</div>
-                    <div style="white-space: nowrap; ">💿3</div>
-                  </div>
-                </a>
-              </div>
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="12" data-followers="602319" data-last-follow="42" data-last-release="2025-04-25" data-name="Eluveitie" data-popularity="59" data-song-popularity="60" style="padding: 0.25rem;">
                 <a class="ui card" href="spotify:artist:5X0N2k3qMnI8kSrGJT3kfT" style="width: 100%">
                   <div class="image">
@@ -8869,96 +9028,6 @@ function sort(element, attribute, order) {
                   </div>
                 </a>
               </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="6" data-followers="206615" data-last-follow="177" data-last-release="2011-05-20" data-name="Haggard" data-popularity="45" data-song-popularity="50" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:7wHPtfK57nbFkg3k16BV5O" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab676161000051741ae2c605ad6073543555390b" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Haggard</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Herr Mannelig</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥45</div>
-                    <div style="white-space: nowrap; ">👤207k</div>
-                    <div style="white-space: nowrap; ">💿6</div>
-                  </div>
-                </a>
-              </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="7" data-followers="124209" data-last-follow="151" data-last-release="2023-02-24" data-name="Heidevolk" data-popularity="37" data-song-popularity="44" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:0A2YaO4tUFeJVNn5Hvjfxa" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab6761610000517415c381df4bc53f87d72d3434" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Heidevolk</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Vulgaris Magistralis - Bonus Track</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥37</div>
-                    <div style="white-space: nowrap; ">👤124k</div>
-                    <div style="white-space: nowrap; ">💿7</div>
-                  </div>
-                </a>
-              </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="17" data-followers="403439" data-last-follow="95" data-last-release="2023-03-17" data-name="Kamelot" data-popularity="51" data-song-popularity="52" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:7gTbq5nTZGQIUgjEGXQpOS" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab676161000051742436e28f65483f0af02ba27d" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Kamelot</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">When the Lights Are Down</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥51</div>
-                    <div style="white-space: nowrap; ">👤403k</div>
-                    <div style="white-space: nowrap; ">💿17</div>
-                  </div>
-                </a>
-              </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="13" data-followers="434722" data-last-follow="83" data-last-release="2024-04-05" data-name="Korpiklaani" data-popularity="52" data-song-popularity="57" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:521Yl3LUvD7G9dMRO4fpCy" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616100005174da501752b6e2f5c6ed2e98eb" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Korpiklaani</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Vodka</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥52</div>
-                    <div style="white-space: nowrap; ">👤435k</div>
-                    <div style="white-space: nowrap; ">💿13</div>
-                  </div>
-                </a>
-              </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="26" data-followers="4619425" data-last-follow="69" data-last-release="2024-01-26" data-name="Mägo de Oz" data-popularity="69" data-song-popularity="72" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:5ZNxiPcbKgaNcBrERMpqeu" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab676161000051741bd9fe536b5ce55994bec649" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Mägo de Oz</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Fiesta Pagana</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥69</div>
-                    <div style="white-space: nowrap; ">👤4.6M</div>
-                    <div style="white-space: nowrap; ">💿26</div>
-                  </div>
-                </a>
-              </div>
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="11" data-followers="187182" data-last-follow="68" data-last-release="2018-03-30" data-name="OMNIA" data-popularity="42" data-song-popularity="49" style="padding: 0.25rem;">
                 <a class="ui card" href="spotify:artist:6frUTw3CamrF5NAGaQchBS" style="width: 100%">
                   <div class="image">
@@ -8974,60 +9043,6 @@ function sort(element, attribute, order) {
                     <div style="white-space: nowrap; ">🔥42</div>
                     <div style="white-space: nowrap; ">👤187k</div>
                     <div style="white-space: nowrap; ">💿11</div>
-                  </div>
-                </a>
-              </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="12" data-followers="85544" data-last-follow="181" data-last-release="2023-12-01" data-name="Orphaned Land" data-popularity="33" data-song-popularity="31" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:7xTMxqAmbtE0Nce5lz7t0h" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab6761610000517457fa807b972641f73df43af7" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Orphaned Land</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Like Orpheus</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥33</div>
-                    <div style="white-space: nowrap; ">👤86k</div>
-                    <div style="white-space: nowrap; ">💿12</div>
-                  </div>
-                </a>
-              </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="1" data-followers="14130" data-last-follow="175" data-last-release="2008-01-01" data-name="Otyg" data-popularity="15" data-song-popularity="22" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:4hD4mPSJhofWU9bSqChPJF" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616d00001e02461f7ae9613484b950f309a0" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Otyg</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Trollslottet</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥15</div>
-                    <div style="white-space: nowrap; ">👤14k</div>
-                    <div style="white-space: nowrap; ">💿1</div>
-                  </div>
-                </a>
-              </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="8" data-followers="154101" data-last-follow="18" data-last-release="2024-11-08" data-name="Sólstafir" data-popularity="37" data-song-popularity="42" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:721C5U5rM8J0jjq6IQuSBK" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab6761610000517463a602b51cbb2d1971b2ac60" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Sólstafir</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Fjara</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥37</div>
-                    <div style="white-space: nowrap; ">👤154k</div>
-                    <div style="white-space: nowrap; ">💿8</div>
                   </div>
                 </a>
               </div>
@@ -9049,24 +9064,6 @@ function sort(element, attribute, order) {
                   </div>
                 </a>
               </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="26" data-followers="349939" data-last-follow="178" data-last-release="2023-12-15" data-name="Therion" data-popularity="50" data-song-popularity="47" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:5c8Cw62ZYj9XO6iDLRDEsi" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab676161000051749a7f93205c66fe4181cede4a" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Therion</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Litany Of The Fallen</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥50</div>
-                    <div style="white-space: nowrap; ">👤350k</div>
-                    <div style="white-space: nowrap; ">💿26</div>
-                  </div>
-                </a>
-              </div>
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="11" data-followers="38356" data-last-follow="183" data-last-release="2023-12-01" data-name="Tuatha de Danann" data-popularity="26" data-song-popularity="26" style="padding: 0.25rem;">
                 <a class="ui card" href="spotify:artist:13LUK4MSLSmDpI6D3lJqEn" style="width: 100%">
                   <div class="image">
@@ -9085,82 +9082,10 @@ function sort(element, attribute, order) {
                   </div>
                 </a>
               </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="4" data-followers="208424" data-last-follow="140" data-last-release="2013-09-03" data-name="Turisas" data-popularity="45" data-song-popularity="57" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:0ykT1si9XRFPmEvWOnf4YI" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/fb12f668e2295f0f3b9c644447bdc0b58f5867b4" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Turisas</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Rasputin</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥45</div>
-                    <div style="white-space: nowrap; ">👤208k</div>
-                    <div style="white-space: nowrap; ">💿4</div>
-                  </div>
-                </a>
-              </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="10" data-followers="235321" data-last-follow="197" data-last-release="2024-04-12" data-name="Týr" data-popularity="44" data-song-popularity="49" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:6TmGNPW2oDM5uaXBILozGa" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab676161000051748201145b953841a3828095b3" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Týr</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Blood of Heroes</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥44</div>
-                    <div style="white-space: nowrap; ">👤235k</div>
-                    <div style="white-space: nowrap; ">💿10</div>
-                  </div>
-                </a>
-              </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="5" data-followers="222826" data-last-follow="10" data-last-release="2024-08-30" data-name="Wintersun" data-popularity="44" data-song-popularity="49" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:6ui6SwChan7c1KYBQCqGKV" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616100005174673ac2f12cdeddee958c2ebe" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Wintersun</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">Beyond the Dark Sun</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥44</div>
-                    <div style="white-space: nowrap; ">👤223k</div>
-                    <div style="white-space: nowrap; ">💿5</div>
-                  </div>
-                </a>
-              </div>
-              <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="6" data-followers="52059" data-last-follow="29" data-last-release="2025-04-11" data-name="Ye Banished Privateers" data-popularity="45" data-song-popularity="50" style="padding: 0.25rem;">
-                <a class="ui card" href="spotify:artist:16f8bHHqNwQWgqWMYyS9ij" style="width: 100%">
-                  <div class="image">
-                    <img class="ui image artist-image" src="https://i.scdn.co/image/ab6761610000517411bc9a75f89462593c3b095f" style="object-fit: cover;">
-                  </div>
-                  <div class="content" style="padding: 0.5rem;">
-                    <div class="ui small header" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Ye Banished Privateers</div>
-                    <div class="meta">
-                      <div style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis;">You and Me and the Devil Makes Three</div>
-                    </div>
-                  </div>
-                  <div class="extra content" style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between">
-                    <div style="white-space: nowrap; ">🔥45</div>
-                    <div style="white-space: nowrap; ">👤52k</div>
-                    <div style="white-space: nowrap; ">💿6</div>
-                  </div>
-                </a>
-              </div>
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-folk-steampunk">
+        <div class="ui tab" data-tab="tab-folk---steampunk">
           <div class="artists-wrapper">
             <div class="ui padded grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="2" data-followers="32177" data-last-follow="85" data-last-release="2011-03-30" data-name="AlicebanD" data-popularity="46" data-song-popularity="49" style="padding: 0.25rem;">
@@ -9436,12 +9361,12 @@ function sort(element, attribute, order) {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-header-alternative">
+        <div class="ui tab" data-tab="tab-header---alternative">
           <div class="artists-wrapper">
             <div class="ui padded grid artists"></div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-alt-all">
+        <div class="ui tab" data-tab="tab-alt---all">
           <div class="artists-wrapper">
             <div class="ui padded grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="3" data-followers="46426" data-last-follow="28" data-last-release="2025-04-25" data-name="aeseaes" data-popularity="45" data-song-popularity="50" style="padding: 0.25rem;">
@@ -10635,12 +10560,12 @@ function sort(element, attribute, order) {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-alt-favorites">
+        <div class="ui tab" data-tab="tab-alt---favorites">
           <div class="artists-wrapper">
             <div class="ui padded grid artists"></div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-alt-atmospheric">
+        <div class="ui tab" data-tab="tab-alt---atmospheric">
           <div class="artists-wrapper">
             <div class="ui padded grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="3" data-followers="46426" data-last-follow="28" data-last-release="2025-04-25" data-name="aeseaes" data-popularity="45" data-song-popularity="50" style="padding: 0.25rem;">
@@ -11168,7 +11093,7 @@ function sort(element, attribute, order) {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-alt-energetic">
+        <div class="ui tab" data-tab="tab-alt---energetic">
           <div class="artists-wrapper">
             <div class="ui padded grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="3" data-followers="729300" data-last-follow="160" data-last-release="2011-01-01" data-name="Aqua" data-popularity="67" data-song-popularity="78" style="padding: 0.25rem;">
@@ -11606,7 +11531,7 @@ function sort(element, attribute, order) {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-alt-voxguitar">
+        <div class="ui tab" data-tab="tab-alt---voxguitar">
           <div class="artists-wrapper">
             <div class="ui padded grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="9" data-followers="142379" data-last-follow="11" data-last-release="2023-12-01" data-name="Alela Diane" data-popularity="47" data-song-popularity="44" style="padding: 0.25rem;">
