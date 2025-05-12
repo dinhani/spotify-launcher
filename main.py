@@ -1,175 +1,39 @@
 # ------------------------------------------------------------------------------
-# Mappings
-# ------------------------------------------------------------------------------
-T_ALT_ATMOSFERICO = "Alt: Atmosférico"
-T_ALT_ENERGICO = "Alt: Enérgico"
-T_ALT_VOZ = "Alt: Voz & Violão"
-T_FOLK = "Folclórico"
-T_INDIE = "Indie"
-T_METAL_TODOS = "Metal (todos)"
-T_METAL_EXTREMO = "Metal Extremo"
-T_METAL_TRADICIONAL  = "Metal Tradicional"
-T_OUTROS = "Outros"
-T_ROCK = "Rock"
-T_STEAMPUNK = "Steampunk"
-
-TAGS_ORDER = [
-    T_METAL_TRADICIONAL,
-    T_METAL_EXTREMO,
-    T_FOLK,
-    T_ROCK,
-    T_STEAMPUNK,
-    T_ALT_ATMOSFERICO,
-    T_ALT_VOZ,
-    T_ALT_ENERGICO,
-    T_OUTROS
-]
-
-TAGS_INVERTED = {
-    T_METAL_TRADICIONAL: [
-        "-Gotthard",
-        "+Massacration",
-        "+Stress",
-        "christian rock",
-        "glam metal",
-        "gothic metal",
-        "hard rock",
-        "heavy metal",
-        "nu metal",
-        "power metal",
-        "progressive metal",
-        "thrash metal",
-        "doom metal"
-    ],
-    T_METAL_EXTREMO: [
-        "-Therion",
-        "black metal",
-        "death metal",
-        "melodic death metal"
-    ],
-    T_FOLK: [
-        "-Leaves' Eyes",
-        "-Nightwish",
-        "-Rhapsody",
-        "-Sabaton",
-        "-Sonata Arctica",
-        "+Confraria da Costa",
-        "+The Dead South",
-        "celtic",
-        "folk metal",
-        "viking metal"
-    ],
-    T_ROCK: [
-        "+Camp Claude",
-        "-Iron Maiden",
-        "+Barns Courtney",
-        "+Daughter",
-        "+Imagine Dragons",
-        "+Lordi",
-        "+Syd Matters",
-        "+Tame Impala",
-        "+The Dead South",
-        "+Wussy",
-        "album rock",
-        "alternative rock",
-        "post-grunge",
-        "rock",
-        "shoegaze"
-    ],
-    T_STEAMPUNK: [
-        "dark cabaret"
-    ],
-    T_ALT_ATMOSFERICO: [
-        "+AURORA",
-        "+Gemma Hayes",
-        "+aeseaes",
-        "+Billie Eilish",
-        "+Birdy",
-        "+Cathedrals",
-        "+Daughter",
-        "+Ex:Re",
-        "+HÆLOS",
-        "+Jeanne Added",
-        "+Juniper Vale",
-        "+Lana Del Rey",
-        "+Leandra",
-        "+London Grammar",
-        "+Lor",
-        "+Oh Land",
-        "+Oh Wonder",
-        "+Prudence",
-        "+PHILDEL",
-        "+Phoebe Bridgers",
-        "+Rosemary & Garlic",
-        "+Ruelle",
-        "+Soap&Skin",
-        "+Sóley",
-        "+Susanne Sundfør",
-        "+The xx",
-        "+Vaults",
-        "+Burning Peacocks",
-        "chamber pop"
-    ],
-    T_ALT_ENERGICO: [
-        "+Claire Rosinkranz",
-        "+BROODS",
-        "+Jessie Ware",
-        "+Joyce Jonathan",
-        "+Kaleida",
-        "+Lady Gaga",
-        "+Las Aves",
-        "+LÉON",
-        "+Lola Young",
-        "+Lorde",
-        "+MARINA",
-        "+Of Monsters and Men",
-        "+Prudence",
-        "+Stromae",
-        "+Superorganism",
-        "+Susanne Sundfør",
-        "+The Dø",
-        "+Zella Day",
-        "baroque pop",
-        "electroclash",
-        "eurodance",
-        "synthpop",
-    ],
-    T_ALT_VOZ: [
-        "-Of Monsters and Men",
-        "+Alela Diane",
-        "+Angus & Julia Stone",
-        "+Billie Marten",
-        "+Cocoon",
-        "+Gabrielle Shonk",
-        "+LAUREL",
-        "+Marika Hackman",
-        "+Michelle Gurevich",
-        "+Sidney Gish",
-        "+Frøkedal",
-        "+The Staves",
-        "indie folk",
-    ]
-}
-TAGS = {}
-for tag, patterns in TAGS_INVERTED.items():
-    for pattern in patterns:
-        TAGS[pattern] = tag
-
-# ------------------------------------------------------------------------------
 # Libraries
 # ------------------------------------------------------------------------------
+import sys
+import logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s.%(msecs)03d | %(levelname)-5s | %(message)s',
+    datefmt='%H:%M:%S',
+    handlers=[logging.StreamHandler(sys.stdout)]
+)
+logging.info("🚀 Starting script")
+
 from collections import defaultdict
+from data import *
 from dominate.tags import *
 from millify import millify
 import polars
 
+# ------------------------------------------------------------------------------
+# CONSTANTS
+# ------------------------------------------------------------------------------
+INPUT_ARTISTS = "data/artistas.tsv"
+OUTPUT_LAUNCHER = "docs/index.html"
+OUTPUT_SUMMARY = "docs/summary.txt"
 
 # ------------------------------------------------------------------------------
 # Parse artists tags
 # ------------------------------------------------------------------------------
 artists_by_tag = defaultdict(list)
 
-artists_df = polars.read_csv("data/artistas.tsv", separator="\t")
+
+logging.info(f"📄 Reading CSV file: {INPUT_ARTISTS}")
+artists_df = polars.read_csv(INPUT_ARTISTS, separator="\t")
+
+logging.info("🧱 Parsing tags")
 for artist in artists_df.to_dicts():
     # parse row
     tags = set()
@@ -180,8 +44,8 @@ for artist in artists_df.to_dicts():
         genres = genres.split("|")
 
     # match genres
-    for tag in genres:
-        tag = TAGS.get(tag)
+    for genre in genres:
+        tag = TAGS.get(genre)
         if tag:
             tags.add(tag)
 
@@ -211,6 +75,7 @@ for artist in artists_df.to_dicts():
 # ------------------------------------------------------------------------------
 # Generate HTML
 # ------------------------------------------------------------------------------
+logging.info("🧱 Generating HTML")
 
 CSS_INLINE = """
 .extra.content::after {
@@ -343,13 +208,17 @@ with doc:
     script("$('.ui.rating').rating();")
 
 # write to file
-with open("docs/index.html", "w", encoding="utf-8") as f:
+logging.info(f"💾 Writing: {OUTPUT_LAUNCHER}")
+with open(OUTPUT_LAUNCHER, "w", encoding="utf-8") as f:
     f.write(str(doc))
 
 # write summary
-with open("docs/classificao.txt", "w", encoding="utf-8") as f:
+logging.info(f"💾 Writing: {OUTPUT_SUMMARY}")
+with open(OUTPUT_SUMMARY, "w", encoding="utf-8") as f:
     for tag in TAGS_ORDER:
         f.write("\n")
         f.write(tag + ":\n")
         for artist in artists_by_tag[tag]:
             f.write("* " + artist["name"] + "\n")
+
+logging.info("✅ Done")
