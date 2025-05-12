@@ -147,7 +147,7 @@ def menu_sorting(desktop):
 
 def menu_wrapper(mobile: bool, label: str):
     active = "active" if not mobile else " "
-    with div(cls=f"{active} title", style="font-size: 1.28571429rem;"):
+    with div(cls=f"{active} title", style="font-size: 1.71428571rem;"):
             span(label)
             i(cls="right dropdown icon")
     with div(cls=f"{active} content", style="padding: 0rem;"):
@@ -237,7 +237,7 @@ with doc:
             # Scroll to top
             # ------------------------------------------------------------------
             with div(cls="sixteen wide column mobile tablet only"):
-                div("⬆️ Back to top", cls="ui fluid big button", onClick="window.scrollTo({top:0})")
+                div("⬆️ Back to top", cls="ui fluid massive button", onClick="window.scrollTo({top:0})")
 
 
     # script
