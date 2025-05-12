@@ -63,7 +63,38 @@ TAGS_INVERTED = {
         T_ROCK_FOLK_METAL,
     ],
     T_ROCK_FAVORITES: [
+        "+Altaria",
+        "+Alvvays",
+        "+Amorphis",
+        "+ANGRA",
+        "+Ayreon",
+        "+Crypta",
+        "+Deathstars",
+        "+Doomsword",
+        "+Eldhrimnir",
+        "+Haggard",
+        "+Haken",
+        "+Hangar",
         "+Iced Earth",
+        "+In Mourning",
+        "+Judas Priest",
+        "+Klone",
+        "+Mägo de Oz",
+        "+Muse",
+        "+Narnia",
+        "+Oficina G3",
+        "+Opeth",
+        "+Orphaned Land",
+        "+Otyg",
+        "+Sabaton",
+        "+Sentenced",
+        "+Shaman",
+        "+Sonata Arctica",
+        "+Syd Matters",
+        "+Therion",
+        "+Torture Squad",
+        "+Tuatha de Danann",
+        "+Týr"
     ],
     T_ROCK_HEAVY_METAL: [
         "-Gotthard",
@@ -81,6 +112,7 @@ TAGS_INVERTED = {
         "doom metal"
     ],
     T_ROCK_FOLK_METAL: [
+        "-Braia",
         "-Leaves' Eyes",
         "-Nightwish",
         "-Rhapsody",
@@ -120,11 +152,16 @@ TAGS_INVERTED = {
         T_STEAMPUNK
     ],
     T_FOLK_FAVORITES: [
+        "+Dirt Poor Robins",
+        "+Eldhrimnir",
         "+Eliza Rickman",
+        "+Leandra",
         "+Steam Powered Giraffe"
     ],
     T_FOLK: [
+        "-Tuatha de Danann",
         "+Confraria da Costa",
+        "+Eldhrimnir",
         "+The Dead South",
         "celtic",
     ],
@@ -140,7 +177,39 @@ TAGS_INVERTED = {
         T_ALT_VOICE_GUITAR
     ],
     T_ALT_FAVORITES: [
-        "+London Grammar"
+        "+aeseaes",
+        "+Agnes Obel",
+        "+Angus & Julia Stone",
+        "+Billie Eilish",
+        "+Birdy",
+        "+Burning Peacocks",
+        "+Daughter",
+        "+Eliza Rickman",
+        "+Florence + The Machine",
+        "+HÆLOS",
+        "+Jessie Ware",
+        "+Joyce Jonathan",
+        "+Juniper Vale",
+        "+Lady Gaga",
+        "+Las Aves",
+        "+Leandra",
+        "+Lola Young",
+        "+London Grammar",
+        "+Lor",
+        "+Lorde",
+        "+Marika Hackman",
+        "+MARINA",
+        "+Of Monsters and Men",
+        "+Oh Land",
+        "+Oh Wonder",
+        "+PHILDEL",
+        "+Ruelle",
+        "+Soap&Skin",
+        "+Superorganism",
+        "+Susanne Sundfør",
+        "+The Dø",
+        "+Vaults",
+        "+Zella Day"
     ],
     T_ALT_ATMOSPHERIC: [
         "+aeseaes",
@@ -216,7 +285,7 @@ TAGS_INVERTED = {
 }
 
 from dict import ProxyDict
-TAGS = ProxyDict()
-for tag, patterns in TAGS_INVERTED.items():
+TAGS = ProxyDict(list)
+for tags, patterns in TAGS_INVERTED.items():
     for pattern in patterns:
-        TAGS[pattern] = tag
+        TAGS[pattern].append(tags)

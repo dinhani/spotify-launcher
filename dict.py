@@ -1,8 +1,8 @@
 from collections import defaultdict
 
 class ProxyDict:
-    def __init__(self):
-        self.data = {}
+    def __init__(self, default):
+        self.data = defaultdict(default)
         self.count = defaultdict(int)
 
     def __getitem__(self, key):
@@ -19,4 +19,4 @@ class ProxyDict:
         return default
 
     def untouched_keys(self):
-        return [k for k in self.data if self.count[k] == 0]
+        return [k for k in self.data if self.count[k] <= 1]
