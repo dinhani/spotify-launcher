@@ -97,6 +97,9 @@ CSS_GLOBAL = """
         height: 98vh;
         overflow-y: scroll;
     }
+    .artists-wrapper::-webkit-scrollbar {
+        display: none;
+    }
     .artist-image {
         height: 140px !important;
     }
