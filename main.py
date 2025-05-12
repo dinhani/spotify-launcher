@@ -93,12 +93,12 @@ CSS_GLOBAL = """
         height:100%;
         overflow-y: hidden;
     }
+    div::-webkit-scrollbar {
+        display: none;
+    }
     .artists-wrapper {
         height: 98vh;
         overflow-y: scroll;
-    }
-    .artists-wrapper::-webkit-scrollbar {
-        display: none;
     }
     .artist-image {
         height: 140px !important;
@@ -253,7 +253,7 @@ with doc:
             # Menu (desktop)
             # ------------------------------------------------------------------
             with div(cls="computer only three wide computer   two wide large screen   two wide widescreen   column", style="padding: 0.5rem"):
-                with div(cls="ui fluid styled desktop accordion"):
+                with div(cls="ui fluid styled desktop accordion", style="max-height: 100vh; overflow: hidden; overflow-y: scroll"):
                     menu_filter(mobile=False)
                     menu_sort(mobile=False)
 
