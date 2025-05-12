@@ -36,12 +36,12 @@ artists_df = polars.read_csv(INPUT_ARTISTS, separator="\t")
 logging.info("🧱 Parsing tags")
 for artist in artists_df.to_dicts():
     # parse row
-    tags = set()
     genres = artist["genres"]
     if genres is None:
         genres = []
     else:
         genres = genres.split("|")
+    tags = {T_ALL}
 
     # match genres
     for genre in genres:
@@ -60,24 +60,26 @@ for artist in artists_df.to_dicts():
         tags.remove(tag)
 
     # specific rules
-    if T_METAL_EXTREMO in tags and T_METAL_TRADICIONAL in tags:
-        tags.remove(T_METAL_TRADICIONAL)
-    if T_METAL_TRADICIONAL in tags or T_METAL_EXTREMO in tags:
-        tags.add(T_METAL_TODOS)
+    if T_METAL_EXTREME in tags and T_METAL_TRADITIONAL in tags:
+        tags.remove(T_METAL_TRADITIONAL)
+    if T_METAL_TRADITIONAL in tags or T_METAL_EXTREME in tags:
+        tags.add(T_METAL_ALL)
 
     # add tags
     artist["tags"] = tags
     for tag in artist["tags"]:
         artists_by_tag[tag].append(artist)
-    if len(artist["tags"]) == 0:
-        artists_by_tag[T_OUTROS].append(artist)
+    if len(artist["tags"]) == 1:
+        artists_by_tag[T_OTHERS].append(artist)
 
 # ------------------------------------------------------------------------------
 # Generate HTML
 # ------------------------------------------------------------------------------
 logging.info("🧱 Generating HTML")
 
-CSS_INLINE = """
+CSS_STYLE_NOWRAP = "white-space: nowrap;"
+
+CSS_GLOBAL = """
 .extra.content::after {
     display: none !important;
 }
@@ -101,7 +103,7 @@ CSS_INLINE = """
 }
 """
 
-JS_INLINE_SORT_FUNCTION = """
+JS_FUNC_SORT = """
 function sort(button, attribute, order) {
     $(button).addClass('active');
     $(button).siblings().removeClass('active');
@@ -128,15 +130,17 @@ def menu_categories():
             artists = artists_by_tag[tag]
             active = "active" if i == 0 else ""
             with div(cls=f"{active} item", data_tab=tab_id(tag)):
-                span(f"{len(artists):02}", cls="ui tiny label")
+                span(f"{len(artists)}", cls="ui tiny label")
                 span(tag)
 
 def menu_sort():
     with div(cls="ui fluid vertical menu"):
-        div("🎶 Nome", cls="ui active item", onClick="sort(this, 'name', 'asc')")
-        div("🔥 Popularidade", cls="ui item", onClick="sort(this, 'popularity', 'desc')")
-        div("👤 Seguidores", cls="ui item", onClick="sort(this, 'followers', 'desc')")
-        div("💿 Discos", cls="ui item", onClick="sort(this, 'albums', 'desc')")
+        div("🎶 Name", cls="ui active item", onClick="sort(this, 'name', 'asc')", style=CSS_STYLE_NOWRAP)
+        div("🔥 Popularity", cls="ui item", onClick="sort(this, 'popularity', 'desc')", style=CSS_STYLE_NOWRAP)
+        div("👤 Followers", cls="ui item", onClick="sort(this, 'followers', 'desc')", style=CSS_STYLE_NOWRAP)
+        div("💿 Albums", cls="ui item", onClick="sort(this, 'albums', 'desc')", style=CSS_STYLE_NOWRAP)
+        div("🔔 Last Follow", cls="ui item", onClick="sort(this, 'last-follow', 'asc')", style=CSS_STYLE_NOWRAP)
+        div("📅 Last Release", cls="ui item", onClick="sort(this, 'last-release', 'desc')", style=CSS_STYLE_NOWRAP)
 
 
 def cards(artists: list[dict]):
@@ -148,21 +152,28 @@ def cards(artists: list[dict]):
             for artist in artists:
                 followers_precision = 1 if artist["followers.total"] >= 1_000_000 else 0
 
-                with div(cls="ui eight wide mobile four wide tablet two wide computer column artist", style="padding: 0.25rem;", data_name=artist["name"], data_followers=str(artist["followers.total"]), data_popularity=str(artist["popularity"]), data_albums=str(artist["album_count"])):
+                with div(cls="ui eight wide mobile four wide tablet four wide computer two wide large screen column artist", style="padding: 0.25rem;",
+                        data_name=artist["name"],
+                        data_followers=str(artist["followers.total"]),
+                        data_popularity=str(artist["popularity"]),
+                        data_albums=str(artist["album_count"]),
+                        data_last_release=str(artist["last_release"]),
+                        data_last_follow=str(artist["last_follow"]),
+                    ):
                     with a(cls="ui card", href=f"spotify:artist:{artist["id"]}", style="width: 100%"):
                         # image
                         with div(cls="image"):
                             img(src=artist["image"], cls="ui image artist-image", style="object-fit: cover;")
 
                         # header
-                        with div(cls="content", style="padding: 0.5rem;"):
-                            div(artist["name"], cls="ui small header", style="white-space: nowrap; overflow:hidden; text-overflow: ellipsis;")
+                        with div(cls="content", style="padding: 0.5rem 0.5rem;"):
+                            div(artist["name"], cls="ui small header", style=f"{CSS_STYLE_NOWRAP} overflow:hidden; text-overflow: ellipsis;")
 
                         # footer
-                        with div(cls="extra content", style="padding: 0.5rem; display: flex; justify-content: space-between"):
-                            div("🔥" + str(artist["popularity"]), style="width: 33.333%; text-align: left;")
-                            div("👤" + millify(artist["followers.total"], precision=followers_precision), style="width: 33.333%; text-align: center;")
-                            div("💿" + str(artist["album_count"]), style="width: 33.333%; text-align: right")
+                        with div(cls="extra content", style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between"):
+                            div("🔥" + str(artist["popularity"]), style=CSS_STYLE_NOWRAP)
+                            div("👤" + millify(artist["followers.total"], precision=followers_precision), style=CSS_STYLE_NOWRAP)
+                            div("💿" + str(artist["album_count"]), style=CSS_STYLE_NOWRAP)
 
 
 def tab_id(tag: str) -> str:
@@ -178,8 +189,8 @@ with doc:
         script(src = "https://cdn.jsdelivr.net/npm/jquery-address@1.6.0/src/jquery.address.js")
         script(src = "https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min.js")
         link(href =  "https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min.css", rel = "stylesheet")
-        style(CSS_INLINE)
-        script(JS_INLINE_SORT_FUNCTION)
+        style(CSS_GLOBAL)
+        script(JS_FUNC_SORT)
 
     # body
     with body(cls="ui fluid container"):

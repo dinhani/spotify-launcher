@@ -1,5 +1,206 @@
 
-Metal Tradicional:
+All:
+* ANGRA
+* AURORA
+* Agent Fresco
+* Agnes Obel
+* Ahab
+* Alela Diane
+* Alestorm
+* AlicebanD
+* Almora
+* Altaria
+* Alvvays
+* Amanda Palmer
+* American Murder Song
+* Amorphis
+* Anastasia Minster
+* Angus & Julia Stone
+* Annihilator
+* Aqua
+* Aquaria
+* Arch Enemy
+* Arcturus
+* Arkona
+* Audioslave
+* Avantasia
+* Ayreon
+* BROODS
+* Barns Courtney
+* Bear's Den
+* Billie Eilish
+* Billie Marten
+* Birdy
+* Bitter Ruin
+* Blind Guardian
+* Borknagar
+* Boz Scaggs
+* Braia
+* Brujeria
+* Burning Peacocks
+* CHVRCHES
+* Camp Claude
+* Caprice
+* Carcass
+* Cathedrals
+* Celtic Woman
+* Cesária Evora
+* Circle II Circle
+* Claire Rosinkranz
+* Cocoon
+* Confraria da Costa
+* Creed
+* Crypta
+* Daughter
+* Death
+* Deathstars
+* Demons & Wizards
+* Deolinda
+* Diablo Swing Orchestra
+* Dio
+* Dirt Poor Robins
+* Doomsword
+* Dream Theater
+* Edguy
+* Eldhrimnir
+* Eliza Rickman
+* Eluveitie
+* Eterna
+* Ex:Re
+* Fafnir
+* Faun
+* First Aid Kit
+* Florence + The Machine
+* Frøkedal
+* Gabrielle Shonk
+* Gamma Ray
+* Gemma Hayes
+* Ghost Quartet
+* Gojira
+* Gotthard
+* Haggard
+* Haken
+* Heidevolk
+* Hellish War
+* Helloween
+* Hollywood Burns
+* Holy Soldier
+* HÆLOS
+* Iced Earth
+* Imagine Dragons
+* In Mourning
+* Iron Maiden
+* Jeanne Added
+* Jessie Ware
+* Jorn
+* Joyce Jonathan
+* Judas Priest
+* Juniper Vale
+* Kaleida
+* Kamelot
+* Kim Tillman
+* Klone
+* Korpiklaani
+* Korzus
+* LAUREL
+* Lacrimosa
+* Lady Gaga
+* Lana Del Rey
+* Las Aves
+* Leandra
+* Leaves' Eyes
+* Leprous
+* Lola Young
+* London Grammar
+* Lor
+* Lorde
+* Lordi
+* Lynyrd Skynyrd
+* LÉON
+* MARINA
+* Madredeus
+* Major Parkinson
+* Malefactor
+* Marika Hackman
+* Massacration
+* Metallica
+* Michelle Gurevich
+* Muse
+* Mägo de Oz
+* Narnia
+* Necrophagist
+* Nervosa
+* Nightwish
+* OMNIA
+* Of Monsters and Men
+* Oficina G3
+* Oh Land
+* Oh Wonder
+* Opeth
+* Orphaned Land
+* Otyg
+* Ozzy Osbourne
+* PHILDEL
+* Pantera
+* Paris Paloma
+* Pearl Jam
+* Phoebe Bridgers
+* Prudence
+* Rhapsody
+* Rosemary & Garlic
+* Ruelle
+* Sabaton
+* Satyricon
+* Scorpions
+* Sentenced
+* Septicflesh
+* Sepultura
+* Sidney Gish
+* Soap&Skin
+* Soen
+* Soilwork
+* Sonata Arctica
+* Static-X
+* Steam Powered Giraffe
+* Storm Corrosion
+* Stratovarius
+* Stress
+* Stromae
+* Suldusk
+* Superorganism
+* Susanne Sundfør
+* Syd Matters
+* Symphony X
+* System Of A Down
+* Sóley
+* Sólstafir
+* Tame Impala
+* The Cog is Dead
+* The Dead South
+* The Dresden Dolls
+* The Dø
+* The Staves
+* The xx
+* Therion
+* Torture Squad
+* Tuatha de Danann
+* Turisas
+* Type O Negative
+* Týr
+* Unwoman
+* Vaults
+* Vengaboys
+* Volbeat
+* Whitesnake
+* Wintersun
+* Wussy
+* Ye Banished Privateers
+* Yelle
+* Zella Day
+* Zonata
+* aeseaes
+
+Traditional Metal:
 * ANGRA
 * Agent Fresco
 * Ahab
@@ -64,7 +265,7 @@ Metal Tradicional:
 * Whitesnake
 * Zonata
 
-Metal Extremo:
+Extreme Metal:
 * Amorphis
 * Arch Enemy
 * Arcturus
@@ -112,7 +313,7 @@ Rock:
 * Volbeat
 * Wussy
 
-Folclórico:
+Folk:
 * Alestorm
 * Almora
 * Amorphis
@@ -161,7 +362,7 @@ Steampunk:
 * The Dresden Dolls
 * Unwoman
 
-Alt: Atmosférico:
+Atmospheric:
 * AURORA
 * Agnes Obel
 * Anastasia Minster
@@ -182,6 +383,7 @@ Alt: Atmosférico:
 * Oh Land
 * Oh Wonder
 * PHILDEL
+* Paris Paloma
 * Phoebe Bridgers
 * Rosemary & Garlic
 * Ruelle
@@ -191,7 +393,7 @@ Alt: Atmosférico:
 * Vaults
 * aeseaes
 
-Alt: Voz & Violão:
+Vox/Guitar:
 * Alela Diane
 * Angus & Julia Stone
 * Bear's Den
@@ -206,7 +408,7 @@ Alt: Voz & Violão:
 * Sidney Gish
 * The Staves
 
-Alt: Enérgico:
+Energetic:
 * Aqua
 * BROODS
 * CHVRCHES
@@ -232,7 +434,7 @@ Alt: Enérgico:
 * Yelle
 * Zella Day
 
-Outros:
+Others:
 * Cesária Evora
 * Deolinda
 * Hollywood Burns

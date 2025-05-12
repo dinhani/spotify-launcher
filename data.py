@@ -3,31 +3,33 @@ import logging
 # ------------------------------------------------------------------------------
 # Tags: display names
 # ------------------------------------------------------------------------------
-T_ALT_ATMOSFERICO = "Alt: Atmosférico"
-T_ALT_ENERGICO = "Alt: Enérgico"
-T_ALT_VOZ = "Alt: Voz & Violão"
-T_FOLK = "Folclórico"
+T_ALT_ATMOSPHERIC = "Atmospheric"
+T_ALT_ENERGITIC = "Energetic"
+T_ALT_VOICE_GUITAR = "Vox/Guitar"
+T_FOLK = "Folk"
 T_INDIE = "Indie"
-T_METAL_TODOS = "Metal (todos)"
-T_METAL_EXTREMO = "Metal Extremo"
-T_METAL_TRADICIONAL  = "Metal Tradicional"
-T_OUTROS = "Outros"
+T_METAL_EXTREME = "Extreme Metal"
+T_METAL_ALL = "Metal (All)"
+T_METAL_TRADITIONAL = "Traditional Metal"
+T_OTHERS = "Others"
 T_ROCK = "Rock"
 T_STEAMPUNK = "Steampunk"
+T_ALL = "All"
 
 # ------------------------------------------------------------------------------
 # Tag Order: used in the menu
 # ------------------------------------------------------------------------------
 TAGS_ORDER = [
-    T_METAL_TRADICIONAL,
-    T_METAL_EXTREMO,
+    T_ALL,
+    T_METAL_TRADITIONAL,
+    T_METAL_EXTREME,
     T_ROCK,
     T_FOLK,
     T_STEAMPUNK,
-    T_ALT_ATMOSFERICO,
-    T_ALT_VOZ,
-    T_ALT_ENERGICO,
-    T_OUTROS
+    T_ALT_ATMOSPHERIC,
+    T_ALT_VOICE_GUITAR,
+    T_ALT_ENERGITIC,
+    T_OTHERS
 ]
 
 # ------------------------------------------------------------------------------
@@ -37,7 +39,7 @@ TAGS_INVERTED = {
     # --------------------------------------------------------------------------
     # Metal
     # --------------------------------------------------------------------------
-    T_METAL_TRADICIONAL: [
+    T_METAL_TRADITIONAL: [
         "-Gotthard",
         "+Massacration",
         "+Stress",
@@ -52,7 +54,7 @@ TAGS_INVERTED = {
         "thrash metal",
         "doom metal"
     ],
-    T_METAL_EXTREMO: [
+    T_METAL_EXTREME: [
         "-Therion",
         "black metal",
         "death metal",
@@ -75,6 +77,9 @@ TAGS_INVERTED = {
         "rock",
         "shoegaze"
     ],
+    # --------------------------------------------------------------------------
+    # Folk / Steampunk
+    # --------------------------------------------------------------------------
     T_FOLK: [
         "-Leaves' Eyes",
         "-Nightwish",
@@ -90,7 +95,10 @@ TAGS_INVERTED = {
     T_STEAMPUNK: [
         "dark cabaret"
     ],
-    T_ALT_ATMOSFERICO: [
+    # --------------------------------------------------------------------------
+    # Alternativo
+    # --------------------------------------------------------------------------
+    T_ALT_ATMOSPHERIC: [
         "+aeseaes",
         "+AURORA",
         "+Billie Eilish",
@@ -109,6 +117,7 @@ TAGS_INVERTED = {
         "+Lor",
         "+Oh Land",
         "+Oh Wonder",
+        "+Paris Paloma",
         "+PHILDEL",
         "+Phoebe Bridgers",
         "+Prudence",
@@ -121,7 +130,7 @@ TAGS_INVERTED = {
         "+Vaults",
         "chamber pop"
     ],
-    T_ALT_ENERGICO: [
+    T_ALT_ENERGITIC: [
         "+BROODS",
         "+Claire Rosinkranz",
         "+Jessie Ware",
@@ -145,7 +154,7 @@ TAGS_INVERTED = {
         "eurodance",
         "synthpop",
     ],
-    T_ALT_VOZ: [
+    T_ALT_VOICE_GUITAR: [
         "-Of Monsters and Men",
         "+Alela Diane",
         "+Angus & Julia Stone",
