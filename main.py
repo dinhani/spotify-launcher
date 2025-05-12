@@ -164,19 +164,21 @@ def menu_filter(mobile: bool):
         for index, tag in enumerate(TAGS_ORDER):
             artists = artists_by_tag[tag]
 
-            item_display = tag.split(" - ")[-1]
+            header = len(tag.split(" - ")) == 1 and tag != "All" and tag != "Others"
+
+            item_display = tag.split(" - ")[-1].strip()
             item_active = "active" if index == 0 else ""
-            item_header = "header disabled" if tag.startswith("Header - ") else ""
+            item_header = "header" if header else ""
+            item_font_size = "1.2rem" if header else "1rem"
 
             with div(cls=f"{item_active} {item_header} link item",
                     id=f"{kind}-menu-item-{id(tag)}",
                     data_tab=tab_id(tag),
                     data_tab_name=tag,
-                    style=CSS_STYLE_MENU_ITEM
+                    style=CSS_STYLE_MENU_ITEM + f"font-size: {item_font_size};"
                 ):
                 span(item_display)
-                if not item_header:
-                    span(f"{len(artists)}", cls=f"ui {label_size} label")
+                span(f"{len(artists)}", cls=f"ui {label_size} label")
 
 def menu_sort(mobile):
     label = "Sort: Name" if mobile else "Sort"
