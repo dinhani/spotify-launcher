@@ -124,17 +124,17 @@ function sort(button, attribute, order) {
 }
 """
 
-def menu_categories():
-    with div(cls="ui fluid vertical menu"):
-        for i, tag in enumerate(TAGS_ORDER):
+def menu_categories(mobile: bool):
+    with menu_wrapper("Categories", mobile):
+        for index, tag in enumerate(TAGS_ORDER):
             artists = artists_by_tag[tag]
-            active = "active" if i == 0 else ""
+            active = "active" if index == 0 else ""
             with div(cls=f"{active} item", data_tab=tab_id(tag)):
                 span(f"{len(artists)}", cls="ui tiny label")
                 span(tag)
 
-def menu_sort():
-    with div(cls="ui fluid vertical menu"):
+def menu_sort(mobile):
+    with menu_wrapper("Sort", mobile):
         div("🎶 Name", cls="ui active item", onClick="sort(this, 'name', 'asc')", style=CSS_STYLE_NOWRAP)
         div("🔥 Popularity", cls="ui item", onClick="sort(this, 'popularity', 'desc')", style=CSS_STYLE_NOWRAP)
         div("👤 Followers", cls="ui item", onClick="sort(this, 'followers', 'desc')", style=CSS_STYLE_NOWRAP)
@@ -142,6 +142,15 @@ def menu_sort():
         div("🔔 Last Follow", cls="ui item", onClick="sort(this, 'last-follow', 'asc')", style=CSS_STYLE_NOWRAP)
         div("📅 Last Release", cls="ui item", onClick="sort(this, 'last-release', 'desc')", style=CSS_STYLE_NOWRAP)
 
+def menu_wrapper(label: str, mobile: bool):
+    if mobile:
+        container = div(cls="ui fluid dropdown")
+        with container:
+            div(label, cls="ui fluid button default text")
+            container = div(cls="ui menu")
+    else:
+        container = div(cls="ui fluid vertical menu")
+    return container
 
 def cards(artists: list[dict]):
     # scroll
@@ -152,7 +161,7 @@ def cards(artists: list[dict]):
             for artist in artists:
                 followers_precision = 1 if artist["followers.total"] >= 1_000_000 else 0
 
-                with div(cls="ui eight wide mobile four wide tablet four wide computer two wide large screen column artist", style="padding: 0.25rem;",
+                with div(cls="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist", style="padding: 0.25rem;",
                         data_name=artist["name"],
                         data_followers=str(artist["followers.total"]),
                         data_popularity=str(artist["popularity"]),
@@ -177,7 +186,7 @@ def cards(artists: list[dict]):
 
 
 def tab_id(tag: str) -> str:
-    id = tag.lower().replace("(", "").replace(")", "").replace(":", "").replace(" ", "-").translate(str.maketrans("ãéó", "aeo"))
+    id = tag.lower().translate(str.maketrans("", "", "():/")).translate(str.maketrans("ãéó", "aeo")).replace(" ", "-").strip()
     return f"tab-{id}"
 
 doc = html(style="height:100%;")
@@ -196,16 +205,23 @@ with doc:
     with body(cls="ui fluid container"):
         with div(cls="ui padded grid"):
             # ------------------------------------------------------------------
-            # Menu
+            # Menu (mobile)
             # ------------------------------------------------------------------
-            with div(cls="ui sixteen wide mobile two wide computer column", style="padding: 0.5rem"):
-                menu_categories()
-                menu_sort()
+            with div(cls="eight wide mobile tablet only   column", style="padding: 0.5rem"):
+                menu_categories(mobile=True)
+            with div(cls="eight wide mobile tablet only   column", style="padding: 0.5rem"):
+                menu_sort(mobile=True)
+            # ------------------------------------------------------------------
+            # Menu (desktop)
+            # ------------------------------------------------------------------
+            with div(cls="computer only three wide computer   two wide large screen   two wide widescreen   column", style="padding: 0.5rem"):
+                menu_categories(mobile=False)
+                menu_sort(mobile=False)
 
             # ------------------------------------------------------------------
             # Content
             # ------------------------------------------------------------------
-            with div(cls="ui sixteen wide mobile fourteen wide computer column", style="padding: 0.5rem;"):
+            with div(cls="sixteen wide mobile tablet   thirteen wide computer   fourteen wide large screen   fourteen wide widescreen   column", style="padding: 0.5rem;"):
                 # tab contents
                 for tag in TAGS_ORDER:
                     artists = sorted(artists_by_tag[tag], key=lambda x: x["name"].lower())
@@ -217,21 +233,22 @@ with doc:
             # ------------------------------------------------------------------
             # Scroll to top
             # ------------------------------------------------------------------
-            with div(cls="ui sixteen wide column mobile tablet only"):
-                div("⬆️ Back to top", cls="ui fluid button", onClick="window.scrollTo({top:0,behavior:'smooth'})")
+            with div(cls="sixteen wide column mobile tablet only"):
+                div("⬆️ Back to top", cls="ui fluid button", onClick="window.scrollTo({top:0})")
 
 
     # script
     script("$('.menu .item').tab({history:true, historyType: 'hash'});")
+    script("$('.ui.dropdown').dropdown();")
 
 # write to file
 logging.info(f"💾 Writing: {OUTPUT_LAUNCHER}")
-with open(OUTPUT_LAUNCHER, "w", encoding="utf-8") as f:
+with open(OUTPUT_LAUNCHER, "w", encoding="utf-8", newline="\n") as f:
     f.write(str(doc))
 
 # write summary
 logging.info(f"💾 Writing: {OUTPUT_SUMMARY}")
-with open(OUTPUT_SUMMARY, "w", encoding="utf-8") as f:
+with open(OUTPUT_SUMMARY, "w", encoding="utf-8", newline="\n") as f:
     for tag in TAGS_ORDER:
         f.write("\n")
         f.write(tag + ":\n")
