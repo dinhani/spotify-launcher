@@ -91,6 +91,27 @@ Metal Extremo:
 * Torture Squad
 * Wintersun
 
+Rock:
+* Alvvays
+* Audioslave
+* Barns Courtney
+* Boz Scaggs
+* Camp Claude
+* Creed
+* Gotthard
+* Imagine Dragons
+* Lordi
+* Lynyrd Skynyrd
+* Metallica
+* Muse
+* Pearl Jam
+* Scorpions
+* Syd Matters
+* System Of A Down
+* Tame Impala
+* Volbeat
+* Wussy
+
 Folclórico:
 * Alestorm
 * Almora
@@ -115,34 +136,13 @@ Folclórico:
 * Orphaned Land
 * Otyg
 * Sólstafir
+* The Dead South
 * Therion
 * Tuatha de Danann
 * Turisas
 * Týr
 * Wintersun
 * Ye Banished Privateers
-
-Rock:
-* Alvvays
-* Audioslave
-* Barns Courtney
-* Boz Scaggs
-* Camp Claude
-* Creed
-* Gotthard
-* Imagine Dragons
-* Lordi
-* Lynyrd Skynyrd
-* Metallica
-* Muse
-* Pearl Jam
-* Scorpions
-* Syd Matters
-* System Of A Down
-* Tame Impala
-* The Dead South
-* Volbeat
-* Wussy
 
 Steampunk:
 * AlicebanD
