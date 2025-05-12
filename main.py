@@ -124,8 +124,8 @@ function sort(button, attribute, order) {
 }
 """
 
-def menu_categories(mobile: bool):
-    with menu_wrapper("Categories", mobile):
+def menu_category(mobile: bool):
+    with menu_wrapper("Category", mobile):
         for index, tag in enumerate(TAGS_ORDER):
             artists = artists_by_tag[tag]
             active = "active" if index == 0 else ""
@@ -133,8 +133,8 @@ def menu_categories(mobile: bool):
                 span(f"{len(artists)}", cls="ui tiny label")
                 span(tag)
 
-def menu_sort(mobile):
-    with menu_wrapper("Sort", mobile):
+def menu_sorting(mobile):
+    with menu_wrapper("Sorting", mobile):
         div("🎶 Name", cls="ui active item", onClick="sort(this, 'name', 'asc')", style=CSS_STYLE_NOWRAP)
         div("🔥 Popularity", cls="ui item", onClick="sort(this, 'popularity', 'desc')", style=CSS_STYLE_NOWRAP)
         div("👤 Followers", cls="ui item", onClick="sort(this, 'followers', 'desc')", style=CSS_STYLE_NOWRAP)
@@ -144,13 +144,12 @@ def menu_sort(mobile):
 
 def menu_wrapper(label: str, mobile: bool):
     if mobile:
-        container = div(cls="ui fluid dropdown")
-        with container:
-            div(label, cls="ui fluid button default text")
-            container = div(cls="ui menu")
+        with div(label, cls="title"):
+            i(cls="right dropdown icon")
+        with div(cls="content", style="padding-bottom: 0.5rem;"):
+            return div(cls="ui fluid vertical secondary menu")
     else:
-        container = div(cls="ui fluid vertical menu")
-    return container
+        return div(cls="ui fluid vertical menu")
 
 def cards(artists: list[dict]):
     # scroll
@@ -207,16 +206,17 @@ with doc:
             # ------------------------------------------------------------------
             # Menu (mobile)
             # ------------------------------------------------------------------
-            with div(cls="eight wide mobile tablet only   column", style="padding: 0.5rem"):
-                menu_categories(mobile=True)
-            with div(cls="eight wide mobile tablet only   column", style="padding: 0.5rem"):
-                menu_sort(mobile=True)
+            with div(cls="sixteen wide mobile tablet only   column", style="padding: 0.5rem"):
+                with div(cls="ui fluid styled accordion"):
+                    menu_category(mobile=True)
+                    menu_sorting(mobile=True)
+
             # ------------------------------------------------------------------
             # Menu (desktop)
             # ------------------------------------------------------------------
             with div(cls="computer only three wide computer   two wide large screen   two wide widescreen   column", style="padding: 0.5rem"):
-                menu_categories(mobile=False)
-                menu_sort(mobile=False)
+                menu_category(mobile=False)
+                menu_sorting(mobile=False)
 
             # ------------------------------------------------------------------
             # Content
@@ -239,7 +239,7 @@ with doc:
 
     # script
     script("$('.menu .item').tab({history:true, historyType: 'hash'});")
-    script("$('.ui.dropdown').dropdown();")
+    script("$('.ui.accordion').accordion();")
 
 # write to file
 logging.info(f"💾 Writing: {OUTPUT_LAUNCHER}")

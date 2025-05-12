@@ -51,63 +51,63 @@ function sort(button, attribute, order) {
   </head>
   <body class="ui fluid container">
     <div class="ui padded grid">
-      <div class="eight wide mobile tablet only   column" style="padding: 0.5rem">
-        <div class="ui fluid dropdown">
-          <div class="ui fluid button default text">Categories</div>
-          <div class="ui menu">
-            <div class="active item" data-tab="tab-all">
-              <span class="ui tiny label">199</span>
-              <span>All</span>
-            </div>
-            <div class=" item" data-tab="tab-traditional-metal">
-              <span class="ui tiny label">63</span>
-              <span>Traditional Metal</span>
-            </div>
-            <div class=" item" data-tab="tab-extreme-metal">
-              <span class="ui tiny label">25</span>
-              <span>Extreme Metal</span>
-            </div>
-            <div class=" item" data-tab="tab-rock">
-              <span class="ui tiny label">19</span>
-              <span>Rock</span>
-            </div>
-            <div class=" item" data-tab="tab-folk">
-              <span class="ui tiny label">30</span>
-              <span>Folk</span>
-            </div>
-            <div class=" item" data-tab="tab-steampunk">
-              <span class="ui tiny label">15</span>
-              <span>Steampunk</span>
-            </div>
-            <div class=" item" data-tab="tab-atmospheric">
-              <span class="ui tiny label">29</span>
-              <span>Atmospheric</span>
-            </div>
-            <div class=" item" data-tab="tab-voxguitar">
-              <span class="ui tiny label">13</span>
-              <span>Vox/Guitar</span>
-            </div>
-            <div class=" item" data-tab="tab-energetic">
-              <span class="ui tiny label">24</span>
-              <span>Energetic</span>
-            </div>
-            <div class=" item" data-tab="tab-others">
-              <span class="ui tiny label">4</span>
-              <span>Others</span>
+      <div class="sixteen wide mobile tablet only   column" style="padding: 0.5rem">
+        <div class="ui fluid styled accordion">
+          <div class="title">Category<i class="right dropdown icon"></i></div>
+          <div class="content" style="padding-bottom: 0.5rem;">
+            <div class="ui fluid vertical secondary menu">
+              <div class="active item" data-tab="tab-all">
+                <span class="ui tiny label">199</span>
+                <span>All</span>
+              </div>
+              <div class=" item" data-tab="tab-traditional-metal">
+                <span class="ui tiny label">63</span>
+                <span>Traditional Metal</span>
+              </div>
+              <div class=" item" data-tab="tab-extreme-metal">
+                <span class="ui tiny label">25</span>
+                <span>Extreme Metal</span>
+              </div>
+              <div class=" item" data-tab="tab-rock">
+                <span class="ui tiny label">19</span>
+                <span>Rock</span>
+              </div>
+              <div class=" item" data-tab="tab-folk">
+                <span class="ui tiny label">30</span>
+                <span>Folk</span>
+              </div>
+              <div class=" item" data-tab="tab-steampunk">
+                <span class="ui tiny label">15</span>
+                <span>Steampunk</span>
+              </div>
+              <div class=" item" data-tab="tab-atmospheric">
+                <span class="ui tiny label">29</span>
+                <span>Atmospheric</span>
+              </div>
+              <div class=" item" data-tab="tab-voxguitar">
+                <span class="ui tiny label">13</span>
+                <span>Vox/Guitar</span>
+              </div>
+              <div class=" item" data-tab="tab-energetic">
+                <span class="ui tiny label">24</span>
+                <span>Energetic</span>
+              </div>
+              <div class=" item" data-tab="tab-others">
+                <span class="ui tiny label">4</span>
+                <span>Others</span>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="eight wide mobile tablet only   column" style="padding: 0.5rem">
-        <div class="ui fluid dropdown">
-          <div class="ui fluid button default text">Sort</div>
-          <div class="ui menu">
-            <div class="ui active item" onClick="sort(this, 'name', 'asc')" style="white-space: nowrap;">🎶 Name</div>
-            <div class="ui item" onClick="sort(this, 'popularity', 'desc')" style="white-space: nowrap;">🔥 Popularity</div>
-            <div class="ui item" onClick="sort(this, 'followers', 'desc')" style="white-space: nowrap;">👤 Followers</div>
-            <div class="ui item" onClick="sort(this, 'albums', 'desc')" style="white-space: nowrap;">💿 Albums</div>
-            <div class="ui item" onClick="sort(this, 'last-follow', 'asc')" style="white-space: nowrap;">🔔 Last Follow</div>
-            <div class="ui item" onClick="sort(this, 'last-release', 'desc')" style="white-space: nowrap;">📅 Last Release</div>
+          <div class="title">Sorting<i class="right dropdown icon"></i></div>
+          <div class="content" style="padding-bottom: 0.5rem;">
+            <div class="ui fluid vertical secondary menu">
+              <div class="ui active item" onClick="sort(this, 'name', 'asc')" style="white-space: nowrap;">🎶 Name</div>
+              <div class="ui item" onClick="sort(this, 'popularity', 'desc')" style="white-space: nowrap;">🔥 Popularity</div>
+              <div class="ui item" onClick="sort(this, 'followers', 'desc')" style="white-space: nowrap;">👤 Followers</div>
+              <div class="ui item" onClick="sort(this, 'albums', 'desc')" style="white-space: nowrap;">💿 Albums</div>
+              <div class="ui item" onClick="sort(this, 'last-follow', 'asc')" style="white-space: nowrap;">🔔 Last Follow</div>
+              <div class="ui item" onClick="sort(this, 'last-release', 'desc')" style="white-space: nowrap;">📅 Last Release</div>
+            </div>
           </div>
         </div>
       </div>
@@ -6546,5 +6546,5 @@ function sort(button, attribute, order) {
     </div>
   </body>
   <script>$('.menu .item').tab({history:true, historyType: 'hash'});</script>
-  <script>$('.ui.dropdown').dropdown();</script>
+  <script>$('.ui.accordion').accordion();</script>
 </html>
