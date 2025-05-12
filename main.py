@@ -140,7 +140,8 @@ def menu_category(mobile: bool):
 def menu_sorting(mobile):
     with menu_wrapper(mobile, "Sorting"):
         div("🎶 Name", cls="ui active link item", onClick="sort(this, 'name', 'asc')", style=CSS_STYLE_NOWRAP)
-        div("🔥 Popularity", cls="ui link item", onClick="sort(this, 'popularity', 'desc')", style=CSS_STYLE_NOWRAP)
+        div("🔥 Popularity (artist)", cls="ui link item", onClick="sort(this, 'popularity', 'desc')", style=CSS_STYLE_NOWRAP)
+        div("🏆 Popularity (song)", cls="ui link item", onClick="sort(this, 'song-popularity', 'desc')", style=CSS_STYLE_NOWRAP)
         div("👤 Followers", cls="ui link item", onClick="sort(this, 'followers', 'desc')", style=CSS_STYLE_NOWRAP)
         div("💿 Albums", cls="ui link item", onClick="sort(this, 'albums', 'desc')", style=CSS_STYLE_NOWRAP)
         div("📅 Last Release", cls="ui link item", onClick="sort(this, 'last-release', 'desc')", style=CSS_STYLE_NOWRAP)
@@ -168,6 +169,7 @@ def cards(artists: list[dict]):
                         data_name=artist["name"],
                         data_followers=str(artist["followers.total"]),
                         data_popularity=str(artist["popularity"]),
+                        data_song_popularity=str(artist["top_song_popularity"]),
                         data_albums=str(artist["album_count"]),
                         data_last_release=str(artist["last_release"]),
                         data_last_follow=str(artist["last_follow"]),
