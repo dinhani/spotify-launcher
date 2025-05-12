@@ -214,9 +214,15 @@ with doc:
                     with div(cls="ui tab", data_tab=tab_id(tag)):
                         cards(artists)
 
+            # ------------------------------------------------------------------
+            # Scroll to top
+            # ------------------------------------------------------------------
+            with div(cls="ui sixteen wide column mobile tablet only"):
+                div("⬆️ Back to top", cls="ui fluid button", onClick="window.scrollTo({top:0,behavior:'smooth'})")
+
+
     # script
     script("$('.menu .item').tab({history:true, historyType: 'hash'});")
-    script("$('.ui.rating').rating();")
 
 # write to file
 logging.info(f"💾 Writing: {OUTPUT_LAUNCHER}")
