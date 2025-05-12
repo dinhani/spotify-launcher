@@ -52,7 +52,7 @@ function sort(button, attribute, order) {
   <body class="ui fluid container">
     <div class="ui padded grid">
       <div class="sixteen wide mobile tablet only   column" style="padding: 0.5rem">
-        <div class="ui fluid styled accordion">
+        <div class="ui fluid styled mobile accordion">
           <div class="  title" style="font-size: 1.28571429rem;">
             <span>Category</span><i class="right dropdown icon"></i>
           </div>
@@ -116,7 +116,7 @@ function sort(button, attribute, order) {
         </div>
       </div>
       <div class="computer only three wide computer   two wide large screen   two wide widescreen   column" style="padding: 0.5rem">
-        <div class="ui fluid styled accordion">
+        <div class="ui fluid styled desktop accordion">
           <div class="active title" style="font-size: 1.28571429rem;">
             <span>Category</span><i class="right dropdown icon"></i>
           </div>
@@ -6562,5 +6562,6 @@ function sort(button, attribute, order) {
     </div>
   </body>
   <script>$('.menu .item').tab({history:true, historyType: 'hash'});</script>
-  <script>$('.ui.accordion').accordion({exclusive:false});</script>
+  <script>$('.ui.accordion.desktop').accordion({exclusive:false});</script>
+  <script>$('.ui.accordion.mobile').accordion({exclusive:true});</script>
 </html>
