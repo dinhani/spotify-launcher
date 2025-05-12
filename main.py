@@ -84,7 +84,7 @@ logging.info("🧱 Generating HTML")
 
 CSS_STYLE_NOWRAP = "white-space: nowrap; "
 
-CSS_STYLE_MENU_ITEM = CSS_STYLE_NOWRAP + "padding: 0.6rem; "
+CSS_STYLE_MENU_ITEM = CSS_STYLE_NOWRAP + "padding: 0.75rem; "
 
 CSS_GLOBAL = """
 .extra.content::after {
@@ -294,7 +294,7 @@ with doc:
             # Scroll to top
             # ------------------------------------------------------------------
             with div(cls="sixteen wide column mobile tablet only"):
-                div("⬆️ Back to top", cls="ui fluid massive button", onClick="window.scrollTo({top:0})")
+                div("⬆️ Back to top", cls="ui fluid huge button", onClick="window.scrollTo({top:0})")
 
 
     # script
