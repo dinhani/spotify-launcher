@@ -120,7 +120,7 @@ JS_FUNC_ONTAB = """
 function onTab(tabPath) {
     // change header
     var id = "#mobile-menu-item-" + tabPath.replace("tab-", "");
-    var title = removeEmoji($(id).data("tab-name")).replace("::", " (") + ")";
+    var title = removeEmoji($(id).data("tab-name")).replace("::", ": ");
     $("#mobile-menu-header-filter").text("Filter: " + title)
 }
 """
