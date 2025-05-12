@@ -32,9 +32,24 @@
 }
 </style>
     <script>
-function sort(button, attribute, order) {
-    $(button).addClass('active');
-    $(button).siblings().removeClass('active');
+function tab(tabPath) {
+    // change header
+    var id = "#mobile-menu-item-" + tabPath.replace("tab-", "");
+    var title = $(id).find("span").last().text();
+    $("#mobile-menu-header-filter").text("Filter: " + title)
+}
+</script>
+    <script>
+function sort(element, attribute, order) {
+    // change header
+    var title = $(element).text().replace(/[\p{Emoji_Presentation}\p{Extended_Pictographic}]/gu, '');
+    $("#mobile-menu-header-sort").text("Sort:" + title);
+
+    // mark active
+    $(element).addClass('active');
+    $(element).siblings().removeClass('active');
+
+    // reorder
     $('.artists').each(function(_, artists) {
         var sorted = $(artists).find('.artist').sort(function(a, b) {
             var valA = $(a).data(attribute);
@@ -57,54 +72,54 @@ function sort(button, attribute, order) {
       <div class="sixteen wide mobile tablet only   column" style="padding: 0.5rem">
         <div class="ui fluid styled mobile accordion">
           <div class=" title" style="font-size: 1.71428571rem;">
-            <span>Category</span><i class="right dropdown icon"></i>
+            <span id="mobile-menu-header-filter">Filter</span><i class="right dropdown icon"></i>
           </div>
           <div class=" content" style="padding: 0;">
             <div class="ui fluid vertical attached menu" style="margin: 0; border-left: 0; border-right: 0; border-bottom: 0;">
-              <div class="active link item" data-tab="tab-all">
+              <div class="active link item" data-tab="tab-all" data-tab-name="All" id="mobile-menu-item-all">
                 <span class="ui  label">199</span>
                 <span>All</span>
               </div>
-              <div class=" link item" data-tab="tab-traditional-metal">
+              <div class=" link item" data-tab="tab-traditional-metal" data-tab-name="Traditional Metal" id="mobile-menu-item-traditional-metal">
                 <span class="ui  label">63</span>
                 <span>Traditional Metal</span>
               </div>
-              <div class=" link item" data-tab="tab-extreme-metal">
+              <div class=" link item" data-tab="tab-extreme-metal" data-tab-name="Extreme Metal" id="mobile-menu-item-extreme-metal">
                 <span class="ui  label">25</span>
                 <span>Extreme Metal</span>
               </div>
-              <div class=" link item" data-tab="tab-rock">
+              <div class=" link item" data-tab="tab-rock" data-tab-name="Rock" id="mobile-menu-item-rock">
                 <span class="ui  label">19</span>
                 <span>Rock</span>
               </div>
-              <div class=" link item" data-tab="tab-folk">
+              <div class=" link item" data-tab="tab-folk" data-tab-name="Folk" id="mobile-menu-item-folk">
                 <span class="ui  label">30</span>
                 <span>Folk</span>
               </div>
-              <div class=" link item" data-tab="tab-steampunk">
+              <div class=" link item" data-tab="tab-steampunk" data-tab-name="Steampunk" id="mobile-menu-item-steampunk">
                 <span class="ui  label">15</span>
                 <span>Steampunk</span>
               </div>
-              <div class=" link item" data-tab="tab-atmospheric">
+              <div class=" link item" data-tab="tab-atmospheric" data-tab-name="Atmospheric" id="mobile-menu-item-atmospheric">
                 <span class="ui  label">29</span>
                 <span>Atmospheric</span>
               </div>
-              <div class=" link item" data-tab="tab-voxguitar">
+              <div class=" link item" data-tab="tab-voxguitar" data-tab-name="Vox/Guitar" id="mobile-menu-item-voxguitar">
                 <span class="ui  label">13</span>
                 <span>Vox/Guitar</span>
               </div>
-              <div class=" link item" data-tab="tab-energetic">
+              <div class=" link item" data-tab="tab-energetic" data-tab-name="Energetic" id="mobile-menu-item-energetic">
                 <span class="ui  label">24</span>
                 <span>Energetic</span>
               </div>
-              <div class=" link item" data-tab="tab-others">
+              <div class=" link item" data-tab="tab-others" data-tab-name="Others" id="mobile-menu-item-others">
                 <span class="ui  label">4</span>
                 <span>Others</span>
               </div>
             </div>
           </div>
           <div class=" title" style="font-size: 1.71428571rem;">
-            <span>Sorting</span><i class="right dropdown icon"></i>
+            <span id="mobile-menu-header-sort">Sort: Name</span><i class="right dropdown icon"></i>
           </div>
           <div class=" content" style="padding: 0;">
             <div class="ui fluid vertical attached menu" style="margin: 0; border-left: 0; border-right: 0; border-bottom: 0;">
@@ -122,54 +137,54 @@ function sort(button, attribute, order) {
       <div class="computer only three wide computer   two wide large screen   two wide widescreen   column" style="padding: 0.5rem">
         <div class="ui fluid styled desktop accordion">
           <div class="active title" style="font-size: 1.28571429rem;">
-            <span>Category</span><i class="right dropdown icon"></i>
+            <span id="desktop-menu-header-filter">Filter</span><i class="right dropdown icon"></i>
           </div>
           <div class="active content" style="padding: 0;">
             <div class="ui fluid vertical attached menu" style="margin: 0; border-left: 0; border-right: 0; border-bottom: 0;">
-              <div class="active link item" data-tab="tab-all">
+              <div class="active link item" data-tab="tab-all" data-tab-name="All" id="desktop-menu-item-all">
                 <span class="ui tiny label">199</span>
                 <span>All</span>
               </div>
-              <div class=" link item" data-tab="tab-traditional-metal">
+              <div class=" link item" data-tab="tab-traditional-metal" data-tab-name="Traditional Metal" id="desktop-menu-item-traditional-metal">
                 <span class="ui tiny label">63</span>
                 <span>Traditional Metal</span>
               </div>
-              <div class=" link item" data-tab="tab-extreme-metal">
+              <div class=" link item" data-tab="tab-extreme-metal" data-tab-name="Extreme Metal" id="desktop-menu-item-extreme-metal">
                 <span class="ui tiny label">25</span>
                 <span>Extreme Metal</span>
               </div>
-              <div class=" link item" data-tab="tab-rock">
+              <div class=" link item" data-tab="tab-rock" data-tab-name="Rock" id="desktop-menu-item-rock">
                 <span class="ui tiny label">19</span>
                 <span>Rock</span>
               </div>
-              <div class=" link item" data-tab="tab-folk">
+              <div class=" link item" data-tab="tab-folk" data-tab-name="Folk" id="desktop-menu-item-folk">
                 <span class="ui tiny label">30</span>
                 <span>Folk</span>
               </div>
-              <div class=" link item" data-tab="tab-steampunk">
+              <div class=" link item" data-tab="tab-steampunk" data-tab-name="Steampunk" id="desktop-menu-item-steampunk">
                 <span class="ui tiny label">15</span>
                 <span>Steampunk</span>
               </div>
-              <div class=" link item" data-tab="tab-atmospheric">
+              <div class=" link item" data-tab="tab-atmospheric" data-tab-name="Atmospheric" id="desktop-menu-item-atmospheric">
                 <span class="ui tiny label">29</span>
                 <span>Atmospheric</span>
               </div>
-              <div class=" link item" data-tab="tab-voxguitar">
+              <div class=" link item" data-tab="tab-voxguitar" data-tab-name="Vox/Guitar" id="desktop-menu-item-voxguitar">
                 <span class="ui tiny label">13</span>
                 <span>Vox/Guitar</span>
               </div>
-              <div class=" link item" data-tab="tab-energetic">
+              <div class=" link item" data-tab="tab-energetic" data-tab-name="Energetic" id="desktop-menu-item-energetic">
                 <span class="ui tiny label">24</span>
                 <span>Energetic</span>
               </div>
-              <div class=" link item" data-tab="tab-others">
+              <div class=" link item" data-tab="tab-others" data-tab-name="Others" id="desktop-menu-item-others">
                 <span class="ui tiny label">4</span>
                 <span>Others</span>
               </div>
             </div>
           </div>
           <div class="active title" style="font-size: 1.28571429rem;">
-            <span>Sorting</span><i class="right dropdown icon"></i>
+            <span id="desktop-menu-header-sort">Sort</span><i class="right dropdown icon"></i>
           </div>
           <div class="active content" style="padding: 0;">
             <div class="ui fluid vertical attached menu" style="margin: 0; border-left: 0; border-right: 0; border-bottom: 0;">
@@ -7829,7 +7844,7 @@ function sort(button, attribute, order) {
       </div>
     </div>
   </body>
-  <script>$('.menu .item').tab({history:true, historyType: 'hash'});</script>
+  <script>$('.menu .item').tab({history:true, historyType: 'hash', onLoad: tab});</script>
   <script>$('.ui.accordion.desktop').accordion({exclusive:false});</script>
   <script>$('.ui.accordion.mobile').accordion({exclusive:true});</script>
 </html>
