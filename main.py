@@ -45,24 +45,24 @@ for artist in artists_df.to_dicts():
 
     # match genres
     for genre in genres:
-        tag = TAGS.get(genre)
-        if tag:
+        tags = TAGS.get(genre, [])
+        for tag in tags:
             tagged.add(tag)
 
     # match names (positive)
-    tag = TAGS.get(f"+{artist["name"]}")
-    if tag:
+    tags = TAGS.get(f"+{artist["name"]}", [])
+    for tag in tags:
         tagged.add(tag)
 
     # match names (negative)
-    tag = TAGS.get(f"-{artist["name"]}")
-    if tag:
+    tags = TAGS.get(f"-{artist["name"]}", [])
+    for tag in tags:
         tagged.remove(tag)
 
     # match other tags
     for tagged_tag in tagged.copy():
-        tag = TAGS.get(tagged_tag)
-        if tag:
+        tags = TAGS.get(tagged_tag, [])
+        for tag in tags:
             tagged.add(tag)
 
     # rule: extreme cannot be traditional
@@ -71,8 +71,8 @@ for artist in artists_df.to_dicts():
 
     # add tags
     artist["tags"] = tagged
-    for tag in artist["tags"]:
-        artists_by_tag[tag].append(artist)
+    for tags in artist["tags"]:
+        artists_by_tag[tags].append(artist)
     if len(artist["tags"]) == 1:
         artists_by_tag[T_OTHERS].append(artist)
 
@@ -240,7 +240,7 @@ def cards(artists: list[dict]):
 
 
 def id(tag: str) -> str:
-    return tag.lower().translate(str.maketrans("", "", "():/")).translate(str.maketrans("ãéó", "aeo")).replace(" ", "-").strip()
+    return tag.lower().translate(str.maketrans("", "", "():/")).translate(str.maketrans("ãéó", "aeo")).replace(" - ", "-").replace(" ", "-").strip()
 
 def tab_id(tag: str) -> str:
     return f"tab-{id(tag)}"
@@ -283,11 +283,11 @@ with doc:
             # ------------------------------------------------------------------
             with div(cls="sixteen wide mobile tablet   thirteen wide computer   fourteen wide large screen   fourteen wide widescreen   column", style="padding: 0.5rem;"):
                 # tab contents
-                for tag in TAGS_ORDER:
-                    artists = sorted(artists_by_tag[tag], key=lambda x: x["name"].lower())
+                for tags in TAGS_ORDER:
+                    artists = sorted(artists_by_tag[tags], key=lambda x: x["name"].lower())
                     active = "active" if i == 0 else ""
 
-                    with div(cls="ui tab", data_tab=tab_id(tag)):
+                    with div(cls="ui tab", data_tab=tab_id(tags)):
                         cards(artists)
 
             # ------------------------------------------------------------------
@@ -310,10 +310,10 @@ with open(OUTPUT_LAUNCHER, "w", encoding="utf-8", newline="\n") as f:
 # write summary
 logging.info(f"💾 Writing: {OUTPUT_SUMMARY}")
 with open(OUTPUT_SUMMARY, "w", encoding="utf-8", newline="\n") as f:
-    for tag in TAGS_ORDER:
+    for tags in TAGS_ORDER:
         f.write("\n")
-        f.write(tag + ":\n")
-        for artist in artists_by_tag[tag]:
+        f.write(tags + ":\n")
+        for artist in artists_by_tag[tags]:
             f.write("* " + artist["name"] + "\n")
 
 # verify untouched keys

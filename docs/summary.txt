@@ -23,6 +23,7 @@ All:
 * Arcturus
 * Arkona
 * Audioslave
+* Aurelio Voltaire
 * Avantasia
 * Ayreon
 * BROODS
@@ -50,6 +51,7 @@ All:
 * Cocoon
 * Confraria da Costa
 * Creed
+* Cruachan
 * Crypta
 * Daughter
 * Death
@@ -80,6 +82,7 @@ All:
 * Gotthard
 * Haggard
 * Haken
+* Hangar
 * Heidevolk
 * Hellish War
 * Helloween
@@ -155,6 +158,7 @@ All:
 * Sentenced
 * Septicflesh
 * Sepultura
+* Shaman
 * Sidney Gish
 * Soap&Skin
 * Soen
@@ -227,13 +231,14 @@ Rock:
 * Blind Guardian
 * Borknagar
 * Boz Scaggs
-* Braia
 * Brujeria
 * Camp Claude
 * Carcass
 * Circle II Circle
 * Creed
+* Cruachan
 * Crypta
+* Daughter
 * Death
 * Deathstars
 * Demons & Wizards
@@ -252,6 +257,7 @@ Rock:
 * Gotthard
 * Haggard
 * Haken
+* Hangar
 * Heidevolk
 * Hellish War
 * Helloween
@@ -295,6 +301,7 @@ Rock:
 * Sentenced
 * Septicflesh
 * Sepultura
+* Shaman
 * Soen
 * Soilwork
 * Sonata Arctica
@@ -308,6 +315,7 @@ Rock:
 * System Of A Down
 * Sólstafir
 * Tame Impala
+* The Dead South
 * Therion
 * Torture Squad
 * Tuatha de Danann
@@ -322,7 +330,38 @@ Rock:
 * Zonata
 
 Rock - Favorites:
+* ANGRA
+* Altaria
+* Alvvays
+* Amorphis
+* Ayreon
+* Crypta
+* Deathstars
+* Doomsword
+* Eldhrimnir
+* Haggard
+* Haken
+* Hangar
 * Iced Earth
+* In Mourning
+* Judas Priest
+* Klone
+* Muse
+* Mägo de Oz
+* Narnia
+* Oficina G3
+* Opeth
+* Orphaned Land
+* Otyg
+* Sabaton
+* Sentenced
+* Shaman
+* Sonata Arctica
+* Syd Matters
+* Therion
+* Torture Squad
+* Tuatha de Danann
+* Týr
 
 Rock - Extreme Metal:
 * Amorphis
@@ -374,6 +413,7 @@ Rock - Heavy Metal:
 * Gamma Ray
 * Haggard
 * Haken
+* Hangar
 * Heidevolk
 * Hellish War
 * Helloween
@@ -400,6 +440,7 @@ Rock - Heavy Metal:
 * Rhapsody
 * Sabaton
 * Scorpions
+* Shaman
 * Soen
 * Sonata Arctica
 * Static-X
@@ -423,7 +464,7 @@ Rock - Folk Metal:
 * Arkona
 * Blind Guardian
 * Borknagar
-* Braia
+* Cruachan
 * Doomsword
 * Eldhrimnir
 * Eluveitie
@@ -451,6 +492,7 @@ Rock - Rock:
 * Boz Scaggs
 * Camp Claude
 * Creed
+* Daughter
 * Gotthard
 * Imagine Dragons
 * Lordi
@@ -462,6 +504,7 @@ Rock - Rock:
 * Syd Matters
 * System Of A Down
 * Tame Impala
+* The Dead South
 * Volbeat
 * Wussy
 
@@ -469,13 +512,16 @@ Folk:
 * AlicebanD
 * Amanda Palmer
 * American Murder Song
+* Aurelio Voltaire
 * Bitter Ruin
 * Braia
 * Caprice
 * Celtic Woman
 * Confraria da Costa
+* Cruachan
 * Diablo Swing Orchestra
 * Dirt Poor Robins
+* Eldhrimnir
 * Eliza Rickman
 * Eluveitie
 * Faun
@@ -488,11 +534,13 @@ Folk:
 * The Cog is Dead
 * The Dead South
 * The Dresden Dolls
-* Tuatha de Danann
 * Unwoman
 
 Folk - Favorites:
+* Dirt Poor Robins
+* Eldhrimnir
 * Eliza Rickman
+* Leandra
 * Steam Powered Giraffe
 
 Folk - Folk:
@@ -500,16 +548,18 @@ Folk - Folk:
 * Caprice
 * Celtic Woman
 * Confraria da Costa
+* Cruachan
+* Eldhrimnir
 * Eluveitie
 * Faun
 * OMNIA
 * The Dead South
-* Tuatha de Danann
 
 Folk - Steampunk:
 * AlicebanD
 * Amanda Palmer
 * American Murder Song
+* Aurelio Voltaire
 * Bitter Ruin
 * Diablo Swing Orchestra
 * Dirt Poor Robins
@@ -592,6 +642,39 @@ Alternative:
 * aeseaes
 
 Alt - Favorites:
+* Agnes Obel
+* Angus & Julia Stone
+* Billie Eilish
+* Birdy
+* Burning Peacocks
+* Daughter
+* Eliza Rickman
+* Florence + The Machine
+* HÆLOS
+* Jessie Ware
+* Joyce Jonathan
+* Juniper Vale
+* Lady Gaga
+* Las Aves
+* Leandra
+* Lola Young
+* London Grammar
+* Lor
+* Lorde
+* MARINA
+* Marika Hackman
+* Of Monsters and Men
+* Oh Land
+* Oh Wonder
+* PHILDEL
+* Ruelle
+* Soap&Skin
+* Superorganism
+* Susanne Sundfør
+* The Dø
+* Vaults
+* Zella Day
+* aeseaes
 
 Alt - Atmospheric:
 * AURORA
@@ -616,9 +699,11 @@ Alt - Atmospheric:
 * PHILDEL
 * Paris Paloma
 * Phoebe Bridgers
+* Prudence
 * Rosemary & Garlic
 * Ruelle
 * Soap&Skin
+* Susanne Sundfør
 * Sóley
 * The xx
 * Vaults
