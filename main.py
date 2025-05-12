@@ -129,11 +129,11 @@ function sort(button, attribute, order) {
 
 def menu_category(mobile: bool):
     with menu_wrapper(mobile, "Category"):
+        label_size = "" if mobile else "tiny"
         for index, tag in enumerate(TAGS_ORDER):
             artists = artists_by_tag[tag]
             active = "active" if index == 0 else ""
             with div(cls=f"{active} link item", data_tab=tab_id(tag)):
-                label_size = "" if mobile else "tiny"
                 span(f"{len(artists)}", cls=f"ui {label_size} label")
                 span(tag)
 
@@ -147,7 +147,7 @@ def menu_sorting(mobile):
         div("📅 Last Release", cls="ui link item", onClick="sort(this, 'last-release', 'desc')", style=CSS_STYLE_NOWRAP)
 
 def menu_wrapper(mobile: bool, label: str):
-    active = "active" if not mobile else " "
+    active = "" if mobile else "active"
     font_size = "1.71428571rem" if mobile else "1.28571429rem"
     with div(cls=f"{active} title", style=f"font-size: {font_size};"):
             span(label)
