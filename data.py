@@ -284,7 +284,7 @@ TAGS_INVERTED = {
     ]
 }
 
-from dict import ProxyDict
+from utils import ProxyDict
 TAGS = ProxyDict(list)
 for tags, patterns in TAGS_INVERTED.items():
     for pattern in patterns:

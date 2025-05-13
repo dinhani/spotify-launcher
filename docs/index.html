@@ -4,33 +4,6 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-address@1.6.0/src/jquery.address.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min.css" rel="stylesheet">
-    <style>
-.extra.content::after {
-    display: none !important;
-}
-@media only screen and (max-width: 991.9px) {
-    .artist-image {
-        height: 200px !important;
-    }
-}
-@media only screen and (min-width: 992px) {
-    body {
-        height:100%;
-        overflow-y: hidden;
-    }
-    div::-webkit-scrollbar {
-        display: none;
-    }
-    .artists-wrapper {
-        height: 98vh;
-        overflow-y: scroll;
-    }
-    .artist-image {
-        height: 140px !important;
-    }
-}
-</style>
     <script>
 function removeEmoji(s) {
     return s.replace(/[\p{Emoji_Presentation}\p{Extended_Pictographic}]/gu, '').trim()
@@ -71,6 +44,33 @@ function sort(element, attribute, order) {
     });
 }
 </script>
+    <link href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min.css" rel="stylesheet">
+    <style>
+.extra.content::after {
+    display: none !important;
+}
+@media only screen and (max-width: 991.9px) {
+    .artist-image {
+        height: 200px !important;
+    }
+}
+@media only screen and (min-width: 992px) {
+    body {
+        height:100%;
+        overflow-y: hidden;
+    }
+    div::-webkit-scrollbar {
+        display: none;
+    }
+    .artists-wrapper {
+        height: 98vh;
+        overflow-y: scroll;
+    }
+    .artist-image {
+        height: 140px !important;
+    }
+}
+</style>
   </head>
   <body class="ui fluid container">
     <div class="ui padded grid">
@@ -81,71 +81,71 @@ function sort(element, attribute, order) {
           </div>
           <div class=" content" style="padding: 0;">
             <div class="ui fluid vertical attached menu" style="margin: 0; border-left: 0; border-right: 0; border-bottom: 0;">
-              <div class="active  link item" data-tab="tab-all" data-tab-name="All" id="mobile-menu-item-all" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
+              <div class="active  link item" data-tab="all" data-tab-name="All" id="mobile-menu-item-all" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
                 <span>All</span>
                 <span class="ui  label">203</span>
               </div>
-              <div class="  link item" data-tab="tab-others" data-tab-name="Others" id="mobile-menu-item-others" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
+              <div class="  link item" data-tab="others" data-tab-name="Others" id="mobile-menu-item-others" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
                 <span>Others</span>
                 <span class="ui  label">4</span>
               </div>
-              <div class=" header link item" data-tab="tab-rock" data-tab-name="Rock" id="mobile-menu-item-rock" style="white-space: nowrap; padding: 0.75rem; font-size: 1.2rem;">
+              <div class=" header link item" data-tab="rock" data-tab-name="Rock" id="mobile-menu-item-rock" style="white-space: nowrap; padding: 0.75rem; font-size: 1.2rem;">
                 <span>Rock</span>
                 <span class="ui  label">117</span>
               </div>
-              <div class="  link item" data-tab="tab-rock-favorites" data-tab-name="Rock - Favorites" id="mobile-menu-item-rock-favorites" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
+              <div class="  link item" data-tab="rock-favorites" data-tab-name="Rock - Favorites" id="mobile-menu-item-rock-favorites" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
                 <span>Favorites</span>
                 <span class="ui  label">32</span>
               </div>
-              <div class="  link item" data-tab="tab-rock-extreme-metal" data-tab-name="Rock - Extreme Metal" id="mobile-menu-item-rock-extreme-metal" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
+              <div class="  link item" data-tab="rock-extreme-metal" data-tab-name="Rock - Extreme Metal" id="mobile-menu-item-rock-extreme-metal" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
                 <span>Extreme Metal</span>
                 <span class="ui  label">25</span>
               </div>
-              <div class="  link item" data-tab="tab-rock-heavy-metal" data-tab-name="Rock - Heavy Metal" id="mobile-menu-item-rock-heavy-metal" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
+              <div class="  link item" data-tab="rock-heavy-metal" data-tab-name="Rock - Heavy Metal" id="mobile-menu-item-rock-heavy-metal" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
                 <span>Heavy Metal</span>
                 <span class="ui  label">65</span>
               </div>
-              <div class="  link item" data-tab="tab-rock-folk-metal" data-tab-name="Rock - Folk Metal" id="mobile-menu-item-rock-folk-metal" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
+              <div class="  link item" data-tab="rock-folk-metal" data-tab-name="Rock - Folk Metal" id="mobile-menu-item-rock-folk-metal" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
                 <span>Folk Metal</span>
                 <span class="ui  label">26</span>
               </div>
-              <div class="  link item" data-tab="tab-rock-rock" data-tab-name="Rock - Rock" id="mobile-menu-item-rock-rock" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
+              <div class="  link item" data-tab="rock-rock" data-tab-name="Rock - Rock" id="mobile-menu-item-rock-rock" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
                 <span>Rock</span>
                 <span class="ui  label">21</span>
               </div>
-              <div class=" header link item" data-tab="tab-folk" data-tab-name="Folk" id="mobile-menu-item-folk" style="white-space: nowrap; padding: 0.75rem; font-size: 1.2rem;">
+              <div class=" header link item" data-tab="folk" data-tab-name="Folk" id="mobile-menu-item-folk" style="white-space: nowrap; padding: 0.75rem; font-size: 1.2rem;">
                 <span>Folk</span>
                 <span class="ui  label">26</span>
               </div>
-              <div class="  link item" data-tab="tab-folk-favorites" data-tab-name="Folk - Favorites" id="mobile-menu-item-folk-favorites" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
+              <div class="  link item" data-tab="folk-favorites" data-tab-name="Folk - Favorites" id="mobile-menu-item-folk-favorites" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
                 <span>Favorites</span>
                 <span class="ui  label">5</span>
               </div>
-              <div class="  link item" data-tab="tab-folk-folk" data-tab-name="Folk - Folk" id="mobile-menu-item-folk-folk" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
+              <div class="  link item" data-tab="folk-folk" data-tab-name="Folk - Folk" id="mobile-menu-item-folk-folk" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
                 <span>Folk</span>
                 <span class="ui  label">10</span>
               </div>
-              <div class="  link item" data-tab="tab-folk-steampunk" data-tab-name="Folk - Steampunk" id="mobile-menu-item-folk-steampunk" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
+              <div class="  link item" data-tab="folk-steampunk" data-tab-name="Folk - Steampunk" id="mobile-menu-item-folk-steampunk" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
                 <span>Steampunk</span>
                 <span class="ui  label">16</span>
               </div>
-              <div class=" header link item" data-tab="tab-alternative" data-tab-name="Alternative" id="mobile-menu-item-alternative" style="white-space: nowrap; padding: 0.75rem; font-size: 1.2rem;">
+              <div class=" header link item" data-tab="alternative" data-tab-name="Alternative" id="mobile-menu-item-alternative" style="white-space: nowrap; padding: 0.75rem; font-size: 1.2rem;">
                 <span>Alternative</span>
                 <span class="ui  label">66</span>
               </div>
-              <div class="  link item" data-tab="tab-alt-favorites" data-tab-name="Alt - Favorites" id="mobile-menu-item-alt-favorites" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
+              <div class="  link item" data-tab="alt-favorites" data-tab-name="Alt - Favorites" id="mobile-menu-item-alt-favorites" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
                 <span>Favorites</span>
                 <span class="ui  label">33</span>
               </div>
-              <div class="  link item" data-tab="tab-alt-atmospheric" data-tab-name="Alt - Atmospheric" id="mobile-menu-item-alt-atmospheric" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
+              <div class="  link item" data-tab="alt-atmospheric" data-tab-name="Alt - Atmospheric" id="mobile-menu-item-alt-atmospheric" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
                 <span>Atmospheric</span>
                 <span class="ui  label">31</span>
               </div>
-              <div class="  link item" data-tab="tab-alt-energetic" data-tab-name="Alt - Energetic" id="mobile-menu-item-alt-energetic" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
+              <div class="  link item" data-tab="alt-energetic" data-tab-name="Alt - Energetic" id="mobile-menu-item-alt-energetic" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
                 <span>Energetic</span>
                 <span class="ui  label">24</span>
               </div>
-              <div class="  link item" data-tab="tab-alt-voxguitar" data-tab-name="Alt - Vox/Guitar" id="mobile-menu-item-alt-voxguitar" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
+              <div class="  link item" data-tab="alt-voxguitar" data-tab-name="Alt - Vox/Guitar" id="mobile-menu-item-alt-voxguitar" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
                 <span>Vox/Guitar</span>
                 <span class="ui  label">13</span>
               </div>
@@ -174,71 +174,71 @@ function sort(element, attribute, order) {
           </div>
           <div class="active content" style="padding: 0;">
             <div class="ui fluid vertical attached menu" style="margin: 0; border-left: 0; border-right: 0; border-bottom: 0;">
-              <div class="active  link item" data-tab="tab-all" data-tab-name="All" id="desktop-menu-item-all" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
+              <div class="active  link item" data-tab="all" data-tab-name="All" id="desktop-menu-item-all" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
                 <span>All</span>
                 <span class="ui tiny label">203</span>
               </div>
-              <div class="  link item" data-tab="tab-others" data-tab-name="Others" id="desktop-menu-item-others" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
+              <div class="  link item" data-tab="others" data-tab-name="Others" id="desktop-menu-item-others" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
                 <span>Others</span>
                 <span class="ui tiny label">4</span>
               </div>
-              <div class=" header link item" data-tab="tab-rock" data-tab-name="Rock" id="desktop-menu-item-rock" style="white-space: nowrap; padding: 0.75rem; font-size: 1.2rem;">
+              <div class=" header link item" data-tab="rock" data-tab-name="Rock" id="desktop-menu-item-rock" style="white-space: nowrap; padding: 0.75rem; font-size: 1.2rem;">
                 <span>Rock</span>
                 <span class="ui tiny label">117</span>
               </div>
-              <div class="  link item" data-tab="tab-rock-favorites" data-tab-name="Rock - Favorites" id="desktop-menu-item-rock-favorites" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
+              <div class="  link item" data-tab="rock-favorites" data-tab-name="Rock - Favorites" id="desktop-menu-item-rock-favorites" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
                 <span>Favorites</span>
                 <span class="ui tiny label">32</span>
               </div>
-              <div class="  link item" data-tab="tab-rock-extreme-metal" data-tab-name="Rock - Extreme Metal" id="desktop-menu-item-rock-extreme-metal" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
+              <div class="  link item" data-tab="rock-extreme-metal" data-tab-name="Rock - Extreme Metal" id="desktop-menu-item-rock-extreme-metal" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
                 <span>Extreme Metal</span>
                 <span class="ui tiny label">25</span>
               </div>
-              <div class="  link item" data-tab="tab-rock-heavy-metal" data-tab-name="Rock - Heavy Metal" id="desktop-menu-item-rock-heavy-metal" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
+              <div class="  link item" data-tab="rock-heavy-metal" data-tab-name="Rock - Heavy Metal" id="desktop-menu-item-rock-heavy-metal" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
                 <span>Heavy Metal</span>
                 <span class="ui tiny label">65</span>
               </div>
-              <div class="  link item" data-tab="tab-rock-folk-metal" data-tab-name="Rock - Folk Metal" id="desktop-menu-item-rock-folk-metal" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
+              <div class="  link item" data-tab="rock-folk-metal" data-tab-name="Rock - Folk Metal" id="desktop-menu-item-rock-folk-metal" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
                 <span>Folk Metal</span>
                 <span class="ui tiny label">26</span>
               </div>
-              <div class="  link item" data-tab="tab-rock-rock" data-tab-name="Rock - Rock" id="desktop-menu-item-rock-rock" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
+              <div class="  link item" data-tab="rock-rock" data-tab-name="Rock - Rock" id="desktop-menu-item-rock-rock" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
                 <span>Rock</span>
                 <span class="ui tiny label">21</span>
               </div>
-              <div class=" header link item" data-tab="tab-folk" data-tab-name="Folk" id="desktop-menu-item-folk" style="white-space: nowrap; padding: 0.75rem; font-size: 1.2rem;">
+              <div class=" header link item" data-tab="folk" data-tab-name="Folk" id="desktop-menu-item-folk" style="white-space: nowrap; padding: 0.75rem; font-size: 1.2rem;">
                 <span>Folk</span>
                 <span class="ui tiny label">26</span>
               </div>
-              <div class="  link item" data-tab="tab-folk-favorites" data-tab-name="Folk - Favorites" id="desktop-menu-item-folk-favorites" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
+              <div class="  link item" data-tab="folk-favorites" data-tab-name="Folk - Favorites" id="desktop-menu-item-folk-favorites" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
                 <span>Favorites</span>
                 <span class="ui tiny label">5</span>
               </div>
-              <div class="  link item" data-tab="tab-folk-folk" data-tab-name="Folk - Folk" id="desktop-menu-item-folk-folk" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
+              <div class="  link item" data-tab="folk-folk" data-tab-name="Folk - Folk" id="desktop-menu-item-folk-folk" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
                 <span>Folk</span>
                 <span class="ui tiny label">10</span>
               </div>
-              <div class="  link item" data-tab="tab-folk-steampunk" data-tab-name="Folk - Steampunk" id="desktop-menu-item-folk-steampunk" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
+              <div class="  link item" data-tab="folk-steampunk" data-tab-name="Folk - Steampunk" id="desktop-menu-item-folk-steampunk" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
                 <span>Steampunk</span>
                 <span class="ui tiny label">16</span>
               </div>
-              <div class=" header link item" data-tab="tab-alternative" data-tab-name="Alternative" id="desktop-menu-item-alternative" style="white-space: nowrap; padding: 0.75rem; font-size: 1.2rem;">
+              <div class=" header link item" data-tab="alternative" data-tab-name="Alternative" id="desktop-menu-item-alternative" style="white-space: nowrap; padding: 0.75rem; font-size: 1.2rem;">
                 <span>Alternative</span>
                 <span class="ui tiny label">66</span>
               </div>
-              <div class="  link item" data-tab="tab-alt-favorites" data-tab-name="Alt - Favorites" id="desktop-menu-item-alt-favorites" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
+              <div class="  link item" data-tab="alt-favorites" data-tab-name="Alt - Favorites" id="desktop-menu-item-alt-favorites" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
                 <span>Favorites</span>
                 <span class="ui tiny label">33</span>
               </div>
-              <div class="  link item" data-tab="tab-alt-atmospheric" data-tab-name="Alt - Atmospheric" id="desktop-menu-item-alt-atmospheric" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
+              <div class="  link item" data-tab="alt-atmospheric" data-tab-name="Alt - Atmospheric" id="desktop-menu-item-alt-atmospheric" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
                 <span>Atmospheric</span>
                 <span class="ui tiny label">31</span>
               </div>
-              <div class="  link item" data-tab="tab-alt-energetic" data-tab-name="Alt - Energetic" id="desktop-menu-item-alt-energetic" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
+              <div class="  link item" data-tab="alt-energetic" data-tab-name="Alt - Energetic" id="desktop-menu-item-alt-energetic" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
                 <span>Energetic</span>
                 <span class="ui tiny label">24</span>
               </div>
-              <div class="  link item" data-tab="tab-alt-voxguitar" data-tab-name="Alt - Vox/Guitar" id="desktop-menu-item-alt-voxguitar" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
+              <div class="  link item" data-tab="alt-voxguitar" data-tab-name="Alt - Vox/Guitar" id="desktop-menu-item-alt-voxguitar" style="white-space: nowrap; padding: 0.75rem; font-size: 1rem;">
                 <span>Vox/Guitar</span>
                 <span class="ui tiny label">13</span>
               </div>
@@ -261,7 +261,7 @@ function sort(element, attribute, order) {
         </div>
       </div>
       <div class="sixteen wide mobile tablet   thirteen wide computer   fourteen wide large screen   fourteen wide widescreen   column" style="padding: 0.5rem;">
-        <div class="ui tab" data-tab="tab-all">
+        <div class="ui tab" data-tab="all">
           <div class="artists-wrapper">
             <div class="ui padded grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="3" data-followers="46426" data-last-follow="32" data-last-release="2025-04-25" data-name="aeseaes" data-popularity="45" data-song-popularity="50" style="padding: 0.25rem;">
@@ -3921,7 +3921,7 @@ function sort(element, attribute, order) {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-others">
+        <div class="ui tab" data-tab="others">
           <div class="artists-wrapper">
             <div class="ui padded grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="20" data-followers="436820" data-last-follow="20" data-last-release="2013-03-04" data-name="Cesária Evora" data-popularity="68" data-song-popularity="61" style="padding: 0.25rem;">
@@ -3999,7 +3999,7 @@ function sort(element, attribute, order) {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-rock">
+        <div class="ui tab" data-tab="rock">
           <div class="artists-wrapper">
             <div class="ui padded grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="2" data-followers="40327" data-last-follow="29" data-last-release="2015-08-07" data-name="Agent Fresco" data-popularity="30" data-song-popularity="38" style="padding: 0.25rem;">
@@ -6111,7 +6111,7 @@ function sort(element, attribute, order) {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-rock-favorites">
+        <div class="ui tab" data-tab="rock-favorites">
           <div class="artists-wrapper">
             <div class="ui padded grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="4" data-followers="10680" data-last-follow="143" data-last-release="2022-07-08" data-name="Altaria" data-popularity="21" data-song-popularity="32" style="padding: 0.25rem;">
@@ -6693,7 +6693,7 @@ function sort(element, attribute, order) {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-rock-extreme-metal">
+        <div class="ui tab" data-tab="rock-extreme-metal">
           <div class="artists-wrapper">
             <div class="ui padded grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="23" data-followers="334351" data-last-follow="95" data-last-release="2024-09-03" data-name="Amorphis" data-popularity="49" data-song-popularity="48" style="padding: 0.25rem;">
@@ -7149,7 +7149,7 @@ function sort(element, attribute, order) {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-rock-heavy-metal">
+        <div class="ui tab" data-tab="rock-heavy-metal">
           <div class="artists-wrapper">
             <div class="ui padded grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="2" data-followers="40327" data-last-follow="29" data-last-release="2015-08-07" data-name="Agent Fresco" data-popularity="30" data-song-popularity="38" style="padding: 0.25rem;">
@@ -8325,7 +8325,7 @@ function sort(element, attribute, order) {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-rock-folk-metal">
+        <div class="ui tab" data-tab="rock-folk-metal">
           <div class="artists-wrapper">
             <div class="ui padded grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="10" data-followers="697520" data-last-follow="121" data-last-release="2022-06-24" data-name="Alestorm" data-popularity="57" data-song-popularity="59" style="padding: 0.25rem;">
@@ -8799,7 +8799,7 @@ function sort(element, attribute, order) {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-rock-rock">
+        <div class="ui tab" data-tab="rock-rock">
           <div class="artists-wrapper">
             <div class="ui padded grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="3" data-followers="609021" data-last-follow="124" data-last-release="2022-10-07" data-name="Alvvays" data-popularity="60" data-song-popularity="65" style="padding: 0.25rem;">
@@ -9183,7 +9183,7 @@ function sort(element, attribute, order) {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-folk">
+        <div class="ui tab" data-tab="folk">
           <div class="artists-wrapper">
             <div class="ui padded grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="2" data-followers="32177" data-last-follow="89" data-last-release="2011-03-30" data-name="AlicebanD" data-popularity="46" data-song-popularity="49" style="padding: 0.25rem;">
@@ -9657,7 +9657,7 @@ function sort(element, attribute, order) {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-folk-favorites">
+        <div class="ui tab" data-tab="folk-favorites">
           <div class="artists-wrapper">
             <div class="ui padded grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="9" data-followers="44707" data-last-follow="56" data-last-release="2025-02-25" data-name="Dirt Poor Robins" data-popularity="44" data-song-popularity="47" style="padding: 0.25rem;">
@@ -9753,7 +9753,7 @@ function sort(element, attribute, order) {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-folk-folk">
+        <div class="ui tab" data-tab="folk-folk">
           <div class="artists-wrapper">
             <div class="ui padded grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="3" data-followers="2293" data-last-follow="139" data-last-release="2021-05-07" data-name="Braia" data-popularity="6" data-song-popularity="5" style="padding: 0.25rem;">
@@ -9939,7 +9939,7 @@ function sort(element, attribute, order) {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-folk-steampunk">
+        <div class="ui tab" data-tab="folk-steampunk">
           <div class="artists-wrapper">
             <div class="ui padded grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="2" data-followers="32177" data-last-follow="89" data-last-release="2011-03-30" data-name="AlicebanD" data-popularity="46" data-song-popularity="49" style="padding: 0.25rem;">
@@ -10233,7 +10233,7 @@ function sort(element, attribute, order) {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-alternative">
+        <div class="ui tab" data-tab="alternative">
           <div class="artists-wrapper">
             <div class="ui padded grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="3" data-followers="46426" data-last-follow="32" data-last-release="2025-04-25" data-name="aeseaes" data-popularity="45" data-song-popularity="50" style="padding: 0.25rem;">
@@ -11427,7 +11427,7 @@ function sort(element, attribute, order) {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-alt-favorites">
+        <div class="ui tab" data-tab="alt-favorites">
           <div class="artists-wrapper">
             <div class="ui padded grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="3" data-followers="46426" data-last-follow="32" data-last-release="2025-04-25" data-name="aeseaes" data-popularity="45" data-song-popularity="50" style="padding: 0.25rem;">
@@ -12027,7 +12027,7 @@ function sort(element, attribute, order) {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-alt-atmospheric">
+        <div class="ui tab" data-tab="alt-atmospheric">
           <div class="artists-wrapper">
             <div class="ui padded grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="3" data-followers="46426" data-last-follow="32" data-last-release="2025-04-25" data-name="aeseaes" data-popularity="45" data-song-popularity="50" style="padding: 0.25rem;">
@@ -12591,7 +12591,7 @@ function sort(element, attribute, order) {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-alt-energetic">
+        <div class="ui tab" data-tab="alt-energetic">
           <div class="artists-wrapper">
             <div class="ui padded grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="3" data-followers="729300" data-last-follow="164" data-last-release="2011-01-01" data-name="Aqua" data-popularity="67" data-song-popularity="78" style="padding: 0.25rem;">
@@ -13029,7 +13029,7 @@ function sort(element, attribute, order) {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="tab-alt-voxguitar">
+        <div class="ui tab" data-tab="alt-voxguitar">
           <div class="artists-wrapper">
             <div class="ui padded grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="9" data-followers="142379" data-last-follow="15" data-last-release="2023-12-01" data-name="Alela Diane" data-popularity="47" data-song-popularity="44" style="padding: 0.25rem;">
