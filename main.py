@@ -37,16 +37,16 @@ with open(OUTPUT_LAUNCHER, "w", encoding="utf-8", newline="\n") as f:
 # write summary to file
 logging.info(f"💾 Writing: {OUTPUT_SUMMARY}")
 with open(OUTPUT_SUMMARY, "w", encoding="utf-8", newline="\n") as f:
-    for tags in TAGS_ORDER:
-        f.write("\n")
-        f.write(tags + ":\n")
-        for artist in tags_with_artists[tags]:
+    for tag in TAGS_MENU_ORDER:
+        if tag not in TAGS_GRANULAR:
+            continue
+        f.write(f"\n{tag}:\n")
+        for artist in tags_with_artists[tag]:
             f.write("* " + artist["name"] + "\n")
 
 # verify untouched keys
 logging.info("🧱 Checking untouched keys")
-for key in TAGS.untouched_keys():
+for key in TAGS_ALL.untouched_keys():
     logging.warning(f"🛑 Untouched key: {key}")
-
 
 logging.info("✅ Done")

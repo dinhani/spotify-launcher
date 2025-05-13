@@ -113,7 +113,7 @@ def menu_filter(mobile: bool, tags_with_artists: dict[str, list[dict]]):
         item_kind = "mobile" if mobile else "desktop"
         item_label_size = "" if mobile else "tiny"
 
-        for index, tag in enumerate(TAGS_ORDER):
+        for index, tag in enumerate(TAGS_MENU_ORDER):
             artists = tags_with_artists[tag]
 
             # item attributes
@@ -237,7 +237,7 @@ def render_html(tags_with_artists: dict[str, list[dict]]):
                 # Content (cards)
                 # ------------------------------------------------------------------
                 with div(cls="sixteen wide mobile tablet   thirteen wide computer   fourteen wide large screen   fourteen wide widescreen   column", style="padding: 0.5rem;"):
-                    for tags in TAGS_ORDER:
+                    for tags in TAGS_MENU_ORDER:
                         artists = sorted(tags_with_artists[tags], key=lambda x: x["name"].lower())
                         active = "active" if i == 0 else ""
 
