@@ -7,9 +7,9 @@ T_OTHERS = "Others"
 T_ROCK_ALL = "Rock"
 T_ROCK_FAVORITES = "Rock - Favorites"
 T_ROCK_NON_FAVORITES = "Rock - Non-Favorites"
-T_ROCK_EXTREME_METAL = "Rock - Extreme Metal"
 T_ROCK_HEAVY_METAL = "Rock - Heavy Metal"
 T_ROCK_FOLK_METAL = "Rock - Folk Metal"
+T_ROCK_EXTREME_METAL = "Rock - Extreme Metal"
 T_ROCK_ROCK = "Rock - Rock"
 #
 T_FOLK_ALL = "Folk"
@@ -46,8 +46,8 @@ TAGS_MENU_ORDER = [
     T_ROCK_ALL,
     T_ROCK_FAVORITES,
     T_ROCK_NON_FAVORITES,
-    T_ROCK_EXTREME_METAL,
     T_ROCK_HEAVY_METAL,
+    T_ROCK_EXTREME_METAL,
     T_ROCK_FOLK_METAL,
     T_ROCK_ROCK,
     #
@@ -116,13 +116,20 @@ TAGS_INVERTED = {
         "+Týr"
     ],
     T_ROCK_HEAVY_METAL: [
+        "-Ahab",
+        "-Arch Enemy",
+        "-Arcturus",
+        "-Death",
         "-Gotthard",
+        "-In Mourning",
+        "-Scorpions",
+        "-Torture Squad",
         "+Massacration",
         "+Stress",
+        "-Whitesnake",
         "christian rock",
         "glam metal",
         "gothic metal",
-        "hard rock",
         "heavy metal",
         "nu metal",
         "power metal",
@@ -131,23 +138,36 @@ TAGS_INVERTED = {
         "doom metal"
     ],
     T_ROCK_FOLK_METAL: [
+        "-Amorphis",
+        "-Blind Guardian",
+        "-Borknagar",
         "-Braia",
+        "-Kamelot",
         "-Leaves' Eyes",
         "-Nightwish",
         "-Rhapsody",
         "-Sabaton",
+        "-Sólstafir",
         "-Sonata Arctica",
-        "folk metal",
-        "viking metal"
+        "-Ye Banished Privateers",
+        "+Diablo Swing Orchestra",
+        "folk metal"
     ],
     T_ROCK_EXTREME_METAL: [
+        "-Sentenced",
         "-Therion",
+        "+Ahab",
         "black metal",
         "death metal",
         "melodic death metal"
     ],
     T_ROCK_ROCK: [
+        "-Dio",
         "-Iron Maiden",
+        "-Jorn",
+        "-Judas Priest",
+        "-Metallica",
+        "-Ozzy Osbourne",
         "+Barns Courtney",
         "+Camp Claude",
         "+Daughter",
@@ -159,6 +179,7 @@ TAGS_INVERTED = {
         "+Wussy",
         "album rock",
         "alternative rock",
+        "hard rock",
         "post-grunge",
         "rock",
         "shoegaze"
@@ -171,6 +192,7 @@ TAGS_INVERTED = {
         T_FOLK_STEAMPUNK
     ],
     T_FOLK_FAVORITES: [
+        "-Eluveitie",
         "+Braia",
         "+Celtic Woman",
         "+Confraria da Costa",
@@ -183,8 +205,11 @@ TAGS_INVERTED = {
     T_FOLK_FOLK: [
         "-Tuatha de Danann",
         "+Confraria da Costa",
+        "+Deolinda",
         "+Eldhrimnir",
+        "+Madredeus",
         "+The Dead South",
+        "+Ye Banished Privateers",
         "celtic",
     ],
     T_FOLK_STEAMPUNK: [
@@ -268,6 +293,7 @@ TAGS_INVERTED = {
         "chamber pop"
     ],
     T_ALT_ENERGETIC: [
+        "+AURORA",
         "+BROODS",
         "+Claire Rosinkranz",
         "+Jessie Ware",

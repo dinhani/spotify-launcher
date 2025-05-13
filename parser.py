@@ -44,8 +44,8 @@ def parse(filename: str) -> defaultdict[str, list[dict]]:
             for tag in TAGS_ALL.get(tagged_tag, []):
                 artist_tags.add(tag)
 
-        # rule: extreme cannot be traditional
-        if T_ROCK_EXTREME_METAL in artist_tags and T_ROCK_HEAVY_METAL in artist_tags:
+        # rule: folk metal cannot be traditional
+        if T_ROCK_FOLK_METAL in artist_tags and T_ROCK_HEAVY_METAL in artist_tags:
             artist_tags.remove(T_ROCK_HEAVY_METAL)
 
         # rule: non-favorites
@@ -55,7 +55,6 @@ def parse(filename: str) -> defaultdict[str, list[dict]]:
             artist_tags.add(T_FOLK_NON_FAVORITES)
         if T_ALT_ALL in artist_tags and T_ALT_FAVORITES not in artist_tags:
             artist_tags.add(T_ALT_NON_FAVORITES)
-
 
         # add tags
         artist["tags"] = artist_tags

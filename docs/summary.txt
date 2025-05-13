@@ -1,11 +1,72 @@
 
 Others:
-* Cesária Evora
-* Deolinda
 * Hollywood Burns
-* Madredeus
+
+Rock - Heavy Metal:
+* ANGRA
+* Agent Fresco
+* Altaria
+* Amorphis
+* Annihilator
+* Aquaria
+* Avantasia
+* Ayreon
+* Blind Guardian
+* Borknagar
+* Circle II Circle
+* Deathstars
+* Demons & Wizards
+* Dio
+* Dream Theater
+* Edguy
+* Eterna
+* Gamma Ray
+* Gojira
+* Haken
+* Hangar
+* Hellish War
+* Helloween
+* Holy Soldier
+* Iced Earth
+* Ihsahn
+* Iron Maiden
+* Jorn
+* Judas Priest
+* Kamelot
+* Klone
+* Korzus
+* Lacrimosa
+* Leaves' Eyes
+* Leprous
+* Massacration
+* Metallica
+* Narnia
+* Nervosa
+* Nightwish
+* Oficina G3
+* Opeth
+* Ozzy Osbourne
+* Pantera
+* Queensrÿche
+* Rhapsody
+* Sabaton
+* Sentenced
+* Sepultura
+* Shaman
+* Soen
+* Sonata Arctica
+* Static-X
+* Storm Corrosion
+* Stratovarius
+* Stress
+* Symphony X
+* System Of A Down
+* Sólstafir
+* Type O Negative
+* Zonata
 
 Rock - Extreme Metal:
+* Ahab
 * Amorphis
 * Arch Enemy
 * Arcturus
@@ -16,14 +77,15 @@ Rock - Extreme Metal:
 * Death
 * Eluveitie
 * Fafnir
+* Finntroll
 * Gojira
+* Ihsahn
 * In Mourning
 * Malefactor
 * Necrophagist
 * Nervosa
 * Opeth
 * Satyricon
-* Sentenced
 * Septicflesh
 * Sepultura
 * Soilwork
@@ -32,100 +94,29 @@ Rock - Extreme Metal:
 * Torture Squad
 * Wintersun
 
-Rock - Heavy Metal:
-* ANGRA
-* Agent Fresco
-* Ahab
-* Alestorm
-* Altaria
-* Annihilator
-* Aquaria
-* Avantasia
-* Ayreon
-* Blind Guardian
-* Circle II Circle
-* Deathstars
-* Demons & Wizards
-* Diablo Swing Orchestra
-* Dio
-* Doomsword
-* Dream Theater
-* Edguy
-* Eterna
-* Gamma Ray
-* Haggard
-* Haken
-* Hangar
-* Heidevolk
-* Hellish War
-* Helloween
-* Holy Soldier
-* Iced Earth
-* Iron Maiden
-* Jorn
-* Judas Priest
-* Kamelot
-* Klone
-* Korpiklaani
-* Korzus
-* Lacrimosa
-* Leaves' Eyes
-* Leprous
-* Massacration
-* Metallica
-* Narnia
-* Nightwish
-* Oficina G3
-* Orphaned Land
-* Ozzy Osbourne
-* Pantera
-* Rhapsody
-* Sabaton
-* Scorpions
-* Shaman
-* Soen
-* Sonata Arctica
-* Static-X
-* Storm Corrosion
-* Stratovarius
-* Stress
-* Symphony X
-* System Of A Down
-* Therion
-* Tuatha de Danann
-* Turisas
-* Type O Negative
-* Týr
-* Whitesnake
-* Zonata
-
 Rock - Folk Metal:
 * Alestorm
 * Almora
-* Amorphis
 * Arkona
-* Blind Guardian
-* Borknagar
 * Cruachan
+* Diablo Swing Orchestra
 * Doomsword
 * Eldhrimnir
 * Eluveitie
 * Faun
+* Finntroll
 * Haggard
 * Heidevolk
-* Kamelot
 * Korpiklaani
 * Mägo de Oz
 * OMNIA
 * Orphaned Land
 * Otyg
-* Sólstafir
 * Therion
 * Tuatha de Danann
 * Turisas
 * Týr
 * Wintersun
-* Ye Banished Privateers
 
 Rock - Rock:
 * Alvvays
@@ -139,15 +130,17 @@ Rock - Rock:
 * Imagine Dragons
 * Lordi
 * Lynyrd Skynyrd
-* Metallica
 * Muse
 * Pearl Jam
+* Queen
+* Queensrÿche
 * Scorpions
 * Syd Matters
 * System Of A Down
 * Tame Impala
 * The Dead South
 * Volbeat
+* Whitesnake
 * Wussy
 
 Folk - Folk:
@@ -156,11 +149,14 @@ Folk - Folk:
 * Celtic Woman
 * Confraria da Costa
 * Cruachan
+* Deolinda
 * Eldhrimnir
 * Eluveitie
 * Faun
+* Madredeus
 * OMNIA
 * The Dead South
+* Ye Banished Privateers
 
 Folk - Steampunk:
 * AlicebanD
@@ -212,6 +208,7 @@ Alt - Atmospheric:
 * aeseaes
 
 Alt - Energetic:
+* AURORA
 * Aqua
 * BROODS
 * CHVRCHES
