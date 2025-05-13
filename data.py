@@ -6,44 +6,60 @@ T_OTHERS = "Others"
 #
 T_ROCK_ALL = "Rock"
 T_ROCK_FAVORITES = "Rock - Favorites"
+T_ROCK_NON_FAVORITES = "Rock - Non-Favorites"
 T_ROCK_EXTREME_METAL = "Rock - Extreme Metal"
 T_ROCK_HEAVY_METAL = "Rock - Heavy Metal"
 T_ROCK_FOLK_METAL = "Rock - Folk Metal"
-T_ROCK = "Rock - Rock"
+T_ROCK_ROCK = "Rock - Rock"
 #
 T_FOLK_ALL = "Folk"
 T_FOLK_FAVORITES = "Folk - Favorites"
-T_FOLK = "Folk - Folk"
-T_STEAMPUNK = "Folk - Steampunk"
+T_FOLK_NON_FAVORITES = "Folk - Non-Favorites"
+T_FOLK_FOLK = "Folk - Folk"
+T_FOLK_STEAMPUNK = "Folk - Steampunk"
 #
 T_ALT_ALL = "Alternative"
 T_ALT_FAVORITES = "Alt - Favorites"
+T_ALT_NON_FAVORITES = "Alt - Non-Favorites"
 T_ALT_ATMOSPHERIC = "Alt - Atmospheric"
 T_ALT_ENERGETIC = "Alt - Energetic"
 T_ALT_VOICE_GUITAR = "Alt - Vox/Guitar"
 
 # ------------------------------------------------------------------------------
+# Tags low-level: most granular way to classify an artist
+# ------------------------------------------------------------------------------
+TAGS_GRANULAR = [
+    T_OTHERS,
+    T_ROCK_EXTREME_METAL, T_ROCK_HEAVY_METAL, T_ROCK_FOLK_METAL, T_ROCK_ROCK,
+    T_FOLK_STEAMPUNK, T_FOLK_FOLK,
+    T_ALT_ATMOSPHERIC, T_ALT_ENERGETIC, T_ALT_VOICE_GUITAR,
+]
+
+# ------------------------------------------------------------------------------
 # Tag Order: used in the menu
 # ------------------------------------------------------------------------------
-TAGS_ORDER = [
+TAGS_MENU_ORDER = [
     T_ALL,
     T_OTHERS,
     #
     # T_ROCK_SEP,
     T_ROCK_ALL,
     T_ROCK_FAVORITES,
+    T_ROCK_NON_FAVORITES,
     T_ROCK_EXTREME_METAL,
     T_ROCK_HEAVY_METAL,
     T_ROCK_FOLK_METAL,
-    T_ROCK,
+    T_ROCK_ROCK,
     #
     T_FOLK_ALL,
     T_FOLK_FAVORITES,
-    T_FOLK,
-    T_STEAMPUNK,
+    T_FOLK_NON_FAVORITES,
+    T_FOLK_FOLK,
+    T_FOLK_STEAMPUNK,
     #
     T_ALT_ALL,
     T_ALT_FAVORITES,
+    T_ALT_NON_FAVORITES,
     T_ALT_ATMOSPHERIC,
     T_ALT_ENERGETIC,
     T_ALT_VOICE_GUITAR,
@@ -57,12 +73,13 @@ TAGS_INVERTED = {
     # Rock / Metal
     # --------------------------------------------------------------------------
     T_ROCK_ALL: [
-        T_ROCK,
+        T_ROCK_ROCK,
         T_ROCK_EXTREME_METAL,
         T_ROCK_HEAVY_METAL,
         T_ROCK_FOLK_METAL,
     ],
     T_ROCK_FAVORITES: [
+        "+Alestorm",
         "+Altaria",
         "+Alvvays",
         "+Amorphis",
@@ -72,9 +89,11 @@ TAGS_INVERTED = {
         "+Deathstars",
         "+Doomsword",
         "+Eldhrimnir",
+        "+Gamma Ray",
         "+Haggard",
         "+Haken",
         "+Hangar",
+        "+Hellish War",
         "+Iced Earth",
         "+In Mourning",
         "+Judas Priest",
@@ -127,7 +146,7 @@ TAGS_INVERTED = {
         "death metal",
         "melodic death metal"
     ],
-    T_ROCK: [
+    T_ROCK_ROCK: [
         "-Iron Maiden",
         "+Barns Courtney",
         "+Camp Claude",
@@ -148,24 +167,29 @@ TAGS_INVERTED = {
     # Folk / Steampunk
     # --------------------------------------------------------------------------
     T_FOLK_ALL: [
-        T_FOLK,
-        T_STEAMPUNK
+        T_FOLK_FOLK,
+        T_FOLK_STEAMPUNK
     ],
     T_FOLK_FAVORITES: [
+        "+Braia",
+        "+Celtic Woman",
+        "+Confraria da Costa",
         "+Dirt Poor Robins",
         "+Eldhrimnir",
         "+Eliza Rickman",
         "+Leandra",
         "+Steam Powered Giraffe"
     ],
-    T_FOLK: [
+    T_FOLK_FOLK: [
         "-Tuatha de Danann",
         "+Confraria da Costa",
         "+Eldhrimnir",
         "+The Dead South",
         "celtic",
     ],
-    T_STEAMPUNK: [
+    T_FOLK_STEAMPUNK: [
+        "-Diablo Swing Orchestra",
+        "-Leandra",
         "dark cabaret"
     ],
     # --------------------------------------------------------------------------
@@ -174,7 +198,7 @@ TAGS_INVERTED = {
     T_ALT_ALL: [
         T_ALT_ATMOSPHERIC,
         T_ALT_ENERGETIC,
-        T_ALT_VOICE_GUITAR
+        T_ALT_VOICE_GUITAR,
     ],
     T_ALT_FAVORITES: [
         "+aeseaes",
@@ -285,7 +309,7 @@ TAGS_INVERTED = {
 }
 
 from utils import ProxyDict
-TAGS = ProxyDict(list)
-for tags, patterns in TAGS_INVERTED.items():
+TAGS_ALL = ProxyDict(list)
+for tag, patterns in TAGS_INVERTED.items():
     for pattern in patterns:
-        TAGS[pattern].append(tags)
+        TAGS_ALL[pattern].append(tag)

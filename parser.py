@@ -18,41 +18,47 @@ def parse(filename: str) -> defaultdict[str, list[dict]]:
     logging.info("🧱 Parsing tags")
     for artist in artists_df.to_dicts():
         # parse row
-        genres = artist["genres"]
-        if genres is None:
-            genres = []
+        artist_genres = artist["genres"]
+        if artist_genres is None:
+            artist_genres = []
         else:
-            genres = genres.split("|")
-        tagged = {T_ALL}
+            artist_genres = artist_genres.split("|")
+        artist_tags = {T_ALL}
 
         # match genres
-        for genre in genres:
-            tags = TAGS.get(genre, [])
-            for tag in tags:
-                tagged.add(tag)
+        for genre in artist_genres:
+            for tag in TAGS_ALL.get(genre, []):
+                artist_tags.add(tag)
 
         # match names (positive)
-        tags = TAGS.get(f"+{artist["name"]}", [])
-        for tag in tags:
-            tagged.add(tag)
+        for tag in TAGS_ALL.get(f"+{artist["name"]}", []):
+            artist_tags.add(tag)
 
         # match names (negative)
-        tags = TAGS.get(f"-{artist["name"]}", [])
-        for tag in tags:
-            tagged.remove(tag)
+        for tag in TAGS_ALL.get(f"-{artist["name"]}", []):
+            if tag in artist_tags:
+                artist_tags.remove(tag)
 
         # match other tags
-        for tagged_tag in tagged.copy():
-            tags = TAGS.get(tagged_tag, [])
-            for tag in tags:
-                tagged.add(tag)
+        for tagged_tag in artist_tags.copy():
+            for tag in TAGS_ALL.get(tagged_tag, []):
+                artist_tags.add(tag)
 
         # rule: extreme cannot be traditional
-        if T_ROCK_EXTREME_METAL in tagged and T_ROCK_HEAVY_METAL in tagged:
-            tagged.remove(T_ROCK_HEAVY_METAL)
+        if T_ROCK_EXTREME_METAL in artist_tags and T_ROCK_HEAVY_METAL in artist_tags:
+            artist_tags.remove(T_ROCK_HEAVY_METAL)
+
+        # rule: non-favorites
+        if T_ROCK_ALL in artist_tags and T_ROCK_FAVORITES not in artist_tags:
+            artist_tags.add(T_ROCK_NON_FAVORITES)
+        if T_FOLK_ALL in artist_tags and T_FOLK_FAVORITES not in artist_tags:
+            artist_tags.add(T_FOLK_NON_FAVORITES)
+        if T_ALT_ALL in artist_tags and T_ALT_FAVORITES not in artist_tags:
+            artist_tags.add(T_ALT_NON_FAVORITES)
+
 
         # add tags
-        artist["tags"] = tagged
+        artist["tags"] = artist_tags
         for tags in artist["tags"]:
             artists_by_tag[tags].append(artist)
         if len(artist["tags"]) == 1:
