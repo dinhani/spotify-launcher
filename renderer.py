@@ -117,7 +117,7 @@ def menu_filter(mobile: bool, tags_with_artists: dict[str, list[dict]]):
             artists = tags_with_artists[tag]
 
             # item attributes
-            is_header = len(tag.split(" - ")) == 1 and tag != "All" and tag != "Others"
+            is_header = tag in TAGS_HEADER
             item_display = tag.split(" - ")[-1].strip()
             item_active = "active" if index == 0 else ""
             item_header = "header" if is_header else ""
