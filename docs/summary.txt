@@ -200,6 +200,7 @@ Alt - Atmospheric:
 * Prudence
 * Rosemary & Garlic
 * Ruelle
+* Röyksopp
 * Soap&Skin
 * Susanne Sundfør
 * Sóley
@@ -226,6 +227,7 @@ Alt - Energetic:
 * MARINA
 * Of Monsters and Men
 * Prudence
+* Röyksopp
 * Stromae
 * Superorganism
 * Susanne Sundfør

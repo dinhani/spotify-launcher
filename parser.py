@@ -56,10 +56,17 @@ def parse(filename: str) -> defaultdict[str, list[dict]]:
         if T_ALT_ALL in artist_tags and T_ALT_FAVORITES not in artist_tags:
             artist_tags.add(T_ALT_NON_FAVORITES)
 
+        # rule: general favorites / non-
+        favorite = any(tag in TAGS_FAVORITES for tag in artist_tags)
+        if favorite:
+            artist_tags.add(T_FAVORITES)
+        else:
+            artist_tags.add(T_NON_FAVORITES)
+
         # add tags
         artist["tags"] = artist_tags
         for tags in artist["tags"]:
             artists_by_tag[tags].append(artist)
-        if len(artist["tags"]) == 1:
+        if len(artist["tags"]) == 2: # (default tags: all + favorite or non-favorite)
             artists_by_tag[T_OTHERS].append(artist)
     return artists_by_tag

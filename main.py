@@ -38,7 +38,7 @@ with open(OUTPUT_LAUNCHER, "w", encoding="utf-8", newline="\n") as f:
 logging.info(f"💾 Writing: {OUTPUT_SUMMARY}")
 with open(OUTPUT_SUMMARY, "w", encoding="utf-8", newline="\n") as f:
     for tag in TAGS_MENU_ORDER:
-        if tag not in TAGS_GRANULAR:
+        if tag in TAGS_UMBRELLA:
             continue
         f.write(f"\n{tag}:\n")
         for artist in tags_with_artists[tag]:

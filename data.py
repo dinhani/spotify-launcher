@@ -2,6 +2,8 @@
 # Tags: display names
 # ------------------------------------------------------------------------------
 T_ALL = "All"
+T_FAVORITES = "Favorites"
+T_NON_FAVORITES = "Non-Favorites"
 T_OTHERS = "Others"
 #
 T_ROCK_ALL = "Rock"
@@ -26,20 +28,40 @@ T_ALT_ENERGETIC = "Alt - Energetic"
 T_ALT_VOICE_GUITAR = "Alt - Vox/Guitar"
 
 # ------------------------------------------------------------------------------
-# Tags low-level: most granular way to classify an artist
+# Tags contains data from other more granular tags
 # ------------------------------------------------------------------------------
-TAGS_GRANULAR = [
-    T_OTHERS,
-    T_ROCK_EXTREME_METAL, T_ROCK_HEAVY_METAL, T_ROCK_FOLK_METAL, T_ROCK_ROCK,
-    T_FOLK_STEAMPUNK, T_FOLK_FOLK,
-    T_ALT_ATMOSPHERIC, T_ALT_ENERGETIC, T_ALT_VOICE_GUITAR,
+TAGS_UMBRELLA = [
+    T_ALL, T_FAVORITES, T_NON_FAVORITES,
+    T_ROCK_ALL, T_ROCK_FAVORITES, T_ROCK_NON_FAVORITES,
+    T_FOLK_ALL, T_FOLK_FAVORITES, T_FOLK_NON_FAVORITES,
+    T_ALT_ALL, T_ALT_FAVORITES, T_ALT_NON_FAVORITES,
 ]
 
 # ------------------------------------------------------------------------------
-# Tag Order: used in the menu
+# Tags to be show as header in the menu
+# ------------------------------------------------------------------------------
+TAGS_HEADER = [
+    T_ROCK_ALL,
+    T_FOLK_ALL,
+    T_ALT_ALL,
+]
+
+# ------------------------------------------------------------------------------
+# Tags of favorites and non-favorites
+# ------------------------------------------------------------------------------
+TAGS_FAVORITES = [
+    T_ROCK_FAVORITES,
+    T_FOLK_FAVORITES,
+    T_ALT_FAVORITES,
+]
+
+# ------------------------------------------------------------------------------
+# Tag order to be displayed in the menu
 # ------------------------------------------------------------------------------
 TAGS_MENU_ORDER = [
     T_ALL,
+    T_FAVORITES,
+    T_NON_FAVORITES,
     T_OTHERS,
     #
     # T_ROCK_SEP,
@@ -284,6 +306,7 @@ TAGS_INVERTED = {
         "+Phoebe Bridgers",
         "+Prudence",
         "+Rosemary & Garlic",
+        "+Röyksopp",
         "+Ruelle",
         "+Soap&Skin",
         "+Sóley",
@@ -307,6 +330,7 @@ TAGS_INVERTED = {
         "+MARINA",
         "+Of Monsters and Men",
         "+Prudence",
+        "+Röyksopp",
         "+Stromae",
         "+Superorganism",
         "+Susanne Sundfør",
