@@ -63,10 +63,14 @@ def parse(filename: str) -> defaultdict[str, list[dict]]:
         else:
             artist_tags.add(T_NON_FAVORITES)
 
-        # add tags
+        # rule: others (only have the 2 default tags: all + favorite or non-favorite)
+        if len(artist_tags) == 2:
+            artist_tags.add(T_OTHERS)
+
+        # finish: add tags to artist and add artist to index by tags
         artist["tags"] = artist_tags
+        artist["tags_granular"] = [t for t in artist_tags if t not in TAGS_UMBRELLA]
         for tags in artist["tags"]:
             artists_by_tag[tags].append(artist)
-        if len(artist["tags"]) == 2: # (default tags: all + favorite or non-favorite)
-            artists_by_tag[T_OTHERS].append(artist)
+
     return artists_by_tag

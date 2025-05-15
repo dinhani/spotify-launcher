@@ -87,6 +87,10 @@ function sort(element, attribute, order) {
 # ------------------------------------------------------------------------------
 # Functions
 # ------------------------------------------------------------------------------
+def tag_display(tag: str) -> str:
+    """Parse the display name of a tag."""
+    return tag.split(" - ")[-1].strip()
+
 def id(tag: str) -> str:
     """Parse any str to HTML identifier."""
     return tag.lower().translate(str.maketrans("", "", "():/")).translate(str.maketrans("ãéó", "aeo")).replace(" - ", "-").replace(" ", "-").strip()
@@ -118,7 +122,7 @@ def menu_filter(mobile: bool, tags_with_artists: dict[str, list[dict]]):
 
             # item attributes
             is_header = tag in TAGS_HEADER
-            item_display = tag.split(" - ")[-1].strip()
+            item_display = tag_display(tag)
             item_active = "active" if index == 0 else ""
             item_header = "header" if is_header else ""
             item_font_size = "1.2rem" if is_header else "1rem"
@@ -169,6 +173,7 @@ def card_cell(artist):
 def card(artist):
     """Render a card."""
     followers_precision = 1 if artist["followers.total"] >= 1_000_000 else 0
+    artist_tags = ", ".join([tag_display(t) for t in artist["tags_granular"]])
 
     with a(cls="ui card", href=f"spotify:artist:{artist["id"]}", style="width: 100%"):
         # image
@@ -177,12 +182,15 @@ def card(artist):
 
         # header
         with div(cls="content", style="padding: 0.5rem;"):
-            div(artist["name"], cls="ui small header", style=f"{CSS_STYLE_NOWRAP} overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem")
+            div(artist["name"], cls="ui small header artist-name", style=f"{CSS_STYLE_NOWRAP} overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem")
             with div(cls="meta"):
                 div(artist["top_song"], style=f"{CSS_STYLE_NOWRAP} overflow:hidden; text-overflow: ellipsis;")
 
         # footer
-        with div(cls="extra content", style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between"):
+        with div(cls="extra content",
+                data_content=artist_tags,
+                data_position="top right",
+                style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between"):
             div("🔥" + str(artist["popularity"]), style=CSS_STYLE_NOWRAP)
             div("👤" + millify(artist["followers.total"], precision=followers_precision), style=CSS_STYLE_NOWRAP)
             div("💿" + str(artist["album_count"]), style=CSS_STYLE_NOWRAP)
@@ -239,8 +247,6 @@ def render_html(tags_with_artists: dict[str, list[dict]]):
                 with div(cls="sixteen wide mobile tablet   thirteen wide computer   fourteen wide large screen   fourteen wide widescreen   column", style="padding: 0.5rem;"):
                     for tags in TAGS_MENU_ORDER:
                         artists = sorted(tags_with_artists[tags], key=lambda x: x["name"].lower())
-                        active = "active" if i == 0 else ""
-
                         with div(cls="ui tab", data_tab=id(tags)):
                             cards(artists)
 
@@ -254,6 +260,7 @@ def render_html(tags_with_artists: dict[str, list[dict]]):
         # Script initialization
         # ----------------------------------------------------------------------
         script("$('.menu .item').tab({history:true, historyType: 'hash', onLoad: onTab});")
+        script("$('.extra.content').popup({inline:false,delay:{show:200}});")
         script("$('.ui.accordion.desktop').accordion({exclusive:false});")
         script("$('.ui.accordion.mobile').accordion({exclusive:true});")
 

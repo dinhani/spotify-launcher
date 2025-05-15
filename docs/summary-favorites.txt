@@ -1,74 +1,99 @@
-Favorites
+
+Others:
+
+Rock - Heavy Metal:
 * ANGRA
-* Agnes Obel
-* Alestorm
 * Altaria
-* Alvvays
 * Amorphis
-* Angus & Julia Stone
 * Ayreon
-* Billie Eilish
-* Birdy
-* Braia
-* Burning Peacocks
-* Celtic Woman
-* Confraria da Costa
-* Crypta
-* Daughter
 * Deathstars
-* Dirt Poor Robins
-* Doomsword
-* Eldhrimnir
-* Eliza Rickman
-* Florence + The Machine
 * Gamma Ray
-* Haggard
 * Haken
 * Hangar
 * Hellish War
-* HÆLOS
 * Iced Earth
-* In Mourning
-* Jessie Ware
-* Joyce Jonathan
 * Judas Priest
-* Juniper Vale
 * Klone
-* Lady Gaga
-* Las Aves
-* Leandra
-* Lola Young
-* London Grammar
-* Lor
-* Lorde
-* MARINA
-* Marika Hackman
-* Muse
-* Mägo de Oz
 * Narnia
-* Of Monsters and Men
 * Oficina G3
-* Oh Land
-* Oh Wonder
 * Opeth
-* Orphaned Land
-* Otyg
-* PHILDEL
-* Ruelle
 * Sabaton
 * Sentenced
 * Shaman
-* Soap&Skin
 * Sonata Arctica
-* Steam Powered Giraffe
-* Superorganism
-* Susanne Sundfør
-* Syd Matters
-* The Dø
-* Therion
+
+Rock - Extreme Metal:
+* Amorphis
+* Crypta
+* In Mourning
+* Opeth
 * Torture Squad
+
+Rock - Folk Metal:
+* Alestorm
+* Doomsword
+* Eldhrimnir
+* Haggard
+* Mägo de Oz
+* Orphaned Land
+* Otyg
+* Therion
 * Tuatha de Danann
 * Týr
+
+Rock - Rock:
+* Alvvays
+* Daughter
+* Muse
+* Syd Matters
+
+Folk - Folk:
+* Braia
+* Celtic Woman
+* Confraria da Costa
+* Eldhrimnir
+
+Folk - Steampunk:
+* Dirt Poor Robins
+* Eliza Rickman
+* Steam Powered Giraffe
+
+Alt - Atmospheric:
+* Agnes Obel
+* Billie Eilish
+* Birdy
+* Burning Peacocks
+* Daughter
+* HÆLOS
+* Juniper Vale
+* Leandra
+* London Grammar
+* Lor
+* Oh Land
+* Oh Wonder
+* PHILDEL
+* Ruelle
+* Soap&Skin
+* Susanne Sundfør
 * Vaults
-* Zella Day
 * aeseaes
+
+Alt - Energetic:
+* Eliza Rickman
+* Florence + The Machine
+* Jessie Ware
+* Joyce Jonathan
+* Lady Gaga
+* Las Aves
+* Lola Young
+* Lorde
+* MARINA
+* Of Monsters and Men
+* Superorganism
+* Susanne Sundfør
+* The Dø
+* Zella Day
+
+Alt - Vox/Guitar:
+* Angus & Julia Stone
+* Marika Hackman
