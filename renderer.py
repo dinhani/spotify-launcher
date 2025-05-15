@@ -179,6 +179,7 @@ def card(artist):
         # image
         with div(cls="image"):
             img(src=artist["image"], cls="ui image artist-image", style="object-fit: cover;")
+            div(artist_tags, style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)")
 
         # header
         with div(cls="content", style="padding: 0.5rem;"):
@@ -187,10 +188,7 @@ def card(artist):
                 div(artist["top_song"], style=f"{CSS_STYLE_NOWRAP} overflow:hidden; text-overflow: ellipsis;")
 
         # footer
-        with div(cls="extra content",
-                data_content=artist_tags,
-                data_position="top right",
-                style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between"):
+        with div(cls="extra content", style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between"):
             div("🔥" + str(artist["popularity"]), style=CSS_STYLE_NOWRAP)
             div("👤" + millify(artist["followers.total"], precision=followers_precision), style=CSS_STYLE_NOWRAP)
             div("💿" + str(artist["album_count"]), style=CSS_STYLE_NOWRAP)
@@ -260,7 +258,6 @@ def render_html(tags_with_artists: dict[str, list[dict]]):
         # Script initialization
         # ----------------------------------------------------------------------
         script("$('.menu .item').tab({history:true, historyType: 'hash', onLoad: onTab});")
-        script("$('.extra.content').popup({inline:false,delay:{show:200}});")
         script("$('.ui.accordion.desktop').accordion({exclusive:false});")
         script("$('.ui.accordion.mobile').accordion({exclusive:true});")
 
