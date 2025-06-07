@@ -77,6 +77,20 @@ function sort(element, attribute, order) {
       <div class="sixteen wide mobile tablet only   column" style="padding: 0.5rem">
         <div class="ui fluid styled mobile accordion">
           <div class=" title" style="font-size: 1.71428571rem; padding-left: 0.75rem; padding-right: 0.75rem;">
+            <span id="mobile-menu-header-sort">Sort: Name</span><i class="right dropdown icon"></i>
+          </div>
+          <div class=" content" style="padding: 0;">
+            <div class="ui fluid vertical attached menu" style="margin: 0; border-left: 0; border-right: 0; border-bottom: 0;">
+              <div class="ui active link item" onClick="sort(this, 'name', 'asc')" style="white-space: nowrap; padding: 0.75rem; ">🎶 Name</div>
+              <div class="ui link item" onClick="sort(this, 'popularity', 'desc')" style="white-space: nowrap; padding: 0.75rem; ">🔥 Popularity (artist)</div>
+              <div class="ui link item" onClick="sort(this, 'song-popularity', 'desc')" style="white-space: nowrap; padding: 0.75rem; ">🏆 Popularity (song)</div>
+              <div class="ui link item" onClick="sort(this, 'followers', 'desc')" style="white-space: nowrap; padding: 0.75rem; ">👤 Followers</div>
+              <div class="ui link item" onClick="sort(this, 'albums', 'desc')" style="white-space: nowrap; padding: 0.75rem; ">💿 Albums</div>
+              <div class="ui link item" onClick="sort(this, 'last-release', 'desc')" style="white-space: nowrap; padding: 0.75rem; ">📅 Last Release</div>
+              <div class="ui link item" onClick="sort(this, 'last-follow', 'asc')" style="white-space: nowrap; padding: 0.75rem; ">🔔 Last Follow</div>
+            </div>
+          </div>
+          <div class=" title" style="font-size: 1.71428571rem; padding-left: 0.75rem; padding-right: 0.75rem;">
             <span id="mobile-menu-header-filter">Filter</span><i class="right dropdown icon"></i>
           </div>
           <div class=" content" style="padding: 0;">
@@ -171,10 +185,14 @@ function sort(element, attribute, order) {
               </div>
             </div>
           </div>
-          <div class=" title" style="font-size: 1.71428571rem; padding-left: 0.75rem; padding-right: 0.75rem;">
-            <span id="mobile-menu-header-sort">Sort: Name</span><i class="right dropdown icon"></i>
+        </div>
+      </div>
+      <div class="computer only three wide computer   two wide large screen   two wide widescreen   column" style="padding: 0.5rem">
+        <div class="ui fluid styled desktop accordion" style="max-height: 98vh; overflow: hidden; overflow-y: scroll">
+          <div class="active title" style="font-size: 1.28571429rem; padding-left: 0.75rem; padding-right: 0.75rem;">
+            <span id="desktop-menu-header-sort">Sort</span><i class="right dropdown icon"></i>
           </div>
-          <div class=" content" style="padding: 0;">
+          <div class="active content" style="padding: 0;">
             <div class="ui fluid vertical attached menu" style="margin: 0; border-left: 0; border-right: 0; border-bottom: 0;">
               <div class="ui active link item" onClick="sort(this, 'name', 'asc')" style="white-space: nowrap; padding: 0.75rem; ">🎶 Name</div>
               <div class="ui link item" onClick="sort(this, 'popularity', 'desc')" style="white-space: nowrap; padding: 0.75rem; ">🔥 Popularity (artist)</div>
@@ -185,10 +203,6 @@ function sort(element, attribute, order) {
               <div class="ui link item" onClick="sort(this, 'last-follow', 'asc')" style="white-space: nowrap; padding: 0.75rem; ">🔔 Last Follow</div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="computer only three wide computer   two wide large screen   two wide widescreen   column" style="padding: 0.5rem">
-        <div class="ui fluid styled desktop accordion" style="max-height: 98vh; overflow: hidden; overflow-y: scroll">
           <div class="active title" style="font-size: 1.28571429rem; padding-left: 0.75rem; padding-right: 0.75rem;">
             <span id="desktop-menu-header-filter">Filter</span><i class="right dropdown icon"></i>
           </div>
@@ -282,20 +296,6 @@ function sort(element, attribute, order) {
                 <span>Vox/Guitar</span>
                 <span class="ui tiny label">13</span>
               </div>
-            </div>
-          </div>
-          <div class="active title" style="font-size: 1.28571429rem; padding-left: 0.75rem; padding-right: 0.75rem;">
-            <span id="desktop-menu-header-sort">Sort</span><i class="right dropdown icon"></i>
-          </div>
-          <div class="active content" style="padding: 0;">
-            <div class="ui fluid vertical attached menu" style="margin: 0; border-left: 0; border-right: 0; border-bottom: 0;">
-              <div class="ui active link item" onClick="sort(this, 'name', 'asc')" style="white-space: nowrap; padding: 0.75rem; ">🎶 Name</div>
-              <div class="ui link item" onClick="sort(this, 'popularity', 'desc')" style="white-space: nowrap; padding: 0.75rem; ">🔥 Popularity (artist)</div>
-              <div class="ui link item" onClick="sort(this, 'song-popularity', 'desc')" style="white-space: nowrap; padding: 0.75rem; ">🏆 Popularity (song)</div>
-              <div class="ui link item" onClick="sort(this, 'followers', 'desc')" style="white-space: nowrap; padding: 0.75rem; ">👤 Followers</div>
-              <div class="ui link item" onClick="sort(this, 'albums', 'desc')" style="white-space: nowrap; padding: 0.75rem; ">💿 Albums</div>
-              <div class="ui link item" onClick="sort(this, 'last-release', 'desc')" style="white-space: nowrap; padding: 0.75rem; ">📅 Last Release</div>
-              <div class="ui link item" onClick="sort(this, 'last-follow', 'asc')" style="white-space: nowrap; padding: 0.75rem; ">🔔 Last Follow</div>
             </div>
           </div>
         </div>
@@ -1562,7 +1562,7 @@ function sort(element, attribute, order) {
                 <a class="ui card" href="spotify:artist:5X0N2k3qMnI8kSrGJT3kfT" style="width: 100%">
                   <div class="image">
                     <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616100005174e8581fc1b573119b7eb0b69b" style="object-fit: cover;">
-                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Folk Metal, Folk, Extreme Metal</div>
+                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Folk Metal, Extreme Metal, Folk</div>
                   </div>
                   <div class="content" style="padding: 0.5rem;">
                     <div class="ui small header artist-name" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Eluveitie</div>
@@ -3196,7 +3196,7 @@ function sort(element, attribute, order) {
                 <a class="ui card" href="spotify:artist:2OgUPVlWYgGBGMefZgGvCO" style="width: 100%">
                   <div class="image">
                     <img class="ui image artist-image" src="https://i.scdn.co/image/ab676161000051746cdde60b6c8838aeb82dfb41" style="object-fit: cover;">
-                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Heavy Metal, Rock</div>
+                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Rock, Heavy Metal</div>
                   </div>
                   <div class="content" style="padding: 0.5rem;">
                     <div class="ui small header artist-name" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Queensrÿche</div>
@@ -3728,7 +3728,7 @@ function sort(element, attribute, order) {
                 <a class="ui card" href="spotify:artist:5eAWCfyUhZtHHtBdNk56l1" style="width: 100%">
                   <div class="image">
                     <img class="ui image artist-image" src="https://i.scdn.co/image/ab6761610000517460063d3451ade8f9fab397c2" style="object-fit: cover;">
-                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Heavy Metal, Rock</div>
+                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Rock, Heavy Metal</div>
                   </div>
                   <div class="content" style="padding: 0.5rem;">
                     <div class="ui small header artist-name" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">System Of A Down</div>
@@ -6476,7 +6476,7 @@ function sort(element, attribute, order) {
                 <a class="ui card" href="spotify:artist:5X0N2k3qMnI8kSrGJT3kfT" style="width: 100%">
                   <div class="image">
                     <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616100005174e8581fc1b573119b7eb0b69b" style="object-fit: cover;">
-                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Folk Metal, Folk, Extreme Metal</div>
+                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Folk Metal, Extreme Metal, Folk</div>
                   </div>
                   <div class="content" style="padding: 0.5rem;">
                     <div class="ui small header artist-name" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Eluveitie</div>
@@ -7464,7 +7464,7 @@ function sort(element, attribute, order) {
                 <a class="ui card" href="spotify:artist:2OgUPVlWYgGBGMefZgGvCO" style="width: 100%">
                   <div class="image">
                     <img class="ui image artist-image" src="https://i.scdn.co/image/ab676161000051746cdde60b6c8838aeb82dfb41" style="object-fit: cover;">
-                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Heavy Metal, Rock</div>
+                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Rock, Heavy Metal</div>
                   </div>
                   <div class="content" style="padding: 0.5rem;">
                     <div class="ui small header artist-name" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Queensrÿche</div>
@@ -7806,7 +7806,7 @@ function sort(element, attribute, order) {
                 <a class="ui card" href="spotify:artist:5eAWCfyUhZtHHtBdNk56l1" style="width: 100%">
                   <div class="image">
                     <img class="ui image artist-image" src="https://i.scdn.co/image/ab6761610000517460063d3451ade8f9fab397c2" style="object-fit: cover;">
-                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Heavy Metal, Rock</div>
+                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Rock, Heavy Metal</div>
                   </div>
                   <div class="content" style="padding: 0.5rem;">
                     <div class="ui small header artist-name" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">System Of A Down</div>
@@ -8920,7 +8920,7 @@ function sort(element, attribute, order) {
                 <a class="ui card" href="spotify:artist:5X0N2k3qMnI8kSrGJT3kfT" style="width: 100%">
                   <div class="image">
                     <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616100005174e8581fc1b573119b7eb0b69b" style="object-fit: cover;">
-                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Folk Metal, Folk, Extreme Metal</div>
+                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Folk Metal, Extreme Metal, Folk</div>
                   </div>
                   <div class="content" style="padding: 0.5rem;">
                     <div class="ui small header artist-name" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Eluveitie</div>
@@ -9851,7 +9851,7 @@ function sort(element, attribute, order) {
                 <a class="ui card" href="spotify:artist:2OgUPVlWYgGBGMefZgGvCO" style="width: 100%">
                   <div class="image">
                     <img class="ui image artist-image" src="https://i.scdn.co/image/ab676161000051746cdde60b6c8838aeb82dfb41" style="object-fit: cover;">
-                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Heavy Metal, Rock</div>
+                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Rock, Heavy Metal</div>
                   </div>
                   <div class="content" style="padding: 0.5rem;">
                     <div class="ui small header artist-name" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Queensrÿche</div>
@@ -10212,7 +10212,7 @@ function sort(element, attribute, order) {
                 <a class="ui card" href="spotify:artist:5eAWCfyUhZtHHtBdNk56l1" style="width: 100%">
                   <div class="image">
                     <img class="ui image artist-image" src="https://i.scdn.co/image/ab6761610000517460063d3451ade8f9fab397c2" style="object-fit: cover;">
-                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Heavy Metal, Rock</div>
+                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Rock, Heavy Metal</div>
                   </div>
                   <div class="content" style="padding: 0.5rem;">
                     <div class="ui small header artist-name" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">System Of A Down</div>
@@ -11687,7 +11687,7 @@ function sort(element, attribute, order) {
                 <a class="ui card" href="spotify:artist:5X0N2k3qMnI8kSrGJT3kfT" style="width: 100%">
                   <div class="image">
                     <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616100005174e8581fc1b573119b7eb0b69b" style="object-fit: cover;">
-                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Folk Metal, Folk, Extreme Metal</div>
+                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Folk Metal, Extreme Metal, Folk</div>
                   </div>
                   <div class="content" style="padding: 0.5rem;">
                     <div class="ui small header artist-name" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Eluveitie</div>
@@ -12314,7 +12314,7 @@ function sort(element, attribute, order) {
                 <a class="ui card" href="spotify:artist:2OgUPVlWYgGBGMefZgGvCO" style="width: 100%">
                   <div class="image">
                     <img class="ui image artist-image" src="https://i.scdn.co/image/ab676161000051746cdde60b6c8838aeb82dfb41" style="object-fit: cover;">
-                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Heavy Metal, Rock</div>
+                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Rock, Heavy Metal</div>
                   </div>
                   <div class="content" style="padding: 0.5rem;">
                     <div class="ui small header artist-name" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Queensrÿche</div>
@@ -12580,7 +12580,7 @@ function sort(element, attribute, order) {
                 <a class="ui card" href="spotify:artist:5eAWCfyUhZtHHtBdNk56l1" style="width: 100%">
                   <div class="image">
                     <img class="ui image artist-image" src="https://i.scdn.co/image/ab6761610000517460063d3451ade8f9fab397c2" style="object-fit: cover;">
-                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Heavy Metal, Rock</div>
+                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Rock, Heavy Metal</div>
                   </div>
                   <div class="content" style="padding: 0.5rem;">
                     <div class="ui small header artist-name" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">System Of A Down</div>
@@ -13631,7 +13631,7 @@ function sort(element, attribute, order) {
                 <a class="ui card" href="spotify:artist:2OgUPVlWYgGBGMefZgGvCO" style="width: 100%">
                   <div class="image">
                     <img class="ui image artist-image" src="https://i.scdn.co/image/ab676161000051746cdde60b6c8838aeb82dfb41" style="object-fit: cover;">
-                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Heavy Metal, Rock</div>
+                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Rock, Heavy Metal</div>
                   </div>
                   <div class="content" style="padding: 0.5rem;">
                     <div class="ui small header artist-name" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Queensrÿche</div>
@@ -13878,7 +13878,7 @@ function sort(element, attribute, order) {
                 <a class="ui card" href="spotify:artist:5eAWCfyUhZtHHtBdNk56l1" style="width: 100%">
                   <div class="image">
                     <img class="ui image artist-image" src="https://i.scdn.co/image/ab6761610000517460063d3451ade8f9fab397c2" style="object-fit: cover;">
-                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Heavy Metal, Rock</div>
+                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Rock, Heavy Metal</div>
                   </div>
                   <div class="content" style="padding: 0.5rem;">
                     <div class="ui small header artist-name" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">System Of A Down</div>
@@ -14131,7 +14131,7 @@ function sort(element, attribute, order) {
                 <a class="ui card" href="spotify:artist:5X0N2k3qMnI8kSrGJT3kfT" style="width: 100%">
                   <div class="image">
                     <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616100005174e8581fc1b573119b7eb0b69b" style="object-fit: cover;">
-                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Folk Metal, Folk, Extreme Metal</div>
+                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Folk Metal, Extreme Metal, Folk</div>
                   </div>
                   <div class="content" style="padding: 0.5rem;">
                     <div class="ui small header artist-name" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Eluveitie</div>
@@ -14612,7 +14612,7 @@ function sort(element, attribute, order) {
                 <a class="ui card" href="spotify:artist:5X0N2k3qMnI8kSrGJT3kfT" style="width: 100%">
                   <div class="image">
                     <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616100005174e8581fc1b573119b7eb0b69b" style="object-fit: cover;">
-                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Folk Metal, Folk, Extreme Metal</div>
+                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Folk Metal, Extreme Metal, Folk</div>
                   </div>
                   <div class="content" style="padding: 0.5rem;">
                     <div class="ui small header artist-name" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Eluveitie</div>
@@ -15169,7 +15169,7 @@ function sort(element, attribute, order) {
                 <a class="ui card" href="spotify:artist:2OgUPVlWYgGBGMefZgGvCO" style="width: 100%">
                   <div class="image">
                     <img class="ui image artist-image" src="https://i.scdn.co/image/ab676161000051746cdde60b6c8838aeb82dfb41" style="object-fit: cover;">
-                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Heavy Metal, Rock</div>
+                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Rock, Heavy Metal</div>
                   </div>
                   <div class="content" style="padding: 0.5rem;">
                     <div class="ui small header artist-name" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Queensrÿche</div>
@@ -15226,7 +15226,7 @@ function sort(element, attribute, order) {
                 <a class="ui card" href="spotify:artist:5eAWCfyUhZtHHtBdNk56l1" style="width: 100%">
                   <div class="image">
                     <img class="ui image artist-image" src="https://i.scdn.co/image/ab6761610000517460063d3451ade8f9fab397c2" style="object-fit: cover;">
-                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Heavy Metal, Rock</div>
+                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Rock, Heavy Metal</div>
                   </div>
                   <div class="content" style="padding: 0.5rem;">
                     <div class="ui small header artist-name" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">System Of A Down</div>
@@ -15612,7 +15612,7 @@ function sort(element, attribute, order) {
                 <a class="ui card" href="spotify:artist:5X0N2k3qMnI8kSrGJT3kfT" style="width: 100%">
                   <div class="image">
                     <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616100005174e8581fc1b573119b7eb0b69b" style="object-fit: cover;">
-                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Folk Metal, Folk, Extreme Metal</div>
+                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Folk Metal, Extreme Metal, Folk</div>
                   </div>
                   <div class="content" style="padding: 0.5rem;">
                     <div class="ui small header artist-name" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Eluveitie</div>
@@ -16175,7 +16175,7 @@ function sort(element, attribute, order) {
                 <a class="ui card" href="spotify:artist:5X0N2k3qMnI8kSrGJT3kfT" style="width: 100%">
                   <div class="image">
                     <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616100005174e8581fc1b573119b7eb0b69b" style="object-fit: cover;">
-                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Folk Metal, Folk, Extreme Metal</div>
+                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Folk Metal, Extreme Metal, Folk</div>
                   </div>
                   <div class="content" style="padding: 0.5rem;">
                     <div class="ui small header artist-name" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Eluveitie</div>
@@ -16542,7 +16542,7 @@ function sort(element, attribute, order) {
                 <a class="ui card" href="spotify:artist:5X0N2k3qMnI8kSrGJT3kfT" style="width: 100%">
                   <div class="image">
                     <img class="ui image artist-image" src="https://i.scdn.co/image/ab67616100005174e8581fc1b573119b7eb0b69b" style="object-fit: cover;">
-                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Folk Metal, Folk, Extreme Metal</div>
+                    <div style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)">Folk Metal, Extreme Metal, Folk</div>
                   </div>
                   <div class="content" style="padding: 0.5rem;">
                     <div class="ui small header artist-name" style="white-space: nowrap;  overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem">Eluveitie</div>

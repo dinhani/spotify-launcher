@@ -228,16 +228,16 @@ def render_html(tags_with_artists: dict[str, list[dict]]):
                 # ------------------------------------------------------------------
                 with div(cls="sixteen wide mobile tablet only   column", style="padding: 0.5rem"):
                     with div(cls="ui fluid styled mobile accordion"):
-                        menu_filter(mobile=True, tags_with_artists=tags_with_artists)
                         menu_sort(mobile=True)
+                        menu_filter(mobile=True, tags_with_artists=tags_with_artists)
 
                 # ------------------------------------------------------------------
                 # Menu (desktop)
                 # ------------------------------------------------------------------
                 with div(cls="computer only three wide computer   two wide large screen   two wide widescreen   column", style="padding: 0.5rem"):
                     with div(cls="ui fluid styled desktop accordion", style="max-height: 98vh; overflow: hidden; overflow-y: scroll"):
-                        menu_filter(mobile=False, tags_with_artists=tags_with_artists)
                         menu_sort(mobile=False)
+                        menu_filter(mobile=False, tags_with_artists=tags_with_artists)
 
                 # ------------------------------------------------------------------
                 # Content (cards)
