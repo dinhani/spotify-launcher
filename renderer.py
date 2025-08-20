@@ -5,6 +5,7 @@ from data import *
 from dominate.tags import *
 from dominate.util import raw
 from millify import millify
+from models import Artist
 import logging
 
 # ------------------------------------------------------------------------------
@@ -161,37 +162,37 @@ def card_cell(artist):
     """Render a carl cell in the cards grid."""
     return div(cls="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist",
         style="padding: 0.25rem;",
-        data_name=artist["name"],
-        data_followers=str(artist["followers.total"]),
-        data_popularity=str(artist["popularity"]),
-        data_song_popularity=str(artist["top_song_popularity"]),
-        data_albums=str(artist["album_count"]),
-        data_last_release=str(artist["last_release"]),
-        data_last_follow=str(artist["last_follow"]),
+        data_name=artist.name,
+        data_followers=str(artist.followers),
+        data_popularity=str(artist.popularity),
+        data_song_popularity=str(artist.top_song_popularity),
+        data_albums=str(artist.albums),
+        data_last_release=str(artist.last_release),
+        data_last_follow=str(artist.last_follow),
     )
 
-def card(artist):
+def card(artist: Artist):
     """Render a card."""
-    followers_precision = 1 if artist["followers.total"] >= 1_000_000 else 0
-    artist_tags = ", ".join([tag_display(t) for t in artist["tags_granular"]])
+    followers_precision = 1 if artist.followers >= 1_000_000 else 0
+    artist_tags = ", ".join([tag_display(t) for t in artist.tags_granular])
 
-    with a(cls="ui card", href=f"spotify:artist:{artist["id"]}", style="width: 100%"):
+    with a(cls="ui card", href=f"spotify:artist:{artist.id}", style="width: 100%"):
         # image
         with div(cls="image"):
-            img(src=artist["image"], cls="ui image artist-image", style="object-fit: cover;")
+            img(src=artist.image, cls="ui image artist-image", style="object-fit: cover;")
             div(artist_tags, style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)")
 
         # header
         with div(cls="content", style="padding: 0.5rem;"):
-            div(artist["name"], cls="ui small header artist-name", style=f"{CSS_STYLE_NOWRAP} overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem")
+            div(artist.name, cls="ui small header artist-name", style=f"{CSS_STYLE_NOWRAP} overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem")
             with div(cls="meta"):
-                div(artist["top_song"], style=f"{CSS_STYLE_NOWRAP} overflow:hidden; text-overflow: ellipsis;")
+                div(artist.top_song, style=f"{CSS_STYLE_NOWRAP} overflow:hidden; text-overflow: ellipsis;")
 
         # footer
         with div(cls="extra content", style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between"):
-            div("🔥" + str(artist["popularity"]), style=CSS_STYLE_NOWRAP)
-            div("👤" + millify(artist["followers.total"], precision=followers_precision), style=CSS_STYLE_NOWRAP)
-            div("💿" + str(artist["album_count"]), style=CSS_STYLE_NOWRAP)
+            div("🔥" + str(artist.popularity), style=CSS_STYLE_NOWRAP)
+            div("👤" + millify(artist.followers, precision=followers_precision), style=CSS_STYLE_NOWRAP)
+            div("💿" + str(artist.albums), style=CSS_STYLE_NOWRAP)
 
 
 def render_html(tags_with_artists: dict[str, list[dict]]):
@@ -203,6 +204,8 @@ def render_html(tags_with_artists: dict[str, list[dict]]):
         # Head
         # ----------------------------------------------------------------------
         with head():
+            title("Dinhani Spotify Launcher")
+
             # meta
             meta(name="viewport", content="width=device-width, initial-scale=1")
 
@@ -244,7 +247,7 @@ def render_html(tags_with_artists: dict[str, list[dict]]):
                 # ------------------------------------------------------------------
                 with div(cls="sixteen wide mobile tablet   thirteen wide computer   fourteen wide large screen   fourteen wide widescreen   column", style="padding: 0.5rem;"):
                     for tags in TAGS_MENU_ORDER:
-                        artists = sorted(tags_with_artists[tags], key=lambda x: x["name"].lower())
+                        artists = sorted(tags_with_artists[tags], key=lambda x: x.name.lower())
                         with div(cls="ui tab", data_tab=id(tags)):
                             cards(artists)
 

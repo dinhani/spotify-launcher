@@ -13,7 +13,6 @@ Rock - Heavy Metal:
 * Hellish War
 * Iced Earth
 * Judas Priest
-* Klone
 * Narnia
 * Oficina G3
 * Opeth
@@ -55,8 +54,8 @@ Folk - Folk:
 
 Folk - Steampunk:
 * Dirt Poor Robins
-* Eliza Rickman
 * Steam Powered Giraffe
+* The Cog is Dead
 
 Alt - Atmospheric:
 * Agnes Obel
@@ -79,6 +78,7 @@ Alt - Atmospheric:
 * aeseaes
 
 Alt - Energetic:
+* Allie X
 * Eliza Rickman
 * Florence + The Machine
 * Jessie Ware
@@ -89,6 +89,7 @@ Alt - Energetic:
 * Lorde
 * MARINA
 * Of Monsters and Men
+* Sia
 * Superorganism
 * Susanne Sundfør
 * The Dø

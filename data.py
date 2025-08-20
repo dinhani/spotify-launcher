@@ -119,7 +119,6 @@ TAGS_INVERTED = {
         "+Iced Earth",
         "+In Mourning",
         "+Judas Priest",
-        "+Klone",
         "+Mägo de Oz",
         "+Muse",
         "+Narnia",
@@ -191,6 +190,7 @@ TAGS_INVERTED = {
         "-Metallica",
         "-Ozzy Osbourne",
         "+Barns Courtney",
+        "+Boz Scaggs",
         "+Camp Claude",
         "+Daughter",
         "+Imagine Dragons",
@@ -199,7 +199,6 @@ TAGS_INVERTED = {
         "+Tame Impala",
         "+The Dead South",
         "+Wussy",
-        "album rock",
         "alternative rock",
         "hard rock",
         "post-grunge",
@@ -222,7 +221,8 @@ TAGS_INVERTED = {
         "+Eldhrimnir",
         "+Eliza Rickman",
         "+Leandra",
-        "+Steam Powered Giraffe"
+        "+Steam Powered Giraffe",
+        "+The Cog is Dead"
     ],
     T_FOLK_FOLK: [
         "-Tuatha de Danann",
@@ -237,7 +237,19 @@ TAGS_INVERTED = {
     T_FOLK_STEAMPUNK: [
         "-Diablo Swing Orchestra",
         "-Leandra",
-        "dark cabaret"
+        "+AlicebanD",
+        "+Amanda Palmer",
+        "+American Murder Song",
+        "+Aurelio Voltaire",
+        "+Bitter Ruin",
+        "+Dirt Poor Robins",
+        "+Ghost Quartet",
+        "+Kim Tillman",
+        "+Major Parkinson",
+        "+Steam Powered Giraffe",
+        "+The Cog is Dead",
+        "+The Dresden Dolls",
+        "+Unwoman"
     ],
     # --------------------------------------------------------------------------
     # Alternativo
@@ -250,6 +262,7 @@ TAGS_INVERTED = {
     T_ALT_FAVORITES: [
         "+aeseaes",
         "+Agnes Obel",
+        "+Allie X",
         "+Angus & Julia Stone",
         "+Billie Eilish",
         "+Birdy",
@@ -275,6 +288,7 @@ TAGS_INVERTED = {
         "+Oh Wonder",
         "+PHILDEL",
         "+Ruelle",
+        "+Sia",
         "+Soap&Skin",
         "+Superorganism",
         "+Susanne Sundfør",
@@ -283,7 +297,10 @@ TAGS_INVERTED = {
         "+Zella Day"
     ],
     T_ALT_ATMOSPHERIC: [
+        "+Klergy",
         "+aeseaes",
+        "+Agnes Obel",
+        "+Anastasia Minster",
         "+AURORA",
         "+Billie Eilish",
         "+Birdy",
@@ -312,10 +329,10 @@ TAGS_INVERTED = {
         "+Sóley",
         "+Susanne Sundfør",
         "+The xx",
-        "+Vaults",
-        "chamber pop"
+        "+Vaults"
     ],
     T_ALT_ENERGETIC: [
+        "+Allie X",
         "+AURORA",
         "+BROODS",
         "+Claire Rosinkranz",
@@ -331,6 +348,7 @@ TAGS_INVERTED = {
         "+Of Monsters and Men",
         "+Prudence",
         "+Röyksopp",
+        "+Sia",
         "+Stromae",
         "+Superorganism",
         "+Susanne Sundfør",

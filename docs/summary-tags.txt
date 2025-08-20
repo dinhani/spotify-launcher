@@ -47,6 +47,7 @@ Rock - Heavy Metal:
 * Opeth
 * Ozzy Osbourne
 * Pantera
+* Poison
 * Queensrÿche
 * Rhapsody
 * Sabaton
@@ -61,7 +62,6 @@ Rock - Heavy Metal:
 * Stress
 * Symphony X
 * System Of A Down
-* Sólstafir
 * Type O Negative
 * Zonata
 
@@ -134,6 +134,7 @@ Rock - Rock:
 * Pearl Jam
 * Queen
 * Queensrÿche
+* Red Hot Chili Peppers
 * Scorpions
 * Syd Matters
 * System Of A Down
@@ -165,7 +166,6 @@ Folk - Steampunk:
 * Aurelio Voltaire
 * Bitter Ruin
 * Dirt Poor Robins
-* Eliza Rickman
 * Ghost Quartet
 * Kim Tillman
 * Major Parkinson
@@ -188,6 +188,7 @@ Alt - Atmospheric:
 * HÆLOS
 * Jeanne Added
 * Juniper Vale
+* Klergy
 * Lana Del Rey
 * Leandra
 * London Grammar
@@ -210,6 +211,7 @@ Alt - Atmospheric:
 
 Alt - Energetic:
 * AURORA
+* Allie X
 * Aqua
 * BROODS
 * CHVRCHES
@@ -228,6 +230,7 @@ Alt - Energetic:
 * Of Monsters and Men
 * Prudence
 * Röyksopp
+* Sia
 * Stromae
 * Superorganism
 * Susanne Sundfør

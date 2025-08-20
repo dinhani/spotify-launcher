@@ -27,7 +27,7 @@ OUTPUT_SUMMARY_TAGS = "docs/summary-tags.txt"
 # Execution
 # ------------------------------------------------------------------------------
 # parse / render
-tags_with_artists = parser.parse(INPUT_ARTISTS)
+artists, tags_with_artists = parser.parse(INPUT_ARTISTS)
 doc = renderer.render_html(tags_with_artists)
 
 # write html to file
@@ -50,13 +50,19 @@ for tag in TAGS_MENU_ORDER:
     f_favorites.write(f"\n{tag}:\n")
 
     for artist in tags_with_artists[tag]:
-        f_tags.write("* " + artist["name"] + "\n")
-        if T_FAVORITES in artist["tags"]:
-            f_favorites.write("* " + artist["name"] + "\n")
+        f_tags.write("* " + artist.name + "\n")
+        if T_FAVORITES in artist.tags:
+            f_favorites.write("* " + artist.name + "\n")
 
 # verify untouched keys
 logging.info("🧱 Checking untouched keys")
 for key in TAGS_ALL.untouched_keys():
     logging.warning(f"🛑 Untouched key: {key}")
+
+# verify artists tags
+logging.info("🧱 Checking artists without granular tags")
+for artist in artists:
+    if len(artist.tags_granular) == 0:
+        logging.warning(f"🛑 Artist without granular tag: {artist.name}")
 
 logging.info("✅ Done")
