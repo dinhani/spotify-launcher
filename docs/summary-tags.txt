@@ -1,18 +1,6 @@
 
 Others:
-* Angine de Poitrine
-* Chappell Roan
-* Creedence Clearwater Revival
-* Fish in a Birdcage
-* Hildegard von Blingin'
 * Hollywood Burns
-* Kansas
-* King Princess
-* Lorien Testard
-* P!nk
-* Poets of the Fall
-* Robyn
-* lùisa
 
 Rock - Heavy Metal:
 * ANGRA
@@ -135,18 +123,22 @@ Rock - Folk Metal:
 
 Rock - Rock:
 * Alvvays
+* Angine de Poitrine
 * Audioslave
 * Barns Courtney
 * Boz Scaggs
 * Camp Claude
 * Creed
+* Creedence Clearwater Revival
 * Daughter
 * Gotthard
 * Imagine Dragons
+* Kansas
 * Lordi
 * Lynyrd Skynyrd
 * Muse
 * Pearl Jam
+* Poets of the Fall
 * Queen
 * Queensrÿche
 * Red Hot Chili Peppers
@@ -169,6 +161,7 @@ Folk - Folk:
 * Eldhrimnir
 * Eluveitie
 * Faun
+* Hildegard von Blingin'
 * Madredeus
 * OMNIA
 * The Dead South
@@ -197,6 +190,7 @@ Alt - Atmospheric:
 * Birdy
 * Burning Peacocks
 * Cathedrals
+* Chappell Roan
 * Daughter
 * Ex:Re
 * Gemma Hayes
@@ -208,6 +202,7 @@ Alt - Atmospheric:
 * Leandra
 * London Grammar
 * Lor
+* Lorien Testard
 * Oh Land
 * Oh Wonder
 * PHILDEL
@@ -223,6 +218,7 @@ Alt - Atmospheric:
 * The xx
 * Vaults
 * aeseaes
+* lùisa
 
 Alt - Energetic:
 * AURORA
@@ -230,12 +226,14 @@ Alt - Energetic:
 * Aqua
 * BROODS
 * CHVRCHES
+* Chappell Roan
 * Claire Rosinkranz
 * Eliza Rickman
 * Florence + The Machine
 * Jessie Ware
 * Joyce Jonathan
 * Kaleida
+* King Princess
 * Lady Gaga
 * Las Aves
 * Lola Young
@@ -243,7 +241,9 @@ Alt - Energetic:
 * LÉON
 * MARINA
 * Of Monsters and Men
+* P!nk
 * Prudence
+* Robyn
 * Röyksopp
 * Sia
 * Stromae
@@ -261,6 +261,7 @@ Alt - Vox/Guitar:
 * Billie Marten
 * Cocoon
 * First Aid Kit
+* Fish in a Birdcage
 * Frøkedal
 * Gabrielle Shonk
 * LAUREL
