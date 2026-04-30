@@ -11,9 +11,9 @@ logging.basicConfig(
 )
 logging.info("🚀 Starting script")
 
-from data import *
-import parser
-import renderer
+from render.data import *
+import render.parser as parser
+import render.renderer as renderer
 
 # ------------------------------------------------------------------------------
 # CONSTANTS

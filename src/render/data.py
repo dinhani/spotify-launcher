@@ -376,7 +376,7 @@ TAGS_INVERTED = {
     ]
 }
 
-from utils import ProxyDict
+from render.utils import ProxyDict
 TAGS_ALL = ProxyDict(list)
 for tag, patterns in TAGS_INVERTED.items():
     for pattern in patterns:

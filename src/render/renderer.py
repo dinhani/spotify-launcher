@@ -1,12 +1,13 @@
 # ------------------------------------------------------------------------------
 # Libraries
 # ------------------------------------------------------------------------------
-from data import *
 from dominate.tags import *
 from dominate.util import raw
 from millify import millify
-from models import Artist
 import logging
+
+from render.data import *
+from render.models import Artist
 
 # ------------------------------------------------------------------------------
 # Constants

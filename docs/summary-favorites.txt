@@ -7,6 +7,7 @@ Rock - Heavy Metal:
 * Amorphis
 * Ayreon
 * Deathstars
+* Doomsword
 * Gamma Ray
 * Haken
 * Hangar
@@ -30,7 +31,6 @@ Rock - Extreme Metal:
 
 Rock - Folk Metal:
 * Alestorm
-* Doomsword
 * Eldhrimnir
 * Haggard
 * Mägo de Oz

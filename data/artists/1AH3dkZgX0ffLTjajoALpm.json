@@ -1,0 +1,45 @@
+{
+  "artist": {
+    "external_urls": {
+      "spotify": "https://open.spotify.com/artist/1AH3dkZgX0ffLTjajoALpm"
+    },
+    "followers": {
+      "href": null,
+      "total": 9394
+    },
+    "genres": [
+      "christian rock",
+      "power metal"
+    ],
+    "href": "https://api.spotify.com/v1/artists/1AH3dkZgX0ffLTjajoALpm",
+    "id": "1AH3dkZgX0ffLTjajoALpm",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6772690000c46c403bd0dab6d7d3012ab68bcc",
+        "height": 1000,
+        "width": 1000
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6772690000dd22403bd0dab6d7d3012ab68bcc",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6772690000bac3403bd0dab6d7d3012ab68bcc",
+        "height": 200,
+        "width": 200
+      },
+      {
+        "url": "https://i.scdn.co/image/ab67726900008f74403bd0dab6d7d3012ab68bcc",
+        "height": 64,
+        "width": 64
+      }
+    ],
+    "name": "Eterna",
+    "popularity": 3,
+    "type": "artist",
+    "uri": "spotify:artist:1AH3dkZgX0ffLTjajoALpm"
+  },
+  "albums": [],
+  "top_tracks": []
+}
