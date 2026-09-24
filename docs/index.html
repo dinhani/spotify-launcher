@@ -22940,7 +22940,9 @@ $(document).on('keydown', '.menu .item', function(e) {
     if (!step) return;
     e.preventDefault();
     var items = $(this).closest('.accordion').find('.menu .item:visible');
-    items.eq(Math.max(0, items.index(this) + step)).focus();
+    var target = items.index(this) + step;
+    if (target < 0) $('.artist-search:visible').focus();
+    else items.eq(target).focus();
 });
 
 $(document).on('keydown', '.artist-search', function(e) {
