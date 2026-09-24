@@ -28,3 +28,8 @@ alias dl := download
 [group("run")]
 export:
     python src/artists-export.py
+
+# Compare Last.fm top artists with followed artists
+[group("run")]
+lastfm:
+    python src/artists-lastfm.py
