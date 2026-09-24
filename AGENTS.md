@@ -21,6 +21,10 @@ Artists without Spotify genres must be placed via `+Name`.
 
 Tags reflect how I hear the artist, not Spotify's genre labels. A `+Name` or `-Name` that contradicts the genres is usually intentional; flag only isolated cases that look like real mistakes, never a whole tag based on genre names.
 
+Rules that currently have no effect (a `-Name` for a tag the artist doesn't get, a `+Name` already covered by a genre) are kept on purpose: Spotify genres change, and they were relevant when added.
+
+`Others` is a valid final place for artists that fit no family.
+
 After matching, `src/render/parser.py` applies:
 
 1. `Folk Metal` wins over `Heavy Metal` (an artist never has both).
