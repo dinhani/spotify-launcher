@@ -1,6 +1,626 @@
 [
   {
     "external_urls": {
+      "spotify": "https://open.spotify.com/artist/1xUhNgw4eJDZfvumIpcz1B"
+    },
+    "followers": {
+      "href": null,
+      "total": 877177
+    },
+    "genres": [
+      "melodic death metal",
+      "metal",
+      "death metal"
+    ],
+    "href": "https://api.spotify.com/v1/artists/1xUhNgw4eJDZfvumIpcz1B",
+    "id": "1xUhNgw4eJDZfvumIpcz1B",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6761610000e5ebe51866b7c973c8aafaf1fece",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab67616100005174e51866b7c973c8aafaf1fece",
+        "height": 320,
+        "width": 320
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000f178e51866b7c973c8aafaf1fece",
+        "height": 160,
+        "width": 160
+      }
+    ],
+    "name": "Children Of Bodom",
+    "popularity": 59,
+    "type": "artist",
+    "uri": "spotify:artist:1xUhNgw4eJDZfvumIpcz1B"
+  },
+  {
+    "external_urls": {
+      "spotify": "https://open.spotify.com/artist/0b2B3PwcYzQAhuJacmcYgc"
+    },
+    "followers": {
+      "href": null,
+      "total": 1115883
+    },
+    "genres": [
+      "folk metal"
+    ],
+    "href": "https://api.spotify.com/v1/artists/0b2B3PwcYzQAhuJacmcYgc",
+    "id": "0b2B3PwcYzQAhuJacmcYgc",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6761610000e5eb840d5f69252bca58ad740ceb",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab67616100005174840d5f69252bca58ad740ceb",
+        "height": 320,
+        "width": 320
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000f178840d5f69252bca58ad740ceb",
+        "height": 160,
+        "width": 160
+      }
+    ],
+    "name": "The HU",
+    "popularity": 60,
+    "type": "artist",
+    "uri": "spotify:artist:0b2B3PwcYzQAhuJacmcYgc"
+  },
+  {
+    "external_urls": {
+      "spotify": "https://open.spotify.com/artist/1OHNvr18TssBKYK0A75yvx"
+    },
+    "followers": {
+      "href": null,
+      "total": 128678
+    },
+    "genres": [
+      "power metal",
+      "symphonic metal",
+      "progressive metal",
+      "speed metal",
+      "heavy metal",
+      "metal"
+    ],
+    "href": "https://api.spotify.com/v1/artists/1OHNvr18TssBKYK0A75yvx",
+    "id": "1OHNvr18TssBKYK0A75yvx",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6761610000e5eb8cfdd5ee976e9da4af82d208",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab676161000051748cfdd5ee976e9da4af82d208",
+        "height": 320,
+        "width": 320
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000f1788cfdd5ee976e9da4af82d208",
+        "height": 160,
+        "width": 160
+      }
+    ],
+    "name": "Masterplan",
+    "popularity": 43,
+    "type": "artist",
+    "uri": "spotify:artist:1OHNvr18TssBKYK0A75yvx"
+  },
+  {
+    "external_urls": {
+      "spotify": "https://open.spotify.com/artist/0GLGeVG3XTA2KmlmAd05T8"
+    },
+    "followers": {
+      "href": null,
+      "total": 38959
+    },
+    "genres": [
+      "electroclash"
+    ],
+    "href": "https://api.spotify.com/v1/artists/0GLGeVG3XTA2KmlmAd05T8",
+    "id": "0GLGeVG3XTA2KmlmAd05T8",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6761610000e5eb9f7a9ca89b87f36f787a4aba",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab676161000051749f7a9ca89b87f36f787a4aba",
+        "height": 320,
+        "width": 320
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000f1789f7a9ca89b87f36f787a4aba",
+        "height": 160,
+        "width": 160
+      }
+    ],
+    "name": "Sam Quealy",
+    "popularity": 43,
+    "type": "artist",
+    "uri": "spotify:artist:0GLGeVG3XTA2KmlmAd05T8"
+  },
+  {
+    "external_urls": {
+      "spotify": "https://open.spotify.com/artist/6SrA4711bML5NvPO13Tr6t"
+    },
+    "followers": {
+      "href": null,
+      "total": 275738
+    },
+    "genres": [
+      "baroque pop"
+    ],
+    "href": "https://api.spotify.com/v1/artists/6SrA4711bML5NvPO13Tr6t",
+    "id": "6SrA4711bML5NvPO13Tr6t",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6761610000e5eb6ba94b8abc0e45c3610396cc",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab676161000051746ba94b8abc0e45c3610396cc",
+        "height": 320,
+        "width": 320
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000f1786ba94b8abc0e45c3610396cc",
+        "height": 160,
+        "width": 160
+      }
+    ],
+    "name": "Princess Chelsea",
+    "popularity": 65,
+    "type": "artist",
+    "uri": "spotify:artist:6SrA4711bML5NvPO13Tr6t"
+  },
+  {
+    "external_urls": {
+      "spotify": "https://open.spotify.com/artist/2PqsalqLh5RT6FSy9DrGZh"
+    },
+    "followers": {
+      "href": null,
+      "total": 58835
+    },
+    "genres": [
+      "indie folk"
+    ],
+    "href": "https://api.spotify.com/v1/artists/2PqsalqLh5RT6FSy9DrGZh",
+    "id": "2PqsalqLh5RT6FSy9DrGZh",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6761610000e5eb0cd633fbf6225984be5c3a26",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab676161000051740cd633fbf6225984be5c3a26",
+        "height": 320,
+        "width": 320
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000f1780cd633fbf6225984be5c3a26",
+        "height": 160,
+        "width": 160
+      }
+    ],
+    "name": "Emily Jane White",
+    "popularity": 41,
+    "type": "artist",
+    "uri": "spotify:artist:2PqsalqLh5RT6FSy9DrGZh"
+  },
+  {
+    "external_urls": {
+      "spotify": "https://open.spotify.com/artist/0gIo6kGl4KsCeIbqtZVHYp"
+    },
+    "followers": {
+      "href": null,
+      "total": 402153
+    },
+    "genres": [
+      "gothic metal",
+      "doom metal",
+      "gothic rock",
+      "sludge metal",
+      "metal",
+      "stoner metal"
+    ],
+    "href": "https://api.spotify.com/v1/artists/0gIo6kGl4KsCeIbqtZVHYp",
+    "id": "0gIo6kGl4KsCeIbqtZVHYp",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6761610000e5eb9e99bd6572df986efcdc5bd6",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab676161000051749e99bd6572df986efcdc5bd6",
+        "height": 320,
+        "width": 320
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000f1789e99bd6572df986efcdc5bd6",
+        "height": 160,
+        "width": 160
+      }
+    ],
+    "name": "Paradise Lost",
+    "popularity": 52,
+    "type": "artist",
+    "uri": "spotify:artist:0gIo6kGl4KsCeIbqtZVHYp"
+  },
+  {
+    "external_urls": {
+      "spotify": "https://open.spotify.com/artist/09b5OcuIELTdD7FfzQzcdB"
+    },
+    "followers": {
+      "href": null,
+      "total": 130600
+    },
+    "genres": [
+      "power metal",
+      "folk metal",
+      "symphonic metal",
+      "medieval metal",
+      "metal"
+    ],
+    "href": "https://api.spotify.com/v1/artists/09b5OcuIELTdD7FfzQzcdB",
+    "id": "09b5OcuIELTdD7FfzQzcdB",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6761610000e5eb7d9ebf7fb6d88f7efe184437",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab676161000051747d9ebf7fb6d88f7efe184437",
+        "height": 320,
+        "width": 320
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000f1787d9ebf7fb6d88f7efe184437",
+        "height": 160,
+        "width": 160
+      }
+    ],
+    "name": "Elvenking",
+    "popularity": 44,
+    "type": "artist",
+    "uri": "spotify:artist:09b5OcuIELTdD7FfzQzcdB"
+  },
+  {
+    "external_urls": {
+      "spotify": "https://open.spotify.com/artist/5EHvXKnNz78jkAVgTQLQ5O"
+    },
+    "followers": {
+      "href": null,
+      "total": 430144
+    },
+    "genres": [
+      "melodic death metal",
+      "death metal",
+      "metal"
+    ],
+    "href": "https://api.spotify.com/v1/artists/5EHvXKnNz78jkAVgTQLQ5O",
+    "id": "5EHvXKnNz78jkAVgTQLQ5O",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6761610000e5eb473898d318f6958efb692c2f",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab67616100005174473898d318f6958efb692c2f",
+        "height": 320,
+        "width": 320
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000f178473898d318f6958efb692c2f",
+        "height": 160,
+        "width": 160
+      }
+    ],
+    "name": "Dark Tranquillity",
+    "popularity": 50,
+    "type": "artist",
+    "uri": "spotify:artist:5EHvXKnNz78jkAVgTQLQ5O"
+  },
+  {
+    "external_urls": {
+      "spotify": "https://open.spotify.com/artist/3pulcT2wt7FEG10lQlqDJL"
+    },
+    "followers": {
+      "href": null,
+      "total": 1306500
+    },
+    "genres": [
+      "melodic death metal",
+      "folk metal",
+      "metal",
+      "death metal",
+      "heavy metal",
+      "power metal"
+    ],
+    "href": "https://api.spotify.com/v1/artists/3pulcT2wt7FEG10lQlqDJL",
+    "id": "3pulcT2wt7FEG10lQlqDJL",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6761610000e5ebe0ed6357e133abef229c44a3",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab67616100005174e0ed6357e133abef229c44a3",
+        "height": 320,
+        "width": 320
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000f178e0ed6357e133abef229c44a3",
+        "height": 160,
+        "width": 160
+      }
+    ],
+    "name": "Amon Amarth",
+    "popularity": 62,
+    "type": "artist",
+    "uri": "spotify:artist:3pulcT2wt7FEG10lQlqDJL"
+  },
+  {
+    "external_urls": {
+      "spotify": "https://open.spotify.com/artist/1uRpg2s2jNaxbmoNiJDGfd"
+    },
+    "followers": {
+      "href": null,
+      "total": 154688
+    },
+    "genres": [
+      "progressive metal",
+      "progressive rock"
+    ],
+    "href": "https://api.spotify.com/v1/artists/1uRpg2s2jNaxbmoNiJDGfd",
+    "id": "1uRpg2s2jNaxbmoNiJDGfd",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6761610000e5ebd8e598e21b6b59135379da31",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab67616100005174d8e598e21b6b59135379da31",
+        "height": 320,
+        "width": 320
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000f178d8e598e21b6b59135379da31",
+        "height": 160,
+        "width": 160
+      }
+    ],
+    "name": "Pain of Salvation",
+    "popularity": 40,
+    "type": "artist",
+    "uri": "spotify:artist:1uRpg2s2jNaxbmoNiJDGfd"
+  },
+  {
+    "external_urls": {
+      "spotify": "https://open.spotify.com/artist/2o18h28enlHxj887tATc58"
+    },
+    "followers": {
+      "href": null,
+      "total": 724769
+    },
+    "genres": [
+      "power metal",
+      "metal",
+      "speed metal",
+      "heavy metal",
+      "symphonic metal",
+      "folk metal"
+    ],
+    "href": "https://api.spotify.com/v1/artists/2o18h28enlHxj887tATc58",
+    "id": "2o18h28enlHxj887tATc58",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6761610000e5eb9a0164f238589f0c0ca31088",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab676161000051749a0164f238589f0c0ca31088",
+        "height": 320,
+        "width": 320
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000f1789a0164f238589f0c0ca31088",
+        "height": 160,
+        "width": 160
+      }
+    ],
+    "name": "HammerFall",
+    "popularity": 56,
+    "type": "artist",
+    "uri": "spotify:artist:2o18h28enlHxj887tATc58"
+  },
+  {
+    "external_urls": {
+      "spotify": "https://open.spotify.com/artist/6tbjWDEIzxoDsBA1FuhfPW"
+    },
+    "followers": {
+      "href": null,
+      "total": 9826461
+    },
+    "genres": [],
+    "href": "https://api.spotify.com/v1/artists/6tbjWDEIzxoDsBA1FuhfPW",
+    "id": "6tbjWDEIzxoDsBA1FuhfPW",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6761610000e5ebed2208b41d49ebd24687985b",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab67616100005174ed2208b41d49ebd24687985b",
+        "height": 320,
+        "width": 320
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000f178ed2208b41d49ebd24687985b",
+        "height": 160,
+        "width": 160
+      }
+    ],
+    "name": "Madonna",
+    "popularity": 85,
+    "type": "artist",
+    "uri": "spotify:artist:6tbjWDEIzxoDsBA1FuhfPW"
+  },
+  {
+    "external_urls": {
+      "spotify": "https://open.spotify.com/artist/74KM79TiuVKeVCqs8QtB0B"
+    },
+    "followers": {
+      "href": null,
+      "total": 35197034
+    },
+    "genres": [
+      "pop"
+    ],
+    "href": "https://api.spotify.com/v1/artists/74KM79TiuVKeVCqs8QtB0B",
+    "id": "74KM79TiuVKeVCqs8QtB0B",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6761610000e5eb78e45cfa4697ce3c437cb455",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000517478e45cfa4697ce3c437cb455",
+        "height": 320,
+        "width": 320
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000f17878e45cfa4697ce3c437cb455",
+        "height": 160,
+        "width": 160
+      }
+    ],
+    "name": "Sabrina Carpenter",
+    "popularity": 89,
+    "type": "artist",
+    "uri": "spotify:artist:74KM79TiuVKeVCqs8QtB0B"
+  },
+  {
+    "external_urls": {
+      "spotify": "https://open.spotify.com/artist/26dSoYclwsYLMAKD3tpOr4"
+    },
+    "followers": {
+      "href": null,
+      "total": 20166788
+    },
+    "genres": [
+      "pop"
+    ],
+    "href": "https://api.spotify.com/v1/artists/26dSoYclwsYLMAKD3tpOr4",
+    "id": "26dSoYclwsYLMAKD3tpOr4",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6761610000e5eb8cf8f7cab75b0e44dd4e0ea8",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab676161000051748cf8f7cab75b0e44dd4e0ea8",
+        "height": 320,
+        "width": 320
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000f1788cf8f7cab75b0e44dd4e0ea8",
+        "height": 160,
+        "width": 160
+      }
+    ],
+    "name": "Britney Spears",
+    "popularity": 85,
+    "type": "artist",
+    "uri": "spotify:artist:26dSoYclwsYLMAKD3tpOr4"
+  },
+  {
+    "external_urls": {
+      "spotify": "https://open.spotify.com/artist/6M2wZ9GZgrQXHCFfjv46we"
+    },
+    "followers": {
+      "href": null,
+      "total": 49048985
+    },
+    "genres": [
+      "pop"
+    ],
+    "href": "https://api.spotify.com/v1/artists/6M2wZ9GZgrQXHCFfjv46we",
+    "id": "6M2wZ9GZgrQXHCFfjv46we",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6761610000e5eb0c68f6c95232e716f0abee8d",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab676161000051740c68f6c95232e716f0abee8d",
+        "height": 320,
+        "width": 320
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000f1780c68f6c95232e716f0abee8d",
+        "height": 160,
+        "width": 160
+      }
+    ],
+    "name": "Dua Lipa",
+    "popularity": 90,
+    "type": "artist",
+    "uri": "spotify:artist:6M2wZ9GZgrQXHCFfjv46we"
+  },
+  {
+    "external_urls": {
+      "spotify": "https://open.spotify.com/artist/66T34XqGkEWbzKWALSBDuR"
+    },
+    "followers": {
+      "href": null,
+      "total": 138911
+    },
+    "genres": [],
+    "href": "https://api.spotify.com/v1/artists/66T34XqGkEWbzKWALSBDuR",
+    "id": "66T34XqGkEWbzKWALSBDuR",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6761610000e5eb71b6baa0f6e3c69973eeacd7",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000517471b6baa0f6e3c69973eeacd7",
+        "height": 320,
+        "width": 320
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000f17871b6baa0f6e3c69973eeacd7",
+        "height": 160,
+        "width": 160
+      }
+    ],
+    "name": "Haute & Freddy",
+    "popularity": 60,
+    "type": "artist",
+    "uri": "spotify:artist:66T34XqGkEWbzKWALSBDuR"
+  },
+  {
+    "external_urls": {
       "spotify": "https://open.spotify.com/artist/7tUDHzzzfhagnoRc1U24S9"
     },
     "followers": {

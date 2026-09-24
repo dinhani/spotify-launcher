@@ -8,8 +8,10 @@ Rock - Heavy Metal:
 * Ayreon
 * Deathstars
 * Doomsword
+* Dream Theater
 * Gamma Ray
 * Haken
+* HammerFall
 * Hangar
 * Hellish War
 * Iced Earth
@@ -19,6 +21,7 @@ Rock - Heavy Metal:
 * Opeth
 * Sabaton
 * Sentenced
+* Sepultura
 * Shaman
 * Sonata Arctica
 
@@ -27,6 +30,8 @@ Rock - Extreme Metal:
 * Crypta
 * In Mourning
 * Opeth
+* Satyricon
+* Sepultura
 * Torture Squad
 
 Rock - Folk Metal:
@@ -53,8 +58,10 @@ Folk - Folk:
 * Eldhrimnir
 
 Folk - Steampunk:
+* Bitter Ruin
 * Dirt Poor Robins
 * Eliza Rickman
+* Haute & Freddy
 * Steam Powered Giraffe
 * The Cog is Dead
 
@@ -63,7 +70,9 @@ Alt - Atmospheric:
 * Billie Eilish
 * Birdy
 * Burning Peacocks
+* Chappell Roan
 * Daughter
+* Ex:Re
 * HÆLOS
 * Juniper Vale
 * Leandra
@@ -82,6 +91,9 @@ Alt - Atmospheric:
 
 Alt - Energetic:
 * Allie X
+* Britney Spears
+* Chappell Roan
+* Dua Lipa
 * Eliza Rickman
 * Florence + The Machine
 * Jessie Ware
@@ -91,8 +103,12 @@ Alt - Energetic:
 * Lola Young
 * Lorde
 * MARINA
+* Madonna
 * Of Monsters and Men
+* P!nk
+* Sabrina Carpenter
 * Sia
+* Stromae
 * Superorganism
 * Susanne Sundfør
 * The Dø
@@ -100,4 +116,5 @@ Alt - Energetic:
 
 Alt - Vox/Guitar:
 * Angus & Julia Stone
+* Fish in a Birdcage
 * Marika Hackman

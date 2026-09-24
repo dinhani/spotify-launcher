@@ -27,6 +27,7 @@ Rock - Heavy Metal:
 * Gamma Ray
 * Gojira
 * Haken
+* HammerFall
 * Hangar
 * Hellish War
 * Helloween
@@ -44,6 +45,7 @@ Rock - Heavy Metal:
 * Leaves' Eyes
 * Leprous
 * Massacration
+* Masterplan
 * Metallica
 * Narnia
 * Nervosa
@@ -51,7 +53,9 @@ Rock - Heavy Metal:
 * Oficina G3
 * Opeth
 * Ozzy Osbourne
+* Pain of Salvation
 * Pantera
+* Paradise Lost
 * Poison
 * Queensrÿche
 * Reall
@@ -74,13 +78,16 @@ Rock - Heavy Metal:
 
 Rock - Extreme Metal:
 * Ahab
+* Amon Amarth
 * Amorphis
 * Arch Enemy
 * Arcturus
 * Borknagar
 * Brujeria
 * Carcass
+* Children Of Bodom
 * Crypta
+* Dark Tranquillity
 * Death
 * Eluveitie
 * Fafnir
@@ -109,6 +116,7 @@ Rock - Folk Metal:
 * Diablo Swing Orchestra
 * Eldhrimnir
 * Eluveitie
+* Elvenking
 * Faun
 * Finntroll
 * Haggard
@@ -118,6 +126,7 @@ Rock - Folk Metal:
 * OMNIA
 * Orphaned Land
 * Otyg
+* The HU
 * Therion
 * Tuatha de Danann
 * Turisas
@@ -179,6 +188,7 @@ Folk - Steampunk:
 * Dirt Poor Robins
 * Eliza Rickman
 * Ghost Quartet
+* Haute & Freddy
 * Kim Tillman
 * Major Parkinson
 * Steam Powered Giraffe
@@ -229,9 +239,11 @@ Alt - Energetic:
 * Allie X
 * Aqua
 * BROODS
+* Britney Spears
 * CHVRCHES
 * Chappell Roan
 * Claire Rosinkranz
+* Dua Lipa
 * Eliza Rickman
 * Florence + The Machine
 * Jessie Ware
@@ -244,11 +256,15 @@ Alt - Energetic:
 * Lorde
 * LÉON
 * MARINA
+* Madonna
 * Of Monsters and Men
 * P!nk
+* Princess Chelsea
 * Prudence
 * Robyn
 * Röyksopp
+* Sabrina Carpenter
+* Sam Quealy
 * Sia
 * Stromae
 * Superorganism
@@ -264,6 +280,7 @@ Alt - Vox/Guitar:
 * Bear's Den
 * Billie Marten
 * Cocoon
+* Emily Jane White
 * First Aid Kit
 * Fish in a Birdcage
 * Frøkedal
