@@ -37,41 +37,6 @@
   },
   {
     "external_urls": {
-      "spotify": "https://open.spotify.com/artist/1jWYbHqxagu177jUkwbz5P"
-    },
-    "followers": {
-      "href": null,
-      "total": 7080
-    },
-    "genres": [
-      "nu disco"
-    ],
-    "href": "https://api.spotify.com/v1/artists/1jWYbHqxagu177jUkwbz5P",
-    "id": "1jWYbHqxagu177jUkwbz5P",
-    "images": [
-      {
-        "url": "https://i.scdn.co/image/ab6761610000e5ebb433cd807e53c26c59c756c9",
-        "height": 640,
-        "width": 640
-      },
-      {
-        "url": "https://i.scdn.co/image/ab67616100005174b433cd807e53c26c59c756c9",
-        "height": 320,
-        "width": 320
-      },
-      {
-        "url": "https://i.scdn.co/image/ab6761610000f178b433cd807e53c26c59c756c9",
-        "height": 160,
-        "width": 160
-      }
-    ],
-    "name": "Daphne Guinness",
-    "popularity": 22,
-    "type": "artist",
-    "uri": "spotify:artist:1jWYbHqxagu177jUkwbz5P"
-  },
-  {
-    "external_urls": {
       "spotify": "https://open.spotify.com/artist/3b7UftoY34IcfC7G4USJn9"
     },
     "followers": {
