@@ -36,10 +36,24 @@ CSS_GLOBAL = """
     .artists-wrapper {
         height: 98vh;
         overflow-y: scroll;
+        padding: 10px;
     }
     .artist-image {
         height: 140px !important;
     }
+}
+.menu .item:focus-visible {
+    outline: 3px solid #2185d0;
+    outline-offset: -3px;
+}
+.ui.card {
+    scroll-margin: 16px;
+}
+.ui.card:focus-visible, .ui.card:hover {
+    outline: none;
+    z-index: 5;
+    transform: scale(1.04);
+    box-shadow: 0 0 0 3px #2185d0, 0 8px 20px rgba(0, 0, 0, 0.35) !important;
 }
 """
 
@@ -100,6 +114,53 @@ function search(text) {
 }
 """
 
+JS_KEYBOARD_NAVIGATION = """
+$(document).on('keydown', '.menu .item', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        $(this).click();
+        return;
+    }
+    if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        var cards = $('.ui.tab.active .artist:visible .card');
+        var top = Math.max(0, cards.closest('.artists-wrapper')[0].getBoundingClientRect().top);
+        var card = cards.filter(function() { return this.getBoundingClientRect().top >= top; }).first();
+        (card.length ? card : cards.first()).focus();
+        return;
+    }
+
+    var step = { ArrowDown: 1, ArrowUp: -1 }[e.key];
+    if (!step) return;
+    e.preventDefault();
+    var items = $(this).closest('.accordion').find('.menu .item:visible');
+    items.eq(Math.max(0, items.index(this) + step)).focus();
+});
+
+$(document).on('keydown', '.ui.card', function(e) {
+    if (e.key === 'Escape') {
+        $('.artist-search:visible').focus();
+        return;
+    }
+
+    var cards = $('.ui.tab.active .artist:visible .card');
+    var index = cards.index(this);
+    var top = cards[0].parentElement.offsetTop;
+    var columns = cards.filter(function() { return this.parentElement.offsetTop === top; }).length;
+    if (e.key === 'ArrowLeft' && index % columns === 0) {
+        e.preventDefault();
+        $('.menu .item.active[data-tab]:visible').focus();
+        return;
+    }
+
+    var step = { ArrowRight: 1, ArrowLeft: -1, ArrowDown: columns, ArrowUp: -columns }[e.key];
+    if (!step) return;
+    e.preventDefault();
+    var target = index + step;
+    if (target >= 0 && target < cards.length) cards.eq(target).focus();
+});
+"""
+
 # ------------------------------------------------------------------------------
 # Functions
 # ------------------------------------------------------------------------------
@@ -148,7 +209,8 @@ def menu_filter(mobile: bool, tags_with_artists: dict[str, list[dict]]):
                     style=CSS_STYLE_MENU_ITEM + f"font-size: {item_font_size};",
                     id=f"{item_kind}-menu-item-{id(tag)}",
                     data_tab=id(tag),
-                    data_tab_name=tag
+                    data_tab_name=tag,
+                    tabindex="0"
                 ):
                 span(item_display)
                 span(f"{len(artists)}", cls=f"ui {item_label_size} label")
@@ -157,20 +219,20 @@ def menu_sort(mobile):
     """Render sort menu according to mobile or desktop rules."""
     label = "Sort: Name" if mobile else "Sort"
     with menu_wrapper(mobile, label, "sort"):
-        div("🎶 Name", cls="ui active link item", onClick="sort(this, 'name', 'asc')", style=CSS_STYLE_MENU_ITEM)
-        div("🔥 Popularity (artist)", cls="ui link item", onClick="sort(this, 'popularity', 'desc')", style=CSS_STYLE_MENU_ITEM)
-        div("🏆 Popularity (song)", cls="ui link item", onClick="sort(this, 'song-popularity', 'desc')", style=CSS_STYLE_MENU_ITEM)
-        div("👤 Followers", cls="ui link item", onClick="sort(this, 'followers', 'desc')", style=CSS_STYLE_MENU_ITEM)
-        div("💿 Albums", cls="ui link item", onClick="sort(this, 'albums', 'desc')", style=CSS_STYLE_MENU_ITEM)
-        div("📅 Last Release", cls="ui link item", onClick="sort(this, 'last-release', 'desc')", style=CSS_STYLE_MENU_ITEM)
-        div("🔔 Last Follow", cls="ui link item", onClick="sort(this, 'last-follow', 'asc')", style=CSS_STYLE_MENU_ITEM)
+        div("🎶 Name", cls="ui active link item", onClick="sort(this, 'name', 'asc')", style=CSS_STYLE_MENU_ITEM, tabindex="0")
+        div("🔥 Popularity (artist)", cls="ui link item", onClick="sort(this, 'popularity', 'desc')", style=CSS_STYLE_MENU_ITEM, tabindex="0")
+        div("🏆 Popularity (song)", cls="ui link item", onClick="sort(this, 'song-popularity', 'desc')", style=CSS_STYLE_MENU_ITEM, tabindex="0")
+        div("👤 Followers", cls="ui link item", onClick="sort(this, 'followers', 'desc')", style=CSS_STYLE_MENU_ITEM, tabindex="0")
+        div("💿 Albums", cls="ui link item", onClick="sort(this, 'albums', 'desc')", style=CSS_STYLE_MENU_ITEM, tabindex="0")
+        div("📅 Last Release", cls="ui link item", onClick="sort(this, 'last-release', 'desc')", style=CSS_STYLE_MENU_ITEM, tabindex="0")
+        div("🔔 Last Follow", cls="ui link item", onClick="sort(this, 'last-follow', 'asc')", style=CSS_STYLE_MENU_ITEM, tabindex="0")
 
 def menu_search(mobile: bool):
     with div(cls="ui fluid icon input", style="margin-bottom: 0.5rem;"):
         input_(cls="artist-search", type="search", placeholder="Search artist",
             autofocus=not mobile,
             oninput="search(this.value)",
-            onkeydown="if (event.key === 'Escape') search('')",
+            onkeydown="if (event.key === 'Escape') search(''); if (event.key === 'Enter') $('.ui.tab.active .artist:visible .card').first().focus()",
         )
         i(cls="search icon")
 
@@ -291,5 +353,6 @@ def render_html(tags_with_artists: dict[str, list[dict]]):
         script("$('.menu .item').tab({history:true, historyType: 'hash', onLoad: onTab});")
         script("$('.ui.accordion.desktop').accordion({exclusive:false});")
         script("$('.ui.accordion.mobile').accordion({exclusive:true});")
+        script(raw(JS_KEYBOARD_NAVIGATION))
 
     return doc
