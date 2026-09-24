@@ -16,11 +16,13 @@ setup:
 render:
     python src/artists-render.py
     Start-Process docs/index.html
+alias run := render
 
 # Download Spotify data
 [group("run")]
 download:
     python src/artists-download.py
+alias dl := download
 
 # Export Spotify data to TSV
 [group("run")]
