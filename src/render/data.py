@@ -90,7 +90,7 @@ TAGS_MENU_ORDER = [
 # ------------------------------------------------------------------------------
 # Mappings
 # ------------------------------------------------------------------------------
-TAGS_INVERTED = {
+TAG_RULES = {
     # --------------------------------------------------------------------------
     # Rock / Metal
     # --------------------------------------------------------------------------
@@ -392,7 +392,7 @@ TAGS_INVERTED = {
 }
 
 from render.utils import ProxyDict
-TAGS_ALL = ProxyDict(list)
-for tag, patterns in TAGS_INVERTED.items():
+TAGS_BY_RULE = ProxyDict(list)
+for tag, patterns in TAG_RULES.items():
     for pattern in patterns:
-        TAGS_ALL[pattern].append(tag)
+        TAGS_BY_RULE[pattern].append(tag)

@@ -56,7 +56,7 @@ for tag in TAGS_MENU_ORDER:
 
 # verify untouched keys
 logging.info("🧱 Checking untouched keys")
-for key in TAGS_ALL.untouched_keys():
+for key in TAGS_BY_RULE.untouched_keys():
     logging.warning(f"🛑 Untouched key: {key}")
 
 # verify artists tags

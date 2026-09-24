@@ -28,21 +28,21 @@ def parse(filename: str) -> Tuple[list[Artist], defaultdict[str, list[Artist]]]:
 
         # match genres
         for genre in artist.genres:
-            for tag in TAGS_ALL.get(genre, []):
+            for tag in TAGS_BY_RULE.get(genre, []):
                 artist.tags.add(tag)
 
         # match names (positive)
-        for tag in TAGS_ALL.get(f"+{artist.name}", []):
+        for tag in TAGS_BY_RULE.get(f"+{artist.name}", []):
             artist.tags.add(tag)
 
         # match names (negative)
-        for tag in TAGS_ALL.get(f"-{artist.name}", []):
+        for tag in TAGS_BY_RULE.get(f"-{artist.name}", []):
             if tag in artist.tags:
                 artist.tags.remove(tag)
 
         # match other tags
         for tagged_tag in artist.tags.copy():
-            for tag in TAGS_ALL.get(tagged_tag, []):
+            for tag in TAGS_BY_RULE.get(tagged_tag, []):
                 artist.tags.add(tag)
 
         # rule: folk metal cannot be traditional
