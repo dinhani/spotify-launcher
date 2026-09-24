@@ -224,7 +224,6 @@ TAG_RULES = {
         "+Dirt Poor Robins",
         "+Eldhrimnir",
         "+Eliza Rickman",
-        "+Leandra",
         "+Steam Powered Giraffe",
         "+The Cog is Dead"
     ],
@@ -248,6 +247,7 @@ TAG_RULES = {
         "+Aurelio Voltaire",
         "+Bitter Ruin",
         "+Dirt Poor Robins",
+        "+Eliza Rickman",
         "+Ghost Quartet",
         "+Kim Tillman",
         "+Major Parkinson",

@@ -54,6 +54,7 @@ Folk - Folk:
 
 Folk - Steampunk:
 * Dirt Poor Robins
+* Eliza Rickman
 * Steam Powered Giraffe
 * The Cog is Dead
 
