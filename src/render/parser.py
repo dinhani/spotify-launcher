@@ -69,7 +69,7 @@ def parse(filename: str) -> Tuple[list[Artist], defaultdict[str, list[Artist]]]:
             artist.tags.add(T_OTHERS)
 
         # finish: add tags to artist and add artist to collections
-        artist.tags_granular = [t for t in artist.tags if t not in TAGS_UMBRELLA]
+        artist.tags_granular = [t for t in TAGS_MENU_ORDER if t in artist.tags and t not in TAGS_UMBRELLA]
         artists.append(artist)
         for tags in artist.tags:
             artists_by_tag[tags].append(artist)
