@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 4706669
+      "total": 4998220
     },
     "genres": [
       "post-grunge"
@@ -30,7 +30,7 @@
       }
     ],
     "name": "Creed",
-    "popularity": 76,
+    "popularity": 77,
     "type": "artist",
     "uri": "spotify:artist:43sZBwHjahUvgbx1WNIkIz"
   },
@@ -1626,7 +1626,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "One Last Breath",
-      "popularity": 85,
+      "popularity": 87,
       "preview_url": null,
       "track_number": 5,
       "type": "track",
@@ -2075,7 +2075,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Higher",
-      "popularity": 80,
+      "popularity": 82,
       "preview_url": null,
       "track_number": 9,
       "type": "track",
@@ -2522,7 +2522,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "My Sacrifice",
-      "popularity": 79,
+      "popularity": 80,
       "preview_url": null,
       "track_number": 6,
       "type": "track",
@@ -2971,7 +2971,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "With Arms Wide Open",
-      "popularity": 77,
+      "popularity": 80,
       "preview_url": null,
       "track_number": 8,
       "type": "track",
@@ -3420,7 +3420,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "My Own Prison",
-      "popularity": 77,
+      "popularity": 79,
       "preview_url": null,
       "track_number": 3,
       "type": "track",
@@ -3869,7 +3869,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "What If",
-      "popularity": 70,
+      "popularity": 73,
       "preview_url": null,
       "track_number": 2,
       "type": "track",
@@ -4316,7 +4316,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Weathered",
-      "popularity": 67,
+      "popularity": 69,
       "preview_url": null,
       "track_number": 8,
       "type": "track",
@@ -4765,7 +4765,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "One",
-      "popularity": 66,
+      "popularity": 68,
       "preview_url": null,
       "track_number": 10,
       "type": "track",
@@ -5214,7 +5214,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "With Arms Wide Open - New Version With Strings",
-      "popularity": 65,
+      "popularity": 67,
       "preview_url": null,
       "track_number": 12,
       "type": "track",
@@ -5422,34 +5422,34 @@
           "XK"
         ],
         "external_urls": {
-          "spotify": "https://open.spotify.com/album/63a1DgGeNsC197MCiV0X0i"
+          "spotify": "https://open.spotify.com/album/50EmY7MXVsXoUEdwieYbud"
         },
-        "href": "https://api.spotify.com/v1/albums/63a1DgGeNsC197MCiV0X0i",
-        "id": "63a1DgGeNsC197MCiV0X0i",
+        "href": "https://api.spotify.com/v1/albums/50EmY7MXVsXoUEdwieYbud",
+        "id": "50EmY7MXVsXoUEdwieYbud",
         "images": [
           {
-            "url": "https://i.scdn.co/image/ab67616d0000b273024d18f1943e08dbf91208d9",
+            "url": "https://i.scdn.co/image/ab67616d0000b2737a12793a027ffd587b93381a",
             "height": 640,
             "width": 640
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d00001e02024d18f1943e08dbf91208d9",
+            "url": "https://i.scdn.co/image/ab67616d00001e027a12793a027ffd587b93381a",
             "height": 300,
             "width": 300
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d00004851024d18f1943e08dbf91208d9",
+            "url": "https://i.scdn.co/image/ab67616d000048517a12793a027ffd587b93381a",
             "height": 64,
             "width": 64
           }
         ],
         "is_playable": true,
-        "name": "Full Circle",
-        "release_date": "2009-01-01",
+        "name": "My Own Prison",
+        "release_date": "1997-01-01",
         "release_date_precision": "day",
-        "total_tracks": 12,
+        "total_tracks": 10,
         "type": "album",
-        "uri": "spotify:album:63a1DgGeNsC197MCiV0X0i"
+        "uri": "spotify:album:50EmY7MXVsXoUEdwieYbud"
       },
       "artists": [
         {
@@ -5650,24 +5650,24 @@
         "XK"
       ],
       "disc_number": 1,
-      "duration_ms": 208240,
+      "duration_ms": 383933,
       "explicit": false,
       "external_ids": {
-        "isrc": "USWU30900230"
+        "isrc": "USWU39701049"
       },
       "external_urls": {
-        "spotify": "https://open.spotify.com/track/2CIsr5cqDJeWffps0vtNeq"
+        "spotify": "https://open.spotify.com/track/3DzACnzaSuuMseZqqTFfNy"
       },
-      "href": "https://api.spotify.com/v1/tracks/2CIsr5cqDJeWffps0vtNeq",
-      "id": "2CIsr5cqDJeWffps0vtNeq",
+      "href": "https://api.spotify.com/v1/tracks/3DzACnzaSuuMseZqqTFfNy",
+      "id": "3DzACnzaSuuMseZqqTFfNy",
       "is_local": false,
       "is_playable": true,
-      "name": "Rain",
-      "popularity": 64,
+      "name": "Torn",
+      "popularity": 65,
       "preview_url": null,
-      "track_number": 5,
+      "track_number": 1,
       "type": "track",
-      "uri": "spotify:track:2CIsr5cqDJeWffps0vtNeq"
+      "uri": "spotify:track:3DzACnzaSuuMseZqqTFfNy"
     }
   ]
 }

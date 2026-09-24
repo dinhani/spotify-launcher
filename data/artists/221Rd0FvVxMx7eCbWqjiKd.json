@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 342685
+      "total": 353651
     },
     "genres": [
       "black metal",
@@ -31,7 +31,7 @@
       }
     ],
     "name": "Satyricon",
-    "popularity": 44,
+    "popularity": 46,
     "type": "artist",
     "uri": "spotify:artist:221Rd0FvVxMx7eCbWqjiKd"
   },
@@ -458,32 +458,32 @@
         "XK"
       ],
       "external_urls": {
-        "spotify": "https://open.spotify.com/album/1CqVugK1U61uHDGONlHnzy"
+        "spotify": "https://open.spotify.com/album/1PI7BARhjM3hpdvt6dGtYl"
       },
-      "href": "https://api.spotify.com/v1/albums/1CqVugK1U61uHDGONlHnzy",
-      "id": "1CqVugK1U61uHDGONlHnzy",
+      "href": "https://api.spotify.com/v1/albums/1PI7BARhjM3hpdvt6dGtYl",
+      "id": "1PI7BARhjM3hpdvt6dGtYl",
       "images": [
         {
-          "url": "https://i.scdn.co/image/ab67616d0000b273a32929ddd6f4f20fea357268",
+          "url": "https://i.scdn.co/image/ab67616d0000b273d2cd04cd23f5e5a5c951cffe",
           "height": 640,
           "width": 640
         },
         {
-          "url": "https://i.scdn.co/image/ab67616d00001e02a32929ddd6f4f20fea357268",
+          "url": "https://i.scdn.co/image/ab67616d00001e02d2cd04cd23f5e5a5c951cffe",
           "height": 300,
           "width": 300
         },
         {
-          "url": "https://i.scdn.co/image/ab67616d00004851a32929ddd6f4f20fea357268",
+          "url": "https://i.scdn.co/image/ab67616d00004851d2cd04cd23f5e5a5c951cffe",
           "height": 64,
           "width": 64
         }
       ],
-      "name": "The Shadowthrone (Remastered 2021)",
+      "name": "Dark Medieval Times (Remastered 2021)",
       "release_date": "2021-05-28",
       "release_date_precision": "day",
       "type": "album",
-      "uri": "spotify:album:1CqVugK1U61uHDGONlHnzy",
+      "uri": "spotify:album:1PI7BARhjM3hpdvt6dGtYl",
       "artists": [
         {
           "external_urls": {
@@ -689,32 +689,32 @@
         "XK"
       ],
       "external_urls": {
-        "spotify": "https://open.spotify.com/album/1PI7BARhjM3hpdvt6dGtYl"
+        "spotify": "https://open.spotify.com/album/1CqVugK1U61uHDGONlHnzy"
       },
-      "href": "https://api.spotify.com/v1/albums/1PI7BARhjM3hpdvt6dGtYl",
-      "id": "1PI7BARhjM3hpdvt6dGtYl",
+      "href": "https://api.spotify.com/v1/albums/1CqVugK1U61uHDGONlHnzy",
+      "id": "1CqVugK1U61uHDGONlHnzy",
       "images": [
         {
-          "url": "https://i.scdn.co/image/ab67616d0000b273d2cd04cd23f5e5a5c951cffe",
+          "url": "https://i.scdn.co/image/ab67616d0000b273a32929ddd6f4f20fea357268",
           "height": 640,
           "width": 640
         },
         {
-          "url": "https://i.scdn.co/image/ab67616d00001e02d2cd04cd23f5e5a5c951cffe",
+          "url": "https://i.scdn.co/image/ab67616d00001e02a32929ddd6f4f20fea357268",
           "height": 300,
           "width": 300
         },
         {
-          "url": "https://i.scdn.co/image/ab67616d00004851d2cd04cd23f5e5a5c951cffe",
+          "url": "https://i.scdn.co/image/ab67616d00004851a32929ddd6f4f20fea357268",
           "height": 64,
           "width": 64
         }
       ],
-      "name": "Dark Medieval Times (Remastered 2021)",
+      "name": "The Shadowthrone (Remastered 2021)",
       "release_date": "2021-05-28",
       "release_date_precision": "day",
       "type": "album",
-      "uri": "spotify:album:1PI7BARhjM3hpdvt6dGtYl",
+      "uri": "spotify:album:1CqVugK1U61uHDGONlHnzy",
       "artists": [
         {
           "external_urls": {
@@ -2998,7 +2998,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "K.I.N.G",
-      "popularity": 49,
+      "popularity": 51,
       "preview_url": null,
       "track_number": 2,
       "type": "track",
@@ -3027,7 +3027,6 @@
           "BO",
           "BR",
           "BG",
-          "CA",
           "CL",
           "CO",
           "CR",
@@ -3058,7 +3057,6 @@
           "NL",
           "NZ",
           "NI",
-          "NO",
           "PA",
           "PY",
           "PE",
@@ -3073,7 +3071,6 @@
           "TW",
           "TR",
           "UY",
-          "US",
           "GB",
           "AD",
           "LI",
@@ -3207,34 +3204,34 @@
           "XK"
         ],
         "external_urls": {
-          "spotify": "https://open.spotify.com/album/5ZaVwtaQ553d0Xfq0NJvQ3"
+          "spotify": "https://open.spotify.com/album/6aRs27tvkatPTAIE7gaj1j"
         },
-        "href": "https://api.spotify.com/v1/albums/5ZaVwtaQ553d0Xfq0NJvQ3",
-        "id": "5ZaVwtaQ553d0Xfq0NJvQ3",
+        "href": "https://api.spotify.com/v1/albums/6aRs27tvkatPTAIE7gaj1j",
+        "id": "6aRs27tvkatPTAIE7gaj1j",
         "images": [
           {
-            "url": "https://i.scdn.co/image/ab67616d0000b2735e4573829468af0ab5b0f600",
+            "url": "https://i.scdn.co/image/ab67616d0000b2731c1f510f339019cd34278745",
             "height": 640,
             "width": 640
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d00001e025e4573829468af0ab5b0f600",
+            "url": "https://i.scdn.co/image/ab67616d00001e021c1f510f339019cd34278745",
             "height": 300,
             "width": 300
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d000048515e4573829468af0ab5b0f600",
+            "url": "https://i.scdn.co/image/ab67616d000048511c1f510f339019cd34278745",
             "height": 64,
             "width": 64
           }
         ],
         "is_playable": true,
-        "name": "The Age of Nero",
+        "name": "The Age Of Nero",
         "release_date": "2008-09-04",
         "release_date_precision": "day",
         "total_tracks": 8,
         "type": "album",
-        "uri": "spotify:album:5ZaVwtaQ553d0Xfq0NJvQ3"
+        "uri": "spotify:album:6aRs27tvkatPTAIE7gaj1j"
       },
       "artists": [
         {
@@ -3256,7 +3253,6 @@
         "BO",
         "BR",
         "BG",
-        "CA",
         "CL",
         "CO",
         "CR",
@@ -3287,7 +3283,6 @@
         "NL",
         "NZ",
         "NI",
-        "NO",
         "PA",
         "PY",
         "PE",
@@ -3302,7 +3297,6 @@
         "TW",
         "TR",
         "UY",
-        "US",
         "GB",
         "AD",
         "LI",
@@ -3436,24 +3430,24 @@
         "XK"
       ],
       "disc_number": 1,
-      "duration_ms": 232453,
-      "explicit": true,
+      "duration_ms": 230000,
+      "explicit": false,
       "external_ids": {
         "isrc": "NOKAS0801090"
       },
       "external_urls": {
-        "spotify": "https://open.spotify.com/track/56Bot8Y16EEseWiEYVpPtK"
+        "spotify": "https://open.spotify.com/track/0ceibOL5IiWDOeBv2PYUGS"
       },
-      "href": "https://api.spotify.com/v1/tracks/56Bot8Y16EEseWiEYVpPtK",
-      "id": "56Bot8Y16EEseWiEYVpPtK",
+      "href": "https://api.spotify.com/v1/tracks/0ceibOL5IiWDOeBv2PYUGS",
+      "id": "0ceibOL5IiWDOeBv2PYUGS",
       "is_local": false,
       "is_playable": true,
       "name": "Black Crow on a Tombstone",
-      "popularity": 45,
+      "popularity": 48,
       "preview_url": null,
       "track_number": 3,
       "type": "track",
-      "uri": "spotify:track:56Bot8Y16EEseWiEYVpPtK"
+      "uri": "spotify:track:0ceibOL5IiWDOeBv2PYUGS"
     },
     {
       "album": {
@@ -3900,7 +3894,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Mother North",
-      "popularity": 43,
+      "popularity": 46,
       "preview_url": null,
       "track_number": 3,
       "type": "track",
@@ -3929,7 +3923,6 @@
           "BO",
           "BR",
           "BG",
-          "CA",
           "CL",
           "CO",
           "CR",
@@ -3956,11 +3949,9 @@
           "LU",
           "MY",
           "MT",
-          "MX",
           "NL",
           "NZ",
           "NI",
-          "NO",
           "PA",
           "PY",
           "PE",
@@ -3975,7 +3966,6 @@
           "TW",
           "TR",
           "UY",
-          "US",
           "GB",
           "AD",
           "LI",
@@ -4026,7 +4016,6 @@
           "BS",
           "BB",
           "BZ",
-          "BT",
           "BW",
           "BF",
           "CV",
@@ -4037,39 +4026,27 @@
           "GE",
           "GD",
           "GW",
-          "GY",
           "HT",
           "JM",
-          "KI",
           "LS",
           "LR",
           "MW",
-          "MV",
           "ML",
-          "MH",
           "FM",
           "NA",
-          "NR",
           "NE",
-          "PW",
           "PG",
           "PR",
-          "WS",
           "SM",
           "ST",
           "SN",
           "SC",
           "SL",
-          "SB",
           "KN",
           "LC",
           "VC",
-          "SR",
           "TL",
-          "TO",
           "TT",
-          "TV",
-          "VU",
           "AZ",
           "BN",
           "BI",
@@ -4109,34 +4086,34 @@
           "XK"
         ],
         "external_urls": {
-          "spotify": "https://open.spotify.com/album/1IZe44XHPLvlZcPu4h3SVq"
+          "spotify": "https://open.spotify.com/album/7hMNG2Sl4qDB3gROXj2NSH"
         },
-        "href": "https://api.spotify.com/v1/albums/1IZe44XHPLvlZcPu4h3SVq",
-        "id": "1IZe44XHPLvlZcPu4h3SVq",
+        "href": "https://api.spotify.com/v1/albums/7hMNG2Sl4qDB3gROXj2NSH",
+        "id": "7hMNG2Sl4qDB3gROXj2NSH",
         "images": [
           {
-            "url": "https://i.scdn.co/image/ab67616d0000b2738305e6d97d53cb472d350410",
+            "url": "https://i.scdn.co/image/ab67616d0000b273324ac785a0249a4a2d6aca43",
             "height": 640,
             "width": 640
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d00001e028305e6d97d53cb472d350410",
+            "url": "https://i.scdn.co/image/ab67616d00001e02324ac785a0249a4a2d6aca43",
             "height": 300,
             "width": 300
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d000048518305e6d97d53cb472d350410",
+            "url": "https://i.scdn.co/image/ab67616d00004851324ac785a0249a4a2d6aca43",
             "height": 64,
             "width": 64
           }
         ],
         "is_playable": true,
-        "name": "Satyricon",
-        "release_date": "2013-09-06",
+        "name": "Satyricon (Deluxe)",
+        "release_date": "2013-08-22",
         "release_date_precision": "day",
-        "total_tracks": 10,
+        "total_tracks": 13,
         "type": "album",
-        "uri": "spotify:album:1IZe44XHPLvlZcPu4h3SVq"
+        "uri": "spotify:album:7hMNG2Sl4qDB3gROXj2NSH"
       },
       "artists": [
         {
@@ -4158,7 +4135,6 @@
         "BO",
         "BR",
         "BG",
-        "CA",
         "CL",
         "CO",
         "CR",
@@ -4185,11 +4161,9 @@
         "LU",
         "MY",
         "MT",
-        "MX",
         "NL",
         "NZ",
         "NI",
-        "NO",
         "PA",
         "PY",
         "PE",
@@ -4204,7 +4178,6 @@
         "TW",
         "TR",
         "UY",
-        "US",
         "GB",
         "AD",
         "LI",
@@ -4255,7 +4228,6 @@
         "BS",
         "BB",
         "BZ",
-        "BT",
         "BW",
         "BF",
         "CV",
@@ -4266,39 +4238,27 @@
         "GE",
         "GD",
         "GW",
-        "GY",
         "HT",
         "JM",
-        "KI",
         "LS",
         "LR",
         "MW",
-        "MV",
         "ML",
-        "MH",
         "FM",
         "NA",
-        "NR",
         "NE",
-        "PW",
         "PG",
         "PR",
-        "WS",
         "SM",
         "ST",
         "SN",
         "SC",
         "SL",
-        "SB",
         "KN",
         "LC",
         "VC",
-        "SR",
         "TL",
-        "TO",
         "TT",
-        "TV",
-        "VU",
         "AZ",
         "BN",
         "BI",
@@ -4338,24 +4298,24 @@
         "XK"
       ],
       "disc_number": 1,
-      "duration_ms": 392194,
-      "explicit": true,
+      "duration_ms": 392200,
+      "explicit": false,
       "external_ids": {
-        "isrc": "NOKAS1301052"
+        "isrc": "NOKAS1301050"
       },
       "external_urls": {
-        "spotify": "https://open.spotify.com/track/6KpRZdS7bnWbR1zPNMBMfH"
+        "spotify": "https://open.spotify.com/track/7GmyHSiCbWEreE4dQCMDtm"
       },
-      "href": "https://api.spotify.com/v1/tracks/6KpRZdS7bnWbR1zPNMBMfH",
-      "id": "6KpRZdS7bnWbR1zPNMBMfH",
+      "href": "https://api.spotify.com/v1/tracks/7GmyHSiCbWEreE4dQCMDtm",
+      "id": "7GmyHSiCbWEreE4dQCMDtm",
       "is_local": false,
       "is_playable": true,
       "name": "Phoenix",
-      "popularity": 40,
+      "popularity": 43,
       "preview_url": null,
       "track_number": 5,
       "type": "track",
-      "uri": "spotify:track:6KpRZdS7bnWbR1zPNMBMfH"
+      "uri": "spotify:track:7GmyHSiCbWEreE4dQCMDtm"
     },
     {
       "album": {
@@ -4802,7 +4762,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "The Pentagram Burns",
-      "popularity": 42,
+      "popularity": 45,
       "preview_url": null,
       "track_number": 3,
       "type": "track",
@@ -4831,7 +4791,6 @@
           "BO",
           "BR",
           "BG",
-          "CA",
           "CL",
           "CO",
           "CR",
@@ -4862,7 +4821,6 @@
           "NL",
           "NZ",
           "NI",
-          "NO",
           "PA",
           "PY",
           "PE",
@@ -4877,7 +4835,6 @@
           "TW",
           "TR",
           "UY",
-          "US",
           "GB",
           "AD",
           "LI",
@@ -5011,34 +4968,34 @@
           "XK"
         ],
         "external_urls": {
-          "spotify": "https://open.spotify.com/album/5ZaVwtaQ553d0Xfq0NJvQ3"
+          "spotify": "https://open.spotify.com/album/6aRs27tvkatPTAIE7gaj1j"
         },
-        "href": "https://api.spotify.com/v1/albums/5ZaVwtaQ553d0Xfq0NJvQ3",
-        "id": "5ZaVwtaQ553d0Xfq0NJvQ3",
+        "href": "https://api.spotify.com/v1/albums/6aRs27tvkatPTAIE7gaj1j",
+        "id": "6aRs27tvkatPTAIE7gaj1j",
         "images": [
           {
-            "url": "https://i.scdn.co/image/ab67616d0000b2735e4573829468af0ab5b0f600",
+            "url": "https://i.scdn.co/image/ab67616d0000b2731c1f510f339019cd34278745",
             "height": 640,
             "width": 640
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d00001e025e4573829468af0ab5b0f600",
+            "url": "https://i.scdn.co/image/ab67616d00001e021c1f510f339019cd34278745",
             "height": 300,
             "width": 300
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d000048515e4573829468af0ab5b0f600",
+            "url": "https://i.scdn.co/image/ab67616d000048511c1f510f339019cd34278745",
             "height": 64,
             "width": 64
           }
         ],
         "is_playable": true,
-        "name": "The Age of Nero",
+        "name": "The Age Of Nero",
         "release_date": "2008-09-04",
         "release_date_precision": "day",
         "total_tracks": 8,
         "type": "album",
-        "uri": "spotify:album:5ZaVwtaQ553d0Xfq0NJvQ3"
+        "uri": "spotify:album:6aRs27tvkatPTAIE7gaj1j"
       },
       "artists": [
         {
@@ -5060,7 +5017,6 @@
         "BO",
         "BR",
         "BG",
-        "CA",
         "CL",
         "CO",
         "CR",
@@ -5091,7 +5047,6 @@
         "NL",
         "NZ",
         "NI",
-        "NO",
         "PA",
         "PY",
         "PE",
@@ -5106,7 +5061,6 @@
         "TW",
         "TR",
         "UY",
-        "US",
         "GB",
         "AD",
         "LI",
@@ -5241,23 +5195,23 @@
       ],
       "disc_number": 1,
       "duration_ms": 245093,
-      "explicit": true,
+      "explicit": false,
       "external_ids": {
         "isrc": "NOKAS0801080"
       },
       "external_urls": {
-        "spotify": "https://open.spotify.com/track/2ZjcutfwP6cWIohAsuE8Mj"
+        "spotify": "https://open.spotify.com/track/4aGeA6fVLBf2nSIMfaYjLu"
       },
-      "href": "https://api.spotify.com/v1/tracks/2ZjcutfwP6cWIohAsuE8Mj",
-      "id": "2ZjcutfwP6cWIohAsuE8Mj",
+      "href": "https://api.spotify.com/v1/tracks/4aGeA6fVLBf2nSIMfaYjLu",
+      "id": "4aGeA6fVLBf2nSIMfaYjLu",
       "is_local": false,
       "is_playable": true,
       "name": "The Wolfpack",
-      "popularity": 40,
+      "popularity": 42,
       "preview_url": null,
       "track_number": 2,
       "type": "track",
-      "uri": "spotify:track:2ZjcutfwP6cWIohAsuE8Mj"
+      "uri": "spotify:track:4aGeA6fVLBf2nSIMfaYjLu"
     },
     {
       "album": {
@@ -5704,7 +5658,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Now, Diabolical",
-      "popularity": 39,
+      "popularity": 42,
       "preview_url": null,
       "track_number": 1,
       "type": "track",
@@ -6155,7 +6109,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Dark Medieval Times - Remastered 2021",
-      "popularity": 36,
+      "popularity": 40,
       "preview_url": null,
       "track_number": 2,
       "type": "track",
@@ -6184,7 +6138,6 @@
           "BO",
           "BR",
           "BG",
-          "CA",
           "CL",
           "CO",
           "CR",
@@ -6215,7 +6168,6 @@
           "NL",
           "NZ",
           "NI",
-          "NO",
           "PA",
           "PY",
           "PE",
@@ -6230,7 +6182,6 @@
           "TW",
           "TR",
           "UY",
-          "US",
           "GB",
           "AD",
           "LI",
@@ -6364,34 +6315,34 @@
           "XK"
         ],
         "external_urls": {
-          "spotify": "https://open.spotify.com/album/1IZe44XHPLvlZcPu4h3SVq"
+          "spotify": "https://open.spotify.com/album/6aRs27tvkatPTAIE7gaj1j"
         },
-        "href": "https://api.spotify.com/v1/albums/1IZe44XHPLvlZcPu4h3SVq",
-        "id": "1IZe44XHPLvlZcPu4h3SVq",
+        "href": "https://api.spotify.com/v1/albums/6aRs27tvkatPTAIE7gaj1j",
+        "id": "6aRs27tvkatPTAIE7gaj1j",
         "images": [
           {
-            "url": "https://i.scdn.co/image/ab67616d0000b2738305e6d97d53cb472d350410",
+            "url": "https://i.scdn.co/image/ab67616d0000b2731c1f510f339019cd34278745",
             "height": 640,
             "width": 640
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d00001e028305e6d97d53cb472d350410",
+            "url": "https://i.scdn.co/image/ab67616d00001e021c1f510f339019cd34278745",
             "height": 300,
             "width": 300
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d000048518305e6d97d53cb472d350410",
+            "url": "https://i.scdn.co/image/ab67616d000048511c1f510f339019cd34278745",
             "height": 64,
             "width": 64
           }
         ],
         "is_playable": true,
-        "name": "Satyricon",
-        "release_date": "2013-09-06",
+        "name": "The Age Of Nero",
+        "release_date": "2008-09-04",
         "release_date_precision": "day",
-        "total_tracks": 10,
+        "total_tracks": 8,
         "type": "album",
-        "uri": "spotify:album:1IZe44XHPLvlZcPu4h3SVq"
+        "uri": "spotify:album:6aRs27tvkatPTAIE7gaj1j"
       },
       "artists": [
         {
@@ -6413,7 +6364,6 @@
         "BO",
         "BR",
         "BG",
-        "CA",
         "CL",
         "CO",
         "CR",
@@ -6444,7 +6394,6 @@
         "NL",
         "NZ",
         "NI",
-        "NO",
         "PA",
         "PY",
         "PE",
@@ -6459,7 +6408,6 @@
         "TW",
         "TR",
         "UY",
-        "US",
         "GB",
         "AD",
         "LI",
@@ -6593,24 +6541,24 @@
         "XK"
       ],
       "disc_number": 1,
-      "duration_ms": 192022,
-      "explicit": true,
+      "duration_ms": 418293,
+      "explicit": false,
       "external_ids": {
-        "isrc": "NOKAS1301071"
+        "isrc": "NOKAS0801120"
       },
       "external_urls": {
-        "spotify": "https://open.spotify.com/track/7qQDBnvInanr6Hhqn1ZJKd"
+        "spotify": "https://open.spotify.com/track/2TfIWWtGxwtEXRrq3J7NOw"
       },
-      "href": "https://api.spotify.com/v1/tracks/7qQDBnvInanr6Hhqn1ZJKd",
-      "id": "7qQDBnvInanr6Hhqn1ZJKd",
+      "href": "https://api.spotify.com/v1/tracks/2TfIWWtGxwtEXRrq3J7NOw",
+      "id": "2TfIWWtGxwtEXRrq3J7NOw",
       "is_local": false,
       "is_playable": true,
-      "name": "Nekrohaven",
-      "popularity": 32,
+      "name": "The Sign of the Trident",
+      "popularity": 36,
       "preview_url": null,
-      "track_number": 7,
+      "track_number": 6,
       "type": "track",
-      "uri": "spotify:track:7qQDBnvInanr6Hhqn1ZJKd"
+      "uri": "spotify:track:2TfIWWtGxwtEXRrq3J7NOw"
     },
     {
       "album": {
@@ -6635,7 +6583,6 @@
           "BO",
           "BR",
           "BG",
-          "CA",
           "CL",
           "CO",
           "CR",
@@ -6662,11 +6609,9 @@
           "LU",
           "MY",
           "MT",
-          "MX",
           "NL",
           "NZ",
           "NI",
-          "NO",
           "PA",
           "PY",
           "PE",
@@ -6681,7 +6626,6 @@
           "TW",
           "TR",
           "UY",
-          "US",
           "GB",
           "AD",
           "LI",
@@ -6732,7 +6676,6 @@
           "BS",
           "BB",
           "BZ",
-          "BT",
           "BW",
           "BF",
           "CV",
@@ -6743,39 +6686,27 @@
           "GE",
           "GD",
           "GW",
-          "GY",
           "HT",
           "JM",
-          "KI",
           "LS",
           "LR",
           "MW",
-          "MV",
           "ML",
-          "MH",
           "FM",
           "NA",
-          "NR",
           "NE",
-          "PW",
           "PG",
           "PR",
-          "WS",
           "SM",
           "ST",
           "SN",
           "SC",
           "SL",
-          "SB",
           "KN",
           "LC",
           "VC",
-          "SR",
           "TL",
-          "TO",
           "TT",
-          "TV",
-          "VU",
           "AZ",
           "BN",
           "BI",
@@ -6815,34 +6746,34 @@
           "XK"
         ],
         "external_urls": {
-          "spotify": "https://open.spotify.com/album/5t5tP8dVwdyI8yTShWcIzX"
+          "spotify": "https://open.spotify.com/album/7hMNG2Sl4qDB3gROXj2NSH"
         },
-        "href": "https://api.spotify.com/v1/albums/5t5tP8dVwdyI8yTShWcIzX",
-        "id": "5t5tP8dVwdyI8yTShWcIzX",
+        "href": "https://api.spotify.com/v1/albums/7hMNG2Sl4qDB3gROXj2NSH",
+        "id": "7hMNG2Sl4qDB3gROXj2NSH",
         "images": [
           {
-            "url": "https://i.scdn.co/image/ab67616d0000b2735db1ed61c617e7ff2391bae8",
+            "url": "https://i.scdn.co/image/ab67616d0000b273324ac785a0249a4a2d6aca43",
             "height": 640,
             "width": 640
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d00001e025db1ed61c617e7ff2391bae8",
+            "url": "https://i.scdn.co/image/ab67616d00001e02324ac785a0249a4a2d6aca43",
             "height": 300,
             "width": 300
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d000048515db1ed61c617e7ff2391bae8",
+            "url": "https://i.scdn.co/image/ab67616d00004851324ac785a0249a4a2d6aca43",
             "height": 64,
             "width": 64
           }
         ],
         "is_playable": true,
-        "name": "Now, Diabolical",
-        "release_date": "2006-01-01",
+        "name": "Satyricon (Deluxe)",
+        "release_date": "2013-08-22",
         "release_date_precision": "day",
-        "total_tracks": 8,
+        "total_tracks": 13,
         "type": "album",
-        "uri": "spotify:album:5t5tP8dVwdyI8yTShWcIzX"
+        "uri": "spotify:album:7hMNG2Sl4qDB3gROXj2NSH"
       },
       "artists": [
         {
@@ -6864,7 +6795,6 @@
         "BO",
         "BR",
         "BG",
-        "CA",
         "CL",
         "CO",
         "CR",
@@ -6891,11 +6821,9 @@
         "LU",
         "MY",
         "MT",
-        "MX",
         "NL",
         "NZ",
         "NI",
-        "NO",
         "PA",
         "PY",
         "PE",
@@ -6910,7 +6838,6 @@
         "TW",
         "TR",
         "UY",
-        "US",
         "GB",
         "AD",
         "LI",
@@ -6961,7 +6888,6 @@
         "BS",
         "BB",
         "BZ",
-        "BT",
         "BW",
         "BF",
         "CV",
@@ -6972,39 +6898,27 @@
         "GE",
         "GD",
         "GW",
-        "GY",
         "HT",
         "JM",
-        "KI",
         "LS",
         "LR",
         "MW",
-        "MV",
         "ML",
-        "MH",
         "FM",
         "NA",
-        "NR",
         "NE",
-        "PW",
         "PG",
         "PR",
-        "WS",
         "SM",
         "ST",
         "SN",
         "SC",
         "SL",
-        "SB",
         "KN",
         "LC",
         "VC",
-        "SR",
         "TL",
-        "TO",
         "TT",
-        "TV",
-        "VU",
         "AZ",
         "BN",
         "BI",
@@ -7044,24 +6958,24 @@
         "XK"
       ],
       "disc_number": 1,
-      "duration_ms": 347880,
+      "duration_ms": 192013,
       "explicit": false,
       "external_ids": {
-        "isrc": "NOKAS0601040"
+        "isrc": "NOKAS1301070"
       },
       "external_urls": {
-        "spotify": "https://open.spotify.com/track/6AtmAaMKIlMYoUtSDV6I2K"
+        "spotify": "https://open.spotify.com/track/2yDmyE10s7DJSNdV843ln6"
       },
-      "href": "https://api.spotify.com/v1/tracks/6AtmAaMKIlMYoUtSDV6I2K",
-      "id": "6AtmAaMKIlMYoUtSDV6I2K",
+      "href": "https://api.spotify.com/v1/tracks/2yDmyE10s7DJSNdV843ln6",
+      "id": "2yDmyE10s7DJSNdV843ln6",
       "is_local": false,
       "is_playable": true,
-      "name": "A New Enemy",
-      "popularity": 31,
+      "name": "Nekrohaven",
+      "popularity": 34,
       "preview_url": null,
-      "track_number": 4,
+      "track_number": 7,
       "type": "track",
-      "uri": "spotify:track:6AtmAaMKIlMYoUtSDV6I2K"
+      "uri": "spotify:track:2yDmyE10s7DJSNdV843ln6"
     }
   ]
 }

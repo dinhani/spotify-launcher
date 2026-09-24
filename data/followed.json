@@ -1,11 +1,155 @@
 [
   {
     "external_urls": {
+      "spotify": "https://open.spotify.com/artist/7tUDHzzzfhagnoRc1U24S9"
+    },
+    "followers": {
+      "href": null,
+      "total": 91
+    },
+    "genres": [
+      "nu metal",
+      "alternative metal"
+    ],
+    "href": "https://api.spotify.com/v1/artists/7tUDHzzzfhagnoRc1U24S9",
+    "id": "7tUDHzzzfhagnoRc1U24S9",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6761610000e5eb5b38f0111cf01485daf8a2ac",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab676161000051745b38f0111cf01485daf8a2ac",
+        "height": 320,
+        "width": 320
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000f1785b38f0111cf01485daf8a2ac",
+        "height": 160,
+        "width": 160
+      }
+    ],
+    "name": "Reall",
+    "popularity": 0,
+    "type": "artist",
+    "uri": "spotify:artist:7tUDHzzzfhagnoRc1U24S9"
+  },
+  {
+    "external_urls": {
+      "spotify": "https://open.spotify.com/artist/1jWYbHqxagu177jUkwbz5P"
+    },
+    "followers": {
+      "href": null,
+      "total": 7080
+    },
+    "genres": [
+      "nu disco"
+    ],
+    "href": "https://api.spotify.com/v1/artists/1jWYbHqxagu177jUkwbz5P",
+    "id": "1jWYbHqxagu177jUkwbz5P",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6761610000e5ebb433cd807e53c26c59c756c9",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab67616100005174b433cd807e53c26c59c756c9",
+        "height": 320,
+        "width": 320
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000f178b433cd807e53c26c59c756c9",
+        "height": 160,
+        "width": 160
+      }
+    ],
+    "name": "Daphne Guinness",
+    "popularity": 22,
+    "type": "artist",
+    "uri": "spotify:artist:1jWYbHqxagu177jUkwbz5P"
+  },
+  {
+    "external_urls": {
+      "spotify": "https://open.spotify.com/artist/3b7UftoY34IcfC7G4USJn9"
+    },
+    "followers": {
+      "href": null,
+      "total": 2268
+    },
+    "genres": [
+      "power metal"
+    ],
+    "href": "https://api.spotify.com/v1/artists/3b7UftoY34IcfC7G4USJn9",
+    "id": "3b7UftoY34IcfC7G4USJn9",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab67616d0000b273165b3736cd50a8f14d5ed413",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab67616d00001e02165b3736cd50a8f14d5ed413",
+        "height": 300,
+        "width": 300
+      },
+      {
+        "url": "https://i.scdn.co/image/ab67616d00004851165b3736cd50a8f14d5ed413",
+        "height": 64,
+        "width": 64
+      }
+    ],
+    "name": "Jon Schaffer's Sons Of Liberty",
+    "popularity": 18,
+    "type": "artist",
+    "uri": "spotify:artist:3b7UftoY34IcfC7G4USJn9"
+  },
+  {
+    "external_urls": {
+      "spotify": "https://open.spotify.com/artist/1M2nK2dOXJjcCuW3SQEzET"
+    },
+    "followers": {
+      "href": null,
+      "total": 50270
+    },
+    "genres": [
+      "melodic death metal",
+      "folk metal",
+      "symphonic metal",
+      "death metal"
+    ],
+    "href": "https://api.spotify.com/v1/artists/1M2nK2dOXJjcCuW3SQEzET",
+    "id": "1M2nK2dOXJjcCuW3SQEzET",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6761610000e5ebeaaa023d6ff3a950c7eba9c6",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab67616100005174eaaa023d6ff3a950c7eba9c6",
+        "height": 320,
+        "width": 320
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000f178eaaa023d6ff3a950c7eba9c6",
+        "height": 160,
+        "width": 160
+      }
+    ],
+    "name": "Aephanemer",
+    "popularity": 35,
+    "type": "artist",
+    "uri": "spotify:artist:1M2nK2dOXJjcCuW3SQEzET"
+  },
+  {
+    "external_urls": {
       "spotify": "https://open.spotify.com/artist/13NmOYYfvONNZ9mn2qn8P2"
     },
     "followers": {
       "href": null,
-      "total": 496153
+      "total": 744134
     },
     "genres": [
       "math rock"
@@ -30,7 +174,7 @@
       }
     ],
     "name": "Angine de Poitrine",
-    "popularity": 68,
+    "popularity": 59,
     "type": "artist",
     "uri": "spotify:artist:13NmOYYfvONNZ9mn2qn8P2"
   },
@@ -40,7 +184,7 @@
     },
     "followers": {
       "href": null,
-      "total": 17823
+      "total": 18793
     },
     "genres": [
       "power metal",
@@ -66,7 +210,7 @@
       }
     ],
     "name": "Ashes Of Ares",
-    "popularity": 23,
+    "popularity": 24,
     "type": "artist",
     "uri": "spotify:artist:1yNLeUMAzOBA4q3Zki0hjz"
   },
@@ -76,7 +220,7 @@
     },
     "followers": {
       "href": null,
-      "total": 1298878
+      "total": 1338000
     },
     "genres": [
       "power metal",
@@ -88,23 +232,23 @@
     "id": "2pH3wEn4eYlMMIIQyKPbVR",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5eb2c0d92dae9b4af4c8a565c3b",
+        "url": "https://i.scdn.co/image/ab6761610000e5ebf410ec0f807cb377b006a23b",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab676161000051742c0d92dae9b4af4c8a565c3b",
+        "url": "https://i.scdn.co/image/ab67616100005174f410ec0f807cb377b006a23b",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f1782c0d92dae9b4af4c8a565c3b",
+        "url": "https://i.scdn.co/image/ab6761610000f178f410ec0f807cb377b006a23b",
         "height": 160,
         "width": 160
       }
     ],
     "name": "DragonForce",
-    "popularity": 59,
+    "popularity": 60,
     "type": "artist",
     "uri": "spotify:artist:2pH3wEn4eYlMMIIQyKPbVR"
   },
@@ -114,7 +258,7 @@
     },
     "followers": {
       "href": null,
-      "total": 2111143
+      "total": 2254767
     },
     "genres": [
       "classic rock",
@@ -141,7 +285,7 @@
       }
     ],
     "name": "Kansas",
-    "popularity": 68,
+    "popularity": 69,
     "type": "artist",
     "uri": "spotify:artist:2hl0xAkS2AIRAu23TVMBG1"
   },
@@ -151,7 +295,7 @@
     },
     "followers": {
       "href": null,
-      "total": 330064
+      "total": 339154
     },
     "genres": [
       "finnish rock"
@@ -186,7 +330,7 @@
     },
     "followers": {
       "href": null,
-      "total": 11181
+      "total": 14078
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/0we7IYHF0G5i1j934KBxUa",
@@ -209,7 +353,7 @@
       }
     ],
     "name": "lùisa",
-    "popularity": 37,
+    "popularity": 36,
     "type": "artist",
     "uri": "spotify:artist:0we7IYHF0G5i1j934KBxUa"
   },
@@ -219,7 +363,7 @@
     },
     "followers": {
       "href": null,
-      "total": 18699368
+      "total": 19117727
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/1KCSPY1glIKqW2TotWuXOR",
@@ -242,7 +386,7 @@
       }
     ],
     "name": "P!nk",
-    "popularity": 81,
+    "popularity": 82,
     "type": "artist",
     "uri": "spotify:artist:1KCSPY1glIKqW2TotWuXOR"
   },
@@ -252,7 +396,7 @@
     },
     "followers": {
       "href": null,
-      "total": 75433
+      "total": 84035
     },
     "genres": [
       "medieval",
@@ -278,7 +422,7 @@
       }
     ],
     "name": "Hildegard von Blingin'",
-    "popularity": 40,
+    "popularity": 43,
     "type": "artist",
     "uri": "spotify:artist:5BSPl6yCVGvrCyKUp2peGM"
   },
@@ -288,7 +432,7 @@
     },
     "followers": {
       "href": null,
-      "total": 1765460
+      "total": 1775206
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/6beUvFUlKliUYJdLOXNj9C",
@@ -321,7 +465,7 @@
     },
     "followers": {
       "href": null,
-      "total": 132617
+      "total": 147567
     },
     "genres": [
       "soundtrack"
@@ -346,7 +490,7 @@
       }
     ],
     "name": "Lorien Testard",
-    "popularity": 69,
+    "popularity": 67,
     "type": "artist",
     "uri": "spotify:artist:5ahmcjOOZ9FkOwTZqTRAZ8"
   },
@@ -356,7 +500,7 @@
     },
     "followers": {
       "href": null,
-      "total": 8399038
+      "total": 8765633
     },
     "genres": [
       "classic rock",
@@ -383,7 +527,7 @@
       }
     ],
     "name": "Creedence Clearwater Revival",
-    "popularity": 80,
+    "popularity": 81,
     "type": "artist",
     "uri": "spotify:artist:3IYUhFvPQItj6xySrBmZkd"
   },
@@ -393,7 +537,7 @@
     },
     "followers": {
       "href": null,
-      "total": 345750
+      "total": 361660
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/3AFsnAC0H9hes71BeRypbq",
@@ -426,7 +570,7 @@
     },
     "followers": {
       "href": null,
-      "total": 8134281
+      "total": 8562430
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/7GlBOeep6PqTfFi59PTUUN",
@@ -459,7 +603,7 @@
     },
     "followers": {
       "href": null,
-      "total": 962636
+      "total": 1030315
     },
     "genres": [
       "swedish pop"
@@ -484,7 +628,7 @@
       }
     ],
     "name": "Robyn",
-    "popularity": 68,
+    "popularity": 73,
     "type": "artist",
     "uri": "spotify:artist:6UE7nl9mha6s8z0wFQFIZ2"
   },
@@ -494,7 +638,7 @@
     },
     "followers": {
       "href": null,
-      "total": 52358
+      "total": 54175
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/1p9Lr8nFJ21Jej6dwMLngp",
@@ -527,7 +671,7 @@
     },
     "followers": {
       "href": null,
-      "total": 24443481
+      "total": 25349978
     },
     "genres": [
       "funk rock",
@@ -554,7 +698,7 @@
       }
     ],
     "name": "Red Hot Chili Peppers",
-    "popularity": 87,
+    "popularity": 86,
     "type": "artist",
     "uri": "spotify:artist:0L8ExT028jH3ddEcZwqJJ5"
   },
@@ -564,7 +708,7 @@
     },
     "followers": {
       "href": null,
-      "total": 31397851
+      "total": 32149655
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/5WUlDfRSoLAfcVSX1WnrxN",
@@ -587,7 +731,7 @@
       }
     ],
     "name": "Sia",
-    "popularity": 85,
+    "popularity": 86,
     "type": "artist",
     "uri": "spotify:artist:5WUlDfRSoLAfcVSX1WnrxN"
   },
@@ -597,7 +741,7 @@
     },
     "followers": {
       "href": null,
-      "total": 3691349
+      "total": 3791509
     },
     "genres": [
       "glam metal",
@@ -628,7 +772,7 @@
       }
     ],
     "name": "Poison",
-    "popularity": 64,
+    "popularity": 65,
     "type": "artist",
     "uri": "spotify:artist:1fBCIkoPOPCDLUxGuWNvyo"
   },
@@ -638,30 +782,30 @@
     },
     "followers": {
       "href": null,
-      "total": 880511
+      "total": 890059
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/0wnYgCeP013HkKoOyC5V32",
     "id": "0wnYgCeP013HkKoOyC5V32",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5ebf0ef7d92a8550ee689b8f81a",
+        "url": "https://i.scdn.co/image/ab6761610000e5ebefa4cd3c68c95c21c9f87887",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab67616100005174f0ef7d92a8550ee689b8f81a",
+        "url": "https://i.scdn.co/image/ab67616100005174efa4cd3c68c95c21c9f87887",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f178f0ef7d92a8550ee689b8f81a",
+        "url": "https://i.scdn.co/image/ab6761610000f178efa4cd3c68c95c21c9f87887",
         "height": 160,
         "width": 160
       }
     ],
     "name": "Allie X",
-    "popularity": 53,
+    "popularity": 54,
     "type": "artist",
     "uri": "spotify:artist:0wnYgCeP013HkKoOyC5V32"
   },
@@ -671,7 +815,7 @@
     },
     "followers": {
       "href": null,
-      "total": 1024925
+      "total": 1051782
     },
     "genres": [
       "downtempo",
@@ -708,7 +852,7 @@
     },
     "followers": {
       "href": null,
-      "total": 123104
+      "total": 124884
     },
     "genres": [
       "progressive metal",
@@ -746,7 +890,7 @@
     },
     "followers": {
       "href": null,
-      "total": 228113
+      "total": 231425
     },
     "genres": [
       "folk metal",
@@ -776,7 +920,7 @@
       }
     ],
     "name": "Finntroll",
-    "popularity": 40,
+    "popularity": 41,
     "type": "artist",
     "uri": "spotify:artist:4ZgkHVHmGPXuRy8zd26ZJX"
   },
@@ -786,7 +930,7 @@
     },
     "followers": {
       "href": null,
-      "total": 57103271
+      "total": 58580245
     },
     "genres": [
       "classic rock",
@@ -797,28 +941,23 @@
     "id": "1dfeR4HaWDbWqFHLkxsg1d",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6772690000c46c47488c35a509d42072c23976",
-        "height": 1000,
-        "width": 1000
-      },
-      {
-        "url": "https://i.scdn.co/image/ab6772690000dd2247488c35a509d42072c23976",
+        "url": "https://i.scdn.co/image/ab6761610000e5eb73e4d22612ac8d944b5789b4",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab6772690000bac347488c35a509d42072c23976",
-        "height": 200,
-        "width": 200
+        "url": "https://i.scdn.co/image/ab6761610000517473e4d22612ac8d944b5789b4",
+        "height": 320,
+        "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab67726900008f7447488c35a509d42072c23976",
-        "height": 64,
-        "width": 64
+        "url": "https://i.scdn.co/image/ab6761610000f17873e4d22612ac8d944b5789b4",
+        "height": 160,
+        "width": 160
       }
     ],
     "name": "Queen",
-    "popularity": 85,
+    "popularity": 86,
     "type": "artist",
     "uri": "spotify:artist:1dfeR4HaWDbWqFHLkxsg1d"
   },
@@ -828,7 +967,7 @@
     },
     "followers": {
       "href": null,
-      "total": 757815
+      "total": 776765
     },
     "genres": [
       "progressive metal",
@@ -858,7 +997,7 @@
       }
     ],
     "name": "Queensrÿche",
-    "popularity": 56,
+    "popularity": 57,
     "type": "artist",
     "uri": "spotify:artist:2OgUPVlWYgGBGMefZgGvCO"
   },
@@ -868,7 +1007,7 @@
     },
     "followers": {
       "href": null,
-      "total": 158609
+      "total": 164345
     },
     "genres": [
       "power metal",
@@ -894,7 +1033,7 @@
       }
     ],
     "name": "Shaman",
-    "popularity": 42,
+    "popularity": 43,
     "type": "artist",
     "uri": "spotify:artist:2THaGrUq7RPnj8Uax9zQ1m"
   },
@@ -904,7 +1043,7 @@
     },
     "followers": {
       "href": null,
-      "total": 31873
+      "total": 32874
     },
     "genres": [
       "power metal",
@@ -930,7 +1069,7 @@
       }
     ],
     "name": "Hangar",
-    "popularity": 32,
+    "popularity": 31,
     "type": "artist",
     "uri": "spotify:artist:073v2aQjS8tVeaUsp86lkd"
   },
@@ -940,7 +1079,7 @@
     },
     "followers": {
       "href": null,
-      "total": 50326
+      "total": 51502
     },
     "genres": [
       "folk metal",
@@ -980,7 +1119,7 @@
     },
     "followers": {
       "href": null,
-      "total": 137228
+      "total": 141193
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/2ZCG1aukcb5fjBDgizvDbD",
@@ -1003,7 +1142,7 @@
       }
     ],
     "name": "Aurelio Voltaire",
-    "popularity": 47,
+    "popularity": 49,
     "type": "artist",
     "uri": "spotify:artist:2ZCG1aukcb5fjBDgizvDbD"
   },
@@ -1013,30 +1152,30 @@
     },
     "followers": {
       "href": null,
-      "total": 936659
+      "total": 1009464
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/2EXpthNgSeTDeX8nGwxppp",
     "id": "2EXpthNgSeTDeX8nGwxppp",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5eb48eb3c3a0792989d2c7773d3",
+        "url": "https://i.scdn.co/image/ab6761610000e5ebfea2286a364dd2a0c4209136",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000517448eb3c3a0792989d2c7773d3",
+        "url": "https://i.scdn.co/image/ab67616100005174fea2286a364dd2a0c4209136",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f17848eb3c3a0792989d2c7773d3",
+        "url": "https://i.scdn.co/image/ab6761610000f178fea2286a364dd2a0c4209136",
         "height": 160,
         "width": 160
       }
     ],
     "name": "Paris Paloma",
-    "popularity": 69,
+    "popularity": 71,
     "type": "artist",
     "uri": "spotify:artist:2EXpthNgSeTDeX8nGwxppp"
   },
@@ -1046,7 +1185,7 @@
     },
     "followers": {
       "href": null,
-      "total": 4706669
+      "total": 4998220
     },
     "genres": [
       "post-grunge"
@@ -1071,7 +1210,7 @@
       }
     ],
     "name": "Creed",
-    "popularity": 76,
+    "popularity": 77,
     "type": "artist",
     "uri": "spotify:artist:43sZBwHjahUvgbx1WNIkIz"
   },
@@ -1081,7 +1220,7 @@
     },
     "followers": {
       "href": null,
-      "total": 5460049
+      "total": 5698556
     },
     "genres": [
       "grunge",
@@ -1108,7 +1247,7 @@
       }
     ],
     "name": "Audioslave",
-    "popularity": 73,
+    "popularity": 75,
     "type": "artist",
     "uri": "spotify:artist:2ziB7fzrXBoh1HUPS6sVFn"
   },
@@ -1118,7 +1257,7 @@
     },
     "followers": {
       "href": null,
-      "total": 10392399
+      "total": 10792075
     },
     "genres": [
       "grunge",
@@ -1145,7 +1284,7 @@
       }
     ],
     "name": "Pearl Jam",
-    "popularity": 78,
+    "popularity": 80,
     "type": "artist",
     "uri": "spotify:artist:1w5Kfo2jwwIPruYS2UWh56"
   },
@@ -1155,11 +1294,12 @@
     },
     "followers": {
       "href": null,
-      "total": 579929
+      "total": 593591
     },
     "genres": [
       "celtic",
-      "classical crossover"
+      "classical crossover",
+      "medieval"
     ],
     "href": "https://api.spotify.com/v1/artists/6NWtt9pNOL2Gx7kBykdE5x",
     "id": "6NWtt9pNOL2Gx7kBykdE5x",
@@ -1191,7 +1331,7 @@
     },
     "followers": {
       "href": null,
-      "total": 111848
+      "total": 118159
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/6zyPKJ4ePhYLsBEy4A6BVX",
@@ -1214,7 +1354,7 @@
       }
     ],
     "name": "Kaleida",
-    "popularity": 52,
+    "popularity": 53,
     "type": "artist",
     "uri": "spotify:artist:6zyPKJ4ePhYLsBEy4A6BVX"
   },
@@ -1224,7 +1364,7 @@
     },
     "followers": {
       "href": null,
-      "total": 7486485
+      "total": 7668111
     },
     "genres": [
       "baroque pop"
@@ -1249,7 +1389,7 @@
       }
     ],
     "name": "Florence + The Machine",
-    "popularity": 80,
+    "popularity": 79,
     "type": "artist",
     "uri": "spotify:artist:1moxjboGR7GNWYIMWsRjgG"
   },
@@ -1259,7 +1399,7 @@
     },
     "followers": {
       "href": null,
-      "total": 59692
+      "total": 60607
     },
     "genres": [
       "fado"
@@ -1294,7 +1434,7 @@
     },
     "followers": {
       "href": null,
-      "total": 67421
+      "total": 69663
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/7B0uXJvJUTwwbeSToeZeJ4",
@@ -1327,7 +1467,7 @@
     },
     "followers": {
       "href": null,
-      "total": 235366
+      "total": 240976
     },
     "genres": [
       "melodic death metal",
@@ -1357,7 +1497,7 @@
       }
     ],
     "name": "Wintersun",
-    "popularity": 43,
+    "popularity": 45,
     "type": "artist",
     "uri": "spotify:artist:6ui6SwChan7c1KYBQCqGKV"
   },
@@ -1367,7 +1507,7 @@
     },
     "followers": {
       "href": null,
-      "total": 150910
+      "total": 157060
     },
     "genres": [
       "folk"
@@ -1402,7 +1542,7 @@
     },
     "followers": {
       "href": null,
-      "total": 19027
+      "total": 19332
     },
     "genres": [
       "synthwave",
@@ -1428,7 +1568,7 @@
       }
     ],
     "name": "Hollywood Burns",
-    "popularity": 27,
+    "popularity": 28,
     "type": "artist",
     "uri": "spotify:artist:0m8rUYGZIXTo8knUYP7uB9"
   },
@@ -1438,7 +1578,7 @@
     },
     "followers": {
       "href": null,
-      "total": 17663
+      "total": 18026
     },
     "genres": [
       "norsk rock",
@@ -1466,7 +1606,7 @@
       }
     ],
     "name": "Major Parkinson",
-    "popularity": 30,
+    "popularity": 26,
     "type": "artist",
     "uri": "spotify:artist:5baLALm4KxY0I4z4OjumiZ"
   },
@@ -1476,7 +1616,7 @@
     },
     "followers": {
       "href": null,
-      "total": 42671
+      "total": 44680
     },
     "genres": [
       "progressive metal",
@@ -1504,7 +1644,7 @@
       }
     ],
     "name": "Klone",
-    "popularity": 34,
+    "popularity": 35,
     "type": "artist",
     "uri": "spotify:artist:0J2gE1fVwnMhsh0OxUpUPT"
   },
@@ -1514,7 +1654,7 @@
     },
     "followers": {
       "href": null,
-      "total": 23599
+      "total": 24141
     },
     "genres": [
       "power metal",
@@ -1525,24 +1665,24 @@
     "id": "4A5lMJjgeichOwbMKs6Tn0",
     "images": [
       {
-        "url": "https://i.scdn.co/image/71fd0dab0dec125918aaaa1f29d17d2c48b50ed8",
-        "height": 600,
-        "width": 746
+        "url": "https://i.scdn.co/image/ab6772690000c46caf25ea93cb326ec90b829811",
+        "height": 1000,
+        "width": 1000
       },
       {
-        "url": "https://i.scdn.co/image/290facfb3a26db640ae187122b0c5423f3a00d37",
-        "height": 515,
+        "url": "https://i.scdn.co/image/ab6772690000dd22af25ea93cb326ec90b829811",
+        "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/be9aad4fa82f00852b616570c6bfc4af5595b514",
-        "height": 161,
+        "url": "https://i.scdn.co/image/ab6772690000bac3af25ea93cb326ec90b829811",
+        "height": 200,
         "width": 200
       },
       {
-        "url": "https://i.scdn.co/image/b5ba3e9f8fb00c42823b1feecc4cf56b18764f9d",
-        "height": 51,
-        "width": 63
+        "url": "https://i.scdn.co/image/ab67726900008f74af25ea93cb326ec90b829811",
+        "height": 64,
+        "width": 64
       }
     ],
     "name": "Circle II Circle",
@@ -1556,24 +1696,24 @@
     },
     "followers": {
       "href": null,
-      "total": 1740238
+      "total": 1880783
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/67FB4n52MgexGQIG8s0yUH",
     "id": "67FB4n52MgexGQIG8s0yUH",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5eb0d191f6192fd3690e7aefcc3",
+        "url": "https://i.scdn.co/image/ab6761610000e5ebb9fb07d9832af024020defac",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab676161000051740d191f6192fd3690e7aefcc3",
+        "url": "https://i.scdn.co/image/ab67616100005174b9fb07d9832af024020defac",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f1780d191f6192fd3690e7aefcc3",
+        "url": "https://i.scdn.co/image/ab6761610000f178b9fb07d9832af024020defac",
         "height": 160,
         "width": 160
       }
@@ -1589,7 +1729,7 @@
     },
     "followers": {
       "href": null,
-      "total": 160062
+      "total": 162891
     },
     "genres": [
       "post-rock",
@@ -1616,7 +1756,7 @@
       }
     ],
     "name": "Sólstafir",
-    "popularity": 36,
+    "popularity": 37,
     "type": "artist",
     "uri": "spotify:artist:721C5U5rM8J0jjq6IQuSBK"
   },
@@ -1626,7 +1766,7 @@
     },
     "followers": {
       "href": null,
-      "total": 243395
+      "total": 252570
     },
     "genres": [
       "progressive metal",
@@ -1638,23 +1778,23 @@
     "id": "2SRIVGDkdqQnrQdaXxDkJt",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5eb93dd5a9297a30e8a4939a373",
+        "url": "https://i.scdn.co/image/ab6761610000e5ebe5065ded5c8fdb1d9659768f",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000517493dd5a9297a30e8a4939a373",
+        "url": "https://i.scdn.co/image/ab67616100005174e5065ded5c8fdb1d9659768f",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f17893dd5a9297a30e8a4939a373",
+        "url": "https://i.scdn.co/image/ab6761610000f178e5065ded5c8fdb1d9659768f",
         "height": 160,
         "width": 160
       }
     ],
     "name": "Haken",
-    "popularity": 44,
+    "popularity": 48,
     "type": "artist",
     "uri": "spotify:artist:2SRIVGDkdqQnrQdaXxDkJt"
   },
@@ -1664,7 +1804,7 @@
     },
     "followers": {
       "href": null,
-      "total": 189028
+      "total": 196975
     },
     "genres": [
       "grindcore",
@@ -1691,7 +1831,7 @@
       }
     ],
     "name": "Brujeria",
-    "popularity": 41,
+    "popularity": 42,
     "type": "artist",
     "uri": "spotify:artist:1VV61UepOgsPiOjljK6mBY"
   },
@@ -1701,7 +1841,7 @@
     },
     "followers": {
       "href": null,
-      "total": 311222
+      "total": 323897
     },
     "genres": [
       "progressive metal",
@@ -1729,7 +1869,7 @@
       }
     ],
     "name": "Leprous",
-    "popularity": 48,
+    "popularity": 49,
     "type": "artist",
     "uri": "spotify:artist:4lgrzShsg2FLA89UM2fdO5"
   },
@@ -1739,7 +1879,7 @@
     },
     "followers": {
       "href": null,
-      "total": 6312278
+      "total": 6451926
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/6CwfuxIqcltXDGjfZsMd9A",
@@ -1772,13 +1912,14 @@
     },
     "followers": {
       "href": null,
-      "total": 9147
+      "total": 9301
     },
     "genres": [
       "neoclassical",
       "neofolk",
       "medieval",
       "celtic",
+      "darkwave",
       "traditional folk"
     ],
     "href": "https://api.spotify.com/v1/artists/5wc0IxnlWp9pqSduPbyvZh",
@@ -1811,7 +1952,7 @@
     },
     "followers": {
       "href": null,
-      "total": 303534
+      "total": 316053
     },
     "genres": [
       "gothic metal",
@@ -1839,7 +1980,7 @@
       }
     ],
     "name": "Lacrimosa",
-    "popularity": 47,
+    "popularity": 50,
     "type": "artist",
     "uri": "spotify:artist:57ekbx9PSS4ORs5wTZMSYp"
   },
@@ -1849,7 +1990,7 @@
     },
     "followers": {
       "href": null,
-      "total": 42719
+      "total": 44005
     },
     "genres": [
       "progressive metal",
@@ -1877,7 +2018,7 @@
       }
     ],
     "name": "Agent Fresco",
-    "popularity": 30,
+    "popularity": 32,
     "type": "artist",
     "uri": "spotify:artist:11bnNpakfiBkP6MqpyrRjD"
   },
@@ -1887,7 +2028,7 @@
     },
     "followers": {
       "href": null,
-      "total": 354708
+      "total": 362620
     },
     "genres": [
       "melodic death metal",
@@ -1915,7 +2056,7 @@
       }
     ],
     "name": "Soilwork",
-    "popularity": 52,
+    "popularity": 53,
     "type": "artist",
     "uri": "spotify:artist:7wqP36o9lqWteOCxBnXlwx"
   },
@@ -1925,7 +2066,7 @@
     },
     "followers": {
       "href": null,
-      "total": 43779
+      "total": 44816
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/7HIjKw4rHS0MtmV0cqSlpB",
@@ -1948,7 +2089,7 @@
       }
     ],
     "name": "Cathedrals",
-    "popularity": 33,
+    "popularity": 36,
     "type": "artist",
     "uri": "spotify:artist:7HIjKw4rHS0MtmV0cqSlpB"
   },
@@ -1958,7 +2099,7 @@
     },
     "followers": {
       "href": null,
-      "total": 59114
+      "total": 62170
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/52KatchKjz0L2amwBDxxwO",
@@ -1981,7 +2122,7 @@
       }
     ],
     "name": "aeseaes",
-    "popularity": 48,
+    "popularity": 47,
     "type": "artist",
     "uri": "spotify:artist:52KatchKjz0L2amwBDxxwO"
   },
@@ -1991,7 +2132,7 @@
     },
     "followers": {
       "href": null,
-      "total": 56943
+      "total": 58315
     },
     "genres": [
       "sea shanties",
@@ -2030,7 +2171,7 @@
     },
     "followers": {
       "href": null,
-      "total": 77557
+      "total": 79539
     },
     "genres": [
       "black metal",
@@ -2064,7 +2205,7 @@
       }
     ],
     "name": "Arcturus",
-    "popularity": 29,
+    "popularity": 30,
     "type": "artist",
     "uri": "spotify:artist:0UGvFl1tJ49Co99gaXZH9Z"
   },
@@ -2074,7 +2215,7 @@
     },
     "followers": {
       "href": null,
-      "total": 1891902
+      "total": 1988419
     },
     "genres": [
       "groove metal",
@@ -2103,7 +2244,7 @@
       }
     ],
     "name": "Gojira",
-    "popularity": 66,
+    "popularity": 67,
     "type": "artist",
     "uri": "spotify:artist:0GDGKpJFhVpcjIGF8N6Ewt"
   },
@@ -2113,7 +2254,7 @@
     },
     "followers": {
       "href": null,
-      "total": 25192
+      "total": 26022
     },
     "genres": [
       "southern gothic"
@@ -2138,7 +2279,7 @@
       }
     ],
     "name": "American Murder Song",
-    "popularity": 36,
+    "popularity": 35,
     "type": "artist",
     "uri": "spotify:artist:49BGpXXAji2jAYv0Ob6Dff"
   },
@@ -2148,7 +2289,7 @@
     },
     "followers": {
       "href": null,
-      "total": 3869142
+      "total": 3947958
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/3iOvXCl6edW5Um0fXEBRXy",
@@ -2171,7 +2312,7 @@
       }
     ],
     "name": "The xx",
-    "popularity": 69,
+    "popularity": 68,
     "type": "artist",
     "uri": "spotify:artist:3iOvXCl6edW5Um0fXEBRXy"
   },
@@ -2181,24 +2322,24 @@
     },
     "followers": {
       "href": null,
-      "total": 456137
+      "total": 463055
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/100sLnojEpcadRx4edEBA6",
     "id": "100sLnojEpcadRx4edEBA6",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5ebe05061548bb2d77d850190a6",
+        "url": "https://i.scdn.co/image/ab6761610000e5eb7bf1e7319e02b8b5cb0b3fcc",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab67616100005174e05061548bb2d77d850190a6",
+        "url": "https://i.scdn.co/image/ab676161000051747bf1e7319e02b8b5cb0b3fcc",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f178e05061548bb2d77d850190a6",
+        "url": "https://i.scdn.co/image/ab6761610000f1787bf1e7319e02b8b5cb0b3fcc",
         "height": 160,
         "width": 160
       }
@@ -2214,7 +2355,7 @@
     },
     "followers": {
       "href": null,
-      "total": 5984
+      "total": 6069
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/5fW9KCIPGotzaUDLkWfoa7",
@@ -2247,7 +2388,7 @@
     },
     "followers": {
       "href": null,
-      "total": 1424911
+      "total": 1446695
     },
     "genres": [
       "synthpop"
@@ -2256,23 +2397,23 @@
     "id": "3CjlHNtplJyTf9npxaPl5w",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5eb15e5ae2c6a8cdf07ed0253ae",
+        "url": "https://i.scdn.co/image/ab6761610000e5eb6bba31602d0de7782d17e19e",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000517415e5ae2c6a8cdf07ed0253ae",
+        "url": "https://i.scdn.co/image/ab676161000051746bba31602d0de7782d17e19e",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f17815e5ae2c6a8cdf07ed0253ae",
+        "url": "https://i.scdn.co/image/ab6761610000f1786bba31602d0de7782d17e19e",
         "height": 160,
         "width": 160
       }
     ],
     "name": "CHVRCHES",
-    "popularity": 63,
+    "popularity": 64,
     "type": "artist",
     "uri": "spotify:artist:3CjlHNtplJyTf9npxaPl5w"
   },
@@ -2282,7 +2423,7 @@
     },
     "followers": {
       "href": null,
-      "total": 53889
+      "total": 54814
     },
     "genres": [
       "french indie pop"
@@ -2317,7 +2458,7 @@
     },
     "followers": {
       "href": null,
-      "total": 2508616
+      "total": 2574471
     },
     "genres": [
       "symphonic metal",
@@ -2357,7 +2498,7 @@
     },
     "followers": {
       "href": null,
-      "total": 85896
+      "total": 86459
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/5ektKXWvSR9FjUExrpg1xK",
@@ -2390,7 +2531,7 @@
     },
     "followers": {
       "href": null,
-      "total": 331774
+      "total": 346144
     },
     "genres": [
       "progressive metal",
@@ -2428,7 +2569,7 @@
     },
     "followers": {
       "href": null,
-      "total": 52176
+      "total": 54148
     },
     "genres": [
       "progressive rock",
@@ -2459,7 +2600,7 @@
       }
     ],
     "name": "Storm Corrosion",
-    "popularity": 21,
+    "popularity": 22,
     "type": "artist",
     "uri": "spotify:artist:73p7913nnreqv6jbWpeNb1"
   },
@@ -2469,7 +2610,7 @@
     },
     "followers": {
       "href": null,
-      "total": 633685
+      "total": 646933
     },
     "genres": [
       "folk metal",
@@ -2478,8 +2619,8 @@
       "medieval metal",
       "power metal",
       "celtic",
-      "metal",
       "celtic rock",
+      "metal",
       "medieval",
       "folk"
     ],
@@ -2513,7 +2654,7 @@
     },
     "followers": {
       "href": null,
-      "total": 1286352
+      "total": 1307355
     },
     "genres": [
       "indie folk",
@@ -2539,7 +2680,7 @@
       }
     ],
     "name": "First Aid Kit",
-    "popularity": 63,
+    "popularity": 62,
     "type": "artist",
     "uri": "spotify:artist:21egYD1eInY6bGFcniCRT1"
   },
@@ -2549,7 +2690,7 @@
     },
     "followers": {
       "href": null,
-      "total": 56793167
+      "total": 60863013
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/00FQb4jTyendYWaN8pK0wa",
@@ -2572,7 +2713,7 @@
       }
     ],
     "name": "Lana Del Rey",
-    "popularity": 91,
+    "popularity": 92,
     "type": "artist",
     "uri": "spotify:artist:00FQb4jTyendYWaN8pK0wa"
   },
@@ -2582,24 +2723,24 @@
     },
     "followers": {
       "href": null,
-      "total": 10819212
+      "total": 11017972
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/163tK9Wjr9P9DmM0AVK7lm",
     "id": "163tK9Wjr9P9DmM0AVK7lm",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5ebaa69380a8d5203257611662d",
+        "url": "https://i.scdn.co/image/ab6761610000e5eb678a3a4bc2d8a84074f22c71",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab67616100005174aa69380a8d5203257611662d",
+        "url": "https://i.scdn.co/image/ab67616100005174678a3a4bc2d8a84074f22c71",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f178aa69380a8d5203257611662d",
+        "url": "https://i.scdn.co/image/ab6761610000f178678a3a4bc2d8a84074f22c71",
         "height": 160,
         "width": 160
       }
@@ -2615,7 +2756,7 @@
     },
     "followers": {
       "href": null,
-      "total": 148586
+      "total": 153326
     },
     "genres": [
       "brazilian rock"
@@ -2650,15 +2791,14 @@
     },
     "followers": {
       "href": null,
-      "total": 112388
+      "total": 115182
     },
     "genres": [
       "black metal",
       "folk metal",
       "progressive metal",
       "metal",
-      "melodic death metal",
-      "avant-garde"
+      "melodic death metal"
     ],
     "href": "https://api.spotify.com/v1/artists/0vxxsjcDy61x5zvrOqwHIL",
     "id": "0vxxsjcDy61x5zvrOqwHIL",
@@ -2680,7 +2820,7 @@
       }
     ],
     "name": "Borknagar",
-    "popularity": 33,
+    "popularity": 34,
     "type": "artist",
     "uri": "spotify:artist:0vxxsjcDy61x5zvrOqwHIL"
   },
@@ -2690,7 +2830,7 @@
     },
     "followers": {
       "href": null,
-      "total": 50262
+      "total": 52215
     },
     "genres": [
       "doom metal",
@@ -2719,7 +2859,7 @@
       }
     ],
     "name": "Ahab",
-    "popularity": 25,
+    "popularity": 27,
     "type": "artist",
     "uri": "spotify:artist:2N8XkSGgBeH1VrFHxbarbz"
   },
@@ -2729,7 +2869,7 @@
     },
     "followers": {
       "href": null,
-      "total": 30110
+      "total": 31142
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/1blgL26JbtaUUKUEMR6Hs2",
@@ -2752,7 +2892,7 @@
       }
     ],
     "name": "Gemma Hayes",
-    "popularity": 41,
+    "popularity": 43,
     "type": "artist",
     "uri": "spotify:artist:1blgL26JbtaUUKUEMR6Hs2"
   },
@@ -2762,30 +2902,30 @@
     },
     "followers": {
       "href": null,
-      "total": 136034
+      "total": 143195
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/6y6iXD929Jqq0xc6lgwhl1",
     "id": "6y6iXD929Jqq0xc6lgwhl1",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5eb0b780c51c1418c593a0e6767",
+        "url": "https://i.scdn.co/image/ab6761610000e5ebc1554ae28be4764844224457",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab676161000051740b780c51c1418c593a0e6767",
+        "url": "https://i.scdn.co/image/ab67616100005174c1554ae28be4764844224457",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f1780b780c51c1418c593a0e6767",
+        "url": "https://i.scdn.co/image/ab6761610000f178c1554ae28be4764844224457",
         "height": 160,
         "width": 160
       }
     ],
     "name": "LAUREL",
-    "popularity": 55,
+    "popularity": 56,
     "type": "artist",
     "uri": "spotify:artist:6y6iXD929Jqq0xc6lgwhl1"
   },
@@ -2795,7 +2935,7 @@
     },
     "followers": {
       "href": null,
-      "total": 13689
+      "total": 13729
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/0ulEFrMUcWduqdVKegJZJF",
@@ -2828,7 +2968,7 @@
     },
     "followers": {
       "href": null,
-      "total": 50733
+      "total": 52992
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/16lGevDffmuRakKVvdJ983",
@@ -2861,11 +3001,12 @@
     },
     "followers": {
       "href": null,
-      "total": 16345
+      "total": 16942
     },
     "genres": [
       "neofolk",
-      "black metal"
+      "black metal",
+      "doom metal"
     ],
     "href": "https://api.spotify.com/v1/artists/27bhelNsrdlX5Y5H7yigfg",
     "id": "27bhelNsrdlX5Y5H7yigfg",
@@ -2897,7 +3038,7 @@
     },
     "followers": {
       "href": null,
-      "total": 6739100
+      "total": 7102943
     },
     "genres": [
       "groove metal",
@@ -2935,7 +3076,7 @@
     },
     "followers": {
       "href": null,
-      "total": 197030
+      "total": 210829
     },
     "genres": [
       "death metal",
@@ -2962,7 +3103,7 @@
       }
     ],
     "name": "Necrophagist",
-    "popularity": 43,
+    "popularity": 44,
     "type": "artist",
     "uri": "spotify:artist:22GSc8UsPGIP5mrM4W57rY"
   },
@@ -2972,7 +3113,7 @@
     },
     "followers": {
       "href": null,
-      "total": 98533
+      "total": 101848
     },
     "genres": [
       "power metal",
@@ -3001,7 +3142,7 @@
       }
     ],
     "name": "Jorn",
-    "popularity": 48,
+    "popularity": 50,
     "type": "artist",
     "uri": "spotify:artist:5SaDyTQkjAAdrsmhPzrmw2"
   },
@@ -3011,7 +3152,7 @@
     },
     "followers": {
       "href": null,
-      "total": 1580
+      "total": 1630
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/2jan3WAlx8QSZ2C7fCVX69",
@@ -3034,7 +3175,7 @@
       }
     ],
     "name": "Kim Tillman",
-    "popularity": 20,
+    "popularity": 19,
     "type": "artist",
     "uri": "spotify:artist:2jan3WAlx8QSZ2C7fCVX69"
   },
@@ -3044,7 +3185,7 @@
     },
     "followers": {
       "href": null,
-      "total": 342685
+      "total": 353651
     },
     "genres": [
       "black metal",
@@ -3070,7 +3211,7 @@
       }
     ],
     "name": "Satyricon",
-    "popularity": 44,
+    "popularity": 46,
     "type": "artist",
     "uri": "spotify:artist:221Rd0FvVxMx7eCbWqjiKd"
   },
@@ -3080,7 +3221,7 @@
     },
     "followers": {
       "href": null,
-      "total": 2812776
+      "total": 2869646
     },
     "genres": [
       "rock",
@@ -3106,7 +3247,7 @@
       }
     ],
     "name": "Volbeat",
-    "popularity": 70,
+    "popularity": 71,
     "type": "artist",
     "uri": "spotify:artist:0L5fC7Ogm2YwgqVCRcF1bT"
   },
@@ -3116,7 +3257,7 @@
     },
     "followers": {
       "href": null,
-      "total": 9160595
+      "total": 9581797
     },
     "genres": [
       "hard rock",
@@ -3143,7 +3284,7 @@
       }
     ],
     "name": "Scorpions",
-    "popularity": 76,
+    "popularity": 77,
     "type": "artist",
     "uri": "spotify:artist:27T030eWyCQRmDyuvr1kxY"
   },
@@ -3153,11 +3294,12 @@
     },
     "followers": {
       "href": null,
-      "total": 26872
+      "total": 27998
     },
     "genres": [
       "christian rock",
-      "glam metal"
+      "glam metal",
+      "christian alternative rock"
     ],
     "href": "https://api.spotify.com/v1/artists/0KoQJScvMD3v4ArOGiX0MJ",
     "id": "0KoQJScvMD3v4ArOGiX0MJ",
@@ -3179,7 +3321,7 @@
       }
     ],
     "name": "Holy Soldier",
-    "popularity": 25,
+    "popularity": 29,
     "type": "artist",
     "uri": "spotify:artist:0KoQJScvMD3v4ArOGiX0MJ"
   },
@@ -3189,7 +3331,7 @@
     },
     "followers": {
       "href": null,
-      "total": 1440698
+      "total": 1486423
     },
     "genres": [
       "power metal",
@@ -3218,7 +3360,7 @@
       }
     ],
     "name": "Helloween",
-    "popularity": 60,
+    "popularity": 62,
     "type": "artist",
     "uri": "spotify:artist:4pQN0GB0fNEEOfQCaWotsY"
   },
@@ -3228,7 +3370,7 @@
     },
     "followers": {
       "href": null,
-      "total": 136551
+      "total": 143531
     },
     "genres": [
       "death metal"
@@ -3237,17 +3379,17 @@
     "id": "0w1xNkvjKVskWP7GvbiwRB",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5eb013129c292c55c4f660f6a5c",
+        "url": "https://i.scdn.co/image/ab6761610000e5ebc604561e34a1d8ee6605965c",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab67616100005174013129c292c55c4f660f6a5c",
+        "url": "https://i.scdn.co/image/ab67616100005174c604561e34a1d8ee6605965c",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f178013129c292c55c4f660f6a5c",
+        "url": "https://i.scdn.co/image/ab6761610000f178c604561e34a1d8ee6605965c",
         "height": 160,
         "width": 160
       }
@@ -3263,14 +3405,14 @@
     },
     "followers": {
       "href": null,
-      "total": 119813
+      "total": 123983
     },
     "genres": [
       "thrash metal",
       "speed metal",
       "death metal",
-      "metal",
-      "groove metal"
+      "groove metal",
+      "metal"
     ],
     "href": "https://api.spotify.com/v1/artists/5D9d9xyLNQu32QVD9t4YqH",
     "id": "5D9d9xyLNQu32QVD9t4YqH",
@@ -3292,7 +3434,7 @@
       }
     ],
     "name": "Nervosa",
-    "popularity": 40,
+    "popularity": 34,
     "type": "artist",
     "uri": "spotify:artist:5D9d9xyLNQu32QVD9t4YqH"
   },
@@ -3302,7 +3444,7 @@
     },
     "followers": {
       "href": null,
-      "total": 37190
+      "total": 39852
     },
     "genres": [
       "thrash metal",
@@ -3328,7 +3470,7 @@
       }
     ],
     "name": "Korzus",
-    "popularity": 31,
+    "popularity": 29,
     "type": "artist",
     "uri": "spotify:artist:3IPsbVbc2hVQMU50DZu9gD"
   },
@@ -3338,12 +3480,13 @@
     },
     "followers": {
       "href": null,
-      "total": 3063789
+      "total": 3201818
     },
     "genres": [
       "heavy metal",
       "metal",
-      "hard rock"
+      "hard rock",
+      "glam metal"
     ],
     "href": "https://api.spotify.com/v1/artists/4CYeVo5iZbtYGBN4Isc3n6",
     "id": "4CYeVo5iZbtYGBN4Isc3n6",
@@ -3365,7 +3508,7 @@
       }
     ],
     "name": "Dio",
-    "popularity": 54,
+    "popularity": 63,
     "type": "artist",
     "uri": "spotify:artist:4CYeVo5iZbtYGBN4Isc3n6"
   },
@@ -3375,7 +3518,7 @@
     },
     "followers": {
       "href": null,
-      "total": 2476149
+      "total": 2579450
     },
     "genres": [
       "thrash metal",
@@ -3417,7 +3560,7 @@
     },
     "followers": {
       "href": null,
-      "total": 196965
+      "total": 200481
     },
     "genres": [
       "celtic",
@@ -3447,7 +3590,7 @@
       }
     ],
     "name": "OMNIA",
-    "popularity": 41,
+    "popularity": 42,
     "type": "artist",
     "uri": "spotify:artist:6frUTw3CamrF5NAGaQchBS"
   },
@@ -3457,12 +3600,13 @@
     },
     "followers": {
       "href": null,
-      "total": 4876734
+      "total": 4992505
     },
     "genres": [
       "folk metal",
       "rock en español",
       "celtic rock",
+      "latin rock",
       "mexican rock"
     ],
     "href": "https://api.spotify.com/v1/artists/5ZNxiPcbKgaNcBrERMpqeu",
@@ -3485,7 +3629,7 @@
       }
     ],
     "name": "Mägo de Oz",
-    "popularity": 69,
+    "popularity": 70,
     "type": "artist",
     "uri": "spotify:artist:5ZNxiPcbKgaNcBrERMpqeu"
   },
@@ -3495,7 +3639,7 @@
     },
     "followers": {
       "href": null,
-      "total": 2210
+      "total": 2225
     },
     "genres": [
       "darkwave",
@@ -3531,7 +3675,7 @@
     },
     "followers": {
       "href": null,
-      "total": 881900
+      "total": 900823
     },
     "genres": [
       "yacht rock",
@@ -3567,7 +3711,7 @@
     },
     "followers": {
       "href": null,
-      "total": 331658
+      "total": 335989
     },
     "genres": [
       "french pop",
@@ -3604,7 +3748,7 @@
     },
     "followers": {
       "href": null,
-      "total": 47069
+      "total": 48320
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/0TwM0vzeyhAMTegVdIq8rx",
@@ -3627,7 +3771,7 @@
       }
     ],
     "name": "Lor",
-    "popularity": 46,
+    "popularity": 45,
     "type": "artist",
     "uri": "spotify:artist:0TwM0vzeyhAMTegVdIq8rx"
   },
@@ -3637,7 +3781,7 @@
     },
     "followers": {
       "href": null,
-      "total": 3792
+      "total": 3888
     },
     "genres": [
       "melodic death metal"
@@ -3646,23 +3790,23 @@
     "id": "6jpJdxnuPB2E6PfGuj2ihI",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab67616d0000b2739fed2532a32c689c43a1dfec",
+        "url": "https://i.scdn.co/image/ab67616d0000b273c1699146b6005beb02f45c4d",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab67616d00001e029fed2532a32c689c43a1dfec",
+        "url": "https://i.scdn.co/image/ab67616d00001e02c1699146b6005beb02f45c4d",
         "height": 300,
         "width": 300
       },
       {
-        "url": "https://i.scdn.co/image/ab67616d000048519fed2532a32c689c43a1dfec",
+        "url": "https://i.scdn.co/image/ab67616d00004851c1699146b6005beb02f45c4d",
         "height": 64,
         "width": 64
       }
     ],
     "name": "Malefactor",
-    "popularity": 8,
+    "popularity": 9,
     "type": "artist",
     "uri": "spotify:artist:6jpJdxnuPB2E6PfGuj2ihI"
   },
@@ -3672,7 +3816,7 @@
     },
     "followers": {
       "href": null,
-      "total": 67055
+      "total": 68963
     },
     "genres": [
       "melodic death metal",
@@ -3710,7 +3854,7 @@
     },
     "followers": {
       "href": null,
-      "total": 166230
+      "total": 277463
     },
     "genres": [
       "bedroom pop"
@@ -3735,7 +3879,7 @@
       }
     ],
     "name": "Sidney Gish",
-    "popularity": 66,
+    "popularity": 68,
     "type": "artist",
     "uri": "spotify:artist:2orBKFyc84jo9AZH5jarhI"
   },
@@ -3745,7 +3889,7 @@
     },
     "followers": {
       "href": null,
-      "total": 76034
+      "total": 76836
     },
     "genres": [
       "french indie pop"
@@ -3770,7 +3914,7 @@
       }
     ],
     "name": "Jeanne Added",
-    "popularity": 36,
+    "popularity": 35,
     "type": "artist",
     "uri": "spotify:artist:5TEGxYftTkeKmLXkZjHNUE"
   },
@@ -3780,7 +3924,7 @@
     },
     "followers": {
       "href": null,
-      "total": 763677
+      "total": 788680
     },
     "genres": [
       "power metal",
@@ -3810,7 +3954,7 @@
       }
     ],
     "name": "Stratovarius",
-    "popularity": 55,
+    "popularity": 57,
     "type": "artist",
     "uri": "spotify:artist:1O8CSXsPwEqxcoBE360PPO"
   },
@@ -3820,7 +3964,7 @@
     },
     "followers": {
       "href": null,
-      "total": 485780
+      "total": 505560
     },
     "genres": [
       "death metal",
@@ -3859,7 +4003,7 @@
     },
     "followers": {
       "href": null,
-      "total": 1157669
+      "total": 1217149
     },
     "genres": [
       "death metal",
@@ -3893,7 +4037,7 @@
       }
     ],
     "name": "Death",
-    "popularity": 59,
+    "popularity": 60,
     "type": "artist",
     "uri": "spotify:artist:4f5V3PQ66nIrBCqugJtaGn"
   },
@@ -3903,7 +4047,7 @@
     },
     "followers": {
       "href": null,
-      "total": 1170289
+      "total": 1194510
     },
     "genres": [
       "melodic death metal",
@@ -3931,7 +4075,7 @@
       }
     ],
     "name": "Arch Enemy",
-    "popularity": 57,
+    "popularity": 56,
     "type": "artist",
     "uri": "spotify:artist:0DCw6lHkzh9t7f8Hb4Z0Sx"
   },
@@ -3941,7 +4085,7 @@
     },
     "followers": {
       "href": null,
-      "total": 8319542
+      "total": 8782893
     },
     "genres": [
       "metal",
@@ -3953,17 +4097,17 @@
     "id": "6ZLTlhejhndI4Rh53vYhrY",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5ebb5b52f7e13f720c7a4856306",
+        "url": "https://i.scdn.co/image/ab6761610000e5ebbe40717ab20a580f15ad3967",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab67616100005174b5b52f7e13f720c7a4856306",
+        "url": "https://i.scdn.co/image/ab67616100005174be40717ab20a580f15ad3967",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f178b5b52f7e13f720c7a4856306",
+        "url": "https://i.scdn.co/image/ab6761610000f178be40717ab20a580f15ad3967",
         "height": 160,
         "width": 160
       }
@@ -3979,13 +4123,13 @@
     },
     "followers": {
       "href": null,
-      "total": 449719
+      "total": 457183
     },
     "genres": [
       "folk metal",
       "power metal",
-      "metal",
       "medieval metal",
+      "metal",
       "folk"
     ],
     "href": "https://api.spotify.com/v1/artists/521Yl3LUvD7G9dMRO4fpCy",
@@ -4008,7 +4152,7 @@
       }
     ],
     "name": "Korpiklaani",
-    "popularity": 50,
+    "popularity": 51,
     "type": "artist",
     "uri": "spotify:artist:521Yl3LUvD7G9dMRO4fpCy"
   },
@@ -4018,13 +4162,14 @@
     },
     "followers": {
       "href": null,
-      "total": 135481
+      "total": 137653
     },
     "genres": [
       "power metal",
       "symphonic metal",
       "metal",
-      "heavy metal"
+      "heavy metal",
+      "speed metal"
     ],
     "href": "https://api.spotify.com/v1/artists/4O6RDLeFX5xuQ7IePFzVcl",
     "id": "4O6RDLeFX5xuQ7IePFzVcl",
@@ -4046,7 +4191,7 @@
       }
     ],
     "name": "Demons & Wizards",
-    "popularity": 35,
+    "popularity": 39,
     "type": "artist",
     "uri": "spotify:artist:4O6RDLeFX5xuQ7IePFzVcl"
   },
@@ -4056,7 +4201,7 @@
     },
     "followers": {
       "href": null,
-      "total": 38024
+      "total": 40608
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/4r4F8WTxKS7hsSWVzlu6rY",
@@ -4079,7 +4224,7 @@
       }
     ],
     "name": "AlicebanD",
-    "popularity": 47,
+    "popularity": 45,
     "type": "artist",
     "uri": "spotify:artist:4r4F8WTxKS7hsSWVzlu6rY"
   },
@@ -4089,15 +4234,14 @@
     },
     "followers": {
       "href": null,
-      "total": 540636
+      "total": 554484
     },
     "genres": [
       "power metal",
       "symphonic metal",
       "speed metal",
       "folk metal",
-      "metal",
-      "heavy metal"
+      "metal"
     ],
     "href": "https://api.spotify.com/v1/artists/0zQfrabOFYf36Ikb6PXcCY",
     "id": "0zQfrabOFYf36Ikb6PXcCY",
@@ -4119,7 +4263,7 @@
       }
     ],
     "name": "Rhapsody",
-    "popularity": 50,
+    "popularity": 51,
     "type": "artist",
     "uri": "spotify:artist:0zQfrabOFYf36Ikb6PXcCY"
   },
@@ -4129,7 +4273,7 @@
     },
     "followers": {
       "href": null,
-      "total": 794989
+      "total": 807963
     },
     "genres": [
       "power metal",
@@ -4170,7 +4314,7 @@
     },
     "followers": {
       "href": null,
-      "total": 1927610
+      "total": 2072070
     },
     "genres": [
       "gothic metal",
@@ -4197,7 +4341,7 @@
       }
     ],
     "name": "Type O Negative",
-    "popularity": 66,
+    "popularity": 68,
     "type": "artist",
     "uri": "spotify:artist:0blJzvevdXrp21YeI2vbco"
   },
@@ -4207,7 +4351,7 @@
     },
     "followers": {
       "href": null,
-      "total": 213034
+      "total": 223858
     },
     "genres": [
       "death metal",
@@ -4236,7 +4380,7 @@
       }
     ],
     "name": "Septicflesh",
-    "popularity": 43,
+    "popularity": 45,
     "type": "artist",
     "uri": "spotify:artist:5MlEt7qqXqNSReeX76xK6b"
   },
@@ -4246,30 +4390,30 @@
     },
     "followers": {
       "href": null,
-      "total": 524251
+      "total": 547027
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/3V0ZQW0dNuVaFtbVYgSI24",
     "id": "3V0ZQW0dNuVaFtbVYgSI24",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5ebb24798ce2147750b16f867a3",
+        "url": "https://i.scdn.co/image/ab6761610000e5eb88564bb205b7e14018efb431",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab67616100005174b24798ce2147750b16f867a3",
+        "url": "https://i.scdn.co/image/ab6761610000517488564bb205b7e14018efb431",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f178b24798ce2147750b16f867a3",
+        "url": "https://i.scdn.co/image/ab6761610000f17888564bb205b7e14018efb431",
         "height": 160,
         "width": 160
       }
     ],
     "name": "Claire Rosinkranz",
-    "popularity": 62,
+    "popularity": 61,
     "type": "artist",
     "uri": "spotify:artist:3V0ZQW0dNuVaFtbVYgSI24"
   },
@@ -4279,7 +4423,7 @@
     },
     "followers": {
       "href": null,
-      "total": 357184
+      "total": 366058
     },
     "genres": [
       "melodic death metal",
@@ -4311,7 +4455,7 @@
       }
     ],
     "name": "Amorphis",
-    "popularity": 51,
+    "popularity": 52,
     "type": "artist",
     "uri": "spotify:artist:2UOVgpgiNTC6KK0vSC77aD"
   },
@@ -4321,7 +4465,7 @@
     },
     "followers": {
       "href": null,
-      "total": 176733
+      "total": 180061
     },
     "genres": [
       "industrial metal",
@@ -4351,7 +4495,7 @@
       }
     ],
     "name": "Deathstars",
-    "popularity": 41,
+    "popularity": 42,
     "type": "artist",
     "uri": "spotify:artist:4Tg06Sex4LzwcgVdfRrHlp"
   },
@@ -4361,7 +4505,7 @@
     },
     "followers": {
       "href": null,
-      "total": 15274005
+      "total": 16260992
     },
     "genres": [
       "nu metal",
@@ -4390,7 +4534,7 @@
       }
     ],
     "name": "System Of A Down",
-    "popularity": 83,
+    "popularity": 84,
     "type": "artist",
     "uri": "spotify:artist:5eAWCfyUhZtHHtBdNk56l1"
   },
@@ -4400,7 +4544,7 @@
     },
     "followers": {
       "href": null,
-      "total": 125838523
+      "total": 130915288
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/6qqNVTkY8uBg9cP3Jd7DAH",
@@ -4433,7 +4577,7 @@
     },
     "followers": {
       "href": null,
-      "total": 420131
+      "total": 430477
     },
     "genres": [
       "power metal",
@@ -4448,23 +4592,23 @@
     "id": "7gTbq5nTZGQIUgjEGXQpOS",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5eb2436e28f65483f0af02ba27d",
+        "url": "https://i.scdn.co/image/ab6761610000e5eb05cfb3d751023418788b5ebc",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab676161000051742436e28f65483f0af02ba27d",
+        "url": "https://i.scdn.co/image/ab6761610000517405cfb3d751023418788b5ebc",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f1782436e28f65483f0af02ba27d",
+        "url": "https://i.scdn.co/image/ab6761610000f17805cfb3d751023418788b5ebc",
         "height": 160,
         "width": 160
       }
     ],
     "name": "Kamelot",
-    "popularity": 51,
+    "popularity": 56,
     "type": "artist",
     "uri": "spotify:artist:7gTbq5nTZGQIUgjEGXQpOS"
   },
@@ -4474,7 +4618,7 @@
     },
     "followers": {
       "href": null,
-      "total": 46110774
+      "total": 48715680
     },
     "genres": [
       "art pop",
@@ -4510,7 +4654,7 @@
     },
     "followers": {
       "href": null,
-      "total": 260973
+      "total": 266220
     },
     "genres": [
       "art pop"
@@ -4545,7 +4689,7 @@
     },
     "followers": {
       "href": null,
-      "total": 6172
+      "total": 6254
     },
     "genres": [
       "norwegian pop"
@@ -4570,7 +4714,7 @@
       }
     ],
     "name": "Frøkedal",
-    "popularity": 21,
+    "popularity": 22,
     "type": "artist",
     "uri": "spotify:artist:7uTDwdxKfkZtEfjpofiYwr"
   },
@@ -4580,7 +4724,7 @@
     },
     "followers": {
       "href": null,
-      "total": 10976
+      "total": 11129
     },
     "genres": [
       "french indie pop"
@@ -4605,7 +4749,7 @@
       }
     ],
     "name": "Prudence",
-    "popularity": 30,
+    "popularity": 32,
     "type": "artist",
     "uri": "spotify:artist:6G7P1WNRTlg3FxiYaW0hYh"
   },
@@ -4615,7 +4759,7 @@
     },
     "followers": {
       "href": null,
-      "total": 192827
+      "total": 195582
     },
     "genres": [
       "symphonic metal",
@@ -4655,7 +4799,7 @@
     },
     "followers": {
       "href": null,
-      "total": 174
+      "total": 185
     },
     "genres": [
       "melodic death metal"
@@ -4690,7 +4834,7 @@
     },
     "followers": {
       "href": null,
-      "total": 153508
+      "total": 154391
     },
     "genres": [
       "dansk pop"
@@ -4715,7 +4859,7 @@
       }
     ],
     "name": "Oh Land",
-    "popularity": 37,
+    "popularity": 39,
     "type": "artist",
     "uri": "spotify:artist:46CuxapoPjUfIOiXdNq7qM"
   },
@@ -4725,7 +4869,7 @@
     },
     "followers": {
       "href": null,
-      "total": 391970
+      "total": 398373
     },
     "genres": [
       "power metal",
@@ -4769,7 +4913,7 @@
     },
     "followers": {
       "href": null,
-      "total": 632890
+      "total": 674140
     },
     "genres": [
       "eurodance",
@@ -4795,7 +4939,7 @@
       }
     ],
     "name": "Vengaboys",
-    "popularity": 66,
+    "popularity": 67,
     "type": "artist",
     "uri": "spotify:artist:0cwmNvclzPd8mQnoHuIksj"
   },
@@ -4805,7 +4949,7 @@
     },
     "followers": {
       "href": null,
-      "total": 6204989
+      "total": 6476971
     },
     "genres": [
       "southern rock",
@@ -4832,7 +4976,7 @@
       }
     ],
     "name": "Lynyrd Skynyrd",
-    "popularity": 76,
+    "popularity": 77,
     "type": "artist",
     "uri": "spotify:artist:4MVyzYMgTwdP7Z49wAZHx0"
   },
@@ -4842,7 +4986,7 @@
     },
     "followers": {
       "href": null,
-      "total": 16393
+      "total": 16708
     },
     "genres": [
       "baroque pop"
@@ -4867,7 +5011,7 @@
       }
     ],
     "name": "Eliza Rickman",
-    "popularity": 26,
+    "popularity": 27,
     "type": "artist",
     "uri": "spotify:artist:4j0K5gPOQZYpiaz3vc9dzx"
   },
@@ -4877,7 +5021,7 @@
     },
     "followers": {
       "href": null,
-      "total": 5827
+      "total": 5943
     },
     "genres": [
       "folk metal"
@@ -4902,7 +5046,7 @@
       }
     ],
     "name": "Eldhrimnir",
-    "popularity": 17,
+    "popularity": 16,
     "type": "artist",
     "uri": "spotify:artist:34hTVEdKCODfOd1PKFclTh"
   },
@@ -4912,7 +5056,7 @@
     },
     "followers": {
       "href": null,
-      "total": 4068422
+      "total": 4244480
     },
     "genres": [
       "french pop"
@@ -4937,7 +5081,7 @@
       }
     ],
     "name": "Stromae",
-    "popularity": 75,
+    "popularity": 77,
     "type": "artist",
     "uri": "spotify:artist:5j4HeCoUlzhfWtjAfM1acR"
   },
@@ -4947,7 +5091,7 @@
     },
     "followers": {
       "href": null,
-      "total": 398362
+      "total": 403018
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/4SqTiwOEdYrNayaGMkc7ia",
@@ -4970,7 +5114,7 @@
       }
     ],
     "name": "LÉON",
-    "popularity": 57,
+    "popularity": 58,
     "type": "artist",
     "uri": "spotify:artist:4SqTiwOEdYrNayaGMkc7ia"
   },
@@ -4980,7 +5124,7 @@
     },
     "followers": {
       "href": null,
-      "total": 859502
+      "total": 872819
     },
     "genres": [
       "christian rock",
@@ -5017,7 +5161,7 @@
     },
     "followers": {
       "href": null,
-      "total": 1120022
+      "total": 1140174
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/5cIc3SBFuBLVxJz58W2tU9",
@@ -5040,7 +5184,7 @@
       }
     ],
     "name": "Oh Wonder",
-    "popularity": 67,
+    "popularity": 69,
     "type": "artist",
     "uri": "spotify:artist:5cIc3SBFuBLVxJz58W2tU9"
   },
@@ -5050,7 +5194,7 @@
     },
     "followers": {
       "href": null,
-      "total": 8787565
+      "total": 9060626
     },
     "genres": [
       "alternative rock",
@@ -5060,23 +5204,23 @@
     "id": "12Chz98pHFMPJEknJQMWvI",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5eb001bed1a54fe90023cae1d1b",
+        "url": "https://i.scdn.co/image/ab6761610000e5ebccb215d769112ec422a59ce6",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab67616100005174001bed1a54fe90023cae1d1b",
+        "url": "https://i.scdn.co/image/ab67616100005174ccb215d769112ec422a59ce6",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f178001bed1a54fe90023cae1d1b",
+        "url": "https://i.scdn.co/image/ab6761610000f178ccb215d769112ec422a59ce6",
         "height": 160,
         "width": 160
       }
     ],
     "name": "Muse",
-    "popularity": 79,
+    "popularity": 80,
     "type": "artist",
     "uri": "spotify:artist:12Chz98pHFMPJEknJQMWvI"
   },
@@ -5086,12 +5230,13 @@
     },
     "followers": {
       "href": null,
-      "total": 1852168
+      "total": 1902661
     },
     "genres": [
       "progressive metal",
       "progressive rock",
-      "metal"
+      "metal",
+      "djent"
     ],
     "href": "https://api.spotify.com/v1/artists/2aaLAng2L2aWD2FClzwiep",
     "id": "2aaLAng2L2aWD2FClzwiep",
@@ -5123,7 +5268,7 @@
     },
     "followers": {
       "href": null,
-      "total": 510123
+      "total": 522196
     },
     "genres": [
       "power metal",
@@ -5162,7 +5307,7 @@
     },
     "followers": {
       "href": null,
-      "total": 1434671
+      "total": 1457081
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/46CitWgnWrvF9t70C2p1Me",
@@ -5195,9 +5340,12 @@
     },
     "followers": {
       "href": null,
-      "total": 62
+      "total": 64
     },
-    "genres": [],
+    "genres": [
+      "roots rock",
+      "speed metal"
+    ],
     "href": "https://api.spotify.com/v1/artists/7CBWyowmR42IU3HTrUVbfB",
     "id": "7CBWyowmR42IU3HTrUVbfB",
     "images": [
@@ -5228,7 +5376,7 @@
     },
     "followers": {
       "href": null,
-      "total": 737732
+      "total": 753560
     },
     "genres": [
       "folk metal",
@@ -5242,17 +5390,17 @@
     "id": "3OpqU68JpZlzvjAJj3B2Da",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5eb9ad0af7fa3272c5d1197c277",
+        "url": "https://i.scdn.co/image/ab6761610000e5eb27abfee8023478b2d8b5d058",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab676161000051749ad0af7fa3272c5d1197c277",
+        "url": "https://i.scdn.co/image/ab6761610000517427abfee8023478b2d8b5d058",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f1789ad0af7fa3272c5d1197c277",
+        "url": "https://i.scdn.co/image/ab6761610000f17827abfee8023478b2d8b5d058",
         "height": 160,
         "width": 160
       }
@@ -5268,7 +5416,7 @@
     },
     "followers": {
       "href": null,
-      "total": 813605
+      "total": 834900
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/5Mq7iqCWBzofK39FBqblNc",
@@ -5291,7 +5439,7 @@
       }
     ],
     "name": "Jessie Ware",
-    "popularity": 64,
+    "popularity": 60,
     "type": "artist",
     "uri": "spotify:artist:5Mq7iqCWBzofK39FBqblNc"
   },
@@ -5301,7 +5449,7 @@
     },
     "followers": {
       "href": null,
-      "total": 10825360
+      "total": 11990920
     },
     "genres": [
       "neo-psychedelic",
@@ -5327,7 +5475,7 @@
       }
     ],
     "name": "Tame Impala",
-    "popularity": 88,
+    "popularity": 89,
     "type": "artist",
     "uri": "spotify:artist:5INjqkS1o8h1imAzPqGZBb"
   },
@@ -5337,7 +5485,7 @@
     },
     "followers": {
       "href": null,
-      "total": 648498
+      "total": 668824
     },
     "genres": [
       "dream pop",
@@ -5375,7 +5523,7 @@
     },
     "followers": {
       "href": null,
-      "total": 287668
+      "total": 295106
     },
     "genres": [
       "metal"
@@ -5410,7 +5558,7 @@
     },
     "followers": {
       "href": null,
-      "total": 21924
+      "total": 22595
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/6q5M5a5hW48QjbDc0xuTtU",
@@ -5433,7 +5581,7 @@
       }
     ],
     "name": "Bitter Ruin",
-    "popularity": 36,
+    "popularity": 35,
     "type": "artist",
     "uri": "spotify:artist:6q5M5a5hW48QjbDc0xuTtU"
   },
@@ -5443,10 +5591,11 @@
     },
     "followers": {
       "href": null,
-      "total": 5193
+      "total": 5336
     },
     "genres": [
-      "power metal"
+      "power metal",
+      "heavy metal"
     ],
     "href": "https://api.spotify.com/v1/artists/7twX3q2dCFLcBFw42ZVn79",
     "id": "7twX3q2dCFLcBFw42ZVn79",
@@ -5468,7 +5617,7 @@
       }
     ],
     "name": "Hellish War",
-    "popularity": 14,
+    "popularity": 16,
     "type": "artist",
     "uri": "spotify:artist:7twX3q2dCFLcBFw42ZVn79"
   },
@@ -5478,7 +5627,7 @@
     },
     "followers": {
       "href": null,
-      "total": 130307
+      "total": 134131
     },
     "genres": [
       "fado"
@@ -5518,7 +5667,7 @@
     },
     "followers": {
       "href": null,
-      "total": 9394
+      "total": 9365
     },
     "genres": [
       "christian rock",
@@ -5559,7 +5708,7 @@
     },
     "followers": {
       "href": null,
-      "total": 486355
+      "total": 490192
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/5r5Va4lVQ1zjEfbJSrmCsS",
@@ -5582,7 +5731,7 @@
       }
     ],
     "name": "BROODS",
-    "popularity": 51,
+    "popularity": 52,
     "type": "artist",
     "uri": "spotify:artist:5r5Va4lVQ1zjEfbJSrmCsS"
   },
@@ -5592,7 +5741,7 @@
     },
     "followers": {
       "href": null,
-      "total": 59686019
+      "total": 60699267
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/53XhwfbYqKCa1cC15pYq2q",
@@ -5625,7 +5774,7 @@
     },
     "followers": {
       "href": null,
-      "total": 1694411
+      "total": 1745804
     },
     "genres": [
       "industrial metal",
@@ -5666,7 +5815,7 @@
     },
     "followers": {
       "href": null,
-      "total": 95837
+      "total": 98445
     },
     "genres": [
       "art pop"
@@ -5675,23 +5824,23 @@
     "id": "3FIsBWNLmqLvTQnhJLAWUJ",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5ebff6ac0028956852c37bfc38e",
+        "url": "https://i.scdn.co/image/ab6761610000e5eba8a0f076bc032df415a395f6",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab67616100005174ff6ac0028956852c37bfc38e",
+        "url": "https://i.scdn.co/image/ab67616100005174a8a0f076bc032df415a395f6",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f178ff6ac0028956852c37bfc38e",
+        "url": "https://i.scdn.co/image/ab6761610000f178a8a0f076bc032df415a395f6",
         "height": 160,
         "width": 160
       }
     ],
     "name": "Ex:Re",
-    "popularity": 35,
+    "popularity": 40,
     "type": "artist",
     "uri": "spotify:artist:3FIsBWNLmqLvTQnhJLAWUJ"
   },
@@ -5701,7 +5850,7 @@
     },
     "followers": {
       "href": null,
-      "total": 46939
+      "total": 48591
     },
     "genres": [
       "christian rock",
@@ -5737,30 +5886,30 @@
     },
     "followers": {
       "href": null,
-      "total": 3226899
+      "total": 3551040
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/1r1uxoy19fzMxunt3ONAkG",
     "id": "1r1uxoy19fzMxunt3ONAkG",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5eb626686e362d30246e816cc5b",
+        "url": "https://i.scdn.co/image/ab6761610000e5eb6e2d4ab2b84463aa4c349311",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab67616100005174626686e362d30246e816cc5b",
+        "url": "https://i.scdn.co/image/ab676161000051746e2d4ab2b84463aa4c349311",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f178626686e362d30246e816cc5b",
+        "url": "https://i.scdn.co/image/ab6761610000f1786e2d4ab2b84463aa4c349311",
         "height": 160,
         "width": 160
       }
     ],
     "name": "Phoebe Bridgers",
-    "popularity": 78,
+    "popularity": 83,
     "type": "artist",
     "uri": "spotify:artist:1r1uxoy19fzMxunt3ONAkG"
   },
@@ -5770,7 +5919,7 @@
     },
     "followers": {
       "href": null,
-      "total": 309732
+      "total": 318755
     },
     "genres": [
       "progressive metal",
@@ -5811,7 +5960,7 @@
     },
     "followers": {
       "href": null,
-      "total": 288797
+      "total": 307265
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/2mAYpnSe3g2Y22JcZ2ddku",
@@ -5844,7 +5993,7 @@
     },
     "followers": {
       "href": null,
-      "total": 419095
+      "total": 426494
     },
     "genres": [
       "french indie pop"
@@ -5884,7 +6033,7 @@
     },
     "followers": {
       "href": null,
-      "total": 2732
+      "total": 2776
     },
     "genres": [
       "folk metal",
@@ -5910,7 +6059,7 @@
       }
     ],
     "name": "Braia",
-    "popularity": 9,
+    "popularity": 6,
     "type": "artist",
     "uri": "spotify:artist:75za1DDTZxAuofPA5k2Vqh"
   },
@@ -5920,7 +6069,7 @@
     },
     "followers": {
       "href": null,
-      "total": 37383
+      "total": 37758
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/7MZvYitgCWAOaKjxdm2S17",
@@ -5943,7 +6092,7 @@
       }
     ],
     "name": "Rosemary & Garlic",
-    "popularity": 34,
+    "popularity": 33,
     "type": "artist",
     "uri": "spotify:artist:7MZvYitgCWAOaKjxdm2S17"
   },
@@ -5953,7 +6102,7 @@
     },
     "followers": {
       "href": null,
-      "total": 38791
+      "total": 40169
     },
     "genres": [
       "thrash metal",
@@ -5990,7 +6139,7 @@
     },
     "followers": {
       "href": null,
-      "total": 12183
+      "total": 12426
     },
     "genres": [
       "power metal",
@@ -6017,7 +6166,7 @@
       }
     ],
     "name": "Zonata",
-    "popularity": 13,
+    "popularity": 12,
     "type": "artist",
     "uri": "spotify:artist:6EiP4zf8DuisqFZFtoXS49"
   },
@@ -6027,7 +6176,7 @@
     },
     "followers": {
       "href": null,
-      "total": 11065
+      "total": 11364
     },
     "genres": [
       "power metal",
@@ -6054,7 +6203,7 @@
       }
     ],
     "name": "Altaria",
-    "popularity": 21,
+    "popularity": 22,
     "type": "artist",
     "uri": "spotify:artist:5SSKKiFbZXZeXH40mv0fsS"
   },
@@ -6064,7 +6213,7 @@
     },
     "followers": {
       "href": null,
-      "total": 213801
+      "total": 216453
     },
     "genres": [
       "folk metal",
@@ -6107,7 +6256,7 @@
     },
     "followers": {
       "href": null,
-      "total": 318437
+      "total": 326588
     },
     "genres": [
       "power metal",
@@ -6141,7 +6290,7 @@
       }
     ],
     "name": "Gamma Ray",
-    "popularity": 44,
+    "popularity": 48,
     "type": "artist",
     "uri": "spotify:artist:6LZE884lDIsCSLHuTplfGp"
   },
@@ -6151,7 +6300,7 @@
     },
     "followers": {
       "href": null,
-      "total": 2539445
+      "total": 2613331
     },
     "genres": [
       "power metal",
@@ -6180,7 +6329,7 @@
       }
     ],
     "name": "Sabaton",
-    "popularity": 72,
+    "popularity": 73,
     "type": "artist",
     "uri": "spotify:artist:3o2dn2O0FCVsWDFSh8qxgG"
   },
@@ -6190,7 +6339,7 @@
     },
     "followers": {
       "href": null,
-      "total": 1193831
+      "total": 1246949
     },
     "genres": [
       "progressive metal",
@@ -6219,7 +6368,7 @@
       }
     ],
     "name": "Opeth",
-    "popularity": 60,
+    "popularity": 61,
     "type": "artist",
     "uri": "spotify:artist:0ybFZ2Ab08V8hueghSXm6E"
   },
@@ -6229,7 +6378,7 @@
     },
     "followers": {
       "href": null,
-      "total": 89052
+      "total": 90778
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/0TytASn0kOZkCpjYTrXsBt",
@@ -6252,7 +6401,7 @@
       }
     ],
     "name": "Vaults",
-    "popularity": 46,
+    "popularity": 47,
     "type": "artist",
     "uri": "spotify:artist:0TytASn0kOZkCpjYTrXsBt"
   },
@@ -6262,7 +6411,7 @@
     },
     "followers": {
       "href": null,
-      "total": 234339
+      "total": 237619
     },
     "genres": [
       "indie folk"
@@ -6297,7 +6446,7 @@
     },
     "followers": {
       "href": null,
-      "total": 149405
+      "total": 154435
     },
     "genres": [
       "slowcore"
@@ -6332,7 +6481,7 @@
     },
     "followers": {
       "href": null,
-      "total": 614396
+      "total": 626674
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/5tFRohaO5yEsuJxmMnlCO9",
@@ -6365,7 +6514,7 @@
     },
     "followers": {
       "href": null,
-      "total": 170720
+      "total": 172649
     },
     "genres": [
       "anti-folk"
@@ -6400,24 +6549,24 @@
     },
     "followers": {
       "href": null,
-      "total": 389961
+      "total": 416930
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/5JqX1glXPg6428ubI1w72i",
     "id": "5JqX1glXPg6428ubI1w72i",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5ebaeb8e49a6a06b46ebc7c0311",
+        "url": "https://i.scdn.co/image/ab6761610000e5ebe78fd519a77b70d79ea6aeb7",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab67616100005174aeb8e49a6a06b46ebc7c0311",
+        "url": "https://i.scdn.co/image/ab67616100005174e78fd519a77b70d79ea6aeb7",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f178aeb8e49a6a06b46ebc7c0311",
+        "url": "https://i.scdn.co/image/ab6761610000f178e78fd519a77b70d79ea6aeb7",
         "height": 160,
         "width": 160
       }
@@ -6433,7 +6582,7 @@
     },
     "followers": {
       "href": null,
-      "total": 113610
+      "total": 114316
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/7DtlawO7T5bsgq81EeHxwh",
@@ -6456,7 +6605,7 @@
       }
     ],
     "name": "Sóley",
-    "popularity": 31,
+    "popularity": 32,
     "type": "artist",
     "uri": "spotify:artist:7DtlawO7T5bsgq81EeHxwh"
   },
@@ -6466,7 +6615,7 @@
     },
     "followers": {
       "href": null,
-      "total": 127097
+      "total": 128291
     },
     "genres": [
       "folk metal",
@@ -6504,24 +6653,24 @@
     },
     "followers": {
       "href": null,
-      "total": 670437
+      "total": 687075
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/5tIkXJTex4JY7cv9mmgAZx",
     "id": "5tIkXJTex4JY7cv9mmgAZx",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5eb35e2308259dce61ce7614bb8",
+        "url": "https://i.scdn.co/image/ab6761610000e5ebc0afce2271050081f8f9b8b6",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000517435e2308259dce61ce7614bb8",
+        "url": "https://i.scdn.co/image/ab67616100005174c0afce2271050081f8f9b8b6",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f17835e2308259dce61ce7614bb8",
+        "url": "https://i.scdn.co/image/ab6761610000f178c0afce2271050081f8f9b8b6",
         "height": 160,
         "width": 160
       }
@@ -6537,7 +6686,7 @@
     },
     "followers": {
       "href": null,
-      "total": 22276
+      "total": 22704
     },
     "genres": [
       "french indie pop"
@@ -6572,7 +6721,7 @@
     },
     "followers": {
       "href": null,
-      "total": 546319
+      "total": 568198
     },
     "genres": [
       "power metal",
@@ -6612,11 +6761,9 @@
     },
     "followers": {
       "href": null,
-      "total": 1140
+      "total": 1306
     },
-    "genres": [
-      "slowcore"
-    ],
+    "genres": [],
     "href": "https://api.spotify.com/v1/artists/2q3ClJmvQ8JmaKOCcgv5Gs",
     "id": "2q3ClJmvQ8JmaKOCcgv5Gs",
     "images": [
@@ -6637,7 +6784,7 @@
       }
     ],
     "name": "Anastasia Minster",
-    "popularity": 10,
+    "popularity": 12,
     "type": "artist",
     "uri": "spotify:artist:2q3ClJmvQ8JmaKOCcgv5Gs"
   },
@@ -6647,7 +6794,7 @@
     },
     "followers": {
       "href": null,
-      "total": 12457
+      "total": 12641
     },
     "genres": [
       "indie québécois"
@@ -6672,7 +6819,7 @@
       }
     ],
     "name": "Gabrielle Shonk",
-    "popularity": 20,
+    "popularity": 21,
     "type": "artist",
     "uri": "spotify:artist:5Vj7LABYdzz3ZBt1EhDIoQ"
   },
@@ -6682,7 +6829,7 @@
     },
     "followers": {
       "href": null,
-      "total": 371212
+      "total": 379317
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/02YLJJnWC7YQVixkjEBRn7",
@@ -6715,7 +6862,7 @@
     },
     "followers": {
       "href": null,
-      "total": 4997291
+      "total": 5287049
     },
     "genres": [
       "norwegian pop",
@@ -6741,7 +6888,7 @@
       }
     ],
     "name": "AURORA",
-    "popularity": 75,
+    "popularity": 76,
     "type": "artist",
     "uri": "spotify:artist:1WgXqy2Dd70QQOU7Ay074N"
   },
@@ -6751,7 +6898,7 @@
     },
     "followers": {
       "href": null,
-      "total": 257356
+      "total": 264062
     },
     "genres": [
       "norwegian pop",
@@ -6761,23 +6908,23 @@
     "id": "54KCNI7URCrG6yjQK3Ukow",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5ebf0557a17909c68a926d21186",
+        "url": "https://i.scdn.co/image/ab6761610000e5eb8f26659eb5029e8545cfa562",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab67616100005174f0557a17909c68a926d21186",
+        "url": "https://i.scdn.co/image/ab676161000051748f26659eb5029e8545cfa562",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f178f0557a17909c68a926d21186",
+        "url": "https://i.scdn.co/image/ab6761610000f1788f26659eb5029e8545cfa562",
         "height": 160,
         "width": 160
       }
     ],
     "name": "Susanne Sundfør",
-    "popularity": 54,
+    "popularity": 55,
     "type": "artist",
     "uri": "spotify:artist:54KCNI7URCrG6yjQK3Ukow"
   },
@@ -6787,7 +6934,7 @@
     },
     "followers": {
       "href": null,
-      "total": 843992
+      "total": 896519
     },
     "genres": [
       "europop",
@@ -6823,7 +6970,7 @@
     },
     "followers": {
       "href": null,
-      "total": 946353
+      "total": 975621
     },
     "genres": [
       "bluegrass",
@@ -6834,23 +6981,23 @@
     "id": "3HR1xtIsUefdFnkI1XHgeA",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5eba936850372b0467bd5b732de",
+        "url": "https://i.scdn.co/image/ab6761610000e5ebffc2572ce3c7ecf75d683a6f",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab67616100005174a936850372b0467bd5b732de",
+        "url": "https://i.scdn.co/image/ab67616100005174ffc2572ce3c7ecf75d683a6f",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f178a936850372b0467bd5b732de",
+        "url": "https://i.scdn.co/image/ab6761610000f178ffc2572ce3c7ecf75d683a6f",
         "height": 160,
         "width": 160
       }
     ],
     "name": "The Dead South",
-    "popularity": 60,
+    "popularity": 61,
     "type": "artist",
     "uri": "spotify:artist:3HR1xtIsUefdFnkI1XHgeA"
   },
@@ -6860,7 +7007,7 @@
     },
     "followers": {
       "href": null,
-      "total": 3787022
+      "total": 3830462
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/2WX2uTcsvV5OnS0inACecP",
@@ -6893,7 +7040,7 @@
     },
     "followers": {
       "href": null,
-      "total": 342771
+      "total": 348785
     },
     "genres": [
       "folk pop",
@@ -6929,13 +7076,13 @@
     },
     "followers": {
       "href": null,
-      "total": 233060
+      "total": 236894
     },
     "genres": [
       "french pop",
       "french house",
-      "electropop",
       "electroclash",
+      "electropop",
       "french indie pop"
     ],
     "href": "https://api.spotify.com/v1/artists/0WbqAlM1WvfUD6dF7omThd",
@@ -6968,12 +7115,12 @@
     },
     "followers": {
       "href": null,
-      "total": 315604
+      "total": 323858
     },
     "genres": [
       "power metal",
-      "speed metal",
       "symphonic metal",
+      "speed metal",
       "metal",
       "heavy metal",
       "progressive metal"
@@ -7003,7 +7150,7 @@
       }
     ],
     "name": "Edguy",
-    "popularity": 47,
+    "popularity": 50,
     "type": "artist",
     "uri": "spotify:artist:3AGFqPP3gt5rMSvhR87Xxu"
   },
@@ -7013,30 +7160,30 @@
     },
     "followers": {
       "href": null,
-      "total": 1355847
+      "total": 1386296
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/4tvKz56Tr39bkhcQUTO0Xr",
     "id": "4tvKz56Tr39bkhcQUTO0Xr",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5eba6bec94f269e61676f2fe977",
+        "url": "https://i.scdn.co/image/ab6761610000e5ebd177330580bc322b23a74fdd",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab67616100005174a6bec94f269e61676f2fe977",
+        "url": "https://i.scdn.co/image/ab67616100005174d177330580bc322b23a74fdd",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f178a6bec94f269e61676f2fe977",
+        "url": "https://i.scdn.co/image/ab6761610000f178d177330580bc322b23a74fdd",
         "height": 160,
         "width": 160
       }
     ],
     "name": "Angus & Julia Stone",
-    "popularity": 65,
+    "popularity": 67,
     "type": "artist",
     "uri": "spotify:artist:4tvKz56Tr39bkhcQUTO0Xr"
   },
@@ -7046,7 +7193,7 @@
     },
     "followers": {
       "href": null,
-      "total": 56802
+      "total": 57818
     },
     "genres": [
       "electro swing"
@@ -7081,7 +7228,7 @@
     },
     "followers": {
       "href": null,
-      "total": 13002
+      "total": 13125
     },
     "genres": [
       "french indie pop",
@@ -7107,7 +7254,7 @@
       }
     ],
     "name": "Burning Peacocks",
-    "popularity": 24,
+    "popularity": 26,
     "type": "artist",
     "uri": "spotify:artist:4s2RfNqVSy0S6oD9RkUJv4"
   },
@@ -7117,7 +7264,7 @@
     },
     "followers": {
       "href": null,
-      "total": 102326
+      "total": 104708
     },
     "genres": [
       "alternative dance"
@@ -7152,7 +7299,7 @@
     },
     "followers": {
       "href": null,
-      "total": 432445
+      "total": 442136
     },
     "genres": [
       "medieval",
@@ -7182,7 +7329,7 @@
       }
     ],
     "name": "Faun",
-    "popularity": 52,
+    "popularity": 53,
     "type": "artist",
     "uri": "spotify:artist:2wPOgnQ6eW3X73uIJZ4YFE"
   },
@@ -7192,7 +7339,7 @@
     },
     "followers": {
       "href": null,
-      "total": 127541
+      "total": 129625
     },
     "genres": [
       "folk metal",
@@ -7230,7 +7377,7 @@
     },
     "followers": {
       "href": null,
-      "total": 173925
+      "total": 177051
     },
     "genres": [
       "progressive metal",
@@ -7269,7 +7416,7 @@
     },
     "followers": {
       "href": null,
-      "total": 3469287
+      "total": 3588548
     },
     "genres": [
       "glam metal",
@@ -7296,7 +7443,7 @@
       }
     ],
     "name": "Whitesnake",
-    "popularity": 66,
+    "popularity": 68,
     "type": "artist",
     "uri": "spotify:artist:3UbyYnvNIT5DFXU4WgiGpP"
   },
@@ -7306,7 +7453,7 @@
     },
     "followers": {
       "href": null,
-      "total": 4681220
+      "total": 4795995
     },
     "genres": [
       "heavy metal",
@@ -7335,7 +7482,7 @@
       }
     ],
     "name": "Judas Priest",
-    "popularity": 67,
+    "popularity": 68,
     "type": "artist",
     "uri": "spotify:artist:2tRsMl4eGxwoNabM08Dm4I"
   },
@@ -7345,7 +7492,7 @@
     },
     "followers": {
       "href": null,
-      "total": 14698
+      "total": 15039
     },
     "genres": [
       "folk metal",
@@ -7371,7 +7518,7 @@
       }
     ],
     "name": "Otyg",
-    "popularity": 23,
+    "popularity": 17,
     "type": "artist",
     "uri": "spotify:artist:4hD4mPSJhofWU9bSqChPJF"
   },
@@ -7381,30 +7528,30 @@
     },
     "followers": {
       "href": null,
-      "total": 146857
+      "total": 163025
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/4kDmwaDsfY9hcvz7K0otLJ",
     "id": "4kDmwaDsfY9hcvz7K0otLJ",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5eb98ffc7f137d73d733cd10ab9",
+        "url": "https://i.scdn.co/image/ab6761610000e5eb34a882eac5cc17e8b516872a",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000517498ffc7f137d73d733cd10ab9",
+        "url": "https://i.scdn.co/image/ab6761610000517434a882eac5cc17e8b516872a",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f17898ffc7f137d73d733cd10ab9",
+        "url": "https://i.scdn.co/image/ab6761610000f17834a882eac5cc17e8b516872a",
         "height": 160,
         "width": 160
       }
     ],
     "name": "Syd Matters",
-    "popularity": 56,
+    "popularity": 57,
     "type": "artist",
     "uri": "spotify:artist:4kDmwaDsfY9hcvz7K0otLJ"
   },
@@ -7414,7 +7561,7 @@
     },
     "followers": {
       "href": null,
-      "total": 224199
+      "total": 232805
     },
     "genres": [
       "symphonic metal",
@@ -7443,7 +7590,7 @@
       }
     ],
     "name": "Haggard",
-    "popularity": 44,
+    "popularity": 45,
     "type": "artist",
     "uri": "spotify:artist:7wHPtfK57nbFkg3k16BV5O"
   },
@@ -7453,7 +7600,7 @@
     },
     "followers": {
       "href": null,
-      "total": 375522
+      "total": 387009
     },
     "genres": [
       "symphonic metal",
@@ -7462,8 +7609,8 @@
       "metal",
       "death metal",
       "folk metal",
-      "progressive metal",
-      "doom metal"
+      "doom metal",
+      "progressive metal"
     ],
     "href": "https://api.spotify.com/v1/artists/5c8Cw62ZYj9XO6iDLRDEsi",
     "id": "5c8Cw62ZYj9XO6iDLRDEsi",
@@ -7485,7 +7632,7 @@
       }
     ],
     "name": "Therion",
-    "popularity": 49,
+    "popularity": 50,
     "type": "artist",
     "uri": "spotify:artist:5c8Cw62ZYj9XO6iDLRDEsi"
   },
@@ -7495,7 +7642,7 @@
     },
     "followers": {
       "href": null,
-      "total": 10772853
+      "total": 11057833
     },
     "genres": [
       "heavy metal",
@@ -7523,7 +7670,7 @@
       }
     ],
     "name": "Iron Maiden",
-    "popularity": 75,
+    "popularity": 76,
     "type": "artist",
     "uri": "spotify:artist:6mdiAmATAx73kdxrNrnlao"
   },
@@ -7533,7 +7680,7 @@
     },
     "followers": {
       "href": null,
-      "total": 34214283
+      "total": 35671612
     },
     "genres": [
       "metal",
@@ -7572,7 +7719,7 @@
     },
     "followers": {
       "href": null,
-      "total": 89331
+      "total": 90676
     },
     "genres": [
       "folk metal",
@@ -7600,7 +7747,7 @@
       }
     ],
     "name": "Orphaned Land",
-    "popularity": 31,
+    "popularity": 32,
     "type": "artist",
     "uri": "spotify:artist:7xTMxqAmbtE0Nce5lz7t0h"
   },
@@ -7610,14 +7757,14 @@
     },
     "followers": {
       "href": null,
-      "total": 122775
+      "total": 127123
     },
     "genres": [
       "gothic metal",
       "death metal",
       "melodic death metal",
-      "metal",
       "finnish rock",
+      "metal",
       "gothic rock",
       "doom metal"
     ],
@@ -7646,7 +7793,7 @@
       }
     ],
     "name": "Sentenced",
-    "popularity": 43,
+    "popularity": 45,
     "type": "artist",
     "uri": "spotify:artist:5jQPKWBobu6cJwGSbbqgCk"
   },
@@ -7656,7 +7803,7 @@
     },
     "followers": {
       "href": null,
-      "total": 40378
+      "total": 41283
     },
     "genres": [
       "folk metal",
@@ -7686,7 +7833,7 @@
       }
     ],
     "name": "Tuatha de Danann",
-    "popularity": 25,
+    "popularity": 26,
     "type": "artist",
     "uri": "spotify:artist:13LUK4MSLSmDpI6D3lJqEn"
   },
@@ -7696,7 +7843,7 @@
     },
     "followers": {
       "href": null,
-      "total": 19461
+      "total": 19820
     },
     "genres": [
       "brazilian rock"
@@ -7731,7 +7878,7 @@
     },
     "followers": {
       "href": null,
-      "total": 168631
+      "total": 172462
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/1yqs45BSh7457Flyhmdv7f",
@@ -7754,7 +7901,7 @@
       }
     ],
     "name": "Steam Powered Giraffe",
-    "popularity": 44,
+    "popularity": 45,
     "type": "artist",
     "uri": "spotify:artist:1yqs45BSh7457Flyhmdv7f"
   },
@@ -7764,7 +7911,7 @@
     },
     "followers": {
       "href": null,
-      "total": 672056
+      "total": 685733
     },
     "genres": [
       "power metal",
@@ -7794,7 +7941,7 @@
       }
     ],
     "name": "Sonata Arctica",
-    "popularity": 54,
+    "popularity": 55,
     "type": "artist",
     "uri": "spotify:artist:5YeoQ1L71cXDMpSpqxOjfH"
   },
@@ -7804,7 +7951,7 @@
     },
     "followers": {
       "href": null,
-      "total": 150262
+      "total": 152845
     },
     "genres": [
       "southern gothic",
@@ -7830,7 +7977,7 @@
       }
     ],
     "name": "Marika Hackman",
-    "popularity": 43,
+    "popularity": 44,
     "type": "artist",
     "uri": "spotify:artist:5DGJC3n9DS0Y9eY5ul9y0O"
   },
@@ -7840,7 +7987,7 @@
     },
     "followers": {
       "href": null,
-      "total": 8815
+      "total": 9173
     },
     "genres": [
       "power metal",
@@ -7877,12 +8024,12 @@
     },
     "followers": {
       "href": null,
-      "total": 38716
+      "total": 39745
     },
     "genres": [
       "symphonic metal",
-      "folk metal",
-      "anatolian rock"
+      "anatolian rock",
+      "folk metal"
     ],
     "href": "https://api.spotify.com/v1/artists/5rThgU18h0ejIeElIlLWkS",
     "id": "5rThgU18h0ejIeElIlLWkS",
@@ -7904,7 +8051,7 @@
       }
     ],
     "name": "Almora",
-    "popularity": 27,
+    "popularity": 29,
     "type": "artist",
     "uri": "spotify:artist:5rThgU18h0ejIeElIlLWkS"
   },
@@ -7914,7 +8061,7 @@
     },
     "followers": {
       "href": null,
-      "total": 448869
+      "total": 462452
     },
     "genres": [
       "thrash metal",
@@ -7948,7 +8095,7 @@
       }
     ],
     "name": "Annihilator",
-    "popularity": 47,
+    "popularity": 48,
     "type": "artist",
     "uri": "spotify:artist:0L8QRAAuWjqvTM8FpQ1gYO"
   },
@@ -7958,7 +8105,7 @@
     },
     "followers": {
       "href": null,
-      "total": 140707
+      "total": 144764
     },
     "genres": [
       "aor",
@@ -7995,30 +8142,30 @@
     },
     "followers": {
       "href": null,
-      "total": 957062
+      "total": 986542
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/1rKrEdI6GKirxWHxIUPYms",
     "id": "1rKrEdI6GKirxWHxIUPYms",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5eb312fa20da6b19e20d9b07974",
+        "url": "https://i.scdn.co/image/ab6761610000e5ebcf9882b955077831d1d36345",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab67616100005174312fa20da6b19e20d9b07974",
+        "url": "https://i.scdn.co/image/ab67616100005174cf9882b955077831d1d36345",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f178312fa20da6b19e20d9b07974",
+        "url": "https://i.scdn.co/image/ab6761610000f178cf9882b955077831d1d36345",
         "height": 160,
         "width": 160
       }
     ],
     "name": "Agnes Obel",
-    "popularity": 59,
+    "popularity": 62,
     "type": "artist",
     "uri": "spotify:artist:1rKrEdI6GKirxWHxIUPYms"
   },
@@ -8028,7 +8175,7 @@
     },
     "followers": {
       "href": null,
-      "total": 131739
+      "total": 133810
     },
     "genres": [
       "french indie pop",
@@ -8054,7 +8201,7 @@
       }
     ],
     "name": "Cocoon",
-    "popularity": 49,
+    "popularity": 50,
     "type": "artist",
     "uri": "spotify:artist:15h5B5quwDm2C1rhbtvUPD"
   },
@@ -8064,7 +8211,7 @@
     },
     "followers": {
       "href": null,
-      "total": 178109
+      "total": 181489
     },
     "genres": [
       "avant-garde",
@@ -8104,7 +8251,7 @@
     },
     "followers": {
       "href": null,
-      "total": 11586
+      "total": 11883
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/5F9t2eiVfkS6nfRwyH2WjS",
@@ -8137,7 +8284,7 @@
     },
     "followers": {
       "href": null,
-      "total": 12394
+      "total": 12753
     },
     "genres": [
       "doom metal",
@@ -8166,7 +8313,7 @@
       }
     ],
     "name": "Doomsword",
-    "popularity": 15,
+    "popularity": 14,
     "type": "artist",
     "uri": "spotify:artist:31R0Xxb1rS7j4d0jmNIBdl"
   },
@@ -8176,13 +8323,12 @@
     },
     "followers": {
       "href": null,
-      "total": 245673
+      "total": 250834
     },
     "genres": [
       "folk metal",
       "power metal",
-      "metal",
-      "medieval metal"
+      "metal"
     ],
     "href": "https://api.spotify.com/v1/artists/6TmGNPW2oDM5uaXBILozGa",
     "id": "6TmGNPW2oDM5uaXBILozGa",
@@ -8214,7 +8360,7 @@
     },
     "followers": {
       "href": null,
-      "total": 1678905
+      "total": 1708612
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/3Bd1cgCjtCI32PYvDC3ynO",
@@ -8247,7 +8393,7 @@
     },
     "followers": {
       "href": null,
-      "total": 3687026
+      "total": 3749978
     },
     "genres": [
       "folk pop"
@@ -8272,7 +8418,7 @@
       }
     ],
     "name": "Of Monsters and Men",
-    "popularity": 70,
+    "popularity": 71,
     "type": "artist",
     "uri": "spotify:artist:4dwdTW1Lfiq0cM8nBAqIIz"
   }

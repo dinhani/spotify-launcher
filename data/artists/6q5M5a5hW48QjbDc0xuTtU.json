@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 21924
+      "total": 22595
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/6q5M5a5hW48QjbDc0xuTtU",
@@ -28,7 +28,7 @@
       }
     ],
     "name": "Bitter Ruin",
-    "popularity": 36,
+    "popularity": 35,
     "type": "artist",
     "uri": "spotify:artist:6q5M5a5hW48QjbDc0xuTtU"
   },
@@ -1852,24 +1852,24 @@
         "XK"
       ],
       "disc_number": 1,
-      "duration_ms": 175801,
+      "duration_ms": 185199,
       "explicit": false,
       "external_ids": {
-        "isrc": "GBTE71407001"
+        "isrc": "GBTE71405001"
       },
       "external_urls": {
-        "spotify": "https://open.spotify.com/track/1mDM2v1mwi9zbjZZcU0PfL"
+        "spotify": "https://open.spotify.com/track/74cnDHEuyhzDYbtZfCJsWe"
       },
-      "href": "https://api.spotify.com/v1/tracks/1mDM2v1mwi9zbjZZcU0PfL",
-      "id": "1mDM2v1mwi9zbjZZcU0PfL",
+      "href": "https://api.spotify.com/v1/tracks/74cnDHEuyhzDYbtZfCJsWe",
+      "id": "74cnDHEuyhzDYbtZfCJsWe",
       "is_local": false,
       "is_playable": true,
-      "name": "Stampede",
-      "popularity": 40,
+      "name": "Leather for Hell",
+      "popularity": 39,
       "preview_url": null,
-      "track_number": 7,
+      "track_number": 5,
       "type": "track",
-      "uri": "spotify:track:1mDM2v1mwi9zbjZZcU0PfL"
+      "uri": "spotify:track:74cnDHEuyhzDYbtZfCJsWe"
     },
     {
       "album": {
@@ -2303,24 +2303,24 @@
         "XK"
       ],
       "disc_number": 1,
-      "duration_ms": 185199,
+      "duration_ms": 175801,
       "explicit": false,
       "external_ids": {
-        "isrc": "GBTE71405001"
+        "isrc": "GBTE71407001"
       },
       "external_urls": {
-        "spotify": "https://open.spotify.com/track/74cnDHEuyhzDYbtZfCJsWe"
+        "spotify": "https://open.spotify.com/track/1mDM2v1mwi9zbjZZcU0PfL"
       },
-      "href": "https://api.spotify.com/v1/tracks/74cnDHEuyhzDYbtZfCJsWe",
-      "id": "74cnDHEuyhzDYbtZfCJsWe",
+      "href": "https://api.spotify.com/v1/tracks/1mDM2v1mwi9zbjZZcU0PfL",
+      "id": "1mDM2v1mwi9zbjZZcU0PfL",
       "is_local": false,
       "is_playable": true,
-      "name": "Leather for Hell",
+      "name": "Stampede",
       "popularity": 39,
       "preview_url": null,
-      "track_number": 5,
+      "track_number": 7,
       "type": "track",
-      "uri": "spotify:track:74cnDHEuyhzDYbtZfCJsWe"
+      "uri": "spotify:track:1mDM2v1mwi9zbjZZcU0PfL"
     },
     {
       "album": {
@@ -4780,34 +4780,34 @@
           "XK"
         ],
         "external_urls": {
-          "spotify": "https://open.spotify.com/album/1J3zoflsvmXbJuJ1opvy5Z"
+          "spotify": "https://open.spotify.com/album/0071zUEpqbkrrjqsRYHLwr"
         },
-        "href": "https://api.spotify.com/v1/albums/1J3zoflsvmXbJuJ1opvy5Z",
-        "id": "1J3zoflsvmXbJuJ1opvy5Z",
+        "href": "https://api.spotify.com/v1/albums/0071zUEpqbkrrjqsRYHLwr",
+        "id": "0071zUEpqbkrrjqsRYHLwr",
         "images": [
           {
-            "url": "https://i.scdn.co/image/ab67616d0000b273e50c0148ebc5a4348c1780bf",
+            "url": "https://i.scdn.co/image/ab67616d0000b273a299d81f421636b147bf5b1a",
             "height": 640,
             "width": 640
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d00001e02e50c0148ebc5a4348c1780bf",
+            "url": "https://i.scdn.co/image/ab67616d00001e02a299d81f421636b147bf5b1a",
             "height": 300,
             "width": 300
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d00004851e50c0148ebc5a4348c1780bf",
+            "url": "https://i.scdn.co/image/ab67616d00004851a299d81f421636b147bf5b1a",
             "height": 64,
             "width": 64
           }
         ],
         "is_playable": true,
-        "name": "Waves",
-        "release_date": "2014-05-12",
+        "name": "Arches & Enemies",
+        "release_date": "2025-05-15",
         "release_date_precision": "day",
-        "total_tracks": 11,
+        "total_tracks": 10,
         "type": "album",
-        "uri": "spotify:album:1J3zoflsvmXbJuJ1opvy5Z"
+        "uri": "spotify:album:0071zUEpqbkrrjqsRYHLwr"
       },
       "artists": [
         {
@@ -5009,24 +5009,24 @@
         "XK"
       ],
       "disc_number": 1,
-      "duration_ms": 240401,
+      "duration_ms": 253625,
       "explicit": false,
       "external_ids": {
-        "isrc": "GBTE71404001"
+        "isrc": "TCAJM2542363"
       },
       "external_urls": {
-        "spotify": "https://open.spotify.com/track/1sjlfGqlQkeijOmspNc0Bh"
+        "spotify": "https://open.spotify.com/track/3oV2Wzd9i76lucrgeXBDtZ"
       },
-      "href": "https://api.spotify.com/v1/tracks/1sjlfGqlQkeijOmspNc0Bh",
-      "id": "1sjlfGqlQkeijOmspNc0Bh",
+      "href": "https://api.spotify.com/v1/tracks/3oV2Wzd9i76lucrgeXBDtZ",
+      "id": "3oV2Wzd9i76lucrgeXBDtZ",
       "is_local": false,
       "is_playable": true,
-      "name": "Pushin' out the Light",
-      "popularity": 28,
+      "name": "Shivers",
+      "popularity": 30,
       "preview_url": null,
       "track_number": 4,
       "type": "track",
-      "uri": "spotify:track:1sjlfGqlQkeijOmspNc0Bh"
+      "uri": "spotify:track:3oV2Wzd9i76lucrgeXBDtZ"
     },
     {
       "album": {
@@ -5460,24 +5460,24 @@
         "XK"
       ],
       "disc_number": 1,
-      "duration_ms": 253625,
+      "duration_ms": 258625,
       "explicit": false,
       "external_ids": {
-        "isrc": "TCAJM2542363"
+        "isrc": "TCAJM2538514"
       },
       "external_urls": {
-        "spotify": "https://open.spotify.com/track/3oV2Wzd9i76lucrgeXBDtZ"
+        "spotify": "https://open.spotify.com/track/7JFGjijIf6M9QIp99jg9ax"
       },
-      "href": "https://api.spotify.com/v1/tracks/3oV2Wzd9i76lucrgeXBDtZ",
-      "id": "3oV2Wzd9i76lucrgeXBDtZ",
+      "href": "https://api.spotify.com/v1/tracks/7JFGjijIf6M9QIp99jg9ax",
+      "id": "7JFGjijIf6M9QIp99jg9ax",
       "is_local": false,
       "is_playable": true,
-      "name": "Shivers",
-      "popularity": 28,
+      "name": "Wish Me Away",
+      "popularity": 26,
       "preview_url": null,
-      "track_number": 4,
+      "track_number": 1,
       "type": "track",
-      "uri": "spotify:track:3oV2Wzd9i76lucrgeXBDtZ"
+      "uri": "spotify:track:7JFGjijIf6M9QIp99jg9ax"
     }
   ]
 }

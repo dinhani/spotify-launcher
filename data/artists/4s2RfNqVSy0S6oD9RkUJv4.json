@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 13002
+      "total": 13125
     },
     "genres": [
       "french indie pop",
@@ -31,7 +31,7 @@
       }
     ],
     "name": "Burning Peacocks",
-    "popularity": 24,
+    "popularity": 26,
     "type": "artist",
     "uri": "spotify:artist:4s2RfNqVSy0S6oD9RkUJv4"
   },
@@ -714,7 +714,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Tears of Lava",
-      "popularity": 38,
+      "popularity": 42,
       "preview_url": null,
       "track_number": 1,
       "type": "track",
@@ -1165,7 +1165,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Ondulation",
-      "popularity": 31,
+      "popularity": 32,
       "preview_url": null,
       "track_number": 1,
       "type": "track",
@@ -1616,7 +1616,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Fils D'or",
-      "popularity": 26,
+      "popularity": 27,
       "preview_url": null,
       "track_number": 5,
       "type": "track",
@@ -2518,7 +2518,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Games",
-      "popularity": 20,
+      "popularity": 21,
       "preview_url": null,
       "track_number": 7,
       "type": "track",
@@ -2969,7 +2969,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Odyssea",
-      "popularity": 15,
+      "popularity": 16,
       "preview_url": null,
       "track_number": 4,
       "type": "track",
@@ -3858,24 +3858,24 @@
         "XK"
       ],
       "disc_number": 1,
-      "duration_ms": 236360,
+      "duration_ms": 287106,
       "explicit": false,
       "external_ids": {
-        "isrc": "FR4DW1601170"
+        "isrc": "FR4DW1601210"
       },
       "external_urls": {
-        "spotify": "https://open.spotify.com/track/6ap8dXT8UehHJeRoAGHBwL"
+        "spotify": "https://open.spotify.com/track/727GWlzEbOSuohfsUdl7Mv"
       },
-      "href": "https://api.spotify.com/v1/tracks/6ap8dXT8UehHJeRoAGHBwL",
-      "id": "6ap8dXT8UehHJeRoAGHBwL",
+      "href": "https://api.spotify.com/v1/tracks/727GWlzEbOSuohfsUdl7Mv",
+      "id": "727GWlzEbOSuohfsUdl7Mv",
       "is_local": false,
       "is_playable": true,
-      "name": "Eden",
-      "popularity": 8,
+      "name": "Fortune Wheel",
+      "popularity": 9,
       "preview_url": null,
-      "track_number": 2,
+      "track_number": 6,
       "type": "track",
-      "uri": "spotify:track:6ap8dXT8UehHJeRoAGHBwL"
+      "uri": "spotify:track:727GWlzEbOSuohfsUdl7Mv"
     },
     {
       "album": {
@@ -4309,24 +4309,24 @@
         "XK"
       ],
       "disc_number": 1,
-      "duration_ms": 287106,
+      "duration_ms": 236360,
       "explicit": false,
       "external_ids": {
-        "isrc": "FR4DW1601210"
+        "isrc": "FR4DW1601170"
       },
       "external_urls": {
-        "spotify": "https://open.spotify.com/track/727GWlzEbOSuohfsUdl7Mv"
+        "spotify": "https://open.spotify.com/track/6ap8dXT8UehHJeRoAGHBwL"
       },
-      "href": "https://api.spotify.com/v1/tracks/727GWlzEbOSuohfsUdl7Mv",
-      "id": "727GWlzEbOSuohfsUdl7Mv",
+      "href": "https://api.spotify.com/v1/tracks/6ap8dXT8UehHJeRoAGHBwL",
+      "id": "6ap8dXT8UehHJeRoAGHBwL",
       "is_local": false,
       "is_playable": true,
-      "name": "Fortune Wheel",
-      "popularity": 7,
+      "name": "Eden",
+      "popularity": 9,
       "preview_url": null,
-      "track_number": 6,
+      "track_number": 2,
       "type": "track",
-      "uri": "spotify:track:727GWlzEbOSuohfsUdl7Mv"
+      "uri": "spotify:track:6ap8dXT8UehHJeRoAGHBwL"
     },
     {
       "album": {

@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 5460049
+      "total": 5698556
     },
     "genres": [
       "grunge",
@@ -32,7 +32,7 @@
       }
     ],
     "name": "Audioslave",
-    "popularity": 73,
+    "popularity": 75,
     "type": "artist",
     "uri": "spotify:artist:2ziB7fzrXBoh1HUPS6sVFn"
   },
@@ -1165,7 +1165,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Like a Stone",
-      "popularity": 79,
+      "popularity": 81,
       "preview_url": null,
       "track_number": 5,
       "type": "track",
@@ -2053,7 +2053,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Be Yourself",
-      "popularity": 75,
+      "popularity": 77,
       "preview_url": null,
       "track_number": 3,
       "type": "track",
@@ -2498,7 +2498,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "I Am the Highway",
-      "popularity": 63,
+      "popularity": 71,
       "preview_url": null,
       "track_number": 8,
       "type": "track",
@@ -2943,7 +2943,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Cochise",
-      "popularity": 61,
+      "popularity": 62,
       "preview_url": null,
       "track_number": 1,
       "type": "track",
@@ -3386,7 +3386,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Doesn't Remind Me",
-      "popularity": 66,
+      "popularity": 68,
       "preview_url": null,
       "track_number": 4,
       "type": "track",
@@ -3831,7 +3831,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Shadow on the Sun",
-      "popularity": 56,
+      "popularity": 58,
       "preview_url": null,
       "track_number": 7,
       "type": "track",
@@ -4276,7 +4276,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Gasoline",
-      "popularity": 54,
+      "popularity": 56,
       "preview_url": null,
       "track_number": 3,
       "type": "track",
@@ -4721,7 +4721,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "What You Are",
-      "popularity": 54,
+      "popularity": 55,
       "preview_url": null,
       "track_number": 4,
       "type": "track",
@@ -4770,7 +4770,6 @@
           "HK",
           "HU",
           "IS",
-          "IE",
           "IT",
           "LV",
           "LT",
@@ -4797,7 +4796,6 @@
           "TR",
           "UY",
           "US",
-          "GB",
           "AD",
           "LI",
           "MC",
@@ -4874,7 +4872,6 @@
           "NE",
           "PW",
           "PG",
-          "PR",
           "WS",
           "SM",
           "ST",
@@ -4926,38 +4923,37 @@
           "LY",
           "TJ",
           "VE",
-          "ET",
           "XK"
         ],
         "external_urls": {
-          "spotify": "https://open.spotify.com/album/6Ys6uRTMti54CH8VEo2xEt"
+          "spotify": "https://open.spotify.com/album/0HQhToIjonHnJRRPN4jeJU"
         },
-        "href": "https://api.spotify.com/v1/albums/6Ys6uRTMti54CH8VEo2xEt",
-        "id": "6Ys6uRTMti54CH8VEo2xEt",
+        "href": "https://api.spotify.com/v1/albums/0HQhToIjonHnJRRPN4jeJU",
+        "id": "0HQhToIjonHnJRRPN4jeJU",
         "images": [
           {
-            "url": "https://i.scdn.co/image/ab67616d0000b2732b8ac52203215122968d4d6a",
+            "url": "https://i.scdn.co/image/ab67616d0000b27307301dd5fedf5ad64cde4882",
             "height": 640,
             "width": 640
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d00001e022b8ac52203215122968d4d6a",
+            "url": "https://i.scdn.co/image/ab67616d00001e0207301dd5fedf5ad64cde4882",
             "height": 300,
             "width": 300
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d000048512b8ac52203215122968d4d6a",
+            "url": "https://i.scdn.co/image/ab67616d0000485107301dd5fedf5ad64cde4882",
             "height": 64,
             "width": 64
           }
         ],
         "is_playable": true,
-        "name": "Revelations",
-        "release_date": "2006-08-29",
+        "name": "Out of Exile",
+        "release_date": "2005-01-01",
         "release_date_precision": "day",
         "total_tracks": 12,
         "type": "album",
-        "uri": "spotify:album:6Ys6uRTMti54CH8VEo2xEt"
+        "uri": "spotify:album:0HQhToIjonHnJRRPN4jeJU"
       },
       "artists": [
         {
@@ -4999,7 +4995,6 @@
         "HK",
         "HU",
         "IS",
-        "IE",
         "IT",
         "LV",
         "LT",
@@ -5026,7 +5021,6 @@
         "TR",
         "UY",
         "US",
-        "GB",
         "AD",
         "LI",
         "MC",
@@ -5103,7 +5097,6 @@
         "NE",
         "PW",
         "PG",
-        "PR",
         "WS",
         "SM",
         "ST",
@@ -5155,28 +5148,27 @@
         "LY",
         "TJ",
         "VE",
-        "ET",
         "XK"
       ],
       "disc_number": 1,
-      "duration_ms": 265973,
+      "duration_ms": 299000,
       "explicit": false,
       "external_ids": {
-        "isrc": "USSM10603162"
+        "isrc": "USIR10500777"
       },
       "external_urls": {
-        "spotify": "https://open.spotify.com/track/0azJGZcBmcLKYpHBpFEdm6"
+        "spotify": "https://open.spotify.com/track/0wxR6vA8Je5JHiTsZSmG01"
       },
-      "href": "https://api.spotify.com/v1/tracks/0azJGZcBmcLKYpHBpFEdm6",
-      "id": "0azJGZcBmcLKYpHBpFEdm6",
+      "href": "https://api.spotify.com/v1/tracks/0wxR6vA8Je5JHiTsZSmG01",
+      "id": "0wxR6vA8Je5JHiTsZSmG01",
       "is_local": false,
       "is_playable": true,
-      "name": "Wide Awake",
-      "popularity": 58,
+      "name": "#1 Zero",
+      "popularity": 61,
       "preview_url": null,
-      "track_number": 10,
+      "track_number": 11,
       "type": "track",
-      "uri": "spotify:track:0azJGZcBmcLKYpHBpFEdm6"
+      "uri": "spotify:track:0wxR6vA8Je5JHiTsZSmG01"
     }
   ]
 }

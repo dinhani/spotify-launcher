@@ -1,5 +1,6 @@
 
 Others:
+* Daphne Guinness
 * Hollywood Burns
 
 Rock - Heavy Metal:
@@ -34,6 +35,7 @@ Rock - Heavy Metal:
 * Iced Earth
 * Ihsahn
 * Iron Maiden
+* Jon Schaffer's Sons Of Liberty
 * Jorn
 * Judas Priest
 * Kamelot
@@ -53,6 +55,7 @@ Rock - Heavy Metal:
 * Pantera
 * Poison
 * Queensrÿche
+* Reall
 * Rhapsody
 * Sabaton
 * Sentenced
@@ -64,12 +67,14 @@ Rock - Heavy Metal:
 * Storm Corrosion
 * Stratovarius
 * Stress
+* Suldusk
 * Symphony X
 * System Of A Down
 * Type O Negative
 * Zonata
 
 Rock - Extreme Metal:
+* Aephanemer
 * Ahab
 * Amorphis
 * Arch Enemy
@@ -99,6 +104,7 @@ Rock - Extreme Metal:
 * Wintersun
 
 Rock - Folk Metal:
+* Aephanemer
 * Alestorm
 * Almora
 * Arkona
