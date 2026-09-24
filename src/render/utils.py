@@ -6,7 +6,6 @@ class ProxyDict:
         self.count = defaultdict(int)
 
     def __getitem__(self, key):
-        self.count[key] += 1
         return self.data[key]
 
     def __setitem__(self, key, value):
@@ -19,4 +18,4 @@ class ProxyDict:
         return default
 
     def untouched_keys(self):
-        return [k for k in self.data if self.count[k] <= 1]
+        return [k for k in self.data if self.count[k] == 0]
