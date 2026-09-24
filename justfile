@@ -15,6 +15,7 @@ setup:
 [group("run")]
 render:
     python src/artists-render.py
+    Start-Process docs/index.html
 
 # Download Spotify data
 [group("run")]
