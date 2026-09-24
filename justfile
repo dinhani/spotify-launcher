@@ -6,6 +6,11 @@ set windows-shell := ["pwsh.exe", "-NoLogo", "-Command"]
 default:
     @just --list --unsorted
 
+# Install Python dependencies
+[group("project")]
+setup:
+    python -m pip install -r requirements.txt
+
 # Render static artists page
 [group("run")]
 render:

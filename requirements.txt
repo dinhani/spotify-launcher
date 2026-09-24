@@ -1,0 +1,5 @@
+dominate==2.9.1
+millify==0.1.1
+polars==1.41.1
+spotipy==2.26.0
+tqdm==4.67.3
