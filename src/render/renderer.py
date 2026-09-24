@@ -65,6 +65,10 @@ function removeEmoji(s) {
 
 JS_FUNC_ONTAB = """
 function onTab(tabPath) {
+    if ($(document.activeElement).is('body, .ui.card') && matchMedia('(min-width: 992px)').matches) {
+        $('.ui.tab.active .artist:visible .card').first().focus();
+    }
+
     // change header
     var id = "#mobile-menu-item-" + tabPath.replace("tab-", "");
     var title = removeEmoji($(id).data("tab-name"));
@@ -135,6 +139,22 @@ $(document).on('keydown', '.menu .item', function(e) {
     e.preventDefault();
     var items = $(this).closest('.accordion').find('.menu .item:visible');
     items.eq(Math.max(0, items.index(this) + step)).focus();
+});
+
+$(document).on('keydown', '.artist-search', function(e) {
+    if (e.key === 'Escape') search('');
+    if (e.key === 'Enter') $('.ui.tab.active .artist:visible .card').first().focus();
+
+    var items = $(this).closest('.column').find('.menu .item:visible');
+    if (e.key === 'ArrowDown') items.first().focus();
+    if (e.key === 'ArrowUp') items.last().focus();
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') e.preventDefault();
+});
+
+$(document).on('keydown', function(e) {
+    if (e.key.length !== 1 || e.key === ' ' || e.ctrlKey || e.metaKey || e.altKey) return;
+    if ($(e.target).is('input')) return;
+    $('.artist-search:visible').focus();
 });
 
 $(document).on('keydown', '.ui.card', function(e) {
@@ -227,12 +247,10 @@ def menu_sort(mobile):
         div("📅 Last Release", cls="ui link item", onClick="sort(this, 'last-release', 'desc')", style=CSS_STYLE_MENU_ITEM, tabindex="0")
         div("🔔 Last Follow", cls="ui link item", onClick="sort(this, 'last-follow', 'asc')", style=CSS_STYLE_MENU_ITEM, tabindex="0")
 
-def menu_search(mobile: bool):
+def menu_search():
     with div(cls="ui fluid icon input", style="margin-bottom: 0.5rem;"):
         input_(cls="artist-search", type="search", placeholder="Search artist",
-            autofocus=not mobile,
             oninput="search(this.value)",
-            onkeydown="if (event.key === 'Escape') search(''); if (event.key === 'Enter') $('.ui.tab.active .artist:visible .card').first().focus()",
         )
         i(cls="search icon")
 
@@ -318,7 +336,7 @@ def render_html(tags_with_artists: dict[str, list[dict]]):
                 # Menu (mobile)
                 # ------------------------------------------------------------------
                 with div(cls="sixteen wide mobile tablet only   column", style="padding: 0.5rem"):
-                    menu_search(mobile=True)
+                    menu_search()
                     with div(cls="ui fluid styled mobile accordion"):
                         menu_sort(mobile=True)
                         menu_filter(mobile=True, tags_with_artists=tags_with_artists)
@@ -327,7 +345,7 @@ def render_html(tags_with_artists: dict[str, list[dict]]):
                 # Menu (desktop)
                 # ------------------------------------------------------------------
                 with div(cls="computer only three wide computer   two wide large screen   two wide widescreen   column", style="padding: 0.5rem"):
-                    menu_search(mobile=False)
+                    menu_search()
                     with div(cls="ui fluid styled desktop accordion", style="max-height: calc(98vh - 3.5rem); overflow: hidden; overflow-y: scroll"):
                         menu_sort(mobile=False)
                         menu_filter(mobile=False, tags_with_artists=tags_with_artists)

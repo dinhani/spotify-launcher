@@ -13,6 +13,10 @@ function removeEmoji(s) {
 </script>
     <script>
 function onTab(tabPath) {
+    if ($(document.activeElement).is('body, .ui.card') && matchMedia('(min-width: 992px)').matches) {
+        $('.ui.tab.active .artist:visible .card').first().focus();
+    }
+
     // change header
     var id = "#mobile-menu-item-" + tabPath.replace("tab-", "");
     var title = removeEmoji($(id).data("tab-name"));
@@ -105,7 +109,7 @@ function search(text) {
     <div class="ui padded grid">
       <div class="sixteen wide mobile tablet only   column" style="padding: 0.5rem">
         <div class="ui fluid icon input" style="margin-bottom: 0.5rem;">
-          <input class="artist-search" oninput="search(this.value)" onkeydown="if (event.key === 'Escape') search(''); if (event.key === 'Enter') $('.ui.tab.active .artist:visible .card').first().focus()" placeholder="Search artist" type="search"><i class="search icon"></i>
+          <input class="artist-search" oninput="search(this.value)" placeholder="Search artist" type="search"><i class="search icon"></i>
         </div>
         <div class="ui fluid styled mobile accordion">
           <div class=" title" style="font-size: 1.71428571rem; padding-left: 0.75rem; padding-right: 0.75rem;">
@@ -221,7 +225,7 @@ function search(text) {
       </div>
       <div class="computer only three wide computer   two wide large screen   two wide widescreen   column" style="padding: 0.5rem">
         <div class="ui fluid icon input" style="margin-bottom: 0.5rem;">
-          <input autofocus="autofocus" class="artist-search" oninput="search(this.value)" onkeydown="if (event.key === 'Escape') search(''); if (event.key === 'Enter') $('.ui.tab.active .artist:visible .card').first().focus()" placeholder="Search artist" type="search"><i class="search icon"></i>
+          <input class="artist-search" oninput="search(this.value)" placeholder="Search artist" type="search"><i class="search icon"></i>
         </div>
         <div class="ui fluid styled desktop accordion" style="max-height: calc(98vh - 3.5rem); overflow: hidden; overflow-y: scroll">
           <div class="active title" style="font-size: 1.28571429rem; padding-left: 0.75rem; padding-right: 0.75rem;">
@@ -22937,6 +22941,22 @@ $(document).on('keydown', '.menu .item', function(e) {
     e.preventDefault();
     var items = $(this).closest('.accordion').find('.menu .item:visible');
     items.eq(Math.max(0, items.index(this) + step)).focus();
+});
+
+$(document).on('keydown', '.artist-search', function(e) {
+    if (e.key === 'Escape') search('');
+    if (e.key === 'Enter') $('.ui.tab.active .artist:visible .card').first().focus();
+
+    var items = $(this).closest('.column').find('.menu .item:visible');
+    if (e.key === 'ArrowDown') items.first().focus();
+    if (e.key === 'ArrowUp') items.last().focus();
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') e.preventDefault();
+});
+
+$(document).on('keydown', function(e) {
+    if (e.key.length !== 1 || e.key === ' ' || e.ctrlKey || e.metaKey || e.altKey) return;
+    if ($(e.target).is('input')) return;
+    $('.artist-search:visible').focus();
 });
 
 $(document).on('keydown', '.ui.card', function(e) {
