@@ -106,6 +106,7 @@ TAG_RULES = {
         "+Alvvays",
         "+Amorphis",
         "+ANGRA",
+        "+Aquaria",
         "+Ayreon",
         "+Crypta",
         "+Deathstars",
