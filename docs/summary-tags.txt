@@ -74,7 +74,6 @@ Rock - Heavy Metal:
 * Zonata
 
 Rock - Extreme Metal:
-* Aephanemer
 * Ahab
 * Amorphis
 * Arch Enemy
@@ -104,7 +103,6 @@ Rock - Extreme Metal:
 * Wintersun
 
 Rock - Folk Metal:
-* Aephanemer
 * Alestorm
 * Almora
 * Arkona
