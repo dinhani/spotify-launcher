@@ -86,6 +86,20 @@ function sort(element, attribute, order) {
 }
 """
 
+JS_FUNC_SEARCH = """
+function normalizeText(s) {
+    return String(s).normalize('NFD').replace(/\\p{Diacritic}/gu, '').toLowerCase();
+}
+
+function search(text) {
+    $('.artist-search').val(text);
+    var query = normalizeText(text);
+    $('.artist').each(function(_, artist) {
+        $(artist).toggle(normalizeText($(artist).data('name')).includes(query));
+    });
+}
+"""
+
 # ------------------------------------------------------------------------------
 # Functions
 # ------------------------------------------------------------------------------
@@ -151,6 +165,15 @@ def menu_sort(mobile):
         div("📅 Last Release", cls="ui link item", onClick="sort(this, 'last-release', 'desc')", style=CSS_STYLE_MENU_ITEM)
         div("🔔 Last Follow", cls="ui link item", onClick="sort(this, 'last-follow', 'asc')", style=CSS_STYLE_MENU_ITEM)
 
+def menu_search(mobile: bool):
+    with div(cls="ui fluid icon input", style="margin-bottom: 0.5rem;"):
+        input_(cls="artist-search", type="search", placeholder="Search artist",
+            autofocus=not mobile,
+            oninput="search(this.value)",
+            onkeydown="if (event.key === 'Escape') search('')",
+        )
+        i(cls="search icon")
+
 def cards(artists: list[dict]):
     """"Render the card grid."""
     with div(cls="artists-wrapper"): # scroll-helper
@@ -208,6 +231,7 @@ def render_html(tags_with_artists: dict[str, list[dict]]):
             title("Dinhani Spotify Launcher")
 
             # meta
+            meta(charset="utf-8")
             meta(name="viewport", content="width=device-width, initial-scale=1")
 
             # scripts
@@ -217,6 +241,7 @@ def render_html(tags_with_artists: dict[str, list[dict]]):
             script(raw(JS_FUNC_REMOVE_EMOJI))
             script(raw(JS_FUNC_ONTAB))
             script(raw(_JS_FUNC_SORT))
+            script(raw(JS_FUNC_SEARCH))
 
             # style
             link(href =  "https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min.css", rel = "stylesheet")
@@ -231,6 +256,7 @@ def render_html(tags_with_artists: dict[str, list[dict]]):
                 # Menu (mobile)
                 # ------------------------------------------------------------------
                 with div(cls="sixteen wide mobile tablet only   column", style="padding: 0.5rem"):
+                    menu_search(mobile=True)
                     with div(cls="ui fluid styled mobile accordion"):
                         menu_sort(mobile=True)
                         menu_filter(mobile=True, tags_with_artists=tags_with_artists)
@@ -239,7 +265,8 @@ def render_html(tags_with_artists: dict[str, list[dict]]):
                 # Menu (desktop)
                 # ------------------------------------------------------------------
                 with div(cls="computer only three wide computer   two wide large screen   two wide widescreen   column", style="padding: 0.5rem"):
-                    with div(cls="ui fluid styled desktop accordion", style="max-height: 98vh; overflow: hidden; overflow-y: scroll"):
+                    menu_search(mobile=False)
+                    with div(cls="ui fluid styled desktop accordion", style="max-height: calc(98vh - 3.5rem); overflow: hidden; overflow-y: scroll"):
                         menu_sort(mobile=False)
                         menu_filter(mobile=False, tags_with_artists=tags_with_artists)
 
