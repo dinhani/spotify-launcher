@@ -74,5 +74,4 @@ def parse(filename: str) -> Tuple[list[Artist], defaultdict[str, list[Artist]]]:
         for tags in artist.tags:
             artists_by_tag[tags].append(artist)
 
-
     return (artists, artists_by_tag)
