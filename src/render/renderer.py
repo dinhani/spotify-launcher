@@ -286,6 +286,9 @@ def card(artist: Artist):
         # image
         with div(cls="image"):
             img(src=artist.image, cls="ui image artist-image", style="object-fit: cover;")
+            if T_FAVORITES in artist.tags:
+                with div(cls="ui mini yellow right corner label"):
+                    i(cls="star icon")
             div(artist_tags, style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)")
 
         # header
