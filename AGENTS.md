@@ -8,6 +8,10 @@ Static page to browse the Spotify artists I follow, grouped by tags.
 - `just export`: flattens the cache into `data/artistas.tsv`.
 - `just render`: classifies artists and writes `docs/index.html` plus summaries.
 
+## Workflow
+
+After any change, re-render and commit it (source and generated `docs/` together) without asking.
+
 ## How classification works
 
 All rules live in `TAG_RULES` in `src/render/data.py`. Each tag lists patterns that pull artists into it:
