@@ -65,24 +65,34 @@ function search(text) {
 </script>
     <link href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min.css" rel="stylesheet">
     <style>
+:root {
+    --control-font-size: 1rem;
+    --control-line-height: 1.25rem;
+    --control-padding: 0.5625rem;
+}
 .ui.input > input.artist-search, .ui.accordion .title, .ui.menu .item {
-    font-size: 1rem !important;
-    line-height: 1.25rem !important;
-    padding-top: 0.5625rem !important;
-    padding-bottom: 0.5625rem !important;
+    font-size: var(--control-font-size) !important;
+    line-height: var(--control-line-height) !important;
+    padding-top: var(--control-padding) !important;
+    padding-bottom: var(--control-padding) !important;
     padding-left: 0.75rem !important;
 }
 .ui.accordion .title, .ui.menu .item {
     padding-right: 0.75rem !important;
 }
 .ui.input > input.artist-search {
-    padding-top: calc(0.5625rem - 1px) !important;
-    padding-bottom: calc(0.5625rem - 1px) !important;
+    padding-top: calc(var(--control-padding) - 1px) !important;
+    padding-bottom: calc(var(--control-padding) - 1px) !important;
 }
 .extra.content::after {
     display: none !important;
 }
 @media only screen and (max-width: 991.9px) {
+    :root {
+        --control-font-size: 16px;
+        --control-line-height: 1.5rem;
+        --control-padding: 0.8rem;
+    }
     .artist-image {
         height: 200px !important;
     }
