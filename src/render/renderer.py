@@ -5,6 +5,7 @@ from dominate.tags import *
 from dominate.util import raw
 from millify import millify
 import logging
+from urllib.parse import quote_plus
 
 from render.data import *
 from render.models import Artist
@@ -164,6 +165,16 @@ $(document).on('keydown', '.ui.card', function(e) {
         $('.artist-search:visible').focus();
         return;
     }
+    if (e.key === 'Enter') {
+        window.location.href = $(this).data('spotify');
+        return;
+    }
+    if (e.key === 'l' || e.key === 'L') {
+        e.preventDefault();
+        e.stopPropagation();
+        window.open($(this).data('lastfm'), '_blank');
+        return;
+    }
 
     var cards = $('.ui.tab.active .artist:visible .card');
     var index = cards.index(this);
@@ -282,9 +293,12 @@ def card(artist: Artist):
     followers_precision = 1 if artist.followers >= 1_000_000 else 0
     artist_tags = ", ".join([tag_display(t) for t in artist.tags_granular])
 
-    with a(cls="ui card", href=f"spotify:artist:{artist.id}", style="width: 100%"):
+    spotify_url = f"spotify:artist:{artist.id}"
+    lastfm_url = f"https://www.last.fm/user/{LASTFM_USER}/library/music/{quote_plus(artist.name)}"
+
+    with div(cls="ui card", style="width: 100%", tabindex="0", data_spotify=spotify_url, data_lastfm=lastfm_url):
         # image
-        with div(cls="image"):
+        with a(cls="image", href=spotify_url, tabindex="-1"):
             img(src=artist.image, cls="ui image artist-image", style="object-fit: cover;")
             if T_FAVORITES in artist.tags:
                 with div(cls="ui mini yellow right corner label"):
@@ -292,7 +306,7 @@ def card(artist: Artist):
             div(artist_tags, style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)")
 
         # header
-        with div(cls="content", style="padding: 0.5rem;"):
+        with a(cls="content", href=spotify_url, tabindex="-1", style="padding: 0.5rem;"):
             div(artist.name, cls="ui small header artist-name", style=f"{CSS_STYLE_NOWRAP} overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem")
             with div(cls="meta"):
                 div(artist.top_song, style=f"{CSS_STYLE_NOWRAP} overflow:hidden; text-overflow: ellipsis;")
@@ -302,6 +316,15 @@ def card(artist: Artist):
             div("🔥" + str(artist.popularity), style=CSS_STYLE_NOWRAP)
             div("👤" + millify(artist.followers, precision=followers_precision), style=CSS_STYLE_NOWRAP)
             div("💿" + str(artist.albums), style=CSS_STYLE_NOWRAP)
+
+        # links
+        with div(cls="ui two bottom attached mini basic buttons"):
+            with a(cls="ui button", href=spotify_url, tabindex="-1", style=CSS_STYLE_NOWRAP + "padding: 0.5rem 0;"):
+                i(cls="green spotify icon")
+                span("Spotify")
+            with a(cls="ui button", href=lastfm_url, target="_blank", tabindex="-1", style=CSS_STYLE_NOWRAP + "padding: 0.5rem 0;"):
+                i(cls="red lastfm icon")
+                span("Last.fm")
 
 
 def render_html(tags_with_artists: dict[str, list[dict]]):

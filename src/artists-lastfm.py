@@ -5,7 +5,6 @@ from render.data import *
 import render.parser as parser
 
 INPUT_ARTISTS = "data/artistas.tsv"
-LASTFM_USER = "renatodinhani"
 
 network = pylast.LastFMNetwork(api_key=os.environ["LASTFM_API_KEY"])
 top_artists = network.get_user(LASTFM_USER).get_top_artists(period=pylast.PERIOD_OVERALL, limit=300)
