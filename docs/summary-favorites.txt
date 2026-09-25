@@ -7,14 +7,11 @@ Rock - Heavy Metal:
 * Amorphis
 * Aquaria
 * Ayreon
-* Deathstars
 * Doomsword
 * Dream Theater
 * Gamma Ray
 * Haken
-* HammerFall
 * Hangar
-* Hellish War
 * Iced Earth
 * Judas Priest
 * Narnia
@@ -47,19 +44,15 @@ Rock - Folk Metal:
 * Týr
 
 Rock - Rock:
-* Alvvays
 * Daughter
-* Muse
 * Syd Matters
 
 Folk - Folk:
-* Braia
 * Celtic Woman
 * Confraria da Costa
 * Eldhrimnir
 
 Folk - Steampunk:
-* Bitter Ruin
 * Dirt Poor Robins
 * Eliza Rickman
 * Haute & Freddy
@@ -73,7 +66,6 @@ Alt - Atmospheric:
 * Burning Peacocks
 * Chappell Roan
 * Daughter
-* Ex:Re
 * HÆLOS
 * Juniper Vale
 * Leandra
@@ -84,7 +76,6 @@ Alt - Atmospheric:
 * Oh Wonder
 * PHILDEL
 * Ruelle
-* Soap&Skin
 * Susanne Sundfør
 * Vaults
 * aeseaes
@@ -92,7 +83,6 @@ Alt - Atmospheric:
 
 Alt - Energetic:
 * Allie X
-* Britney Spears
 * Chappell Roan
 * Dua Lipa
 * Eliza Rickman
@@ -101,16 +91,12 @@ Alt - Energetic:
 * Joyce Jonathan
 * Lady Gaga
 * Las Aves
-* Lola Young
 * Lorde
 * MARINA
-* Madonna
 * Of Monsters and Men
-* P!nk
 * Sabrina Carpenter
 * Sia
 * Stromae
-* Superorganism
 * Susanne Sundfør
 * The Dø
 * Zella Day
