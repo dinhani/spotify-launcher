@@ -197,7 +197,6 @@ TAG_RULES = {
         "-Judas Priest",
         "-Metallica",
         "-Ozzy Osbourne",
-        "+Angine de Poitrine",
         "+Barns Courtney",
         "+Boz Scaggs",
         "+Camp Claude",
