@@ -35007,14 +35007,13 @@ $(document).on('keydown', '.ui.card', function(e) {
         $('.artist-search:visible').focus();
         return;
     }
-    if (e.key === 'Enter') {
-        window.location.href = $(this).data('spotify');
+    if (e.key === 'Enter' && e.shiftKey) {
+        e.preventDefault();
+        window.open($(this).data('lastfm'), '_blank');
         return;
     }
-    if (e.key === 'l' || e.key === 'L') {
-        e.preventDefault();
-        e.stopPropagation();
-        window.open($(this).data('lastfm'), '_blank');
+    if (e.key === 'Enter') {
+        window.location.href = $(this).data('spotify');
         return;
     }
 
