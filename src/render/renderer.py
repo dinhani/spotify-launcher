@@ -15,9 +15,21 @@ from render.models import Artist
 # ------------------------------------------------------------------------------
 CSS_STYLE_NOWRAP = "white-space: nowrap; "
 
-CSS_STYLE_MENU_ITEM = CSS_STYLE_NOWRAP + "padding: 0.75rem; "
-
 CSS_GLOBAL = """
+.ui.input > input.artist-search, .ui.accordion .title, .ui.menu .item {
+    font-size: 1rem !important;
+    line-height: 1.25rem !important;
+    padding-top: 0.5625rem !important;
+    padding-bottom: 0.5625rem !important;
+    padding-left: 0.75rem !important;
+}
+.ui.accordion .title, .ui.menu .item {
+    padding-right: 0.75rem !important;
+}
+.ui.input > input.artist-search {
+    padding-top: calc(0.5625rem - 1px) !important;
+    padding-bottom: calc(0.5625rem - 1px) !important;
+}
 .extra.content::after {
     display: none !important;
 }
@@ -210,10 +222,9 @@ def menu_wrapper(mobile: bool, label: str, id: str):
 
     item_kind = "mobile" if mobile else "desktop"
     item_active = "" if mobile else "active"
-    item_font_size = "1.71428571rem" if mobile else "1.28571429rem"
 
     # accordion title
-    with div(cls=f"{item_active} title", style=f"font-size: {item_font_size}; padding-left: 0.75rem; padding-right: 0.75rem;"):
+    with div(cls=f"{item_active} title"):
             span(label, id=f"{item_kind}-menu-header-{id}")
             i(cls="right dropdown icon")
 
@@ -225,40 +236,37 @@ def menu_filter(mobile: bool, tags_with_artists: dict[str, list[dict]]):
     """Render filter menu according to mobile or desktop rules."""
     with menu_wrapper(mobile, "Filter", "filter"):
         item_kind = "mobile" if mobile else "desktop"
-        item_label_size = "" if mobile else "tiny"
 
         for index, tag in enumerate(TAGS_MENU_ORDER):
             artists = tags_with_artists[tag]
 
             # item attributes
-            is_header = tag in TAGS_HEADER
             item_display = tag_display(tag)
             item_active = "active" if index == 0 else ""
-            item_header = "header" if is_header else ""
-            item_font_size = "1.2rem" if is_header else "1rem"
+            item_header = "header" if tag in TAGS_HEADER else ""
 
             # menu item
             with div(cls=f"{item_active} {item_header} link item",
-                    style=CSS_STYLE_MENU_ITEM + f"font-size: {item_font_size};",
+                    style=CSS_STYLE_NOWRAP,
                     id=f"{item_kind}-menu-item-{id(tag)}",
                     data_tab=id(tag),
                     data_tab_name=tag,
                     tabindex="0"
                 ):
                 span(item_display)
-                span(f"{len(artists)}", cls=f"ui {item_label_size} label")
+                span(f"{len(artists)}", cls="ui tiny label")
 
 def menu_sort(mobile):
     """Render sort menu according to mobile or desktop rules."""
     label = "Sort: Name" if mobile else "Sort"
     with menu_wrapper(mobile, label, "sort"):
-        div("🎶 Name", cls="ui active link item", onClick="sort(this, 'name', 'asc')", style=CSS_STYLE_MENU_ITEM, tabindex="0")
-        div("🔥 Popularity (artist)", cls="ui link item", onClick="sort(this, 'popularity', 'desc')", style=CSS_STYLE_MENU_ITEM, tabindex="0")
-        div("🏆 Popularity (song)", cls="ui link item", onClick="sort(this, 'song-popularity', 'desc')", style=CSS_STYLE_MENU_ITEM, tabindex="0")
-        div("👤 Followers", cls="ui link item", onClick="sort(this, 'followers', 'desc')", style=CSS_STYLE_MENU_ITEM, tabindex="0")
-        div("💿 Albums", cls="ui link item", onClick="sort(this, 'albums', 'desc')", style=CSS_STYLE_MENU_ITEM, tabindex="0")
-        div("📅 Last Release", cls="ui link item", onClick="sort(this, 'last-release', 'desc')", style=CSS_STYLE_MENU_ITEM, tabindex="0")
-        div("🔔 Last Follow", cls="ui link item", onClick="sort(this, 'last-follow', 'asc')", style=CSS_STYLE_MENU_ITEM, tabindex="0")
+        div("🎶 Name", cls="ui active link item", onClick="sort(this, 'name', 'asc')", style=CSS_STYLE_NOWRAP, tabindex="0")
+        div("🔥 Popularity (artist)", cls="ui link item", onClick="sort(this, 'popularity', 'desc')", style=CSS_STYLE_NOWRAP, tabindex="0")
+        div("🏆 Popularity (song)", cls="ui link item", onClick="sort(this, 'song-popularity', 'desc')", style=CSS_STYLE_NOWRAP, tabindex="0")
+        div("👤 Followers", cls="ui link item", onClick="sort(this, 'followers', 'desc')", style=CSS_STYLE_NOWRAP, tabindex="0")
+        div("💿 Albums", cls="ui link item", onClick="sort(this, 'albums', 'desc')", style=CSS_STYLE_NOWRAP, tabindex="0")
+        div("📅 Last Release", cls="ui link item", onClick="sort(this, 'last-release', 'desc')", style=CSS_STYLE_NOWRAP, tabindex="0")
+        div("🔔 Last Follow", cls="ui link item", onClick="sort(this, 'last-follow', 'asc')", style=CSS_STYLE_NOWRAP, tabindex="0")
 
 def menu_search():
     with div(cls="ui fluid icon input", style="margin-bottom: 0.5rem;"):
@@ -270,7 +278,7 @@ def menu_search():
 def cards(artists: list[dict]):
     """"Render the card grid."""
     with div(cls="artists-wrapper"): # scroll-helper
-        with div(cls="ui padded grid artists"):
+        with div(cls="ui grid artists", style="margin: -0.25rem;"):
             for artist in artists:
                 with card_cell(artist):
                     card(artist)
@@ -390,8 +398,8 @@ def render_html(tags_with_artists: dict[str, list[dict]]):
                 # ------------------------------------------------------------------
                 # Scroll to top
                 # ------------------------------------------------------------------
-                with div(cls="sixteen wide column mobile tablet only"):
-                    div("⬆️ Back to top", cls="ui fluid huge button", onClick="window.scrollTo({top:0})")
+                with div(cls="sixteen wide column mobile tablet only", style="padding: 0.5rem;"):
+                    div("⬆️ Back to top", cls="ui fluid button", onClick="window.scrollTo({top:0})")
 
         # ----------------------------------------------------------------------
         # Script initialization
