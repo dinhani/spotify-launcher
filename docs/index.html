@@ -294,39 +294,13 @@ html {
     font-weight: bold;
 }
 .list-controls .ui.secondary.menu {
-    min-height: 0;
-    margin: 0;
-    padding: 3px;
-    gap: 2px;
-    font-size: 0.92857143rem;
+    padding: 3px 0;
     background: #f1f2f3;
     border-radius: 0.5rem;
 }
-.list-controls .ui.secondary.menu > .link.item {
-    align-self: stretch;
-    margin: 0;
-    padding: calc(0.5625rem - 3px) 0.8rem;
-    line-height: 1.25rem;
-    border-radius: calc(0.5rem - 3px);
-    color: rgba(0, 0, 0, 0.6);
-    transition: color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
-}
-.list-controls .ui.secondary.menu > .link.item:hover {
-    background: rgba(0, 0, 0, 0.04);
-    color: rgba(0, 0, 0, 0.87);
-}
-.list-controls .ui.secondary.menu > .active.link.item,
-.list-controls .ui.secondary.menu > .active.link.item:hover {
+.list-controls .ui.secondary.menu .active.item {
     background: #fff;
-    color: #2185d0;
-    box-shadow: 0 1px 2px rgba(34, 36, 38, 0.15), 0 0 0 1px rgba(34, 36, 38, 0.06);
-}
-.list-controls .ui.menu .item > i.icon.control-icon {
-    margin: 0 0.4em 0 0;
-    opacity: 0.5;
-}
-.list-controls .ui.menu .active.item > i.icon.control-icon {
-    opacity: 1;
+    box-shadow: 0 1px 2px rgba(34, 36, 38, 0.15);
 }
 
 /* Artist cards */
@@ -798,7 +772,7 @@ html {
         <div class="list-controls">
           <div class="list-control">
             <span class="ui blue text list-control-label">Group</span>
-            <div class="ui secondary menu">
+            <div class="ui small compact blue secondary menu">
               <div class="ui active link item nowrap" data-group="none" onClick="groupArtists(this, 'none')" tabindex="0"><i aria-hidden="true" class="th icon control-icon"></i>
                 <span>None</span>
               </div>
@@ -812,7 +786,7 @@ html {
           </div>
           <div class="list-control">
             <span class="ui blue text list-control-label">Sort</span>
-            <div class="ui secondary menu">
+            <div class="ui small compact blue secondary menu">
               <div class="ui active link item nowrap" data-sort="name" onClick="sort(this, 'name', 'asc')" tabindex="0" title="Name"><i aria-hidden="true" class="music icon control-icon"></i>
                 <span>Name</span>
               </div>
