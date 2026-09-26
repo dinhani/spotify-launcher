@@ -67,6 +67,11 @@ TAGS_DISCOVER = {
     T_ALT_DISCOVER: T_ALT_ALL,
 }
 
+# Exclude artists in these families from the corresponding Discover pool.
+TAGS_DISCOVER_EXCLUSIONS = {
+    T_FOLK_ALL: [T_ROCK_ALL, T_ALT_ALL],
+}
+
 # ------------------------------------------------------------------------------
 # Tags of favorites and non-favorites
 # ------------------------------------------------------------------------------

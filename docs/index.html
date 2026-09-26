@@ -107,10 +107,12 @@ function applyGrouping() {
 
 function groupArtists(byFamily) {
     groupByFamily = byFamily;
+    var selectedIndex = byFamily ? 1 : 0;
     $('.group-options').each(function() {
-        $(this).children().removeClass('active').eq(byFamily ? 1 : 0).addClass('active');
+        $(this).children().removeClass('active').eq(selectedIndex).addClass('active');
     });
-    $('#mobile-menu-header-group').text('Group: ' + (byFamily ? 'By Style' : 'None'));
+    var title = removeEmoji($('.group-options').first().children().eq(selectedIndex).text());
+    $('#mobile-menu-header-group').text('Group: ' + title);
     applyGrouping();
 }
 </script>
@@ -147,16 +149,16 @@ function pickDiscover() {
         }));
     };
 
-    var cells = $('.ui.tab[data-tab="all"] .artist').toArray();
+    var cells = $('.ui.tab[data-all-artists] .artist').toArray();
     var picked = [];
     var allTab = $('.ui.tab[data-discover-per-family]')[0];
     $('.ui.tab[data-discover-family]').each(function(_, tab) {
+        var excludedFamilies = JSON.parse(tab.dataset.discoverExcludedFamilies);
         var candidates = cells
             .filter(function(cell) { return cell.dataset.families.split('|').includes(tab.dataset.discoverFamily); })
             .filter(function(cell) {
                 var families = cell.dataset.families.split('|');
-                return tab.dataset.discoverFamily !== 'Folk'
-                    || (!families.includes('Rock') && !families.includes('Alternative'));
+                return !excludedFamilies.some(function(family) { return families.includes(family); });
             })
             .map(function(cell) { return cell.dataset.name; })
             .filter(function(name) { return !picked.includes(name); });
@@ -635,7 +637,7 @@ html {
         </div>
       </div>
       <div class="sixteen wide mobile tablet   thirteen wide computer   fourteen wide large screen   fourteen wide widescreen   column app-column">
-        <div class="ui tab" data-tab="all">
+        <div class="ui tab" data-all-artists="true" data-tab="all">
           <div class="artists-wrapper">
             <div class="ui grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="3" data-families="Alternative" data-followers="62170" data-last-follow="73" data-last-release="2025-04-25" data-name="aeseaes" data-popularity="47" data-song-popularity="54">
@@ -24460,7 +24462,7 @@ html {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-discover-family="Rock" data-tab="rock-discover">
+        <div class="ui tab" data-discover-excluded-families="[]" data-discover-family="Rock" data-tab="rock-discover">
           <div class="artists-wrapper">
             <div class="ui grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="2" data-families="Rock" data-followers="44005" data-last-follow="70" data-last-release="2015-08-07" data-name="Agent Fresco" data-popularity="32" data-song-popularity="40">
@@ -36963,7 +36965,7 @@ html {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-discover-family="Folk" data-tab="folk-discover">
+        <div class="ui tab" data-discover-excluded-families="[&quot;Rock&quot;, &quot;Alternative&quot;]" data-discover-family="Folk" data-tab="folk-discover">
           <div class="artists-wrapper">
             <div class="ui grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="2" data-families="Folk" data-followers="40608" data-last-follow="130" data-last-release="2011-03-30" data-name="AlicebanD" data-popularity="45" data-song-popularity="53">
@@ -41679,7 +41681,7 @@ html {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-discover-family="Alternative" data-tab="alt-discover">
+        <div class="ui tab" data-discover-excluded-families="[]" data-discover-family="Alternative" data-tab="alt-discover">
           <div class="artists-wrapper">
             <div class="ui grid artists">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="3" data-families="Alternative" data-followers="62170" data-last-follow="73" data-last-release="2025-04-25" data-name="aeseaes" data-popularity="47" data-song-popularity="54">

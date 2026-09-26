@@ -283,10 +283,12 @@ function applyGrouping() {
 
 function groupArtists(byFamily) {
     groupByFamily = byFamily;
+    var selectedIndex = byFamily ? 1 : 0;
     $('.group-options').each(function() {
-        $(this).children().removeClass('active').eq(byFamily ? 1 : 0).addClass('active');
+        $(this).children().removeClass('active').eq(selectedIndex).addClass('active');
     });
-    $('#mobile-menu-header-group').text('Group: ' + (byFamily ? 'By Style' : 'None'));
+    var title = removeEmoji($('.group-options').first().children().eq(selectedIndex).text());
+    $('#mobile-menu-header-group').text('Group: ' + title);
     applyGrouping();
 }
 """.replace("__ARTIST_FAMILIES__", json.dumps([
@@ -328,16 +330,16 @@ function pickDiscover() {
         }));
     };
 
-    var cells = $('.ui.tab[data-tab="all"] .artist').toArray();
+    var cells = $('.ui.tab[data-all-artists] .artist').toArray();
     var picked = [];
     var allTab = $('.ui.tab[data-discover-per-family]')[0];
     $('.ui.tab[data-discover-family]').each(function(_, tab) {
+        var excludedFamilies = JSON.parse(tab.dataset.discoverExcludedFamilies);
         var candidates = cells
             .filter(function(cell) { return cell.dataset.families.split('|').includes(tab.dataset.discoverFamily); })
             .filter(function(cell) {
                 var families = cell.dataset.families.split('|');
-                return tab.dataset.discoverFamily !== 'Folk'
-                    || (!families.includes('Rock') && !families.includes('Alternative'));
+                return !excludedFamilies.some(function(family) { return families.includes(family); });
             })
             .map(function(cell) { return cell.dataset.name; })
             .filter(function(name) { return !picked.includes(name); });
@@ -645,6 +647,8 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]):
                     for tag in TAGS_MENU_ORDER:
                         artists = tags_with_artists[tag]
                         tab_attributes = {}
+                        if tag == T_ALL:
+                            tab_attributes['data_all_artists'] = 'true'
                         for family in TAGS_DISCOVER.values():
                             prefix = "Alt" if family == T_ALT_ALL else family.name
                             if tag == family or tag.name.startswith(prefix + " - "):
@@ -653,8 +657,14 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]):
                             artists = tags_with_artists[T_ALL]
                             tab_attributes = {"data_discover_per_family": str(DISCOVER_ARTISTS_PER_FAMILY)}
                         elif tag in TAGS_DISCOVER:
-                            artists = tags_with_artists[TAGS_DISCOVER[tag]]
-                            tab_attributes = {"data_discover_family": TAGS_DISCOVER[tag].name}
+                            family = TAGS_DISCOVER[tag]
+                            artists = tags_with_artists[family]
+                            tab_attributes = {
+                                "data_discover_family": family.name,
+                                "data_discover_excluded_families": json.dumps([
+                                    excluded.name for excluded in TAGS_DISCOVER_EXCLUSIONS.get(family, [])
+                                ], ensure_ascii=False),
+                            }
 
                         with div(cls="ui tab", data_tab=id(tag), **tab_attributes):
                             cards(sorted(artists, key=lambda x: x.name.lower()))
