@@ -10,9 +10,11 @@ A personal launcher for the Spotify artists I follow: it helps me decide what to
 - Favorites are curated by taste, not by play count.
 - When I say "the app should answer X" I mean a feature of this page, not an analysis by the agent.
 
-## Today
+## Discover
 
-4 artists per family: each family's Today shows its 4, All's Today shows all 12. Picked in the browser, seeded by period: morning (6h-12h), afternoon (12h-18h), night (18h-6h). Same picks within a period, no reroll.
+Discover suggests artists to revisit from the artists already followed; it does not introduce new artists.
+
+4 artists per family: each family's Discover shows its 4, All's Discover shows all 12. Picked in the browser, seeded by period: morning (6h-12h), afternoon (12h-18h), night (18h-6h). Same picks within a period, no reroll.
 
 ## Planned: long-term history
 

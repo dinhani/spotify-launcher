@@ -64,7 +64,7 @@ function search(text) {
 }
 </script>
     <script>
-function pickToday() {
+function pickDiscover() {
     var shifted = new Date(Date.now() - 6 * 60 * 60 * 1000);
     var period = shifted.getHours() < 6 ? 0 : shifted.getHours() < 12 ? 1 : 2;
     var seed = (shifted.getFullYear() * 10000 + (shifted.getMonth() + 1) * 100 + shifted.getDate()) * 10 + period;
@@ -84,14 +84,14 @@ function pickToday() {
 
     var cells = $('.ui.tab[data-tab="all"] .artist').toArray();
     var picked = [];
-    var allTab = $('.ui.tab[data-today-per-family]')[0];
-    $('.ui.tab[data-today-family]').each(function(_, tab) {
+    var allTab = $('.ui.tab[data-discover-per-family]')[0];
+    $('.ui.tab[data-discover-family]').each(function(_, tab) {
         var candidates = cells
-            .filter(function(cell) { return cell.dataset.families.split('|').includes(tab.dataset.todayFamily); })
+            .filter(function(cell) { return cell.dataset.families.split('|').includes(tab.dataset.discoverFamily); })
             .map(function(cell) { return cell.dataset.name; })
             .filter(function(name) { return !picked.includes(name); });
         var familyPicked = [];
-        for (var i = 0; i < Number(allTab.dataset.todayPerFamily) && candidates.length > 0; i++) {
+        for (var i = 0; i < Number(allTab.dataset.discoverPerFamily) && candidates.length > 0; i++) {
             familyPicked.push(candidates.splice(Math.floor(random() * candidates.length), 1)[0]);
         }
         showOnly(tab, familyPicked);
@@ -196,8 +196,8 @@ function pickToday() {
                 <span>🗂️ All</span>
                 <span class="ui tiny label">244</span>
               </div>
-              <div class="  link item" data-tab="today" data-tab-name="Today" id="mobile-menu-item-today" style="white-space: nowrap; " tabindex="0">
-                <span>Today</span>
+              <div class="  link item" data-tab="discover" data-tab-name="Discover" id="mobile-menu-item-discover" style="white-space: nowrap; " tabindex="0">
+                <span>Discover</span>
                 <span class="ui tiny label">12</span>
               </div>
               <div class="  link item" data-tab="favorites" data-tab-name="Favorites" id="mobile-menu-item-favorites" style="white-space: nowrap; " tabindex="0">
@@ -216,8 +216,8 @@ function pickToday() {
                 <span>🎸 Rock</span>
                 <span class="ui tiny label">138</span>
               </div>
-              <div class="  link item" data-tab="rock-today" data-tab-name="Rock - Today" id="mobile-menu-item-rock-today" style="white-space: nowrap; " tabindex="0">
-                <span>Today</span>
+              <div class="  link item" data-tab="rock-discover" data-tab-name="Rock - Discover" id="mobile-menu-item-rock-discover" style="white-space: nowrap; " tabindex="0">
+                <span>Discover</span>
                 <span class="ui tiny label">4</span>
               </div>
               <div class="  link item" data-tab="rock-favorites" data-tab-name="Rock - Favorites" id="mobile-menu-item-rock-favorites" style="white-space: nowrap; " tabindex="0">
@@ -248,8 +248,8 @@ function pickToday() {
                 <span>🎻 Folk</span>
                 <span class="ui tiny label">29</span>
               </div>
-              <div class="  link item" data-tab="folk-today" data-tab-name="Folk - Today" id="mobile-menu-item-folk-today" style="white-space: nowrap; " tabindex="0">
-                <span>Today</span>
+              <div class="  link item" data-tab="folk-discover" data-tab-name="Folk - Discover" id="mobile-menu-item-folk-discover" style="white-space: nowrap; " tabindex="0">
+                <span>Discover</span>
                 <span class="ui tiny label">4</span>
               </div>
               <div class="  link item" data-tab="folk-favorites" data-tab-name="Folk - Favorites" id="mobile-menu-item-folk-favorites" style="white-space: nowrap; " tabindex="0">
@@ -272,8 +272,8 @@ function pickToday() {
                 <span>🎧 Alternative</span>
                 <span class="ui tiny label">84</span>
               </div>
-              <div class="  link item" data-tab="alt-today" data-tab-name="Alt - Today" id="mobile-menu-item-alt-today" style="white-space: nowrap; " tabindex="0">
-                <span>Today</span>
+              <div class="  link item" data-tab="alt-discover" data-tab-name="Alt - Discover" id="mobile-menu-item-alt-discover" style="white-space: nowrap; " tabindex="0">
+                <span>Discover</span>
                 <span class="ui tiny label">4</span>
               </div>
               <div class="  link item" data-tab="alt-favorites" data-tab-name="Alt - Favorites" id="mobile-menu-item-alt-favorites" style="white-space: nowrap; " tabindex="0">
@@ -328,8 +328,8 @@ function pickToday() {
                 <span>🗂️ All</span>
                 <span class="ui tiny label">244</span>
               </div>
-              <div class="  link item" data-tab="today" data-tab-name="Today" id="desktop-menu-item-today" style="white-space: nowrap; " tabindex="0">
-                <span>Today</span>
+              <div class="  link item" data-tab="discover" data-tab-name="Discover" id="desktop-menu-item-discover" style="white-space: nowrap; " tabindex="0">
+                <span>Discover</span>
                 <span class="ui tiny label">12</span>
               </div>
               <div class="  link item" data-tab="favorites" data-tab-name="Favorites" id="desktop-menu-item-favorites" style="white-space: nowrap; " tabindex="0">
@@ -348,8 +348,8 @@ function pickToday() {
                 <span>🎸 Rock</span>
                 <span class="ui tiny label">138</span>
               </div>
-              <div class="  link item" data-tab="rock-today" data-tab-name="Rock - Today" id="desktop-menu-item-rock-today" style="white-space: nowrap; " tabindex="0">
-                <span>Today</span>
+              <div class="  link item" data-tab="rock-discover" data-tab-name="Rock - Discover" id="desktop-menu-item-rock-discover" style="white-space: nowrap; " tabindex="0">
+                <span>Discover</span>
                 <span class="ui tiny label">4</span>
               </div>
               <div class="  link item" data-tab="rock-favorites" data-tab-name="Rock - Favorites" id="desktop-menu-item-rock-favorites" style="white-space: nowrap; " tabindex="0">
@@ -380,8 +380,8 @@ function pickToday() {
                 <span>🎻 Folk</span>
                 <span class="ui tiny label">29</span>
               </div>
-              <div class="  link item" data-tab="folk-today" data-tab-name="Folk - Today" id="desktop-menu-item-folk-today" style="white-space: nowrap; " tabindex="0">
-                <span>Today</span>
+              <div class="  link item" data-tab="folk-discover" data-tab-name="Folk - Discover" id="desktop-menu-item-folk-discover" style="white-space: nowrap; " tabindex="0">
+                <span>Discover</span>
                 <span class="ui tiny label">4</span>
               </div>
               <div class="  link item" data-tab="folk-favorites" data-tab-name="Folk - Favorites" id="desktop-menu-item-folk-favorites" style="white-space: nowrap; " tabindex="0">
@@ -404,8 +404,8 @@ function pickToday() {
                 <span>🎧 Alternative</span>
                 <span class="ui tiny label">84</span>
               </div>
-              <div class="  link item" data-tab="alt-today" data-tab-name="Alt - Today" id="desktop-menu-item-alt-today" style="white-space: nowrap; " tabindex="0">
-                <span>Today</span>
+              <div class="  link item" data-tab="alt-discover" data-tab-name="Alt - Discover" id="desktop-menu-item-alt-discover" style="white-space: nowrap; " tabindex="0">
+                <span>Discover</span>
                 <span class="ui tiny label">4</span>
               </div>
               <div class="  link item" data-tab="alt-favorites" data-tab-name="Alt - Favorites" id="desktop-menu-item-alt-favorites" style="white-space: nowrap; " tabindex="0">
@@ -7106,7 +7106,7 @@ function pickToday() {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="today" data-today-per-family="4">
+        <div class="ui tab" data-discover-per-family="4" data-tab="discover">
           <div class="artists-wrapper">
             <div class="ui grid artists" style="margin: -0.25rem;">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="3" data-families="Alternative" data-followers="62170" data-last-follow="73" data-last-release="2025-04-25" data-name="aeseaes" data-popularity="47" data-song-popularity="54" style="padding: 0.25rem;">
@@ -24258,7 +24258,7 @@ function pickToday() {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="rock-today" data-today-family="Rock">
+        <div class="ui tab" data-discover-family="Rock" data-tab="rock-discover">
           <div class="artists-wrapper">
             <div class="ui grid artists" style="margin: -0.25rem;">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="2" data-families="Rock" data-followers="44005" data-last-follow="70" data-last-release="2015-08-07" data-name="Agent Fresco" data-popularity="32" data-song-popularity="40" style="padding: 0.25rem;">
@@ -36761,7 +36761,7 @@ function pickToday() {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="folk-today" data-today-family="Folk">
+        <div class="ui tab" data-discover-family="Folk" data-tab="folk-discover">
           <div class="artists-wrapper">
             <div class="ui grid artists" style="margin: -0.25rem;">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="2" data-families="Folk" data-followers="40608" data-last-follow="130" data-last-release="2011-03-30" data-name="AlicebanD" data-popularity="45" data-song-popularity="53" style="padding: 0.25rem;">
@@ -41477,7 +41477,7 @@ function pickToday() {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="alt-today" data-today-family="Alternative">
+        <div class="ui tab" data-discover-family="Alternative" data-tab="alt-discover">
           <div class="artists-wrapper">
             <div class="ui grid artists" style="margin: -0.25rem;">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="3" data-families="Alternative" data-followers="62170" data-last-follow="73" data-last-release="2025-04-25" data-name="aeseaes" data-popularity="47" data-song-popularity="54" style="padding: 0.25rem;">
@@ -48577,7 +48577,7 @@ function pickToday() {
       </div>
     </div>
   </body>
-  <script>pickToday();</script>
+  <script>pickDiscover();</script>
   <script>$('.menu .item').tab({history:true, historyType: 'hash', onLoad: onTab});</script>
   <script>$('.ui.accordion.desktop').accordion({exclusive:false});</script>
   <script>$('.ui.accordion.mobile').accordion({exclusive:true});</script>

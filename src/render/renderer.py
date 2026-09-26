@@ -14,7 +14,7 @@ from render.models import Artist, Tag
 # Constants
 # ------------------------------------------------------------------------------
 CSS_STYLE_NOWRAP = "white-space: nowrap; "
-TODAY_ARTISTS_PER_FAMILY = 4
+DISCOVER_ARTISTS_PER_FAMILY = 4
 
 CSS_GLOBAL = """
 :root {
@@ -142,8 +142,8 @@ function search(text) {
 }
 """
 
-JS_FUNC_PICK_TODAY = """
-function pickToday() {
+JS_FUNC_PICK_DISCOVER = """
+function pickDiscover() {
     var shifted = new Date(Date.now() - 6 * 60 * 60 * 1000);
     var period = shifted.getHours() < 6 ? 0 : shifted.getHours() < 12 ? 1 : 2;
     var seed = (shifted.getFullYear() * 10000 + (shifted.getMonth() + 1) * 100 + shifted.getDate()) * 10 + period;
@@ -163,14 +163,14 @@ function pickToday() {
 
     var cells = $('.ui.tab[data-tab="all"] .artist').toArray();
     var picked = [];
-    var allTab = $('.ui.tab[data-today-per-family]')[0];
-    $('.ui.tab[data-today-family]').each(function(_, tab) {
+    var allTab = $('.ui.tab[data-discover-per-family]')[0];
+    $('.ui.tab[data-discover-family]').each(function(_, tab) {
         var candidates = cells
-            .filter(function(cell) { return cell.dataset.families.split('|').includes(tab.dataset.todayFamily); })
+            .filter(function(cell) { return cell.dataset.families.split('|').includes(tab.dataset.discoverFamily); })
             .map(function(cell) { return cell.dataset.name; })
             .filter(function(name) { return !picked.includes(name); });
         var familyPicked = [];
-        for (var i = 0; i < Number(allTab.dataset.todayPerFamily) && candidates.length > 0; i++) {
+        for (var i = 0; i < Number(allTab.dataset.discoverPerFamily) && candidates.length > 0; i++) {
             familyPicked.push(candidates.splice(Math.floor(random() * candidates.length), 1)[0]);
         }
         showOnly(tab, familyPicked);
@@ -287,10 +287,10 @@ def menu_filter(mobile: bool, tags_with_artists: dict[Tag, list[Artist]]):
 
         for index, tag in enumerate(TAGS_MENU_ORDER):
             artists_count = len(tags_with_artists[tag])
-            if tag == T_TODAY:
-                artists_count = TODAY_ARTISTS_PER_FAMILY * len(TAGS_TODAY)
-            elif tag in TAGS_TODAY:
-                artists_count = TODAY_ARTISTS_PER_FAMILY
+            if tag == T_DISCOVER:
+                artists_count = DISCOVER_ARTISTS_PER_FAMILY * len(TAGS_DISCOVER)
+            elif tag in TAGS_DISCOVER:
+                artists_count = DISCOVER_ARTISTS_PER_FAMILY
 
             # item attributes
             item_display = f"{tag.icon} {tag_display(tag)}".strip()
@@ -346,7 +346,7 @@ def card_cell(artist):
         data_albums=str(artist.albums),
         data_last_release=str(artist.last_release),
         data_last_follow=str(artist.last_follow),
-        data_families="|".join(family.name for family in TAGS_TODAY.values() if family in artist.tags),
+        data_families="|".join(family.name for family in TAGS_DISCOVER.values() if family in artist.tags),
     )
 
 def card(artist: Artist):
@@ -411,7 +411,7 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]):
             script(raw(JS_FUNC_ONTAB))
             script(raw(_JS_FUNC_SORT))
             script(raw(JS_FUNC_SEARCH))
-            script(raw(JS_FUNC_PICK_TODAY))
+            script(raw(JS_FUNC_PICK_DISCOVER))
 
             # style
             link(href =  "https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min.css", rel = "stylesheet")
@@ -447,12 +447,12 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]):
                     for tag in TAGS_MENU_ORDER:
                         artists = tags_with_artists[tag]
                         tab_attributes = {}
-                        if tag == T_TODAY:
+                        if tag == T_DISCOVER:
                             artists = tags_with_artists[T_ALL]
-                            tab_attributes = {"data_today_per_family": str(TODAY_ARTISTS_PER_FAMILY)}
-                        elif tag in TAGS_TODAY:
-                            artists = tags_with_artists[TAGS_TODAY[tag]]
-                            tab_attributes = {"data_today_family": TAGS_TODAY[tag].name}
+                            tab_attributes = {"data_discover_per_family": str(DISCOVER_ARTISTS_PER_FAMILY)}
+                        elif tag in TAGS_DISCOVER:
+                            artists = tags_with_artists[TAGS_DISCOVER[tag]]
+                            tab_attributes = {"data_discover_family": TAGS_DISCOVER[tag].name}
 
                         with div(cls="ui tab", data_tab=id(tag), **tab_attributes):
                             cards(sorted(artists, key=lambda x: x.name.lower()))
@@ -466,7 +466,7 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]):
         # ----------------------------------------------------------------------
         # Script initialization
         # ----------------------------------------------------------------------
-        script("pickToday();")
+        script("pickDiscover();")
         script("$('.menu .item').tab({history:true, historyType: 'hash', onLoad: onTab});")
         script("$('.ui.accordion.desktop').accordion({exclusive:false});")
         script("$('.ui.accordion.mobile').accordion({exclusive:true});")
