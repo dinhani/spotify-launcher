@@ -52,6 +52,14 @@ html {
 .ui.styled.accordion > .content {
     padding: 0;
 }
+.ui.styled.accordion > .title.section-title {
+    background: #eef1f4;
+    color: #334155;
+    font-weight: 700;
+}
+.ui.styled.accordion > .title.section-title:not(:first-child) {
+    margin-top: 0.5rem;
+}
 .ui.vertical.attached.menu.sidebar-options {
     margin: 0;
     border-left: 0;
@@ -454,7 +462,7 @@ def menu_wrapper(mobile: bool, label: str, id: str):
     item_active = "" if mobile else "active"
 
     # accordion title
-    with div(cls=f"{item_active} title"):
+    with div(cls=f"{item_active} title section-title"):
             span(label, id=f"{item_kind}-menu-header-{id}")
             i(cls="right dropdown icon")
 
