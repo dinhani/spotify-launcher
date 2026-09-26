@@ -314,6 +314,17 @@ $(document).on('keydown', '.artist-search', function(e) {
 });
 
 $(document).on('keydown', function(e) {
+    var kind = {Digit1: 'sort', Digit2: 'group'}[e.code];
+    if (!kind || !e.altKey || e.ctrlKey || e.metaKey) return;
+    e.preventDefault();
+    var items = $('.list-controls .item[data-' + kind + ']');
+    var step = e.shiftKey ? -1 : 1;
+    var next = items[(items.index(items.filter('.active')) + step + items.length) % items.length];
+    if (kind === 'sort') sort(next);
+    else groupArtists(next);
+});
+
+$(document).on('keydown', function(e) {
     if (e.key === 'Escape') search('');
     if (e.key.length !== 1 || e.key === ' ' || e.ctrlKey || e.metaKey || e.altKey) return;
     if ($(e.target).is('input')) return;
@@ -942,7 +953,7 @@ html {
       <div class="sixteen wide mobile tablet   thirteen wide computer   fourteen wide large screen   fourteen wide widescreen   column app-column content-column">
         <div class="list-controls">
           <div class="list-control">
-            <span class="ui blue text list-control-label">Sort</span>
+            <span class="ui blue text list-control-label" title="Alt+1 next, Shift+Alt+1 previous">Sort</span>
             <div class="ui small compact blue secondary menu">
               <div class="active link item nowrap" data-order="asc" data-sort="name" onClick="sort(this)" tabindex="0" title="Name"><i aria-hidden="true" class="music icon control-icon"></i>
                 <span>Name</span>
@@ -971,7 +982,7 @@ html {
             </div>
           </div>
           <div class="list-control">
-            <span class="ui blue text list-control-label">Group</span>
+            <span class="ui blue text list-control-label" title="Alt+2 next, Shift+Alt+2 previous">Group</span>
             <div class="ui small compact blue secondary menu">
               <div class="active link item nowrap" data-group="none" onClick="groupArtists(this)" tabindex="0"><i aria-hidden="true" class="th icon control-icon"></i>
                 <span>None</span>
