@@ -198,13 +198,13 @@ html {
     }
 }
 /* Group headings */
-.ui.grid.artists > .family-heading {
+.ui.grid.artists > .group-heading {
     padding: 1.5rem 0.5rem 0.75rem;
 }
-.ui.grid.artists > .family-heading:first-child {
+.ui.grid.artists > .group-heading:first-child {
     padding-top: 0.5rem;
 }
-.family-heading .ui.header {
+.group-heading .ui.header {
     margin: 0;
 }
 
@@ -273,8 +273,14 @@ function sort(element, attribute, order) {
 """
 
 JS_FUNC_GROUP = """
-var groupByFamily = false;
+var grouping = 'none';
 var artistFamilies = __ARTIST_FAMILIES__;
+var longevityRanges = [
+    {label: '30+ Years', from: 30, to: Infinity},
+    {label: '20–29 Years', from: 20, to: 29},
+    {label: '10–19 Years', from: 10, to: 19},
+    {label: 'Under 10 Years', from: 0, to: 9},
+];
 
 function uniqueArtists(grid) {
     var seen = new Set();
@@ -285,35 +291,54 @@ function uniqueArtists(grid) {
     });
 }
 
+function groupSections(grid) {
+    if (grouping === 'style') {
+        var scope = $(grid).closest('.ui.tab').attr('data-group-family');
+        return artistFamilies
+            .filter(function(family) { return !scope || family.name === scope; })
+            .map(function(family) {
+                return {label: family.label, includes: function(cell) {
+                    var families = cell.dataset.families.split('|').filter(Boolean);
+                    return family.fallback ? families.length === 0 : families.includes(family.name);
+                }};
+            });
+    }
+
+    var currentYear = new Date().getFullYear();
+    var sections = longevityRanges.map(function(range) {
+        return {label: range.label, includes: function(cell) {
+            if (!cell.dataset.firstRelease) return false;
+            var years = currentYear - Number(cell.dataset.firstRelease);
+            return years >= range.from && years <= range.to;
+        }};
+    });
+    sections.push({label: 'Unknown', includes: function(cell) { return !cell.dataset.firstRelease; }});
+    return sections;
+}
+
 function refreshGroupHeadings() {
-    $('.family-heading').each(function() {
-        var members = $(this).nextUntil('.family-heading', '.artist');
+    $('.group-heading').each(function() {
+        var members = $(this).nextUntil('.group-heading', '.artist');
         $(this).toggle(members.toArray().some(function(cell) { return cell.style.display !== 'none'; }));
     });
 }
 
 function applyGrouping() {
     var query = normalizeText($('.artist-search').first().val() || '');
+    var byViewOrder = function(a, b) { return Number(a.dataset.viewOrder) - Number(b.dataset.viewOrder); };
     $('.artists').each(function(_, grid) {
         var cells = uniqueArtists(grid);
         $(grid).empty();
-        if (!groupByFamily) {
-            cells.sort(function(a, b) { return Number(a.dataset.viewOrder) - Number(b.dataset.viewOrder); });
-            $(grid).append(cells);
+        if (grouping === 'none') {
+            $(grid).append(cells.sort(byViewOrder));
         } else {
-            var scope = $(grid).closest('.ui.tab').attr('data-group-family');
-            artistFamilies.forEach(function(family) {
-                if (scope && family.name !== scope) return;
-                var members = cells.filter(function(cell) {
-                    var families = cell.dataset.families.split('|').filter(Boolean);
-                    return family.fallback ? families.length === 0 : families.includes(family.name);
-                });
+            groupSections(grid).forEach(function(section) {
+                var members = cells.filter(section.includes);
                 if (!members.length) return;
-                var heading = $('<div>', {class: 'sixteen wide column family-heading'});
-                heading.append($('<h2>', {class: 'ui medium header', text: family.label}));
+                var heading = $('<div>', {class: 'sixteen wide column group-heading'});
+                heading.append($('<h2>', {class: 'ui medium header', text: section.label}));
                 $(grid).append(heading);
-                members.sort(function(a, b) { return Number(a.dataset.viewOrder) - Number(b.dataset.viewOrder); });
-                members.forEach(function(cell) { $(grid).append($(cell).clone()); });
+                members.sort(byViewOrder).forEach(function(cell) { $(grid).append($(cell).clone()); });
             });
         }
         $(grid).find('.artist').each(function() {
@@ -323,13 +348,13 @@ function applyGrouping() {
     refreshGroupHeadings();
 }
 
-function groupArtists(byFamily) {
-    groupByFamily = byFamily;
-    var selectedIndex = byFamily ? 1 : 0;
+function groupArtists(element, mode) {
+    grouping = mode;
+    var selectedIndex = $(element).index();
     $('.group-options').each(function() {
         $(this).children().removeClass('active').eq(selectedIndex).addClass('active');
     });
-    var title = removeEmoji($('.group-options').first().children().eq(selectedIndex).text());
+    var title = removeEmoji($(element).text());
     $('#mobile-menu-header-group').text('Group: ' + title);
     applyGrouping();
 }
@@ -566,12 +591,15 @@ def menu_group(mobile):
     label = "Group: None" if mobile else "Group"
     with menu_wrapper(mobile, label, "group") as menu:
         menu['class'] += " group-options"
-        with div(cls="ui active link item", onClick="groupArtists(false)", tabindex="0"):
+        with div(cls="ui active link item", onClick="groupArtists(this, 'none')", tabindex="0"):
             i(cls="th icon control-icon", aria_hidden="true")
             span("None")
-        with div(cls="ui link item", onClick="groupArtists(true)", tabindex="0"):
+        with div(cls="ui link item", onClick="groupArtists(this, 'style')", tabindex="0"):
             i(cls="music icon control-icon", aria_hidden="true")
             span("By Style")
+        with div(cls="ui link item", onClick="groupArtists(this, 'longevity')", tabindex="0"):
+            i(cls="hourglass half icon control-icon", aria_hidden="true")
+            span("By Longevity")
 
 def menu_search():
     with div(cls="ui fluid icon input search-control"):
@@ -596,7 +624,8 @@ def card_cell(artist):
         data_popularity=str(artist.popularity),
         data_song_popularity=str(artist.top_song_popularity),
         data_albums=str(artist.albums),
-        data_last_release=str(artist.last_release),
+        data_first_release=artist.first_release[:4],
+        data_last_release=artist.last_release,
         data_last_follow=str(artist.last_follow),
         data_families="|".join(family.name for family in TAGS_DISCOVER.values() if family in artist.tags),
     )

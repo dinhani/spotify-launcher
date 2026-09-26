@@ -39,6 +39,7 @@ for artist in artists:
         "top_album_name": top_album["name"] if top_album else "",
         "top_album_image": top_album["images"][0]["url"] if top_album else "",
         "albums": len(albums),
+        "first_release": min((al.get("release_date", "") for al in albums), default=""),
         "last_release": max((al.get("release_date", "") for al in albums), default=""),
         "top_song": tracks[0]["name"] if tracks else "",
         "top_song_popularity": tracks[0]["popularity"] if tracks else 0,
