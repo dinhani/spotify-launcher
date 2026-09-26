@@ -662,13 +662,13 @@ def menu_group(mobile):
 def list_controls():
     with div(cls="list-controls"):
         with div(cls="list-control"):
-            span("Group", cls="ui blue text list-control-label")
-            with div(cls="ui small compact blue secondary menu"):
-                group_items()
-        with div(cls="list-control"):
             span("Sort", cls="ui blue text list-control-label")
             with div(cls="ui small compact blue secondary menu"):
                 sort_items()
+        with div(cls="list-control"):
+            span("Group", cls="ui blue text list-control-label")
+            with div(cls="ui small compact blue secondary menu"):
+                group_items()
 
 def sort_items():
     for index, (icon, label, description, attribute, order) in enumerate([
