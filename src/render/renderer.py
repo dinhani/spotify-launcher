@@ -424,7 +424,9 @@ def menu_group(mobile):
     label = "Group: None" if mobile else "Group"
     with menu_wrapper(mobile, label, "group") as menu:
         menu['class'] += " group-options"
-        div("🗂️ None", cls="ui active link item", onClick="groupArtists(false)", tabindex="0")
+        with div(cls="ui active link item", onClick="groupArtists(false)", tabindex="0"):
+            i(cls="th icon", aria_hidden="true")
+            span("None")
         div("🎼 By Style", cls="ui link item", onClick="groupArtists(true)", tabindex="0")
 
 def menu_search():
