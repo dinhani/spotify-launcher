@@ -6,6 +6,7 @@ from typing import NamedTuple
 class Tag(NamedTuple):
     name: str
     icon: str
+    description: str = ""
 
 class Artist:
     def __init__(self,

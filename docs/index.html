@@ -53,7 +53,7 @@ function sort(element, attribute, order) {
 </script>
     <script>
 var grouping = 'none';
-var artistFamilies = [{"name": "Rock", "label": "🎸 Rock", "fallback": false}, {"name": "Folk", "label": "🎻 Folk", "fallback": false}, {"name": "Alternative", "label": "🎧 Alternative", "fallback": false}, {"name": "Others", "label": "Others", "fallback": true}];
+var artistFamilies = [{"name": "Rock", "label": "🎸 Rock", "description": "Metal and rock", "fallback": false}, {"name": "Folk", "label": "🎻 Folk", "description": "Traditional, storytelling and theatrical", "fallback": false}, {"name": "Alternative", "label": "🎧 Alternative", "description": "Alternative and indie pop", "fallback": false}, {"name": "Others", "label": "Others", "description": "Everything else", "fallback": true}];
 var longevityRanges = [
     {label: 'Under 5 Years', from: 0, to: 4},
     {label: '5–9 Years', from: 5, to: 9},
@@ -81,7 +81,7 @@ function groupSections(grid) {
         return artistFamilies
             .filter(function(family) { return !scope || family.name === scope; })
             .map(function(family) {
-                return {label: family.label, includes: function(cell) {
+                return {label: family.label, description: family.description, includes: function(cell) {
                     var families = cell.dataset.families.split('|').filter(Boolean);
                     return family.fallback ? families.length === 0 : families.includes(family.name);
                 }};
@@ -90,20 +90,29 @@ function groupSections(grid) {
 
     var currentYear = new Date().getFullYear();
     var sections = longevityRanges.map(function(range) {
-        return {label: range.label, includes: function(cell) {
+        var description = range.to === Infinity
+            ? 'Debut ' + (currentYear - range.from) + ' or earlier'
+            : 'Debut ' + (currentYear - range.to) + '–' + (currentYear - range.from);
+        return {label: range.label, description: description, includes: function(cell) {
             if (!cell.dataset.firstRelease) return false;
             var years = currentYear - Number(cell.dataset.firstRelease.slice(0, 4));
             return years >= range.from && years <= range.to;
         }};
     });
-    sections.push({label: 'Unknown', includes: function(cell) { return !cell.dataset.firstRelease; }});
+    sections.push({label: 'Unknown', description: '', includes: function(cell) { return !cell.dataset.firstRelease; }});
     return sections;
 }
 
 function refreshGroupHeadings() {
     $('.group-heading').each(function() {
-        var members = $(this).nextUntil('.group-heading', '.artist');
-        $(this).toggle(members.toArray().some(function(cell) { return cell.style.display !== 'none'; }));
+        var members = $(this).nextUntil('.group-heading', '.artist').filter(function() { return this.style.display !== 'none'; });
+        $(this).toggle(members.length > 0);
+
+        var summary = $(this).find('.group-summary').empty();
+        summary.append(members.length + (members.length === 1 ? ' artist' : ' artists'));
+        var favorites = members.find('.favorite-star').length;
+        if (favorites) summary.append(' · ', $('<i>', {class: 'yellow star icon'}), favorites);
+        if (summary.data('description')) summary.append(' · ' + summary.data('description'));
     });
 }
 
@@ -121,6 +130,8 @@ function applyGrouping() {
                 if (!members.length) return;
                 var heading = $('<div>', {class: 'sixteen wide column group-heading'});
                 heading.append($('<h2>', {class: 'ui medium header', text: section.label}));
+                heading.append($('<span>', {class: 'group-summary', 'data-description': section.description}));
+                heading.append($('<div>', {class: 'group-rule'}));
                 $(grid).append(heading);
                 members.sort(byViewOrder).forEach(function(cell) { $(grid).append($(cell).clone()); });
             });
@@ -455,13 +466,26 @@ html {
 }
 /* Group headings */
 .ui.grid.artists > .group-heading {
-    padding: 1.5rem 0.5rem 0.75rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding: 1rem 0.5rem 0.5rem;
 }
 .ui.grid.artists > .group-heading:first-child {
     padding-top: 0.5rem;
 }
 .group-heading .ui.header {
     margin: 0;
+    white-space: nowrap;
+}
+.group-summary {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 0.92857143rem;
+}
+.group-rule {
+    flex: 1;
+    align-self: center;
+    border-top: 1px solid rgba(34, 36, 38, 0.15);
 }
 
 /* Focus and hover */
