@@ -276,9 +276,13 @@ JS_FUNC_GROUP = """
 var grouping = 'none';
 var artistFamilies = __ARTIST_FAMILIES__;
 var longevityRanges = [
-    {label: '30+ Years', from: 30, to: Infinity},
-    {label: '20–29 Years', from: 20, to: 29},
-    {label: '10–19 Years', from: 10, to: 19},
+    {label: '40+ Years', from: 40, to: Infinity},
+    {label: '35–39 Years', from: 35, to: 39},
+    {label: '30–34 Years', from: 30, to: 34},
+    {label: '25–29 Years', from: 25, to: 29},
+    {label: '20–24 Years', from: 20, to: 24},
+    {label: '15–19 Years', from: 15, to: 19},
+    {label: '10–14 Years', from: 10, to: 14},
     {label: '5–9 Years', from: 5, to: 9},
     {label: 'Under 5 Years', from: 0, to: 4},
 ];
