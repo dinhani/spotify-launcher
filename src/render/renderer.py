@@ -104,6 +104,24 @@ html {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
     pointer-events: none;
 }
+.artist-image-caption.has-album-cover {
+    padding-right: 3.25rem;
+}
+.ui.card > .image > img.album-cover {
+    position: absolute;
+    right: 0.35rem;
+    bottom: 0.35rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-radius: 0.15rem;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25), 0 2px 6px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+.has-album-cover .artist-stats {
+    gap: 0.35rem;
+}
 .artist-tags {
     width: 100%;
     text-align: left;
@@ -580,7 +598,8 @@ def card(artist: Artist):
             if T_FAVORITES in artist.tags:
                 with div(cls="ui mini yellow right corner label"):
                     i(cls="star icon")
-            with div(cls="artist-image-caption"):
+            caption_class = "artist-image-caption has-album-cover" if artist.album_image else "artist-image-caption"
+            with div(cls=caption_class):
                 div(artist_tags, cls="artist-tags", title=artist_tags)
                 with div(cls="artist-stats"):
                     for icon, value, label in [
@@ -591,6 +610,9 @@ def card(artist: Artist):
                         with div(aria_label=f"{label}: {value}"):
                             i(cls=f"{icon} icon", aria_hidden="true")
                             span(value)
+            if artist.album_image:
+                img(src=artist.album_image, cls="album-cover", alt=f"Album cover — {artist.name}",
+                    loading="lazy", width="40", height="40")
 
         # header
         with a(cls="content", href=spotify_url, tabindex="-1"):
