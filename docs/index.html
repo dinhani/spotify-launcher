@@ -208,11 +208,21 @@ html {
 .ui.styled.accordion > .content {
     padding: 0;
 }
+.ui.styled.accordion > .title.section-title {
+    color: #2185d0;
+    font-size: calc(var(--control-font-size) + 2px);
+    font-weight: 700;
+}
 .ui.vertical.attached.menu.sidebar-options {
     margin: 0;
     border-left: 0;
     border-right: 0;
     border-bottom: 0;
+}
+.ui.menu .item > .label.artist-count {
+    width: 3.5em;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
 }
 .ui.vertical.menu .item > i.control-icon {
     float: none;
@@ -336,7 +346,7 @@ html {
           <input class="artist-search" oninput="search(this.value)" placeholder="Search artist" type="search"><i class="search icon"></i>
         </div>
         <div class="ui fluid styled mobile accordion">
-          <div class=" title">
+          <div class=" title section-title">
             <span id="mobile-menu-header-sort">Sort: Name</span><i class="right dropdown icon"></i>
           </div>
           <div class=" content">
@@ -350,7 +360,7 @@ html {
               <div class="ui link item nowrap" onClick="sort(this, 'last-follow', 'asc')" tabindex="0">🔔 Last Follow</div>
             </div>
           </div>
-          <div class=" title">
+          <div class=" title section-title">
             <span id="mobile-menu-header-group">Group: None</span><i class="right dropdown icon"></i>
           </div>
           <div class=" content">
@@ -361,114 +371,114 @@ html {
               <div class="ui link item" onClick="groupArtists(true)" tabindex="0">🎼 By Style</div>
             </div>
           </div>
-          <div class=" title">
+          <div class=" title section-title">
             <span id="mobile-menu-header-filter">Filter</span><i class="right dropdown icon"></i>
           </div>
           <div class=" content">
             <div class="ui fluid vertical attached menu sidebar-options">
               <div class="active header link item nowrap" data-tab="all" data-tab-name="All" id="mobile-menu-item-all" tabindex="0">
                 <span>🗂️ All</span>
-                <span class="ui tiny label">244</span>
+                <span class="ui tiny label artist-count">244</span>
               </div>
               <div class="  link item nowrap" data-tab="discover" data-tab-name="Discover" id="mobile-menu-item-discover" tabindex="0">
                 <span>Discover</span>
-                <span class="ui tiny label">12</span>
+                <span class="ui tiny label artist-count">12</span>
               </div>
               <div class="  link item nowrap" data-tab="favorites" data-tab-name="Favorites" id="mobile-menu-item-favorites" tabindex="0">
                 <span>Favorites</span>
-                <span class="ui tiny label">79</span>
+                <span class="ui tiny label artist-count">79</span>
               </div>
               <div class="  link item nowrap" data-tab="non-favorites" data-tab-name="Non-Favorites" id="mobile-menu-item-non-favorites" tabindex="0">
                 <span>Non-Favorites</span>
-                <span class="ui tiny label">165</span>
+                <span class="ui tiny label artist-count">165</span>
               </div>
               <div class="  link item nowrap" data-tab="others" data-tab-name="Others" id="mobile-menu-item-others" tabindex="0">
                 <span>Others</span>
-                <span class="ui tiny label">1</span>
+                <span class="ui tiny label artist-count">1</span>
               </div>
               <div class=" header link item nowrap" data-tab="rock" data-tab-name="Rock" id="mobile-menu-item-rock" tabindex="0">
                 <span>🎸 Rock</span>
-                <span class="ui tiny label">138</span>
+                <span class="ui tiny label artist-count">138</span>
               </div>
               <div class="  link item nowrap" data-tab="rock-discover" data-tab-name="Rock - Discover" id="mobile-menu-item-rock-discover" tabindex="0">
                 <span>Discover</span>
-                <span class="ui tiny label">4</span>
+                <span class="ui tiny label artist-count">4</span>
               </div>
               <div class="  link item nowrap" data-tab="rock-favorites" data-tab-name="Rock - Favorites" id="mobile-menu-item-rock-favorites" tabindex="0">
                 <span>Favorites</span>
-                <span class="ui tiny label">34</span>
+                <span class="ui tiny label artist-count">34</span>
               </div>
               <div class="  link item nowrap" data-tab="rock-non-favorites" data-tab-name="Rock - Non-Favorites" id="mobile-menu-item-rock-non-favorites" tabindex="0">
                 <span>Non-Favorites</span>
-                <span class="ui tiny label">104</span>
+                <span class="ui tiny label artist-count">104</span>
               </div>
               <div class="  link item nowrap" data-tab="rock-heavy-metal" data-tab-name="Rock - Heavy Metal" id="mobile-menu-item-rock-heavy-metal" tabindex="0">
                 <span>Heavy Metal</span>
-                <span class="ui tiny label">72</span>
+                <span class="ui tiny label artist-count">72</span>
               </div>
               <div class="  link item nowrap" data-tab="rock-extreme-metal" data-tab-name="Rock - Extreme Metal" id="mobile-menu-item-rock-extreme-metal" tabindex="0">
                 <span>Extreme Metal</span>
-                <span class="ui tiny label">30</span>
+                <span class="ui tiny label artist-count">30</span>
               </div>
               <div class="  link item nowrap" data-tab="rock-folk-metal" data-tab-name="Rock - Folk Metal" id="mobile-menu-item-rock-folk-metal" tabindex="0">
                 <span>Folk Metal</span>
-                <span class="ui tiny label">23</span>
+                <span class="ui tiny label artist-count">23</span>
               </div>
               <div class="  link item nowrap" data-tab="rock-rock" data-tab-name="Rock - Rock" id="mobile-menu-item-rock-rock" tabindex="0">
                 <span>Rock</span>
-                <span class="ui tiny label">27</span>
+                <span class="ui tiny label artist-count">27</span>
               </div>
               <div class=" header link item nowrap" data-tab="folk" data-tab-name="Folk" id="mobile-menu-item-folk" tabindex="0">
                 <span>🎻 Folk</span>
-                <span class="ui tiny label">29</span>
+                <span class="ui tiny label artist-count">29</span>
               </div>
               <div class="  link item nowrap" data-tab="folk-discover" data-tab-name="Folk - Discover" id="mobile-menu-item-folk-discover" tabindex="0">
                 <span>Discover</span>
-                <span class="ui tiny label">4</span>
+                <span class="ui tiny label artist-count">4</span>
               </div>
               <div class="  link item nowrap" data-tab="folk-favorites" data-tab-name="Folk - Favorites" id="mobile-menu-item-folk-favorites" tabindex="0">
                 <span>Favorites</span>
-                <span class="ui tiny label">8</span>
+                <span class="ui tiny label artist-count">8</span>
               </div>
               <div class="  link item nowrap" data-tab="folk-non-favorites" data-tab-name="Folk - Non-Favorites" id="mobile-menu-item-folk-non-favorites" tabindex="0">
                 <span>Non-Favorites</span>
-                <span class="ui tiny label">21</span>
+                <span class="ui tiny label artist-count">21</span>
               </div>
               <div class="  link item nowrap" data-tab="folk-folk" data-tab-name="Folk - Folk" id="mobile-menu-item-folk-folk" tabindex="0">
                 <span>Folk</span>
-                <span class="ui tiny label">14</span>
+                <span class="ui tiny label artist-count">14</span>
               </div>
               <div class="  link item nowrap" data-tab="folk-steampunk" data-tab-name="Folk - Steampunk" id="mobile-menu-item-folk-steampunk" tabindex="0">
                 <span>Steampunk</span>
-                <span class="ui tiny label">15</span>
+                <span class="ui tiny label artist-count">15</span>
               </div>
               <div class=" header link item nowrap" data-tab="alternative" data-tab-name="Alternative" id="mobile-menu-item-alternative" tabindex="0">
                 <span>🎧 Alternative</span>
-                <span class="ui tiny label">84</span>
+                <span class="ui tiny label artist-count">84</span>
               </div>
               <div class="  link item nowrap" data-tab="alt-discover" data-tab-name="Alt - Discover" id="mobile-menu-item-alt-discover" tabindex="0">
                 <span>Discover</span>
-                <span class="ui tiny label">4</span>
+                <span class="ui tiny label artist-count">4</span>
               </div>
               <div class="  link item nowrap" data-tab="alt-favorites" data-tab-name="Alt - Favorites" id="mobile-menu-item-alt-favorites" tabindex="0">
                 <span>Favorites</span>
-                <span class="ui tiny label">39</span>
+                <span class="ui tiny label artist-count">39</span>
               </div>
               <div class="  link item nowrap" data-tab="alt-non-favorites" data-tab-name="Alt - Non-Favorites" id="mobile-menu-item-alt-non-favorites" tabindex="0">
                 <span>Non-Favorites</span>
-                <span class="ui tiny label">45</span>
+                <span class="ui tiny label artist-count">45</span>
               </div>
               <div class="  link item nowrap" data-tab="alt-atmospheric" data-tab-name="Alt - Atmospheric" id="mobile-menu-item-alt-atmospheric" tabindex="0">
                 <span>Atmospheric</span>
-                <span class="ui tiny label">36</span>
+                <span class="ui tiny label artist-count">36</span>
               </div>
               <div class="  link item nowrap" data-tab="alt-energetic" data-tab-name="Alt - Energetic" id="mobile-menu-item-alt-energetic" tabindex="0">
                 <span>Energetic</span>
-                <span class="ui tiny label">38</span>
+                <span class="ui tiny label artist-count">38</span>
               </div>
               <div class="  link item nowrap" data-tab="alt-voxguitar" data-tab-name="Alt - Vox/Guitar" id="mobile-menu-item-alt-voxguitar" tabindex="0">
                 <span>Vox/Guitar</span>
-                <span class="ui tiny label">15</span>
+                <span class="ui tiny label artist-count">15</span>
               </div>
             </div>
           </div>
@@ -479,7 +489,7 @@ html {
           <input class="artist-search" oninput="search(this.value)" placeholder="Search artist" type="search"><i class="search icon"></i>
         </div>
         <div class="ui fluid styled desktop accordion">
-          <div class="active title">
+          <div class="active title section-title">
             <span id="desktop-menu-header-sort">Sort</span><i class="right dropdown icon"></i>
           </div>
           <div class="active content">
@@ -493,7 +503,7 @@ html {
               <div class="ui link item nowrap" onClick="sort(this, 'last-follow', 'asc')" tabindex="0">🔔 Last Follow</div>
             </div>
           </div>
-          <div class="active title">
+          <div class="active title section-title">
             <span id="desktop-menu-header-group">Group</span><i class="right dropdown icon"></i>
           </div>
           <div class="active content">
@@ -504,114 +514,114 @@ html {
               <div class="ui link item" onClick="groupArtists(true)" tabindex="0">🎼 By Style</div>
             </div>
           </div>
-          <div class="active title">
+          <div class="active title section-title">
             <span id="desktop-menu-header-filter">Filter</span><i class="right dropdown icon"></i>
           </div>
           <div class="active content">
             <div class="ui fluid vertical attached menu sidebar-options">
               <div class="active header link item nowrap" data-tab="all" data-tab-name="All" id="desktop-menu-item-all" tabindex="0">
                 <span>🗂️ All</span>
-                <span class="ui tiny label">244</span>
+                <span class="ui tiny label artist-count">244</span>
               </div>
               <div class="  link item nowrap" data-tab="discover" data-tab-name="Discover" id="desktop-menu-item-discover" tabindex="0">
                 <span>Discover</span>
-                <span class="ui tiny label">12</span>
+                <span class="ui tiny label artist-count">12</span>
               </div>
               <div class="  link item nowrap" data-tab="favorites" data-tab-name="Favorites" id="desktop-menu-item-favorites" tabindex="0">
                 <span>Favorites</span>
-                <span class="ui tiny label">79</span>
+                <span class="ui tiny label artist-count">79</span>
               </div>
               <div class="  link item nowrap" data-tab="non-favorites" data-tab-name="Non-Favorites" id="desktop-menu-item-non-favorites" tabindex="0">
                 <span>Non-Favorites</span>
-                <span class="ui tiny label">165</span>
+                <span class="ui tiny label artist-count">165</span>
               </div>
               <div class="  link item nowrap" data-tab="others" data-tab-name="Others" id="desktop-menu-item-others" tabindex="0">
                 <span>Others</span>
-                <span class="ui tiny label">1</span>
+                <span class="ui tiny label artist-count">1</span>
               </div>
               <div class=" header link item nowrap" data-tab="rock" data-tab-name="Rock" id="desktop-menu-item-rock" tabindex="0">
                 <span>🎸 Rock</span>
-                <span class="ui tiny label">138</span>
+                <span class="ui tiny label artist-count">138</span>
               </div>
               <div class="  link item nowrap" data-tab="rock-discover" data-tab-name="Rock - Discover" id="desktop-menu-item-rock-discover" tabindex="0">
                 <span>Discover</span>
-                <span class="ui tiny label">4</span>
+                <span class="ui tiny label artist-count">4</span>
               </div>
               <div class="  link item nowrap" data-tab="rock-favorites" data-tab-name="Rock - Favorites" id="desktop-menu-item-rock-favorites" tabindex="0">
                 <span>Favorites</span>
-                <span class="ui tiny label">34</span>
+                <span class="ui tiny label artist-count">34</span>
               </div>
               <div class="  link item nowrap" data-tab="rock-non-favorites" data-tab-name="Rock - Non-Favorites" id="desktop-menu-item-rock-non-favorites" tabindex="0">
                 <span>Non-Favorites</span>
-                <span class="ui tiny label">104</span>
+                <span class="ui tiny label artist-count">104</span>
               </div>
               <div class="  link item nowrap" data-tab="rock-heavy-metal" data-tab-name="Rock - Heavy Metal" id="desktop-menu-item-rock-heavy-metal" tabindex="0">
                 <span>Heavy Metal</span>
-                <span class="ui tiny label">72</span>
+                <span class="ui tiny label artist-count">72</span>
               </div>
               <div class="  link item nowrap" data-tab="rock-extreme-metal" data-tab-name="Rock - Extreme Metal" id="desktop-menu-item-rock-extreme-metal" tabindex="0">
                 <span>Extreme Metal</span>
-                <span class="ui tiny label">30</span>
+                <span class="ui tiny label artist-count">30</span>
               </div>
               <div class="  link item nowrap" data-tab="rock-folk-metal" data-tab-name="Rock - Folk Metal" id="desktop-menu-item-rock-folk-metal" tabindex="0">
                 <span>Folk Metal</span>
-                <span class="ui tiny label">23</span>
+                <span class="ui tiny label artist-count">23</span>
               </div>
               <div class="  link item nowrap" data-tab="rock-rock" data-tab-name="Rock - Rock" id="desktop-menu-item-rock-rock" tabindex="0">
                 <span>Rock</span>
-                <span class="ui tiny label">27</span>
+                <span class="ui tiny label artist-count">27</span>
               </div>
               <div class=" header link item nowrap" data-tab="folk" data-tab-name="Folk" id="desktop-menu-item-folk" tabindex="0">
                 <span>🎻 Folk</span>
-                <span class="ui tiny label">29</span>
+                <span class="ui tiny label artist-count">29</span>
               </div>
               <div class="  link item nowrap" data-tab="folk-discover" data-tab-name="Folk - Discover" id="desktop-menu-item-folk-discover" tabindex="0">
                 <span>Discover</span>
-                <span class="ui tiny label">4</span>
+                <span class="ui tiny label artist-count">4</span>
               </div>
               <div class="  link item nowrap" data-tab="folk-favorites" data-tab-name="Folk - Favorites" id="desktop-menu-item-folk-favorites" tabindex="0">
                 <span>Favorites</span>
-                <span class="ui tiny label">8</span>
+                <span class="ui tiny label artist-count">8</span>
               </div>
               <div class="  link item nowrap" data-tab="folk-non-favorites" data-tab-name="Folk - Non-Favorites" id="desktop-menu-item-folk-non-favorites" tabindex="0">
                 <span>Non-Favorites</span>
-                <span class="ui tiny label">21</span>
+                <span class="ui tiny label artist-count">21</span>
               </div>
               <div class="  link item nowrap" data-tab="folk-folk" data-tab-name="Folk - Folk" id="desktop-menu-item-folk-folk" tabindex="0">
                 <span>Folk</span>
-                <span class="ui tiny label">14</span>
+                <span class="ui tiny label artist-count">14</span>
               </div>
               <div class="  link item nowrap" data-tab="folk-steampunk" data-tab-name="Folk - Steampunk" id="desktop-menu-item-folk-steampunk" tabindex="0">
                 <span>Steampunk</span>
-                <span class="ui tiny label">15</span>
+                <span class="ui tiny label artist-count">15</span>
               </div>
               <div class=" header link item nowrap" data-tab="alternative" data-tab-name="Alternative" id="desktop-menu-item-alternative" tabindex="0">
                 <span>🎧 Alternative</span>
-                <span class="ui tiny label">84</span>
+                <span class="ui tiny label artist-count">84</span>
               </div>
               <div class="  link item nowrap" data-tab="alt-discover" data-tab-name="Alt - Discover" id="desktop-menu-item-alt-discover" tabindex="0">
                 <span>Discover</span>
-                <span class="ui tiny label">4</span>
+                <span class="ui tiny label artist-count">4</span>
               </div>
               <div class="  link item nowrap" data-tab="alt-favorites" data-tab-name="Alt - Favorites" id="desktop-menu-item-alt-favorites" tabindex="0">
                 <span>Favorites</span>
-                <span class="ui tiny label">39</span>
+                <span class="ui tiny label artist-count">39</span>
               </div>
               <div class="  link item nowrap" data-tab="alt-non-favorites" data-tab-name="Alt - Non-Favorites" id="desktop-menu-item-alt-non-favorites" tabindex="0">
                 <span>Non-Favorites</span>
-                <span class="ui tiny label">45</span>
+                <span class="ui tiny label artist-count">45</span>
               </div>
               <div class="  link item nowrap" data-tab="alt-atmospheric" data-tab-name="Alt - Atmospheric" id="desktop-menu-item-alt-atmospheric" tabindex="0">
                 <span>Atmospheric</span>
-                <span class="ui tiny label">36</span>
+                <span class="ui tiny label artist-count">36</span>
               </div>
               <div class="  link item nowrap" data-tab="alt-energetic" data-tab-name="Alt - Energetic" id="desktop-menu-item-alt-energetic" tabindex="0">
                 <span>Energetic</span>
-                <span class="ui tiny label">38</span>
+                <span class="ui tiny label artist-count">38</span>
               </div>
               <div class="  link item nowrap" data-tab="alt-voxguitar" data-tab-name="Alt - Vox/Guitar" id="desktop-menu-item-alt-voxguitar" tabindex="0">
                 <span>Vox/Guitar</span>
-                <span class="ui tiny label">15</span>
+                <span class="ui tiny label artist-count">15</span>
               </div>
             </div>
           </div>

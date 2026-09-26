@@ -53,11 +53,21 @@ html {
 .ui.styled.accordion > .content {
     padding: 0;
 }
+.ui.styled.accordion > .title.section-title {
+    color: #2185d0;
+    font-size: calc(var(--control-font-size) + 2px);
+    font-weight: 700;
+}
 .ui.vertical.attached.menu.sidebar-options {
     margin: 0;
     border-left: 0;
     border-right: 0;
     border-bottom: 0;
+}
+.ui.menu .item > .label.artist-count {
+    width: 3.5em;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
 }
 .ui.vertical.menu .item > i.control-icon {
     float: none;
@@ -453,7 +463,7 @@ def menu_wrapper(mobile: bool, label: str, id: str):
     item_active = "" if mobile else "active"
 
     # accordion title
-    with div(cls=f"{item_active} title"):
+    with div(cls=f"{item_active} title section-title"):
             span(label, id=f"{item_kind}-menu-header-{id}")
             i(cls="right dropdown icon")
 
@@ -486,7 +496,7 @@ def menu_filter(mobile: bool, tags_with_artists: dict[Tag, list[Artist]]):
                     tabindex="0"
                 ):
                 span(item_display)
-                span(f"{artists_count}", cls="ui tiny label")
+                span(f"{artists_count}", cls="ui tiny label artist-count")
 
 def menu_sort(mobile):
     """Render sort menu according to mobile or desktop rules."""
