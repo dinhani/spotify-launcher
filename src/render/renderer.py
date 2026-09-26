@@ -307,6 +307,7 @@ function onTab(tabPath) {
     // change header
     var title = $('.item[data-tab="' + tabPath + '"]').data('tab-name');
     $('#mobile-menu-header-filter').text('Filter: ' + title);
+    savePreference('tab', tabPath);
 }
 """
 
@@ -318,9 +319,42 @@ function selectOption(element, kind, label) {
 }
 """
 
+JS_FUNC_PREFERENCES = """
+var PREFERENCES_KEY = 'spotify-launcher:preferences';
+
+function loadPreferences() {
+    try {
+        return JSON.parse(localStorage.getItem(PREFERENCES_KEY)) || {};
+    } catch (error) {
+        console.warn('Preferences unavailable', error);
+        return {};
+    }
+}
+
+function savePreference(name, value) {
+    try {
+        var preferences = loadPreferences();
+        preferences[name] = value;
+        localStorage.setItem(PREFERENCES_KEY, JSON.stringify(preferences));
+    } catch (error) {
+        console.warn('Preferences unavailable', error);
+    }
+}
+
+function applyPreferences() {
+    var preferences = loadPreferences();
+    sort($('.item[data-sort="' + preferences.sort + '"]')[0] || $('.item[data-sort]')[0]);
+    groupArtists($('.item[data-group="' + preferences.group + '"]')[0] || $('.item[data-group]')[0]);
+    if (!location.hash && $('.item[data-tab="' + preferences.tab + '"]').length) {
+        history.replaceState(null, '', '#/' + preferences.tab);
+    }
+}
+"""
+
 JS_FUNC_SORT = """
 function sort(element) {
     selectOption(element, 'sort', 'Sort');
+    savePreference('sort', element.dataset.sort);
     var attribute = element.dataset.sort;
     var order = element.dataset.order;
 
@@ -441,6 +475,7 @@ function applyGrouping() {
 
 function groupArtists(element) {
     selectOption(element, 'group', 'Group');
+    savePreference('group', element.dataset.group);
     grouping = element.dataset.group;
     applyGrouping();
 }
@@ -829,6 +864,7 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]) -> str:
             script(src=f"{FOMANTIC_UI}.js")
             script(raw(JS_FUNC_ONTAB))
             script(raw(JS_FUNC_SELECT_OPTION))
+            script(raw(JS_FUNC_PREFERENCES))
             script(raw(JS_FUNC_SORT))
             script(raw(JS_FUNC_GROUP))
             script(raw(JS_FUNC_SEARCH))
@@ -902,7 +938,7 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]) -> str:
         # ----------------------------------------------------------------------
         script("markRecentReleases();")
         script("pickDiscover();")
-        script("sort($('.item[data-sort]')[0]);")
+        script("applyPreferences();")
         script("$('.menu .item').tab({history:true, historyType: 'hash', onLoad: onTab});")
         script("$('.ui.accordion.mobile').accordion({exclusive:true});")
 
