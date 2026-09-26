@@ -68,6 +68,13 @@ html {
     float: none;
     margin: 0 0.35rem 0 0;
 }
+.control-symbol {
+    display: inline-block;
+    width: 1.18em;
+    margin-right: 0.35rem;
+    text-align: center;
+    filter: grayscale(1);
+}
 .ui.input.search-control {
     margin-bottom: 0.5rem;
 }
@@ -519,7 +526,7 @@ def menu_filter(mobile: bool, tags_with_artists: dict[Tag, list[Artist]]):
                 artists_count = DISCOVER_ARTISTS_PER_FAMILY
 
             # item attributes
-            item_display = f"{tag.icon} {tag_display(tag)}".strip()
+            item_display = tag_display(tag)
             item_active = "active" if index == 0 else ""
             item_header = "header" if tag in TAGS_HEADER else ""
 
@@ -530,6 +537,8 @@ def menu_filter(mobile: bool, tags_with_artists: dict[Tag, list[Artist]]):
                     data_tab_name=tag.name,
                     tabindex="0"
                 ):
+                if tag.icon:
+                    span(tag.icon, cls="control-symbol", aria_hidden="true")
                 span(item_display)
                 span(f"{artists_count}", cls="ui tiny basic blue label artist-count")
 
@@ -538,13 +547,20 @@ def menu_sort(mobile):
     label = "Sort: Name" if mobile else "Sort"
     with menu_wrapper(mobile, label, "sort") as menu:
         menu['class'] += " sort-options"
-        div("🎶 Name", cls="ui active link item nowrap", onClick="sort(this, 'name', 'asc')", tabindex="0")
-        div("🔥 Popularity (artist)", cls="ui link item nowrap", onClick="sort(this, 'popularity', 'desc')", tabindex="0")
-        div("🏆 Popularity (song)", cls="ui link item nowrap", onClick="sort(this, 'song-popularity', 'desc')", tabindex="0")
-        div("👤 Followers", cls="ui link item nowrap", onClick="sort(this, 'followers', 'desc')", tabindex="0")
-        div("💿 Albums", cls="ui link item nowrap", onClick="sort(this, 'albums', 'desc')", tabindex="0")
-        div("📅 Last Release", cls="ui link item nowrap", onClick="sort(this, 'last-release', 'desc')", tabindex="0")
-        div("🔔 Last Follow", cls="ui link item nowrap", onClick="sort(this, 'last-follow', 'asc')", tabindex="0")
+        for index, (icon, label, attribute, order) in enumerate([
+            ("music", "Name", "name", "asc"),
+            ("fire", "Popularity (artist)", "popularity", "desc"),
+            ("trophy", "Popularity (song)", "song-popularity", "desc"),
+            ("user", "Followers", "followers", "desc"),
+            ("compact disc", "Albums", "albums", "desc"),
+            ("calendar alternate", "Last Release", "last-release", "desc"),
+            ("bell", "Last Follow", "last-follow", "asc"),
+        ]):
+            active = "active" if index == 0 else ""
+            with div(cls=f"ui {active} link item nowrap",
+                     onClick=f"sort(this, '{attribute}', '{order}')", tabindex="0"):
+                i(cls=f"{icon} icon control-icon", aria_hidden="true")
+                span(label)
 
 def menu_group(mobile):
     label = "Group: None" if mobile else "Group"
@@ -553,7 +569,9 @@ def menu_group(mobile):
         with div(cls="ui active link item", onClick="groupArtists(false)", tabindex="0"):
             i(cls="th icon control-icon", aria_hidden="true")
             span("None")
-        div("🎼 By Style", cls="ui link item", onClick="groupArtists(true)", tabindex="0")
+        with div(cls="ui link item", onClick="groupArtists(true)", tabindex="0"):
+            i(cls="music icon control-icon", aria_hidden="true")
+            span("By Style")
 
 def menu_search():
     with div(cls="ui fluid icon input search-control"):

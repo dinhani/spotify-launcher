@@ -225,6 +225,13 @@ html {
     float: none;
     margin: 0 0.35rem 0 0;
 }
+.control-symbol {
+    display: inline-block;
+    width: 1.18em;
+    margin-right: 0.35rem;
+    text-align: center;
+    filter: grayscale(1);
+}
 .ui.input.search-control {
     margin-bottom: 0.5rem;
 }
@@ -387,13 +394,27 @@ html {
           </div>
           <div class=" content">
             <div class="ui fluid vertical attached menu sidebar-options sort-options">
-              <div class="ui active link item nowrap" onClick="sort(this, 'name', 'asc')" tabindex="0">🎶 Name</div>
-              <div class="ui link item nowrap" onClick="sort(this, 'popularity', 'desc')" tabindex="0">🔥 Popularity (artist)</div>
-              <div class="ui link item nowrap" onClick="sort(this, 'song-popularity', 'desc')" tabindex="0">🏆 Popularity (song)</div>
-              <div class="ui link item nowrap" onClick="sort(this, 'followers', 'desc')" tabindex="0">👤 Followers</div>
-              <div class="ui link item nowrap" onClick="sort(this, 'albums', 'desc')" tabindex="0">💿 Albums</div>
-              <div class="ui link item nowrap" onClick="sort(this, 'last-release', 'desc')" tabindex="0">📅 Last Release</div>
-              <div class="ui link item nowrap" onClick="sort(this, 'last-follow', 'asc')" tabindex="0">🔔 Last Follow</div>
+              <div class="ui active link item nowrap" onClick="sort(this, 'name', 'asc')" tabindex="0"><i aria-hidden="true" class="music icon control-icon"></i>
+                <span>Name</span>
+              </div>
+              <div class="ui  link item nowrap" onClick="sort(this, 'popularity', 'desc')" tabindex="0"><i aria-hidden="true" class="fire icon control-icon"></i>
+                <span>Popularity (artist)</span>
+              </div>
+              <div class="ui  link item nowrap" onClick="sort(this, 'song-popularity', 'desc')" tabindex="0"><i aria-hidden="true" class="trophy icon control-icon"></i>
+                <span>Popularity (song)</span>
+              </div>
+              <div class="ui  link item nowrap" onClick="sort(this, 'followers', 'desc')" tabindex="0"><i aria-hidden="true" class="user icon control-icon"></i>
+                <span>Followers</span>
+              </div>
+              <div class="ui  link item nowrap" onClick="sort(this, 'albums', 'desc')" tabindex="0"><i aria-hidden="true" class="compact disc icon control-icon"></i>
+                <span>Albums</span>
+              </div>
+              <div class="ui  link item nowrap" onClick="sort(this, 'last-release', 'desc')" tabindex="0"><i aria-hidden="true" class="calendar alternate icon control-icon"></i>
+                <span>Last Release</span>
+              </div>
+              <div class="ui  link item nowrap" onClick="sort(this, 'last-follow', 'asc')" tabindex="0"><i aria-hidden="true" class="bell icon control-icon"></i>
+                <span>Last Follow</span>
+              </div>
             </div>
           </div>
           <div class=" title">
@@ -406,7 +427,9 @@ html {
               <div class="ui active link item" onClick="groupArtists(false)" tabindex="0"><i aria-hidden="true" class="th icon control-icon"></i>
                 <span>None</span>
               </div>
-              <div class="ui link item" onClick="groupArtists(true)" tabindex="0">🎼 By Style</div>
+              <div class="ui link item" onClick="groupArtists(true)" tabindex="0"><i aria-hidden="true" class="music icon control-icon"></i>
+                <span>By Style</span>
+              </div>
             </div>
           </div>
           <div class=" title">
@@ -417,7 +440,8 @@ html {
           <div class=" content">
             <div class="ui fluid vertical attached menu sidebar-options">
               <div class="active header link item nowrap" data-tab="all" data-tab-name="All" id="mobile-menu-item-all" tabindex="0">
-                <span>🗂️ All</span>
+                <span aria-hidden="true" class="control-symbol">🗂️</span>
+                <span>All</span>
                 <span class="ui tiny basic blue label artist-count">244</span>
               </div>
               <div class="  link item nowrap" data-tab="discover" data-tab-name="Discover" id="mobile-menu-item-discover" tabindex="0">
@@ -437,7 +461,8 @@ html {
                 <span class="ui tiny basic blue label artist-count">1</span>
               </div>
               <div class=" header link item nowrap" data-tab="rock" data-tab-name="Rock" id="mobile-menu-item-rock" tabindex="0">
-                <span>🎸 Rock</span>
+                <span aria-hidden="true" class="control-symbol">🎸</span>
+                <span>Rock</span>
                 <span class="ui tiny basic blue label artist-count">138</span>
               </div>
               <div class="  link item nowrap" data-tab="rock-discover" data-tab-name="Rock - Discover" id="mobile-menu-item-rock-discover" tabindex="0">
@@ -469,7 +494,8 @@ html {
                 <span class="ui tiny basic blue label artist-count">27</span>
               </div>
               <div class=" header link item nowrap" data-tab="folk" data-tab-name="Folk" id="mobile-menu-item-folk" tabindex="0">
-                <span>🎻 Folk</span>
+                <span aria-hidden="true" class="control-symbol">🎻</span>
+                <span>Folk</span>
                 <span class="ui tiny basic blue label artist-count">29</span>
               </div>
               <div class="  link item nowrap" data-tab="folk-discover" data-tab-name="Folk - Discover" id="mobile-menu-item-folk-discover" tabindex="0">
@@ -493,7 +519,8 @@ html {
                 <span class="ui tiny basic blue label artist-count">15</span>
               </div>
               <div class=" header link item nowrap" data-tab="alternative" data-tab-name="Alternative" id="mobile-menu-item-alternative" tabindex="0">
-                <span>🎧 Alternative</span>
+                <span aria-hidden="true" class="control-symbol">🎧</span>
+                <span>Alternative</span>
                 <span class="ui tiny basic blue label artist-count">84</span>
               </div>
               <div class="  link item nowrap" data-tab="alt-discover" data-tab-name="Alt - Discover" id="mobile-menu-item-alt-discover" tabindex="0">
@@ -536,13 +563,27 @@ html {
           </div>
           <div class="active content">
             <div class="ui fluid vertical attached menu sidebar-options sort-options">
-              <div class="ui active link item nowrap" onClick="sort(this, 'name', 'asc')" tabindex="0">🎶 Name</div>
-              <div class="ui link item nowrap" onClick="sort(this, 'popularity', 'desc')" tabindex="0">🔥 Popularity (artist)</div>
-              <div class="ui link item nowrap" onClick="sort(this, 'song-popularity', 'desc')" tabindex="0">🏆 Popularity (song)</div>
-              <div class="ui link item nowrap" onClick="sort(this, 'followers', 'desc')" tabindex="0">👤 Followers</div>
-              <div class="ui link item nowrap" onClick="sort(this, 'albums', 'desc')" tabindex="0">💿 Albums</div>
-              <div class="ui link item nowrap" onClick="sort(this, 'last-release', 'desc')" tabindex="0">📅 Last Release</div>
-              <div class="ui link item nowrap" onClick="sort(this, 'last-follow', 'asc')" tabindex="0">🔔 Last Follow</div>
+              <div class="ui active link item nowrap" onClick="sort(this, 'name', 'asc')" tabindex="0"><i aria-hidden="true" class="music icon control-icon"></i>
+                <span>Name</span>
+              </div>
+              <div class="ui  link item nowrap" onClick="sort(this, 'popularity', 'desc')" tabindex="0"><i aria-hidden="true" class="fire icon control-icon"></i>
+                <span>Popularity (artist)</span>
+              </div>
+              <div class="ui  link item nowrap" onClick="sort(this, 'song-popularity', 'desc')" tabindex="0"><i aria-hidden="true" class="trophy icon control-icon"></i>
+                <span>Popularity (song)</span>
+              </div>
+              <div class="ui  link item nowrap" onClick="sort(this, 'followers', 'desc')" tabindex="0"><i aria-hidden="true" class="user icon control-icon"></i>
+                <span>Followers</span>
+              </div>
+              <div class="ui  link item nowrap" onClick="sort(this, 'albums', 'desc')" tabindex="0"><i aria-hidden="true" class="compact disc icon control-icon"></i>
+                <span>Albums</span>
+              </div>
+              <div class="ui  link item nowrap" onClick="sort(this, 'last-release', 'desc')" tabindex="0"><i aria-hidden="true" class="calendar alternate icon control-icon"></i>
+                <span>Last Release</span>
+              </div>
+              <div class="ui  link item nowrap" onClick="sort(this, 'last-follow', 'asc')" tabindex="0"><i aria-hidden="true" class="bell icon control-icon"></i>
+                <span>Last Follow</span>
+              </div>
             </div>
           </div>
           <div class="active title">
@@ -555,7 +596,9 @@ html {
               <div class="ui active link item" onClick="groupArtists(false)" tabindex="0"><i aria-hidden="true" class="th icon control-icon"></i>
                 <span>None</span>
               </div>
-              <div class="ui link item" onClick="groupArtists(true)" tabindex="0">🎼 By Style</div>
+              <div class="ui link item" onClick="groupArtists(true)" tabindex="0"><i aria-hidden="true" class="music icon control-icon"></i>
+                <span>By Style</span>
+              </div>
             </div>
           </div>
           <div class="active title">
@@ -566,7 +609,8 @@ html {
           <div class="active content">
             <div class="ui fluid vertical attached menu sidebar-options">
               <div class="active header link item nowrap" data-tab="all" data-tab-name="All" id="desktop-menu-item-all" tabindex="0">
-                <span>🗂️ All</span>
+                <span aria-hidden="true" class="control-symbol">🗂️</span>
+                <span>All</span>
                 <span class="ui tiny basic blue label artist-count">244</span>
               </div>
               <div class="  link item nowrap" data-tab="discover" data-tab-name="Discover" id="desktop-menu-item-discover" tabindex="0">
@@ -586,7 +630,8 @@ html {
                 <span class="ui tiny basic blue label artist-count">1</span>
               </div>
               <div class=" header link item nowrap" data-tab="rock" data-tab-name="Rock" id="desktop-menu-item-rock" tabindex="0">
-                <span>🎸 Rock</span>
+                <span aria-hidden="true" class="control-symbol">🎸</span>
+                <span>Rock</span>
                 <span class="ui tiny basic blue label artist-count">138</span>
               </div>
               <div class="  link item nowrap" data-tab="rock-discover" data-tab-name="Rock - Discover" id="desktop-menu-item-rock-discover" tabindex="0">
@@ -618,7 +663,8 @@ html {
                 <span class="ui tiny basic blue label artist-count">27</span>
               </div>
               <div class=" header link item nowrap" data-tab="folk" data-tab-name="Folk" id="desktop-menu-item-folk" tabindex="0">
-                <span>🎻 Folk</span>
+                <span aria-hidden="true" class="control-symbol">🎻</span>
+                <span>Folk</span>
                 <span class="ui tiny basic blue label artist-count">29</span>
               </div>
               <div class="  link item nowrap" data-tab="folk-discover" data-tab-name="Folk - Discover" id="desktop-menu-item-folk-discover" tabindex="0">
@@ -642,7 +688,8 @@ html {
                 <span class="ui tiny basic blue label artist-count">15</span>
               </div>
               <div class=" header link item nowrap" data-tab="alternative" data-tab-name="Alternative" id="desktop-menu-item-alternative" tabindex="0">
-                <span>🎧 Alternative</span>
+                <span aria-hidden="true" class="control-symbol">🎧</span>
+                <span>Alternative</span>
                 <span class="ui tiny basic blue label artist-count">84</span>
               </div>
               <div class="  link item nowrap" data-tab="alt-discover" data-tab-name="Alt - Discover" id="desktop-menu-item-alt-discover" tabindex="0">
