@@ -10,6 +10,16 @@ A personal launcher for the Spotify artists I follow: it helps me decide what to
 - Favorites are curated by taste, not by play count.
 - When I say "the app should answer X" I mean a feature of this page, not an analysis by the agent.
 
+## Design: Delight
+
+Delight is an explicit product goal. Choosing an artist should feel inviting, personal and enjoyable. Think like an artist: consider composition, visual rhythm, breathing room and how the page makes someone want to listen.
+
+- Before a visual change, decide what should draw the eye first and how secondary information supports it. A change must improve the experience, beyond fitting information or reducing height.
+- Artist photos and names lead the cards. Preserve the character of the photos; place supporting information with restraint, keeping important parts of the image visible.
+- Stats are secondary, passive information. Keep them legible and quiet; avoid turning them into prominent panels or covering photos unnecessarily.
+- Use spacing, typography, contrast and subtle treatments deliberately. More boxes, bars, borders or colorful icons do not automatically make a design better.
+- Consider the whole composition on desktop and mobile, including long genre labels, favorites and dense cards. Avoid overlaps and preserve comfortable interactions.
+
 ## Discover
 
 Discover suggests artists to revisit from the artists already followed; it does not introduce new artists.

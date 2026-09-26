@@ -89,16 +89,30 @@ html {
 .artist-image {
     object-fit: cover;
 }
-.artist-tags {
+.artist-image-caption {
     position: absolute;
     bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+    padding: 1.25rem 0.35rem 0.35rem;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.65));
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    pointer-events: none;
+}
+.artist-tags {
+    width: 100%;
+    text-align: left;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    pointer-events: auto;
     font-size: 0.75rem;
     font-weight: bold;
-    line-height: 1;
-    color: white;
-    padding: 0.25rem;
-    background: rgba(0,0,0,0.2);
-    backdrop-filter: blur(4px);
+    line-height: 1.2;
 }
 .ui.card > .content {
     padding: 0.5rem;
@@ -111,13 +125,18 @@ html {
 .ui.card .artist-name {
     margin-bottom: 0.25rem;
 }
-.ui.card > .extra.content {
+.artist-stats {
     display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-}
-.ui.card > .extra.content::after {
-    display: none !important;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: baseline;
+    flex-shrink: 0;
+    gap: 0.5rem;
+    text-align: left;
+    font-size: 0.75rem;
+    line-height: 1.2;
+    font-variant-numeric: tabular-nums;
+    pointer-events: none;
 }
 .artist-stats > div {
     white-space: nowrap;
@@ -561,19 +580,23 @@ def card(artist: Artist):
             if T_FAVORITES in artist.tags:
                 with div(cls="ui mini yellow right corner label"):
                     i(cls="star icon")
-            div(artist_tags, cls="artist-tags")
+            with div(cls="artist-image-caption"):
+                div(artist_tags, cls="artist-tags", title=artist_tags)
+                with div(cls="artist-stats"):
+                    for icon, value, label in [
+                        ("fire", str(artist.popularity), "Popularity"),
+                        ("user", millify(artist.followers, precision=followers_precision), "Followers"),
+                        ("compact disc", str(artist.albums), "Albums"),
+                    ]:
+                        with div(aria_label=f"{label}: {value}"):
+                            i(cls=f"{icon} icon", aria_hidden="true")
+                            span(value)
 
         # header
         with a(cls="content", href=spotify_url, tabindex="-1"):
             div(artist.name, cls="ui small header artist-name")
             with div(cls="meta"):
                 div(artist.top_song, cls="artist-song")
-
-        # footer
-        with div(cls="extra content artist-stats"):
-            div("🔥" + str(artist.popularity))
-            div("👤" + millify(artist.followers, precision=followers_precision))
-            div("💿" + str(artist.albums))
 
         # links
         with div(cls="ui two bottom attached mini basic buttons"):

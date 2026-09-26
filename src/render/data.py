@@ -171,6 +171,7 @@ TAG_RULES = {
         "-Amon Amarth",
         "-Arch Enemy",
         "-Arcturus",
+        "-Carcass",
         "-Death",
         "-Gotthard",
         "-In Mourning",
