@@ -633,7 +633,9 @@ $(document).on('keydown', function(e) {
     e.preventDefault();
     var items = $('.ui.vertical.desktop.menu, .list-controls').find('.item[data-' + kind + ']');
     var step = (e.shiftKey || e.code === 'ArrowUp' || e.code === 'ArrowLeft') ? -1 : 1;
-    items.eq((items.index(items.filter('.active')) + step + items.length) % items.length).click();
+    var next = items.eq((items.index(items.filter('.active')) + step + items.length) % items.length);
+    next.click();
+    if (kind === 'tab') next.focus();
 });
 
 $(document).on('keydown', function(e) {
