@@ -140,13 +140,25 @@ html {
 .ui.card > .content {
     padding: 0.5rem;
 }
-.artist-name, .artist-song {
+.artist-name-text, .artist-song {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 .ui.card .artist-name {
+    display: flex;
+    align-items: baseline;
+    gap: 0.3rem;
     margin-bottom: 0.25rem;
+}
+.ui.header.artist-name > i.favorite-star.icon {
+    display: inline-block;
+    flex-shrink: 0;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    font-size: 0.75em;
+    color: #c9a54a;
 }
 .artist-stats {
     display: flex;
@@ -648,9 +660,6 @@ def card(artist: Artist):
         # image
         with a(cls="image", href=spotify_url, tabindex="-1"):
             img(src=artist.image, cls="ui image artist-image", alt=artist.name, loading="lazy")
-            if T_FAVORITES in artist.tags:
-                with div(cls="ui mini yellow right corner label"):
-                    i(cls="star icon")
             caption_class = "artist-image-caption has-album-cover" if artist.top_album_image else "artist-image-caption"
             with div(cls=caption_class):
                 div(artist_tags, cls="artist-tags")
@@ -669,7 +678,10 @@ def card(artist: Artist):
 
         # header
         with a(cls="content", href=spotify_url, tabindex="-1"):
-            div(artist.name, cls="ui small header artist-name")
+            with div(cls="ui small header artist-name"):
+                span(artist.name, cls="artist-name-text")
+                if T_FAVORITES in artist.tags:
+                    i(cls="star icon favorite-star", role="img", aria_label="Favorite")
             with div(cls="meta"):
                 div(artist.top_song or "-", cls="artist-song")
 
