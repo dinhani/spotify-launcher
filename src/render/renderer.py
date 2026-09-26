@@ -202,7 +202,7 @@ function groupArtists(byFamily) {
     $('.group-options').each(function() {
         $(this).children().removeClass('active').eq(byFamily ? 1 : 0).addClass('active');
     });
-    $('#mobile-menu-header-group').text('Group: ' + (byFamily ? 'By family' : 'All together'));
+    $('#mobile-menu-header-group').text('Group: ' + (byFamily ? 'By style' : 'All together'));
     applyGrouping();
 }
 """
@@ -423,7 +423,7 @@ def menu_group(mobile):
     with menu_wrapper(mobile, label, "group") as menu:
         menu['class'] += " group-options"
         div("All together", cls="ui active link item", onClick="groupArtists(false)", tabindex="0")
-        div("By family", cls="ui link item", onClick="groupArtists(true)", tabindex="0")
+        div("By style", cls="ui link item", onClick="groupArtists(true)", tabindex="0")
 
 def menu_search():
     with div(cls="ui fluid icon input", style="margin-bottom: 0.5rem;"):
