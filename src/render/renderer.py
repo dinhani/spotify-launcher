@@ -526,11 +526,15 @@ function visibleCards() {
     return $('.ui.tab.active .artist:visible .card');
 }
 
+function cellRect(card) {
+    return card.closest('.artist').getBoundingClientRect();
+}
+
 function focusVisibleCard() {
     var cards = visibleCards();
     if (!cards.length) return;
     var top = Math.max(0, cards.closest('.artists-wrapper')[0].getBoundingClientRect().top);
-    var card = cards.filter(function() { return this.getBoundingClientRect().top >= top; }).first();
+    var card = cards.filter(function() { return cellRect(this).top >= top; }).first();
     (card.length ? card : cards.first()).focus();
 }
 
@@ -600,8 +604,8 @@ $(document).on('keydown', '.ui.card', function(e) {
 
     var cards = visibleCards();
     var index = cards.index(this);
-    var rect = this.getBoundingClientRect();
-    var row = cards.filter(function() { return Math.abs(this.getBoundingClientRect().top - rect.top) < 2; });
+    var rect = cellRect(this);
+    var row = cards.filter(function() { return Math.abs(cellRect(this).top - rect.top) < 2; });
     if (e.key === 'ArrowLeft' && row.index(this) === 0) {
         e.preventDefault();
         $('.menu .item.active[data-tab]:visible').focus();
@@ -617,11 +621,11 @@ $(document).on('keydown', '.ui.card', function(e) {
     }
     var below = e.key === 'ArrowDown';
     var candidates = cards.toArray().filter(function(card) {
-        var delta = card.getBoundingClientRect().top - rect.top;
+        var delta = cellRect(card).top - rect.top;
         return below ? delta > 2 : delta < -2;
     });
     candidates.sort(function(a, b) {
-        var aRect = a.getBoundingClientRect(), bRect = b.getBoundingClientRect();
+        var aRect = cellRect(a), bRect = cellRect(b);
         return Math.abs(aRect.top - rect.top) - Math.abs(bRect.top - rect.top)
             || Math.abs(aRect.left - rect.left) - Math.abs(bRect.left - rect.left);
     });
