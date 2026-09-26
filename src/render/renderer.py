@@ -50,6 +50,16 @@ html {
     padding-top: calc(var(--control-padding) - 1px) !important;
     padding-bottom: calc(var(--control-padding) - 1px) !important;
 }
+.ui.styled.accordion > .title {
+    padding-top: var(--control-padding);
+    padding-bottom: var(--control-padding);
+}
+.ui.styled.accordion > .title > .ui.text {
+    line-height: var(--control-line-height);
+}
+.ui.styled.accordion > .title ~ .title {
+    padding-top: calc(var(--control-padding) - 1px);
+}
 .ui.styled.accordion > .content {
     padding: 0;
 }
