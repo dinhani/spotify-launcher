@@ -41,7 +41,7 @@ Spotify extended streaming history requested on 2026-09-26. When it arrives, agg
 ## Pipeline
 
 - `just download`: fetches followed artists into `data/followed.json` and caches each artist in `data/artists/<id>.json` (cached files are never re-downloaded).
-- `just export`: flattens the cache into `data/artistas.tsv`.
+- `just export`: flattens the cache into `data/artistas.tsv`. `FIRST_RELEASE_OVERRIDES` fixes first release dates Spotify gets wrong (e.g. a compilation dated by its oldest track).
 - `just render`: classifies artists and writes `docs/index.html` plus summaries.
 
 ## Workflow
