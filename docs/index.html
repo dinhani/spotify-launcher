@@ -7,30 +7,28 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-address@1.6.0/src/jquery.address.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min.js"></script>
     <script>
-function removeEmoji(s) {
-    return s.replace(/[\p{Emoji_Presentation}\p{Extended_Pictographic}]/gu, '').trim()
-}
-</script>
-    <script>
 function onTab(tabPath) {
     if ($(document.activeElement).is('body, .ui.card') && matchMedia('(min-width: 992px)').matches) {
-        $('.ui.tab.active .artist:visible .card').first().focus();
+        visibleCards().first().focus();
     }
 
     // change header
-    var id = "#mobile-menu-item-" + tabPath.replace("tab-", "");
-    var title = removeEmoji($(id).data("tab-name"));
-    $("#mobile-menu-header-filter").text("Filter: " + title)
+    var title = $('.item[data-tab="' + tabPath + '"]').data('tab-name');
+    $('#mobile-menu-header-filter').text('Filter: ' + title);
 }
 </script>
     <script>
-function sort(element, attribute, order) {
-    // change header
-    var title = removeEmoji($(element).text());
-    $("#mobile-menu-header-sort").text("Sort: " + title);
-
-    // mark active
-    $('.item[data-sort]').removeClass('active').filter('[data-sort="' + attribute + '"]').addClass('active');
+function selectOption(element, kind, label) {
+    var value = element.dataset[kind];
+    $('.item[data-' + kind + ']').removeClass('active').filter('[data-' + kind + '="' + value + '"]').addClass('active');
+    $('#mobile-menu-header-' + kind).text(label + ': ' + $(element).text().trim());
+}
+</script>
+    <script>
+function sort(element) {
+    selectOption(element, 'sort', 'Sort');
+    var attribute = element.dataset.sort;
+    var order = element.dataset.order;
 
     // reorder
     $('.artists').each(function(_, artists) {
@@ -66,6 +64,10 @@ var longevityRanges = [
     {label: '40+ Years', from: 40, to: Infinity},
 ];
 
+function familiesOf(cell) {
+    return cell.dataset.families.split('|').filter(Boolean);
+}
+
 function uniqueArtists(grid) {
     var seen = new Set();
     return $(grid).find('.artist').toArray().filter(function(cell) {
@@ -82,7 +84,7 @@ function groupSections(grid) {
             .filter(function(family) { return !scope || family.name === scope; })
             .map(function(family) {
                 return {label: family.name, icon: family.icon, description: family.description, includes: function(cell) {
-                    var families = cell.dataset.families.split('|').filter(Boolean);
+                    var families = familiesOf(cell);
                     return family.fallback ? families.length === 0 : families.includes(family.name);
                 }};
             });
@@ -117,7 +119,6 @@ function refreshGroupHeadings() {
 }
 
 function applyGrouping() {
-    var query = normalizeText($('.artist-search').first().val() || '');
     var byViewOrder = function(a, b) { return Number(a.dataset.viewOrder) - Number(b.dataset.viewOrder); };
     $('.artists').each(function(_, grid) {
         var cells = uniqueArtists(grid);
@@ -138,18 +139,13 @@ function applyGrouping() {
                 members.sort(byViewOrder).forEach(function(cell) { $(grid).append($(cell).clone()); });
             });
         }
-        $(grid).find('.artist').each(function() {
-            $(this).toggle(normalizeText(this.dataset.name).includes(query));
-        });
     });
-    refreshGroupHeadings();
+    search($('.artist-search').val());
 }
 
-function groupArtists(element, mode) {
-    grouping = mode;
-    $('.item[data-group]').removeClass('active').filter('[data-group="' + mode + '"]').addClass('active');
-    var title = removeEmoji($(element).text());
-    $('#mobile-menu-header-group').text('Group: ' + title);
+function groupArtists(element) {
+    selectOption(element, 'group', 'Group');
+    grouping = element.dataset.group;
     applyGrouping();
 }
 </script>
@@ -194,9 +190,9 @@ function pickDiscover() {
     $('.ui.tab[data-discover-family]').each(function(_, tab) {
         var excludedFamilies = JSON.parse(tab.dataset.discoverExcludedFamilies);
         var candidates = cells
-            .filter(function(cell) { return cell.dataset.families.split('|').includes(tab.dataset.discoverFamily); })
+            .filter(function(cell) { return familiesOf(cell).includes(tab.dataset.discoverFamily); })
             .filter(function(cell) {
-                var families = cell.dataset.families.split('|');
+                var families = familiesOf(cell);
                 return !excludedFamilies.some(function(family) { return families.includes(family); });
             })
             .map(function(cell) { return cell.dataset.name; })
@@ -221,6 +217,113 @@ function markRecentReleases() {
         $(cell).find('.card > .image').append(label);
     });
 }
+</script>
+    <script>
+function visibleCards() {
+    return $('.ui.tab.active .artist:visible .card');
+}
+
+function focusVisibleCard() {
+    var cards = visibleCards();
+    if (!cards.length) return;
+    var top = Math.max(0, cards.closest('.artists-wrapper')[0].getBoundingClientRect().top);
+    var card = cards.filter(function() { return this.getBoundingClientRect().top >= top; }).first();
+    (card.length ? card : cards.first()).focus();
+}
+
+$(document).on('keydown', '.menu .item', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        $(this).click();
+        return;
+    }
+    if ($(this).closest('.list-controls').length) {
+        var barStep = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            focusVisibleCard();
+        } else if (barStep) {
+            e.preventDefault();
+            var barItems = $('.list-controls .item[tabindex]');
+            barItems.eq(Math.max(0, barItems.index(this) + barStep)).focus();
+        }
+        return;
+    }
+    if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        focusVisibleCard();
+        return;
+    }
+
+    var step = { ArrowDown: 1, ArrowUp: -1 }[e.key];
+    if (!step) return;
+    e.preventDefault();
+    var items = $(this).closest('.column').find('.menu .item:visible');
+    var target = items.index(this) + step;
+    if (target < 0) $('.artist-search:visible').focus();
+    else items.eq(target).focus();
+});
+
+$(document).on('keydown', '.artist-search', function(e) {
+    if (e.key === 'Enter') visibleCards().first().focus();
+
+    var items = $(this).closest('.column').find('.menu .item:visible');
+    if (e.key === 'ArrowDown') items.first().focus();
+    if (e.key === 'ArrowUp') items.last().focus();
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') e.preventDefault();
+});
+
+$(document).on('keydown', function(e) {
+    if (e.key === 'Escape') search('');
+    if (e.key.length !== 1 || e.key === ' ' || e.ctrlKey || e.metaKey || e.altKey) return;
+    if ($(e.target).is('input')) return;
+    $('.artist-search:visible').focus();
+});
+
+$(document).on('keydown', '.ui.card', function(e) {
+    if (e.key === 'Escape') {
+        $('.artist-search:visible').focus();
+        return;
+    }
+    if (e.key === 'Enter' && e.shiftKey) {
+        e.preventDefault();
+        window.open($(this).data('lastfm'), '_blank');
+        return;
+    }
+    if (e.key === 'Enter') {
+        window.location.href = $(this).data('spotify');
+        return;
+    }
+
+    var cards = visibleCards();
+    var index = cards.index(this);
+    var rect = this.getBoundingClientRect();
+    var row = cards.filter(function() { return Math.abs(this.getBoundingClientRect().top - rect.top) < 2; });
+    if (e.key === 'ArrowLeft' && row.index(this) === 0) {
+        e.preventDefault();
+        $('.menu .item.active[data-tab]:visible').focus();
+        return;
+    }
+
+    if (!['ArrowRight', 'ArrowLeft', 'ArrowDown', 'ArrowUp'].includes(e.key)) return;
+    e.preventDefault();
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+        var target = index + (e.key === 'ArrowRight' ? 1 : -1);
+        if (target >= 0 && target < cards.length) cards.eq(target).focus();
+        return;
+    }
+    var below = e.key === 'ArrowDown';
+    var candidates = cards.toArray().filter(function(card) {
+        var delta = card.getBoundingClientRect().top - rect.top;
+        return below ? delta > 2 : delta < -2;
+    });
+    candidates.sort(function(a, b) {
+        var aRect = a.getBoundingClientRect(), bRect = b.getBoundingClientRect();
+        return Math.abs(aRect.top - rect.top) - Math.abs(bRect.top - rect.top)
+            || Math.abs(aRect.left - rect.left) - Math.abs(bRect.left - rect.left);
+    });
+    if (candidates.length) candidates[0].focus();
+});
 </script>
     <link href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min.css" rel="stylesheet">
     <style>
@@ -423,6 +526,25 @@ html {
     padding: 0.5rem 0;
 }
 
+/* Group headings */
+.ui.grid.artists > .group-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding: 1rem 0.5rem 0.5rem;
+}
+.ui.grid.artists > .group-heading:first-child {
+    padding-top: 0.5rem;
+}
+.group-heading .ui.header {
+    margin: 0;
+    white-space: nowrap;
+}
+.group-summary {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 0.92857143rem;
+}
+
 /* Responsive layout */
 @media only screen and (max-width: 991.9px) {
     :root {
@@ -439,7 +561,7 @@ html {
 }
 @media only screen and (min-width: 992px) {
     body {
-        height:100%;
+        height: 100%;
         overflow-y: hidden;
     }
     div::-webkit-scrollbar {
@@ -466,25 +588,6 @@ html {
         height: 140px !important;
     }
 }
-/* Group headings */
-.ui.grid.artists > .group-heading {
-    display: flex;
-    align-items: baseline;
-    gap: 0.75rem;
-    padding: 1rem 0.5rem 0.5rem;
-}
-.ui.grid.artists > .group-heading:first-child {
-    padding-top: 0.5rem;
-}
-.group-heading .ui.header {
-    margin: 0;
-    white-space: nowrap;
-}
-.group-summary {
-    color: rgba(0, 0, 0, 0.5);
-    font-size: 0.92857143rem;
-}
-
 /* Focus and hover */
 .menu .item:focus-visible {
     outline: 3px solid #2185d0;
@@ -511,14 +614,14 @@ html {
             </span>
           </div>
           <div class="content">
-            <div class="ui fluid vertical attached menu sidebar-options group-options">
-              <div class="ui active link item nowrap" data-group="none" onClick="groupArtists(this, 'none')" tabindex="0"><i aria-hidden="true" class="th icon control-icon"></i>
+            <div class="ui fluid vertical attached menu sidebar-options">
+              <div class="active link item nowrap" data-group="none" onClick="groupArtists(this)" tabindex="0"><i aria-hidden="true" class="th icon control-icon"></i>
                 <span>None</span>
               </div>
-              <div class="ui  link item nowrap" data-group="style" onClick="groupArtists(this, 'style')" tabindex="0"><i aria-hidden="true" class="music icon control-icon"></i>
+              <div class=" link item nowrap" data-group="style" onClick="groupArtists(this)" tabindex="0"><i aria-hidden="true" class="music icon control-icon"></i>
                 <span>Style</span>
               </div>
-              <div class="ui  link item nowrap" data-group="longevity" onClick="groupArtists(this, 'longevity')" tabindex="0"><i aria-hidden="true" class="hourglass half icon control-icon"></i>
+              <div class=" link item nowrap" data-group="longevity" onClick="groupArtists(this)" tabindex="0"><i aria-hidden="true" class="hourglass half icon control-icon"></i>
                 <span>Longevity</span>
               </div>
             </div>
@@ -529,29 +632,29 @@ html {
             </span>
           </div>
           <div class="content">
-            <div class="ui fluid vertical attached menu sidebar-options sort-options">
-              <div class="ui active link item nowrap" data-sort="name" onClick="sort(this, 'name', 'asc')" tabindex="0" title="Name"><i aria-hidden="true" class="music icon control-icon"></i>
+            <div class="ui fluid vertical attached menu sidebar-options">
+              <div class="active link item nowrap" data-order="asc" data-sort="name" onClick="sort(this)" tabindex="0" title="Name"><i aria-hidden="true" class="music icon control-icon"></i>
                 <span>Name</span>
               </div>
-              <div class="ui  link item nowrap" data-sort="popularity" onClick="sort(this, 'popularity', 'desc')" tabindex="0" title="Artist popularity"><i aria-hidden="true" class="fire icon control-icon"></i>
+              <div class=" link item nowrap" data-order="desc" data-sort="popularity" onClick="sort(this)" tabindex="0" title="Artist popularity"><i aria-hidden="true" class="fire icon control-icon"></i>
                 <span>Popularity</span>
               </div>
-              <div class="ui  link item nowrap" data-sort="song-popularity" onClick="sort(this, 'song-popularity', 'desc')" tabindex="0" title="Top song popularity"><i aria-hidden="true" class="trophy icon control-icon"></i>
+              <div class=" link item nowrap" data-order="desc" data-sort="song-popularity" onClick="sort(this)" tabindex="0" title="Top song popularity"><i aria-hidden="true" class="trophy icon control-icon"></i>
                 <span>Top Song</span>
               </div>
-              <div class="ui  link item nowrap" data-sort="followers" onClick="sort(this, 'followers', 'desc')" tabindex="0" title="Followers"><i aria-hidden="true" class="user icon control-icon"></i>
+              <div class=" link item nowrap" data-order="desc" data-sort="followers" onClick="sort(this)" tabindex="0" title="Followers"><i aria-hidden="true" class="user icon control-icon"></i>
                 <span>Followers</span>
               </div>
-              <div class="ui  link item nowrap" data-sort="albums" onClick="sort(this, 'albums', 'desc')" tabindex="0" title="Albums"><i aria-hidden="true" class="compact disc icon control-icon"></i>
+              <div class=" link item nowrap" data-order="desc" data-sort="albums" onClick="sort(this)" tabindex="0" title="Albums"><i aria-hidden="true" class="compact disc icon control-icon"></i>
                 <span>Albums</span>
               </div>
-              <div class="ui  link item nowrap" data-sort="first-release" onClick="sort(this, 'first-release', 'desc')" tabindex="0" title="Years since the first album"><i aria-hidden="true" class="hourglass half icon control-icon"></i>
+              <div class=" link item nowrap" data-order="desc" data-sort="first-release" onClick="sort(this)" tabindex="0" title="Years since the first album"><i aria-hidden="true" class="hourglass half icon control-icon"></i>
                 <span>Longevity</span>
               </div>
-              <div class="ui  link item nowrap" data-sort="last-release" onClick="sort(this, 'last-release', 'desc')" tabindex="0" title="Last release"><i aria-hidden="true" class="calendar alternate icon control-icon"></i>
+              <div class=" link item nowrap" data-order="desc" data-sort="last-release" onClick="sort(this)" tabindex="0" title="Last release"><i aria-hidden="true" class="calendar alternate icon control-icon"></i>
                 <span>Release</span>
               </div>
-              <div class="ui  link item nowrap" data-sort="last-follow" onClick="sort(this, 'last-follow', 'asc')" tabindex="0" title="Last followed"><i aria-hidden="true" class="bell icon control-icon"></i>
+              <div class=" link item nowrap" data-order="asc" data-sort="last-follow" onClick="sort(this)" tabindex="0" title="Last followed"><i aria-hidden="true" class="bell icon control-icon"></i>
                 <span>Followed</span>
               </div>
             </div>
@@ -563,111 +666,111 @@ html {
           </div>
           <div class="content">
             <div class="ui fluid vertical attached menu sidebar-options">
-              <div class="active header link item nowrap" data-tab="all" data-tab-name="All" id="mobile-menu-item-all" tabindex="0">
+              <div class="active header link item nowrap" data-tab="all" data-tab-name="All" tabindex="0">
                 <span aria-hidden="true" class="control-symbol">🗂️</span>
                 <span>All</span>
                 <span class="ui tiny basic blue label artist-count">244</span>
               </div>
-              <div class="  link item nowrap" data-tab="discover" data-tab-name="Discover" id="mobile-menu-item-discover" tabindex="0">
+              <div class="  link item nowrap" data-tab="discover" data-tab-name="Discover" tabindex="0">
                 <span>Discover</span>
                 <span class="ui tiny basic blue label artist-count">12</span>
               </div>
-              <div class="  link item nowrap" data-tab="favorites" data-tab-name="Favorites" id="mobile-menu-item-favorites" tabindex="0">
+              <div class="  link item nowrap" data-tab="favorites" data-tab-name="Favorites" tabindex="0">
                 <span>Favorites</span>
                 <span class="ui tiny basic blue label artist-count">79</span>
               </div>
-              <div class="  link item nowrap" data-tab="non-favorites" data-tab-name="Non-Favorites" id="mobile-menu-item-non-favorites" tabindex="0">
+              <div class="  link item nowrap" data-tab="non-favorites" data-tab-name="Non-Favorites" tabindex="0">
                 <span>Non-Favorites</span>
                 <span class="ui tiny basic blue label artist-count">165</span>
               </div>
-              <div class="  link item nowrap" data-tab="others" data-tab-name="Others" id="mobile-menu-item-others" tabindex="0">
+              <div class="  link item nowrap" data-tab="others" data-tab-name="Others" tabindex="0">
                 <span>Others</span>
                 <span class="ui tiny basic blue label artist-count">1</span>
               </div>
-              <div class=" header link item nowrap" data-tab="rock" data-tab-name="Rock" id="mobile-menu-item-rock" tabindex="0">
+              <div class=" header link item nowrap" data-tab="rock" data-tab-name="Rock" tabindex="0">
                 <span aria-hidden="true" class="control-symbol">🎸</span>
                 <span>Rock</span>
                 <span class="ui tiny basic blue label artist-count">138</span>
               </div>
-              <div class="  link item nowrap" data-tab="rock-discover" data-tab-name="Rock - Discover" id="mobile-menu-item-rock-discover" tabindex="0">
+              <div class="  link item nowrap" data-tab="rock-discover" data-tab-name="Rock - Discover" tabindex="0">
                 <span>Discover</span>
                 <span class="ui tiny basic blue label artist-count">4</span>
               </div>
-              <div class="  link item nowrap" data-tab="rock-favorites" data-tab-name="Rock - Favorites" id="mobile-menu-item-rock-favorites" tabindex="0">
+              <div class="  link item nowrap" data-tab="rock-favorites" data-tab-name="Rock - Favorites" tabindex="0">
                 <span>Favorites</span>
                 <span class="ui tiny basic blue label artist-count">35</span>
               </div>
-              <div class="  link item nowrap" data-tab="rock-non-favorites" data-tab-name="Rock - Non-Favorites" id="mobile-menu-item-rock-non-favorites" tabindex="0">
+              <div class="  link item nowrap" data-tab="rock-non-favorites" data-tab-name="Rock - Non-Favorites" tabindex="0">
                 <span>Non-Favorites</span>
                 <span class="ui tiny basic blue label artist-count">103</span>
               </div>
-              <div class="  link item nowrap" data-tab="rock-heavy-metal" data-tab-name="Rock - Heavy Metal" id="mobile-menu-item-rock-heavy-metal" tabindex="0">
+              <div class="  link item nowrap" data-tab="rock-heavy-metal" data-tab-name="Rock - Heavy Metal" tabindex="0">
                 <span>Heavy Metal</span>
                 <span class="ui tiny basic blue label artist-count">71</span>
               </div>
-              <div class="  link item nowrap" data-tab="rock-extreme-metal" data-tab-name="Rock - Extreme Metal" id="mobile-menu-item-rock-extreme-metal" tabindex="0">
+              <div class="  link item nowrap" data-tab="rock-extreme-metal" data-tab-name="Rock - Extreme Metal" tabindex="0">
                 <span>Extreme Metal</span>
                 <span class="ui tiny basic blue label artist-count">30</span>
               </div>
-              <div class="  link item nowrap" data-tab="rock-folk-metal" data-tab-name="Rock - Folk Metal" id="mobile-menu-item-rock-folk-metal" tabindex="0">
+              <div class="  link item nowrap" data-tab="rock-folk-metal" data-tab-name="Rock - Folk Metal" tabindex="0">
                 <span>Folk Metal</span>
                 <span class="ui tiny basic blue label artist-count">23</span>
               </div>
-              <div class="  link item nowrap" data-tab="rock-rock" data-tab-name="Rock - Rock" id="mobile-menu-item-rock-rock" tabindex="0">
+              <div class="  link item nowrap" data-tab="rock-rock" data-tab-name="Rock - Rock" tabindex="0">
                 <span>Rock</span>
                 <span class="ui tiny basic blue label artist-count">27</span>
               </div>
-              <div class=" header link item nowrap" data-tab="folk" data-tab-name="Folk" id="mobile-menu-item-folk" tabindex="0">
+              <div class=" header link item nowrap" data-tab="folk" data-tab-name="Folk" tabindex="0">
                 <span aria-hidden="true" class="control-symbol">🎻</span>
                 <span>Folk</span>
                 <span class="ui tiny basic blue label artist-count">29</span>
               </div>
-              <div class="  link item nowrap" data-tab="folk-discover" data-tab-name="Folk - Discover" id="mobile-menu-item-folk-discover" tabindex="0">
+              <div class="  link item nowrap" data-tab="folk-discover" data-tab-name="Folk - Discover" tabindex="0">
                 <span>Discover</span>
                 <span class="ui tiny basic blue label artist-count">4</span>
               </div>
-              <div class="  link item nowrap" data-tab="folk-favorites" data-tab-name="Folk - Favorites" id="mobile-menu-item-folk-favorites" tabindex="0">
+              <div class="  link item nowrap" data-tab="folk-favorites" data-tab-name="Folk - Favorites" tabindex="0">
                 <span>Favorites</span>
                 <span class="ui tiny basic blue label artist-count">8</span>
               </div>
-              <div class="  link item nowrap" data-tab="folk-non-favorites" data-tab-name="Folk - Non-Favorites" id="mobile-menu-item-folk-non-favorites" tabindex="0">
+              <div class="  link item nowrap" data-tab="folk-non-favorites" data-tab-name="Folk - Non-Favorites" tabindex="0">
                 <span>Non-Favorites</span>
                 <span class="ui tiny basic blue label artist-count">21</span>
               </div>
-              <div class="  link item nowrap" data-tab="folk-folk" data-tab-name="Folk - Folk" id="mobile-menu-item-folk-folk" tabindex="0">
+              <div class="  link item nowrap" data-tab="folk-folk" data-tab-name="Folk - Folk" tabindex="0">
                 <span>Folk</span>
                 <span class="ui tiny basic blue label artist-count">14</span>
               </div>
-              <div class="  link item nowrap" data-tab="folk-steampunk" data-tab-name="Folk - Steampunk" id="mobile-menu-item-folk-steampunk" tabindex="0">
+              <div class="  link item nowrap" data-tab="folk-steampunk" data-tab-name="Folk - Steampunk" tabindex="0">
                 <span>Steampunk</span>
                 <span class="ui tiny basic blue label artist-count">15</span>
               </div>
-              <div class=" header link item nowrap" data-tab="alternative" data-tab-name="Alternative" id="mobile-menu-item-alternative" tabindex="0">
+              <div class=" header link item nowrap" data-tab="alternative" data-tab-name="Alternative" tabindex="0">
                 <span aria-hidden="true" class="control-symbol">🎧</span>
                 <span>Alternative</span>
                 <span class="ui tiny basic blue label artist-count">84</span>
               </div>
-              <div class="  link item nowrap" data-tab="alt-discover" data-tab-name="Alt - Discover" id="mobile-menu-item-alt-discover" tabindex="0">
+              <div class="  link item nowrap" data-tab="alt-discover" data-tab-name="Alt - Discover" tabindex="0">
                 <span>Discover</span>
                 <span class="ui tiny basic blue label artist-count">4</span>
               </div>
-              <div class="  link item nowrap" data-tab="alt-favorites" data-tab-name="Alt - Favorites" id="mobile-menu-item-alt-favorites" tabindex="0">
+              <div class="  link item nowrap" data-tab="alt-favorites" data-tab-name="Alt - Favorites" tabindex="0">
                 <span>Favorites</span>
                 <span class="ui tiny basic blue label artist-count">39</span>
               </div>
-              <div class="  link item nowrap" data-tab="alt-non-favorites" data-tab-name="Alt - Non-Favorites" id="mobile-menu-item-alt-non-favorites" tabindex="0">
+              <div class="  link item nowrap" data-tab="alt-non-favorites" data-tab-name="Alt - Non-Favorites" tabindex="0">
                 <span>Non-Favorites</span>
                 <span class="ui tiny basic blue label artist-count">45</span>
               </div>
-              <div class="  link item nowrap" data-tab="alt-atmospheric" data-tab-name="Alt - Atmospheric" id="mobile-menu-item-alt-atmospheric" tabindex="0">
+              <div class="  link item nowrap" data-tab="alt-atmospheric" data-tab-name="Alt - Atmospheric" tabindex="0">
                 <span>Atmospheric</span>
                 <span class="ui tiny basic blue label artist-count">36</span>
               </div>
-              <div class="  link item nowrap" data-tab="alt-energetic" data-tab-name="Alt - Energetic" id="mobile-menu-item-alt-energetic" tabindex="0">
+              <div class="  link item nowrap" data-tab="alt-energetic" data-tab-name="Alt - Energetic" tabindex="0">
                 <span>Energetic</span>
                 <span class="ui tiny basic blue label artist-count">38</span>
               </div>
-              <div class="  link item nowrap" data-tab="alt-voxguitar" data-tab-name="Alt - Vox/Guitar" id="mobile-menu-item-alt-voxguitar" tabindex="0">
+              <div class="  link item nowrap" data-tab="alt-voxguitar" data-tab-name="Alt - Vox/Guitar" tabindex="0">
                 <span>Vox/Guitar</span>
                 <span class="ui tiny basic blue label artist-count">15</span>
               </div>
@@ -680,111 +783,111 @@ html {
           <input class="artist-search" oninput="search(this.value)" placeholder="Search artist" type="search"><i class="search icon"></i>
         </div>
         <div class="ui fluid vertical desktop menu sidebar-options">
-          <div class="active header link item nowrap" data-tab="all" data-tab-name="All" id="desktop-menu-item-all" tabindex="0">
+          <div class="active header link item nowrap" data-tab="all" data-tab-name="All" tabindex="0">
             <span aria-hidden="true" class="control-symbol">🗂️</span>
             <span>All</span>
             <span class="ui tiny basic blue label artist-count">244</span>
           </div>
-          <div class="  link item nowrap" data-tab="discover" data-tab-name="Discover" id="desktop-menu-item-discover" tabindex="0">
+          <div class="  link item nowrap" data-tab="discover" data-tab-name="Discover" tabindex="0">
             <span>Discover</span>
             <span class="ui tiny basic blue label artist-count">12</span>
           </div>
-          <div class="  link item nowrap" data-tab="favorites" data-tab-name="Favorites" id="desktop-menu-item-favorites" tabindex="0">
+          <div class="  link item nowrap" data-tab="favorites" data-tab-name="Favorites" tabindex="0">
             <span>Favorites</span>
             <span class="ui tiny basic blue label artist-count">79</span>
           </div>
-          <div class="  link item nowrap" data-tab="non-favorites" data-tab-name="Non-Favorites" id="desktop-menu-item-non-favorites" tabindex="0">
+          <div class="  link item nowrap" data-tab="non-favorites" data-tab-name="Non-Favorites" tabindex="0">
             <span>Non-Favorites</span>
             <span class="ui tiny basic blue label artist-count">165</span>
           </div>
-          <div class="  link item nowrap" data-tab="others" data-tab-name="Others" id="desktop-menu-item-others" tabindex="0">
+          <div class="  link item nowrap" data-tab="others" data-tab-name="Others" tabindex="0">
             <span>Others</span>
             <span class="ui tiny basic blue label artist-count">1</span>
           </div>
-          <div class=" header link item nowrap" data-tab="rock" data-tab-name="Rock" id="desktop-menu-item-rock" tabindex="0">
+          <div class=" header link item nowrap" data-tab="rock" data-tab-name="Rock" tabindex="0">
             <span aria-hidden="true" class="control-symbol">🎸</span>
             <span>Rock</span>
             <span class="ui tiny basic blue label artist-count">138</span>
           </div>
-          <div class="  link item nowrap" data-tab="rock-discover" data-tab-name="Rock - Discover" id="desktop-menu-item-rock-discover" tabindex="0">
+          <div class="  link item nowrap" data-tab="rock-discover" data-tab-name="Rock - Discover" tabindex="0">
             <span>Discover</span>
             <span class="ui tiny basic blue label artist-count">4</span>
           </div>
-          <div class="  link item nowrap" data-tab="rock-favorites" data-tab-name="Rock - Favorites" id="desktop-menu-item-rock-favorites" tabindex="0">
+          <div class="  link item nowrap" data-tab="rock-favorites" data-tab-name="Rock - Favorites" tabindex="0">
             <span>Favorites</span>
             <span class="ui tiny basic blue label artist-count">35</span>
           </div>
-          <div class="  link item nowrap" data-tab="rock-non-favorites" data-tab-name="Rock - Non-Favorites" id="desktop-menu-item-rock-non-favorites" tabindex="0">
+          <div class="  link item nowrap" data-tab="rock-non-favorites" data-tab-name="Rock - Non-Favorites" tabindex="0">
             <span>Non-Favorites</span>
             <span class="ui tiny basic blue label artist-count">103</span>
           </div>
-          <div class="  link item nowrap" data-tab="rock-heavy-metal" data-tab-name="Rock - Heavy Metal" id="desktop-menu-item-rock-heavy-metal" tabindex="0">
+          <div class="  link item nowrap" data-tab="rock-heavy-metal" data-tab-name="Rock - Heavy Metal" tabindex="0">
             <span>Heavy Metal</span>
             <span class="ui tiny basic blue label artist-count">71</span>
           </div>
-          <div class="  link item nowrap" data-tab="rock-extreme-metal" data-tab-name="Rock - Extreme Metal" id="desktop-menu-item-rock-extreme-metal" tabindex="0">
+          <div class="  link item nowrap" data-tab="rock-extreme-metal" data-tab-name="Rock - Extreme Metal" tabindex="0">
             <span>Extreme Metal</span>
             <span class="ui tiny basic blue label artist-count">30</span>
           </div>
-          <div class="  link item nowrap" data-tab="rock-folk-metal" data-tab-name="Rock - Folk Metal" id="desktop-menu-item-rock-folk-metal" tabindex="0">
+          <div class="  link item nowrap" data-tab="rock-folk-metal" data-tab-name="Rock - Folk Metal" tabindex="0">
             <span>Folk Metal</span>
             <span class="ui tiny basic blue label artist-count">23</span>
           </div>
-          <div class="  link item nowrap" data-tab="rock-rock" data-tab-name="Rock - Rock" id="desktop-menu-item-rock-rock" tabindex="0">
+          <div class="  link item nowrap" data-tab="rock-rock" data-tab-name="Rock - Rock" tabindex="0">
             <span>Rock</span>
             <span class="ui tiny basic blue label artist-count">27</span>
           </div>
-          <div class=" header link item nowrap" data-tab="folk" data-tab-name="Folk" id="desktop-menu-item-folk" tabindex="0">
+          <div class=" header link item nowrap" data-tab="folk" data-tab-name="Folk" tabindex="0">
             <span aria-hidden="true" class="control-symbol">🎻</span>
             <span>Folk</span>
             <span class="ui tiny basic blue label artist-count">29</span>
           </div>
-          <div class="  link item nowrap" data-tab="folk-discover" data-tab-name="Folk - Discover" id="desktop-menu-item-folk-discover" tabindex="0">
+          <div class="  link item nowrap" data-tab="folk-discover" data-tab-name="Folk - Discover" tabindex="0">
             <span>Discover</span>
             <span class="ui tiny basic blue label artist-count">4</span>
           </div>
-          <div class="  link item nowrap" data-tab="folk-favorites" data-tab-name="Folk - Favorites" id="desktop-menu-item-folk-favorites" tabindex="0">
+          <div class="  link item nowrap" data-tab="folk-favorites" data-tab-name="Folk - Favorites" tabindex="0">
             <span>Favorites</span>
             <span class="ui tiny basic blue label artist-count">8</span>
           </div>
-          <div class="  link item nowrap" data-tab="folk-non-favorites" data-tab-name="Folk - Non-Favorites" id="desktop-menu-item-folk-non-favorites" tabindex="0">
+          <div class="  link item nowrap" data-tab="folk-non-favorites" data-tab-name="Folk - Non-Favorites" tabindex="0">
             <span>Non-Favorites</span>
             <span class="ui tiny basic blue label artist-count">21</span>
           </div>
-          <div class="  link item nowrap" data-tab="folk-folk" data-tab-name="Folk - Folk" id="desktop-menu-item-folk-folk" tabindex="0">
+          <div class="  link item nowrap" data-tab="folk-folk" data-tab-name="Folk - Folk" tabindex="0">
             <span>Folk</span>
             <span class="ui tiny basic blue label artist-count">14</span>
           </div>
-          <div class="  link item nowrap" data-tab="folk-steampunk" data-tab-name="Folk - Steampunk" id="desktop-menu-item-folk-steampunk" tabindex="0">
+          <div class="  link item nowrap" data-tab="folk-steampunk" data-tab-name="Folk - Steampunk" tabindex="0">
             <span>Steampunk</span>
             <span class="ui tiny basic blue label artist-count">15</span>
           </div>
-          <div class=" header link item nowrap" data-tab="alternative" data-tab-name="Alternative" id="desktop-menu-item-alternative" tabindex="0">
+          <div class=" header link item nowrap" data-tab="alternative" data-tab-name="Alternative" tabindex="0">
             <span aria-hidden="true" class="control-symbol">🎧</span>
             <span>Alternative</span>
             <span class="ui tiny basic blue label artist-count">84</span>
           </div>
-          <div class="  link item nowrap" data-tab="alt-discover" data-tab-name="Alt - Discover" id="desktop-menu-item-alt-discover" tabindex="0">
+          <div class="  link item nowrap" data-tab="alt-discover" data-tab-name="Alt - Discover" tabindex="0">
             <span>Discover</span>
             <span class="ui tiny basic blue label artist-count">4</span>
           </div>
-          <div class="  link item nowrap" data-tab="alt-favorites" data-tab-name="Alt - Favorites" id="desktop-menu-item-alt-favorites" tabindex="0">
+          <div class="  link item nowrap" data-tab="alt-favorites" data-tab-name="Alt - Favorites" tabindex="0">
             <span>Favorites</span>
             <span class="ui tiny basic blue label artist-count">39</span>
           </div>
-          <div class="  link item nowrap" data-tab="alt-non-favorites" data-tab-name="Alt - Non-Favorites" id="desktop-menu-item-alt-non-favorites" tabindex="0">
+          <div class="  link item nowrap" data-tab="alt-non-favorites" data-tab-name="Alt - Non-Favorites" tabindex="0">
             <span>Non-Favorites</span>
             <span class="ui tiny basic blue label artist-count">45</span>
           </div>
-          <div class="  link item nowrap" data-tab="alt-atmospheric" data-tab-name="Alt - Atmospheric" id="desktop-menu-item-alt-atmospheric" tabindex="0">
+          <div class="  link item nowrap" data-tab="alt-atmospheric" data-tab-name="Alt - Atmospheric" tabindex="0">
             <span>Atmospheric</span>
             <span class="ui tiny basic blue label artist-count">36</span>
           </div>
-          <div class="  link item nowrap" data-tab="alt-energetic" data-tab-name="Alt - Energetic" id="desktop-menu-item-alt-energetic" tabindex="0">
+          <div class="  link item nowrap" data-tab="alt-energetic" data-tab-name="Alt - Energetic" tabindex="0">
             <span>Energetic</span>
             <span class="ui tiny basic blue label artist-count">38</span>
           </div>
-          <div class="  link item nowrap" data-tab="alt-voxguitar" data-tab-name="Alt - Vox/Guitar" id="desktop-menu-item-alt-voxguitar" tabindex="0">
+          <div class="  link item nowrap" data-tab="alt-voxguitar" data-tab-name="Alt - Vox/Guitar" tabindex="0">
             <span>Vox/Guitar</span>
             <span class="ui tiny basic blue label artist-count">15</span>
           </div>
@@ -795,28 +898,28 @@ html {
           <div class="list-control">
             <span class="ui blue text list-control-label">Sort</span>
             <div class="ui small compact blue secondary menu">
-              <div class="ui active link item nowrap" data-sort="name" onClick="sort(this, 'name', 'asc')" tabindex="0" title="Name"><i aria-hidden="true" class="music icon control-icon"></i>
+              <div class="active link item nowrap" data-order="asc" data-sort="name" onClick="sort(this)" tabindex="0" title="Name"><i aria-hidden="true" class="music icon control-icon"></i>
                 <span>Name</span>
               </div>
-              <div class="ui  link item nowrap" data-sort="popularity" onClick="sort(this, 'popularity', 'desc')" tabindex="0" title="Artist popularity"><i aria-hidden="true" class="fire icon control-icon"></i>
+              <div class=" link item nowrap" data-order="desc" data-sort="popularity" onClick="sort(this)" tabindex="0" title="Artist popularity"><i aria-hidden="true" class="fire icon control-icon"></i>
                 <span>Popularity</span>
               </div>
-              <div class="ui  link item nowrap" data-sort="song-popularity" onClick="sort(this, 'song-popularity', 'desc')" tabindex="0" title="Top song popularity"><i aria-hidden="true" class="trophy icon control-icon"></i>
+              <div class=" link item nowrap" data-order="desc" data-sort="song-popularity" onClick="sort(this)" tabindex="0" title="Top song popularity"><i aria-hidden="true" class="trophy icon control-icon"></i>
                 <span>Top Song</span>
               </div>
-              <div class="ui  link item nowrap" data-sort="followers" onClick="sort(this, 'followers', 'desc')" tabindex="0" title="Followers"><i aria-hidden="true" class="user icon control-icon"></i>
+              <div class=" link item nowrap" data-order="desc" data-sort="followers" onClick="sort(this)" tabindex="0" title="Followers"><i aria-hidden="true" class="user icon control-icon"></i>
                 <span>Followers</span>
               </div>
-              <div class="ui  link item nowrap" data-sort="albums" onClick="sort(this, 'albums', 'desc')" tabindex="0" title="Albums"><i aria-hidden="true" class="compact disc icon control-icon"></i>
+              <div class=" link item nowrap" data-order="desc" data-sort="albums" onClick="sort(this)" tabindex="0" title="Albums"><i aria-hidden="true" class="compact disc icon control-icon"></i>
                 <span>Albums</span>
               </div>
-              <div class="ui  link item nowrap" data-sort="first-release" onClick="sort(this, 'first-release', 'desc')" tabindex="0" title="Years since the first album"><i aria-hidden="true" class="hourglass half icon control-icon"></i>
+              <div class=" link item nowrap" data-order="desc" data-sort="first-release" onClick="sort(this)" tabindex="0" title="Years since the first album"><i aria-hidden="true" class="hourglass half icon control-icon"></i>
                 <span>Longevity</span>
               </div>
-              <div class="ui  link item nowrap" data-sort="last-release" onClick="sort(this, 'last-release', 'desc')" tabindex="0" title="Last release"><i aria-hidden="true" class="calendar alternate icon control-icon"></i>
+              <div class=" link item nowrap" data-order="desc" data-sort="last-release" onClick="sort(this)" tabindex="0" title="Last release"><i aria-hidden="true" class="calendar alternate icon control-icon"></i>
                 <span>Release</span>
               </div>
-              <div class="ui  link item nowrap" data-sort="last-follow" onClick="sort(this, 'last-follow', 'asc')" tabindex="0" title="Last followed"><i aria-hidden="true" class="bell icon control-icon"></i>
+              <div class=" link item nowrap" data-order="asc" data-sort="last-follow" onClick="sort(this)" tabindex="0" title="Last followed"><i aria-hidden="true" class="bell icon control-icon"></i>
                 <span>Followed</span>
               </div>
             </div>
@@ -824,13 +927,13 @@ html {
           <div class="list-control">
             <span class="ui blue text list-control-label">Group</span>
             <div class="ui small compact blue secondary menu">
-              <div class="ui active link item nowrap" data-group="none" onClick="groupArtists(this, 'none')" tabindex="0"><i aria-hidden="true" class="th icon control-icon"></i>
+              <div class="active link item nowrap" data-group="none" onClick="groupArtists(this)" tabindex="0"><i aria-hidden="true" class="th icon control-icon"></i>
                 <span>None</span>
               </div>
-              <div class="ui  link item nowrap" data-group="style" onClick="groupArtists(this, 'style')" tabindex="0"><i aria-hidden="true" class="music icon control-icon"></i>
+              <div class=" link item nowrap" data-group="style" onClick="groupArtists(this)" tabindex="0"><i aria-hidden="true" class="music icon control-icon"></i>
                 <span>Style</span>
               </div>
-              <div class="ui  link item nowrap" data-group="longevity" onClick="groupArtists(this, 'longevity')" tabindex="0"><i aria-hidden="true" class="hourglass half icon control-icon"></i>
+              <div class=" link item nowrap" data-group="longevity" onClick="groupArtists(this)" tabindex="0"><i aria-hidden="true" class="hourglass half icon control-icon"></i>
                 <span>Longevity</span>
               </div>
             </div>
@@ -64173,110 +64276,7 @@ html {
   </body>
   <script>markRecentReleases();</script>
   <script>pickDiscover();</script>
-  <script>sort($('.item[data-sort]')[0], 'name', 'asc');</script>
+  <script>sort($('.item[data-sort]')[0]);</script>
   <script>$('.menu .item').tab({history:true, historyType: 'hash', onLoad: onTab});</script>
   <script>$('.ui.accordion.mobile').accordion({exclusive:true});</script>
-  <script>
-function focusVisibleCard() {
-    var cards = $('.ui.tab.active .artist:visible .card');
-    if (!cards.length) return;
-    var top = Math.max(0, cards.closest('.artists-wrapper')[0].getBoundingClientRect().top);
-    var card = cards.filter(function() { return this.getBoundingClientRect().top >= top; }).first();
-    (card.length ? card : cards.first()).focus();
-}
-
-$(document).on('keydown', '.menu .item', function(e) {
-    if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        $(this).click();
-        return;
-    }
-    if ($(this).closest('.list-controls').length) {
-        var barStep = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
-        if (e.key === 'ArrowDown') {
-            e.preventDefault();
-            focusVisibleCard();
-        } else if (barStep) {
-            e.preventDefault();
-            var barItems = $('.list-controls .item[tabindex]');
-            barItems.eq(Math.max(0, barItems.index(this) + barStep)).focus();
-        }
-        return;
-    }
-    if (e.key === 'ArrowRight') {
-        e.preventDefault();
-        focusVisibleCard();
-        return;
-    }
-
-    var step = { ArrowDown: 1, ArrowUp: -1 }[e.key];
-    if (!step) return;
-    e.preventDefault();
-    var items = $(this).closest('.column').find('.menu .item:visible');
-    var target = items.index(this) + step;
-    if (target < 0) $('.artist-search:visible').focus();
-    else items.eq(target).focus();
-});
-
-$(document).on('keydown', '.artist-search', function(e) {
-    if (e.key === 'Enter') $('.ui.tab.active .artist:visible .card').first().focus();
-
-    var items = $(this).closest('.column').find('.menu .item:visible');
-    if (e.key === 'ArrowDown') items.first().focus();
-    if (e.key === 'ArrowUp') items.last().focus();
-    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') e.preventDefault();
-});
-
-$(document).on('keydown', function(e) {
-    if (e.key === 'Escape') search('');
-    if (e.key.length !== 1 || e.key === ' ' || e.ctrlKey || e.metaKey || e.altKey) return;
-    if ($(e.target).is('input')) return;
-    $('.artist-search:visible').focus();
-});
-
-$(document).on('keydown', '.ui.card', function(e) {
-    if (e.key === 'Escape') {
-        $('.artist-search:visible').focus();
-        return;
-    }
-    if (e.key === 'Enter' && e.shiftKey) {
-        e.preventDefault();
-        window.open($(this).data('lastfm'), '_blank');
-        return;
-    }
-    if (e.key === 'Enter') {
-        window.location.href = $(this).data('spotify');
-        return;
-    }
-
-    var cards = $('.ui.tab.active .artist:visible .card');
-    var index = cards.index(this);
-    var rect = this.getBoundingClientRect();
-    var row = cards.filter(function() { return Math.abs(this.getBoundingClientRect().top - rect.top) < 2; });
-    if (e.key === 'ArrowLeft' && row.index(this) === 0) {
-        e.preventDefault();
-        $('.menu .item.active[data-tab]:visible').focus();
-        return;
-    }
-
-    if (!['ArrowRight', 'ArrowLeft', 'ArrowDown', 'ArrowUp'].includes(e.key)) return;
-    e.preventDefault();
-    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
-        var target = index + (e.key === 'ArrowRight' ? 1 : -1);
-        if (target >= 0 && target < cards.length) cards.eq(target).focus();
-        return;
-    }
-    var below = e.key === 'ArrowDown';
-    var candidates = cards.toArray().filter(function(card) {
-        var delta = card.getBoundingClientRect().top - rect.top;
-        return below ? delta > 2 : delta < -2;
-    });
-    candidates.sort(function(a, b) {
-        var aRect = a.getBoundingClientRect(), bRect = b.getBoundingClientRect();
-        return Math.abs(aRect.top - rect.top) - Math.abs(bRect.top - rect.top)
-            || Math.abs(aRect.left - rect.left) - Math.abs(bRect.left - rect.left);
-    });
-    if (candidates.length) candidates[0].focus();
-});
-</script>
 </html>

@@ -15,6 +15,7 @@ from render.models import Artist, Tag
 # Constants
 # ------------------------------------------------------------------------------
 DISCOVER_ARTISTS_PER_FAMILY = 4
+FOMANTIC_UI = "https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min"
 
 CSS_GLOBAL = """
 /* Layout */
@@ -216,6 +217,25 @@ html {
     padding: 0.5rem 0;
 }
 
+/* Group headings */
+.ui.grid.artists > .group-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding: 1rem 0.5rem 0.5rem;
+}
+.ui.grid.artists > .group-heading:first-child {
+    padding-top: 0.5rem;
+}
+.group-heading .ui.header {
+    margin: 0;
+    white-space: nowrap;
+}
+.group-summary {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 0.92857143rem;
+}
+
 /* Responsive layout */
 @media only screen and (max-width: 991.9px) {
     :root {
@@ -232,7 +252,7 @@ html {
 }
 @media only screen and (min-width: 992px) {
     body {
-        height:100%;
+        height: 100%;
         overflow-y: hidden;
     }
     div::-webkit-scrollbar {
@@ -259,25 +279,6 @@ html {
         height: 140px !important;
     }
 }
-/* Group headings */
-.ui.grid.artists > .group-heading {
-    display: flex;
-    align-items: baseline;
-    gap: 0.75rem;
-    padding: 1rem 0.5rem 0.5rem;
-}
-.ui.grid.artists > .group-heading:first-child {
-    padding-top: 0.5rem;
-}
-.group-heading .ui.header {
-    margin: 0;
-    white-space: nowrap;
-}
-.group-summary {
-    color: rgba(0, 0, 0, 0.5);
-    font-size: 0.92857143rem;
-}
-
 /* Focus and hover */
 .menu .item:focus-visible {
     outline: 3px solid #2185d0;
@@ -291,33 +292,31 @@ html {
 }
 """
 
-JS_FUNC_REMOVE_EMOJI = """
-function removeEmoji(s) {
-    return s.replace(/[\\p{Emoji_Presentation}\\p{Extended_Pictographic}]/gu, '').trim()
-}
-"""
-
 JS_FUNC_ONTAB = """
 function onTab(tabPath) {
     if ($(document.activeElement).is('body, .ui.card') && matchMedia('(min-width: 992px)').matches) {
-        $('.ui.tab.active .artist:visible .card').first().focus();
+        visibleCards().first().focus();
     }
 
     // change header
-    var id = "#mobile-menu-item-" + tabPath.replace("tab-", "");
-    var title = removeEmoji($(id).data("tab-name"));
-    $("#mobile-menu-header-filter").text("Filter: " + title)
+    var title = $('.item[data-tab="' + tabPath + '"]').data('tab-name');
+    $('#mobile-menu-header-filter').text('Filter: ' + title);
 }
 """
 
-_JS_FUNC_SORT = """
-function sort(element, attribute, order) {
-    // change header
-    var title = removeEmoji($(element).text());
-    $("#mobile-menu-header-sort").text("Sort: " + title);
+JS_FUNC_SELECT_OPTION = """
+function selectOption(element, kind, label) {
+    var value = element.dataset[kind];
+    $('.item[data-' + kind + ']').removeClass('active').filter('[data-' + kind + '="' + value + '"]').addClass('active');
+    $('#mobile-menu-header-' + kind).text(label + ': ' + $(element).text().trim());
+}
+"""
 
-    // mark active
-    $('.item[data-sort]').removeClass('active').filter('[data-sort="' + attribute + '"]').addClass('active');
+JS_FUNC_SORT = """
+function sort(element) {
+    selectOption(element, 'sort', 'Sort');
+    var attribute = element.dataset.sort;
+    var order = element.dataset.order;
 
     // reorder
     $('.artists').each(function(_, artists) {
@@ -354,6 +353,10 @@ var longevityRanges = [
     {label: '40+ Years', from: 40, to: Infinity},
 ];
 
+function familiesOf(cell) {
+    return cell.dataset.families.split('|').filter(Boolean);
+}
+
 function uniqueArtists(grid) {
     var seen = new Set();
     return $(grid).find('.artist').toArray().filter(function(cell) {
@@ -370,7 +373,7 @@ function groupSections(grid) {
             .filter(function(family) { return !scope || family.name === scope; })
             .map(function(family) {
                 return {label: family.name, icon: family.icon, description: family.description, includes: function(cell) {
-                    var families = cell.dataset.families.split('|').filter(Boolean);
+                    var families = familiesOf(cell);
                     return family.fallback ? families.length === 0 : families.includes(family.name);
                 }};
             });
@@ -405,7 +408,6 @@ function refreshGroupHeadings() {
 }
 
 function applyGrouping() {
-    var query = normalizeText($('.artist-search').first().val() || '');
     var byViewOrder = function(a, b) { return Number(a.dataset.viewOrder) - Number(b.dataset.viewOrder); };
     $('.artists').each(function(_, grid) {
         var cells = uniqueArtists(grid);
@@ -426,18 +428,13 @@ function applyGrouping() {
                 members.sort(byViewOrder).forEach(function(cell) { $(grid).append($(cell).clone()); });
             });
         }
-        $(grid).find('.artist').each(function() {
-            $(this).toggle(normalizeText(this.dataset.name).includes(query));
-        });
     });
-    refreshGroupHeadings();
+    search($('.artist-search').val());
 }
 
-function groupArtists(element, mode) {
-    grouping = mode;
-    $('.item[data-group]').removeClass('active').filter('[data-group="' + mode + '"]').addClass('active');
-    var title = removeEmoji($(element).text());
-    $('#mobile-menu-header-group').text('Group: ' + title);
+function groupArtists(element) {
+    selectOption(element, 'group', 'Group');
+    grouping = element.dataset.group;
     applyGrouping();
 }
 """.replace("__ARTIST_FAMILIES__", json.dumps([
@@ -487,9 +484,9 @@ function pickDiscover() {
     $('.ui.tab[data-discover-family]').each(function(_, tab) {
         var excludedFamilies = JSON.parse(tab.dataset.discoverExcludedFamilies);
         var candidates = cells
-            .filter(function(cell) { return cell.dataset.families.split('|').includes(tab.dataset.discoverFamily); })
+            .filter(function(cell) { return familiesOf(cell).includes(tab.dataset.discoverFamily); })
             .filter(function(cell) {
-                var families = cell.dataset.families.split('|');
+                var families = familiesOf(cell);
                 return !excludedFamilies.some(function(family) { return families.includes(family); });
             })
             .map(function(cell) { return cell.dataset.name; })
@@ -518,8 +515,12 @@ function markRecentReleases() {
 """
 
 JS_KEYBOARD_NAVIGATION = """
+function visibleCards() {
+    return $('.ui.tab.active .artist:visible .card');
+}
+
 function focusVisibleCard() {
-    var cards = $('.ui.tab.active .artist:visible .card');
+    var cards = visibleCards();
     if (!cards.length) return;
     var top = Math.max(0, cards.closest('.artists-wrapper')[0].getBoundingClientRect().top);
     var card = cards.filter(function() { return this.getBoundingClientRect().top >= top; }).first();
@@ -560,7 +561,7 @@ $(document).on('keydown', '.menu .item', function(e) {
 });
 
 $(document).on('keydown', '.artist-search', function(e) {
-    if (e.key === 'Enter') $('.ui.tab.active .artist:visible .card').first().focus();
+    if (e.key === 'Enter') visibleCards().first().focus();
 
     var items = $(this).closest('.column').find('.menu .item:visible');
     if (e.key === 'ArrowDown') items.first().focus();
@@ -590,7 +591,7 @@ $(document).on('keydown', '.ui.card', function(e) {
         return;
     }
 
-    var cards = $('.ui.tab.active .artist:visible .card');
+    var cards = visibleCards();
     var index = cards.index(this);
     var rect = this.getBoundingClientRect();
     var row = cards.filter(function() { return Math.abs(this.getBoundingClientRect().top - rect.top) < 2; });
@@ -632,13 +633,13 @@ def id(tag: Tag) -> str:
     """Parse a tag to HTML identifier."""
     return tag.name.lower().translate(str.maketrans("", "", "():/")).translate(str.maketrans("ãéó", "aeo")).replace(" - ", "-").replace(" ", "-").strip()
 
-def menu_wrapper(label: str, id: str):
+def menu_wrapper(label: str, name: str):
     """Render a mobile accordion section wrapping a menu."""
 
     # accordion title
     with div(cls="title"):
         with span(cls="ui blue text"):
-            span(label, id=f"mobile-menu-header-{id}")
+            span(label, id=f"mobile-menu-header-{name}")
             i(cls="right dropdown icon")
 
     # accordion content
@@ -649,8 +650,6 @@ def menu_filter(mobile: bool, tags_with_artists: dict[Tag, list[Artist]]):
     """Render filter menu according to mobile or desktop rules."""
     menu = menu_wrapper("Filter", "filter") if mobile else div(cls="ui fluid vertical desktop menu sidebar-options")
     with menu:
-        item_kind = "mobile" if mobile else "desktop"
-
         for index, tag in enumerate(TAGS_MENU_ORDER):
             artists_count = len(tags_with_artists[tag])
             if tag == T_DISCOVER:
@@ -665,7 +664,6 @@ def menu_filter(mobile: bool, tags_with_artists: dict[Tag, list[Artist]]):
 
             # menu item
             with div(cls=f"{item_active} {item_header} link item nowrap",
-                    id=f"{item_kind}-menu-item-{id(tag)}",
                     data_tab=id(tag),
                     data_tab_name=tag.name,
                     tabindex="0"
@@ -677,13 +675,11 @@ def menu_filter(mobile: bool, tags_with_artists: dict[Tag, list[Artist]]):
 
 def menu_sort():
     """Render the mobile sort menu."""
-    with menu_wrapper("Sort: Name", "sort") as menu:
-        menu['class'] += " sort-options"
+    with menu_wrapper("Sort: Name", "sort"):
         sort_items()
 
 def menu_group():
-    with menu_wrapper("Group: None", "group") as menu:
-        menu['class'] += " group-options"
+    with menu_wrapper("Group: None", "group"):
         group_items()
 
 def list_controls():
@@ -709,8 +705,8 @@ def sort_items():
         ("bell", "Followed", "Last followed", "last-follow", "asc"),
     ]):
         active = "active" if index == 0 else ""
-        with div(cls=f"ui {active} link item nowrap", data_sort=attribute, title=description,
-                 onClick=f"sort(this, '{attribute}', '{order}')", tabindex="0"):
+        with div(cls=f"{active} link item nowrap", data_sort=attribute, data_order=order, title=description,
+                 onClick="sort(this)", tabindex="0"):
             i(cls=f"{icon} icon control-icon", aria_hidden="true")
             span(label)
 
@@ -721,7 +717,7 @@ def group_items():
         ("hourglass half", "Longevity", "longevity"),
     ]):
         active = "active" if index == 0 else ""
-        with div(cls=f"ui {active} link item nowrap", data_group=mode, onClick=f"groupArtists(this, '{mode}')", tabindex="0"):
+        with div(cls=f"{active} link item nowrap", data_group=mode, onClick="groupArtists(this)", tabindex="0"):
             i(cls=f"{icon} icon control-icon", aria_hidden="true")
             span(label)
 
@@ -732,16 +728,16 @@ def menu_search():
         )
         i(cls="search icon")
 
-def cards(artists: list[dict]):
-    """"Render the card grid."""
+def cards(artists: list[Artist]):
+    """Render the card grid."""
     with div(cls="artists-wrapper"): # scroll-helper
         with div(cls="ui grid artists"):
             for artist in artists:
                 with card_cell(artist):
                     card(artist)
 
-def card_cell(artist):
-    """Render a carl cell in the cards grid."""
+def card_cell(artist: Artist):
+    """Render a card cell in the cards grid."""
     return div(cls="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist",
         data_name=artist.name,
         data_followers=str(artist.followers),
@@ -816,19 +812,20 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]):
             meta(name="viewport", content="width=device-width, initial-scale=1")
 
             # scripts
-            script(src = "https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js")
-            script(src = "https://cdn.jsdelivr.net/npm/jquery-address@1.6.0/src/jquery.address.js")
-            script(src = "https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min.js")
-            script(raw(JS_FUNC_REMOVE_EMOJI))
+            script(src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js")
+            script(src="https://cdn.jsdelivr.net/npm/jquery-address@1.6.0/src/jquery.address.js")
+            script(src=f"{FOMANTIC_UI}.js")
             script(raw(JS_FUNC_ONTAB))
-            script(raw(_JS_FUNC_SORT))
+            script(raw(JS_FUNC_SELECT_OPTION))
+            script(raw(JS_FUNC_SORT))
             script(raw(JS_FUNC_GROUP))
             script(raw(JS_FUNC_SEARCH))
             script(raw(JS_FUNC_PICK_DISCOVER))
             script(raw(JS_FUNC_MARK_RECENT_RELEASES))
+            script(raw(JS_KEYBOARD_NAVIGATION))
 
             # style
-            link(href =  "https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min.css", rel = "stylesheet")
+            link(href=f"{FOMANTIC_UI}.css", rel="stylesheet")
             style(raw(CSS_GLOBAL))
 
         # ----------------------------------------------------------------------
@@ -859,14 +856,6 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]):
                 with div(cls="sixteen wide mobile tablet   thirteen wide computer   fourteen wide large screen   fourteen wide widescreen   column app-column content-column"):
                     list_controls()
                     for tag in TAGS_MENU_ORDER:
-                        artists = tags_with_artists[tag]
-                        tab_attributes = {}
-                        if tag == T_ALL:
-                            tab_attributes['data_all_artists'] = 'true'
-                        for family in TAGS_DISCOVER.values():
-                            prefix = "Alt" if family == T_ALT_ALL else family.name
-                            if tag == family or tag.name.startswith(prefix + " - "):
-                                tab_attributes['data_group_family'] = family.name
                         if tag == T_DISCOVER:
                             artists = tags_with_artists[T_ALL]
                             tab_attributes = {"data_discover_per_family": str(DISCOVER_ARTISTS_PER_FAMILY)}
@@ -879,6 +868,15 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]):
                                     excluded.name for excluded in TAGS_DISCOVER_EXCLUSIONS.get(family, [])
                                 ], ensure_ascii=False),
                             }
+                        else:
+                            artists = tags_with_artists[tag]
+                            tab_attributes = {}
+                            if tag == T_ALL:
+                                tab_attributes["data_all_artists"] = "true"
+                            for family in TAGS_DISCOVER.values():
+                                prefix = "Alt" if family == T_ALT_ALL else family.name
+                                if tag == family or tag.name.startswith(prefix + " - "):
+                                    tab_attributes["data_group_family"] = family.name
 
                         with div(cls="ui tab", data_tab=id(tag), **tab_attributes):
                             cards(sorted(artists, key=lambda x: x.name.lower()))
@@ -894,9 +892,8 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]):
         # ----------------------------------------------------------------------
         script("markRecentReleases();")
         script("pickDiscover();")
-        script("sort($('.item[data-sort]')[0], 'name', 'asc');")
+        script("sort($('.item[data-sort]')[0]);")
         script("$('.menu .item').tab({history:true, historyType: 'hash', onLoad: onTab});")
         script("$('.ui.accordion.mobile').accordion({exclusive:true});")
-        script(raw(JS_KEYBOARD_NAVIGATION))
 
     return doc
