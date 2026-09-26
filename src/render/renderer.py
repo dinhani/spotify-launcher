@@ -494,7 +494,7 @@ def menu_filter(mobile: bool, tags_with_artists: dict[Tag, list[Artist]]):
                     tabindex="0"
                 ):
                 span(item_display)
-                span(f"{artists_count}", cls="ui tiny label artist-count")
+                span(f"{artists_count}", cls="ui tiny basic blue label artist-count")
 
 def menu_sort(mobile):
     """Render sort menu according to mobile or desktop rules."""
