@@ -574,6 +574,7 @@ function focusVisibleCard() {
 }
 
 $(document).on('keydown', '.menu .item', function(e) {
+    if (e.ctrlKey) return;
     if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
         $(this).click();
@@ -607,6 +608,7 @@ $(document).on('keydown', '.menu .item', function(e) {
 });
 
 $(document).on('keydown', '.artist-search', function(e) {
+    if (e.ctrlKey) return;
     if (e.key === 'Enter') visibleCards().first().focus();
 
     var items = $(this).closest('.column').find('.menu .item:visible');
@@ -616,11 +618,16 @@ $(document).on('keydown', '.artist-search', function(e) {
 });
 
 $(document).on('keydown', function(e) {
-    var kind = {Digit1: 'tab', Digit2: 'sort', Digit3: 'group'}[e.code];
+    var kind = {
+        Digit1: 'tab', ArrowUp: 'tab', ArrowDown: 'tab',
+        Digit2: 'sort', ArrowLeft: 'sort', ArrowRight: 'sort',
+        Digit3: 'group',
+    }[e.code];
     if (!kind || !e.ctrlKey || e.altKey || e.metaKey) return;
+    if ((e.code === 'ArrowLeft' || e.code === 'ArrowRight') && $(e.target).is('input')) return;
     e.preventDefault();
     var items = $('.ui.vertical.desktop.menu, .list-controls').find('.item[data-' + kind + ']');
-    var step = e.shiftKey ? -1 : 1;
+    var step = (e.shiftKey || e.code === 'ArrowUp' || e.code === 'ArrowLeft') ? -1 : 1;
     items.eq((items.index(items.filter('.active')) + step + items.length) % items.length).click();
 });
 
@@ -632,6 +639,7 @@ $(document).on('keydown', function(e) {
 });
 
 $(document).on('keydown', '.ui.card', function(e) {
+    if (e.ctrlKey) return;
     if (e.key === 'Escape') {
         $('.artist-search:visible').focus();
         return;
@@ -741,7 +749,7 @@ def menu_group():
 def list_controls():
     with div(cls="list-controls"):
         with div(cls="list-control"):
-            span("Sort", cls="ui blue text list-control-label", title="Ctrl+2 next, Ctrl+Shift+2 previous")
+            span("Sort", cls="ui blue text list-control-label", title="Ctrl+2 or Ctrl+Right next, Ctrl+Shift+2 or Ctrl+Left previous")
             with div(cls="ui small compact blue secondary menu"):
                 sort_items()
         with div(cls="list-control"):
