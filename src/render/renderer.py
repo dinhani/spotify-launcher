@@ -121,6 +121,11 @@ html {
 }
 
 /* Artist cards */
+.artists-wrapper {
+    padding: 0.5rem;
+    background: #f3f4f6;
+    border-radius: 0.5rem;
+}
 .ui.grid.artists {
     margin: -0.25rem;
 }
@@ -273,6 +278,7 @@ html {
         flex: 1;
         min-height: 0;
         overflow-y: scroll;
+        margin-top: 0.5rem;
         padding: 10px;
     }
     .artist-image {
