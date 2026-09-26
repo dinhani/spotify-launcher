@@ -22,6 +22,8 @@ Folk's Discover pool excludes any artist who also belongs to Rock or Alternative
 
 The sidebar's Group control offers None (default) and By Style. Grouping uses Rock, Folk, Alternative and Others, with the selected sort applied within each section. Artists belonging to multiple families appear in each applicable section; family filters show only that family's section. Search hides empty sections. Grouping does not change Discover picks. Use style in the interface; family is an internal classification term. Control labels use Title Case, matching the existing sidebar options.
 
+Generate browser grouping names and icons from the tags in `data.py` (`TAGS_DISCOVER` and `T_OTHERS`); do not maintain a separate hardcoded JavaScript list.
+
 ## Planned: long-term history
 
 Spotify extended streaming history requested on 2026-09-26. When it arrives, aggregate per artist (time listened, last played) into `data/`; commit only the aggregate.
@@ -37,6 +39,8 @@ Spotify extended streaming history requested on 2026-09-26. When it arrives, agg
 After any change, re-render and commit it (source and generated `docs/` together) without asking.
 
 Keep static styling in the renderer's `CSS_GLOBAL` block, alongside the embedded JavaScript blocks. Render elements with classes instead of inline `style=` attributes; do not extract a separate CSS file.
+
+Prefer Fomantic UI components and variations for layout and presentation before adding custom CSS. The sidebar uses an accordion with secondary attached segment titles and bottom attached menus. Pin stable frontend versions and verify compatibility before upgrades. Checked on 2026-09-26: Fomantic UI 2.9.4 and jQuery Address 1.6.0 are current stable releases; jQuery stays on 3.7.1 because 4.0.0 removes APIs used by this stack.
 
 ## How classification works
 
