@@ -261,13 +261,26 @@ html {
 }
 /* Group headings */
 .ui.grid.artists > .group-heading {
-    padding: 1.5rem 0.5rem 0.75rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding: 1rem 0.5rem 0.5rem;
 }
 .ui.grid.artists > .group-heading:first-child {
     padding-top: 0.5rem;
 }
 .group-heading .ui.header {
     margin: 0;
+    white-space: nowrap;
+}
+.group-summary {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 0.92857143rem;
+}
+.group-rule {
+    flex: 1;
+    align-self: center;
+    border-top: 1px solid rgba(34, 36, 38, 0.15);
 }
 
 /* Focus and hover */
@@ -361,7 +374,7 @@ function groupSections(grid) {
         return artistFamilies
             .filter(function(family) { return !scope || family.name === scope; })
             .map(function(family) {
-                return {label: family.label, includes: function(cell) {
+                return {label: family.label, description: family.description, includes: function(cell) {
                     var families = cell.dataset.families.split('|').filter(Boolean);
                     return family.fallback ? families.length === 0 : families.includes(family.name);
                 }};
@@ -370,20 +383,29 @@ function groupSections(grid) {
 
     var currentYear = new Date().getFullYear();
     var sections = longevityRanges.map(function(range) {
-        return {label: range.label, includes: function(cell) {
+        var description = range.to === Infinity
+            ? 'Debut ' + (currentYear - range.from) + ' or earlier'
+            : 'Debut ' + (currentYear - range.to) + '–' + (currentYear - range.from);
+        return {label: range.label, description: description, includes: function(cell) {
             if (!cell.dataset.firstRelease) return false;
             var years = currentYear - Number(cell.dataset.firstRelease.slice(0, 4));
             return years >= range.from && years <= range.to;
         }};
     });
-    sections.push({label: 'Unknown', includes: function(cell) { return !cell.dataset.firstRelease; }});
+    sections.push({label: 'Unknown', description: '', includes: function(cell) { return !cell.dataset.firstRelease; }});
     return sections;
 }
 
 function refreshGroupHeadings() {
     $('.group-heading').each(function() {
-        var members = $(this).nextUntil('.group-heading', '.artist');
-        $(this).toggle(members.toArray().some(function(cell) { return cell.style.display !== 'none'; }));
+        var members = $(this).nextUntil('.group-heading', '.artist').filter(function() { return this.style.display !== 'none'; });
+        $(this).toggle(members.length > 0);
+
+        var summary = $(this).find('.group-summary').empty();
+        summary.append(members.length + (members.length === 1 ? ' artist' : ' artists'));
+        var favorites = members.find('.favorite-star').length;
+        if (favorites) summary.append(' · ', $('<i>', {class: 'yellow star icon'}), favorites);
+        if (summary.data('description')) summary.append(' · ' + summary.data('description'));
     });
 }
 
@@ -401,6 +423,8 @@ function applyGrouping() {
                 if (!members.length) return;
                 var heading = $('<div>', {class: 'sixteen wide column group-heading'});
                 heading.append($('<h2>', {class: 'ui medium header', text: section.label}));
+                heading.append($('<span>', {class: 'group-summary', 'data-description': section.description}));
+                heading.append($('<div>', {class: 'group-rule'}));
                 $(grid).append(heading);
                 members.sort(byViewOrder).forEach(function(cell) { $(grid).append($(cell).clone()); });
             });
@@ -420,7 +444,7 @@ function groupArtists(element, mode) {
     applyGrouping();
 }
 """.replace("__ARTIST_FAMILIES__", json.dumps([
-    {"name": family.name, "label": f"{family.icon} {family.name}".strip(), "fallback": family == T_OTHERS}
+    {"name": family.name, "label": f"{family.icon} {family.name}".strip(), "description": family.description, "fallback": family == T_OTHERS}
     for family in [*TAGS_DISCOVER.values(), T_OTHERS]
 ], ensure_ascii=False))
 
