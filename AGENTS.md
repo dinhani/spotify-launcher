@@ -16,6 +16,10 @@ Discover suggests artists to revisit from the artists already followed; it does 
 
 4 artists per family: each family's Discover shows its 4, All's Discover shows all 12. Picked in the browser, seeded by period: morning (6h-12h), afternoon (12h-18h), night (18h-6h). Same picks within a period, no reroll.
 
+## Grouping
+
+The sidebar's Group control offers All together (default) and By family. Grouping uses Rock, Folk, Alternative and Others, with the selected sort applied within each section. Artists belonging to multiple families appear in each applicable section; family filters show only that family's section. Search hides empty sections. Grouping does not change Discover picks.
+
 ## Planned: long-term history
 
 Spotify extended streaming history requested on 2026-09-26. When it arrives, aggregate per artist (time listened, last played) into `data/`; commit only the aggregate.

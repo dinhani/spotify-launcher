@@ -30,12 +30,14 @@ function sort(element, attribute, order) {
     $("#mobile-menu-header-sort").text("Sort: " + title);
 
     // mark active
-    $(element).addClass('active');
-    $(element).siblings().removeClass('active');
+    var sortIndex = $(element).index();
+    $('.sort-options').each(function() {
+        $(this).children().removeClass('active').eq(sortIndex).addClass('active');
+    });
 
     // reorder
     $('.artists').each(function(_, artists) {
-        var sorted = $(artists).find('.artist').sort(function(a, b) {
+        var sorted = uniqueArtists(artists).sort(function(a, b) {
             var valA = $(a).data(attribute);
             var valB = $(b).data(attribute);
 
@@ -46,8 +48,75 @@ function sort(element, attribute, order) {
                 return order === 'asc' ? String(valA).localeCompare(String(valB)) : String(valB).localeCompare(String(valA)); // String comparison
             }
         });
+        sorted.forEach(function(cell, index) { cell.dataset.viewOrder = index; });
         $(artists).empty().append(sorted);
     });
+    applyGrouping();
+}
+</script>
+    <script>
+var groupByFamily = false;
+var artistFamilies = [
+    {name: 'Rock', label: '🎸 Rock'},
+    {name: 'Folk', label: '🎻 Folk'},
+    {name: 'Alternative', label: '🎧 Alternative'},
+    {name: 'Others', label: 'Others'}
+];
+
+function uniqueArtists(grid) {
+    var seen = new Set();
+    return $(grid).find('.artist').toArray().filter(function(cell) {
+        if (seen.has(cell.dataset.name)) return false;
+        seen.add(cell.dataset.name);
+        return true;
+    });
+}
+
+function refreshGroupHeadings() {
+    $('.family-heading').each(function() {
+        var members = $(this).nextUntil('.family-heading', '.artist');
+        $(this).toggle(members.toArray().some(function(cell) { return cell.style.display !== 'none'; }));
+    });
+}
+
+function applyGrouping() {
+    var query = normalizeText($('.artist-search').first().val() || '');
+    $('.artists').each(function(_, grid) {
+        var cells = uniqueArtists(grid);
+        $(grid).empty();
+        if (!groupByFamily) {
+            cells.sort(function(a, b) { return Number(a.dataset.viewOrder) - Number(b.dataset.viewOrder); });
+            $(grid).append(cells);
+        } else {
+            var scope = $(grid).closest('.ui.tab').attr('data-group-family');
+            artistFamilies.forEach(function(family) {
+                if (scope && family.name !== scope) return;
+                var members = cells.filter(function(cell) {
+                    var families = cell.dataset.families.split('|').filter(Boolean);
+                    return family.name === 'Others' ? families.length === 0 : families.includes(family.name);
+                });
+                if (!members.length) return;
+                var heading = $('<div>', {class: 'sixteen wide column family-heading'});
+                heading.append($('<h2>', {class: 'ui medium header', text: family.label}));
+                $(grid).append(heading);
+                members.sort(function(a, b) { return Number(a.dataset.viewOrder) - Number(b.dataset.viewOrder); });
+                members.forEach(function(cell) { $(grid).append($(cell).clone()); });
+            });
+        }
+        $(grid).find('.artist').each(function() {
+            $(this).toggle(normalizeText(this.dataset.name).includes(query));
+        });
+    });
+    refreshGroupHeadings();
+}
+
+function groupArtists(byFamily) {
+    groupByFamily = byFamily;
+    $('.group-options').each(function() {
+        $(this).children().removeClass('active').eq(byFamily ? 1 : 0).addClass('active');
+    });
+    $('#mobile-menu-header-group').text('Group: ' + (byFamily ? 'By family' : 'All together'));
+    applyGrouping();
 }
 </script>
     <script>
@@ -61,6 +130,7 @@ function search(text) {
     $('.artist').each(function(_, artist) {
         $(artist).toggle(normalizeText($(artist).data('name')).includes(query));
     });
+    refreshGroupHeadings();
 }
 </script>
     <script>
@@ -158,6 +228,15 @@ function pickDiscover() {
 .ui.card {
     scroll-margin: 16px;
 }
+.ui.grid.artists > .family-heading {
+    padding: 1.5rem 0.5rem 0.75rem;
+}
+.ui.grid.artists > .family-heading:first-child {
+    padding-top: 0.5rem;
+}
+.family-heading .ui.header {
+    margin: 0;
+}
 .ui.card:focus-visible, .ui.card:hover {
     outline: none;
     z-index: 5;
@@ -177,7 +256,7 @@ function pickDiscover() {
             <span id="mobile-menu-header-sort">Sort: Name</span><i class="right dropdown icon"></i>
           </div>
           <div class=" content" style="padding: 0;">
-            <div class="ui fluid vertical attached menu" style="margin: 0; border-left: 0; border-right: 0; border-bottom: 0;">
+            <div class="ui fluid vertical attached menu sort-options" style="margin: 0; border-left: 0; border-right: 0; border-bottom: 0;">
               <div class="ui active link item" onClick="sort(this, 'name', 'asc')" style="white-space: nowrap; " tabindex="0">🎶 Name</div>
               <div class="ui link item" onClick="sort(this, 'popularity', 'desc')" style="white-space: nowrap; " tabindex="0">🔥 Popularity (artist)</div>
               <div class="ui link item" onClick="sort(this, 'song-popularity', 'desc')" style="white-space: nowrap; " tabindex="0">🏆 Popularity (song)</div>
@@ -185,6 +264,15 @@ function pickDiscover() {
               <div class="ui link item" onClick="sort(this, 'albums', 'desc')" style="white-space: nowrap; " tabindex="0">💿 Albums</div>
               <div class="ui link item" onClick="sort(this, 'last-release', 'desc')" style="white-space: nowrap; " tabindex="0">📅 Last Release</div>
               <div class="ui link item" onClick="sort(this, 'last-follow', 'asc')" style="white-space: nowrap; " tabindex="0">🔔 Last Follow</div>
+            </div>
+          </div>
+          <div class=" title">
+            <span id="mobile-menu-header-group">Group: All together</span><i class="right dropdown icon"></i>
+          </div>
+          <div class=" content" style="padding: 0;">
+            <div class="ui fluid vertical attached menu group-options" style="margin: 0; border-left: 0; border-right: 0; border-bottom: 0;">
+              <div class="ui active link item" onClick="groupArtists(false)" tabindex="0">All together</div>
+              <div class="ui link item" onClick="groupArtists(true)" tabindex="0">By family</div>
             </div>
           </div>
           <div class=" title">
@@ -309,7 +397,7 @@ function pickDiscover() {
             <span id="desktop-menu-header-sort">Sort</span><i class="right dropdown icon"></i>
           </div>
           <div class="active content" style="padding: 0;">
-            <div class="ui fluid vertical attached menu" style="margin: 0; border-left: 0; border-right: 0; border-bottom: 0;">
+            <div class="ui fluid vertical attached menu sort-options" style="margin: 0; border-left: 0; border-right: 0; border-bottom: 0;">
               <div class="ui active link item" onClick="sort(this, 'name', 'asc')" style="white-space: nowrap; " tabindex="0">🎶 Name</div>
               <div class="ui link item" onClick="sort(this, 'popularity', 'desc')" style="white-space: nowrap; " tabindex="0">🔥 Popularity (artist)</div>
               <div class="ui link item" onClick="sort(this, 'song-popularity', 'desc')" style="white-space: nowrap; " tabindex="0">🏆 Popularity (song)</div>
@@ -317,6 +405,15 @@ function pickDiscover() {
               <div class="ui link item" onClick="sort(this, 'albums', 'desc')" style="white-space: nowrap; " tabindex="0">💿 Albums</div>
               <div class="ui link item" onClick="sort(this, 'last-release', 'desc')" style="white-space: nowrap; " tabindex="0">📅 Last Release</div>
               <div class="ui link item" onClick="sort(this, 'last-follow', 'asc')" style="white-space: nowrap; " tabindex="0">🔔 Last Follow</div>
+            </div>
+          </div>
+          <div class="active title">
+            <span id="desktop-menu-header-group">Group</span><i class="right dropdown icon"></i>
+          </div>
+          <div class="active content" style="padding: 0;">
+            <div class="ui fluid vertical attached menu group-options" style="margin: 0; border-left: 0; border-right: 0; border-bottom: 0;">
+              <div class="ui active link item" onClick="groupArtists(false)" tabindex="0">All together</div>
+              <div class="ui link item" onClick="groupArtists(true)" tabindex="0">By family</div>
             </div>
           </div>
           <div class="active title">
@@ -20491,7 +20588,7 @@ function pickDiscover() {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="rock">
+        <div class="ui tab" data-group-family="Rock" data-tab="rock">
           <div class="artists-wrapper">
             <div class="ui grid artists" style="margin: -0.25rem;">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="2" data-families="Rock" data-followers="44005" data-last-follow="70" data-last-release="2015-08-07" data-name="Agent Fresco" data-popularity="32" data-song-popularity="40" style="padding: 0.25rem;">
@@ -28025,7 +28122,7 @@ function pickDiscover() {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="rock-favorites">
+        <div class="ui tab" data-group-family="Rock" data-tab="rock-favorites">
           <div class="artists-wrapper">
             <div class="ui grid artists" style="margin: -0.25rem;">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="14" data-families="Rock" data-followers="753560" data-last-follow="162" data-last-release="2025-06-20" data-name="Alestorm" data-popularity="56" data-song-popularity="59" style="padding: 0.25rem;">
@@ -28983,7 +29080,7 @@ function pickDiscover() {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="rock-non-favorites">
+        <div class="ui tab" data-group-family="Rock" data-tab="rock-non-favorites">
           <div class="artists-wrapper">
             <div class="ui grid artists" style="margin: -0.25rem;">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="2" data-families="Rock" data-followers="44005" data-last-follow="70" data-last-release="2015-08-07" data-name="Agent Fresco" data-popularity="32" data-song-popularity="40" style="padding: 0.25rem;">
@@ -31798,7 +31895,7 @@ function pickDiscover() {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="rock-heavy-metal">
+        <div class="ui tab" data-group-family="Rock" data-tab="rock-heavy-metal">
           <div class="artists-wrapper">
             <div class="ui grid artists" style="margin: -0.25rem;">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="2" data-families="Rock" data-followers="44005" data-last-follow="70" data-last-release="2015-08-07" data-name="Agent Fresco" data-popularity="32" data-song-popularity="40" style="padding: 0.25rem;">
@@ -33768,7 +33865,7 @@ function pickDiscover() {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="rock-extreme-metal">
+        <div class="ui tab" data-group-family="Rock" data-tab="rock-extreme-metal">
           <div class="artists-wrapper">
             <div class="ui grid artists" style="margin: -0.25rem;">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="6" data-families="Rock" data-followers="52215" data-last-follow="93" data-last-release="2023-01-13" data-name="Ahab" data-popularity="27" data-song-popularity="34" style="padding: 0.25rem;">
@@ -34591,7 +34688,7 @@ function pickDiscover() {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="rock-folk-metal">
+        <div class="ui tab" data-group-family="Rock" data-tab="rock-folk-metal">
           <div class="artists-wrapper">
             <div class="ui grid artists" style="margin: -0.25rem;">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="14" data-families="Rock" data-followers="753560" data-last-follow="162" data-last-release="2025-06-20" data-name="Alestorm" data-popularity="56" data-song-popularity="59" style="padding: 0.25rem;">
@@ -35227,7 +35324,7 @@ function pickDiscover() {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="rock-rock">
+        <div class="ui tab" data-group-family="Rock" data-tab="rock-rock">
           <div class="artists-wrapper">
             <div class="ui grid artists" style="margin: -0.25rem;">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="3" data-families="Rock" data-followers="668824" data-last-follow="165" data-last-release="2022-10-07" data-name="Alvvays" data-popularity="58" data-song-popularity="66" style="padding: 0.25rem;">
@@ -35964,7 +36061,7 @@ function pickDiscover() {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="folk">
+        <div class="ui tab" data-group-family="Folk" data-tab="folk">
           <div class="artists-wrapper">
             <div class="ui grid artists" style="margin: -0.25rem;">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="2" data-families="Folk" data-followers="40608" data-last-follow="130" data-last-release="2011-03-30" data-name="AlicebanD" data-popularity="45" data-song-popularity="53" style="padding: 0.25rem;">
@@ -37558,7 +37655,7 @@ function pickDiscover() {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="folk-favorites">
+        <div class="ui tab" data-group-family="Folk" data-tab="folk-favorites">
           <div class="artists-wrapper">
             <div class="ui grid artists" style="margin: -0.25rem;">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="17" data-families="Folk" data-followers="593591" data-last-follow="51" data-last-release="2025-11-07" data-name="Celtic Woman" data-popularity="56" data-song-popularity="57" style="padding: 0.25rem;">
@@ -37788,7 +37885,7 @@ function pickDiscover() {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="folk-non-favorites">
+        <div class="ui tab" data-group-family="Folk" data-tab="folk-non-favorites">
           <div class="artists-wrapper">
             <div class="ui grid artists" style="margin: -0.25rem;">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="2" data-families="Folk" data-followers="40608" data-last-follow="130" data-last-release="2011-03-30" data-name="AlicebanD" data-popularity="45" data-song-popularity="53" style="padding: 0.25rem;">
@@ -38361,7 +38458,7 @@ function pickDiscover() {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="folk-folk">
+        <div class="ui tab" data-group-family="Folk" data-tab="folk-folk">
           <div class="artists-wrapper">
             <div class="ui grid artists" style="margin: -0.25rem;">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="4" data-families="Folk" data-followers="2776" data-last-follow="180" data-last-release="2025-07-08" data-name="Braia" data-popularity="6" data-song-popularity="7" style="padding: 0.25rem;">
@@ -38748,7 +38845,7 @@ function pickDiscover() {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="folk-steampunk">
+        <div class="ui tab" data-group-family="Folk" data-tab="folk-steampunk">
           <div class="artists-wrapper">
             <div class="ui grid artists" style="margin: -0.25rem;">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="2" data-families="Folk" data-followers="40608" data-last-follow="130" data-last-release="2011-03-30" data-name="AlicebanD" data-popularity="45" data-song-popularity="53" style="padding: 0.25rem;">
@@ -39164,7 +39261,7 @@ function pickDiscover() {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="alternative">
+        <div class="ui tab" data-group-family="Alternative" data-tab="alternative">
           <div class="artists-wrapper">
             <div class="ui grid artists" style="margin: -0.25rem;">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="3" data-families="Alternative" data-followers="62170" data-last-follow="73" data-last-release="2025-04-25" data-name="aeseaes" data-popularity="47" data-song-popularity="54" style="padding: 0.25rem;">
@@ -43790,7 +43887,7 @@ function pickDiscover() {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="alt-favorites">
+        <div class="ui tab" data-group-family="Alternative" data-tab="alt-favorites">
           <div class="artists-wrapper">
             <div class="ui grid artists" style="margin: -0.25rem;">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="3" data-families="Alternative" data-followers="62170" data-last-follow="73" data-last-release="2025-04-25" data-name="aeseaes" data-popularity="47" data-song-popularity="54" style="padding: 0.25rem;">
@@ -44888,7 +44985,7 @@ function pickDiscover() {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="alt-non-favorites">
+        <div class="ui tab" data-group-family="Alternative" data-tab="alt-non-favorites">
           <div class="artists-wrapper">
             <div class="ui grid artists" style="margin: -0.25rem;">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="11" data-families="Alternative" data-followers="157060" data-last-follow="57" data-last-release="2026-05-22" data-name="Alela Diane" data-popularity="48" data-song-popularity="38" style="padding: 0.25rem;">
@@ -46109,7 +46206,7 @@ function pickDiscover() {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="alt-atmospheric">
+        <div class="ui tab" data-group-family="Alternative" data-tab="alt-atmospheric">
           <div class="artists-wrapper">
             <div class="ui grid artists" style="margin: -0.25rem;">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="3" data-families="Alternative" data-followers="62170" data-last-follow="73" data-last-release="2025-04-25" data-name="aeseaes" data-popularity="47" data-song-popularity="54" style="padding: 0.25rem;">
@@ -47107,7 +47204,7 @@ function pickDiscover() {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="alt-energetic">
+        <div class="ui tab" data-group-family="Alternative" data-tab="alt-energetic">
           <div class="artists-wrapper">
             <div class="ui grid artists" style="margin: -0.25rem;">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="11" data-families="Alternative" data-followers="890059" data-last-follow="37" data-last-release="2025-11-07" data-name="Allie X" data-popularity="54" data-song-popularity="65" style="padding: 0.25rem;">
@@ -48157,7 +48254,7 @@ function pickDiscover() {
             </div>
           </div>
         </div>
-        <div class="ui tab" data-tab="alt-voxguitar">
+        <div class="ui tab" data-group-family="Alternative" data-tab="alt-voxguitar">
           <div class="artists-wrapper">
             <div class="ui grid artists" style="margin: -0.25rem;">
               <div class="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist" data-albums="11" data-families="Alternative" data-followers="157060" data-last-follow="57" data-last-release="2026-05-22" data-name="Alela Diane" data-popularity="48" data-song-popularity="38" style="padding: 0.25rem;">
@@ -48578,6 +48675,7 @@ function pickDiscover() {
     </div>
   </body>
   <script>pickDiscover();</script>
+  <script>sort($('.desktop .sort-options .item')[0], 'name', 'asc');</script>
   <script>$('.menu .item').tab({history:true, historyType: 'hash', onLoad: onTab});</script>
   <script>$('.ui.accordion.desktop').accordion({exclusive:false});</script>
   <script>$('.ui.accordion.mobile').accordion({exclusive:true});</script>
@@ -48591,6 +48689,7 @@ $(document).on('keydown', '.menu .item', function(e) {
     if (e.key === 'ArrowRight') {
         e.preventDefault();
         var cards = $('.ui.tab.active .artist:visible .card');
+        if (!cards.length) return;
         var top = Math.max(0, cards.closest('.artists-wrapper')[0].getBoundingClientRect().top);
         var card = cards.filter(function() { return this.getBoundingClientRect().top >= top; }).first();
         (card.length ? card : cards.first()).focus();
@@ -48639,19 +48738,32 @@ $(document).on('keydown', '.ui.card', function(e) {
 
     var cards = $('.ui.tab.active .artist:visible .card');
     var index = cards.index(this);
-    var top = cards[0].parentElement.offsetTop;
-    var columns = cards.filter(function() { return this.parentElement.offsetTop === top; }).length;
-    if (e.key === 'ArrowLeft' && index % columns === 0) {
+    var rect = this.getBoundingClientRect();
+    var row = cards.filter(function() { return Math.abs(this.getBoundingClientRect().top - rect.top) < 2; });
+    if (e.key === 'ArrowLeft' && row.index(this) === 0) {
         e.preventDefault();
         $('.menu .item.active[data-tab]:visible').focus();
         return;
     }
 
-    var step = { ArrowRight: 1, ArrowLeft: -1, ArrowDown: columns, ArrowUp: -columns }[e.key];
-    if (!step) return;
+    if (!['ArrowRight', 'ArrowLeft', 'ArrowDown', 'ArrowUp'].includes(e.key)) return;
     e.preventDefault();
-    var target = index + step;
-    if (target >= 0 && target < cards.length) cards.eq(target).focus();
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+        var target = index + (e.key === 'ArrowRight' ? 1 : -1);
+        if (target >= 0 && target < cards.length) cards.eq(target).focus();
+        return;
+    }
+    var below = e.key === 'ArrowDown';
+    var candidates = cards.toArray().filter(function(card) {
+        var delta = card.getBoundingClientRect().top - rect.top;
+        return below ? delta > 2 : delta < -2;
+    });
+    candidates.sort(function(a, b) {
+        var aRect = a.getBoundingClientRect(), bRect = b.getBoundingClientRect();
+        return Math.abs(aRect.top - rect.top) - Math.abs(bRect.top - rect.top)
+            || Math.abs(aRect.left - rect.left) - Math.abs(bRect.left - rect.left);
+    });
+    if (candidates.length) candidates[0].focus();
 });
 </script>
 </html>
