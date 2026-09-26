@@ -340,7 +340,9 @@ function groupArtists(byFamily) {
 
 JS_FUNC_SEARCH = """
 function normalizeText(s) {
-    return String(s).normalize('NFD').replace(/\\p{Diacritic}/gu, '').toLowerCase();
+    var letters = {'æ': 'ae', 'ø': 'o', 'œ': 'oe', 'ß': 'ss'};
+    return String(s).normalize('NFD').replace(/\\p{Diacritic}/gu, '').toLowerCase()
+        .replace(/[æøœß]/g, function(letter) { return letters[letter]; });
 }
 
 function search(text) {
