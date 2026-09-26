@@ -115,7 +115,7 @@ function groupArtists(byFamily) {
     $('.group-options').each(function() {
         $(this).children().removeClass('active').eq(byFamily ? 1 : 0).addClass('active');
     });
-    $('#mobile-menu-header-group').text('Group: ' + (byFamily ? 'By Style' : 'All Together'));
+    $('#mobile-menu-header-group').text('Group: ' + (byFamily ? 'By Style' : 'None'));
     applyGrouping();
 }
 </script>
@@ -272,11 +272,11 @@ function pickDiscover() {
             </div>
           </div>
           <div class=" title">
-            <span id="mobile-menu-header-group">Group: All Together</span><i class="right dropdown icon"></i>
+            <span id="mobile-menu-header-group">Group: None</span><i class="right dropdown icon"></i>
           </div>
           <div class=" content" style="padding: 0;">
             <div class="ui fluid vertical attached menu group-options" style="margin: 0; border-left: 0; border-right: 0; border-bottom: 0;">
-              <div class="ui active link item" onClick="groupArtists(false)" tabindex="0">🗂️ All Together</div>
+              <div class="ui active link item" onClick="groupArtists(false)" tabindex="0">🗂️ None</div>
               <div class="ui link item" onClick="groupArtists(true)" tabindex="0">🎼 By Style</div>
             </div>
           </div>
@@ -417,7 +417,7 @@ function pickDiscover() {
           </div>
           <div class="active content" style="padding: 0;">
             <div class="ui fluid vertical attached menu group-options" style="margin: 0; border-left: 0; border-right: 0; border-bottom: 0;">
-              <div class="ui active link item" onClick="groupArtists(false)" tabindex="0">🗂️ All Together</div>
+              <div class="ui active link item" onClick="groupArtists(false)" tabindex="0">🗂️ None</div>
               <div class="ui link item" onClick="groupArtists(true)" tabindex="0">🎼 By Style</div>
             </div>
           </div>
