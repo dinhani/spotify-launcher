@@ -5,7 +5,7 @@ A personal launcher for the Spotify artists I follow: it helps me decide what to
 ## Purpose
 
 - The universe is artists I already follow, and I have listened to every one of them a lot at some point. The app helps me get back to them, not discover new artists.
-- Picking and playing must be fast: type to search, arrows to navigate, `Enter` opens the artist in Spotify, `Shift+Enter` opens it in Last.fm, `Esc` returns to search. Mobile must stay comfortable to tap.
+- Picking and playing must be fast: type to search, arrows to navigate, `Enter` opens the artist in Spotify, `Shift+Enter` opens it in Last.fm, `Esc` clears the search from anywhere and returns to it from a card. Mobile must stay comfortable to tap.
 - Last.fm (`just lastfm`) only covers what I have listened to recently; there is no long-term history. Few or no plays means "not lately", never "unknown" or "disliked".
 - Favorites are curated by taste, not by play count.
 - When I say "the app should answer X" I mean a feature of this page, not an analysis by the agent.
