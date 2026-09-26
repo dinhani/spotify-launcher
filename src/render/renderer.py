@@ -114,7 +114,7 @@ html {
 .ui.card > .image > i.favorite-star.icon {
     position: absolute;
     top: 0.35rem;
-    right: 0.35rem;
+    left: 0.35rem;
     margin: 0;
     font-size: 0.9rem;
     color: #f5d76e;
@@ -438,6 +438,18 @@ function pickDiscover() {
 }
 """
 
+JS_FUNC_MARK_RECENT_RELEASES = """
+function markRecentReleases() {
+    var recentSince = Date.now() - 90 * 24 * 60 * 60 * 1000;
+    $('.artist').each(function(_, cell) {
+        if (!cell.dataset.lastRelease || new Date(cell.dataset.lastRelease).getTime() < recentSince) return;
+        var label = $('<div>', {class: 'ui mini green right corner label', title: 'Released ' + cell.dataset.lastRelease});
+        label.append($('<i>', {class: 'compact disc icon'}));
+        $(cell).find('.card > .image').append(label);
+    });
+}
+"""
+
 JS_KEYBOARD_NAVIGATION = """
 $(document).on('keydown', '.menu .item', function(e) {
     if (e.key === 'Enter' || e.key === ' ') {
@@ -717,6 +729,7 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]):
             script(raw(JS_FUNC_GROUP))
             script(raw(JS_FUNC_SEARCH))
             script(raw(JS_FUNC_PICK_DISCOVER))
+            script(raw(JS_FUNC_MARK_RECENT_RELEASES))
 
             # style
             link(href =  "https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min.css", rel = "stylesheet")
@@ -785,6 +798,7 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]):
         # ----------------------------------------------------------------------
         # Script initialization
         # ----------------------------------------------------------------------
+        script("markRecentReleases();")
         script("pickDiscover();")
         script("sort($('.desktop .sort-options .item')[0], 'name', 'asc');")
         script("$('.menu .item').tab({history:true, historyType: 'hash', onLoad: onTab});")
