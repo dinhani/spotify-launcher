@@ -11,11 +11,13 @@ class Artist:
     def __init__(self,
                 id: str, name: str, image: str,
                 genres: str | list[str], popularity: int, followers: int, albums: int,
-                last_release: str, last_follow: str, top_song: str, top_song_popularity: int):
+                last_release: str, last_follow: str, top_song: str, top_song_popularity: int,
+                album_image: str = ""):
 
         self.id = id
         self.name = name
         self.image = image
+        self.album_image = album_image or ""
 
         self.genres = genres
         self.popularity = popularity
