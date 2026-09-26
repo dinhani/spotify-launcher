@@ -50,11 +50,19 @@ Spotify extended streaming history requested on 2026-09-26. When it arrives, agg
 
 After any change, re-render and commit it (source and generated `docs/` together) without asking.
 
+Renderer functions such as `menu_filter`, `menu_sort`, `menu_group`, `list_controls` and `card` are page components; keep them as functions even with a single caller.
+
+The page renders in standards mode (`render_html` emits the HTML5 doctype); keep it. Quirks mode made line heights inside inline content ignore their parent.
+
+Keyboard navigation measures the grid cells (`.artist`), not the cards, because focused and hovered cards are scaled. In the top bar, Left/Right move between options and Down goes to the grid; in the sidebar, Right goes to the grid; Left on the first card of a row returns to the active filter.
+
 Keep static styling in the renderer's `CSS_GLOBAL` block, alongside the embedded JavaScript blocks. Render elements with classes instead of inline `style=` attributes; do not extract a separate CSS file.
 
-Prefer Fomantic UI components and variations for layout and presentation before adding custom CSS. On desktop the sidebar is the search plus a plain vertical Filter menu, with Sort and Group in the top bar. The accordion is mobile/tablet only: a styled accordion with separate title/content pairs and vertical menus inside the content. Keep that structure: replacing titles with attached segments and making menus the accordion content disrupted the layout. Section titles use Fomantic blue with the default accordion font size and weight, with no custom background or extra dividers. The search input, accordion titles and menu items share the same height. Count labels have a fixed width and centered numbers. Do not take screenshots; the user validates visual appearance. Pin stable frontend versions and verify compatibility before upgrades. Checked on 2026-09-26: Fomantic UI 2.9.4 and jQuery Address 1.6.0 are current stable releases; jQuery stays on 3.7.1 because 4.0.0 removes APIs used by this stack.
+Prefer Fomantic UI components and variations for layout and presentation before adding custom CSS. On desktop the sidebar is the search plus a plain vertical Filter menu, with Sort and Group in the top bar. The accordion is mobile/tablet only: a styled accordion with separate title/content pairs and vertical menus inside the content. Keep that structure: replacing titles with attached segments and making menus the accordion content disrupted the layout. Section titles use Fomantic blue with the default accordion font size and weight, with no custom background or extra dividers. The search input, accordion titles and menu items share the same height. Count labels have a fixed width and centered numbers. The top bar puts Sort on the left (it is used more) and Group on the right, each a separate `ui small compact blue secondary menu`; custom CSS only adds the option track and the white active pill. Do not nest menus inside a Fomantic menu: it broke the bar. Family icons always render through `control-symbol` so they stay grayscale, in the sidebar and in group headings. Do not take screenshots; the user validates visual appearance. Pin stable frontend versions and verify compatibility before upgrades. Checked on 2026-09-26: Fomantic UI 2.9.4 and jQuery Address 1.6.0 are current stable releases; jQuery stays on 3.7.1 because 4.0.0 removes APIs used by this stack.
 
 ## How classification works
+
+Families are declared once in `FAMILIES` in `src/render/data.py`: each `Family` holds its main, Discover, Favorites, Non-Favorites and granular tags. The umbrella, header and menu order lists derive from it, so a new family or granular tag is added there.
 
 All rules live in `TAG_RULES` in `src/render/data.py`. Each tag lists patterns that pull artists into it:
 
