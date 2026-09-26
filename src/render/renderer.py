@@ -458,7 +458,8 @@ def menu_wrapper(mobile: bool, label: str, id: str):
     item_active = "" if mobile else "active"
 
     # accordion title
-    with div(cls=f"{item_active} title ui blue text"):
+    with div(cls=f"{item_active} title"):
+        with span(cls="ui blue text"):
             span(label, id=f"{item_kind}-menu-header-{id}")
             i(cls="right dropdown icon")
 
