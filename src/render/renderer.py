@@ -24,7 +24,7 @@ html {
 .ui.grid > .column.app-column {
     padding: 0.5rem;
 }
-.ui.desktop.accordion {
+.ui.styled.desktop.accordion {
     max-height: calc(98vh - 3.5rem);
     overflow: hidden;
     overflow-y: scroll;
@@ -36,19 +36,28 @@ html {
     --control-line-height: 1.25rem;
     --control-padding: 0.5625rem;
 }
-.ui.input > input.artist-search, .ui.accordion .title, .ui.menu .item {
+.ui.input > input.artist-search, .ui.menu .item {
     font-size: var(--control-font-size) !important;
     line-height: var(--control-line-height) !important;
     padding-top: var(--control-padding) !important;
     padding-bottom: var(--control-padding) !important;
     padding-left: 0.75rem !important;
 }
-.ui.accordion .title, .ui.menu .item {
+.ui.menu .item {
     padding-right: 0.75rem !important;
 }
 .ui.input > input.artist-search {
     padding-top: calc(var(--control-padding) - 1px) !important;
     padding-bottom: calc(var(--control-padding) - 1px) !important;
+}
+.ui.styled.accordion > .content {
+    padding: 0;
+}
+.ui.vertical.attached.menu.sidebar-options {
+    margin: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
 }
 .ui.vertical.menu .item > i.control-icon {
     float: none;
@@ -444,12 +453,13 @@ def menu_wrapper(mobile: bool, label: str, id: str):
     item_active = "" if mobile else "active"
 
     # accordion title
-    with div(cls=f"ui top attached secondary segment {item_active} title"):
-            span(label, cls="ui tiny header", id=f"{item_kind}-menu-header-{id}")
+    with div(cls=f"{item_active} title"):
+            span(label, id=f"{item_kind}-menu-header-{id}")
             i(cls="right dropdown icon")
 
     # accordion content
-    return div(cls=f"ui fluid vertical bottom attached menu {item_active} content")
+    with div(cls=f"{item_active} content"):
+        return div(cls="ui fluid vertical attached menu sidebar-options")
 
 def menu_filter(mobile: bool, tags_with_artists: dict[Tag, list[Artist]]):
     """Render filter menu according to mobile or desktop rules."""
@@ -607,7 +617,7 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]):
                 # ------------------------------------------------------------------
                 with div(cls="sixteen wide mobile tablet only   column app-column"):
                     menu_search()
-                    with div(cls="ui fluid mobile accordion"):
+                    with div(cls="ui fluid styled mobile accordion"):
                         menu_sort(mobile=True)
                         menu_group(mobile=True)
                         menu_filter(mobile=True, tags_with_artists=tags_with_artists)
@@ -617,7 +627,7 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]):
                 # ------------------------------------------------------------------
                 with div(cls="computer only three wide computer   two wide large screen   two wide widescreen   column app-column"):
                     menu_search()
-                    with div(cls="ui fluid desktop accordion"):
+                    with div(cls="ui fluid styled desktop accordion"):
                         menu_sort(mobile=False)
                         menu_group(mobile=False)
                         menu_filter(mobile=False, tags_with_artists=tags_with_artists)
