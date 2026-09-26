@@ -798,7 +798,7 @@ def card(artist: Artist):
                 span("Last.fm")
 
 
-def render_html(tags_with_artists: dict[Tag, list[Artist]]):
+def render_html(tags_with_artists: dict[Tag, list[Artist]]) -> str:
     logging.info("🧱 Generating HTML")
 
     doc = html()
@@ -896,4 +896,4 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]):
         script("$('.menu .item').tab({history:true, historyType: 'hash', onLoad: onTab});")
         script("$('.ui.accordion.mobile').accordion({exclusive:true});")
 
-    return doc
+    return f"<!DOCTYPE html>\n{doc}"
