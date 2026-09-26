@@ -419,6 +419,24 @@ html {
         <div class="ui fluid styled mobile accordion">
           <div class=" title">
             <span class="ui blue text">
+              <span id="mobile-menu-header-group">Group: None</span><i class="right dropdown icon"></i>
+            </span>
+          </div>
+          <div class=" content">
+            <div class="ui fluid vertical attached menu sidebar-options group-options">
+              <div class="ui active link item" onClick="groupArtists(this, 'none')" tabindex="0"><i aria-hidden="true" class="th icon control-icon"></i>
+                <span>None</span>
+              </div>
+              <div class="ui link item" onClick="groupArtists(this, 'style')" tabindex="0"><i aria-hidden="true" class="music icon control-icon"></i>
+                <span>By Style</span>
+              </div>
+              <div class="ui link item" onClick="groupArtists(this, 'longevity')" tabindex="0"><i aria-hidden="true" class="hourglass half icon control-icon"></i>
+                <span>By Longevity</span>
+              </div>
+            </div>
+          </div>
+          <div class=" title">
+            <span class="ui blue text">
               <span id="mobile-menu-header-sort">Sort: Name</span><i class="right dropdown icon"></i>
             </span>
           </div>
@@ -447,24 +465,6 @@ html {
               </div>
               <div class="ui  link item nowrap" onClick="sort(this, 'last-follow', 'asc')" tabindex="0"><i aria-hidden="true" class="bell icon control-icon"></i>
                 <span>Last Follow</span>
-              </div>
-            </div>
-          </div>
-          <div class=" title">
-            <span class="ui blue text">
-              <span id="mobile-menu-header-group">Group: None</span><i class="right dropdown icon"></i>
-            </span>
-          </div>
-          <div class=" content">
-            <div class="ui fluid vertical attached menu sidebar-options group-options">
-              <div class="ui active link item" onClick="groupArtists(this, 'none')" tabindex="0"><i aria-hidden="true" class="th icon control-icon"></i>
-                <span>None</span>
-              </div>
-              <div class="ui link item" onClick="groupArtists(this, 'style')" tabindex="0"><i aria-hidden="true" class="music icon control-icon"></i>
-                <span>By Style</span>
-              </div>
-              <div class="ui link item" onClick="groupArtists(this, 'longevity')" tabindex="0"><i aria-hidden="true" class="hourglass half icon control-icon"></i>
-                <span>By Longevity</span>
               </div>
             </div>
           </div>
@@ -594,6 +594,24 @@ html {
         <div class="ui fluid styled desktop accordion">
           <div class="active title">
             <span class="ui blue text">
+              <span id="desktop-menu-header-group">Group</span><i class="right dropdown icon"></i>
+            </span>
+          </div>
+          <div class="active content">
+            <div class="ui fluid vertical attached menu sidebar-options group-options">
+              <div class="ui active link item" onClick="groupArtists(this, 'none')" tabindex="0"><i aria-hidden="true" class="th icon control-icon"></i>
+                <span>None</span>
+              </div>
+              <div class="ui link item" onClick="groupArtists(this, 'style')" tabindex="0"><i aria-hidden="true" class="music icon control-icon"></i>
+                <span>By Style</span>
+              </div>
+              <div class="ui link item" onClick="groupArtists(this, 'longevity')" tabindex="0"><i aria-hidden="true" class="hourglass half icon control-icon"></i>
+                <span>By Longevity</span>
+              </div>
+            </div>
+          </div>
+          <div class="active title">
+            <span class="ui blue text">
               <span id="desktop-menu-header-sort">Sort</span><i class="right dropdown icon"></i>
             </span>
           </div>
@@ -622,24 +640,6 @@ html {
               </div>
               <div class="ui  link item nowrap" onClick="sort(this, 'last-follow', 'asc')" tabindex="0"><i aria-hidden="true" class="bell icon control-icon"></i>
                 <span>Last Follow</span>
-              </div>
-            </div>
-          </div>
-          <div class="active title">
-            <span class="ui blue text">
-              <span id="desktop-menu-header-group">Group</span><i class="right dropdown icon"></i>
-            </span>
-          </div>
-          <div class="active content">
-            <div class="ui fluid vertical attached menu sidebar-options group-options">
-              <div class="ui active link item" onClick="groupArtists(this, 'none')" tabindex="0"><i aria-hidden="true" class="th icon control-icon"></i>
-                <span>None</span>
-              </div>
-              <div class="ui link item" onClick="groupArtists(this, 'style')" tabindex="0"><i aria-hidden="true" class="music icon control-icon"></i>
-                <span>By Style</span>
-              </div>
-              <div class="ui link item" onClick="groupArtists(this, 'longevity')" tabindex="0"><i aria-hidden="true" class="hourglass half icon control-icon"></i>
-                <span>By Longevity</span>
               </div>
             </div>
           </div>
