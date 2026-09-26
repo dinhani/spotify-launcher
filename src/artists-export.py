@@ -35,10 +35,13 @@ for artist in artists:
     data = json.loads(s=(CACHE_DIR / f"{artist['id']}.json").read_text(encoding="utf-8"))
     artist, albums, tracks = data["artist"], data["albums"], data["top_tracks"]
     albums_studio = [album for album in albums if not ALBUM_NON_STUDIO_WORDS.search(album["name"])]
-    album_titles = {parse_album_title(album["name"]) for album in albums_studio}
-    album_titles_original = {
-        title for title in album_titles
-        if not any(title.startswith(other + " ") and ALBUM_EDITION_WORDS.search(title[len(other):]) for other in album_titles)
+    album_release_dates: dict[str, str] = {}
+    for album in albums_studio:
+        title = parse_album_title(album["name"])
+        album_release_dates[title] = min(album_release_dates.get(title, album["release_date"]), album["release_date"])
+    album_release_dates_original = {
+        title: release_date for title, release_date in album_release_dates.items()
+        if not any(title.startswith(other + " ") and ALBUM_EDITION_WORDS.search(title[len(other):]) for other in album_release_dates)
     }
 
     # find top album
@@ -58,9 +61,9 @@ for artist in artists:
         "image": artist["images"][0]["url"] if artist.get("images") else "",
         "top_album_name": top_album["name"] if top_album else "",
         "top_album_image": top_album["images"][0]["url"] if top_album else "",
-        "albums": len(album_titles_original),
-        "first_release": FIRST_RELEASE_OVERRIDES.get(artist["name"]) or min((album.get("release_date", "") for album in albums_studio), default=""),
-        "last_release": max((al.get("release_date", "") for al in albums), default=""),
+        "albums": len(album_release_dates_original),
+        "first_release": FIRST_RELEASE_OVERRIDES.get(artist["name"]) or min(album_release_dates_original.values(), default=""),
+        "last_release": max(album_release_dates_original.values(), default=""),
         "top_song": tracks[0]["name"] if tracks else "",
         "top_song_popularity": tracks[0]["popularity"] if tracks else 0,
         "last_follow": rank[artist["id"]],

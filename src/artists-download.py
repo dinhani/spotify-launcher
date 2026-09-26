@@ -50,9 +50,15 @@ for artist in progress:
         continue
 
     # download
+    albums_page = sp.artist_albums(artist_id=artist["id"], album_type="album", limit=50)
+    albums = albums_page["items"]
+    while albums_page["next"]:
+        albums_page = sp.next(albums_page)
+        albums.extend(albums_page["items"])
+
     data = {
         "artist": artist,
-        "albums": sp.artist_albums(artist_id=artist["id"], album_type="album", limit=50)["items"],
+        "albums": albums,
         "top_tracks": sp.artist_top_tracks(artist_id=artist["id"], country="US")["tracks"],
     }
     artist_file.write_text(data=json.dumps(obj=data, ensure_ascii=False, indent=2), encoding="utf-8")
