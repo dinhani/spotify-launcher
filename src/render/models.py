@@ -30,7 +30,7 @@ class Artist:
 
         self.last_release = last_release
         self.last_follow = last_follow
-        self.top_song = top_song
+        self.top_song = top_song or "-"
         self.top_song_popularity = top_song_popularity
 
         # parse genres
