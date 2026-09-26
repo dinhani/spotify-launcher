@@ -24,9 +24,9 @@ html {
 .ui.grid > .column.app-column {
     padding: 0.5rem;
 }
-.ui.styled.desktop.accordion {
+.ui.vertical.desktop.menu {
     max-height: calc(98vh - 3.5rem);
-    overflow: hidden;
+    margin: 0;
     overflow-y: scroll;
 }
 
@@ -532,7 +532,7 @@ $(document).on('keydown', '.menu .item', function(e) {
     var step = { ArrowDown: 1, ArrowUp: -1 }[e.key];
     if (!step) return;
     e.preventDefault();
-    var items = $(this).closest('.accordion').find('.menu .item:visible');
+    var items = $(this).closest('.column').find('.menu .item:visible');
     var target = items.index(this) + step;
     if (target < 0) $('.artist-search:visible').focus();
     else items.eq(target).focus();
@@ -611,25 +611,23 @@ def id(tag: Tag) -> str:
     """Parse a tag to HTML identifier."""
     return tag.name.lower().translate(str.maketrans("", "", "():/")).translate(str.maketrans("ãéó", "aeo")).replace(" - ", "-").replace(" ", "-").strip()
 
-def menu_wrapper(mobile: bool, label: str, id: str):
-    """Render menu wrapper component according to mobile or desktop rules."""
-
-    item_kind = "mobile" if mobile else "desktop"
-    item_active = "" if mobile else "active"
+def menu_wrapper(label: str, id: str):
+    """Render a mobile accordion section wrapping a menu."""
 
     # accordion title
-    with div(cls=f"{item_active} title"):
+    with div(cls="title"):
         with span(cls="ui blue text"):
-            span(label, id=f"{item_kind}-menu-header-{id}")
+            span(label, id=f"mobile-menu-header-{id}")
             i(cls="right dropdown icon")
 
     # accordion content
-    with div(cls=f"{item_active} content"):
+    with div(cls="content"):
         return div(cls="ui fluid vertical attached menu sidebar-options")
 
 def menu_filter(mobile: bool, tags_with_artists: dict[Tag, list[Artist]]):
     """Render filter menu according to mobile or desktop rules."""
-    with menu_wrapper(mobile, "Filter", "filter"):
+    menu = menu_wrapper("Filter", "filter") if mobile else div(cls="ui fluid vertical desktop menu sidebar-options")
+    with menu:
         item_kind = "mobile" if mobile else "desktop"
 
         for index, tag in enumerate(TAGS_MENU_ORDER):
@@ -656,16 +654,14 @@ def menu_filter(mobile: bool, tags_with_artists: dict[Tag, list[Artist]]):
                 span(item_display)
                 span(f"{artists_count}", cls="ui tiny basic blue label artist-count")
 
-def menu_sort(mobile):
-    """Render sort menu according to mobile or desktop rules."""
-    label = "Sort: Name" if mobile else "Sort"
-    with menu_wrapper(mobile, label, "sort") as menu:
+def menu_sort():
+    """Render the mobile sort menu."""
+    with menu_wrapper("Sort: Name", "sort") as menu:
         menu['class'] += " sort-options"
         sort_items()
 
-def menu_group(mobile):
-    label = "Group: None" if mobile else "Group"
-    with menu_wrapper(mobile, label, "group") as menu:
+def menu_group():
+    with menu_wrapper("Group: None", "group") as menu:
         menu['class'] += " group-options"
         group_items()
 
@@ -825,8 +821,8 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]):
                 with div(cls="sixteen wide mobile tablet only   column app-column"):
                     menu_search()
                     with div(cls="ui fluid styled mobile accordion"):
-                        menu_group(mobile=True)
-                        menu_sort(mobile=True)
+                        menu_group()
+                        menu_sort()
                         menu_filter(mobile=True, tags_with_artists=tags_with_artists)
 
                 # ------------------------------------------------------------------
@@ -834,8 +830,7 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]):
                 # ------------------------------------------------------------------
                 with div(cls="computer only three wide computer   two wide large screen   two wide widescreen   column app-column"):
                     menu_search()
-                    with div(cls="ui fluid styled desktop accordion"):
-                        menu_filter(mobile=False, tags_with_artists=tags_with_artists)
+                    menu_filter(mobile=False, tags_with_artists=tags_with_artists)
 
                 # ------------------------------------------------------------------
                 # Content (cards)
@@ -880,7 +875,6 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]):
         script("pickDiscover();")
         script("sort($('.item[data-sort]')[0], 'name', 'asc');")
         script("$('.menu .item').tab({history:true, historyType: 'hash', onLoad: onTab});")
-        script("$('.ui.accordion.desktop').accordion({exclusive:false});")
         script("$('.ui.accordion.mobile').accordion({exclusive:true});")
         script(raw(JS_KEYBOARD_NAVIGATION))
 
