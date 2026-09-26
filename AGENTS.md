@@ -36,6 +36,8 @@ Spotify extended streaming history requested on 2026-09-26. When it arrives, agg
 
 After any change, re-render and commit it (source and generated `docs/` together) without asking.
 
+Keep static styling in the renderer's `CSS_GLOBAL` block, alongside the embedded JavaScript blocks. Render elements with classes instead of inline `style=` attributes; do not extract a separate CSS file.
+
 ## How classification works
 
 All rules live in `TAG_RULES` in `src/render/data.py`. Each tag lists patterns that pull artists into it:

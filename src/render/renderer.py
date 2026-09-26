@@ -13,10 +13,23 @@ from render.models import Artist, Tag
 # ------------------------------------------------------------------------------
 # Constants
 # ------------------------------------------------------------------------------
-CSS_STYLE_NOWRAP = "white-space: nowrap; "
 DISCOVER_ARTISTS_PER_FAMILY = 4
 
 CSS_GLOBAL = """
+/* Layout */
+html {
+    height: 100%;
+}
+.ui.grid > .column.app-column {
+    padding: 0.5rem;
+}
+.ui.styled.desktop.accordion {
+    max-height: calc(98vh - 3.5rem);
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+/* Sidebar controls */
 :root {
     --control-font-size: 1rem;
     --control-line-height: 1.25rem;
@@ -36,9 +49,79 @@ CSS_GLOBAL = """
     padding-top: calc(var(--control-padding) - 1px) !important;
     padding-bottom: calc(var(--control-padding) - 1px) !important;
 }
-.extra.content::after {
+.ui.styled.accordion > .content {
+    padding: 0;
+}
+.ui.vertical.attached.menu.sidebar-options {
+    margin: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+}
+.ui.vertical.menu .item > i.control-icon {
+    float: none;
+    margin: 0 0.35rem 0 0;
+}
+.ui.input.search-control {
+    margin-bottom: 0.5rem;
+}
+.nowrap {
+    white-space: nowrap;
+}
+
+/* Artist cards */
+.ui.grid.artists {
+    margin: -0.25rem;
+}
+.ui.grid.artists > .column.artist {
+    padding: 0.25rem;
+}
+.ui.card.artist-card {
+    width: 100%;
+    scroll-margin: 16px;
+}
+.artist-image {
+    object-fit: cover;
+}
+.artist-tags {
+    position: absolute;
+    bottom: 0;
+    font-size: 0.75rem;
+    font-weight: bold;
+    line-height: 1;
+    color: white;
+    padding: 0.25rem;
+    background: rgba(0,0,0,0.2);
+    backdrop-filter: blur(4px);
+}
+.ui.card > .content {
+    padding: 0.5rem;
+}
+.artist-name, .artist-song {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.ui.card .artist-name {
+    margin-bottom: 0.25rem;
+}
+.ui.card > .extra.content {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+.ui.card > .extra.content::after {
     display: none !important;
 }
+.artist-stats > div {
+    white-space: nowrap;
+}
+.ui.card > .buttons > .ui.button {
+    white-space: nowrap;
+    padding: 0.5rem 0;
+}
+
+/* Responsive layout */
 @media only screen and (max-width: 991.9px) {
     :root {
         --control-font-size: 16px;
@@ -66,13 +149,7 @@ CSS_GLOBAL = """
         height: 140px !important;
     }
 }
-.menu .item:focus-visible {
-    outline: 3px solid #2185d0;
-    outline-offset: -3px;
-}
-.ui.card {
-    scroll-margin: 16px;
-}
+/* Group headings */
 .ui.grid.artists > .family-heading {
     padding: 1.5rem 0.5rem 0.75rem;
 }
@@ -81,6 +158,12 @@ CSS_GLOBAL = """
 }
 .family-heading .ui.header {
     margin: 0;
+}
+
+/* Focus and hover */
+.menu .item:focus-visible {
+    outline: 3px solid #2185d0;
+    outline-offset: -3px;
 }
 .ui.card:focus-visible, .ui.card:hover {
     outline: none;
@@ -376,8 +459,8 @@ def menu_wrapper(mobile: bool, label: str, id: str):
             i(cls="right dropdown icon")
 
     # accordion content
-    with div(cls=f"{item_active} content", style="padding: 0;"):
-        return div(cls="ui fluid vertical attached menu", style="margin: 0; border-left: 0; border-right: 0; border-bottom: 0;")
+    with div(cls=f"{item_active} content"):
+        return div(cls="ui fluid vertical attached menu sidebar-options")
 
 def menu_filter(mobile: bool, tags_with_artists: dict[Tag, list[Artist]]):
     """Render filter menu according to mobile or desktop rules."""
@@ -397,8 +480,7 @@ def menu_filter(mobile: bool, tags_with_artists: dict[Tag, list[Artist]]):
             item_header = "header" if tag in TAGS_HEADER else ""
 
             # menu item
-            with div(cls=f"{item_active} {item_header} link item",
-                    style=CSS_STYLE_NOWRAP,
+            with div(cls=f"{item_active} {item_header} link item nowrap",
                     id=f"{item_kind}-menu-item-{id(tag)}",
                     data_tab=id(tag),
                     data_tab_name=tag.name,
@@ -412,25 +494,25 @@ def menu_sort(mobile):
     label = "Sort: Name" if mobile else "Sort"
     with menu_wrapper(mobile, label, "sort") as menu:
         menu['class'] += " sort-options"
-        div("🎶 Name", cls="ui active link item", onClick="sort(this, 'name', 'asc')", style=CSS_STYLE_NOWRAP, tabindex="0")
-        div("🔥 Popularity (artist)", cls="ui link item", onClick="sort(this, 'popularity', 'desc')", style=CSS_STYLE_NOWRAP, tabindex="0")
-        div("🏆 Popularity (song)", cls="ui link item", onClick="sort(this, 'song-popularity', 'desc')", style=CSS_STYLE_NOWRAP, tabindex="0")
-        div("👤 Followers", cls="ui link item", onClick="sort(this, 'followers', 'desc')", style=CSS_STYLE_NOWRAP, tabindex="0")
-        div("💿 Albums", cls="ui link item", onClick="sort(this, 'albums', 'desc')", style=CSS_STYLE_NOWRAP, tabindex="0")
-        div("📅 Last Release", cls="ui link item", onClick="sort(this, 'last-release', 'desc')", style=CSS_STYLE_NOWRAP, tabindex="0")
-        div("🔔 Last Follow", cls="ui link item", onClick="sort(this, 'last-follow', 'asc')", style=CSS_STYLE_NOWRAP, tabindex="0")
+        div("🎶 Name", cls="ui active link item nowrap", onClick="sort(this, 'name', 'asc')", tabindex="0")
+        div("🔥 Popularity (artist)", cls="ui link item nowrap", onClick="sort(this, 'popularity', 'desc')", tabindex="0")
+        div("🏆 Popularity (song)", cls="ui link item nowrap", onClick="sort(this, 'song-popularity', 'desc')", tabindex="0")
+        div("👤 Followers", cls="ui link item nowrap", onClick="sort(this, 'followers', 'desc')", tabindex="0")
+        div("💿 Albums", cls="ui link item nowrap", onClick="sort(this, 'albums', 'desc')", tabindex="0")
+        div("📅 Last Release", cls="ui link item nowrap", onClick="sort(this, 'last-release', 'desc')", tabindex="0")
+        div("🔔 Last Follow", cls="ui link item nowrap", onClick="sort(this, 'last-follow', 'asc')", tabindex="0")
 
 def menu_group(mobile):
     label = "Group: None" if mobile else "Group"
     with menu_wrapper(mobile, label, "group") as menu:
         menu['class'] += " group-options"
         with div(cls="ui active link item", onClick="groupArtists(false)", tabindex="0"):
-            i(cls="th icon", aria_hidden="true", style="float: none; margin: 0 0.35rem 0 0;")
+            i(cls="th icon control-icon", aria_hidden="true")
             span("None")
         div("🎼 By Style", cls="ui link item", onClick="groupArtists(true)", tabindex="0")
 
 def menu_search():
-    with div(cls="ui fluid icon input", style="margin-bottom: 0.5rem;"):
+    with div(cls="ui fluid icon input search-control"):
         input_(cls="artist-search", type="search", placeholder="Search artist",
             oninput="search(this.value)",
         )
@@ -439,7 +521,7 @@ def menu_search():
 def cards(artists: list[dict]):
     """"Render the card grid."""
     with div(cls="artists-wrapper"): # scroll-helper
-        with div(cls="ui grid artists", style="margin: -0.25rem;"):
+        with div(cls="ui grid artists"):
             for artist in artists:
                 with card_cell(artist):
                     card(artist)
@@ -447,7 +529,6 @@ def cards(artists: list[dict]):
 def card_cell(artist):
     """Render a carl cell in the cards grid."""
     return div(cls="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist",
-        style="padding: 0.25rem;",
         data_name=artist.name,
         data_followers=str(artist.followers),
         data_popularity=str(artist.popularity),
@@ -466,33 +547,33 @@ def card(artist: Artist):
     spotify_url = f"spotify:artist:{artist.id}"
     lastfm_url = f"https://www.last.fm/user/{LASTFM_USER}/library/music/{quote_plus(artist.name)}"
 
-    with div(cls="ui card", style="width: 100%", tabindex="0", data_spotify=spotify_url, data_lastfm=lastfm_url):
+    with div(cls="ui card artist-card", tabindex="0", data_spotify=spotify_url, data_lastfm=lastfm_url):
         # image
         with a(cls="image", href=spotify_url, tabindex="-1"):
-            img(src=artist.image, cls="ui image artist-image", style="object-fit: cover;")
+            img(src=artist.image, cls="ui image artist-image")
             if T_FAVORITES in artist.tags:
                 with div(cls="ui mini yellow right corner label"):
                     i(cls="star icon")
-            div(artist_tags, style="position: absolute; bottom: 0; font-size: 0.75rem; font-weight: bold; line-height: 1; color: white; padding: 0.25rem; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px)")
+            div(artist_tags, cls="artist-tags")
 
         # header
-        with a(cls="content", href=spotify_url, tabindex="-1", style="padding: 0.5rem;"):
-            div(artist.name, cls="ui small header artist-name", style=f"{CSS_STYLE_NOWRAP} overflow:hidden; text-overflow: ellipsis; margin-bottom: 0.25rem")
+        with a(cls="content", href=spotify_url, tabindex="-1"):
+            div(artist.name, cls="ui small header artist-name")
             with div(cls="meta"):
-                div(artist.top_song, style=f"{CSS_STYLE_NOWRAP} overflow:hidden; text-overflow: ellipsis;")
+                div(artist.top_song, cls="artist-song")
 
         # footer
-        with div(cls="extra content", style="padding: 0.5rem 0.5rem; display: flex; flex-wrap: nowrap; justify-content: space-between"):
-            div("🔥" + str(artist.popularity), style=CSS_STYLE_NOWRAP)
-            div("👤" + millify(artist.followers, precision=followers_precision), style=CSS_STYLE_NOWRAP)
-            div("💿" + str(artist.albums), style=CSS_STYLE_NOWRAP)
+        with div(cls="extra content artist-stats"):
+            div("🔥" + str(artist.popularity))
+            div("👤" + millify(artist.followers, precision=followers_precision))
+            div("💿" + str(artist.albums))
 
         # links
         with div(cls="ui two bottom attached mini basic buttons"):
-            with a(cls="ui button", href=spotify_url, tabindex="-1", style=CSS_STYLE_NOWRAP + "padding: 0.5rem 0;"):
+            with a(cls="ui button", href=spotify_url, tabindex="-1"):
                 i(cls="green spotify icon")
                 span("Spotify")
-            with a(cls="ui button", href=lastfm_url, target="_blank", tabindex="-1", style=CSS_STYLE_NOWRAP + "padding: 0.5rem 0;"):
+            with a(cls="ui button", href=lastfm_url, target="_blank", tabindex="-1"):
                 i(cls="red lastfm icon")
                 span("Last.fm")
 
@@ -500,7 +581,7 @@ def card(artist: Artist):
 def render_html(tags_with_artists: dict[Tag, list[Artist]]):
     logging.info("🧱 Generating HTML")
 
-    doc = html(style="height:100%;")
+    doc = html()
     with doc:
         # ----------------------------------------------------------------------
         # Head
@@ -535,7 +616,7 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]):
                 # ------------------------------------------------------------------
                 # Menu (mobile)
                 # ------------------------------------------------------------------
-                with div(cls="sixteen wide mobile tablet only   column", style="padding: 0.5rem"):
+                with div(cls="sixteen wide mobile tablet only   column app-column"):
                     menu_search()
                     with div(cls="ui fluid styled mobile accordion"):
                         menu_sort(mobile=True)
@@ -545,9 +626,9 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]):
                 # ------------------------------------------------------------------
                 # Menu (desktop)
                 # ------------------------------------------------------------------
-                with div(cls="computer only three wide computer   two wide large screen   two wide widescreen   column", style="padding: 0.5rem"):
+                with div(cls="computer only three wide computer   two wide large screen   two wide widescreen   column app-column"):
                     menu_search()
-                    with div(cls="ui fluid styled desktop accordion", style="max-height: calc(98vh - 3.5rem); overflow: hidden; overflow-y: scroll"):
+                    with div(cls="ui fluid styled desktop accordion"):
                         menu_sort(mobile=False)
                         menu_group(mobile=False)
                         menu_filter(mobile=False, tags_with_artists=tags_with_artists)
@@ -555,7 +636,7 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]):
                 # ------------------------------------------------------------------
                 # Content (cards)
                 # ------------------------------------------------------------------
-                with div(cls="sixteen wide mobile tablet   thirteen wide computer   fourteen wide large screen   fourteen wide widescreen   column", style="padding: 0.5rem;"):
+                with div(cls="sixteen wide mobile tablet   thirteen wide computer   fourteen wide large screen   fourteen wide widescreen   column app-column"):
                     for tag in TAGS_MENU_ORDER:
                         artists = tags_with_artists[tag]
                         tab_attributes = {}
@@ -576,7 +657,7 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]):
                 # ------------------------------------------------------------------
                 # Scroll to top
                 # ------------------------------------------------------------------
-                with div(cls="sixteen wide column mobile tablet only", style="padding: 0.5rem;"):
+                with div(cls="sixteen wide column mobile tablet only app-column"):
                     div("⬆️ Back to top", cls="ui fluid button", onClick="window.scrollTo({top:0})")
 
         # ----------------------------------------------------------------------
