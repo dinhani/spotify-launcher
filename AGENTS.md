@@ -30,7 +30,7 @@ Folk's Discover pool excludes any artist who also belongs to Rock or Alternative
 
 ## Grouping
 
-The sidebar's Group control offers None (default), By Style and By Longevity. By Style uses Rock, Folk, Alternative and Others; By Longevity uses years since the first album (30+, 20–29, 10–19, under 10, and Unknown for artists without albums), computed in the browser so artists move between ranges without re-rendering. The selected sort applies within each section. Artists belonging to multiple families appear in each applicable section; family filters show only that family's section. Search hides empty sections. Grouping does not change Discover picks. Use style in the interface; family is an internal classification term. Control labels use Title Case, matching the existing sidebar options.
+The sidebar's Group control offers None (default), By Style and By Longevity. By Style uses Rock, Folk, Alternative and Others; By Longevity uses years since the first album (30+, 20–29, 10–19, 5–9, under 5, and Unknown for artists without albums), computed in the browser so artists move between ranges without re-rendering. The selected sort applies within each section. Artists belonging to multiple families appear in each applicable section; family filters show only that family's section. Search hides empty sections. Grouping does not change Discover picks. Use style in the interface; family is an internal classification term. Control labels use Title Case, matching the existing sidebar options.
 
 Generate browser grouping names and icons from the tags in `data.py` (`TAGS_DISCOVER` and `T_OTHERS`); do not maintain a separate hardcoded JavaScript list.
 
