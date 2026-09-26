@@ -279,7 +279,8 @@ var longevityRanges = [
     {label: '30+ Years', from: 30, to: Infinity},
     {label: '20–29 Years', from: 20, to: 29},
     {label: '10–19 Years', from: 10, to: 19},
-    {label: 'Under 10 Years', from: 0, to: 9},
+    {label: '5–9 Years', from: 5, to: 9},
+    {label: 'Under 5 Years', from: 0, to: 4},
 ];
 
 function uniqueArtists(grid) {
