@@ -8,7 +8,7 @@ import logging
 from urllib.parse import quote_plus
 
 from render.data import *
-from render.models import Artist
+from render.models import Artist, Tag
 
 # ------------------------------------------------------------------------------
 # Constants
@@ -247,13 +247,13 @@ $(document).on('keydown', '.ui.card', function(e) {
 # ------------------------------------------------------------------------------
 # Functions
 # ------------------------------------------------------------------------------
-def tag_display(tag: str) -> str:
+def tag_display(tag: Tag) -> str:
     """Parse the display name of a tag."""
-    return tag.split(" - ")[-1].strip()
+    return tag.name.split(" - ")[-1].strip()
 
-def id(tag: str) -> str:
-    """Parse any str to HTML identifier."""
-    return tag.lower().translate(str.maketrans("", "", "():/")).translate(str.maketrans("ãéó", "aeo")).replace(" - ", "-").replace(" ", "-").strip()
+def id(tag: Tag) -> str:
+    """Parse a tag to HTML identifier."""
+    return tag.name.lower().translate(str.maketrans("", "", "():/")).translate(str.maketrans("ãéó", "aeo")).replace(" - ", "-").replace(" ", "-").strip()
 
 def menu_wrapper(mobile: bool, label: str, id: str):
     """Render menu wrapper component according to mobile or desktop rules."""
@@ -270,7 +270,7 @@ def menu_wrapper(mobile: bool, label: str, id: str):
     with div(cls=f"{item_active} content", style="padding: 0;"):
         return div(cls="ui fluid vertical attached menu", style="margin: 0; border-left: 0; border-right: 0; border-bottom: 0;")
 
-def menu_filter(mobile: bool, tags_with_artists: dict[str, list[dict]]):
+def menu_filter(mobile: bool, tags_with_artists: dict[Tag, list[Artist]]):
     """Render filter menu according to mobile or desktop rules."""
     with menu_wrapper(mobile, "Filter", "filter"):
         item_kind = "mobile" if mobile else "desktop"
@@ -279,7 +279,7 @@ def menu_filter(mobile: bool, tags_with_artists: dict[str, list[dict]]):
         menu_items = [(T_TODAY, today_count)] + [(tag, len(tags_with_artists[tag])) for tag in TAGS_MENU_ORDER]
         for index, (tag, artists_count) in enumerate(menu_items):
             # item attributes
-            item_display = tag_display(tag)
+            item_display = f"{tag.icon} {tag_display(tag)}".strip()
             item_active = "active" if index == 0 else ""
             item_header = "header" if tag in TAGS_HEADER else ""
 
@@ -288,7 +288,7 @@ def menu_filter(mobile: bool, tags_with_artists: dict[str, list[dict]]):
                     style=CSS_STYLE_NOWRAP,
                     id=f"{item_kind}-menu-item-{id(tag)}",
                     data_tab=id(tag),
-                    data_tab_name=tag,
+                    data_tab_name=tag.name,
                     tabindex="0"
                 ):
                 span(item_display)
@@ -332,7 +332,7 @@ def card_cell(artist):
         data_albums=str(artist.albums),
         data_last_release=str(artist.last_release),
         data_last_follow=str(artist.last_follow),
-        data_families="|".join(tag for tag in TAGS_HEADER if tag in artist.tags),
+        data_families="|".join(tag.name for tag in TAGS_HEADER if tag in artist.tags),
     )
 
 def card(artist: Artist):
@@ -374,7 +374,7 @@ def card(artist: Artist):
                 span("Last.fm")
 
 
-def render_html(tags_with_artists: dict[str, list[dict]]):
+def render_html(tags_with_artists: dict[Tag, list[Artist]]):
     logging.info("🧱 Generating HTML")
 
     doc = html(style="height:100%;")
@@ -431,7 +431,7 @@ def render_html(tags_with_artists: dict[str, list[dict]]):
                 # ------------------------------------------------------------------
                 with div(cls="sixteen wide mobile tablet   thirteen wide computer   fourteen wide large screen   fourteen wide widescreen   column", style="padding: 0.5rem;"):
                     artists_in_families = {artist.id: artist for tag in TAGS_HEADER for artist in tags_with_artists[tag]}.values()
-                    with div(cls="ui tab", data_tab=id(T_TODAY), data_families="|".join(TAGS_HEADER), data_per_family=str(TODAY_ARTISTS_PER_FAMILY)):
+                    with div(cls="ui tab", data_tab=id(T_TODAY), data_families="|".join(tag.name for tag in TAGS_HEADER), data_per_family=str(TODAY_ARTISTS_PER_FAMILY)):
                         cards(sorted(artists_in_families, key=lambda x: x.name.lower()))
                     for tags in TAGS_MENU_ORDER:
                         artists = sorted(tags_with_artists[tags], key=lambda x: x.name.lower())

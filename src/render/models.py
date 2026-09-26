@@ -1,6 +1,12 @@
+from typing import NamedTuple
+
 # ------------------------------------------------------------------------------
 # Classes
 # ------------------------------------------------------------------------------
+class Tag(NamedTuple):
+    name: str
+    icon: str
+
 class Artist:
     def __init__(self,
                 id: str, name: str, image: str,

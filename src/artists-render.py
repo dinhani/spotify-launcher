@@ -46,8 +46,8 @@ for tag in TAGS_MENU_ORDER:
     if tag in TAGS_UMBRELLA:
         continue
 
-    f_tags.write(f"\n{tag}:\n")
-    f_favorites.write(f"\n{tag}:\n")
+    f_tags.write(f"\n{tag.name}:\n")
+    f_favorites.write(f"\n{tag.name}:\n")
 
     for artist in tags_with_artists[tag]:
         f_tags.write("* " + artist.name + "\n")

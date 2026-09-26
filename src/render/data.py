@@ -1,37 +1,39 @@
+from render.models import Tag
+
 # ------------------------------------------------------------------------------
 # Last.fm
 # ------------------------------------------------------------------------------
 LASTFM_USER = "renatodinhani"
 
 # ------------------------------------------------------------------------------
-# Tags: display names
+# Tags
 # ------------------------------------------------------------------------------
-T_TODAY = "Today"
-T_ALL = "All"
-T_FAVORITES = "Favorites"
-T_NON_FAVORITES = "Non-Favorites"
-T_OTHERS = "Others"
+T_TODAY = Tag("Today", "☀️")
+T_ALL = Tag("All", "")
+T_FAVORITES = Tag("Favorites", "")
+T_NON_FAVORITES = Tag("Non-Favorites", "")
+T_OTHERS = Tag("Others", "")
 #
-T_ROCK_ALL = "Rock"
-T_ROCK_FAVORITES = "Rock - Favorites"
-T_ROCK_NON_FAVORITES = "Rock - Non-Favorites"
-T_ROCK_HEAVY_METAL = "Rock - Heavy Metal"
-T_ROCK_FOLK_METAL = "Rock - Folk Metal"
-T_ROCK_EXTREME_METAL = "Rock - Extreme Metal"
-T_ROCK_ROCK = "Rock - Rock"
+T_ROCK_ALL = Tag("Rock", "🎸")
+T_ROCK_FAVORITES = Tag("Rock - Favorites", "")
+T_ROCK_NON_FAVORITES = Tag("Rock - Non-Favorites", "")
+T_ROCK_HEAVY_METAL = Tag("Rock - Heavy Metal", "")
+T_ROCK_FOLK_METAL = Tag("Rock - Folk Metal", "")
+T_ROCK_EXTREME_METAL = Tag("Rock - Extreme Metal", "")
+T_ROCK_ROCK = Tag("Rock - Rock", "")
 #
-T_FOLK_ALL = "Folk"
-T_FOLK_FAVORITES = "Folk - Favorites"
-T_FOLK_NON_FAVORITES = "Folk - Non-Favorites"
-T_FOLK_FOLK = "Folk - Folk"
-T_FOLK_STEAMPUNK = "Folk - Steampunk"
+T_FOLK_ALL = Tag("Folk", "🪕")
+T_FOLK_FAVORITES = Tag("Folk - Favorites", "")
+T_FOLK_NON_FAVORITES = Tag("Folk - Non-Favorites", "")
+T_FOLK_FOLK = Tag("Folk - Folk", "")
+T_FOLK_STEAMPUNK = Tag("Folk - Steampunk", "")
 #
-T_ALT_ALL = "Alternative"
-T_ALT_FAVORITES = "Alt - Favorites"
-T_ALT_NON_FAVORITES = "Alt - Non-Favorites"
-T_ALT_ATMOSPHERIC = "Alt - Atmospheric"
-T_ALT_ENERGETIC = "Alt - Energetic"
-T_ALT_VOICE_GUITAR = "Alt - Vox/Guitar"
+T_ALT_ALL = Tag("Alternative", "🎧")
+T_ALT_FAVORITES = Tag("Alt - Favorites", "")
+T_ALT_NON_FAVORITES = Tag("Alt - Non-Favorites", "")
+T_ALT_ATMOSPHERIC = Tag("Alt - Atmospheric", "")
+T_ALT_ENERGETIC = Tag("Alt - Energetic", "")
+T_ALT_VOICE_GUITAR = Tag("Alt - Vox/Guitar", "")
 
 # ------------------------------------------------------------------------------
 # Tags contains data from other more granular tags

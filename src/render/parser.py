@@ -7,12 +7,12 @@ import logging
 import polars
 
 from render.data import *
-from render.models import Artist
+from render.models import Artist, Tag
 
 # ------------------------------------------------------------------------------
 # Functions
 # ------------------------------------------------------------------------------
-def parse(filename: str) -> Tuple[list[Artist], defaultdict[str, list[Artist]]]:
+def parse(filename: str) -> Tuple[list[Artist], defaultdict[Tag, list[Artist]]]:
     artists = []
     artists_by_tag = defaultdict(list)
 
