@@ -425,7 +425,6 @@ $(document).on('keydown', '.menu .item', function(e) {
 });
 
 $(document).on('keydown', '.artist-search', function(e) {
-    if (e.key === 'Escape') search('');
     if (e.key === 'Enter') $('.ui.tab.active .artist:visible .card').first().focus();
 
     var items = $(this).closest('.column').find('.menu .item:visible');
@@ -435,6 +434,7 @@ $(document).on('keydown', '.artist-search', function(e) {
 });
 
 $(document).on('keydown', function(e) {
+    if (e.key === 'Escape') search('');
     if (e.key.length !== 1 || e.key === ' ' || e.ctrlKey || e.metaKey || e.altKey) return;
     if ($(e.target).is('input')) return;
     $('.artist-search:visible').focus();
