@@ -8,13 +8,14 @@ LASTFM_USER = "renatodinhani"
 # ------------------------------------------------------------------------------
 # Tags
 # ------------------------------------------------------------------------------
-T_TODAY = Tag("Today", "☀️")
-T_ALL = Tag("All", "")
+T_ALL = Tag("All", "🗂️")
+T_TODAY = Tag("Today", "")
 T_FAVORITES = Tag("Favorites", "")
 T_NON_FAVORITES = Tag("Non-Favorites", "")
 T_OTHERS = Tag("Others", "")
 #
 T_ROCK_ALL = Tag("Rock", "🎸")
+T_ROCK_TODAY = Tag("Rock - Today", "")
 T_ROCK_FAVORITES = Tag("Rock - Favorites", "")
 T_ROCK_NON_FAVORITES = Tag("Rock - Non-Favorites", "")
 T_ROCK_HEAVY_METAL = Tag("Rock - Heavy Metal", "")
@@ -23,12 +24,14 @@ T_ROCK_EXTREME_METAL = Tag("Rock - Extreme Metal", "")
 T_ROCK_ROCK = Tag("Rock - Rock", "")
 #
 T_FOLK_ALL = Tag("Folk", "🪕")
+T_FOLK_TODAY = Tag("Folk - Today", "")
 T_FOLK_FAVORITES = Tag("Folk - Favorites", "")
 T_FOLK_NON_FAVORITES = Tag("Folk - Non-Favorites", "")
 T_FOLK_FOLK = Tag("Folk - Folk", "")
 T_FOLK_STEAMPUNK = Tag("Folk - Steampunk", "")
 #
 T_ALT_ALL = Tag("Alternative", "🎧")
+T_ALT_TODAY = Tag("Alt - Today", "")
 T_ALT_FAVORITES = Tag("Alt - Favorites", "")
 T_ALT_NON_FAVORITES = Tag("Alt - Non-Favorites", "")
 T_ALT_ATMOSPHERIC = Tag("Alt - Atmospheric", "")
@@ -39,20 +42,30 @@ T_ALT_VOICE_GUITAR = Tag("Alt - Vox/Guitar", "")
 # Tags contains data from other more granular tags
 # ------------------------------------------------------------------------------
 TAGS_UMBRELLA = [
-    T_ALL, T_FAVORITES, T_NON_FAVORITES,
-    T_ROCK_ALL, T_ROCK_FAVORITES, T_ROCK_NON_FAVORITES,
-    T_FOLK_ALL, T_FOLK_FAVORITES, T_FOLK_NON_FAVORITES,
-    T_ALT_ALL, T_ALT_FAVORITES, T_ALT_NON_FAVORITES,
+    T_ALL, T_TODAY, T_FAVORITES, T_NON_FAVORITES,
+    T_ROCK_ALL, T_ROCK_TODAY, T_ROCK_FAVORITES, T_ROCK_NON_FAVORITES,
+    T_FOLK_ALL, T_FOLK_TODAY, T_FOLK_FAVORITES, T_FOLK_NON_FAVORITES,
+    T_ALT_ALL, T_ALT_TODAY, T_ALT_FAVORITES, T_ALT_NON_FAVORITES,
 ]
 
 # ------------------------------------------------------------------------------
 # Tags to be show as header in the menu
 # ------------------------------------------------------------------------------
 TAGS_HEADER = [
+    T_ALL,
     T_ROCK_ALL,
     T_FOLK_ALL,
     T_ALT_ALL,
 ]
+
+# ------------------------------------------------------------------------------
+# Tags picked daily in each family Today
+# ------------------------------------------------------------------------------
+TAGS_TODAY = {
+    T_ROCK_TODAY: [T_ROCK_HEAVY_METAL, T_ROCK_EXTREME_METAL, T_ROCK_FOLK_METAL, T_ROCK_ROCK],
+    T_FOLK_TODAY: [T_FOLK_FOLK, T_FOLK_STEAMPUNK],
+    T_ALT_TODAY: [T_ALT_ATMOSPHERIC, T_ALT_ENERGETIC, T_ALT_VOICE_GUITAR],
+}
 
 # ------------------------------------------------------------------------------
 # Tags of favorites and non-favorites
@@ -68,12 +81,14 @@ TAGS_FAVORITES = [
 # ------------------------------------------------------------------------------
 TAGS_MENU_ORDER = [
     T_ALL,
+    T_TODAY,
     T_FAVORITES,
     T_NON_FAVORITES,
     T_OTHERS,
     #
     # T_ROCK_SEP,
     T_ROCK_ALL,
+    T_ROCK_TODAY,
     T_ROCK_FAVORITES,
     T_ROCK_NON_FAVORITES,
     T_ROCK_HEAVY_METAL,
@@ -82,12 +97,14 @@ TAGS_MENU_ORDER = [
     T_ROCK_ROCK,
     #
     T_FOLK_ALL,
+    T_FOLK_TODAY,
     T_FOLK_FAVORITES,
     T_FOLK_NON_FAVORITES,
     T_FOLK_FOLK,
     T_FOLK_STEAMPUNK,
     #
     T_ALT_ALL,
+    T_ALT_TODAY,
     T_ALT_FAVORITES,
     T_ALT_NON_FAVORITES,
     T_ALT_ATMOSPHERIC,
