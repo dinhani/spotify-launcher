@@ -10,6 +10,10 @@ A personal launcher for the Spotify artists I follow: it helps me decide what to
 - Favorites are curated by taste, not by play count.
 - When I say "the app should answer X" I mean a feature of this page, not an analysis by the agent.
 
+## Today
+
+Default tab: 3 artists per family, picked in the browser with the date as seed. Same picks all day, no reroll.
+
 ## Planned: long-term history
 
 Spotify extended streaming history requested on 2026-09-26. When it arrives, aggregate per artist (time listened, last played) into `data/`; commit only the aggregate.

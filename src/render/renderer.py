@@ -14,6 +14,7 @@ from render.models import Artist
 # Constants
 # ------------------------------------------------------------------------------
 CSS_STYLE_NOWRAP = "white-space: nowrap; "
+TODAY_ARTISTS_PER_FAMILY = 3
 
 CSS_GLOBAL = """
 :root {
@@ -141,6 +142,34 @@ function search(text) {
 }
 """
 
+JS_FUNC_PICK_TODAY = """
+function pickToday() {
+    var tab = $('.ui.tab[data-tab="today"]');
+    var perFamily = tab.data('per-family');
+    var today = new Date();
+    var seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
+    var random = function() {
+        seed = (seed + 0x6D2B79F5) | 0;
+        var t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+        t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+    var grid = tab.find('.artists');
+    var cells = grid.find('.artist').toArray();
+
+    var picked = [];
+    String(tab.data('families')).split('|').forEach(function(family) {
+        var candidates = cells.filter(function(cell) {
+            return String($(cell).data('families')).split('|').includes(family) && !picked.includes(cell);
+        });
+        for (var i = 0; i < perFamily && candidates.length > 0; i++) {
+            picked.push(candidates.splice(Math.floor(random() * candidates.length), 1)[0]);
+        }
+    });
+    grid.empty().append(picked);
+}
+"""
+
 JS_KEYBOARD_NAVIGATION = """
 $(document).on('keydown', '.menu .item', function(e) {
     if (e.key === 'Enter' || e.key === ' ') {
@@ -246,9 +275,9 @@ def menu_filter(mobile: bool, tags_with_artists: dict[str, list[dict]]):
     with menu_wrapper(mobile, "Filter", "filter"):
         item_kind = "mobile" if mobile else "desktop"
 
-        for index, tag in enumerate(TAGS_MENU_ORDER):
-            artists = tags_with_artists[tag]
-
+        today_count = TODAY_ARTISTS_PER_FAMILY * len(TAGS_HEADER)
+        menu_items = [(T_TODAY, today_count)] + [(tag, len(tags_with_artists[tag])) for tag in TAGS_MENU_ORDER]
+        for index, (tag, artists_count) in enumerate(menu_items):
             # item attributes
             item_display = tag_display(tag)
             item_active = "active" if index == 0 else ""
@@ -263,7 +292,7 @@ def menu_filter(mobile: bool, tags_with_artists: dict[str, list[dict]]):
                     tabindex="0"
                 ):
                 span(item_display)
-                span(f"{len(artists)}", cls="ui tiny label")
+                span(f"{artists_count}", cls="ui tiny label")
 
 def menu_sort(mobile):
     """Render sort menu according to mobile or desktop rules."""
@@ -303,6 +332,7 @@ def card_cell(artist):
         data_albums=str(artist.albums),
         data_last_release=str(artist.last_release),
         data_last_follow=str(artist.last_follow),
+        data_families="|".join(tag for tag in TAGS_HEADER if tag in artist.tags),
     )
 
 def card(artist: Artist):
@@ -367,6 +397,7 @@ def render_html(tags_with_artists: dict[str, list[dict]]):
             script(raw(JS_FUNC_ONTAB))
             script(raw(_JS_FUNC_SORT))
             script(raw(JS_FUNC_SEARCH))
+            script(raw(JS_FUNC_PICK_TODAY))
 
             # style
             link(href =  "https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min.css", rel = "stylesheet")
@@ -399,6 +430,9 @@ def render_html(tags_with_artists: dict[str, list[dict]]):
                 # Content (cards)
                 # ------------------------------------------------------------------
                 with div(cls="sixteen wide mobile tablet   thirteen wide computer   fourteen wide large screen   fourteen wide widescreen   column", style="padding: 0.5rem;"):
+                    artists_in_families = {artist.id: artist for tag in TAGS_HEADER for artist in tags_with_artists[tag]}.values()
+                    with div(cls="ui tab", data_tab=id(T_TODAY), data_families="|".join(TAGS_HEADER), data_per_family=str(TODAY_ARTISTS_PER_FAMILY)):
+                        cards(sorted(artists_in_families, key=lambda x: x.name.lower()))
                     for tags in TAGS_MENU_ORDER:
                         artists = sorted(tags_with_artists[tags], key=lambda x: x.name.lower())
                         with div(cls="ui tab", data_tab=id(tags)):
@@ -413,6 +447,7 @@ def render_html(tags_with_artists: dict[str, list[dict]]):
         # ----------------------------------------------------------------------
         # Script initialization
         # ----------------------------------------------------------------------
+        script("pickToday();")
         script("$('.menu .item').tab({history:true, historyType: 'hash', onLoad: onTab});")
         script("$('.ui.accordion.desktop').accordion({exclusive:false});")
         script("$('.ui.accordion.mobile').accordion({exclusive:true});")

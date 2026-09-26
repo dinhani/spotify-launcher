@@ -6,6 +6,7 @@ LASTFM_USER = "renatodinhani"
 # ------------------------------------------------------------------------------
 # Tags: display names
 # ------------------------------------------------------------------------------
+T_TODAY = "Today"
 T_ALL = "All"
 T_FAVORITES = "Favorites"
 T_NON_FAVORITES = "Non-Favorites"
