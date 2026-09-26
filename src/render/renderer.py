@@ -616,14 +616,12 @@ $(document).on('keydown', '.artist-search', function(e) {
 });
 
 $(document).on('keydown', function(e) {
-    var kind = {Digit1: 'sort', Digit2: 'group'}[e.code];
+    var kind = {Digit1: 'tab', Digit2: 'sort', Digit3: 'group'}[e.code];
     if (!kind || !e.altKey || e.ctrlKey || e.metaKey) return;
     e.preventDefault();
-    var items = $('.list-controls .item[data-' + kind + ']');
+    var items = $('.ui.vertical.desktop.menu, .list-controls').find('.item[data-' + kind + ']');
     var step = e.shiftKey ? -1 : 1;
-    var next = items[(items.index(items.filter('.active')) + step + items.length) % items.length];
-    if (kind === 'sort') sort(next);
-    else groupArtists(next);
+    items.eq((items.index(items.filter('.active')) + step + items.length) % items.length).click();
 });
 
 $(document).on('keydown', function(e) {
@@ -743,11 +741,11 @@ def menu_group():
 def list_controls():
     with div(cls="list-controls"):
         with div(cls="list-control"):
-            span("Sort", cls="ui blue text list-control-label", title="Alt+1 next, Shift+Alt+1 previous")
+            span("Sort", cls="ui blue text list-control-label", title="Alt+2 next, Shift+Alt+2 previous")
             with div(cls="ui small compact blue secondary menu"):
                 sort_items()
         with div(cls="list-control"):
-            span("Group", cls="ui blue text list-control-label", title="Alt+2 next, Shift+Alt+2 previous")
+            span("Group", cls="ui blue text list-control-label", title="Alt+3 next, Shift+Alt+3 previous")
             with div(cls="ui small compact blue secondary menu"):
                 group_items()
 
