@@ -49,20 +49,13 @@ def parse(filename: str) -> Tuple[list[Artist], defaultdict[Tag, list[Artist]]]:
         if T_ROCK_FOLK_METAL in artist.tags and T_ROCK_HEAVY_METAL in artist.tags:
             artist.tags.remove(T_ROCK_HEAVY_METAL)
 
-        # rule: non-favorites
-        if T_ROCK_ALL in artist.tags and T_ROCK_FAVORITES not in artist.tags:
-            artist.tags.add(T_ROCK_NON_FAVORITES)
-        if T_FOLK_ALL in artist.tags and T_FOLK_FAVORITES not in artist.tags:
-            artist.tags.add(T_FOLK_NON_FAVORITES)
-        if T_ALT_ALL in artist.tags and T_ALT_FAVORITES not in artist.tags:
-            artist.tags.add(T_ALT_NON_FAVORITES)
-
-        # rule: general favorites / non-
-        favorite = any(tag in TAGS_FAVORITES for tag in artist.tags)
-        if favorite:
-            artist.tags.add(T_FAVORITES)
-        else:
+        # rule: favorites and non-favorites follow the artist into each of its families
+        favorite = T_FAVORITES in artist.tags
+        if not favorite:
             artist.tags.add(T_NON_FAVORITES)
+        for family in TAGS_FAMILY_FAVORITES:
+            if family in artist.tags:
+                artist.tags.add(TAGS_FAMILY_FAVORITES[family] if favorite else TAGS_FAMILY_NON_FAVORITES[family])
 
         # rule: others (only have the 2 default tags: all + favorite or non-favorite)
         if len(artist.tags) == 2:
