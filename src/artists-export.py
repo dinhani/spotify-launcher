@@ -1,7 +1,8 @@
 import json
-from pathlib import Path
-import polars
 from collections import Counter
+from pathlib import Path
+
+import polars
 
 DATA_DIR = Path(__file__).parent.parent / "data"
 CACHE_DIR = DATA_DIR / "artists"
@@ -21,11 +22,12 @@ for artist in artists:
     artist, albums, tracks = data["artist"], data["albums"], data["top_tracks"]
 
     # find top album
-    top_albums = Counter([(track["album"]["name"], track["album"]["images"][0]["url"]) for track in tracks])
-    if len(top_albums) > 0:
-        top_album_name, top_album_image = top_albums.most_common(1)[0][0]
-    else:
-        top_album_name, top_album_image = "", ""
+    top_albums = [
+        track["album"] for track in tracks
+        if track["album"].get("images") and any(album_artist["id"] == artist["id"] for album_artist in track["album"]["artists"])
+    ]
+    top_album_tracks = Counter(album["id"] for album in top_albums)
+    top_album = max(top_albums, key=lambda album: top_album_tracks[album["id"]], default=None)
 
     rows.append({
         "id": artist["id"],
@@ -34,8 +36,8 @@ for artist in artists:
         "popularity": artist["popularity"],
         "followers": artist["followers"]["total"],
         "image": artist["images"][0]["url"] if artist.get("images") else "",
-        "top_album_name": top_album_name or "",
-        "top_album_image": top_album_image or "",
+        "top_album_name": top_album["name"] if top_album else "",
+        "top_album_image": top_album["images"][0]["url"] if top_album else "",
         "albums": len(albums),
         "last_release": max((al.get("release_date", "") for al in albums), default=""),
         "top_song": tracks[0]["name"] if tracks else "",

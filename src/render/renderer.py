@@ -616,7 +616,7 @@ def card(artist: Artist):
             if T_FAVORITES in artist.tags:
                 with div(cls="ui mini yellow right corner label"):
                     i(cls="star icon")
-            caption_class = "artist-image-caption has-album-cover" if artist.album_image else "artist-image-caption"
+            caption_class = "artist-image-caption has-album-cover" if artist.top_album_image else "artist-image-caption"
             with div(cls=caption_class):
                 div(artist_tags, cls="artist-tags", title=artist_tags)
                 with div(cls="artist-stats"):
@@ -628,15 +628,15 @@ def card(artist: Artist):
                         with div(aria_label=f"{label}: {value}"):
                             i(cls=f"{icon} icon", aria_hidden="true")
                             span(value)
-            if artist.album_image:
-                img(src=artist.album_image, cls="album-cover", alt=f"Album cover — {artist.name}",
+            if artist.top_album_image:
+                img(src=artist.top_album_image, cls="album-cover", alt=f"Album cover — {artist.top_album_name}",
                     loading="lazy", width="40", height="40")
 
         # header
         with a(cls="content", href=spotify_url, tabindex="-1"):
             div(artist.name, cls="ui small header artist-name")
             with div(cls="meta"):
-                div(artist.top_song, cls="artist-song")
+                div(artist.top_song or "-", cls="artist-song")
 
         # links
         with div(cls="ui two bottom attached mini basic buttons"):
