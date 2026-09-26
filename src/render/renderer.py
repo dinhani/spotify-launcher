@@ -724,8 +724,8 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]):
                 with div(cls="sixteen wide mobile tablet only   column app-column"):
                     menu_search()
                     with div(cls="ui fluid styled mobile accordion"):
-                        menu_sort(mobile=True)
                         menu_group(mobile=True)
+                        menu_sort(mobile=True)
                         menu_filter(mobile=True, tags_with_artists=tags_with_artists)
 
                 # ------------------------------------------------------------------
@@ -734,8 +734,8 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]):
                 with div(cls="computer only three wide computer   two wide large screen   two wide widescreen   column app-column"):
                     menu_search()
                     with div(cls="ui fluid styled desktop accordion"):
-                        menu_sort(mobile=False)
                         menu_group(mobile=False)
+                        menu_sort(mobile=False)
                         menu_filter(mobile=False, tags_with_artists=tags_with_artists)
 
                 # ------------------------------------------------------------------
