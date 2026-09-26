@@ -277,11 +277,6 @@ html {
     color: rgba(0, 0, 0, 0.5);
     font-size: 0.92857143rem;
 }
-.group-rule {
-    flex: 1;
-    align-self: center;
-    border-top: 1px solid rgba(34, 36, 38, 0.15);
-}
 
 /* Focus and hover */
 .menu .item:focus-visible {
@@ -424,7 +419,6 @@ function applyGrouping() {
                 var heading = $('<div>', {class: 'sixteen wide column group-heading'});
                 heading.append($('<h2>', {class: 'ui medium header', text: section.label}));
                 heading.append($('<span>', {class: 'group-summary', 'data-description': section.description}));
-                heading.append($('<div>', {class: 'group-rule'}));
                 $(grid).append(heading);
                 members.sort(byViewOrder).forEach(function(cell) { $(grid).append($(cell).clone()); });
             });
