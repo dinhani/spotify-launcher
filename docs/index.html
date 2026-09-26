@@ -315,7 +315,7 @@ $(document).on('keydown', '.artist-search', function(e) {
 
 $(document).on('keydown', function(e) {
     var kind = {Digit1: 'tab', Digit2: 'sort', Digit3: 'group'}[e.code];
-    if (!kind || !e.altKey || e.ctrlKey || e.metaKey) return;
+    if (!kind || !e.ctrlKey || e.altKey || e.metaKey) return;
     e.preventDefault();
     var items = $('.ui.vertical.desktop.menu, .list-controls').find('.item[data-' + kind + ']');
     var step = e.shiftKey ? -1 : 1;
@@ -951,7 +951,7 @@ html {
       <div class="sixteen wide mobile tablet   thirteen wide computer   fourteen wide large screen   fourteen wide widescreen   column app-column content-column">
         <div class="list-controls">
           <div class="list-control">
-            <span class="ui blue text list-control-label" title="Alt+2 next, Shift+Alt+2 previous">Sort</span>
+            <span class="ui blue text list-control-label" title="Ctrl+2 next, Ctrl+Shift+2 previous">Sort</span>
             <div class="ui small compact blue secondary menu">
               <div class="active link item nowrap" data-order="asc" data-sort="name" onClick="sort(this)" tabindex="0" title="Name"><i aria-hidden="true" class="music icon control-icon"></i>
                 <span>Name</span>
@@ -980,7 +980,7 @@ html {
             </div>
           </div>
           <div class="list-control">
-            <span class="ui blue text list-control-label" title="Alt+3 next, Shift+Alt+3 previous">Group</span>
+            <span class="ui blue text list-control-label" title="Ctrl+3 next, Ctrl+Shift+3 previous">Group</span>
             <div class="ui small compact blue secondary menu">
               <div class="active link item nowrap" data-group="none" onClick="groupArtists(this)" tabindex="0"><i aria-hidden="true" class="th icon control-icon"></i>
                 <span>None</span>

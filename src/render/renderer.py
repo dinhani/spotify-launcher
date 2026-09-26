@@ -617,7 +617,7 @@ $(document).on('keydown', '.artist-search', function(e) {
 
 $(document).on('keydown', function(e) {
     var kind = {Digit1: 'tab', Digit2: 'sort', Digit3: 'group'}[e.code];
-    if (!kind || !e.altKey || e.ctrlKey || e.metaKey) return;
+    if (!kind || !e.ctrlKey || e.altKey || e.metaKey) return;
     e.preventDefault();
     var items = $('.ui.vertical.desktop.menu, .list-controls').find('.item[data-' + kind + ']');
     var step = e.shiftKey ? -1 : 1;
@@ -741,11 +741,11 @@ def menu_group():
 def list_controls():
     with div(cls="list-controls"):
         with div(cls="list-control"):
-            span("Sort", cls="ui blue text list-control-label", title="Alt+2 next, Shift+Alt+2 previous")
+            span("Sort", cls="ui blue text list-control-label", title="Ctrl+2 next, Ctrl+Shift+2 previous")
             with div(cls="ui small compact blue secondary menu"):
                 sort_items()
         with div(cls="list-control"):
-            span("Group", cls="ui blue text list-control-label", title="Alt+3 next, Shift+Alt+3 previous")
+            span("Group", cls="ui blue text list-control-label", title="Ctrl+3 next, Ctrl+Shift+3 previous")
             with div(cls="ui small compact blue secondary menu"):
                 group_items()
 
