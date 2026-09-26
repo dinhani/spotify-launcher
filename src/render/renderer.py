@@ -124,7 +124,6 @@ html {
     border: 1px solid rgba(255, 255, 255, 0.85);
     border-radius: 0.15rem;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25), 0 2px 6px rgba(0, 0, 0, 0.5);
-    pointer-events: none;
 }
 .has-album-cover .artist-stats {
     gap: 0.35rem;
@@ -629,7 +628,7 @@ def card(artist: Artist):
                             i(cls=f"{icon} icon", aria_hidden="true")
                             span(value)
             if artist.top_album_image:
-                img(src=artist.top_album_image, cls="album-cover", alt=f"Album cover — {artist.top_album_name}",
+                img(src=artist.top_album_image, cls="album-cover", alt=f"Album cover — {artist.top_album_name}", title=artist.top_album_name,
                     loading="lazy", width="40", height="40")
 
         # header
