@@ -53,7 +53,7 @@ function sort(element, attribute, order) {
 </script>
     <script>
 var grouping = 'none';
-var artistFamilies = [{"name": "Rock", "label": "🎸 Rock", "description": "Metal and rock", "fallback": false}, {"name": "Folk", "label": "🎻 Folk", "description": "Traditional, storytelling and theatrical", "fallback": false}, {"name": "Alternative", "label": "🎧 Alternative", "description": "Alternative and indie pop", "fallback": false}, {"name": "Others", "label": "Others", "description": "Everything else", "fallback": true}];
+var artistFamilies = [{"name": "Rock", "icon": "🎸", "description": "Metal and rock", "fallback": false}, {"name": "Folk", "icon": "🎻", "description": "Traditional, storytelling and theatrical", "fallback": false}, {"name": "Alternative", "icon": "🎧", "description": "Alternative and indie pop", "fallback": false}, {"name": "Others", "icon": "", "description": "Everything else", "fallback": true}];
 var longevityRanges = [
     {label: 'Under 5 Years', from: 0, to: 4},
     {label: '5–9 Years', from: 5, to: 9},
@@ -81,7 +81,7 @@ function groupSections(grid) {
         return artistFamilies
             .filter(function(family) { return !scope || family.name === scope; })
             .map(function(family) {
-                return {label: family.label, description: family.description, includes: function(cell) {
+                return {label: family.name, icon: family.icon, description: family.description, includes: function(cell) {
                     var families = cell.dataset.families.split('|').filter(Boolean);
                     return family.fallback ? families.length === 0 : families.includes(family.name);
                 }};
@@ -129,7 +129,10 @@ function applyGrouping() {
                 var members = cells.filter(section.includes);
                 if (!members.length) return;
                 var heading = $('<div>', {class: 'sixteen wide column group-heading'});
-                heading.append($('<h2>', {class: 'ui medium header', text: section.label}));
+                var title = $('<h2>', {class: 'ui medium header'});
+                if (section.icon) title.append($('<span>', {class: 'control-symbol', 'aria-hidden': 'true', text: section.icon}));
+                title.append(document.createTextNode(section.label));
+                heading.append(title);
                 heading.append($('<span>', {class: 'group-summary', 'data-description': section.description}));
                 $(grid).append(heading);
                 members.sort(byViewOrder).forEach(function(cell) { $(grid).append($(cell).clone()); });

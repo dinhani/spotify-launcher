@@ -369,7 +369,7 @@ function groupSections(grid) {
         return artistFamilies
             .filter(function(family) { return !scope || family.name === scope; })
             .map(function(family) {
-                return {label: family.label, description: family.description, includes: function(cell) {
+                return {label: family.name, icon: family.icon, description: family.description, includes: function(cell) {
                     var families = cell.dataset.families.split('|').filter(Boolean);
                     return family.fallback ? families.length === 0 : families.includes(family.name);
                 }};
@@ -417,7 +417,10 @@ function applyGrouping() {
                 var members = cells.filter(section.includes);
                 if (!members.length) return;
                 var heading = $('<div>', {class: 'sixteen wide column group-heading'});
-                heading.append($('<h2>', {class: 'ui medium header', text: section.label}));
+                var title = $('<h2>', {class: 'ui medium header'});
+                if (section.icon) title.append($('<span>', {class: 'control-symbol', 'aria-hidden': 'true', text: section.icon}));
+                title.append(document.createTextNode(section.label));
+                heading.append(title);
                 heading.append($('<span>', {class: 'group-summary', 'data-description': section.description}));
                 $(grid).append(heading);
                 members.sort(byViewOrder).forEach(function(cell) { $(grid).append($(cell).clone()); });
@@ -438,7 +441,7 @@ function groupArtists(element, mode) {
     applyGrouping();
 }
 """.replace("__ARTIST_FAMILIES__", json.dumps([
-    {"name": family.name, "label": f"{family.icon} {family.name}".strip(), "description": family.description, "fallback": family == T_OTHERS}
+    {"name": family.name, "icon": family.icon, "description": family.description, "fallback": family == T_OTHERS}
     for family in [*TAGS_DISCOVER.values(), T_OTHERS]
 ], ensure_ascii=False))
 
