@@ -73,8 +73,8 @@ Rules that currently have no effect (a `-Name` for a tag the artist doesn't get,
 After matching, `src/render/parser.py` applies:
 
 1. `Folk Metal` wins over `Heavy Metal` (an artist never has both).
-2. In a family but not in its favorites → `<Family> - Non-Favorites`.
-3. In any family favorites → `Favorites`, otherwise `Non-Favorites`.
+2. A favorite goes to `<Family> - Favorites` in each of its families; any other family member goes to `<Family> - Non-Favorites`.
+3. Artists not in `Favorites` → `Non-Favorites`.
 4. No other tag → `Others`.
 
 An artist may belong to more than one family (e.g. Eluveitie is Folk Metal and Folk).
@@ -113,4 +113,4 @@ Alternative and indie pop.
 
 ### Favorites
 
-Each family has a manual `Favorites` list (`+Name` only). A favorite must also be in some granular tag of the same family.
+Favorite is a property of the artist, not of a family: one manual `Favorites` list in `TAG_RULES` (`+Name` only). Family favorites are derived: a favorite appears in `<Family> - Favorites` for every family it belongs to.
