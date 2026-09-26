@@ -202,7 +202,7 @@ function groupArtists(byFamily) {
     $('.group-options').each(function() {
         $(this).children().removeClass('active').eq(byFamily ? 1 : 0).addClass('active');
     });
-    $('#mobile-menu-header-group').text('Group: ' + (byFamily ? 'By style' : 'All together'));
+    $('#mobile-menu-header-group').text('Group: ' + (byFamily ? 'By Style' : 'All Together'));
     applyGrouping();
 }
 """
@@ -421,11 +421,11 @@ def menu_sort(mobile):
         div("🔔 Last Follow", cls="ui link item", onClick="sort(this, 'last-follow', 'asc')", style=CSS_STYLE_NOWRAP, tabindex="0")
 
 def menu_group(mobile):
-    label = "Group: All together" if mobile else "Group"
+    label = "Group: All Together" if mobile else "Group"
     with menu_wrapper(mobile, label, "group") as menu:
         menu['class'] += " group-options"
-        div("All together", cls="ui active link item", onClick="groupArtists(false)", tabindex="0")
-        div("By style", cls="ui link item", onClick="groupArtists(true)", tabindex="0")
+        div("All Together", cls="ui active link item", onClick="groupArtists(false)", tabindex="0")
+        div("By Style", cls="ui link item", onClick="groupArtists(true)", tabindex="0")
 
 def menu_search():
     with div(cls="ui fluid icon input", style="margin-bottom: 0.5rem;"):

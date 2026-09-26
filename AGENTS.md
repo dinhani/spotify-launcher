@@ -20,7 +20,7 @@ Folk's Discover pool excludes any artist who also belongs to Rock or Alternative
 
 ## Grouping
 
-The sidebar's Group control offers All together (default) and By style. Grouping uses Rock, Folk, Alternative and Others, with the selected sort applied within each section. Artists belonging to multiple families appear in each applicable section; family filters show only that family's section. Search hides empty sections. Grouping does not change Discover picks. Use style in the interface; family is an internal classification term.
+The sidebar's Group control offers All Together (default) and By Style. Grouping uses Rock, Folk, Alternative and Others, with the selected sort applied within each section. Artists belonging to multiple families appear in each applicable section; family filters show only that family's section. Search hides empty sections. Grouping does not change Discover picks. Use style in the interface; family is an internal classification term. Control labels use Title Case, matching the existing sidebar options.
 
 ## Planned: long-term history
 
