@@ -23,7 +23,7 @@ T_ROCK_FOLK_METAL = Tag("Rock - Folk Metal", "")
 T_ROCK_EXTREME_METAL = Tag("Rock - Extreme Metal", "")
 T_ROCK_ROCK = Tag("Rock - Rock", "")
 #
-T_FOLK_ALL = Tag("Folk", "🪕")
+T_FOLK_ALL = Tag("Folk", "🎻")
 T_FOLK_TODAY = Tag("Folk - Today", "")
 T_FOLK_FAVORITES = Tag("Folk - Favorites", "")
 T_FOLK_NON_FAVORITES = Tag("Folk - Non-Favorites", "")

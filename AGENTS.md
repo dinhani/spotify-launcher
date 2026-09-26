@@ -69,7 +69,9 @@ Metal and rock.
 
 ### Folk
 
-Acoustic, old-time, storytelling music. Traditional music and steampunk belong together here on purpose.
+Traditional, storytelling and theatrical music. The family's identity brings together celtic and medieval music, maritime/pirate songs, fado, and steampunk/dark cabaret. It evokes old-world settings and staged characters, without requiring strictly acoustic instruments or historically authentic music. Traditional music and steampunk belong together here on purpose.
+
+The family icon is `🎻`: it represents this traditional and theatrical character. A banjo (`🪕`) overemphasizes American bluegrass/country, which is only one part of this family, not its defining identity. Choose visual cues from the actual artists in the family, including its curated favorites, rather than from the generic meaning of “folk”.
 
 - **Folk**: traditional and roots music: celtic, medieval, fado, bluegrass, pirate songs and shanties.
 - **Steampunk**: steampunk and dark cabaret, theatrical songs.
