@@ -2,7 +2,6 @@
 # Libraries
 # ------------------------------------------------------------------------------
 from collections import defaultdict
-from typing import Tuple
 import logging
 import polars
 
@@ -12,7 +11,7 @@ from render.models import Artist, Tag
 # ------------------------------------------------------------------------------
 # Functions
 # ------------------------------------------------------------------------------
-def parse(filename: str) -> Tuple[list[Artist], defaultdict[Tag, list[Artist]]]:
+def parse(filename: str) -> tuple[list[Artist], defaultdict[Tag, list[Artist]]]:
     artists = []
     artists_by_tag = defaultdict(list)
 
@@ -53,18 +52,18 @@ def parse(filename: str) -> Tuple[list[Artist], defaultdict[Tag, list[Artist]]]:
         favorite = T_FAVORITES in artist.tags
         if not favorite:
             artist.tags.add(T_NON_FAVORITES)
-        for family in TAGS_FAMILY_FAVORITES:
-            if family in artist.tags:
-                artist.tags.add(TAGS_FAMILY_FAVORITES[family] if favorite else TAGS_FAMILY_NON_FAVORITES[family])
+        for family in FAMILIES:
+            if family.tag in artist.tags:
+                artist.tags.add(family.favorites if favorite else family.non_favorites)
 
-        # rule: others (only have the 2 default tags: all + favorite or non-favorite)
-        if len(artist.tags) == 2:
+        # rule: others (artists outside every family)
+        if not any(family.tag in artist.tags for family in FAMILIES):
             artist.tags.add(T_OTHERS)
 
         # finish: add tags to artist and add artist to collections
         artist.tags_granular = [t for t in TAGS_MENU_ORDER if t in artist.tags and t not in TAGS_UMBRELLA]
         artists.append(artist)
-        for tags in artist.tags:
-            artists_by_tag[tags].append(artist)
+        for tag in artist.tags:
+            artists_by_tag[tag].append(artist)
 
     return (artists, artists_by_tag)

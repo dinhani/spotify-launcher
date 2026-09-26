@@ -1,4 +1,5 @@
-from render.models import Tag
+from render.models import Family, Tag
+from render.utils import TrackedDict
 
 # ------------------------------------------------------------------------------
 # Last.fm
@@ -39,52 +40,51 @@ T_ALT_ENERGETIC = Tag("Alt - Energetic", "")
 T_ALT_VOICE_GUITAR = Tag("Alt - Vox/Guitar", "")
 
 # ------------------------------------------------------------------------------
+# Families
+# ------------------------------------------------------------------------------
+FAMILY_ROCK = Family(
+    tag=T_ROCK_ALL,
+    discover=T_ROCK_DISCOVER,
+    favorites=T_ROCK_FAVORITES,
+    non_favorites=T_ROCK_NON_FAVORITES,
+    granular=(T_ROCK_HEAVY_METAL, T_ROCK_EXTREME_METAL, T_ROCK_FOLK_METAL, T_ROCK_ROCK),
+)
+FAMILY_FOLK = Family(
+    tag=T_FOLK_ALL,
+    discover=T_FOLK_DISCOVER,
+    favorites=T_FOLK_FAVORITES,
+    non_favorites=T_FOLK_NON_FAVORITES,
+    granular=(T_FOLK_FOLK, T_FOLK_STEAMPUNK),
+)
+FAMILY_ALT = Family(
+    tag=T_ALT_ALL,
+    discover=T_ALT_DISCOVER,
+    favorites=T_ALT_FAVORITES,
+    non_favorites=T_ALT_NON_FAVORITES,
+    granular=(T_ALT_ATMOSPHERIC, T_ALT_ENERGETIC, T_ALT_VOICE_GUITAR),
+)
+FAMILIES = [FAMILY_ROCK, FAMILY_FOLK, FAMILY_ALT]
+
+# Exclude artists in these families from the corresponding Discover pool.
+FAMILY_DISCOVER_EXCLUSIONS = {
+    FAMILY_FOLK: [FAMILY_ROCK, FAMILY_ALT],
+}
+
+def find_family(tag: Tag) -> Family | None:
+    return next((family for family in FAMILIES if tag in family.tags_menu), None)
+
+# ------------------------------------------------------------------------------
 # Tags contains data from other more granular tags
 # ------------------------------------------------------------------------------
 TAGS_UMBRELLA = [
     T_ALL, T_DISCOVER, T_FAVORITES, T_NON_FAVORITES,
-    T_ROCK_ALL, T_ROCK_DISCOVER, T_ROCK_FAVORITES, T_ROCK_NON_FAVORITES,
-    T_FOLK_ALL, T_FOLK_DISCOVER, T_FOLK_FAVORITES, T_FOLK_NON_FAVORITES,
-    T_ALT_ALL, T_ALT_DISCOVER, T_ALT_FAVORITES, T_ALT_NON_FAVORITES,
+    *(tag for family in FAMILIES for tag in family.tags_umbrella),
 ]
 
 # ------------------------------------------------------------------------------
 # Tags to be show as header in the menu
 # ------------------------------------------------------------------------------
-TAGS_HEADER = [
-    T_ALL,
-    T_ROCK_ALL,
-    T_FOLK_ALL,
-    T_ALT_ALL,
-]
-
-# ------------------------------------------------------------------------------
-# Family selected per period in each family Discover
-# ------------------------------------------------------------------------------
-TAGS_DISCOVER = {
-    T_ROCK_DISCOVER: T_ROCK_ALL,
-    T_FOLK_DISCOVER: T_FOLK_ALL,
-    T_ALT_DISCOVER: T_ALT_ALL,
-}
-
-# Exclude artists in these families from the corresponding Discover pool.
-TAGS_DISCOVER_EXCLUSIONS = {
-    T_FOLK_ALL: [T_ROCK_ALL, T_ALT_ALL],
-}
-
-# ------------------------------------------------------------------------------
-# Favorites and non-favorites of each family, derived from the artist favorite
-# ------------------------------------------------------------------------------
-TAGS_FAMILY_FAVORITES = {
-    T_ROCK_ALL: T_ROCK_FAVORITES,
-    T_FOLK_ALL: T_FOLK_FAVORITES,
-    T_ALT_ALL: T_ALT_FAVORITES,
-}
-TAGS_FAMILY_NON_FAVORITES = {
-    T_ROCK_ALL: T_ROCK_NON_FAVORITES,
-    T_FOLK_ALL: T_FOLK_NON_FAVORITES,
-    T_ALT_ALL: T_ALT_NON_FAVORITES,
-}
+TAGS_HEADER = [T_ALL, *(family.tag for family in FAMILIES)]
 
 # ------------------------------------------------------------------------------
 # Tag order to be displayed in the menu
@@ -95,31 +95,7 @@ TAGS_MENU_ORDER = [
     T_FAVORITES,
     T_NON_FAVORITES,
     T_OTHERS,
-    #
-    # T_ROCK_SEP,
-    T_ROCK_ALL,
-    T_ROCK_DISCOVER,
-    T_ROCK_FAVORITES,
-    T_ROCK_NON_FAVORITES,
-    T_ROCK_HEAVY_METAL,
-    T_ROCK_EXTREME_METAL,
-    T_ROCK_FOLK_METAL,
-    T_ROCK_ROCK,
-    #
-    T_FOLK_ALL,
-    T_FOLK_DISCOVER,
-    T_FOLK_FAVORITES,
-    T_FOLK_NON_FAVORITES,
-    T_FOLK_FOLK,
-    T_FOLK_STEAMPUNK,
-    #
-    T_ALT_ALL,
-    T_ALT_DISCOVER,
-    T_ALT_FAVORITES,
-    T_ALT_NON_FAVORITES,
-    T_ALT_ATMOSPHERIC,
-    T_ALT_ENERGETIC,
-    T_ALT_VOICE_GUITAR,
+    *(tag for family in FAMILIES for tag in family.tags_menu),
 ]
 
 # ------------------------------------------------------------------------------
@@ -433,8 +409,7 @@ TAG_RULES = {
     ]
 }
 
-from render.utils import ProxyDict
-TAGS_BY_RULE = ProxyDict(list)
+TAGS_BY_RULE: TrackedDict[str | Tag, list[Tag]] = TrackedDict(list)
 for tag, patterns in TAG_RULES.items():
     for pattern in patterns:
         TAGS_BY_RULE[pattern].append(tag)

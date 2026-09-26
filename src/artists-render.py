@@ -32,27 +32,27 @@ doc = renderer.render_html(tags_with_artists)
 
 # write html to file
 logging.info(f"💾 Writing: {OUTPUT_LAUNCHER}")
-with open(OUTPUT_LAUNCHER, "w", encoding="utf-8", newline="\n") as f_favorites:
-    f_favorites.write(str(doc))
+with open(OUTPUT_LAUNCHER, "w", encoding="utf-8", newline="\n") as f_launcher:
+    f_launcher.write(str(doc))
 
 # write summaries to file
 logging.info(f"💾 Writing: {OUTPUT_SUMMARY_TAGS}")
-f_tags = open(OUTPUT_SUMMARY_TAGS, "w", encoding="utf-8", newline="\n")
-
 logging.info(f"💾 Writing: {OUTPUT_SUMMARY_FAVORITES}")
-f_favorites = open(OUTPUT_SUMMARY_FAVORITES, "w", encoding="utf-8", newline="\n")
+with (
+    open(OUTPUT_SUMMARY_TAGS, "w", encoding="utf-8", newline="\n") as f_tags,
+    open(OUTPUT_SUMMARY_FAVORITES, "w", encoding="utf-8", newline="\n") as f_favorites,
+):
+    for tag in TAGS_MENU_ORDER:
+        if tag in TAGS_UMBRELLA:
+            continue
 
-for tag in TAGS_MENU_ORDER:
-    if tag in TAGS_UMBRELLA:
-        continue
+        f_tags.write(f"\n{tag.name}:\n")
+        f_favorites.write(f"\n{tag.name}:\n")
 
-    f_tags.write(f"\n{tag.name}:\n")
-    f_favorites.write(f"\n{tag.name}:\n")
-
-    for artist in tags_with_artists[tag]:
-        f_tags.write("* " + artist.name + "\n")
-        if T_FAVORITES in artist.tags:
-            f_favorites.write("* " + artist.name + "\n")
+        for artist in tags_with_artists[tag]:
+            f_tags.write("* " + artist.name + "\n")
+            if T_FAVORITES in artist.tags:
+                f_favorites.write("* " + artist.name + "\n")
 
 # verify untouched keys
 logging.info("🧱 Checking untouched keys")
