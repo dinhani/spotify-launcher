@@ -12,7 +12,7 @@ A personal launcher for the Spotify artists I follow: it helps me decide what to
 
 ## Today
 
-Each family has a Today with 3 artists per granular tag; All's Today takes 3 from each family's picks. Picked in the browser with the date as seed: same picks all day, no reroll.
+3 artists per family: each family's Today shows its 3, All's Today shows all 9. Picked in the browser with the date as seed: same picks all day, no reroll.
 
 ## Planned: long-term history
 

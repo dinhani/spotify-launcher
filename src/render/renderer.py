@@ -15,7 +15,6 @@ from render.models import Artist, Tag
 # ------------------------------------------------------------------------------
 CSS_STYLE_NOWRAP = "white-space: nowrap; "
 TODAY_ARTISTS_PER_FAMILY = 3
-TODAY_ARTISTS_PER_TAG = 3
 
 CSS_GLOBAL = """
 :root {
@@ -153,13 +152,6 @@ function pickToday() {
         t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
         return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
     };
-    var pick = function(candidates, count) {
-        var picked = [];
-        for (var i = 0; i < count && candidates.length > 0; i++) {
-            picked.push(candidates.splice(Math.floor(random() * candidates.length), 1)[0]);
-        }
-        return picked;
-    };
     var showOnly = function(tab, names) {
         var grid = $(tab).find('.artists');
         var cells = grid.find('.artist').toArray();
@@ -170,28 +162,20 @@ function pickToday() {
 
     var cells = $('.ui.tab[data-tab="all"] .artist').toArray();
     var picked = [];
-    var pickedByFamily = [];
-    $('.ui.tab[data-today-tags]').each(function(_, tab) {
-        var familyPicked = [];
-        tab.dataset.todayTags.split('|').forEach(function(tag) {
-            var candidates = cells
-                .filter(function(cell) { return cell.dataset.tags.split('|').includes(tag); })
-                .map(function(cell) { return cell.dataset.name; })
-                .filter(function(name) { return !picked.includes(name); });
-            var tagPicked = pick(candidates, Number(tab.dataset.todayPerTag));
-            picked.push(...tagPicked);
-            familyPicked.push(...tagPicked);
-        });
-        showOnly(tab, familyPicked);
-        pickedByFamily.push(familyPicked);
-    });
-
     var allTab = $('.ui.tab[data-today-per-family]')[0];
-    var allPicked = [];
-    pickedByFamily.forEach(function(familyPicked) {
-        allPicked.push(...pick(familyPicked.slice(), Number(allTab.dataset.todayPerFamily)));
+    $('.ui.tab[data-today-family]').each(function(_, tab) {
+        var candidates = cells
+            .filter(function(cell) { return cell.dataset.families.split('|').includes(tab.dataset.todayFamily); })
+            .map(function(cell) { return cell.dataset.name; })
+            .filter(function(name) { return !picked.includes(name); });
+        var familyPicked = [];
+        for (var i = 0; i < Number(allTab.dataset.todayPerFamily) && candidates.length > 0; i++) {
+            familyPicked.push(candidates.splice(Math.floor(random() * candidates.length), 1)[0]);
+        }
+        showOnly(tab, familyPicked);
+        picked.push(...familyPicked);
     });
-    showOnly(allTab, allPicked);
+    showOnly(allTab, picked);
 }
 """
 
@@ -305,7 +289,7 @@ def menu_filter(mobile: bool, tags_with_artists: dict[Tag, list[Artist]]):
             if tag == T_TODAY:
                 artists_count = TODAY_ARTISTS_PER_FAMILY * len(TAGS_TODAY)
             elif tag in TAGS_TODAY:
-                artists_count = TODAY_ARTISTS_PER_TAG * len(TAGS_TODAY[tag])
+                artists_count = TODAY_ARTISTS_PER_FAMILY
 
             # item attributes
             item_display = f"{tag.icon} {tag_display(tag)}".strip()
@@ -361,7 +345,7 @@ def card_cell(artist):
         data_albums=str(artist.albums),
         data_last_release=str(artist.last_release),
         data_last_follow=str(artist.last_follow),
-        data_tags="|".join(tag.name for tag in artist.tags_granular),
+        data_families="|".join(family.name for family in TAGS_TODAY.values() if family in artist.tags),
     )
 
 def card(artist: Artist):
@@ -466,11 +450,8 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]):
                             artists = tags_with_artists[T_ALL]
                             tab_attributes = {"data_today_per_family": str(TODAY_ARTISTS_PER_FAMILY)}
                         elif tag in TAGS_TODAY:
-                            artists = {artist.id: artist for granular in TAGS_TODAY[tag] for artist in tags_with_artists[granular]}.values()
-                            tab_attributes = {
-                                "data_today_tags": "|".join(granular.name for granular in TAGS_TODAY[tag]),
-                                "data_today_per_tag": str(TODAY_ARTISTS_PER_TAG),
-                            }
+                            artists = tags_with_artists[TAGS_TODAY[tag]]
+                            tab_attributes = {"data_today_family": TAGS_TODAY[tag].name}
 
                         with div(cls="ui tab", data_tab=id(tag), **tab_attributes):
                             cards(sorted(artists, key=lambda x: x.name.lower()))

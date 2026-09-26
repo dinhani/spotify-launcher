@@ -59,12 +59,12 @@ TAGS_HEADER = [
 ]
 
 # ------------------------------------------------------------------------------
-# Tags picked daily in each family Today
+# Family picked daily in each family Today
 # ------------------------------------------------------------------------------
 TAGS_TODAY = {
-    T_ROCK_TODAY: [T_ROCK_HEAVY_METAL, T_ROCK_EXTREME_METAL, T_ROCK_FOLK_METAL, T_ROCK_ROCK],
-    T_FOLK_TODAY: [T_FOLK_FOLK, T_FOLK_STEAMPUNK],
-    T_ALT_TODAY: [T_ALT_ATMOSPHERIC, T_ALT_ENERGETIC, T_ALT_VOICE_GUITAR],
+    T_ROCK_TODAY: T_ROCK_ALL,
+    T_FOLK_TODAY: T_FOLK_ALL,
+    T_ALT_TODAY: T_ALT_ALL,
 }
 
 # ------------------------------------------------------------------------------
