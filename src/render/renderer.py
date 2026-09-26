@@ -55,8 +55,6 @@ html {
 }
 .ui.styled.accordion > .title.section-title {
     color: #2185d0;
-    font-size: calc(var(--control-font-size) + 2px);
-    font-weight: 700;
 }
 .ui.vertical.attached.menu.sidebar-options {
     margin: 0;
