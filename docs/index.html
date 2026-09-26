@@ -30,10 +30,7 @@ function sort(element, attribute, order) {
     $("#mobile-menu-header-sort").text("Sort: " + title);
 
     // mark active
-    var sortIndex = $(element).index();
-    $('.sort-options').each(function() {
-        $(this).children().removeClass('active').eq(sortIndex).addClass('active');
-    });
+    $('.item[data-sort]').removeClass('active').filter('[data-sort="' + attribute + '"]').addClass('active');
 
     // reorder
     $('.artists').each(function(_, artists) {
@@ -137,10 +134,7 @@ function applyGrouping() {
 
 function groupArtists(element, mode) {
     grouping = mode;
-    var selectedIndex = $(element).index();
-    $('.group-options').each(function() {
-        $(this).children().removeClass('active').eq(selectedIndex).addClass('active');
-    });
+    $('.item[data-group]').removeClass('active').filter('[data-group="' + mode + '"]').addClass('active');
     var title = removeEmoji($(element).text());
     $('#mobile-menu-header-group').text('Group: ' + title);
     applyGrouping();
@@ -236,14 +230,14 @@ html {
     --control-line-height: 1.25rem;
     --control-padding: 0.5625rem;
 }
-.ui.input > input.artist-search, .ui.menu .item {
+.ui.input > input.artist-search, .ui.menu.sidebar-options .item {
     font-size: var(--control-font-size) !important;
     line-height: var(--control-line-height) !important;
     padding-top: var(--control-padding) !important;
     padding-bottom: var(--control-padding) !important;
     padding-left: 0.75rem !important;
 }
-.ui.menu .item {
+.ui.menu.sidebar-options .item {
     padding-right: 0.75rem !important;
 }
 .ui.input > input.artist-search {
@@ -280,6 +274,59 @@ html {
 }
 .nowrap {
     white-space: nowrap;
+}
+
+/* List controls (group and sort bar) */
+.list-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem 2rem;
+    margin: 0 10px;
+}
+.list-control {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.list-control-label {
+    font-weight: bold;
+}
+.list-controls .ui.secondary.menu {
+    min-height: 0;
+    margin: 0;
+    padding: 3px;
+    gap: 2px;
+    font-size: 0.92857143rem;
+    background: #f1f2f3;
+    border-radius: 0.5rem;
+}
+.list-controls .ui.secondary.menu > .link.item {
+    align-self: stretch;
+    margin: 0;
+    padding: calc(0.5625rem - 3px) 0.8rem;
+    line-height: 1.25rem;
+    border-radius: calc(0.5rem - 3px);
+    color: rgba(0, 0, 0, 0.6);
+    transition: color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+.list-controls .ui.secondary.menu > .link.item:hover {
+    background: rgba(0, 0, 0, 0.04);
+    color: rgba(0, 0, 0, 0.87);
+}
+.list-controls .ui.secondary.menu > .active.link.item,
+.list-controls .ui.secondary.menu > .active.link.item:hover {
+    background: #fff;
+    color: #2185d0;
+    box-shadow: 0 1px 2px rgba(34, 36, 38, 0.15), 0 0 0 1px rgba(34, 36, 38, 0.06);
+}
+.list-controls .ui.menu .item > i.icon.control-icon {
+    margin: 0 0.4em 0 0;
+    opacity: 0.5;
+}
+.list-controls .ui.menu .active.item > i.icon.control-icon {
+    opacity: 1;
 }
 
 /* Artist cards */
@@ -389,6 +436,9 @@ html {
     .artist-image {
         height: 200px !important;
     }
+    .list-controls {
+        display: none;
+    }
 }
 @media only screen and (min-width: 992px) {
     body {
@@ -398,8 +448,20 @@ html {
     div::-webkit-scrollbar {
         display: none;
     }
-    .artists-wrapper {
+    .content-column {
+        display: flex !important;
+        flex-direction: column;
         height: 98vh;
+    }
+    .content-column > .ui.tab.active {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-height: 0;
+    }
+    .artists-wrapper {
+        flex: 1;
+        min-height: 0;
         overflow-y: scroll;
         padding: 10px;
     }
@@ -445,14 +507,14 @@ html {
           </div>
           <div class=" content">
             <div class="ui fluid vertical attached menu sidebar-options group-options">
-              <div class="ui active link item" onClick="groupArtists(this, 'none')" tabindex="0"><i aria-hidden="true" class="th icon control-icon"></i>
+              <div class="ui active link item nowrap" data-group="none" onClick="groupArtists(this, 'none')" tabindex="0"><i aria-hidden="true" class="th icon control-icon"></i>
                 <span>None</span>
               </div>
-              <div class="ui link item" onClick="groupArtists(this, 'style')" tabindex="0"><i aria-hidden="true" class="music icon control-icon"></i>
-                <span>By Style</span>
+              <div class="ui  link item nowrap" data-group="style" onClick="groupArtists(this, 'style')" tabindex="0"><i aria-hidden="true" class="music icon control-icon"></i>
+                <span>Style</span>
               </div>
-              <div class="ui link item" onClick="groupArtists(this, 'longevity')" tabindex="0"><i aria-hidden="true" class="hourglass half icon control-icon"></i>
-                <span>By Longevity</span>
+              <div class="ui  link item nowrap" data-group="longevity" onClick="groupArtists(this, 'longevity')" tabindex="0"><i aria-hidden="true" class="hourglass half icon control-icon"></i>
+                <span>Longevity</span>
               </div>
             </div>
           </div>
@@ -463,29 +525,29 @@ html {
           </div>
           <div class=" content">
             <div class="ui fluid vertical attached menu sidebar-options sort-options">
-              <div class="ui active link item nowrap" onClick="sort(this, 'name', 'asc')" tabindex="0"><i aria-hidden="true" class="music icon control-icon"></i>
+              <div class="ui active link item nowrap" data-sort="name" onClick="sort(this, 'name', 'asc')" tabindex="0" title="Name"><i aria-hidden="true" class="music icon control-icon"></i>
                 <span>Name</span>
               </div>
-              <div class="ui  link item nowrap" onClick="sort(this, 'popularity', 'desc')" tabindex="0"><i aria-hidden="true" class="fire icon control-icon"></i>
-                <span>Popularity (artist)</span>
+              <div class="ui  link item nowrap" data-sort="popularity" onClick="sort(this, 'popularity', 'desc')" tabindex="0" title="Artist popularity"><i aria-hidden="true" class="fire icon control-icon"></i>
+                <span>Popularity</span>
               </div>
-              <div class="ui  link item nowrap" onClick="sort(this, 'song-popularity', 'desc')" tabindex="0"><i aria-hidden="true" class="trophy icon control-icon"></i>
-                <span>Popularity (song)</span>
+              <div class="ui  link item nowrap" data-sort="song-popularity" onClick="sort(this, 'song-popularity', 'desc')" tabindex="0" title="Top song popularity"><i aria-hidden="true" class="trophy icon control-icon"></i>
+                <span>Top Song</span>
               </div>
-              <div class="ui  link item nowrap" onClick="sort(this, 'followers', 'desc')" tabindex="0"><i aria-hidden="true" class="user icon control-icon"></i>
+              <div class="ui  link item nowrap" data-sort="followers" onClick="sort(this, 'followers', 'desc')" tabindex="0" title="Followers"><i aria-hidden="true" class="user icon control-icon"></i>
                 <span>Followers</span>
               </div>
-              <div class="ui  link item nowrap" onClick="sort(this, 'albums', 'desc')" tabindex="0"><i aria-hidden="true" class="compact disc icon control-icon"></i>
+              <div class="ui  link item nowrap" data-sort="albums" onClick="sort(this, 'albums', 'desc')" tabindex="0" title="Albums"><i aria-hidden="true" class="compact disc icon control-icon"></i>
                 <span>Albums</span>
               </div>
-              <div class="ui  link item nowrap" onClick="sort(this, 'first-release', 'desc')" tabindex="0"><i aria-hidden="true" class="hourglass half icon control-icon"></i>
+              <div class="ui  link item nowrap" data-sort="first-release" onClick="sort(this, 'first-release', 'desc')" tabindex="0" title="Years since the first album"><i aria-hidden="true" class="hourglass half icon control-icon"></i>
                 <span>Longevity</span>
               </div>
-              <div class="ui  link item nowrap" onClick="sort(this, 'last-release', 'desc')" tabindex="0"><i aria-hidden="true" class="calendar alternate icon control-icon"></i>
-                <span>Last Release</span>
+              <div class="ui  link item nowrap" data-sort="last-release" onClick="sort(this, 'last-release', 'desc')" tabindex="0" title="Last release"><i aria-hidden="true" class="calendar alternate icon control-icon"></i>
+                <span>Release</span>
               </div>
-              <div class="ui  link item nowrap" onClick="sort(this, 'last-follow', 'asc')" tabindex="0"><i aria-hidden="true" class="bell icon control-icon"></i>
-                <span>Last Follow</span>
+              <div class="ui  link item nowrap" data-sort="last-follow" onClick="sort(this, 'last-follow', 'asc')" tabindex="0" title="Last followed"><i aria-hidden="true" class="bell icon control-icon"></i>
+                <span>Followed</span>
               </div>
             </div>
           </div>
@@ -615,57 +677,6 @@ html {
         <div class="ui fluid styled desktop accordion">
           <div class="active title">
             <span class="ui blue text">
-              <span id="desktop-menu-header-group">Group</span><i class="right dropdown icon"></i>
-            </span>
-          </div>
-          <div class="active content">
-            <div class="ui fluid vertical attached menu sidebar-options group-options">
-              <div class="ui active link item" onClick="groupArtists(this, 'none')" tabindex="0"><i aria-hidden="true" class="th icon control-icon"></i>
-                <span>None</span>
-              </div>
-              <div class="ui link item" onClick="groupArtists(this, 'style')" tabindex="0"><i aria-hidden="true" class="music icon control-icon"></i>
-                <span>By Style</span>
-              </div>
-              <div class="ui link item" onClick="groupArtists(this, 'longevity')" tabindex="0"><i aria-hidden="true" class="hourglass half icon control-icon"></i>
-                <span>By Longevity</span>
-              </div>
-            </div>
-          </div>
-          <div class="active title">
-            <span class="ui blue text">
-              <span id="desktop-menu-header-sort">Sort</span><i class="right dropdown icon"></i>
-            </span>
-          </div>
-          <div class="active content">
-            <div class="ui fluid vertical attached menu sidebar-options sort-options">
-              <div class="ui active link item nowrap" onClick="sort(this, 'name', 'asc')" tabindex="0"><i aria-hidden="true" class="music icon control-icon"></i>
-                <span>Name</span>
-              </div>
-              <div class="ui  link item nowrap" onClick="sort(this, 'popularity', 'desc')" tabindex="0"><i aria-hidden="true" class="fire icon control-icon"></i>
-                <span>Popularity (artist)</span>
-              </div>
-              <div class="ui  link item nowrap" onClick="sort(this, 'song-popularity', 'desc')" tabindex="0"><i aria-hidden="true" class="trophy icon control-icon"></i>
-                <span>Popularity (song)</span>
-              </div>
-              <div class="ui  link item nowrap" onClick="sort(this, 'followers', 'desc')" tabindex="0"><i aria-hidden="true" class="user icon control-icon"></i>
-                <span>Followers</span>
-              </div>
-              <div class="ui  link item nowrap" onClick="sort(this, 'albums', 'desc')" tabindex="0"><i aria-hidden="true" class="compact disc icon control-icon"></i>
-                <span>Albums</span>
-              </div>
-              <div class="ui  link item nowrap" onClick="sort(this, 'first-release', 'desc')" tabindex="0"><i aria-hidden="true" class="hourglass half icon control-icon"></i>
-                <span>Longevity</span>
-              </div>
-              <div class="ui  link item nowrap" onClick="sort(this, 'last-release', 'desc')" tabindex="0"><i aria-hidden="true" class="calendar alternate icon control-icon"></i>
-                <span>Last Release</span>
-              </div>
-              <div class="ui  link item nowrap" onClick="sort(this, 'last-follow', 'asc')" tabindex="0"><i aria-hidden="true" class="bell icon control-icon"></i>
-                <span>Last Follow</span>
-              </div>
-            </div>
-          </div>
-          <div class="active title">
-            <span class="ui blue text">
               <span id="desktop-menu-header-filter">Filter</span><i class="right dropdown icon"></i>
             </span>
           </div>
@@ -783,7 +794,52 @@ html {
           </div>
         </div>
       </div>
-      <div class="sixteen wide mobile tablet   thirteen wide computer   fourteen wide large screen   fourteen wide widescreen   column app-column">
+      <div class="sixteen wide mobile tablet   thirteen wide computer   fourteen wide large screen   fourteen wide widescreen   column app-column content-column">
+        <div class="list-controls">
+          <div class="list-control">
+            <span class="ui blue text list-control-label">Group</span>
+            <div class="ui secondary menu">
+              <div class="ui active link item nowrap" data-group="none" onClick="groupArtists(this, 'none')" tabindex="0"><i aria-hidden="true" class="th icon control-icon"></i>
+                <span>None</span>
+              </div>
+              <div class="ui  link item nowrap" data-group="style" onClick="groupArtists(this, 'style')" tabindex="0"><i aria-hidden="true" class="music icon control-icon"></i>
+                <span>Style</span>
+              </div>
+              <div class="ui  link item nowrap" data-group="longevity" onClick="groupArtists(this, 'longevity')" tabindex="0"><i aria-hidden="true" class="hourglass half icon control-icon"></i>
+                <span>Longevity</span>
+              </div>
+            </div>
+          </div>
+          <div class="list-control">
+            <span class="ui blue text list-control-label">Sort</span>
+            <div class="ui secondary menu">
+              <div class="ui active link item nowrap" data-sort="name" onClick="sort(this, 'name', 'asc')" tabindex="0" title="Name"><i aria-hidden="true" class="music icon control-icon"></i>
+                <span>Name</span>
+              </div>
+              <div class="ui  link item nowrap" data-sort="popularity" onClick="sort(this, 'popularity', 'desc')" tabindex="0" title="Artist popularity"><i aria-hidden="true" class="fire icon control-icon"></i>
+                <span>Popularity</span>
+              </div>
+              <div class="ui  link item nowrap" data-sort="song-popularity" onClick="sort(this, 'song-popularity', 'desc')" tabindex="0" title="Top song popularity"><i aria-hidden="true" class="trophy icon control-icon"></i>
+                <span>Top Song</span>
+              </div>
+              <div class="ui  link item nowrap" data-sort="followers" onClick="sort(this, 'followers', 'desc')" tabindex="0" title="Followers"><i aria-hidden="true" class="user icon control-icon"></i>
+                <span>Followers</span>
+              </div>
+              <div class="ui  link item nowrap" data-sort="albums" onClick="sort(this, 'albums', 'desc')" tabindex="0" title="Albums"><i aria-hidden="true" class="compact disc icon control-icon"></i>
+                <span>Albums</span>
+              </div>
+              <div class="ui  link item nowrap" data-sort="first-release" onClick="sort(this, 'first-release', 'desc')" tabindex="0" title="Years since the first album"><i aria-hidden="true" class="hourglass half icon control-icon"></i>
+                <span>Longevity</span>
+              </div>
+              <div class="ui  link item nowrap" data-sort="last-release" onClick="sort(this, 'last-release', 'desc')" tabindex="0" title="Last release"><i aria-hidden="true" class="calendar alternate icon control-icon"></i>
+                <span>Release</span>
+              </div>
+              <div class="ui  link item nowrap" data-sort="last-follow" onClick="sort(this, 'last-follow', 'asc')" tabindex="0" title="Last followed"><i aria-hidden="true" class="bell icon control-icon"></i>
+                <span>Followed</span>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="ui tab" data-all-artists="true" data-tab="all">
           <div class="artists-wrapper">
             <div class="ui grid artists">
@@ -64121,24 +64177,40 @@ html {
   </body>
   <script>markRecentReleases();</script>
   <script>pickDiscover();</script>
-  <script>sort($('.desktop .sort-options .item')[0], 'name', 'asc');</script>
+  <script>sort($('.item[data-sort]')[0], 'name', 'asc');</script>
   <script>$('.menu .item').tab({history:true, historyType: 'hash', onLoad: onTab});</script>
   <script>$('.ui.accordion.desktop').accordion({exclusive:false});</script>
   <script>$('.ui.accordion.mobile').accordion({exclusive:true});</script>
   <script>
+function focusVisibleCard() {
+    var cards = $('.ui.tab.active .artist:visible .card');
+    if (!cards.length) return;
+    var top = Math.max(0, cards.closest('.artists-wrapper')[0].getBoundingClientRect().top);
+    var card = cards.filter(function() { return this.getBoundingClientRect().top >= top; }).first();
+    (card.length ? card : cards.first()).focus();
+}
+
 $(document).on('keydown', '.menu .item', function(e) {
     if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
         $(this).click();
         return;
     }
+    if ($(this).closest('.list-controls').length) {
+        var barStep = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            focusVisibleCard();
+        } else if (barStep) {
+            e.preventDefault();
+            var barItems = $('.list-controls .item[tabindex]');
+            barItems.eq(Math.max(0, barItems.index(this) + barStep)).focus();
+        }
+        return;
+    }
     if (e.key === 'ArrowRight') {
         e.preventDefault();
-        var cards = $('.ui.tab.active .artist:visible .card');
-        if (!cards.length) return;
-        var top = Math.max(0, cards.closest('.artists-wrapper')[0].getBoundingClientRect().top);
-        var card = cards.filter(function() { return this.getBoundingClientRect().top >= top; }).first();
-        (card.length ? card : cards.first()).focus();
+        focusVisibleCard();
         return;
     }
 

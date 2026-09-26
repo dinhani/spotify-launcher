@@ -36,14 +36,14 @@ html {
     --control-line-height: 1.25rem;
     --control-padding: 0.5625rem;
 }
-.ui.input > input.artist-search, .ui.menu .item {
+.ui.input > input.artist-search, .ui.menu.sidebar-options .item {
     font-size: var(--control-font-size) !important;
     line-height: var(--control-line-height) !important;
     padding-top: var(--control-padding) !important;
     padding-bottom: var(--control-padding) !important;
     padding-left: 0.75rem !important;
 }
-.ui.menu .item {
+.ui.menu.sidebar-options .item {
     padding-right: 0.75rem !important;
 }
 .ui.input > input.artist-search {
@@ -80,6 +80,59 @@ html {
 }
 .nowrap {
     white-space: nowrap;
+}
+
+/* List controls (group and sort bar) */
+.list-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem 2rem;
+    margin: 0 10px;
+}
+.list-control {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.list-control-label {
+    font-weight: bold;
+}
+.list-controls .ui.secondary.menu {
+    min-height: 0;
+    margin: 0;
+    padding: 3px;
+    gap: 2px;
+    font-size: 0.92857143rem;
+    background: #f1f2f3;
+    border-radius: 0.5rem;
+}
+.list-controls .ui.secondary.menu > .link.item {
+    align-self: stretch;
+    margin: 0;
+    padding: calc(0.5625rem - 3px) 0.8rem;
+    line-height: 1.25rem;
+    border-radius: calc(0.5rem - 3px);
+    color: rgba(0, 0, 0, 0.6);
+    transition: color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+.list-controls .ui.secondary.menu > .link.item:hover {
+    background: rgba(0, 0, 0, 0.04);
+    color: rgba(0, 0, 0, 0.87);
+}
+.list-controls .ui.secondary.menu > .active.link.item,
+.list-controls .ui.secondary.menu > .active.link.item:hover {
+    background: #fff;
+    color: #2185d0;
+    box-shadow: 0 1px 2px rgba(34, 36, 38, 0.15), 0 0 0 1px rgba(34, 36, 38, 0.06);
+}
+.list-controls .ui.menu .item > i.icon.control-icon {
+    margin: 0 0.4em 0 0;
+    opacity: 0.5;
+}
+.list-controls .ui.menu .active.item > i.icon.control-icon {
+    opacity: 1;
 }
 
 /* Artist cards */
@@ -189,6 +242,9 @@ html {
     .artist-image {
         height: 200px !important;
     }
+    .list-controls {
+        display: none;
+    }
 }
 @media only screen and (min-width: 992px) {
     body {
@@ -198,8 +254,20 @@ html {
     div::-webkit-scrollbar {
         display: none;
     }
-    .artists-wrapper {
+    .content-column {
+        display: flex !important;
+        flex-direction: column;
         height: 98vh;
+    }
+    .content-column > .ui.tab.active {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-height: 0;
+    }
+    .artists-wrapper {
+        flex: 1;
+        min-height: 0;
         overflow-y: scroll;
         padding: 10px;
     }
@@ -257,10 +325,7 @@ function sort(element, attribute, order) {
     $("#mobile-menu-header-sort").text("Sort: " + title);
 
     // mark active
-    var sortIndex = $(element).index();
-    $('.sort-options').each(function() {
-        $(this).children().removeClass('active').eq(sortIndex).addClass('active');
-    });
+    $('.item[data-sort]').removeClass('active').filter('[data-sort="' + attribute + '"]').addClass('active');
 
     // reorder
     $('.artists').each(function(_, artists) {
@@ -365,10 +430,7 @@ function applyGrouping() {
 
 function groupArtists(element, mode) {
     grouping = mode;
-    var selectedIndex = $(element).index();
-    $('.group-options').each(function() {
-        $(this).children().removeClass('active').eq(selectedIndex).addClass('active');
-    });
+    $('.item[data-group]').removeClass('active').filter('[data-group="' + mode + '"]').addClass('active');
     var title = removeEmoji($(element).text());
     $('#mobile-menu-header-group').text('Group: ' + title);
     applyGrouping();
@@ -451,19 +513,35 @@ function markRecentReleases() {
 """
 
 JS_KEYBOARD_NAVIGATION = """
+function focusVisibleCard() {
+    var cards = $('.ui.tab.active .artist:visible .card');
+    if (!cards.length) return;
+    var top = Math.max(0, cards.closest('.artists-wrapper')[0].getBoundingClientRect().top);
+    var card = cards.filter(function() { return this.getBoundingClientRect().top >= top; }).first();
+    (card.length ? card : cards.first()).focus();
+}
+
 $(document).on('keydown', '.menu .item', function(e) {
     if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
         $(this).click();
         return;
     }
+    if ($(this).closest('.list-controls').length) {
+        var barStep = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            focusVisibleCard();
+        } else if (barStep) {
+            e.preventDefault();
+            var barItems = $('.list-controls .item[tabindex]');
+            barItems.eq(Math.max(0, barItems.index(this) + barStep)).focus();
+        }
+        return;
+    }
     if (e.key === 'ArrowRight') {
         e.preventDefault();
-        var cards = $('.ui.tab.active .artist:visible .card');
-        if (!cards.length) return;
-        var top = Math.max(0, cards.closest('.artists-wrapper')[0].getBoundingClientRect().top);
-        var card = cards.filter(function() { return this.getBoundingClientRect().top >= top; }).first();
-        (card.length ? card : cards.first()).focus();
+        focusVisibleCard();
         return;
     }
 
@@ -599,35 +677,52 @@ def menu_sort(mobile):
     label = "Sort: Name" if mobile else "Sort"
     with menu_wrapper(mobile, label, "sort") as menu:
         menu['class'] += " sort-options"
-        for index, (icon, label, attribute, order) in enumerate([
-            ("music", "Name", "name", "asc"),
-            ("fire", "Popularity (artist)", "popularity", "desc"),
-            ("trophy", "Popularity (song)", "song-popularity", "desc"),
-            ("user", "Followers", "followers", "desc"),
-            ("compact disc", "Albums", "albums", "desc"),
-            ("hourglass half", "Longevity", "first-release", "desc"),
-            ("calendar alternate", "Last Release", "last-release", "desc"),
-            ("bell", "Last Follow", "last-follow", "asc"),
-        ]):
-            active = "active" if index == 0 else ""
-            with div(cls=f"ui {active} link item nowrap",
-                     onClick=f"sort(this, '{attribute}', '{order}')", tabindex="0"):
-                i(cls=f"{icon} icon control-icon", aria_hidden="true")
-                span(label)
+        sort_items()
 
 def menu_group(mobile):
     label = "Group: None" if mobile else "Group"
     with menu_wrapper(mobile, label, "group") as menu:
         menu['class'] += " group-options"
-        with div(cls="ui active link item", onClick="groupArtists(this, 'none')", tabindex="0"):
-            i(cls="th icon control-icon", aria_hidden="true")
-            span("None")
-        with div(cls="ui link item", onClick="groupArtists(this, 'style')", tabindex="0"):
-            i(cls="music icon control-icon", aria_hidden="true")
-            span("By Style")
-        with div(cls="ui link item", onClick="groupArtists(this, 'longevity')", tabindex="0"):
-            i(cls="hourglass half icon control-icon", aria_hidden="true")
-            span("By Longevity")
+        group_items()
+
+def list_controls():
+    with div(cls="list-controls"):
+        with div(cls="list-control"):
+            span("Group", cls="ui blue text list-control-label")
+            with div(cls="ui secondary menu"):
+                group_items()
+        with div(cls="list-control"):
+            span("Sort", cls="ui blue text list-control-label")
+            with div(cls="ui secondary menu"):
+                sort_items()
+
+def sort_items():
+    for index, (icon, label, description, attribute, order) in enumerate([
+        ("music", "Name", "Name", "name", "asc"),
+        ("fire", "Popularity", "Artist popularity", "popularity", "desc"),
+        ("trophy", "Top Song", "Top song popularity", "song-popularity", "desc"),
+        ("user", "Followers", "Followers", "followers", "desc"),
+        ("compact disc", "Albums", "Albums", "albums", "desc"),
+        ("hourglass half", "Longevity", "Years since the first album", "first-release", "desc"),
+        ("calendar alternate", "Release", "Last release", "last-release", "desc"),
+        ("bell", "Followed", "Last followed", "last-follow", "asc"),
+    ]):
+        active = "active" if index == 0 else ""
+        with div(cls=f"ui {active} link item nowrap", data_sort=attribute, title=description,
+                 onClick=f"sort(this, '{attribute}', '{order}')", tabindex="0"):
+            i(cls=f"{icon} icon control-icon", aria_hidden="true")
+            span(label)
+
+def group_items():
+    for index, (icon, label, mode) in enumerate([
+        ("th", "None", "none"),
+        ("music", "Style", "style"),
+        ("hourglass half", "Longevity", "longevity"),
+    ]):
+        active = "active" if index == 0 else ""
+        with div(cls=f"ui {active} link item nowrap", data_group=mode, onClick=f"groupArtists(this, '{mode}')", tabindex="0"):
+            i(cls=f"{icon} icon control-icon", aria_hidden="true")
+            span(label)
 
 def menu_search():
     with div(cls="ui fluid icon input search-control"):
@@ -756,14 +851,13 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]):
                 with div(cls="computer only three wide computer   two wide large screen   two wide widescreen   column app-column"):
                     menu_search()
                     with div(cls="ui fluid styled desktop accordion"):
-                        menu_group(mobile=False)
-                        menu_sort(mobile=False)
                         menu_filter(mobile=False, tags_with_artists=tags_with_artists)
 
                 # ------------------------------------------------------------------
                 # Content (cards)
                 # ------------------------------------------------------------------
-                with div(cls="sixteen wide mobile tablet   thirteen wide computer   fourteen wide large screen   fourteen wide widescreen   column app-column"):
+                with div(cls="sixteen wide mobile tablet   thirteen wide computer   fourteen wide large screen   fourteen wide widescreen   column app-column content-column"):
+                    list_controls()
                     for tag in TAGS_MENU_ORDER:
                         artists = tags_with_artists[tag]
                         tab_attributes = {}
@@ -800,7 +894,7 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]):
         # ----------------------------------------------------------------------
         script("markRecentReleases();")
         script("pickDiscover();")
-        script("sort($('.desktop .sort-options .item')[0], 'name', 'asc');")
+        script("sort($('.item[data-sort]')[0], 'name', 'asc');")
         script("$('.menu .item').tab({history:true, historyType: 'hash', onLoad: onTab});")
         script("$('.ui.accordion.desktop').accordion({exclusive:false});")
         script("$('.ui.accordion.mobile').accordion({exclusive:true});")
