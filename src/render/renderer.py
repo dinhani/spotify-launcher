@@ -425,7 +425,7 @@ def menu_group(mobile):
     with menu_wrapper(mobile, label, "group") as menu:
         menu['class'] += " group-options"
         with div(cls="ui active link item", onClick="groupArtists(false)", tabindex="0"):
-            i(cls="th icon", aria_hidden="true")
+            i(cls="th icon", aria_hidden="true", style="float: none; margin: 0 0.35rem 0 0;")
             span("None")
         div("🎼 By Style", cls="ui link item", onClick="groupArtists(true)", tabindex="0")
 
