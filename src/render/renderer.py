@@ -350,7 +350,8 @@ var longevityRanges = [
     {label: '25–29 Years', from: 25, to: 29},
     {label: '30–34 Years', from: 30, to: 34},
     {label: '35–39 Years', from: 35, to: 39},
-    {label: '40+ Years', from: 40, to: Infinity},
+    {label: '40–49 Years', from: 40, to: 49},
+    {label: '50+ Years', from: 50, to: Infinity},
 ];
 
 function familiesOf(cell) {
