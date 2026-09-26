@@ -424,8 +424,8 @@ def menu_group(mobile):
     label = "Group: All Together" if mobile else "Group"
     with menu_wrapper(mobile, label, "group") as menu:
         menu['class'] += " group-options"
-        div("All Together", cls="ui active link item", onClick="groupArtists(false)", tabindex="0")
-        div("By Style", cls="ui link item", onClick="groupArtists(true)", tabindex="0")
+        div("🗂️ All Together", cls="ui active link item", onClick="groupArtists(false)", tabindex="0")
+        div("🎼 By Style", cls="ui link item", onClick="groupArtists(true)", tabindex="0")
 
 def menu_search():
     with div(cls="ui fluid icon input", style="margin-bottom: 0.5rem;"):
