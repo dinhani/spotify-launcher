@@ -1,4 +1,5 @@
 import json
+import re
 from collections import Counter
 from pathlib import Path
 
@@ -10,6 +11,15 @@ CACHE_DIR = DATA_DIR / "artists"
 FIRST_RELEASE_OVERRIDES = {
     "Agnes Obel": "2010-10-04",
 }
+
+ALBUM_NAME_SUFFIX = re.compile(r"\s*(?:[\(\[][^\)\]]*[\)\]]|\s-\s.*)$")
+ALBUM_EDITION_WORDS = re.compile(r"deluxe|edition|version|remaster|re-?issue|bonus|expanded|anniversary|extended|\bmix\b|soundtrack", re.IGNORECASE)
+ALBUM_NON_STUDIO_WORDS = re.compile(r"\blive\b|ao vivo|\bdemos?\b|greatest|best of|\bhits\b|collection|anthology|b-sides|rarities", re.IGNORECASE)
+
+def parse_album_title(name: str) -> str:
+    while (suffix := ALBUM_NAME_SUFFIX.search(name)) and ALBUM_EDITION_WORDS.search(suffix.group()):
+        name = name[:suffix.start()]
+    return re.sub(r"\W+", " ", name).strip().casefold()
 
 # ------------------------------------------------------------------------------
 # Load followed list (defines rank)
@@ -24,6 +34,7 @@ rows = []
 for artist in artists:
     data = json.loads(s=(CACHE_DIR / f"{artist['id']}.json").read_text(encoding="utf-8"))
     artist, albums, tracks = data["artist"], data["albums"], data["top_tracks"]
+    albums_studio = [album for album in albums if not ALBUM_NON_STUDIO_WORDS.search(album["name"])]
 
     # find top album
     top_albums = [
@@ -42,8 +53,8 @@ for artist in artists:
         "image": artist["images"][0]["url"] if artist.get("images") else "",
         "top_album_name": top_album["name"] if top_album else "",
         "top_album_image": top_album["images"][0]["url"] if top_album else "",
-        "albums": len(albums),
-        "first_release": FIRST_RELEASE_OVERRIDES.get(artist["name"]) or min((al.get("release_date", "") for al in albums), default=""),
+        "albums": len({parse_album_title(album["name"]) for album in albums_studio}),
+        "first_release": FIRST_RELEASE_OVERRIDES.get(artist["name"]) or min((album.get("release_date", "") for album in albums_studio), default=""),
         "last_release": max((al.get("release_date", "") for al in albums), default=""),
         "top_song": tracks[0]["name"] if tracks else "",
         "top_song_popularity": tracks[0]["popularity"] if tracks else 0,
