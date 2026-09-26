@@ -204,6 +204,17 @@ function pickDiscover() {
     showOnly(allTab, picked);
 }
 </script>
+    <script>
+function markRecentReleases() {
+    var recentSince = Date.now() - 90 * 24 * 60 * 60 * 1000;
+    $('.artist').each(function(_, cell) {
+        if (!cell.dataset.lastRelease || new Date(cell.dataset.lastRelease).getTime() < recentSince) return;
+        var label = $('<div>', {class: 'ui mini green right corner label', title: 'Released ' + cell.dataset.lastRelease});
+        label.append($('<i>', {class: 'compact disc icon'}));
+        $(cell).find('.card > .image').append(label);
+    });
+}
+</script>
     <link href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min.css" rel="stylesheet">
     <style>
 /* Layout */
@@ -303,7 +314,7 @@ html {
 .ui.card > .image > i.favorite-star.icon {
     position: absolute;
     top: 0.35rem;
-    right: 0.35rem;
+    left: 0.35rem;
     margin: 0;
     font-size: 0.9rem;
     color: #f5d76e;
@@ -64108,6 +64119,7 @@ html {
       </div>
     </div>
   </body>
+  <script>markRecentReleases();</script>
   <script>pickDiscover();</script>
   <script>sort($('.desktop .sort-options .item')[0], 'name', 'asc');</script>
   <script>$('.menu .item').tab({history:true, historyType: 'hash', onLoad: onTab});</script>

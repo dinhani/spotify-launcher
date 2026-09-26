@@ -18,6 +18,7 @@ Delight is an explicit product goal. Choosing an artist should feel inviting, pe
 - Artist photos and names lead the cards. Preserve the character of the photos; place supporting information with restraint, keeping important parts of the image visible.
 - Stats are secondary, passive information. Keep them legible and quiet; avoid turning them into prominent panels or covering photos unnecessarily.
 - Use spacing, typography, contrast and subtle treatments deliberately. More boxes, bars, borders or colorful icons do not automatically make a design better.
+- Card photo corners: a small star at top left marks favorites; a green corner label at top right marks a last release within 90 days, computed in the browser.
 - Consider the whole composition on desktop and mobile, including long genre labels, favorites and dense cards. Avoid overlaps and preserve comfortable interactions.
 
 ## Discover
