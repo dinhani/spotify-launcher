@@ -610,7 +610,7 @@ def card(artist: Artist):
     with div(cls="ui card artist-card", tabindex="0", data_spotify=spotify_url, data_lastfm=lastfm_url):
         # image
         with a(cls="image", href=spotify_url, tabindex="-1"):
-            img(src=artist.image, cls="ui image artist-image")
+            img(src=artist.image, cls="ui image artist-image", alt=artist.name, loading="lazy")
             if T_FAVORITES in artist.tags:
                 with div(cls="ui mini yellow right corner label"):
                     i(cls="star icon")
