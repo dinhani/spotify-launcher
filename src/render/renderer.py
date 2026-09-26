@@ -65,7 +65,9 @@ html {
     border-bottom: 0;
 }
 .ui.menu .item > .label.artist-count {
-    width: 3.5em;
+    width: calc(3ch + 0.8em);
+    padding-left: 0.4em;
+    padding-right: 0.4em;
     text-align: center;
     font-variant-numeric: tabular-nums;
 }
