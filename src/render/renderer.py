@@ -111,6 +111,16 @@ html {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
     pointer-events: none;
 }
+.ui.card > .image > i.favorite-star.icon {
+    position: absolute;
+    top: 0.35rem;
+    right: 0.35rem;
+    margin: 0;
+    font-size: 0.9rem;
+    color: #f5d76e;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+    pointer-events: none;
+}
 .artist-image-caption.has-album-cover {
     padding-right: 3.25rem;
 }
@@ -649,8 +659,7 @@ def card(artist: Artist):
         with a(cls="image", href=spotify_url, tabindex="-1"):
             img(src=artist.image, cls="ui image artist-image", alt=artist.name, loading="lazy")
             if T_FAVORITES in artist.tags:
-                with div(cls="ui mini yellow right corner label"):
-                    i(cls="star icon")
+                i(cls="star icon favorite-star", role="img", aria_label="Favorite")
             caption_class = "artist-image-caption has-album-cover" if artist.top_album_image else "artist-image-caption"
             with div(cls=caption_class):
                 div(artist_tags, cls="artist-tags")
