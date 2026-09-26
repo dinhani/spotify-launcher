@@ -7,6 +7,10 @@ import polars
 DATA_DIR = Path(__file__).parent.parent / "data"
 CACHE_DIR = DATA_DIR / "artists"
 
+FIRST_RELEASE_OVERRIDES = {
+    "Agnes Obel": "2010-10-04",
+}
+
 # ------------------------------------------------------------------------------
 # Load followed list (defines rank)
 # ------------------------------------------------------------------------------
@@ -39,7 +43,7 @@ for artist in artists:
         "top_album_name": top_album["name"] if top_album else "",
         "top_album_image": top_album["images"][0]["url"] if top_album else "",
         "albums": len(albums),
-        "first_release": min((al.get("release_date", "") for al in albums), default=""),
+        "first_release": FIRST_RELEASE_OVERRIDES.get(artist["name"]) or min((al.get("release_date", "") for al in albums), default=""),
         "last_release": max((al.get("release_date", "") for al in albums), default=""),
         "top_song": tracks[0]["name"] if tracks else "",
         "top_song_popularity": tracks[0]["popularity"] if tracks else 0,
