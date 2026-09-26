@@ -14,7 +14,7 @@ from render.models import Artist, Tag
 # Constants
 # ------------------------------------------------------------------------------
 CSS_STYLE_NOWRAP = "white-space: nowrap; "
-TODAY_ARTISTS_PER_FAMILY = 3
+TODAY_ARTISTS_PER_FAMILY = 4
 
 CSS_GLOBAL = """
 :root {
@@ -144,8 +144,9 @@ function search(text) {
 
 JS_FUNC_PICK_TODAY = """
 function pickToday() {
-    var today = new Date();
-    var seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
+    var shifted = new Date(Date.now() - 6 * 60 * 60 * 1000);
+    var period = shifted.getHours() < 6 ? 0 : shifted.getHours() < 12 ? 1 : 2;
+    var seed = (shifted.getFullYear() * 10000 + (shifted.getMonth() + 1) * 100 + shifted.getDate()) * 10 + period;
     var random = function() {
         seed = (seed + 0x6D2B79F5) | 0;
         var t = Math.imul(seed ^ (seed >>> 15), 1 | seed);

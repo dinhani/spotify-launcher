@@ -12,7 +12,7 @@ A personal launcher for the Spotify artists I follow: it helps me decide what to
 
 ## Today
 
-3 artists per family: each family's Today shows its 3, All's Today shows all 9. Picked in the browser with the date as seed: same picks all day, no reroll.
+4 artists per family: each family's Today shows its 4, All's Today shows all 12. Picked in the browser, seeded by period: morning (6h-12h), afternoon (12h-18h), night (18h-6h). Same picks within a period, no reroll.
 
 ## Planned: long-term history
 
