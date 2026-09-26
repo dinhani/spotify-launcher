@@ -440,7 +440,7 @@ function groupArtists(element) {
 }
 """.replace("__ARTIST_FAMILIES__", json.dumps([
     {"name": family.name, "icon": family.icon, "description": family.description, "fallback": family == T_OTHERS}
-    for family in [*TAGS_DISCOVER.values(), T_OTHERS]
+    for family in [*(family.tag for family in FAMILIES), T_OTHERS]
 ], ensure_ascii=False))
 
 JS_FUNC_SEARCH = """
@@ -653,9 +653,10 @@ def menu_filter(mobile: bool, tags_with_artists: dict[Tag, list[Artist]]):
     with menu:
         for index, tag in enumerate(TAGS_MENU_ORDER):
             artists_count = len(tags_with_artists[tag])
+            family = find_family(tag)
             if tag == T_DISCOVER:
-                artists_count = DISCOVER_ARTISTS_PER_FAMILY * len(TAGS_DISCOVER)
-            elif tag in TAGS_DISCOVER:
+                artists_count = DISCOVER_ARTISTS_PER_FAMILY * len(FAMILIES)
+            elif family and tag == family.discover:
                 artists_count = DISCOVER_ARTISTS_PER_FAMILY
 
             # item attributes
@@ -748,7 +749,7 @@ def card_cell(artist: Artist):
         data_first_release=artist.first_release,
         data_last_release=artist.last_release,
         data_last_follow=str(artist.last_follow),
-        data_families="|".join(family.name for family in TAGS_DISCOVER.values() if family in artist.tags),
+        data_families="|".join(family.tag.name for family in FAMILIES if family.tag in artist.tags),
     )
 
 def card(artist: Artist):
@@ -857,16 +858,16 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]):
                 with div(cls="sixteen wide mobile tablet   thirteen wide computer   fourteen wide large screen   fourteen wide widescreen   column app-column content-column"):
                     list_controls()
                     for tag in TAGS_MENU_ORDER:
+                        family = find_family(tag)
                         if tag == T_DISCOVER:
                             artists = tags_with_artists[T_ALL]
                             tab_attributes = {"data_discover_per_family": str(DISCOVER_ARTISTS_PER_FAMILY)}
-                        elif tag in TAGS_DISCOVER:
-                            family = TAGS_DISCOVER[tag]
-                            artists = tags_with_artists[family]
+                        elif family and tag == family.discover:
+                            artists = tags_with_artists[family.tag]
                             tab_attributes = {
-                                "data_discover_family": family.name,
+                                "data_discover_family": family.tag.name,
                                 "data_discover_excluded_families": json.dumps([
-                                    excluded.name for excluded in TAGS_DISCOVER_EXCLUSIONS.get(family, [])
+                                    excluded.tag.name for excluded in FAMILY_DISCOVER_EXCLUSIONS.get(family, [])
                                 ], ensure_ascii=False),
                             }
                         else:
@@ -874,10 +875,8 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]):
                             tab_attributes = {}
                             if tag == T_ALL:
                                 tab_attributes["data_all_artists"] = "true"
-                            for family in TAGS_DISCOVER.values():
-                                prefix = "Alt" if family == T_ALT_ALL else family.name
-                                if tag == family or tag.name.startswith(prefix + " - "):
-                                    tab_attributes["data_group_family"] = family.name
+                            if family:
+                                tab_attributes["data_group_family"] = family.tag.name
 
                         with div(cls="ui tab", data_tab=id(tag), **tab_attributes):
                             cards(sorted(artists, key=lambda x: x.name.lower()))

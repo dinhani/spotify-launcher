@@ -8,6 +8,36 @@ class Tag(NamedTuple):
     icon: str
     description: str = ""
 
+class Family(NamedTuple):
+    tag: Tag
+    discover: Tag
+    favorites: Tag
+    non_favorites: Tag
+    granular: tuple[Tag, ...]
+
+    @property
+    def tags_umbrella(self) -> list[Tag]:
+        return [self.tag, self.discover, self.favorites, self.non_favorites]
+
+    @property
+    def tags_menu(self) -> list[Tag]:
+        return [*self.tags_umbrella, *self.granular]
+
+class Family(NamedTuple):
+    tag: Tag
+    discover: Tag
+    favorites: Tag
+    non_favorites: Tag
+    granular: tuple[Tag, ...]
+
+    @property
+    def tags_umbrella(self) -> list[Tag]:
+        return [self.tag, self.discover, self.favorites, self.non_favorites]
+
+    @property
+    def tags_menu(self) -> list[Tag]:
+        return [*self.tags_umbrella, *self.granular]
+
 class Artist:
     def __init__(self,
                 id: str, name: str, image: str,
@@ -26,8 +56,8 @@ class Artist:
         self.followers = followers
         self.albums = albums
 
-        self.tags = set()
-        self.tags_granular = set()
+        self.tags: set[Tag] = set()
+        self.tags_granular: list[Tag] = []
 
         self.first_release = first_release or ""
         self.last_release = last_release or ""
