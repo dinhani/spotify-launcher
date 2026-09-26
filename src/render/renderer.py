@@ -618,6 +618,11 @@ $(document).on('keydown', '.artist-search', function(e) {
 });
 
 $(document).on('keydown', function(e) {
+    if (e.code === 'Digit4' && e.ctrlKey && !e.altKey && !e.metaKey) {
+        e.preventDefault();
+        focusVisibleCard();
+        return;
+    }
     var kind = {
         Digit1: 'tab', ArrowUp: 'tab', ArrowDown: 'tab',
         Digit2: 'sort', ArrowLeft: 'sort', ArrowRight: 'sort',
