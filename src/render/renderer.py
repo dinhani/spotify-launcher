@@ -133,7 +133,6 @@ html {
     text-align: left;
     min-width: 0;
     overflow-wrap: anywhere;
-    pointer-events: auto;
     font-size: 0.75rem;
     font-weight: bold;
     line-height: 1.2;
@@ -617,7 +616,7 @@ def card(artist: Artist):
                     i(cls="star icon")
             caption_class = "artist-image-caption has-album-cover" if artist.top_album_image else "artist-image-caption"
             with div(cls=caption_class):
-                div(artist_tags, cls="artist-tags", title=artist_tags)
+                div(artist_tags, cls="artist-tags")
                 with div(cls="artist-stats"):
                     for icon, value, label in [
                         ("fire", str(artist.popularity), "Popularity"),
