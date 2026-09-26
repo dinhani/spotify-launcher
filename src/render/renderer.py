@@ -247,6 +247,9 @@ function pickDiscover() {
     $('.ui.tab[data-discover-family]').each(function(_, tab) {
         var candidates = cells
             .filter(function(cell) { return cell.dataset.families.split('|').includes(tab.dataset.discoverFamily); })
+            .filter(function(cell) {
+                return tab.dataset.discoverFamily !== 'Folk' || !cell.dataset.families.split('|').includes('Rock');
+            })
             .map(function(cell) { return cell.dataset.name; })
             .filter(function(name) { return !picked.includes(name); });
         var familyPicked = [];
