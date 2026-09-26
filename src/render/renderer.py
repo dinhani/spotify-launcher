@@ -313,7 +313,7 @@ function groupSections(grid) {
     var sections = longevityRanges.map(function(range) {
         return {label: range.label, includes: function(cell) {
             if (!cell.dataset.firstRelease) return false;
-            var years = currentYear - Number(cell.dataset.firstRelease);
+            var years = currentYear - Number(cell.dataset.firstRelease.slice(0, 4));
             return years >= range.from && years <= range.to;
         }};
     });
@@ -583,6 +583,7 @@ def menu_sort(mobile):
             ("trophy", "Popularity (song)", "song-popularity", "desc"),
             ("user", "Followers", "followers", "desc"),
             ("compact disc", "Albums", "albums", "desc"),
+            ("hourglass half", "Longevity", "first-release", "desc"),
             ("calendar alternate", "Last Release", "last-release", "desc"),
             ("bell", "Last Follow", "last-follow", "asc"),
         ]):
@@ -629,7 +630,7 @@ def card_cell(artist):
         data_popularity=str(artist.popularity),
         data_song_popularity=str(artist.top_song_popularity),
         data_albums=str(artist.albums),
-        data_first_release=artist.first_release[:4],
+        data_first_release=artist.first_release,
         data_last_release=artist.last_release,
         data_last_follow=str(artist.last_follow),
         data_families="|".join(family.name for family in TAGS_DISCOVER.values() if family in artist.tags),
