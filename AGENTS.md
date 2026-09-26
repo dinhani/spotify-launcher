@@ -16,7 +16,7 @@ Discover suggests artists to revisit from the artists already followed; it does 
 
 4 artists per family: each family's Discover shows its 4, All's Discover shows all 12. Picked in the browser, seeded by period: morning (6h-12h), afternoon (12h-18h), night (18h-6h). Same picks within a period, no reroll.
 
-Folk's Discover pool excludes any artist who also belongs to Rock, regardless of whether that artist was selected for Rock's Discover. This only affects Discover eligibility; family classifications and filters keep their overlaps.
+Folk's Discover pool excludes any artist who also belongs to Rock or Alternative, regardless of whether that artist was selected for another family's Discover. This only affects Discover eligibility; family classifications, favorites and filters keep their overlaps.
 
 ## Grouping
 

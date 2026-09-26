@@ -159,7 +159,9 @@ function pickDiscover() {
         var candidates = cells
             .filter(function(cell) { return cell.dataset.families.split('|').includes(tab.dataset.discoverFamily); })
             .filter(function(cell) {
-                return tab.dataset.discoverFamily !== 'Folk' || !cell.dataset.families.split('|').includes('Rock');
+                var families = cell.dataset.families.split('|');
+                return tab.dataset.discoverFamily !== 'Folk'
+                    || (!families.includes('Rock') && !families.includes('Alternative'));
             })
             .map(function(cell) { return cell.dataset.name; })
             .filter(function(name) { return !picked.includes(name); });
