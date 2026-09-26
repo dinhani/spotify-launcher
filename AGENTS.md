@@ -10,6 +10,15 @@ A personal launcher for the Spotify artists I follow: it helps me decide what to
 - Favorites are curated by taste, not by play count.
 - When I say "the app should answer X" I mean a feature of this page, not an analysis by the agent.
 
+## Planned: long-term listening history
+
+Goal: answer "what did I use to listen to and dropped?".
+
+- Spotify "Extended streaming history" was requested on 2026-09-26 (spotify.com/account/privacy, arrives by email as a zip of `Streaming_History_Audio_*.json`). It covers the whole account lifetime; there is no API for it.
+- When it arrives: add a `just` step that aggregates, per followed artist, total time listened and the date last played into `data/`.
+- Commit only the aggregate; gitignore the raw JSONs, since the repo is public.
+- Last.fm keeps covering recent listening; the export covers history up to its date.
+
 ## Pipeline
 
 - `just download`: fetches followed artists into `data/followed.json` and caches each artist in `data/artists/<id>.json` (cached files are never re-downloaded).
