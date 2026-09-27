@@ -864,9 +864,9 @@ def list_controls():
 def sort_items():
     for index, (icon, label, description, attribute, order) in enumerate([
         ("music", "Name", "Name", "name", "asc"),
+        ("trophy", "Top Song", "Top song popularity", "song-popularity", "desc"),
         ("fire", "Popularity", "Artist popularity", "popularity", "desc"),
         ("user", "Followers", "Followers", "followers", "desc"),
-        ("trophy", "Top Song", "Top song popularity", "song-popularity", "desc"),
         ("compact disc", "Albums", "Albums", "albums", "desc"),
         ("hourglass half", "Longevity", "Years since the first album", "first-release", "desc"),
         ("calendar alternate", "Release", "Last release", "last-release", "desc"),
