@@ -722,8 +722,8 @@ var albumsRanges = [
 ];
 // Spotify gives no follow date, only the order: 1 is the latest follow
 var followedRanges = [
-    {label: 'Latest 8', description: 'The most recent follows', from: 1, to: 8},
-    {label: 'Earlier', description: 'Everyone followed before', from: 9, to: Infinity},
+    {label: 'Latest 16', description: 'The most recent follows', from: 1, to: 16},
+    {label: 'Earlier', description: 'Everyone followed before', from: 17, to: Infinity},
 ];
 var releaseRanges = [
     {label: 'This Year', from: 0, to: 0},
