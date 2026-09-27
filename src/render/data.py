@@ -331,7 +331,6 @@ TAG_RULES = {
     T_POP_ATMOSPHERIC: [
         "+Elsiane",
         "+ERA",
-        "+Escala",
         "+Girls In Hawaii",
         "+Klergy",
         "+aeseaes",
@@ -353,7 +352,6 @@ TAG_RULES = {
         "+Leandra",
         "+London Grammar",
         "+Lor",
-        "+Lorien Testard",
         "+lùisa",
         "+MS MR",
         "+Oh Land",
