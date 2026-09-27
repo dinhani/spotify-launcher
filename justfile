@@ -34,7 +34,7 @@ export:
 lastfm:
     python src/artists-lastfm.py
 
-# Extract Spotify extended streaming history to data/history.parquet
+# Extract Spotify extended streaming history to data/spotify-history.parquet
 [group("run")]
 history *export_dir:
-    python src/history-extract.py {{export_dir}}
+    python src/spotify-history.py {{export_dir}}
