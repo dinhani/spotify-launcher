@@ -5,7 +5,7 @@ from pathlib import Path
 import polars
 
 EXPORT_DIR = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("Z:/pessoal/redes-sociais/spotify-2026-09")
-OUT = Path(__file__).parent.parent / "data" / "spotify-history.tsv"
+OUT = Path(__file__).parent.parent / "data" / "streams.tsv"
 TIMEZONE = "America/Sao_Paulo"
 
 DEVICE = polars.Enum(["desktop", "phone", "tablet", "speaker", "tv", "unknown"])
@@ -46,6 +46,7 @@ rows = [
         "reason_end": stream["reason_end"],
         "shuffle": stream["shuffle"],
         "skipped": bool(stream["skipped"]),
+        "offline": bool(stream["offline"]),
     }
     for stream in streams
     if stream["spotify_track_uri"]
@@ -64,6 +65,7 @@ history = (
         "reason_end": polars.String,
         "shuffle": polars.Boolean,
         "skipped": polars.Boolean,
+        "offline": polars.Boolean,
     })
     .with_columns(
         polars.col("ended_at").str.to_datetime(format="%Y-%m-%dT%H:%M:%SZ", time_zone="UTC").dt.convert_time_zone(TIMEZONE),

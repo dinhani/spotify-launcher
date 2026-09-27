@@ -70,6 +70,6 @@ for artist in artists:
     })
 
 rows.sort(key=lambda r: r["name"])
-out = DATA_DIR / "artistas.tsv"
+out = DATA_DIR / "artists.tsv"
 polars.DataFrame(data=rows).write_csv(file=out, separator="\t")
 print(f"Wrote {out}")

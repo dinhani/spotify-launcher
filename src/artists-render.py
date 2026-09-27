@@ -18,7 +18,7 @@ import render.renderer as renderer
 # ------------------------------------------------------------------------------
 # CONSTANTS
 # ------------------------------------------------------------------------------
-INPUT_ARTISTS = "data/artistas.tsv"
+INPUT_ARTISTS = "data/artists.tsv"
 OUTPUT_LAUNCHER = "docs/index.html"
 OUTPUT_SUMMARY_FAVORITES = "docs/summary-favorites.txt"
 OUTPUT_SUMMARY_TAGS = "docs/summary-tags.txt"
