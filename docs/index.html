@@ -106,6 +106,22 @@ var longevityRanges = [
     {label: '40–49 Years', from: 40, to: 49},
     {label: '50+ Years', from: 50, to: Infinity},
 ];
+var followersRanges = [
+    {label: 'Superstar', description: '8M+ followers', from: 8000000, to: Infinity},
+    {label: 'Mainstream', description: '4.5M–8M followers', from: 4500000, to: 7999999},
+    {label: 'Beyond Niche', description: '1M–4.5M followers', from: 1000000, to: 4499999},
+    {label: 'Niche Reference', description: '110K–1M followers', from: 110000, to: 999999},
+    {label: 'Niche', description: '20K–110K followers', from: 20000, to: 109999},
+    {label: 'Underground', description: 'Under 20K followers', from: 0, to: 19999},
+];
+var releaseRanges = [
+    {label: 'This Year', from: 0, to: 0},
+    {label: 'Last Year', from: 1, to: 1},
+    {label: '2–4 Years Ago', from: 2, to: 4},
+    {label: '5–9 Years Ago', from: 5, to: 9},
+    {label: '10–19 Years Ago', from: 10, to: 19},
+    {label: '20+ Years Ago', from: 20, to: Infinity},
+];
 
 function familiesOf(cell) {
     return cell.dataset.families.split('|').filter(Boolean);
@@ -134,17 +150,33 @@ function groupSections(grid) {
     }
 
     var currentYear = new Date().getFullYear();
-    var sections = longevityRanges.map(function(range) {
-        var description = range.to === Infinity
-            ? 'Debut ' + (currentYear - range.from) + ' or earlier'
-            : 'Debut ' + (currentYear - range.to) + '–' + (currentYear - range.from);
-        return {label: range.label, description: description, includes: function(cell) {
-            if (!cell.dataset.firstRelease) return false;
-            var years = currentYear - Number(cell.dataset.firstRelease.slice(0, 4));
-            return years >= range.from && years <= range.to;
+    var yearsSince = function(date) { return date ? currentYear - Number(date.slice(0, 4)) : null; };
+    var years = function(prefix) {
+        return function(range) {
+            return range.to === Infinity
+                ? prefix + ' ' + (currentYear - range.from) + ' or earlier'
+                : range.from === range.to
+                    ? prefix + ' ' + (currentYear - range.from)
+                    : prefix + ' ' + (currentYear - range.to) + '–' + (currentYear - range.from);
+        };
+    };
+    if (grouping === 'followers') {
+        return rangeSections(followersRanges, function(cell) { return Number(cell.dataset.followers); });
+    }
+    if (grouping === 'release') {
+        return rangeSections(releaseRanges, function(cell) { return yearsSince(cell.dataset.lastRelease); }, years('Released'));
+    }
+    return rangeSections(longevityRanges, function(cell) { return yearsSince(cell.dataset.firstRelease); }, years('Debut'));
+}
+
+function rangeSections(ranges, valueOf, describe) {
+    var sections = ranges.map(function(range) {
+        return {label: range.label, description: describe ? describe(range) : range.description || '', includes: function(cell) {
+            var value = valueOf(cell);
+            return value !== null && value >= range.from && value <= range.to;
         }};
     });
-    sections.push({label: 'Unknown', description: '', includes: function(cell) { return !cell.dataset.firstRelease; }});
+    sections.push({label: 'Unknown', description: '', includes: function(cell) { return valueOf(cell) === null; }});
     return sections;
 }
 
@@ -506,6 +538,7 @@ html {
     gap: 0.75rem;
 }
 .list-control-label {
+    min-width: 3.5em; /* same width for Sort and Group, so wrapped menus align */
     font-weight: bold;
 }
 .list-controls .ui.secondary.menu {
@@ -718,6 +751,12 @@ html {
               </div>
               <div class=" link item nowrap" data-group="longevity" onClick="groupArtists(this)" tabindex="0"><i aria-hidden="true" class="hourglass half icon control-icon"></i>
                 <span>Longevity</span>
+              </div>
+              <div class=" link item nowrap" data-group="followers" onClick="groupArtists(this)" tabindex="0"><i aria-hidden="true" class="user icon control-icon"></i>
+                <span>Followers</span>
+              </div>
+              <div class=" link item nowrap" data-group="release" onClick="groupArtists(this)" tabindex="0"><i aria-hidden="true" class="calendar alternate icon control-icon"></i>
+                <span>Release</span>
               </div>
             </div>
           </div>
@@ -1030,6 +1069,12 @@ html {
               </div>
               <div class=" link item nowrap" data-group="longevity" onClick="groupArtists(this)" tabindex="0"><i aria-hidden="true" class="hourglass half icon control-icon"></i>
                 <span>Longevity</span>
+              </div>
+              <div class=" link item nowrap" data-group="followers" onClick="groupArtists(this)" tabindex="0"><i aria-hidden="true" class="user icon control-icon"></i>
+                <span>Followers</span>
+              </div>
+              <div class=" link item nowrap" data-group="release" onClick="groupArtists(this)" tabindex="0"><i aria-hidden="true" class="calendar alternate icon control-icon"></i>
+                <span>Release</span>
               </div>
             </div>
           </div>
