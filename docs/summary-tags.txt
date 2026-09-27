@@ -1,7 +1,4 @@
 
-Others:
-* Hollywood Burns
-
 Rock - Heavy Metal:
 * ANGRA
 * Agent Fresco
@@ -185,7 +182,6 @@ Folk - Steampunk:
 * Dirt Poor Robins
 * Eliza Rickman
 * Ghost Quartet
-* Haute & Freddy
 * Kim Tillman
 * Major Parkinson
 * Steam Powered Giraffe
@@ -193,7 +189,7 @@ Folk - Steampunk:
 * The Dresden Dolls
 * Unwoman
 
-Alt - Atmospheric:
+Pop - Atmospheric:
 * AURORA
 * Agnes Obel
 * Anastasia Minster
@@ -231,7 +227,7 @@ Alt - Atmospheric:
 * aeseaes
 * lùisa
 
-Alt - Energetic:
+Pop - Energetic:
 * AURORA
 * Allie X
 * Aqua
@@ -243,6 +239,7 @@ Alt - Energetic:
 * Dua Lipa
 * Eliza Rickman
 * Florence + The Machine
+* Haute & Freddy
 * Jessie Ware
 * Joyce Jonathan
 * Kaleida
@@ -271,7 +268,7 @@ Alt - Energetic:
 * Yelle
 * Zella Day
 
-Alt - Vox/Guitar:
+Pop - Vox/Guitar:
 * Alela Diane
 * Angus & Julia Stone
 * Bear's Den
@@ -287,3 +284,6 @@ Alt - Vox/Guitar:
 * Michelle Gurevich
 * Sidney Gish
 * The Staves
+
+Others:
+* Hollywood Burns

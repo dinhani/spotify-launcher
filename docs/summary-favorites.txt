@@ -1,6 +1,4 @@
 
-Others:
-
 Rock - Heavy Metal:
 * ANGRA
 * Altaria
@@ -55,11 +53,10 @@ Folk - Folk:
 Folk - Steampunk:
 * Dirt Poor Robins
 * Eliza Rickman
-* Haute & Freddy
 * Steam Powered Giraffe
 * The Cog is Dead
 
-Alt - Atmospheric:
+Pop - Atmospheric:
 * Agnes Obel
 * Billie Eilish
 * Birdy
@@ -81,12 +78,13 @@ Alt - Atmospheric:
 * aeseaes
 * lùisa
 
-Alt - Energetic:
+Pop - Energetic:
 * Allie X
 * Chappell Roan
 * Dua Lipa
 * Eliza Rickman
 * Florence + The Machine
+* Haute & Freddy
 * Jessie Ware
 * Joyce Jonathan
 * Lady Gaga
@@ -101,7 +99,9 @@ Alt - Energetic:
 * The Dø
 * Zella Day
 
-Alt - Vox/Guitar:
+Pop - Vox/Guitar:
 * Angus & Julia Stone
 * Fish in a Birdcage
 * Marika Hackman
+
+Others:
