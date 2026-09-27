@@ -727,7 +727,7 @@ def menu_filter(mobile: bool, tags_with_artists: dict[Tag, list[Artist]]):
     """Render filter menu according to mobile or desktop rules."""
     menu = menu_wrapper("Filter", "filter") if mobile else div(cls="ui fluid vertical desktop menu sidebar-options")
     with menu:
-        for index, tag in enumerate(TAGS_MENU_ORDER):
+        for tag in TAGS_MENU_ORDER:
             artists_count = len(tags_with_artists[tag])
             family = find_family(tag)
             if tag == T_DISCOVER:
@@ -737,7 +737,7 @@ def menu_filter(mobile: bool, tags_with_artists: dict[Tag, list[Artist]]):
 
             # item attributes
             item_display = tag_display(tag)
-            item_active = "active" if index == 0 else ""
+            item_active = "active" if tag == T_ALL else ""
             item_header = "header" if tag in TAGS_HEADER else ""
 
             # menu item
@@ -955,7 +955,7 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]) -> str:
                             if family:
                                 tab_attributes["data_group_family"] = family.tag.name
 
-                        with div(cls="ui tab", data_tab=id(tag), **tab_attributes):
+                        with div(cls="ui active tab" if tag == T_ALL else "ui tab", data_tab=id(tag), **tab_attributes):
                             cards(sorted(artists, key=lambda x: x.name.lower()))
 
                 # ------------------------------------------------------------------
