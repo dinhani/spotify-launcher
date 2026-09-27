@@ -862,7 +862,7 @@ def tag_display(tag: Tag) -> str:
 
 def id(tag: Tag) -> str:
     """Parse a tag to HTML identifier."""
-    return tag.name.lower().translate(str.maketrans("", "", "():/")).translate(str.maketrans("ãéó", "aeo")).replace(" - ", "-").replace(" ", "-").strip()
+    return tag.name.lower().translate(str.maketrans("", "", "():/")).translate(str.maketrans("ãéó", "aeo")).replace(" - ", "-").replace(" & ", "-").replace(" ", "-").strip()
 
 def menu_wrapper(label: str, name: str):
     """Render a mobile accordion section wrapping a menu."""
