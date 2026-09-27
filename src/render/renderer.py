@@ -844,8 +844,8 @@ def group_items():
     for index, (icon, label, mode) in enumerate([
         ("th", "None", "none"),
         ("music", "Style", "style"),
-        ("hourglass half", "Longevity", "longevity"),
         ("user", "Followers", "followers"),
+        ("hourglass half", "Longevity", "longevity"),
         ("calendar alternate", "Release", "release"),
     ]):
         active = "active" if index == 0 else ""
