@@ -399,7 +399,7 @@ body.release-mode .release-text {
     width: 2.75rem;  /* spans both lines: the photo leads, as on the cards */
     height: 2.75rem;
     margin-right: 0.45rem;
-    border-radius: 50%;
+    border-radius: 0.4rem;
     object-fit: cover;
 }
 .command-item > i.icon {
