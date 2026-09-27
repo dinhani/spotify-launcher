@@ -402,10 +402,13 @@ var longevityRanges = [
     {label: '50+ Years', from: 50, to: Infinity},
 ];
 var followersRanges = [
-    {label: '1M+ Followers', from: 1000000, to: Infinity},
-    {label: '100K–1M Followers', from: 100000, to: 999999},
-    {label: '10K–100K Followers', from: 10000, to: 99999},
-    {label: 'Under 10K Followers', from: 0, to: 9999},
+    {label: '5M+ Followers', from: 5000000, to: Infinity},
+    {label: '1M–5M Followers', from: 1000000, to: 4999999},
+    {label: '500K–1M Followers', from: 500000, to: 999999},
+    {label: '250K–500K Followers', from: 250000, to: 499999},
+    {label: '100K–250K Followers', from: 100000, to: 249999},
+    {label: '25K–100K Followers', from: 25000, to: 99999},
+    {label: 'Under 25K Followers', from: 0, to: 24999},
 ];
 var releaseRanges = [
     {label: 'This Year', from: 0, to: 0},
