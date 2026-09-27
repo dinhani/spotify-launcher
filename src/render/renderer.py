@@ -721,6 +721,10 @@ var albumsRanges = [
     {label: 'No Albums', description: 'Singles and EPs only', from: 0, to: 0},
 ];
 // Spotify gives no follow date, only the order: 1 is the latest follow
+var followedRanges = [
+    {label: 'Latest 8', description: 'The most recent follows', from: 1, to: 8},
+    {label: 'Earlier', description: 'Everyone followed before', from: 9, to: Infinity},
+];
 var releaseRanges = [
     {label: 'This Year', from: 0, to: 0},
     {label: 'Last Year', from: 1, to: 1},
@@ -746,6 +750,9 @@ function uniqueArtists(grid) {
 function groupSections(grid) {
     if (grouping === 'followers') {
         return rangeSections(followersRanges, function(cell) { return Number(cell.dataset.followers); });
+    }
+    if (grouping === 'followed') {
+        return rangeSections(followedRanges, function(cell) { return Number(cell.dataset.lastFollow); });
     }
     if (grouping === 'albums') {
         return rangeSections(albumsRanges, function(cell) { return Number(cell.dataset.albums); });
@@ -819,8 +826,7 @@ function groupGrid(grid) {
     var byViewOrder = function(a, b) { return Number(a.dataset.viewOrder) - Number(b.dataset.viewOrder); };
     var cells = uniqueArtists(grid);
     $(grid).empty();
-    // Spotify gives no follow date, only the order, so Followed has no sections to draw
-    if (grouping === 'none' || grouping === 'followed') {
+    if (grouping === 'none') {
         $(grid).append(cells.sort(byViewOrder));
     } else {
         groupSections(grid).forEach(function(section) {
@@ -1467,7 +1473,7 @@ def group_items():
         ("compact disc", "Albums", "albums", "albums", "desc", "Sections by number of albums", "Most albums first", "Fewest albums first"),
         ("calendar alternate", "Release", "release", "last-release", "asc", "Sections by years since the last release",
          "Oldest release first", "Newest release first"),
-        ("bell", "Followed", "followed", "last-follow", "asc", "No sections, in the order I followed",
+        ("bell", "Followed", "followed", "last-follow", "asc", "The latest follows apart from the rest",
          "Followed longest ago first", "Most recently followed first"),
     ]:
         with div(cls="link item nowrap", data_group=mode, data_group_sort=sort, data_group_order=order,
