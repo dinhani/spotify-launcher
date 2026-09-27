@@ -702,6 +702,12 @@ $(document).on('click', '.command-list .command-item', function() {
     runPaletteItem($(this).data('index'), false);
 });
 </script>
+    <script>
+// the back to top arrow shows once the page has scrolled past one screen (mobile; desktop scrolls inside the grid)
+$(window).on('scroll', function() {
+    $('.scroll-top').toggleClass('visible', window.scrollY > window.innerHeight);
+});
+</script>
     <link href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min.css" rel="stylesheet">
     <style>
 /* Layout */
@@ -1017,6 +1023,40 @@ body.release-mode .release-text {
         height: 140px !important;
     }
 }
+/* Back to top arrow (mobile) */
+.scroll-top {
+    display: none;
+}
+@media only screen and (max-width: 991.9px) {
+    .scroll-top {
+        position: fixed;
+        right: 1rem;
+        bottom: calc(1rem + env(safe-area-inset-bottom));
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.75rem;
+        height: 2.75rem;
+        border: none;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        color: rgba(0, 0, 0, 0.55);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+        cursor: pointer;
+    }
+    .scroll-top.visible {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .scroll-top > i.icon {
+        margin: 0;
+    }
+}
+
 /* Command palette (Ctrl+P) */
 .ui.modal.command-palette {
     overflow: hidden;
@@ -13300,10 +13340,8 @@ body.release-mode .release-text {
           </div>
         </div>
       </div>
-      <div class="sixteen wide column mobile tablet only app-column">
-        <div class="ui fluid button" onClick="window.scrollTo({top:0})">⬆️ Back to top</div>
-      </div>
     </div>
+    <button aria-label="Back to top" class="scroll-top" onClick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Back to top" type="button"><i aria-hidden="true" class="arrow up icon"></i></button>
   </body>
   <script>markRecentReleases();</script>
   <script>pickDiscover();</script>
