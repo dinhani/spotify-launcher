@@ -1427,8 +1427,8 @@ def list_controls():
 def direction_items():
     # the description follows the group, filled in the browser
     for icon, label, direction in [
-        ("sort amount down", "Descending", "desc"),
         ("sort amount up", "Ascending", "asc"),
+        ("sort amount down", "Descending", "desc"),
     ]:
         with div(cls="link item nowrap", data_direction=direction, data_command_label=label, aria_label=label,
                  onClick="orderArtists(this)", tabindex="0"):
