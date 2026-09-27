@@ -1017,10 +1017,16 @@ $(document).on('keydown', function(e) {
         focusVisibleCard();
         return;
     }
-    var arrowDirection = {ArrowLeft: 'asc', ArrowRight: 'desc'}[e.code];
-    if (arrowDirection && e.altKey && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
-        e.preventDefault();  // also keeps the browser from going back or forward
-        $('.list-controls .item[data-direction="' + arrowDirection + '"]').click().focus();
+    if (e.altKey && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
+        var directions = $('.list-controls .item[data-direction]');
+        var directionStep = {ArrowLeft: -1, ArrowRight: 1}[e.code];
+        var directionFixed = {ArrowUp: 'asc', ArrowDown: 'desc'}[e.code];
+        if (!directionStep && !directionFixed) return;
+        e.preventDefault();  // Left and Right would also go back or forward in the browser
+        var chosen = directionFixed
+            ? directions.filter('[data-direction="' + directionFixed + '"]')
+            : directions.eq((directions.index(directions.filter('.active')) + directionStep + directions.length) % directions.length);
+        chosen.click().focus();
         return;
     }
     var kind = {
@@ -1425,7 +1431,7 @@ def list_controls():
             with div(cls="ui small compact blue secondary menu"):
                 group_items()
         with div(cls="list-control"):
-            span("Order", cls="ui blue text list-control-label", title="Ctrl+3 reverses, Alt+Left ascending, Alt+Right descending")
+            span("Order", cls="ui blue text list-control-label", title="Ctrl+3 or Alt+Left/Right switches, Alt+Up ascending, Alt+Down descending")
             with div(cls="ui small compact blue secondary menu"):
                 direction_items()
             discover_button(fluid=False)

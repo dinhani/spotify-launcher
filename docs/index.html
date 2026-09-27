@@ -459,10 +459,16 @@ $(document).on('keydown', function(e) {
         focusVisibleCard();
         return;
     }
-    var arrowDirection = {ArrowLeft: 'asc', ArrowRight: 'desc'}[e.code];
-    if (arrowDirection && e.altKey && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
-        e.preventDefault();  // also keeps the browser from going back or forward
-        $('.list-controls .item[data-direction="' + arrowDirection + '"]').click().focus();
+    if (e.altKey && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
+        var directions = $('.list-controls .item[data-direction]');
+        var directionStep = {ArrowLeft: -1, ArrowRight: 1}[e.code];
+        var directionFixed = {ArrowUp: 'asc', ArrowDown: 'desc'}[e.code];
+        if (!directionStep && !directionFixed) return;
+        e.preventDefault();  // Left and Right would also go back or forward in the browser
+        var chosen = directionFixed
+            ? directions.filter('[data-direction="' + directionFixed + '"]')
+            : directions.eq((directions.index(directions.filter('.active')) + directionStep + directions.length) % directions.length);
+        chosen.click().focus();
         return;
     }
     var kind = {
@@ -1598,7 +1604,7 @@ body.release-mode .release-text {
             </div>
           </div>
           <div class="list-control">
-            <span class="ui blue text list-control-label" title="Ctrl+3 reverses, Alt+Left ascending, Alt+Right descending">Order</span>
+            <span class="ui blue text list-control-label" title="Ctrl+3 or Alt+Left/Right switches, Alt+Up ascending, Alt+Down descending">Order</span>
             <div class="ui small compact blue secondary menu">
               <div aria-label="Ascending" class="link item nowrap" data-command-label="Ascending" data-direction="asc" onClick="orderArtists(this)" tabindex="0"><i aria-hidden="true" class="sort amount up icon control-icon"></i>
                 <span class="direction-description"></span>
