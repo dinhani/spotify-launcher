@@ -375,6 +375,14 @@ body.release-mode .release-text {
     background: #eaf3fb;
     color: #1a69a4;
 }
+.command-item > img.command-photo {
+    flex-shrink: 0;
+    width: 1.6rem;
+    height: 1.6rem;
+    margin-right: 0.2rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
 .command-item > i.icon {
     width: 1.18em;
     margin: 0 0.35rem 0 0;
@@ -990,8 +998,19 @@ var PALETTE_SECTIONS = {
     Filter: {title: 'Filters', icon: 'filter'},
     Group: {title: 'Group', icon: 'object group outline'},
     Sort: {title: 'Sort', icon: 'sort amount down'},
+    Artist: {title: 'Artists', icon: 'user'},
 };
-var PALETTE_KINDS = ['Filter', 'Group', 'Sort'];
+var PALETTE_KINDS = ['Filter', 'Group', 'Sort', 'Artist'];
+var PALETTE_ARTISTS_SHOWN = 8;
+
+// artists join only once something is typed, so the empty palette stays about the page's options
+function paletteArtists() {
+    return allArtists().map(function(cell) {
+        var card = $(cell).find('.ui.card')[0];
+        return {kind: 'Artist', tag: 'Artist', label: cell.dataset.name, description: $(cell).find('.artist-tags').text(),
+                photo: $(cell).find('img.artist-image').attr('src'), spotify: card.dataset.spotify, lastfm: card.dataset.lastfm};
+    });
+}
 
 // lower is better: exact name, then name start, then word start, then anywhere; shorter names win ties
 function paletteScore(command, words) {
@@ -1060,7 +1079,7 @@ function highlightMatches(label, words, className) {
 
 function renderPalette() {
     var words = normalizeText($('.command-input').val()).split(/\\s+/).filter(Boolean);
-    paletteCommands = paletteItems().filter(function(command) {
+    paletteCommands = paletteItems().concat(words.length ? paletteArtists() : []).filter(function(command) {
         var text = normalizeText(command.kind + ' ' + PALETTE_SECTIONS[command.kind].title + ' ' + fullLabel(command));
         return words.every(function(word) { return text.includes(word); });
     }).map(function(command, order) {
@@ -1068,6 +1087,10 @@ function renderPalette() {
     }).sort(function(a, b) {
         return PALETTE_KINDS.indexOf(a.command.kind) - PALETTE_KINDS.indexOf(b.command.kind) || a.score - b.score || a.order - b.order;
     }).map(function(ranked) { return ranked.command; });
+    var artistsSeen = 0;
+    paletteCommands = paletteCommands.filter(function(command) {
+        return command.kind !== 'Artist' || artistsSeen++ < PALETTE_ARTISTS_SHOWN;
+    });
     paletteSelected = Math.min(paletteSelected, Math.max(0, paletteCommands.length - 1));
     var list = $('.command-list').empty();
     var section = null;
@@ -1080,7 +1103,8 @@ function renderPalette() {
             list.append(heading);
         }
         var row = $('<div>', {class: 'command-item' + (index === paletteSelected ? ' selected' : ''), role: 'option'}).data('index', index);
-        if (command.icon) row.append($('<i>', {class: command.icon, 'aria-hidden': 'true'}));
+        if (command.photo) row.append($('<img>', {class: 'command-photo', src: command.photo, alt: ''}));
+        else if (command.icon) row.append($('<i>', {class: command.icon, 'aria-hidden': 'true'}));
         else row.append($('<span>', {class: 'control-symbol', 'aria-hidden': 'true', text: command.symbol || ''}));
         // first line says exactly what the option is: a whole style in bold (like the sidebar headers),
         // an option inside a style with the style in quiet gray first; the second line describes it
@@ -1108,11 +1132,13 @@ function selectPaletteItem(index) {
     if (row) row.scrollIntoView({block: 'nearest'});
 }
 
-function runPaletteItem(index) {
+function runPaletteItem(index, shift) {
     var command = paletteCommands[index];
     if (!command) return;
     $('.command-palette').modal('hide');
-    $(command.item).click();
+    if (command.kind !== 'Artist') $(command.item).click();
+    else if (shift) window.open(command.lastfm, '_blank');  // as on cards: Enter opens Spotify, Shift+Enter Last.fm
+    else window.location.href = command.spotify;
 }
 
 function openPalette() {
@@ -1141,12 +1167,12 @@ $(document).on('keydown', '.command-input', function(e) {
         selectPaletteItem((paletteSelected + step + paletteCommands.length) % paletteCommands.length);
     } else if (e.key === 'Enter') {
         e.preventDefault();
-        runPaletteItem(paletteSelected);
+        runPaletteItem(paletteSelected, e.shiftKey);
     }
 });
 
 $(document).on('click', '.command-list .command-item', function() {
-    runPaletteItem($(this).data('index'));
+    runPaletteItem($(this).data('index'), false);
 });
 """
 
@@ -1248,6 +1274,8 @@ def command_palette():
                 span(" navigate · ")
                 kbd("↵")
                 span(" apply · ")
+                kbd("⇧↵")
+                span(" Last.fm · ")
                 kbd("esc")
                 span(" close")
 
