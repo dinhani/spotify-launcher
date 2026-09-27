@@ -13,7 +13,7 @@ T_ALL = Tag("All", "🗂️")
 T_DISCOVER = Tag("Discover", "")
 T_FAVORITES = Tag("Favorites", "")
 T_NON_FAVORITES = Tag("Non-Favorites", "")
-T_OTHERS = Tag("Others", "", "Everything else")
+T_OTHERS = Tag("Others", "🎶", "Everything else")
 #
 T_ROCK_ALL = Tag("Rock", "🎸", "Metal and rock")
 T_ROCK_DISCOVER = Tag("Rock - Discover", "")

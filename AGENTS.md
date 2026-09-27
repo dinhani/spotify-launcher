@@ -109,7 +109,7 @@ Tags reflect how I hear the artist, not Spotify's genre labels. A `+Name` or `-N
 
 Rules that currently have no effect (a `-Name` for a tag the artist doesn't get, a `+Name` already covered by a genre) are kept on purpose: Spotify genres change, and they were relevant when added.
 
-`Others` is a valid final place for artists that fit no family.
+`Others` is a valid final place for artists that fit no family. Its icon is `🎶`, music in general, because the group has no identity of its own.
 
 After matching, `src/render/parser.py` applies:
 
