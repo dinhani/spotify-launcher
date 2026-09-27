@@ -108,6 +108,7 @@ html {
     gap: 0.75rem;
 }
 .list-control-label {
+    min-width: 3.5em; /* same width for Sort and Group, so wrapped menus align */
     font-weight: bold;
 }
 .list-controls .ui.secondary.menu {
