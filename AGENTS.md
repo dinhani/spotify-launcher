@@ -36,6 +36,21 @@ The Group control (top bar on desktop, accordion on mobile) offers None (default
 
 Generate browser grouping names and icons from the tags in `data.py` (`FAMILIES` and `T_OTHERS`); do not maintain a separate hardcoded JavaScript list.
 
+## Judgment: accept the evidence
+
+When the data or my own knowledge of an artist settles a question, accept it. Do not keep second-guessing it with personal impressions. This reluctance has already derailed long discussions:
+
+- Mägo de Oz was repeatedly treated as "only regional" despite 5M followers and 30 years filling stadiums across Spain and Latin America. Do not treat the English-speaking audience as "the general public" and everyone else as regional.
+- Metal artists above 1M followers (Death, Opeth, Arch Enemy) were singled out as "not really" beyond their niche. The numbers say otherwise; do not exempt a genre from the criterion because of a belief about how far that genre travels.
+- Stress was called a probable data error for having few followers; it is the first Brazilian metal band. Low numbers mean small reach, not a mistake.
+
+Rules that follow:
+
+- Once a criterion is agreed (e.g. follower tiers), apply it to everyone. If a case looks wrong, say it once with the evidence, then accept the answer.
+- Work from first principles: define what the members of a group have in common before proposing names or cut points. Look at the actual artists, not at impressions of their genre.
+- When asked to analyse or define, do not answer with a menu of name suggestions. Offer one recommendation when a decision is asked for.
+- When wrong, say so plainly and move on; do not reintroduce the same argument in a new form.
+
 ## Planned: long-term history
 
 Spotify extended streaming history requested on 2026-09-26. When it arrives, aggregate per artist (time listened, last played) into `data/`; commit only the aggregate.
