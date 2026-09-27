@@ -968,7 +968,7 @@ function focusVisibleCard() {
 }
 
 $(document).on('keydown', '.menu .item', function(e) {
-    if (e.ctrlKey) return;
+    if (e.ctrlKey || e.altKey) return;
     if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
         $(this).click();
@@ -1002,7 +1002,7 @@ $(document).on('keydown', '.menu .item', function(e) {
 });
 
 $(document).on('keydown', '.artist-search', function(e) {
-    if (e.ctrlKey) return;
+    if (e.ctrlKey || e.altKey) return;
     if (e.key === 'Enter') visibleCards().first().focus();
 
     var items = $(this).closest('.column').find('.menu .item:visible');
@@ -1017,10 +1017,10 @@ $(document).on('keydown', function(e) {
         focusVisibleCard();
         return;
     }
-    var pageDirection = {PageUp: 'asc', PageDown: 'desc'}[e.code];
-    if (pageDirection && e.ctrlKey && !e.altKey && !e.metaKey && !e.shiftKey) {
-        e.preventDefault();
-        $('.list-controls .item[data-direction="' + pageDirection + '"]').click().focus();
+    var arrowDirection = {ArrowLeft: 'asc', ArrowRight: 'desc'}[e.code];
+    if (arrowDirection && e.altKey && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
+        e.preventDefault();  // also keeps the browser from going back or forward
+        $('.list-controls .item[data-direction="' + arrowDirection + '"]').click().focus();
         return;
     }
     var kind = {
@@ -1052,7 +1052,7 @@ $(document).on('keydown', function(e) {
 });
 
 $(document).on('keydown', '.ui.card', function(e) {
-    if (e.ctrlKey) return;
+    if (e.ctrlKey || e.altKey) return;
     if (e.key === 'Escape') {
         $('.artist-search:visible').focus();
         return;
@@ -1425,7 +1425,7 @@ def list_controls():
             with div(cls="ui small compact blue secondary menu"):
                 group_items()
         with div(cls="list-control"):
-            span("Order", cls="ui blue text list-control-label", title="Ctrl+3 reverses, Ctrl+PageUp ascending, Ctrl+PageDown descending")
+            span("Order", cls="ui blue text list-control-label", title="Ctrl+3 reverses, Alt+Left ascending, Alt+Right descending")
             with div(cls="ui small compact blue secondary menu"):
                 direction_items()
             discover_button(fluid=False)

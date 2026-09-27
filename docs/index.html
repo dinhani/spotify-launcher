@@ -410,7 +410,7 @@ function focusVisibleCard() {
 }
 
 $(document).on('keydown', '.menu .item', function(e) {
-    if (e.ctrlKey) return;
+    if (e.ctrlKey || e.altKey) return;
     if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
         $(this).click();
@@ -444,7 +444,7 @@ $(document).on('keydown', '.menu .item', function(e) {
 });
 
 $(document).on('keydown', '.artist-search', function(e) {
-    if (e.ctrlKey) return;
+    if (e.ctrlKey || e.altKey) return;
     if (e.key === 'Enter') visibleCards().first().focus();
 
     var items = $(this).closest('.column').find('.menu .item:visible');
@@ -459,10 +459,10 @@ $(document).on('keydown', function(e) {
         focusVisibleCard();
         return;
     }
-    var pageDirection = {PageUp: 'asc', PageDown: 'desc'}[e.code];
-    if (pageDirection && e.ctrlKey && !e.altKey && !e.metaKey && !e.shiftKey) {
-        e.preventDefault();
-        $('.list-controls .item[data-direction="' + pageDirection + '"]').click().focus();
+    var arrowDirection = {ArrowLeft: 'asc', ArrowRight: 'desc'}[e.code];
+    if (arrowDirection && e.altKey && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
+        e.preventDefault();  // also keeps the browser from going back or forward
+        $('.list-controls .item[data-direction="' + arrowDirection + '"]').click().focus();
         return;
     }
     var kind = {
@@ -494,7 +494,7 @@ $(document).on('keydown', function(e) {
 });
 
 $(document).on('keydown', '.ui.card', function(e) {
-    if (e.ctrlKey) return;
+    if (e.ctrlKey || e.altKey) return;
     if (e.key === 'Escape') {
         $('.artist-search:visible').focus();
         return;
@@ -1598,7 +1598,7 @@ body.release-mode .release-text {
             </div>
           </div>
           <div class="list-control">
-            <span class="ui blue text list-control-label" title="Ctrl+3 reverses, Ctrl+PageUp ascending, Ctrl+PageDown descending">Order</span>
+            <span class="ui blue text list-control-label" title="Ctrl+3 reverses, Alt+Left ascending, Alt+Right descending">Order</span>
             <div class="ui small compact blue secondary menu">
               <div aria-label="Ascending" class="link item nowrap" data-command-label="Ascending" data-direction="asc" onClick="orderArtists(this)" tabindex="0"><i aria-hidden="true" class="sort amount up icon control-icon"></i>
                 <span class="direction-description"></span>
