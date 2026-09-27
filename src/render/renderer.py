@@ -715,14 +715,7 @@ var albumsRanges = [
     {label: 'No Albums', description: 'Singles and EPs only', from: 0, to: 0},
 ];
 // Spotify gives no follow date, only the order: 1 is the latest follow
-var followedRanges = [
-    {label: 'Latest 10', description: 'The most recent follows', from: 1, to: 10},
-    {label: 'Latest 11–25', description: '', from: 11, to: 25},
-    {label: 'Latest 26–50', description: '', from: 26, to: 50},
-    {label: 'Latest 51–100', description: '', from: 51, to: 100},
-    {label: 'Latest 101–200', description: '', from: 101, to: 200},
-    {label: 'Earliest', description: 'Followed longest ago', from: 201, to: Infinity},
-];
+var FOLLOWED_FIRST_SECTION = 8;
 var releaseRanges = [
     {label: 'This Year', from: 0, to: 0},
     {label: 'Last Year', from: 1, to: 1},
@@ -745,11 +738,18 @@ function uniqueArtists(grid) {
     });
 }
 
-function groupSections(grid) {
+function groupSections(grid, cells) {
     if (grouping === 'followers') {
         return rangeSections(followersRanges, function(cell) { return Number(cell.dataset.followers); });
     }
     if (grouping === 'followed') {
+        var followedRanges = [];
+        var followedCount = Math.max.apply(null, cells.map(function(cell) { return Number(cell.dataset.lastFollow); }));
+        // each section doubles the previous one, ending on a multiple of 8 so it fills whole rows
+        for (var from = 1, end = FOLLOWED_FIRST_SECTION; from <= followedCount; from = end + 1, end *= 2) {
+            var to = Math.min(end, followedCount);
+            followedRanges.push({label: from === 1 ? 'Latest ' + to : 'Latest ' + from + '–' + to, from: from, to: to});
+        }
         return rangeSections(followedRanges, function(cell) { return Number(cell.dataset.lastFollow); });
     }
     if (grouping === 'albums') {
@@ -827,7 +827,7 @@ function groupGrid(grid) {
     if (grouping === 'none') {
         $(grid).append(cells.sort(byViewOrder));
     } else {
-        groupSections(grid).forEach(function(section) {
+        groupSections(grid, cells).forEach(function(section) {
             var members = cells.filter(section.includes);
             if (!members.length) return;
             var heading = $('<div>', {class: 'sixteen wide column group-heading'});
