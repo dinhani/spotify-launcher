@@ -401,6 +401,20 @@ var longevityRanges = [
     {label: '40–49 Years', from: 40, to: 49},
     {label: '50+ Years', from: 50, to: Infinity},
 ];
+var followersRanges = [
+    {label: '1M+ Followers', from: 1000000, to: Infinity},
+    {label: '100K–1M Followers', from: 100000, to: 999999},
+    {label: '10K–100K Followers', from: 10000, to: 99999},
+    {label: 'Under 10K Followers', from: 0, to: 9999},
+];
+var releaseRanges = [
+    {label: 'This Year', from: 0, to: 0},
+    {label: 'Last Year', from: 1, to: 1},
+    {label: '2–4 Years Ago', from: 2, to: 4},
+    {label: '5–9 Years Ago', from: 5, to: 9},
+    {label: '10–19 Years Ago', from: 10, to: 19},
+    {label: '20+ Years Ago', from: 20, to: Infinity},
+];
 
 function familiesOf(cell) {
     return cell.dataset.families.split('|').filter(Boolean);
@@ -429,17 +443,33 @@ function groupSections(grid) {
     }
 
     var currentYear = new Date().getFullYear();
-    var sections = longevityRanges.map(function(range) {
-        var description = range.to === Infinity
-            ? 'Debut ' + (currentYear - range.from) + ' or earlier'
-            : 'Debut ' + (currentYear - range.to) + '–' + (currentYear - range.from);
-        return {label: range.label, description: description, includes: function(cell) {
-            if (!cell.dataset.firstRelease) return false;
-            var years = currentYear - Number(cell.dataset.firstRelease.slice(0, 4));
-            return years >= range.from && years <= range.to;
+    var yearsSince = function(date) { return date ? currentYear - Number(date.slice(0, 4)) : null; };
+    var years = function(prefix) {
+        return function(range) {
+            return range.to === Infinity
+                ? prefix + ' ' + (currentYear - range.from) + ' or earlier'
+                : range.from === range.to
+                    ? prefix + ' ' + (currentYear - range.from)
+                    : prefix + ' ' + (currentYear - range.to) + '–' + (currentYear - range.from);
+        };
+    };
+    if (grouping === 'followers') {
+        return rangeSections(followersRanges, function(cell) { return Number(cell.dataset.followers); });
+    }
+    if (grouping === 'release') {
+        return rangeSections(releaseRanges, function(cell) { return yearsSince(cell.dataset.lastRelease); }, years('Released'));
+    }
+    return rangeSections(longevityRanges, function(cell) { return yearsSince(cell.dataset.firstRelease); }, years('Debut'));
+}
+
+function rangeSections(ranges, valueOf, describe) {
+    var sections = ranges.map(function(range) {
+        return {label: range.label, description: describe ? describe(range) : '', includes: function(cell) {
+            var value = valueOf(cell);
+            return value !== null && value >= range.from && value <= range.to;
         }};
     });
-    sections.push({label: 'Unknown', description: '', includes: function(cell) { return !cell.dataset.firstRelease; }});
+    sections.push({label: 'Unknown', description: '', includes: function(cell) { return valueOf(cell) === null; }});
     return sections;
 }
 
@@ -812,6 +842,8 @@ def group_items():
         ("th", "None", "none"),
         ("music", "Style", "style"),
         ("hourglass half", "Longevity", "longevity"),
+        ("user", "Followers", "followers"),
+        ("calendar alternate", "Release", "release"),
     ]):
         active = "active" if index == 0 else ""
         with div(cls=f"{active} link item nowrap", data_group=mode, onClick="groupArtists(this)", tabindex="0"):
