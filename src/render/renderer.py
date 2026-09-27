@@ -501,6 +501,7 @@ body.release-mode .release-text {
 
 JS_FUNC_ONTAB = """
 function onTab(tabPath) {
+    $('.artist-search').val('');  // a new filter is a new context; group and sort changes keep the search
     applyView(tabPath);
     fillTab($('.ui.tab[data-tab="' + tabPath + '"]')[0]);
     if ($(document.activeElement).is('body, .ui.card') && matchMedia('(min-width: 992px)').matches) {
