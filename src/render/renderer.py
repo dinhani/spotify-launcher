@@ -402,13 +402,11 @@ var longevityRanges = [
     {label: '50+ Years', from: 50, to: Infinity},
 ];
 var followersRanges = [
-    {label: '5M+ Followers', from: 5000000, to: Infinity},
-    {label: '1M–5M Followers', from: 1000000, to: 4999999},
-    {label: '500K–1M Followers', from: 500000, to: 999999},
-    {label: '250K–500K Followers', from: 250000, to: 499999},
-    {label: '100K–250K Followers', from: 100000, to: 249999},
-    {label: '25K–100K Followers', from: 25000, to: 99999},
-    {label: 'Under 25K Followers', from: 0, to: 24999},
+    {label: '20M+ Followers', description: 'Superstar', from: 20000000, to: Infinity},
+    {label: '5M–20M Followers', description: 'Big', from: 5000000, to: 19999999},
+    {label: '500K–5M Followers', description: 'Established', from: 500000, to: 4999999},
+    {label: '50K–500K Followers', description: 'Niche', from: 50000, to: 499999},
+    {label: 'Under 50K Followers', description: 'Underground', from: 0, to: 49999},
 ];
 var releaseRanges = [
     {label: 'This Year', from: 0, to: 0},
@@ -467,7 +465,7 @@ function groupSections(grid) {
 
 function rangeSections(ranges, valueOf, describe) {
     var sections = ranges.map(function(range) {
-        return {label: range.label, description: describe ? describe(range) : '', includes: function(cell) {
+        return {label: range.label, description: describe ? describe(range) : range.description || '', includes: function(cell) {
             var value = valueOf(cell);
             return value !== null && value >= range.from && value <= range.to;
         }};
