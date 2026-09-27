@@ -397,11 +397,11 @@ function viewOf(tab) {
 }
 
 function saveView(tab, update) {
-    var name = viewName(tab);
-    var views = loadPreferences().views || {};
+    var stored = loadPreferences().views || {};
+    var views = {main: stored.main, discover: stored.discover};
     var view = viewOf(tab);
     update(view);
-    views[name] = view;
+    views[viewName(tab)] = view;
     savePreference('views', views);
 }
 
@@ -415,14 +415,6 @@ function applyView(tab) {
 
 function applyPreferences() {
     var preferences = loadPreferences();
-    if (preferences.view || preferences.sort || preferences.group || (preferences.views && !preferences.views.main && !preferences.views.discover)) {
-        // drop group and sort saved by earlier versions
-        try {
-            localStorage.setItem(PREFERENCES_KEY, JSON.stringify({tab: preferences.tab}));
-        } catch (error) {
-            console.warn('Preferences unavailable', error);
-        }
-    }
     var savedTab = $('.item[data-tab="' + preferences.tab + '"]').length ? preferences.tab : null;
     if (!location.hash && savedTab) {
         history.replaceState(null, '', '#/' + savedTab);
@@ -512,31 +504,30 @@ function uniqueArtists(grid) {
 }
 
 function groupSections(grid) {
-    var scope = $(grid).closest('.ui.tab').attr('data-group-family');
-    if (grouping === 'substyle') {
-        var others = artistFamilies.filter(function(family) { return family.fallback && !scope; });
-        return artistSubstyles
-            .filter(function(substyle) { return !scope || substyle.family === scope; })
-            .map(function(substyle) {
+    if (grouping === 'followers') {
+        return rangeSections(followersRanges, function(cell) { return Number(cell.dataset.followers); });
+    }
+    if (grouping === 'style' || grouping === 'substyle') {
+        // a style filter shows only its own sections; Others shows only without one
+        var scope = $(grid).closest('.ui.tab').attr('data-group-family');
+        var styles = artistFamilies.filter(function(family) { return scope ? family.name === scope : true; });
+        var others = styles.filter(function(family) { return family.fallback; }).map(function(family) {
+            return {label: family.name, icon: family.icon, description: family.description, includes: function(cell) {
+                return familiesOf(cell).length === 0;
+            }};
+        });
+        var named = grouping === 'style'
+            ? styles.filter(function(family) { return !family.fallback; }).map(function(family) {
+                return {label: family.name, icon: family.icon, description: family.description, includes: function(cell) {
+                    return familiesOf(cell).includes(family.name);
+                }};
+            })
+            : artistSubstyles.filter(function(substyle) { return !scope || substyle.family === scope; }).map(function(substyle) {
                 return {label: substyle.name, icon: substyle.icon, description: substyle.description, includes: function(cell) {
                     return cell.dataset.substyles.split('|').includes(substyle.tag);
                 }};
-            })
-            .concat(others.map(function(family) {
-                return {label: family.name, icon: family.icon, description: family.description, includes: function(cell) {
-                    return familiesOf(cell).length === 0;
-                }};
-            }));
-    }
-    if (grouping === 'style') {
-        return artistFamilies
-            .filter(function(family) { return !scope || family.name === scope; })
-            .map(function(family) {
-                return {label: family.name, icon: family.icon, description: family.description, includes: function(cell) {
-                    var families = familiesOf(cell);
-                    return family.fallback ? families.length === 0 : families.includes(family.name);
-                }};
             });
+        return named.concat(others);
     }
 
     var currentYear = new Date().getFullYear();
@@ -550,9 +541,6 @@ function groupSections(grid) {
                     : prefix + ' ' + (currentYear - range.to) + '–' + (currentYear - range.from);
         };
     };
-    if (grouping === 'followers') {
-        return rangeSections(followersRanges, function(cell) { return Number(cell.dataset.followers); });
-    }
     if (grouping === 'release') {
         return rangeSections(releaseRanges, function(cell) { return yearsSince(cell.dataset.lastRelease); }, years('Released'));
     }
@@ -909,11 +897,11 @@ def menu_filter(mobile: bool, tags_with_artists: dict[Tag, list[Artist]]):
 
 def menu_sort():
     """Render the mobile sort menu."""
-    with menu_wrapper("Sort: Name", "sort"):
+    with menu_wrapper("Sort", "sort"):
         sort_items()
 
 def menu_group():
-    with menu_wrapper("Group: None", "group"):
+    with menu_wrapper("Group", "group"):
         group_items()
 
 def discover_button(fluid: bool):
@@ -940,7 +928,7 @@ def list_controls():
             discover_button(fluid=False)
 
 def sort_items():
-    for index, (icon, label, description, attribute, order) in enumerate([
+    for icon, label, description, attribute, order in [
         ("music", "Name", "Name", "name", "asc"),
         ("user", "Followers", "Followers", "followers", "desc"),
         ("fire", "Popularity", "Artist popularity", "popularity", "desc"),
@@ -948,25 +936,23 @@ def sort_items():
         ("compact disc", "Albums", "Albums", "albums", "desc"),
         ("calendar alternate", "Release", "Last release", "last-release", "desc"),
         ("bell", "Followed", "Last followed", "last-follow", "asc"),
-    ]):
-        active = "active" if index == 0 else ""
-        with div(cls=f"{active} link item nowrap", data_sort=attribute, data_order=order, title=description,
+    ]:
+        with div(cls="link item nowrap", data_sort=attribute, data_order=order, title=description,
                  onClick="sort(this)", tabindex="0"):
             i(cls=f"{icon} icon control-icon", aria_hidden="true")
             span(label)
 
 def group_items():
-    # sort: the grouping's default sort, until changed in a view
-    for index, (icon, label, mode, sort) in enumerate([
+    # sort: applied when the grouping is chosen
+    for icon, label, mode, sort in [
         ("th", "None", "none", "followers"),
         ("user", "Followers", "followers", "followers"),
         ("hourglass half", "Longevity", "longevity", "first-release"),
         ("calendar alternate", "Release", "release", "last-release"),
         ("music", "Style", "style", "name"),
         ("tags", "Substyle", "substyle", "name"),
-    ]):
-        active = "active" if index == 0 else ""
-        with div(cls=f"{active} link item nowrap", data_group=mode, data_group_sort=sort, onClick="groupArtists(this)", tabindex="0"):
+    ]:
+        with div(cls="link item nowrap", data_group=mode, data_group_sort=sort, onClick="groupArtists(this)", tabindex="0"):
             i(cls=f"{icon} icon control-icon", aria_hidden="true")
             span(label)
 
