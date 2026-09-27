@@ -300,6 +300,7 @@ html {
 
 JS_FUNC_ONTAB = """
 function onTab(tabPath) {
+    fillTab($('.ui.tab[data-tab="' + tabPath + '"]')[0]);
     if ($(document.activeElement).is('body, .ui.card') && matchMedia('(min-width: 992px)').matches) {
         visibleCards().first().focus();
     }
@@ -455,28 +456,30 @@ function refreshGroupHeadings() {
     });
 }
 
-function applyGrouping() {
+function groupGrid(grid) {
     var byViewOrder = function(a, b) { return Number(a.dataset.viewOrder) - Number(b.dataset.viewOrder); };
-    $('.artists').each(function(_, grid) {
-        var cells = uniqueArtists(grid);
-        $(grid).empty();
-        if (grouping === 'none') {
-            $(grid).append(cells.sort(byViewOrder));
-        } else {
-            groupSections(grid).forEach(function(section) {
-                var members = cells.filter(section.includes);
-                if (!members.length) return;
-                var heading = $('<div>', {class: 'sixteen wide column group-heading'});
-                var title = $('<h2>', {class: 'ui medium header'});
-                if (section.icon) title.append($('<span>', {class: 'control-symbol', 'aria-hidden': 'true', text: section.icon}));
-                title.append(document.createTextNode(section.label));
-                heading.append(title);
-                heading.append($('<span>', {class: 'group-summary', 'data-description': section.description}));
-                $(grid).append(heading);
-                members.sort(byViewOrder).forEach(function(cell) { $(grid).append($(cell).clone()); });
-            });
-        }
-    });
+    var cells = uniqueArtists(grid);
+    $(grid).empty();
+    if (grouping === 'none') {
+        $(grid).append(cells.sort(byViewOrder));
+    } else {
+        groupSections(grid).forEach(function(section) {
+            var members = cells.filter(section.includes);
+            if (!members.length) return;
+            var heading = $('<div>', {class: 'sixteen wide column group-heading'});
+            var title = $('<h2>', {class: 'ui medium header'});
+            if (section.icon) title.append($('<span>', {class: 'control-symbol', 'aria-hidden': 'true', text: section.icon}));
+            title.append(document.createTextNode(section.label));
+            heading.append(title);
+            heading.append($('<span>', {class: 'group-summary', 'data-description': section.description}));
+            $(grid).append(heading);
+            members.sort(byViewOrder).forEach(function(cell) { $(grid).append($(cell).clone()); });
+        });
+    }
+}
+
+function applyGrouping() {
+    $('.artists').each(function(_, grid) { groupGrid(grid); });
     search($('.artist-search').val());
 }
 
@@ -490,6 +493,24 @@ function groupArtists(element) {
     {"name": family.name, "icon": family.icon, "description": family.description, "fallback": family == T_OTHERS}
     for family in [*(family.tag for family in FAMILIES), T_OTHERS]
 ], ensure_ascii=False))
+
+JS_FUNC_FILL_TAB = """
+// Only All is rendered with cards; other tabs clone its cells when first shown.
+function allArtists() {
+    return uniqueArtists($('.ui.tab[data-all-artists] .artists'));
+}
+
+function fillTab(tab) {
+    if (!tab || !tab.hasAttribute('data-lazy')) return;
+    tab.removeAttribute('data-lazy');
+    var grid = $(tab).find('.artists')[0];
+    $(grid).append(allArtists()
+        .filter(function(cell) { return cell.dataset.tabs.split(' ').includes(tab.dataset.tab); })
+        .map(function(cell) { return $(cell).clone()[0]; }));
+    groupGrid(grid);
+    search($('.artist-search').val());
+}
+"""
 
 JS_FUNC_SEARCH = """
 function normalizeText(s) {
@@ -519,15 +540,13 @@ function pickDiscover() {
         t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
         return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
     };
+    var cells = allArtists();
     var showOnly = function(tab, names) {
-        var grid = $(tab).find('.artists');
-        var cells = grid.find('.artist').toArray();
-        grid.empty().append(names.map(function(name) {
-            return cells.find(function(cell) { return cell.dataset.name === name; });
+        $(tab).find('.artists').empty().append(names.map(function(name) {
+            return $(cells.find(function(cell) { return cell.dataset.name === name; })).clone()[0];
         }));
     };
 
-    var cells = $('.ui.tab[data-all-artists] .artist').toArray();
     var picked = [];
     var allTab = $('.ui.tab[data-discover-per-family]')[0];
     $('.ui.tab[data-discover-family]').each(function(_, tab) {
@@ -806,15 +825,15 @@ def menu_search():
         )
         i(cls="search icon")
 
-def cards(artists: list[Artist]):
+def cards(artists: list[Artist], tabs_by_artist: dict[str, list[str]]):
     """Render the card grid."""
     with div(cls="artists-wrapper"): # scroll-helper
         with div(cls="ui grid artists"):
             for artist in artists:
-                with card_cell(artist):
+                with card_cell(artist, tabs_by_artist[artist.id]):
                     card(artist)
 
-def card_cell(artist: Artist):
+def card_cell(artist: Artist, tabs: list[str]):
     """Render a card cell in the cards grid."""
     return div(cls="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist",
         data_name=artist.name,
@@ -826,6 +845,7 @@ def card_cell(artist: Artist):
         data_last_release=artist.last_release,
         data_last_follow=str(artist.last_follow),
         data_families="|".join(family.tag.name for family in FAMILIES if family.tag in artist.tags),
+        data_tabs=" ".join(tabs),
     )
 
 def card(artist: Artist):
@@ -898,6 +918,7 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]) -> str:
             script(raw(JS_FUNC_PREFERENCES))
             script(raw(JS_FUNC_SORT))
             script(raw(JS_FUNC_GROUP))
+            script(raw(JS_FUNC_FILL_TAB))
             script(raw(JS_FUNC_SEARCH))
             script(raw(JS_FUNC_PICK_DISCOVER))
             script(raw(JS_FUNC_MARK_RECENT_RELEASES))
@@ -934,29 +955,40 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]) -> str:
                 # ------------------------------------------------------------------
                 with div(cls="sixteen wide mobile tablet   thirteen wide computer   fourteen wide large screen   fourteen wide widescreen   column app-column content-column"):
                     list_controls()
+
+                    # cards are rendered once, in All; the browser fills the other tabs
+                    tabs_by_artist: dict[str, list[str]] = {artist.id: [] for artist in tags_with_artists[T_ALL]}
+                    for tag in TAGS_MENU_ORDER:
+                        family = find_family(tag)
+                        if tag == T_DISCOVER or (family and tag == family.discover):
+                            continue
+                        for artist in tags_with_artists[tag]:
+                            tabs_by_artist[artist.id].append(id(tag))
+
                     for tag in TAGS_MENU_ORDER:
                         family = find_family(tag)
                         if tag == T_DISCOVER:
-                            artists = tags_with_artists[T_ALL]
+                            artists = []
                             tab_attributes = {"data_discover_per_family": str(DISCOVER_ARTISTS_PER_FAMILY)}
                         elif family and tag == family.discover:
-                            artists = tags_with_artists[family.tag]
+                            artists = []
                             tab_attributes = {
                                 "data_discover_family": family.tag.name,
                                 "data_discover_excluded_families": json.dumps([
                                     excluded.tag.name for excluded in FAMILY_DISCOVER_EXCLUSIONS.get(family, [])
                                 ], ensure_ascii=False),
                             }
+                        elif tag == T_ALL:
+                            artists = tags_with_artists[T_ALL]
+                            tab_attributes = {"data_all_artists": "true"}
                         else:
-                            artists = tags_with_artists[tag]
-                            tab_attributes = {}
-                            if tag == T_ALL:
-                                tab_attributes["data_all_artists"] = "true"
+                            artists = []
+                            tab_attributes = {"data_lazy": "true"}
                             if family:
                                 tab_attributes["data_group_family"] = family.tag.name
 
                         with div(cls="ui active tab" if tag == T_ALL else "ui tab", data_tab=id(tag), **tab_attributes):
-                            cards(sorted(artists, key=lambda x: x.name.lower()))
+                            cards(sorted(artists, key=lambda x: x.name.lower()), tabs_by_artist)
 
                 # ------------------------------------------------------------------
                 # Scroll to top

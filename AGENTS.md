@@ -54,6 +54,8 @@ Renderer functions such as `menu_filter`, `menu_sort`, `menu_group`, `list_contr
 
 The page renders in standards mode (`render_html` emits the HTML5 doctype); keep it. Quirks mode made line heights inside inline content ignore their parent.
 
+Cards are rendered once, in the All tab, which is active in the HTML so cards show while the page loads. Each cell lists its tabs in `data-tabs`; other tabs start empty and clone their cells from All when first shown, and Discover tabs are filled on load. Keep it that way: rendering every tab's cards made the page 4.9 MB.
+
 Keyboard navigation measures the grid cells (`.artist`), not the cards, because focused and hovered cards are scaled. In the top bar, Left/Right move between options and Down goes to the grid; in the sidebar, Right goes to the grid; Left on the first card of a row returns to the active filter.
 
 Keep static styling in the renderer's `CSS_GLOBAL` block, alongside the embedded JavaScript blocks. Render elements with classes instead of inline `style=` attributes; do not extract a separate CSS file.
