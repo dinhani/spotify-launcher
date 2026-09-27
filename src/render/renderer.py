@@ -396,9 +396,9 @@ body.release-mode .release-text {
 }
 .command-item > img.command-photo {
     flex-shrink: 0;
-    width: 1.6rem;
-    height: 1.6rem;
-    margin-right: 0.2rem;
+    width: 2.75rem;  /* spans both lines: the photo leads, as on the cards */
+    height: 2.75rem;
+    margin-right: 0.45rem;
     border-radius: 50%;
     object-fit: cover;
 }
