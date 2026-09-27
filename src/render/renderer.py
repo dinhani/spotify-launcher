@@ -410,7 +410,7 @@ function sortItemFor(tab, group) {
 function applyView(tab) {
     activeTab = tab;
     var tabElement = $('.ui.tab[data-tab="' + tab + '"]')[0];
-    var group = viewOf(tab).group || (tabElement && tabElement.dataset.defaultGroup) || 'none';
+    var group = viewOf(tab).group || (tabElement && tabElement.dataset.defaultGroup) || 'followers';
     var groupItem = $('.item[data-group="' + group + '"]')[0] || $('.item[data-group]')[0];
     setGrouping(groupItem);
     orderArtists(sortItemFor(tab, grouping));
@@ -1132,6 +1132,7 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]) -> str:
                         elif family and tag == family.discover:
                             artists = []
                             tab_attributes = {
+                                "data_default_group": "none",
                                 "data_discover_family": family.tag.name,
                                 "data_discover_excluded_families": json.dumps([
                                     excluded.tag.name for excluded in FAMILY_DISCOVER_EXCLUSIONS.get(family, [])
