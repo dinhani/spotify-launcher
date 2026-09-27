@@ -264,7 +264,6 @@ TAG_RULES = {
         "+Poets of the Fall",
         "+Syd Matters",
         "+Tame Impala",
-        "+The Dead South",
         "+Wussy",
         "alternative rock",
         "hard rock",
