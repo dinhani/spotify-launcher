@@ -244,8 +244,10 @@ TAG_RULES = {
         "-Sólstafir",
         "-Sonata Arctica",
         "-Van Canto",
+        "-Wintersun",
         "-Ye Banished Privateers",
         "+Diablo Swing Orchestra",
+        "+Suldusk",
         "folk metal",
     ],
     T_ROCK_EXTREME_METAL: [
@@ -264,6 +266,7 @@ TAG_RULES = {
         "-Judas Priest",
         "-Metallica",
         "-Ozzy Osbourne",
+        "-Queensrÿche",
         "+Barns Courtney",
         "+Boz Scaggs",
         "+Camp Claude",
