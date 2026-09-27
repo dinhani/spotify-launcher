@@ -97,7 +97,7 @@ Rules that follow:
 
 ## Workflow
 
-After any change, re-render and commit it (source and generated `docs/` together) without asking. In remote sessions without the Python dependencies, do not try to render: commit the source only; I render and commit `docs/` myself.
+After any change, re-render and commit it (source and generated `docs/` together) without asking. Commits are authored by me, Renato Dinhani <renatodinhani@gmail.com>, with Claude only as `Co-Authored-By`: I guide the work. Set `git config user.name` and `user.email` accordingly at the start of a session. In remote sessions without the Python dependencies, do not try to render: commit the source only; I render and commit `docs/` myself.
 
 Renderer functions such as `menu_filter`, `menu_sort`, `menu_group`, `list_controls`, `discover_button`, `command_palette` and `card` are page components; keep them as functions even with a single caller.
 
