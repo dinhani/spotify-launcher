@@ -786,8 +786,8 @@ $(document).on('keydown', function(e) {
     }
     var kind = {
         Digit1: 'tab', ArrowUp: 'tab', ArrowDown: 'tab',
-        Digit2: 'sort', ArrowLeft: 'sort', ArrowRight: 'sort',
-        Digit3: 'group',
+        Digit2: 'group', ArrowLeft: 'group', ArrowRight: 'group',
+        Digit3: 'sort',
     }[e.code];
     if (!kind || !e.ctrlKey || e.altKey || e.metaKey) return;
     if ((e.code === 'ArrowLeft' || e.code === 'ArrowRight') && $(e.target).is('input')) return;
@@ -928,13 +928,13 @@ def discover_button(fluid: bool):
 def list_controls():
     with div(cls="list-controls"):
         with div(cls="list-control"):
-            span("Sort", cls="ui blue text list-control-label", title="Ctrl+2 or Ctrl+Right next, Ctrl+Shift+2 or Ctrl+Left previous")
-            with div(cls="ui small compact blue secondary menu"):
-                sort_items()
-        with div(cls="list-control"):
-            span("Group", cls="ui blue text list-control-label", title="Ctrl+3 next, Ctrl+Shift+3 previous")
+            span("Group", cls="ui blue text list-control-label", title="Ctrl+2 or Ctrl+Right next, Ctrl+Shift+2 or Ctrl+Left previous")
             with div(cls="ui small compact blue secondary menu"):
                 group_items()
+        with div(cls="list-control"):
+            span("Sort", cls="ui blue text list-control-label", title="Ctrl+3 next, Ctrl+Shift+3 previous")
+            with div(cls="ui small compact blue secondary menu"):
+                sort_items()
             discover_button(fluid=False)
 
 def sort_items():
@@ -1100,8 +1100,8 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]) -> str:
                     discover_button(fluid=True)
                     with div(cls="ui fluid styled mobile accordion"):
                         menu_filter(mobile=True, tags_with_artists=tags_with_artists)
-                        menu_sort()
                         menu_group()
+                        menu_sort()
 
                 # ------------------------------------------------------------------
                 # Menu (desktop)
