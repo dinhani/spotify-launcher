@@ -39,8 +39,8 @@ The Group control (top bar on desktop, accordion on mobile) offers None (default
 Tiers describe how far an artist's audience reaches, measured by Spotify followers. They never describe career age (that is Longevity), stage billing or how an artist became known. Largest first; the tier name is the section title and the range goes in the summary:
 
 - **Superstar** (8M+): the biggest names overall, known to everyone (Queen, Metallica, Madonna, Ozzy Osbourne, Chappell Roan). The cut sits below the 8.5M–12M block of legends so the block stays together.
-- **Mainstream** (4.5M–8M): known to the general public (Florence + The Machine, Pantera, Lynyrd Skynyrd, Judas Priest, Mägo de Oz).
-- **Beyond Niche** (1M–4.5M): the audience is larger than a niche sustains, so people outside the niche listen to them, whatever the genre, metal included (Paris Paloma, Birdy, Whitesnake, Sabaton, Opeth).
+- **Mainstream** (3M–8M): known to the general public, with hits that topped general charts or went platinum (Florence + The Machine, Pantera, Lynyrd Skynyrd, Judas Priest, Mägo de Oz, Stromae, Whitesnake, Phoebe Bridgers, Dio). The cut sits in the Volbeat/Dio gap.
+- **Beyond Niche** (1M–3M): the audience is larger than a niche sustains, so people outside the niche listen to them, whatever the genre, metal included (Volbeat, Sabaton, Nightwish, Opeth, Paris Paloma).
 - **Niche Reference** (110K–1M): a reference within their niche, relevant and known by everyone in it without necessarily being a star, meaning the audience of a specific taste (power metal, fado, dream pop). Niche audiences top out around 800K–1M (Blind Guardian, Stratovarius, HammerFall, ANGRA, Madredeus, Agnes Obel).
 - **Niche** (20K–110K): part of a niche, but not its stars (HÆLOS, Jorn, Bitter Ruin).
 - **Underground** (under 20K): barely on the radar, even within their niche (Confraria da Costa, Stress). Few followers mean small reach, not a data error.
