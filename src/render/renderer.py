@@ -109,7 +109,7 @@ html {
     gap: 0.5rem 2rem;
     margin: 0 10px;
 }
-.list-controls > .list-control:last-child {
+.list-controls > .list-control + .list-control {
     margin-left: auto;
 }
 .list-control {
@@ -885,7 +885,6 @@ def discover_button(fluid: bool):
 
 def list_controls():
     with div(cls="list-controls"):
-        discover_button(fluid=False)
         with div(cls="list-control"):
             span("Sort", cls="ui blue text list-control-label", title="Ctrl+2 or Ctrl+Right next, Ctrl+Shift+2 or Ctrl+Left previous")
             with div(cls="ui small compact blue secondary menu"):
@@ -894,6 +893,7 @@ def list_controls():
             span("Group", cls="ui blue text list-control-label", title="Ctrl+3 next, Ctrl+Shift+3 previous")
             with div(cls="ui small compact blue secondary menu"):
                 group_items()
+        discover_button(fluid=False)
 
 def sort_items():
     for index, (icon, label, description, attribute, order) in enumerate([
