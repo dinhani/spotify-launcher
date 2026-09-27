@@ -1017,6 +1017,12 @@ $(document).on('keydown', function(e) {
         focusVisibleCard();
         return;
     }
+    var pageDirection = {PageUp: 'asc', PageDown: 'desc'}[e.code];
+    if (pageDirection && e.ctrlKey && !e.altKey && !e.metaKey && !e.shiftKey) {
+        e.preventDefault();
+        $('.list-controls .item[data-direction="' + pageDirection + '"]').click().focus();
+        return;
+    }
     var kind = {
         Digit1: 'tab', ArrowUp: 'tab', ArrowDown: 'tab',
         Digit2: 'group', ArrowLeft: 'group', ArrowRight: 'group',
@@ -1419,7 +1425,7 @@ def list_controls():
             with div(cls="ui small compact blue secondary menu"):
                 group_items()
         with div(cls="list-control"):
-            span("Order", cls="ui blue text list-control-label", title="Ctrl+3 reverses")
+            span("Order", cls="ui blue text list-control-label", title="Ctrl+3 reverses, Ctrl+PageUp ascending, Ctrl+PageDown descending")
             with div(cls="ui small compact blue secondary menu"):
                 direction_items()
             discover_button(fluid=False)
