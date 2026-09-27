@@ -1349,7 +1349,7 @@ def sort_items():
 def group_items():
     # sort: applied when the grouping is chosen
     for icon, label, mode, sort, description in [
-        ("th", "None", "none", "followers", "No sections"),
+        ("square outline", "None", "none", "followers", "No sections"),
         ("music", "Style", "style", "name", f"Sections by {', '.join(family.tag.name for family in FAMILIES)} and {T_OTHERS.name}"),
         ("tags", "Substyle", "substyle", "name", "Sections by substyle"),
         ("user", "Followers", "followers", "followers", "Sections by audience reach"),
