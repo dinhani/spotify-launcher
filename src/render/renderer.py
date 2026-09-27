@@ -361,7 +361,7 @@ function savePreference(name, value) {
 function applyPreferences() {
     var preferences = loadPreferences();
     orderArtists($('.item[data-sort="' + preferences.sort + '"]')[0] || $('.item[data-sort]')[0]);
-    groupArtists($('.item[data-group="' + preferences.group + '"]')[0] || $('.item[data-group]')[0]);
+    groupArtists($('.item[data-group="' + preferences.group + '"]')[0] || $('.item[data-group]')[0], true);
     if (!location.hash && $('.item[data-tab="' + preferences.tab + '"]').length) {
         history.replaceState(null, '', '#/' + preferences.tab);
     }
@@ -547,7 +547,10 @@ function applyGrouping() {
     search($('.artist-search').val());
 }
 
-function groupArtists(element) {
+function groupArtists(element, restoring) {
+    // choosing a grouping also picks its matching sort; restoring keeps the saved sort
+    var sortItem = !restoring && element.dataset.groupSort && $('.item[data-sort="' + element.dataset.groupSort + '"]')[0];
+    if (sortItem) orderArtists(sortItem);
     selectOption(element, 'group', 'Group');
     savePreference('group', element.dataset.group);
     grouping = element.dataset.group;
@@ -876,16 +879,18 @@ def sort_items():
             span(label)
 
 def group_items():
-    for index, (icon, label, mode) in enumerate([
-        ("th", "None", "none"),
-        ("music", "Style", "style"),
-        ("tags", "Substyle", "substyle"),
-        ("user", "Followers", "followers"),
-        ("hourglass half", "Longevity", "longevity"),
-        ("calendar alternate", "Release", "release"),
+    # sort: the sort selected along with the grouping, if it has one
+    for index, (icon, label, mode, sort) in enumerate([
+        ("th", "None", "none", None),
+        ("music", "Style", "style", None),
+        ("tags", "Substyle", "substyle", None),
+        ("user", "Followers", "followers", "followers"),
+        ("hourglass half", "Longevity", "longevity", "first-release"),
+        ("calendar alternate", "Release", "release", "last-release"),
     ]):
         active = "active" if index == 0 else ""
-        with div(cls=f"{active} link item nowrap", data_group=mode, onClick="groupArtists(this)", tabindex="0"):
+        sort_attributes = {"data_group_sort": sort} if sort else {}
+        with div(cls=f"{active} link item nowrap", data_group=mode, onClick="groupArtists(this)", tabindex="0", **sort_attributes):
             i(cls=f"{icon} icon control-icon", aria_hidden="true")
             span(label)
 
