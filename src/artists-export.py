@@ -25,7 +25,7 @@ def parse_album_title(name: str) -> str:
 # Load followed list (defines rank)
 # ------------------------------------------------------------------------------
 artists = json.loads(s=(DATA_DIR / "followed.json").read_text(encoding="utf-8"))
-rank = {artist["id"]: len(artists) - i for i, artist in enumerate(artists)}
+rank = {artist["id"]: i + 1 for i, artist in enumerate(artists)}
 
 # ------------------------------------------------------------------------------
 # Parse cached data → TSV
