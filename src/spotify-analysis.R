@@ -14,7 +14,7 @@ streams <- fread("../data/streams.tsv") |>
 # -- ANALYSE DATA ---
 streams |>
   filter(!following) |> 
-  group_by(artist, following) |>
+  group_by(artist, track, following) |>
   summarise(
     plays = n(),
     songs = unique(track) |> length(),

@@ -1,6 +1,385 @@
 [
   {
     "external_urls": {
+      "spotify": "https://open.spotify.com/artist/7cTq0bYGTIlPoXo9lFXJlL"
+    },
+    "followers": {
+      "href": null,
+      "total": 150560
+    },
+    "genres": [
+      "power metal",
+      "symphonic metal",
+      "folk metal",
+      "medieval metal"
+    ],
+    "href": "https://api.spotify.com/v1/artists/7cTq0bYGTIlPoXo9lFXJlL",
+    "id": "7cTq0bYGTIlPoXo9lFXJlL",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6761610000e5ebc810d26bd80a80f0ac27031a",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab67616100005174c810d26bd80a80f0ac27031a",
+        "height": 320,
+        "width": 320
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000f178c810d26bd80a80f0ac27031a",
+        "height": 160,
+        "width": 160
+      }
+    ],
+    "name": "Van Canto",
+    "popularity": 39,
+    "type": "artist",
+    "uri": "spotify:artist:7cTq0bYGTIlPoXo9lFXJlL"
+  },
+  {
+    "external_urls": {
+      "spotify": "https://open.spotify.com/artist/3RWMoFlUnhTXpQiJJfbaTF"
+    },
+    "followers": {
+      "href": null,
+      "total": 1750
+    },
+    "genres": [
+      "power metal",
+      "speed metal"
+    ],
+    "href": "https://api.spotify.com/v1/artists/3RWMoFlUnhTXpQiJJfbaTF",
+    "id": "3RWMoFlUnhTXpQiJJfbaTF",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab67616d0000b2735bcfd866533262b59f4dcfca",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab67616d00001e025bcfd866533262b59f4dcfca",
+        "height": 300,
+        "width": 300
+      },
+      {
+        "url": "https://i.scdn.co/image/ab67616d000048515bcfd866533262b59f4dcfca",
+        "height": 64,
+        "width": 64
+      }
+    ],
+    "name": "Dragonheart",
+    "popularity": 5,
+    "type": "artist",
+    "uri": "spotify:artist:3RWMoFlUnhTXpQiJJfbaTF"
+  },
+  {
+    "external_urls": {
+      "spotify": "https://open.spotify.com/artist/3N1B1g6JtIgd6ClRkzD4yT"
+    },
+    "followers": {
+      "href": null,
+      "total": 306797
+    },
+    "genres": [
+      "power metal",
+      "heavy metal",
+      "progressive metal",
+      "metal"
+    ],
+    "href": "https://api.spotify.com/v1/artists/3N1B1g6JtIgd6ClRkzD4yT",
+    "id": "3N1B1g6JtIgd6ClRkzD4yT",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6761610000e5eb28ce3420531dadeaea4d8aef",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000517428ce3420531dadeaea4d8aef",
+        "height": 320,
+        "width": 320
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000f17828ce3420531dadeaea4d8aef",
+        "height": 160,
+        "width": 160
+      }
+    ],
+    "name": "Savatage",
+    "popularity": 50,
+    "type": "artist",
+    "uri": "spotify:artist:3N1B1g6JtIgd6ClRkzD4yT"
+  },
+  {
+    "external_urls": {
+      "spotify": "https://open.spotify.com/artist/4D0CepDROoLM09ht1sM5cu"
+    },
+    "followers": {
+      "href": null,
+      "total": 592538
+    },
+    "genres": [
+      "new age",
+      "gregorian chant",
+      "celtic"
+    ],
+    "href": "https://api.spotify.com/v1/artists/4D0CepDROoLM09ht1sM5cu",
+    "id": "4D0CepDROoLM09ht1sM5cu",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6761610000e5eb8ace648a3baf5260189a742b",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab676161000051748ace648a3baf5260189a742b",
+        "height": 320,
+        "width": 320
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000f1788ace648a3baf5260189a742b",
+        "height": 160,
+        "width": 160
+      }
+    ],
+    "name": "ERA",
+    "popularity": 60,
+    "type": "artist",
+    "uri": "spotify:artist:4D0CepDROoLM09ht1sM5cu"
+  },
+  {
+    "external_urls": {
+      "spotify": "https://open.spotify.com/artist/2FBDDo06NZR5B7qOzmMxq9"
+    },
+    "followers": {
+      "href": null,
+      "total": 60996
+    },
+    "genres": [
+      "gothic metal",
+      "gothic rock",
+      "symphonic metal",
+      "finnish rock",
+      "doom metal"
+    ],
+    "href": "https://api.spotify.com/v1/artists/2FBDDo06NZR5B7qOzmMxq9",
+    "id": "2FBDDo06NZR5B7qOzmMxq9",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6761610000e5eb69b133c6acf3c38eab89d86d",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000517469b133c6acf3c38eab89d86d",
+        "height": 320,
+        "width": 320
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000f17869b133c6acf3c38eab89d86d",
+        "height": 160,
+        "width": 160
+      }
+    ],
+    "name": "Charon",
+    "popularity": 38,
+    "type": "artist",
+    "uri": "spotify:artist:2FBDDo06NZR5B7qOzmMxq9"
+  },
+  {
+    "external_urls": {
+      "spotify": "https://open.spotify.com/artist/6ISyfZw4EVt16zhmH2lvxp"
+    },
+    "followers": {
+      "href": null,
+      "total": 174347
+    },
+    "genres": [
+      "symphonic metal",
+      "gothic metal",
+      "power metal",
+      "gothic rock",
+      "metal"
+    ],
+    "href": "https://api.spotify.com/v1/artists/6ISyfZw4EVt16zhmH2lvxp",
+    "id": "6ISyfZw4EVt16zhmH2lvxp",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6761610000e5ebc57f63e158de118b7a393e8b",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab67616100005174c57f63e158de118b7a393e8b",
+        "height": 320,
+        "width": 320
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000f178c57f63e158de118b7a393e8b",
+        "height": 160,
+        "width": 160
+      }
+    ],
+    "name": "After Forever",
+    "popularity": 41,
+    "type": "artist",
+    "uri": "spotify:artist:6ISyfZw4EVt16zhmH2lvxp"
+  },
+  {
+    "external_urls": {
+      "spotify": "https://open.spotify.com/artist/57ylwQTnFnIhJh4nu4rxCs"
+    },
+    "followers": {
+      "href": null,
+      "total": 1357538
+    },
+    "genres": [
+      "melodic death metal",
+      "metal",
+      "death metal"
+    ],
+    "href": "https://api.spotify.com/v1/artists/57ylwQTnFnIhJh4nu4rxCs",
+    "id": "57ylwQTnFnIhJh4nu4rxCs",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6761610000e5eb5c3bd919d1344a738af14136",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab676161000051745c3bd919d1344a738af14136",
+        "height": 320,
+        "width": 320
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000f1785c3bd919d1344a738af14136",
+        "height": 160,
+        "width": 160
+      }
+    ],
+    "name": "In Flames",
+    "popularity": 65,
+    "type": "artist",
+    "uri": "spotify:artist:57ylwQTnFnIhJh4nu4rxCs"
+  },
+  {
+    "external_urls": {
+      "spotify": "https://open.spotify.com/artist/6YXarbjg36ODFPez0PnOlD"
+    },
+    "followers": {
+      "href": null,
+      "total": 302438
+    },
+    "genres": [
+      "melodic death metal",
+      "death metal",
+      "metal"
+    ],
+    "href": "https://api.spotify.com/v1/artists/6YXarbjg36ODFPez0PnOlD",
+    "id": "6YXarbjg36ODFPez0PnOlD",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6761610000e5ebe05d57f89f3637d01858832f",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab67616100005174e05d57f89f3637d01858832f",
+        "height": 320,
+        "width": 320
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000f178e05d57f89f3637d01858832f",
+        "height": 160,
+        "width": 160
+      }
+    ],
+    "name": "At The Gates",
+    "popularity": 48,
+    "type": "artist",
+    "uri": "spotify:artist:6YXarbjg36ODFPez0PnOlD"
+  },
+  {
+    "external_urls": {
+      "spotify": "https://open.spotify.com/artist/3JysSUOyfVs1UQ0UaESheP"
+    },
+    "followers": {
+      "href": null,
+      "total": 2012790
+    },
+    "genres": [
+      "thrash metal",
+      "metal",
+      "speed metal",
+      "heavy metal",
+      "groove metal",
+      "rap metal"
+    ],
+    "href": "https://api.spotify.com/v1/artists/3JysSUOyfVs1UQ0UaESheP",
+    "id": "3JysSUOyfVs1UQ0UaESheP",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6761610000e5eb8fa118d8e890fcb413676e56",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab676161000051748fa118d8e890fcb413676e56",
+        "height": 320,
+        "width": 320
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000f1788fa118d8e890fcb413676e56",
+        "height": 160,
+        "width": 160
+      }
+    ],
+    "name": "Anthrax",
+    "popularity": 61,
+    "type": "artist",
+    "uri": "spotify:artist:3JysSUOyfVs1UQ0UaESheP"
+  },
+  {
+    "external_urls": {
+      "spotify": "https://open.spotify.com/artist/6wWVKhxIU2cEi0K81v7HvP"
+    },
+    "followers": {
+      "href": null,
+      "total": 12905142
+    },
+    "genres": [
+      "industrial metal",
+      "metal",
+      "industrial rock",
+      "industrial"
+    ],
+    "href": "https://api.spotify.com/v1/artists/6wWVKhxIU2cEi0K81v7HvP",
+    "id": "6wWVKhxIU2cEi0K81v7HvP",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6761610000e5eb32845b1556f9dbdfe8ee6575",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000517432845b1556f9dbdfe8ee6575",
+        "height": 320,
+        "width": 320
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000f17832845b1556f9dbdfe8ee6575",
+        "height": 160,
+        "width": 160
+      }
+    ],
+    "name": "Rammstein",
+    "popularity": 80,
+    "type": "artist",
+    "uri": "spotify:artist:6wWVKhxIU2cEi0K81v7HvP"
+  },
+  {
+    "external_urls": {
       "spotify": "https://open.spotify.com/artist/1HRqqu7DoKzpIBvdU7Jjib"
     },
     "followers": {
