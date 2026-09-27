@@ -383,21 +383,27 @@ function savePreference(name, value) {
     }
 }
 
-// Each tab has its own view: a group (the tab's default until changed there) and,
-// per group, a sort (the group's default until changed there). Views last until reload;
-// only the tab is saved.
+// A view is a group and, per group, a sort (each falls back to its default).
+// Sidebar categories share one global view, saved across visits; Discover tabs
+// (the tabs with a default group of their own) ignore it and keep theirs until reload.
 var activeTab = 'all';
-var views = {};
+var discoverViews = {};
+
+function isDiscoverTab(tab) {
+    var tabElement = $('.ui.tab[data-tab="' + tab + '"]')[0];
+    return Boolean(tabElement && tabElement.dataset.defaultGroup);
+}
 
 function viewOf(tab) {
-    return views[tab] || {};
+    return (isDiscoverTab(tab) ? discoverViews[tab] : loadPreferences().view) || {};
 }
 
 function saveView(tab, update) {
-    var view = views[tab] || {};
+    var view = viewOf(tab);
     view.sorts = view.sorts || {};
     update(view);
-    views[tab] = view;
+    if (isDiscoverTab(tab)) discoverViews[tab] = view;
+    else savePreference('view', view);
 }
 
 function sortItemFor(tab, group) {
@@ -419,9 +425,9 @@ function applyView(tab) {
 function applyPreferences() {
     var preferences = loadPreferences();
     if (preferences.views || preferences.sort || preferences.group) {
-        // drop group and sort saved by earlier versions; only the tab is kept
+        // drop group and sort saved by earlier versions
         try {
-            localStorage.setItem(PREFERENCES_KEY, JSON.stringify({tab: preferences.tab}));
+            localStorage.setItem(PREFERENCES_KEY, JSON.stringify({tab: preferences.tab, view: preferences.view}));
         } catch (error) {
             console.warn('Preferences unavailable', error);
         }
