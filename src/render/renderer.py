@@ -383,51 +383,42 @@ function savePreference(name, value) {
     }
 }
 
-// A view is a group and, per group, a sort (each falls back to its default).
-// Sidebar categories share one global view, saved across visits; Discover tabs
-// (the tabs with a default group of their own) ignore it and keep theirs until reload.
+// Two shared views, each a group and a sort: one for Discover pages, one for every other page.
+var VIEW_DEFAULTS = {discover: {group: 'style', sort: 'name'}, main: {group: 'followers', sort: 'followers'}};
 var activeTab = 'all';
-var discoverViews = {};
 
-function isDiscoverTab(tab) {
-    var tabElement = $('.ui.tab[data-tab="' + tab + '"]')[0];
-    return Boolean(tabElement && tabElement.dataset.defaultGroup);
+function viewName(tab) {
+    return $('.ui.tab[data-tab="' + tab + '"]').is('[data-discover-per-family], [data-discover-family]') ? 'discover' : 'main';
 }
 
 function viewOf(tab) {
-    return (isDiscoverTab(tab) ? discoverViews[tab] : loadPreferences().view) || {};
+    var name = viewName(tab);
+    return $.extend({}, VIEW_DEFAULTS[name], (loadPreferences().views || {})[name]);
 }
 
 function saveView(tab, update) {
+    var name = viewName(tab);
+    var views = loadPreferences().views || {};
     var view = viewOf(tab);
-    view.sorts = view.sorts || {};
     update(view);
-    if (isDiscoverTab(tab)) discoverViews[tab] = view;
-    else savePreference('view', view);
-}
-
-function sortItemFor(tab, group) {
-    var saved = (viewOf(tab).sorts || {})[group];
-    var groupItem = $('.item[data-group="' + group + '"]')[0];
-    return $('.item[data-sort="' + (saved || groupItem.dataset.groupSort) + '"]')[0] || $('.item[data-sort]')[0];
+    views[name] = view;
+    savePreference('views', views);
 }
 
 function applyView(tab) {
     activeTab = tab;
-    var tabElement = $('.ui.tab[data-tab="' + tab + '"]')[0];
-    var group = viewOf(tab).group || (tabElement && tabElement.dataset.defaultGroup) || 'followers';
-    var groupItem = $('.item[data-group="' + group + '"]')[0] || $('.item[data-group]')[0];
-    setGrouping(groupItem);
-    orderArtists(sortItemFor(tab, grouping));
+    var view = viewOf(tab);
+    setGrouping($('.item[data-group="' + view.group + '"]')[0] || $('.item[data-group]')[0]);
+    orderArtists($('.item[data-sort="' + view.sort + '"]')[0] || $('.item[data-sort]')[0]);
     applyGrouping();
 }
 
 function applyPreferences() {
     var preferences = loadPreferences();
-    if (preferences.views || preferences.sort || preferences.group) {
+    if (preferences.view || preferences.sort || preferences.group || (preferences.views && !preferences.views.main && !preferences.views.discover)) {
         // drop group and sort saved by earlier versions
         try {
-            localStorage.setItem(PREFERENCES_KEY, JSON.stringify({tab: preferences.tab, view: preferences.view}));
+            localStorage.setItem(PREFERENCES_KEY, JSON.stringify({tab: preferences.tab}));
         } catch (error) {
             console.warn('Preferences unavailable', error);
         }
@@ -443,7 +434,7 @@ function applyPreferences() {
 JS_FUNC_SORT = """
 function sort(element) {
     orderArtists(element);
-    saveView(activeTab, function(view) { view.sorts[grouping] = element.dataset.sort; });
+    saveView(activeTab, function(view) { view.sort = element.dataset.sort; });
     applyGrouping();
 }
 
@@ -627,8 +618,9 @@ function setGrouping(element) {
 
 function groupArtists(element) {
     setGrouping(element);
-    saveView(activeTab, function(view) { view.group = grouping; });
-    orderArtists(sortItemFor(activeTab, grouping));
+    var sortItem = $('.item[data-sort="' + element.dataset.groupSort + '"]')[0];
+    saveView(activeTab, function(view) { view.group = grouping; view.sort = sortItem.dataset.sort; });
+    orderArtists(sortItem);
     applyGrouping();
 }
 """.replace("__ARTIST_FAMILIES__", json.dumps([
@@ -1141,11 +1133,10 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]) -> str:
                         family = find_family(tag)
                         if tag == T_DISCOVER:
                             artists = []
-                            tab_attributes = {"data_discover_per_family": str(DISCOVER_ARTISTS_PER_FAMILY), "data_default_group": "style"}
+                            tab_attributes = {"data_discover_per_family": str(DISCOVER_ARTISTS_PER_FAMILY)}
                         elif family and tag == family.discover:
                             artists = []
                             tab_attributes = {
-                                "data_default_group": "none",
                                 "data_discover_family": family.tag.name,
                                 "data_discover_excluded_families": json.dumps([
                                     excluded.tag.name for excluded in FAMILY_DISCOVER_EXCLUSIONS.get(family, [])
