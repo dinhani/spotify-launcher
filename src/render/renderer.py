@@ -403,8 +403,8 @@ var longevityRanges = [
     {label: '50+ Years', from: 50, to: Infinity},
 ];
 var followersRanges = [
-    {label: 'Superstar', description: '9.5M+ followers', from: 9500000, to: Infinity},
-    {label: 'Mainstream', description: '4.5M–9.5M followers', from: 4500000, to: 9499999},
+    {label: 'Superstar', description: '8M+ followers', from: 8000000, to: Infinity},
+    {label: 'Mainstream', description: '4.5M–8M followers', from: 4500000, to: 7999999},
     {label: 'Popular', description: '600K–4.5M followers', from: 600000, to: 4499999},
     {label: 'Known', description: '110K–600K followers', from: 110000, to: 599999},
     {label: 'Niche', description: '20K–110K followers', from: 20000, to: 109999},
