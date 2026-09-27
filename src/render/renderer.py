@@ -375,6 +375,25 @@ body.release-mode .release-text {
     background: #eaf3fb;
     color: #1a69a4;
 }
+.command-item .command-title > i.icon.command-favorite {
+    margin: 0 0 0 0.3rem;
+    color: #f5d76e;
+    font-size: 0.85em;
+}
+.command-item .command-new {
+    display: inline-block;
+    margin-left: 0.4rem;
+    padding: 0.05rem 0.35rem;
+    border-radius: 0.25rem;
+    background: #21ba45;
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: bold;
+    letter-spacing: 0.06em;
+    line-height: 1.3;
+    text-transform: uppercase;
+    vertical-align: 0.15em;
+}
 .command-item > img.command-photo {
     flex-shrink: 0;
     width: 1.6rem;
@@ -1007,7 +1026,12 @@ var PALETTE_ARTISTS_SHOWN = 8;
 function paletteArtists() {
     return allArtists().map(function(cell) {
         var card = $(cell).find('.ui.card')[0];
-        return {kind: 'Artist', tag: 'Artist', label: cell.dataset.name, description: $(cell).find('.artist-tags').text(),
+        var song = $(cell).find('.top-song-text').text();
+        return {kind: 'Artist', tag: 'Artist', label: cell.dataset.name,
+                description: $(cell).find('.artist-tags').text() + (song && song !== '-' ? ' · ♪ ' + song : ''),
+                favorite: $(cell).find('.favorite-star').length > 0,
+                recent: $(cell).find('.corner.label').length > 0,
+                count: $(cell).find('.artist-stats > [aria-label^="Followers"]').text().trim(),
                 photo: $(cell).find('img.artist-image').attr('src'), spotify: card.dataset.spotify, lastfm: card.dataset.lastfm};
     });
 }
@@ -1112,6 +1136,8 @@ function renderPalette() {
         var title = $('<span>', {class: 'command-title'});
         if (command.parent) title.append($('<span>', {class: 'command-parent', text: command.parent}));
         title.append(highlightMatches(command.label, words, 'command-name'));
+        if (command.favorite) title.append($('<i>', {class: 'star icon command-favorite', title: 'Favorite'}));
+        if (command.recent) title.append($('<span>', {class: 'command-new', text: 'New', title: 'Released in the last 90 days'}));
         label.append(title);
         var subtitle = $('<span>', {class: 'command-subtitle'});
         subtitle.append($('<span>', {class: 'command-tag', text: command.tag}));
