@@ -715,7 +715,6 @@ var albumsRanges = [
     {label: 'No Albums', description: 'Singles and EPs only', from: 0, to: 0},
 ];
 // Spotify gives no follow date, only the order: 1 is the latest follow
-var FOLLOWED_FIRST_SECTION = 8;
 var releaseRanges = [
     {label: 'This Year', from: 0, to: 0},
     {label: 'Last Year', from: 1, to: 1},
@@ -738,19 +737,9 @@ function uniqueArtists(grid) {
     });
 }
 
-function groupSections(grid, cells) {
+function groupSections(grid) {
     if (grouping === 'followers') {
         return rangeSections(followersRanges, function(cell) { return Number(cell.dataset.followers); });
-    }
-    if (grouping === 'followed') {
-        var followedRanges = [];
-        var followedCount = Math.max.apply(null, cells.map(function(cell) { return Number(cell.dataset.lastFollow); }));
-        // each section doubles the previous one, ending on a multiple of 8 so it fills whole rows
-        for (var from = 1, end = FOLLOWED_FIRST_SECTION; from <= followedCount; from = end + 1, end *= 2) {
-            var to = Math.min(end, followedCount);
-            followedRanges.push({label: from === 1 ? 'Latest ' + to : 'Latest ' + from + '–' + to, from: from, to: to});
-        }
-        return rangeSections(followedRanges, function(cell) { return Number(cell.dataset.lastFollow); });
     }
     if (grouping === 'albums') {
         return rangeSections(albumsRanges, function(cell) { return Number(cell.dataset.albums); });
@@ -824,10 +813,11 @@ function groupGrid(grid) {
     var byViewOrder = function(a, b) { return Number(a.dataset.viewOrder) - Number(b.dataset.viewOrder); };
     var cells = uniqueArtists(grid);
     $(grid).empty();
-    if (grouping === 'none') {
+    // Spotify gives no follow date, only the order, so Followed has no sections to draw
+    if (grouping === 'none' || grouping === 'followed') {
         $(grid).append(cells.sort(byViewOrder));
     } else {
-        groupSections(grid, cells).forEach(function(section) {
+        groupSections(grid).forEach(function(section) {
             var members = cells.filter(section.includes);
             if (!members.length) return;
             var heading = $('<div>', {class: 'sixteen wide column group-heading'});
@@ -1459,7 +1449,7 @@ def group_items():
         ("compact disc", "Albums", "albums", "albums", "desc", "Sections by number of albums", "Most albums first", "Fewest albums first"),
         ("calendar alternate", "Release", "release", "last-release", "desc", "Sections by years since the last release",
          "Newest release first", "Oldest release first"),
-        ("bell", "Followed", "followed", "last-follow", "asc", "Sections by how recently I followed",
+        ("bell", "Followed", "followed", "last-follow", "asc", "No sections, in the order I followed",
          "Followed longest ago first", "Most recently followed first"),
     ]:
         with div(cls="link item nowrap", data_group=mode, data_group_sort=sort, data_group_order=order,
