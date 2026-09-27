@@ -89,6 +89,13 @@ html {
 .ui.input.search-control {
     margin-bottom: 0.5rem;
 }
+.ui.fluid.button.discover-button {
+    margin-bottom: 0.5rem;
+    font-size: var(--control-font-size);
+    line-height: var(--control-line-height);
+    padding-top: var(--control-padding);
+    padding-bottom: var(--control-padding);
+}
 .nowrap {
     white-space: nowrap;
 }
@@ -97,10 +104,13 @@ html {
 .list-controls {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     gap: 0.5rem 2rem;
     margin: 0 10px;
+}
+.list-controls > .list-control:last-child {
+    margin-left: auto;
 }
 .list-control {
     display: flex;
@@ -325,6 +335,11 @@ function onTab(tabPath) {
     var title = $('.item[data-tab="' + tabPath + '"]').data('tab-name');
     $('#mobile-menu-header-filter').text('Filter: ' + title);
     savePreference('tab', tabPath);
+    $('.discover-button').toggleClass('active', tabPath === 'discover');
+}
+
+function openDiscover() {
+    $('.item[data-tab="discover"]').first().click();
 }
 
 // choosing a Discover tab shows its picks by name, grouped as the tab asks (style for All's Discover, none for a style's)
@@ -862,8 +877,15 @@ def menu_group():
     with menu_wrapper("Group: None", "group"):
         group_items()
 
+def discover_button(fluid: bool):
+    """Render the Discover shortcut, the most visible way into Discover."""
+    with button(cls=f"ui {'fluid' if fluid else 'small'} blue button discover-button", type="button", onClick="openDiscover()"):
+        i(cls="compass icon", aria_hidden="true")
+        span("Discover")
+
 def list_controls():
     with div(cls="list-controls"):
+        discover_button(fluid=False)
         with div(cls="list-control"):
             span("Sort", cls="ui blue text list-control-label", title="Ctrl+2 or Ctrl+Right next, Ctrl+Shift+2 or Ctrl+Left previous")
             with div(cls="ui small compact blue secondary menu"):
@@ -1036,6 +1058,7 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]) -> str:
                 # ------------------------------------------------------------------
                 with div(cls="sixteen wide mobile tablet only   column app-column"):
                     menu_search()
+                    discover_button(fluid=True)
                     with div(cls="ui fluid styled mobile accordion"):
                         menu_group()
                         menu_sort()
