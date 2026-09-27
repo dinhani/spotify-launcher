@@ -384,21 +384,20 @@ function savePreference(name, value) {
 }
 
 // Each tab has its own view: a group (the tab's default until changed there) and,
-// per group, a sort (the group's default until changed there).
+// per group, a sort (the group's default until changed there). Views last until reload;
+// only the tab is saved.
 var activeTab = 'all';
+var views = {};
 
 function viewOf(tab) {
-    var views = loadPreferences().views || {};
     return views[tab] || {};
 }
 
 function saveView(tab, update) {
-    var views = loadPreferences().views || {};
     var view = views[tab] || {};
     view.sorts = view.sorts || {};
     update(view);
     views[tab] = view;
-    savePreference('views', views);
 }
 
 function sortItemFor(tab, group) {
@@ -419,6 +418,14 @@ function applyView(tab) {
 
 function applyPreferences() {
     var preferences = loadPreferences();
+    if (preferences.views || preferences.sort || preferences.group) {
+        // drop group and sort saved by earlier versions; only the tab is kept
+        try {
+            localStorage.setItem(PREFERENCES_KEY, JSON.stringify({tab: preferences.tab}));
+        } catch (error) {
+            console.warn('Preferences unavailable', error);
+        }
+    }
     var savedTab = $('.item[data-tab="' + preferences.tab + '"]').length ? preferences.tab : null;
     if (!location.hash && savedTab) {
         history.replaceState(null, '', '#/' + savedTab);
