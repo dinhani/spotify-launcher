@@ -39,6 +39,10 @@ def parse(filename: str) -> tuple[list[Artist], defaultdict[Tag, list[Artist]]]:
             if tag in artist.tags:
                 artist.tags.remove(tag)
 
+        # rule: folk metal already covers folk (before family tags are derived)
+        if T_ROCK_FOLK_METAL in artist.tags and T_FOLK_FOLK in artist.tags:
+            artist.tags.remove(T_FOLK_FOLK)
+
         # match other tags
         for tagged_tag in artist.tags.copy():
             for tag in TAGS_BY_RULE.get(tagged_tag, []):

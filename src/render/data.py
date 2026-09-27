@@ -234,6 +234,7 @@ TAG_RULES = {
         "-Blind Guardian",
         "-Borknagar",
         "-Braia",
+        "-Eldhrimnir",
         "-Epica",
         "-Faun",
         "-HammerFall",
@@ -300,9 +301,7 @@ TAG_RULES = {
         T_FOLK_STEAMPUNK
     ],
     T_FOLK_FOLK: [
-        "-Cruachan",
         "-ERA",
-        "-Eluveitie",
         "-Tuatha de Danann",
         "+Confraria da Costa",
         "+Deolinda",

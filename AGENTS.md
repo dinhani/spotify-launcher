@@ -133,6 +133,7 @@ Rules that currently have no effect (a `-Name` for a tag the artist doesn't get,
 
 Precedents for new artists:
 
+- Acoustic folk that Spotify labels `folk metal` goes to Folk only, via `-Name` in Folk Metal (OMNIA, Faun, Eldhrimnir, which calls itself folk metal but plays acoustic).
 - Power or symphonic metal that Spotify also labels `folk metal` goes to Heavy Metal, via `-Name` in Folk Metal (Nightwish, Epica, Rhapsody).
 - Pure death metal stays in Extreme Metal only, via `-Name` in Heavy Metal when a thrash or speed genre pulls it in (Death, Carcass, Vader).
 - Electronic acts with an old or ethereal feel go to Alt & Pop, not Folk (Leandra, ERA).
@@ -140,12 +141,12 @@ Precedents for new artists:
 
 After matching, `src/render/parser.py` applies:
 
-1. `Folk Metal` wins over `Heavy Metal` (an artist never has both).
+1. `Folk Metal` wins over `Heavy Metal` and over `Folk`: an artist never has both, since Folk Metal already covers the folk side of a band.
 2. A favorite goes to `<Family> - Favorites` in each of its families; any other family member goes to `<Family> - Non-Favorites`.
 3. Artists not in `Favorites` → `Non-Favorites`.
 4. No other tag → `Others`.
 
-An artist may belong to more than one family (e.g. Daughter is Rock and Alt & Pop). Folk Metal already covers the folk side of a band, so a Folk Metal artist is not also in Folk; remove it via `-Name` in Folk (Eluveitie, Cruachan).
+An artist may belong to more than one family (e.g. Daughter is Rock and Alt & Pop).
 
 `just render` warns about rule keys never used and artists without granular tags; both should be empty.
 
