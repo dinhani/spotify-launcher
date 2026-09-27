@@ -145,7 +145,7 @@ After matching, `src/render/parser.py` applies:
 3. Artists not in `Favorites` → `Non-Favorites`.
 4. No other tag → `Others`.
 
-An artist may belong to more than one family (e.g. Eluveitie is Folk Metal and Folk).
+An artist may belong to more than one family (e.g. Daughter is Rock and Alt & Pop). Folk Metal and Folk are generally exclusive: a folk metal band plays its folk inside the metal, so it stays in Folk Metal only, via `-Name` in Folk (Eluveitie, Cruachan). Exceptions are explicit decisions (Eldhrimnir).
 
 `just render` warns about rule keys never used and artists without granular tags; both should be empty.
 
