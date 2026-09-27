@@ -217,6 +217,7 @@ TAG_RULES = {
         "glam metal",
         "gothic metal",
         "heavy metal",
+        "industrial metal",
         "nu metal",
         "power metal",
         "progressive metal",
@@ -240,6 +241,7 @@ TAG_RULES = {
         "-Sabaton",
         "-Sólstafir",
         "-Sonata Arctica",
+        "-Van Canto",
         "-Ye Banished Privateers",
         "+Diablo Swing Orchestra",
         "folk metal",
@@ -287,6 +289,7 @@ TAG_RULES = {
         T_FOLK_STEAMPUNK
     ],
     T_FOLK_FOLK: [
+        "-ERA",
         "-Tuatha de Danann",
         "+Confraria da Costa",
         "+Deolinda",
@@ -327,6 +330,7 @@ TAG_RULES = {
     ],
     T_POP_ATMOSPHERIC: [
         "+Elsiane",
+        "+ERA",
         "+Escala",
         "+Girls In Hawaii",
         "+Klergy",
