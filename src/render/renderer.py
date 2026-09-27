@@ -14,7 +14,7 @@ from render.models import Artist, Tag
 # ------------------------------------------------------------------------------
 # Constants
 # ------------------------------------------------------------------------------
-DISCOVER_ARTISTS_PER_FAMILY = 4
+DISCOVER_ARTISTS_PER_FAMILY = 5
 FOMANTIC_UI = "https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min"
 
 CSS_GLOBAL = """
@@ -682,12 +682,22 @@ function pickDiscover() {
                 var families = familiesOf(cell);
                 return !excludedFamilies.some(function(family) { return families.includes(family); });
             })
-            .map(function(cell) { return cell.dataset.name; })
-            .filter(function(name) { return !picked.includes(name); });
+            .filter(function(cell) { return !picked.includes(cell.dataset.name); });
         var familyPicked = [];
-        for (var i = 0; i < Number(allTab.dataset.discoverPerFamily) && candidates.length > 0; i++) {
-            familyPicked.push(candidates.splice(Math.floor(random() * candidates.length), 1)[0]);
-        }
+        var pick = function(pool) {
+            var cell = pool[Math.floor(random() * pool.length)];
+            candidates.splice(candidates.indexOf(cell), 1);
+            familyPicked.push(cell.dataset.name);
+        };
+
+        // one pick guaranteed per substyle, in data.py order; the rest drawn from the whole style
+        artistSubstyles
+            .filter(function(substyle) { return substyle.family === tab.dataset.discoverFamily; })
+            .forEach(function(substyle) {
+                var pool = candidates.filter(function(cell) { return cell.dataset.substyles.split('|').includes(substyle.tag); });
+                if (pool.length) pick(pool);
+            });
+        while (familyPicked.length < Number(allTab.dataset.discoverPerFamily) && candidates.length) pick(candidates);
         showOnly(tab, familyPicked);
         picked.push(...familyPicked);
     });
