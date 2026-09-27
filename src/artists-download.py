@@ -1,3 +1,4 @@
+import argparse
 import os
 import json
 from pathlib import Path
@@ -8,6 +9,10 @@ from tqdm import tqdm
 DATA_DIR = Path(__file__).parent.parent / "data"
 CACHE_DIR = DATA_DIR / "artists"
 CACHE_DIR.mkdir(parents=True, exist_ok=True)
+
+parser = argparse.ArgumentParser(description="Download followed artists and cache their albums and top tracks.")
+parser.add_argument("--refresh", action="store_true", help="download albums and top tracks again for every artist, not only new ones")
+args = parser.parse_args()
 
 # ------------------------------------------------------------------------------
 # Login
@@ -37,16 +42,20 @@ while True:
 )
 
 # ------------------------------------------------------------------------------
-# Download raw data per artist (cached)
+# Download raw data per artist (cached; --refresh downloads again)
 # ------------------------------------------------------------------------------
-progress = tqdm(iterable=artists, desc="Downloading")
+progress = tqdm(iterable=artists, desc="Refreshing" if args.refresh else "Downloading")
 for artist in progress:
     # log
     progress.set_postfix_str(s=artist["name"])
 
-    # check exist
+    # cached: the followed list is always fresh, so keep followers and popularity current at no extra cost
     artist_file = CACHE_DIR / f"{artist['id']}.json"
-    if artist_file.exists():
+    if artist_file.exists() and not args.refresh:
+        data = json.loads(s=artist_file.read_text(encoding="utf-8"))
+        if data["artist"] != artist:
+            data["artist"] = artist
+            artist_file.write_text(data=json.dumps(obj=data, ensure_ascii=False, indent=2), encoding="utf-8")
         continue
 
     # download

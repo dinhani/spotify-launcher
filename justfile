@@ -20,8 +20,8 @@ alias run := render
 
 # Download Spotify data
 [group("run")]
-download:
-    python src/artists-download.py
+download *args:
+    python src/artists-download.py {{args}}
 alias dl := download
 
 # Export Spotify data to TSV
