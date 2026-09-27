@@ -5,7 +5,7 @@ from pathlib import Path
 import polars
 
 EXPORT_DIR = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("Z:/pessoal/redes-sociais/spotify-2026-09")
-OUT = Path(__file__).parent.parent / "data" / "spotify-history.parquet"
+OUT = Path(__file__).parent.parent / "data" / "spotify-history.csv"
 TIMEZONE = "America/Sao_Paulo"
 
 DEVICE = polars.Enum(["desktop", "phone", "tablet", "speaker", "tv", "unknown"])
@@ -36,7 +36,7 @@ streams = [
 rows = [
     {
         "ended_at": stream["ts"],
-        "played": stream["ms_played"],
+        "played_ms": stream["ms_played"],
         "artist": stream["master_metadata_album_artist_name"],
         "album": stream["master_metadata_album_album_name"],
         "track": stream["master_metadata_track_name"],
@@ -54,7 +54,7 @@ rows = [
 history = (
     polars.DataFrame(data=rows, schema={
         "ended_at": polars.String,
-        "played": polars.Int64,
+        "played_ms": polars.Int64,
         "artist": polars.String,
         "album": polars.String,
         "track": polars.String,
@@ -67,11 +67,10 @@ history = (
     })
     .with_columns(
         polars.col("ended_at").str.to_datetime(format="%Y-%m-%dT%H:%M:%SZ", time_zone="UTC").dt.convert_time_zone(TIMEZONE),
-        polars.duration(milliseconds=polars.col("played"), time_unit="ms").alias("played"),
     )
     .sort("ended_at")
 )
 
 OUT.parent.mkdir(exist_ok=True)
-history.write_parquet(file=OUT)
+history.write_csv(file=OUT, datetime_format="%Y-%m-%dT%H:%M:%S%:z")
 print(f"Wrote {OUT}: {len(history)} tracks ({len(streams) - len(history)} podcasts and empty streams dropped)")
