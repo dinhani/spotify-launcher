@@ -463,10 +463,13 @@ body.release-mode .release-text {
 }
 .command-item .command-count {
     min-width: 2.5em;
-    color: rgba(0, 0, 0, 0.4);
-    font-size: 0.85rem;
+    color: rgba(0, 0, 0, 0.62);
+    font-size: 0.9rem;
     text-align: right;
     font-variant-numeric: tabular-nums;
+}
+.command-item.selected .command-count {
+    color: #1a69a4;
 }
 .command-empty {
     padding: 1rem 0.6rem;
