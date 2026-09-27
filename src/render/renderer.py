@@ -111,7 +111,7 @@ html {
     white-space: nowrap;
 }
 
-/* List controls (group and sort bar) */
+/* List controls (group and order bar) */
 .list-controls {
     display: flex;
     flex-wrap: wrap;
@@ -138,13 +138,19 @@ html {
     gap: 0.75rem;
 }
 .list-control-label {
-    min-width: 3.5em; /* same width for Sort and Group, so wrapped menus align */
+    min-width: 3.5em; /* same width for Group and Order, so wrapped menus align */
     font-weight: bold;
 }
 .list-controls .ui.secondary.menu {
     padding: 3px 0;
     background: #f1f2f3;
     border-radius: 0.5rem;
+}
+.list-controls .direction-description {
+    display: none;
+}
+.list-controls .item[data-direction] > i.icon {
+    margin: 0;
 }
 .list-controls .ui.secondary.menu .active.item {
     background: #fff;
@@ -546,7 +552,7 @@ body.release-mode .release-text {
 
 JS_FUNC_ONTAB = """
 function onTab(tabPath) {
-    $('.artist-search').val('');  // a new filter is a new context; group and sort changes keep the search
+    $('.artist-search').val('');  // a new filter is a new context; group and direction changes keep the search
     applyView(tabPath);
     fillTab($('.ui.tab[data-tab="' + tabPath + '"]')[0]);
     if ($(document.activeElement).is('body, .ui.card') && matchMedia('(min-width: 992px)').matches) {
@@ -595,8 +601,8 @@ function savePreference(name, value) {
     }
 }
 
-// Two shared views, each a group and a sort: one for Discover pages, one for every other page.
-var VIEW_DEFAULTS = {discover: {group: 'style', sort: 'name'}, main: {group: 'followers', sort: 'followers'}};
+// Two shared views, each a group and its direction: one for Discover pages, one for every other page.
+var VIEW_DEFAULTS = {discover: {group: 'style'}, main: {group: 'followers'}};
 var activeTab = 'all';
 
 function viewName(tab) {
@@ -621,7 +627,7 @@ function applyView(tab) {
     activeTab = tab;
     var view = viewOf(tab);
     setGrouping($('.item[data-group="' + view.group + '"]')[0] || $('.item[data-group]')[0]);
-    orderArtists($('.item[data-sort="' + view.sort + '"]')[0] || $('.item[data-sort]')[0]);
+    if (view.direction === 'asc' || view.direction === 'desc') setDirection(view.direction);
     applyGrouping();
 }
 
@@ -635,34 +641,36 @@ function applyPreferences() {
 }
 """
 
-JS_FUNC_SORT = """
-function sort(element) {
-    orderArtists(element);
-    saveView(activeTab, function(view) { view.sort = element.dataset.sort; });
+JS_FUNC_ORDER = """
+function orderArtists(element) {
+    setDirection(element.dataset.direction);
+    saveView(activeTab, function(view) { view.direction = direction; });
     applyGrouping();
 }
 
-function orderArtists(element) {
-    selectOption(element, 'sort', 'Sort');
-    var attribute = element.dataset.sort;
-    var order = element.dataset.order;
+function setDirection(order) {
+    direction = order;
+    var group = $('.item.active[data-group]')[0].dataset;
+    $('.item[data-direction]').each(function() {
+        var description = group[this.dataset.direction + 'Description'];
+        this.title = description;
+        this.dataset.commandDescription = description;
+        $(this).find('.direction-description').text(description);
+        $(this).toggleClass('active', this.dataset.direction === order);
+    });
+    $('#mobile-menu-header-direction').text('Order: ' + group[order + 'Description']);
+}
 
-    // read each value once; applyGrouping places the cells by viewOrder
+// read each value once; groupGrid places the cells by viewOrder
+function rankArtists() {
     $('.artists').each(function(_, artists) {
         var keyed = uniqueArtists(artists).map(function(cell) {
-            var value = cell.getAttribute('data-' + attribute) || '';
+            var value = cell.getAttribute('data-' + groupSort) || '';
             return {cell: cell, value: $.isNumeric(value) ? Number(value) : value};
         });
         keyed.sort(function(a, b) {
-            var valA = a.value;
-            var valB = b.value;
-
-            // Check if the values are numeric
-            if (typeof valA === 'number') {
-                return order === 'asc' ? valA - valB : valB - valA; // Numeric comparison
-            } else {
-                return order === 'asc' ? String(valA).localeCompare(String(valB)) : String(valB).localeCompare(String(valA)); // String comparison
-            }
+            var ascending = typeof a.value === 'number' ? a.value - b.value : String(a.value).localeCompare(String(b.value));
+            return direction === 'asc' ? ascending : -ascending;
         });
         keyed.forEach(function(item, index) { item.cell.dataset.viewOrder = index; });
     });
@@ -671,6 +679,9 @@ function orderArtists(element) {
 
 JS_FUNC_GROUP = """
 var grouping = 'none';
+var groupSort = 'name';
+var groupOrder = 'asc';
+var direction = 'asc';
 var artistFamilies = __ARTIST_FAMILIES__;
 var artistSubstyles = __ARTIST_SUBSTYLES__;
 var longevityRanges = [
@@ -703,6 +714,15 @@ var albumsRanges = [
     {label: '1 Album', description: 'Debut, the only album so far', from: 1, to: 1},
     {label: 'No Albums', description: 'Singles and EPs only', from: 0, to: 0},
 ];
+// Spotify gives no follow date, only the order: 1 is the latest follow
+var followedRanges = [
+    {label: 'Latest 10', description: 'The most recent follows', from: 1, to: 10},
+    {label: 'Latest 11–25', description: '', from: 11, to: 25},
+    {label: 'Latest 26–50', description: '', from: 26, to: 50},
+    {label: 'Latest 51–100', description: '', from: 51, to: 100},
+    {label: 'Latest 101–200', description: '', from: 101, to: 200},
+    {label: 'Earliest', description: 'Followed longest ago', from: 201, to: Infinity},
+];
 var releaseRanges = [
     {label: 'This Year', from: 0, to: 0},
     {label: 'Last Year', from: 1, to: 1},
@@ -728,6 +748,9 @@ function uniqueArtists(grid) {
 function groupSections(grid) {
     if (grouping === 'followers') {
         return rangeSections(followersRanges, function(cell) { return Number(cell.dataset.followers); });
+    }
+    if (grouping === 'followed') {
+        return rangeSections(followedRanges, function(cell) { return Number(cell.dataset.lastFollow); });
     }
     if (grouping === 'albums') {
         return rangeSections(albumsRanges, function(cell) { return Number(cell.dataset.albums); });
@@ -773,7 +796,8 @@ function groupSections(grid) {
 }
 
 function rangeSections(ranges, valueOf, describe) {
-    var sections = ranges.map(function(range) {
+    var ordered = direction === groupOrder ? ranges : ranges.slice().reverse();
+    var sections = ordered.map(function(range) {
         return {label: range.label, description: describe ? describe(range) : range.description || '', includes: function(cell) {
             var value = valueOf(cell);
             return value !== null && value >= range.from && value <= range.to;
@@ -820,21 +844,24 @@ function groupGrid(grid) {
 }
 
 function applyGrouping() {
+    rankArtists();
     $('.artists').each(function(_, grid) { groupGrid(grid); });
     search($('.artist-search').val());
 }
 
+// a group starts in its own direction
 function setGrouping(element) {
     selectOption(element, 'group', 'Group');
     grouping = element.dataset.group;
+    groupSort = element.dataset.groupSort;
+    groupOrder = element.dataset.groupOrder;
     $('body').toggleClass('release-mode', grouping === 'release');
+    setDirection(groupOrder);
 }
 
 function groupArtists(element) {
     setGrouping(element);
-    var sortItem = $('.item[data-sort="' + element.dataset.groupSort + '"]')[0];
-    saveView(activeTab, function(view) { view.group = grouping; view.sort = sortItem.dataset.sort; });
-    orderArtists(sortItem);
+    saveView(activeTab, function(view) { view.group = grouping; view.direction = direction; });
     applyGrouping();
 }
 """.replace("__ARTIST_FAMILIES__", json.dumps([
@@ -1003,7 +1030,7 @@ $(document).on('keydown', function(e) {
     var kind = {
         Digit1: 'tab', ArrowUp: 'tab', ArrowDown: 'tab',
         Digit2: 'group', ArrowLeft: 'group', ArrowRight: 'group',
-        Digit3: 'sort',
+        Digit3: 'direction',
     }[e.code];
     if (!kind || !e.ctrlKey || e.altKey || e.metaKey) return;
     if ((e.code === 'ArrowLeft' || e.code === 'ArrowRight') && $(e.target).is('input')) return;
@@ -1090,10 +1117,10 @@ var paletteSelected = 0;
 var PALETTE_SECTIONS = {
     Filter: {title: 'Filters', icon: 'filter'},
     Group: {title: 'Group', icon: 'object group outline'},
-    Sort: {title: 'Sort', icon: 'sort amount down'},
+    Order: {title: 'Order', icon: 'sort amount down'},
     Artist: {title: 'Artists', icon: 'user'},
 };
-var PALETTE_KINDS = ['Filter', 'Group', 'Sort', 'Artist'];
+var PALETTE_KINDS = ['Filter', 'Group', 'Order', 'Artist'];
 var PALETTE_ARTISTS_SHOWN = 8;
 
 // artists join only once something is typed, so the empty palette stays about the page's options
@@ -1134,11 +1161,11 @@ function paletteItems() {
     });
     var controls = function(kind, attribute) {
         return $('.list-controls .item[data-' + attribute + ']').toArray().map(function(item) {
-            return {kind: kind, tag: kind, label: $(item).text().trim(), description: item.dataset.commandDescription,
+            return {kind: kind, tag: kind, label: item.dataset.commandLabel || $(item).text().trim(), description: item.dataset.commandDescription,
                     icon: $(item).find('i.icon').attr('class'), item: item};
         });
     };
-    return filters.concat(controls('Group', 'group'), controls('Sort', 'sort'));
+    return filters.concat(controls('Group', 'group'), controls('Order', 'direction'));
 }
 
 // a substyle reads as its style, then its own name
@@ -1352,10 +1379,9 @@ def menu_filter(mobile: bool, tags_with_artists: dict[Tag, list[Artist]]):
                 span(item_display)
                 span(f"{artists_count}", cls="ui tiny basic blue label artist-count")
 
-def menu_sort():
-    """Render the mobile sort menu."""
-    with menu_wrapper("Sort", "sort"):
-        sort_items()
+def menu_direction():
+    with menu_wrapper("Order", "direction"):
+        direction_items()
 
 def menu_group():
     with menu_wrapper("Group", "group"):
@@ -1372,7 +1398,7 @@ def command_palette():
     with div(cls="ui tiny modal command-palette"):
         with div(cls="content"):
             with div(cls="ui fluid large transparent left icon input"):
-                input_(cls="command-input", type="text", placeholder="Filter, group or sort…", aria_label="Command palette", autocomplete="off")
+                input_(cls="command-input", type="text", placeholder="Filter, group or order…", aria_label="Command palette", autocomplete="off")
                 i(cls="search icon")
             div(cls="command-list", role="listbox")
             with div(cls="command-hints"):
@@ -1403,39 +1429,42 @@ def list_controls():
             with div(cls="ui small compact blue secondary menu"):
                 group_items()
         with div(cls="list-control"):
-            span("Sort", cls="ui blue text list-control-label", title="Ctrl+3 next, Ctrl+Shift+3 previous")
+            span("Order", cls="ui blue text list-control-label", title="Ctrl+3 reverses")
             with div(cls="ui small compact blue secondary menu"):
-                sort_items()
+                direction_items()
             discover_button(fluid=False)
 
-def sort_items():
-    for icon, label, description, attribute, order in [
-        ("music", "Name", "A to Z", "name", "asc"),
-        ("user", "Followers", "Most followed first", "followers", "desc"),
-        ("fire", "Popularity", "Most played right now first", "popularity", "desc"),
-        ("hourglass half", "Longevity", "Longest career first", "first-release", "desc"),
-        ("compact disc", "Albums", "Most albums first", "albums", "desc"),
-        ("calendar alternate", "Release", "Newest release first", "last-release", "desc"),
-        ("bell", "Followed", "Most recently followed first", "last-follow", "asc"),
+def direction_items():
+    # the description follows the group, filled in the browser
+    for icon, label, direction in [
+        ("sort amount down", "Descending", "desc"),
+        ("sort amount up", "Ascending", "asc"),
     ]:
-        with div(cls="link item nowrap", data_sort=attribute, data_order=order, title=description, data_command_description=description,
-                 onClick="sort(this)", tabindex="0"):
+        with div(cls="link item nowrap", data_direction=direction, data_command_label=label, aria_label=label,
+                 onClick="orderArtists(this)", tabindex="0"):
             i(cls=f"{icon} icon control-icon", aria_hidden="true")
-            span(label)
+            span(cls="direction-description")
 
 def group_items():
-    # sort: applied when the grouping is chosen
-    for icon, label, mode, sort, description in [
-        ("ban", "None", "none", "followers", "No sections"),
-        ("music", "Style", "style", "name", f"Sections by {', '.join(family.tag.name for family in FAMILIES)} and {T_OTHERS.name}"),
-        ("tags", "Substyle", "substyle", "name", "Sections by substyle"),
-        ("user", "Followers", "followers", "followers", "Sections by audience reach"),
-        ("hourglass half", "Longevity", "longevity", "first-release", "Sections by years since the first album"),
-        ("compact disc", "Albums", "albums", "albums", "Sections by number of albums"),
-        ("calendar alternate", "Release", "release", "last-release", "Sections by years since the last release"),
+    # sort and order: how artists are ordered, inside and across sections, until the direction is reversed
+    for icon, label, mode, sort, order, description, desc_description, asc_description in [
+        ("ban", "None", "none", "name", "asc", "No sections", "Z to A", "A to Z"),
+        ("music", "Style", "style", "followers", "desc", f"Sections by {', '.join(family.tag.name for family in FAMILIES)} and {T_OTHERS.name}",
+         "Most followed first in each style", "Least followed first in each style"),
+        ("tags", "Substyle", "substyle", "followers", "desc", "Sections by substyle",
+         "Most followed first in each substyle", "Least followed first in each substyle"),
+        ("user", "Followers", "followers", "followers", "desc", "Sections by audience reach", "Most followed first", "Least followed first"),
+        ("hourglass half", "Longevity", "longevity", "first-release", "desc", "Sections by years since the first album",
+         "Shortest career first", "Longest career first"),
+        ("compact disc", "Albums", "albums", "albums", "desc", "Sections by number of albums", "Most albums first", "Fewest albums first"),
+        ("calendar alternate", "Release", "release", "last-release", "desc", "Sections by years since the last release",
+         "Newest release first", "Oldest release first"),
+        ("bell", "Followed", "followed", "last-follow", "asc", "Sections by how recently I followed",
+         "Followed longest ago first", "Most recently followed first"),
     ]:
-        with div(cls="link item nowrap", data_group=mode, data_group_sort=sort, title=description, data_command_description=description,
-                 onClick="groupArtists(this)", tabindex="0"):
+        with div(cls="link item nowrap", data_group=mode, data_group_sort=sort, data_group_order=order,
+                 data_desc_description=desc_description, data_asc_description=asc_description,
+                 title=description, data_command_description=description, onClick="groupArtists(this)", tabindex="0"):
             i(cls=f"{icon} icon control-icon", aria_hidden="true")
             span(label)
 
@@ -1459,7 +1488,6 @@ def card_cell(artist: Artist, tabs: list[str]):
     return div(cls="eight wide mobile   four wide tablet   four wide computer   two wide large screen  two wide widescreen   column   artist",
         data_name=artist.name,
         data_followers=str(artist.followers),
-        data_popularity=str(artist.popularity),
         data_albums=str(artist.albums),
         data_first_release=artist.first_release,
         data_last_release=artist.last_release,
@@ -1548,7 +1576,7 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]) -> str:
             script(raw(JS_FUNC_ONTAB))
             script(raw(JS_FUNC_SELECT_OPTION))
             script(raw(JS_FUNC_PREFERENCES))
-            script(raw(JS_FUNC_SORT))
+            script(raw(JS_FUNC_ORDER))
             script(raw(JS_FUNC_GROUP))
             script(raw(JS_FUNC_FILL_TAB))
             script(raw(JS_FUNC_SEARCH))
@@ -1576,7 +1604,7 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]) -> str:
                     with div(cls="ui fluid styled mobile accordion"):
                         menu_filter(mobile=True, tags_with_artists=tags_with_artists)
                         menu_group()
-                        menu_sort()
+                        menu_direction()
 
                 # ------------------------------------------------------------------
                 # Menu (desktop)
