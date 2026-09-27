@@ -1449,8 +1449,8 @@ def group_items():
         ("compact disc", "Albums", "albums", "albums", "desc", "Sections by number of albums", "Most albums first", "Fewest albums first"),
         ("calendar alternate", "Release", "release", "last-release", "desc", "Sections by years since the last release",
          "Newest release first", "Oldest release first"),
-        ("bell", "Followed", "followed", "last-follow", "asc", "No sections, in the order I followed",
-         "Followed longest ago first", "Most recently followed first"),
+        ("bell", "Followed", "followed", "last-follow", "desc", "No sections, in the order I followed",
+         "Most recently followed first", "Followed longest ago first"),
     ]:
         with div(cls="link item nowrap", data_group=mode, data_group_sort=sort, data_group_order=order,
                  data_desc_description=desc_description, data_asc_description=asc_description,
