@@ -1463,10 +1463,9 @@ def group_items():
     # sort and order: how artists are ordered, inside and across sections, until the direction is reversed
     for icon, label, mode, sort, order, description, desc_description, asc_description in [
         ("ban", "None", "none", "name", "asc", "No sections", "Z to A", "A to Z"),
-        ("music", "Style", "style", "followers", "desc", f"Sections by {', '.join(family.tag.name for family in FAMILIES)} and {T_OTHERS.name}",
-         "Most followed first in each style", "Least followed first in each style"),
-        ("tags", "Substyle", "substyle", "followers", "desc", "Sections by substyle",
-         "Most followed first in each substyle", "Least followed first in each substyle"),
+        ("music", "Style", "style", "name", "asc", f"Sections by {', '.join(family.tag.name for family in FAMILIES)} and {T_OTHERS.name}",
+         "Z to A in each style", "A to Z in each style"),
+        ("tags", "Substyle", "substyle", "name", "asc", "Sections by substyle", "Z to A in each substyle", "A to Z in each substyle"),
         ("user", "Followers", "followers", "followers", "desc", "Sections by audience reach", "Most followed first", "Least followed first"),
         ("hourglass half", "Longevity", "longevity", "first-release", "asc", "Sections by years since the first album",
          "Longest career first", "Shortest career first"),
