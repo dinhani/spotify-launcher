@@ -960,6 +960,11 @@ $(document).on('keydown', function(e) {
 $(document).on('keydown', function(e) {
     if ($(e.target).closest('.command-palette').length) return;
     if (e.key === 'Escape') search('');
+    if ((e.ctrlKey || e.metaKey) && !e.altKey && !e.shiftKey && e.code === 'KeyZ') {
+        e.preventDefault();  // like Esc, even inside the search input
+        search('');
+        return;
+    }
     if (e.key.length !== 1 || e.key === ' ' || e.ctrlKey || e.metaKey || e.altKey) return;
     if ($(e.target).is('input')) return;
     $('.artist-search:visible').focus();
