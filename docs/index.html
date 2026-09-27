@@ -115,14 +115,20 @@ function setDirection(order) {
     $('#mobile-menu-header-direction').text('Order: ' + group[order + 'Description']);
 }
 
+var SORTS_ELAPSED = ['first-release', 'last-release'];
+
 // read each value once; groupGrid places the cells by viewOrder
 function rankArtists() {
     $('.artists').each(function(_, artists) {
         var keyed = uniqueArtists(artists).map(function(cell) {
             var value = cell.getAttribute('data-' + groupSort) || '';
+            if (value === '') return {cell: cell, value: null};
+            // a date ranks by the time since it, so ascending means fewer years (shortest career, newest release)
+            if (SORTS_ELAPSED.includes(groupSort)) return {cell: cell, value: -Date.parse((value + '-01-01').slice(0, 10))};
             return {cell: cell, value: $.isNumeric(value) ? Number(value) : value};
         });
         keyed.sort(function(a, b) {
+            if (a.value === null || b.value === null) return (a.value === null) - (b.value === null);  // unknown stays last
             var ascending = typeof a.value === 'number' ? a.value - b.value : String(a.value).localeCompare(String(b.value));
             return direction === 'asc' ? ascending : -ascending;
         });
@@ -1425,13 +1431,13 @@ body.release-mode .release-text {
               <div class="link item nowrap" data-asc-description="Least followed first" data-command-description="Sections by audience reach" data-desc-description="Most followed first" data-group="followers" data-group-order="desc" data-group-sort="followers" onClick="groupArtists(this)" tabindex="0" title="Sections by audience reach"><i aria-hidden="true" class="user icon control-icon"></i>
                 <span>Followers</span>
               </div>
-              <div class="link item nowrap" data-asc-description="Longest career first" data-command-description="Sections by years since the first album" data-desc-description="Shortest career first" data-group="longevity" data-group-order="desc" data-group-sort="first-release" onClick="groupArtists(this)" tabindex="0" title="Sections by years since the first album"><i aria-hidden="true" class="hourglass half icon control-icon"></i>
+              <div class="link item nowrap" data-asc-description="Shortest career first" data-command-description="Sections by years since the first album" data-desc-description="Longest career first" data-group="longevity" data-group-order="asc" data-group-sort="first-release" onClick="groupArtists(this)" tabindex="0" title="Sections by years since the first album"><i aria-hidden="true" class="hourglass half icon control-icon"></i>
                 <span>Longevity</span>
               </div>
               <div class="link item nowrap" data-asc-description="Fewest albums first" data-command-description="Sections by number of albums" data-desc-description="Most albums first" data-group="albums" data-group-order="desc" data-group-sort="albums" onClick="groupArtists(this)" tabindex="0" title="Sections by number of albums"><i aria-hidden="true" class="compact disc icon control-icon"></i>
                 <span>Albums</span>
               </div>
-              <div class="link item nowrap" data-asc-description="Oldest release first" data-command-description="Sections by years since the last release" data-desc-description="Newest release first" data-group="release" data-group-order="desc" data-group-sort="last-release" onClick="groupArtists(this)" tabindex="0" title="Sections by years since the last release"><i aria-hidden="true" class="calendar alternate icon control-icon"></i>
+              <div class="link item nowrap" data-asc-description="Newest release first" data-command-description="Sections by years since the last release" data-desc-description="Oldest release first" data-group="release" data-group-order="asc" data-group-sort="last-release" onClick="groupArtists(this)" tabindex="0" title="Sections by years since the last release"><i aria-hidden="true" class="calendar alternate icon control-icon"></i>
                 <span>Release</span>
               </div>
               <div class="link item nowrap" data-asc-description="Followed longest ago first" data-command-description="No sections, in the order I followed" data-desc-description="Most recently followed first" data-group="followed" data-group-order="desc" data-group-sort="last-follow" onClick="groupArtists(this)" tabindex="0" title="No sections, in the order I followed"><i aria-hidden="true" class="bell icon control-icon"></i>
@@ -1589,13 +1595,13 @@ body.release-mode .release-text {
               <div class="link item nowrap" data-asc-description="Least followed first" data-command-description="Sections by audience reach" data-desc-description="Most followed first" data-group="followers" data-group-order="desc" data-group-sort="followers" onClick="groupArtists(this)" tabindex="0" title="Sections by audience reach"><i aria-hidden="true" class="user icon control-icon"></i>
                 <span>Followers</span>
               </div>
-              <div class="link item nowrap" data-asc-description="Longest career first" data-command-description="Sections by years since the first album" data-desc-description="Shortest career first" data-group="longevity" data-group-order="desc" data-group-sort="first-release" onClick="groupArtists(this)" tabindex="0" title="Sections by years since the first album"><i aria-hidden="true" class="hourglass half icon control-icon"></i>
+              <div class="link item nowrap" data-asc-description="Shortest career first" data-command-description="Sections by years since the first album" data-desc-description="Longest career first" data-group="longevity" data-group-order="asc" data-group-sort="first-release" onClick="groupArtists(this)" tabindex="0" title="Sections by years since the first album"><i aria-hidden="true" class="hourglass half icon control-icon"></i>
                 <span>Longevity</span>
               </div>
               <div class="link item nowrap" data-asc-description="Fewest albums first" data-command-description="Sections by number of albums" data-desc-description="Most albums first" data-group="albums" data-group-order="desc" data-group-sort="albums" onClick="groupArtists(this)" tabindex="0" title="Sections by number of albums"><i aria-hidden="true" class="compact disc icon control-icon"></i>
                 <span>Albums</span>
               </div>
-              <div class="link item nowrap" data-asc-description="Oldest release first" data-command-description="Sections by years since the last release" data-desc-description="Newest release first" data-group="release" data-group-order="desc" data-group-sort="last-release" onClick="groupArtists(this)" tabindex="0" title="Sections by years since the last release"><i aria-hidden="true" class="calendar alternate icon control-icon"></i>
+              <div class="link item nowrap" data-asc-description="Newest release first" data-command-description="Sections by years since the last release" data-desc-description="Oldest release first" data-group="release" data-group-order="asc" data-group-sort="last-release" onClick="groupArtists(this)" tabindex="0" title="Sections by years since the last release"><i aria-hidden="true" class="calendar alternate icon control-icon"></i>
                 <span>Release</span>
               </div>
               <div class="link item nowrap" data-asc-description="Followed longest ago first" data-command-description="No sections, in the order I followed" data-desc-description="Most recently followed first" data-group="followed" data-group-order="desc" data-group-sort="last-follow" onClick="groupArtists(this)" tabindex="0" title="No sections, in the order I followed"><i aria-hidden="true" class="bell icon control-icon"></i>

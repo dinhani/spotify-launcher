@@ -661,14 +661,20 @@ function setDirection(order) {
     $('#mobile-menu-header-direction').text('Order: ' + group[order + 'Description']);
 }
 
+var SORTS_ELAPSED = ['first-release', 'last-release'];
+
 // read each value once; groupGrid places the cells by viewOrder
 function rankArtists() {
     $('.artists').each(function(_, artists) {
         var keyed = uniqueArtists(artists).map(function(cell) {
             var value = cell.getAttribute('data-' + groupSort) || '';
+            if (value === '') return {cell: cell, value: null};
+            // a date ranks by the time since it, so ascending means fewer years (shortest career, newest release)
+            if (SORTS_ELAPSED.includes(groupSort)) return {cell: cell, value: -Date.parse((value + '-01-01').slice(0, 10))};
             return {cell: cell, value: $.isNumeric(value) ? Number(value) : value};
         });
         keyed.sort(function(a, b) {
+            if (a.value === null || b.value === null) return (a.value === null) - (b.value === null);  // unknown stays last
             var ascending = typeof a.value === 'number' ? a.value - b.value : String(a.value).localeCompare(String(b.value));
             return direction === 'asc' ? ascending : -ascending;
         });
@@ -1456,11 +1462,11 @@ def group_items():
         ("tags", "Substyle", "substyle", "followers", "desc", "Sections by substyle",
          "Most followed first in each substyle", "Least followed first in each substyle"),
         ("user", "Followers", "followers", "followers", "desc", "Sections by audience reach", "Most followed first", "Least followed first"),
-        ("hourglass half", "Longevity", "longevity", "first-release", "desc", "Sections by years since the first album",
-         "Shortest career first", "Longest career first"),
+        ("hourglass half", "Longevity", "longevity", "first-release", "asc", "Sections by years since the first album",
+         "Longest career first", "Shortest career first"),
         ("compact disc", "Albums", "albums", "albums", "desc", "Sections by number of albums", "Most albums first", "Fewest albums first"),
-        ("calendar alternate", "Release", "release", "last-release", "desc", "Sections by years since the last release",
-         "Newest release first", "Oldest release first"),
+        ("calendar alternate", "Release", "release", "last-release", "asc", "Sections by years since the last release",
+         "Oldest release first", "Newest release first"),
         ("bell", "Followed", "followed", "last-follow", "desc", "No sections, in the order I followed",
          "Most recently followed first", "Followed longest ago first"),
     ]:
