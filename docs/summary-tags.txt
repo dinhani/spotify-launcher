@@ -1,27 +1,37 @@
 
 Rock - Heavy Metal:
 * ANGRA
+* After Forever
 * Agent Fresco
 * Altaria
 * Amorphis
 * Annihilator
+* Anthrax
 * Aquaria
 * Ashes Of Ares
 * Avantasia
 * Ayreon
 * Blind Guardian
 * Borknagar
+* Charon
 * Circle II Circle
+* Cradle Of Filth
 * Deathstars
 * Demons & Wizards
+* Detonator
 * Dio
 * Doomsword
 * DragonForce
+* Dragonheart
 * Dream Theater
 * Edguy
+* Epica
 * Eterna
+* Evergrey
+* Exit Eden
 * Gamma Ray
 * Gojira
+* Grave Digger
 * Haken
 * HammerFall
 * Hangar
@@ -35,6 +45,7 @@ Rock - Heavy Metal:
 * Jorn
 * Judas Priest
 * Kamelot
+* Katatonia
 * Klone
 * Korzus
 * Lacrimosa
@@ -45,21 +56,29 @@ Rock - Heavy Metal:
 * Metallica
 * Narnia
 * Nervosa
+* Nevermore
 * Nightwish
 * Oficina G3
 * Opeth
+* Orden Ogan
 * Ozzy Osbourne
 * Pain of Salvation
 * Pantera
 * Paradise Lost
 * Poison
 * Queensrÿche
+* Rammstein
+* Rata Blanca
 * Reall
 * Rhapsody
+* Rhapsody Of Fire
+* Running Wild
 * Sabaton
+* Savatage
 * Sentenced
 * Sepultura
 * Shaman
+* Sinergy
 * Soen
 * Sonata Arctica
 * Static-X
@@ -70,6 +89,7 @@ Rock - Heavy Metal:
 * Symphony X
 * System Of A Down
 * Type O Negative
+* Van Canto
 * Zonata
 
 Rock - Extreme Metal:
@@ -78,10 +98,14 @@ Rock - Extreme Metal:
 * Amorphis
 * Arch Enemy
 * Arcturus
+* At The Gates
+* Behemoth
 * Borknagar
 * Brujeria
+* Cannibal Corpse
 * Carcass
 * Children Of Bodom
+* Cradle Of Filth
 * Crypta
 * Dark Tranquillity
 * Death
@@ -90,6 +114,7 @@ Rock - Extreme Metal:
 * Finntroll
 * Gojira
 * Ihsahn
+* In Flames
 * In Mourning
 * Malefactor
 * Necrophagist
@@ -99,9 +124,12 @@ Rock - Extreme Metal:
 * Septicflesh
 * Sepultura
 * Soilwork
+* SuidAkrA
 * Suldusk
 * Sólstafir
 * Torture Squad
+* Vader
+* Vintersorg
 * Wintersun
 
 Rock - Folk Metal:
@@ -117,16 +145,19 @@ Rock - Folk Metal:
 * Finntroll
 * Haggard
 * Heidevolk
+* In Extremo
 * Korpiklaani
 * Mägo de Oz
 * OMNIA
 * Orphaned Land
 * Otyg
+* SuidAkrA
 * The HU
 * Therion
 * Tuatha de Danann
 * Turisas
 * Týr
+* Vintersorg
 * Wintersun
 
 Rock - Rock:
@@ -134,6 +165,7 @@ Rock - Rock:
 * Audioslave
 * Barns Courtney
 * Boz Scaggs
+* CPM 22
 * Camp Claude
 * Creed
 * Creedence Clearwater Revival
@@ -153,27 +185,32 @@ Rock - Rock:
 * Syd Matters
 * System Of A Down
 * Tame Impala
+* The Who
 * Volbeat
 * Whitesnake
 * Wussy
 
 Folk - Folk:
+* Blackmore's Night
 * Braia
 * Caprice
 * Celtic Woman
 * Confraria da Costa
 * Cruachan
 * Deolinda
+* Eivør
 * Eldhrimnir
 * Eluveitie
 * Faun
 * Hildegard von Blingin'
 * Madredeus
+* O Bardo E O Banjo
 * OMNIA
 * The Dead South
 * Ye Banished Privateers
 
 Folk - Steampunk:
+* Abney Park
 * AlicebanD
 * Amanda Palmer
 * American Murder Song
@@ -189,7 +226,7 @@ Folk - Steampunk:
 * The Dresden Dolls
 * Unwoman
 
-Pop - Atmospheric:
+Alt - Atmospheric:
 * AURORA
 * Agnes Obel
 * Anastasia Minster
@@ -199,8 +236,11 @@ Pop - Atmospheric:
 * Cathedrals
 * Chappell Roan
 * Daughter
+* ERA
+* Elsiane
 * Ex:Re
 * Gemma Hayes
+* Girls In Hawaii
 * HÆLOS
 * Jeanne Added
 * Juniper Vale
@@ -209,7 +249,7 @@ Pop - Atmospheric:
 * Leandra
 * London Grammar
 * Lor
-* Lorien Testard
+* MS MR
 * Oh Land
 * Oh Wonder
 * PHILDEL
@@ -224,11 +264,13 @@ Pop - Atmospheric:
 * Sóley
 * The xx
 * Vaults
+* Warpaint
 * aeseaes
 * lùisa
 
-Pop - Energetic:
+Alt - Energetic:
 * AURORA
+* Addison Rae
 * Allie X
 * Aqua
 * BROODS
@@ -251,10 +293,12 @@ Pop - Energetic:
 * LÉON
 * MARINA
 * Madonna
+* Miley Cyrus
 * Of Monsters and Men
 * P!nk
 * Princess Chelsea
 * Prudence
+* RAYE
 * Robyn
 * Röyksopp
 * Sabrina Carpenter
@@ -268,17 +312,20 @@ Pop - Energetic:
 * Yelle
 * Zella Day
 
-Pop - Vox/Guitar:
+Alt - Vox/Guitar:
+* Adna
 * Alela Diane
 * Angus & Julia Stone
 * Bear's Den
 * Billie Marten
+* CLOVES
 * Cocoon
 * Emily Jane White
 * First Aid Kit
 * Fish in a Birdcage
 * Frøkedal
 * Gabrielle Shonk
+* Jill Andrews
 * LAUREL
 * Marika Hackman
 * Michelle Gurevich
@@ -286,4 +333,6 @@ Pop - Vox/Guitar:
 * The Staves
 
 Others:
+* Escala
 * Hollywood Burns
+* Lorien Testard

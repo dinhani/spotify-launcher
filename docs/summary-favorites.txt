@@ -56,7 +56,7 @@ Folk - Steampunk:
 * Steam Powered Giraffe
 * The Cog is Dead
 
-Pop - Atmospheric:
+Alt - Atmospheric:
 * Agnes Obel
 * Billie Eilish
 * Birdy
@@ -68,7 +68,6 @@ Pop - Atmospheric:
 * Leandra
 * London Grammar
 * Lor
-* Lorien Testard
 * Oh Land
 * Oh Wonder
 * PHILDEL
@@ -78,7 +77,7 @@ Pop - Atmospheric:
 * aeseaes
 * lùisa
 
-Pop - Energetic:
+Alt - Energetic:
 * Allie X
 * Chappell Roan
 * Dua Lipa
@@ -99,9 +98,10 @@ Pop - Energetic:
 * The Dø
 * Zella Day
 
-Pop - Vox/Guitar:
+Alt - Vox/Guitar:
 * Angus & Julia Stone
 * Fish in a Birdcage
 * Marika Hackman
 
 Others:
+* Lorien Testard
