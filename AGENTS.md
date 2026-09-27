@@ -85,7 +85,7 @@ Rules that follow:
 
 ## Workflow
 
-After any change, re-render and commit it (source and generated `docs/` together) without asking.
+After any change, re-render and commit it (source and generated `docs/` together) without asking. In remote sessions without the Python dependencies, do not try to render: commit the source only; I render and commit `docs/` myself.
 
 Renderer functions such as `menu_filter`, `menu_sort`, `menu_group`, `list_controls` and `card` are page components; keep them as functions even with a single caller.
 
