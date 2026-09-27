@@ -327,10 +327,10 @@ function onTab(tabPath) {
     savePreference('tab', tabPath);
 }
 
-// choosing a Discover tab shows its picks by name, grouped by style
+// choosing a Discover tab shows its picks by name, grouped as the tab asks (style for All's Discover, none for a style's)
 $(document).on('click', '.item[data-discover-view]', function() {
     orderArtists($('.item[data-sort="name"]')[0]);
-    groupArtists($('.item[data-group="style"]')[0]);
+    groupArtists($('.item[data-group="' + this.dataset.discoverView + '"]')[0]);
 });
 """
 
@@ -835,7 +835,11 @@ def menu_filter(mobile: bool, tags_with_artists: dict[Tag, list[Artist]]):
             item_display = tag_display(tag)
             item_active = "active" if tag == T_ALL else ""
             item_header = "header" if tag in TAGS_HEADER else ""
-            item_attributes = {"data_discover_view": "true"} if tag == T_DISCOVER or (family and tag == family.discover) else {}
+            item_attributes = (
+                {"data_discover_view": "style"} if tag == T_DISCOVER
+                else {"data_discover_view": "none"} if family and tag == family.discover
+                else {}
+            )
 
             # menu item
             with div(cls=f"{item_active} {item_header} link item nowrap",
