@@ -976,6 +976,9 @@ def card(artist: Artist):
 
 def render_html(tags_with_artists: dict[Tag, list[Artist]]) -> str:
     logging.info("🧱 Generating HTML")
+    missing_release = [artist.name for artist in tags_with_artists[T_ALL] if artist.last_release and not artist.last_release_name]
+    if missing_release:
+        logging.warning(f"⚠️ {len(missing_release)} artists have a last release date but no release name; run `just export` first")
 
     doc = html()
     with doc:
