@@ -326,6 +326,12 @@ function onTab(tabPath) {
     $('#mobile-menu-header-filter').text('Filter: ' + title);
     savePreference('tab', tabPath);
 }
+
+// choosing a Discover tab shows its picks by name, grouped by style
+$(document).on('click', '.item[data-discover-view]', function() {
+    orderArtists($('.item[data-sort="name"]')[0]);
+    groupArtists($('.item[data-group="style"]')[0]);
+});
 """
 
 JS_FUNC_SELECT_OPTION = """
@@ -829,12 +835,14 @@ def menu_filter(mobile: bool, tags_with_artists: dict[Tag, list[Artist]]):
             item_display = tag_display(tag)
             item_active = "active" if tag == T_ALL else ""
             item_header = "header" if tag in TAGS_HEADER else ""
+            item_attributes = {"data_discover_view": "true"} if tag == T_DISCOVER or (family and tag == family.discover) else {}
 
             # menu item
             with div(cls=f"{item_active} {item_header} link item nowrap",
                     data_tab=id(tag),
                     data_tab_name=tag.name,
-                    tabindex="0"
+                    tabindex="0",
+                    **item_attributes,
                 ):
                 if tag.icon:
                     span(tag.icon, cls="control-symbol", aria_hidden="true")
