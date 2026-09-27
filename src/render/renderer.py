@@ -1024,14 +1024,14 @@ $(document).on('keydown', function(e) {
         return;
     }
     if (e.altKey && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
-        var directions = $('.list-controls .item[data-direction]');
-        var directionStep = {ArrowLeft: -1, ArrowRight: 1}[e.code];
+        var groups = $('.list-controls .item[data-group]');
+        var groupStep = {ArrowLeft: -1, ArrowRight: 1}[e.code];
         var directionFixed = {ArrowUp: 'asc', ArrowDown: 'desc'}[e.code];
-        if (!directionStep && !directionFixed) return;
+        if (!groupStep && !directionFixed) return;
         e.preventDefault();  // Left and Right would also go back or forward in the browser
         var chosen = directionFixed
-            ? directions.filter('[data-direction="' + directionFixed + '"]')
-            : directions.eq((directions.index(directions.filter('.active')) + directionStep + directions.length) % directions.length);
+            ? $('.list-controls .item[data-direction="' + directionFixed + '"]')
+            : groups.eq((groups.index(groups.filter('.active')) + groupStep + groups.length) % groups.length);
         chosen.click().focus();
         return;
     }
@@ -1433,11 +1433,11 @@ def discover_button(fluid: bool):
 def list_controls():
     with div(cls="list-controls"):
         with div(cls="list-control"):
-            span("Group", cls="ui blue text list-control-label", title="Ctrl+2 or Ctrl+Right next, Ctrl+Shift+2 or Ctrl+Left previous")
+            span("Group", cls="ui blue text list-control-label", title="Ctrl+2, Ctrl+Right or Alt+Right next, Ctrl+Shift+2, Ctrl+Left or Alt+Left previous")
             with div(cls="ui small compact blue secondary menu"):
                 group_items()
         with div(cls="list-control"):
-            span("Order", cls="ui blue text list-control-label", title="Ctrl+3 or Alt+Left/Right switches, Alt+Up ascending, Alt+Down descending")
+            span("Order", cls="ui blue text list-control-label", title="Ctrl+3 switches, Alt+Up ascending, Alt+Down descending")
             with div(cls="ui small compact blue secondary menu"):
                 direction_items()
             discover_button(fluid=False)

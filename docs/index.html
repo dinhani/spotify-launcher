@@ -466,14 +466,14 @@ $(document).on('keydown', function(e) {
         return;
     }
     if (e.altKey && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
-        var directions = $('.list-controls .item[data-direction]');
-        var directionStep = {ArrowLeft: -1, ArrowRight: 1}[e.code];
+        var groups = $('.list-controls .item[data-group]');
+        var groupStep = {ArrowLeft: -1, ArrowRight: 1}[e.code];
         var directionFixed = {ArrowUp: 'asc', ArrowDown: 'desc'}[e.code];
-        if (!directionStep && !directionFixed) return;
+        if (!groupStep && !directionFixed) return;
         e.preventDefault();  // Left and Right would also go back or forward in the browser
         var chosen = directionFixed
-            ? directions.filter('[data-direction="' + directionFixed + '"]')
-            : directions.eq((directions.index(directions.filter('.active')) + directionStep + directions.length) % directions.length);
+            ? $('.list-controls .item[data-direction="' + directionFixed + '"]')
+            : groups.eq((groups.index(groups.filter('.active')) + groupStep + groups.length) % groups.length);
         chosen.click().focus();
         return;
     }
@@ -1581,7 +1581,7 @@ body.release-mode .release-text {
       <div class="sixteen wide mobile tablet   thirteen wide computer   fourteen wide large screen   fourteen wide widescreen   column app-column content-column">
         <div class="list-controls">
           <div class="list-control">
-            <span class="ui blue text list-control-label" title="Ctrl+2 or Ctrl+Right next, Ctrl+Shift+2 or Ctrl+Left previous">Group</span>
+            <span class="ui blue text list-control-label" title="Ctrl+2, Ctrl+Right or Alt+Right next, Ctrl+Shift+2, Ctrl+Left or Alt+Left previous">Group</span>
             <div class="ui small compact blue secondary menu">
               <div class="link item nowrap" data-asc-description="A to Z" data-command-description="No sections" data-desc-description="Z to A" data-group="none" data-group-order="asc" data-group-sort="name" onClick="groupArtists(this)" tabindex="0" title="No sections"><i aria-hidden="true" class="ban icon control-icon"></i>
                 <span>None</span>
@@ -1610,7 +1610,7 @@ body.release-mode .release-text {
             </div>
           </div>
           <div class="list-control">
-            <span class="ui blue text list-control-label" title="Ctrl+3 or Alt+Left/Right switches, Alt+Up ascending, Alt+Down descending">Order</span>
+            <span class="ui blue text list-control-label" title="Ctrl+3 switches, Alt+Up ascending, Alt+Down descending">Order</span>
             <div class="ui small compact blue secondary menu">
               <div aria-label="Ascending" class="link item nowrap" data-command-label="Ascending" data-direction="asc" onClick="orderArtists(this)" tabindex="0"><i aria-hidden="true" class="sort amount up icon control-icon"></i>
                 <span class="direction-description"></span>
