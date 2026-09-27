@@ -335,6 +335,7 @@ body.release-mode .release-text {
 
 JS_FUNC_ONTAB = """
 function onTab(tabPath) {
+    applyView(tabPath);
     fillTab($('.ui.tab[data-tab="' + tabPath + '"]')[0]);
     if ($(document.activeElement).is('body, .ui.card') && matchMedia('(min-width: 992px)').matches) {
         visibleCards().first().focus();
@@ -350,12 +351,6 @@ function onTab(tabPath) {
 function openDiscover() {
     $('.item[data-tab="discover"]').first().click();
 }
-
-// choosing a Discover tab shows its picks by name, grouped as the tab asks (style for All's Discover, none for a style's)
-$(document).on('click', '.item[data-discover-view]', function() {
-    orderArtists($('.item[data-sort="name"]')[0]);
-    groupArtists($('.item[data-group="' + this.dataset.discoverView + '"]')[0]);
-});
 """
 
 JS_FUNC_SELECT_OPTION = """
@@ -388,25 +383,59 @@ function savePreference(name, value) {
     }
 }
 
+// Each tab has its own view: a group (the tab's default until changed there) and,
+// per group, a sort (the group's default until changed there).
+var activeTab = 'all';
+
+function viewOf(tab) {
+    var views = loadPreferences().views || {};
+    return views[tab] || {};
+}
+
+function saveView(tab, update) {
+    var views = loadPreferences().views || {};
+    var view = views[tab] || {};
+    view.sorts = view.sorts || {};
+    update(view);
+    views[tab] = view;
+    savePreference('views', views);
+}
+
+function sortItemFor(tab, group) {
+    var saved = (viewOf(tab).sorts || {})[group];
+    var groupItem = $('.item[data-group="' + group + '"]')[0];
+    return $('.item[data-sort="' + (saved || groupItem.dataset.groupSort) + '"]')[0] || $('.item[data-sort]')[0];
+}
+
+function applyView(tab) {
+    activeTab = tab;
+    var tabElement = $('.ui.tab[data-tab="' + tab + '"]')[0];
+    var group = viewOf(tab).group || (tabElement && tabElement.dataset.defaultGroup) || 'none';
+    var groupItem = $('.item[data-group="' + group + '"]')[0] || $('.item[data-group]')[0];
+    setGrouping(groupItem);
+    orderArtists(sortItemFor(tab, grouping));
+    applyGrouping();
+}
+
 function applyPreferences() {
     var preferences = loadPreferences();
-    orderArtists($('.item[data-sort="' + preferences.sort + '"]')[0] || $('.item[data-sort]')[0]);
-    groupArtists($('.item[data-group="' + preferences.group + '"]')[0] || $('.item[data-group]')[0], true);
-    if (!location.hash && $('.item[data-tab="' + preferences.tab + '"]').length) {
-        history.replaceState(null, '', '#/' + preferences.tab);
+    var savedTab = $('.item[data-tab="' + preferences.tab + '"]').length ? preferences.tab : null;
+    if (!location.hash && savedTab) {
+        history.replaceState(null, '', '#/' + savedTab);
     }
+    applyView(location.hash.replace(/^#\/?/, '') || 'all');
 }
 """
 
 JS_FUNC_SORT = """
 function sort(element) {
     orderArtists(element);
+    saveView(activeTab, function(view) { view.sorts[grouping] = element.dataset.sort; });
     applyGrouping();
 }
 
 function orderArtists(element) {
     selectOption(element, 'sort', 'Sort');
-    savePreference('sort', element.dataset.sort);
     var attribute = element.dataset.sort;
     var order = element.dataset.order;
 
@@ -577,14 +606,16 @@ function applyGrouping() {
     search($('.artist-search').val());
 }
 
-function groupArtists(element, restoring) {
-    // choosing a grouping also picks its matching sort; restoring keeps the saved sort
-    var sortItem = !restoring && element.dataset.groupSort && $('.item[data-sort="' + element.dataset.groupSort + '"]')[0];
-    if (sortItem) orderArtists(sortItem);
+function setGrouping(element) {
     selectOption(element, 'group', 'Group');
-    savePreference('group', element.dataset.group);
     grouping = element.dataset.group;
     $('body').toggleClass('release-mode', grouping === 'release');
+}
+
+function groupArtists(element) {
+    setGrouping(element);
+    saveView(activeTab, function(view) { view.group = grouping; });
+    orderArtists(sortItemFor(activeTab, grouping));
     applyGrouping();
 }
 """.replace("__ARTIST_FAMILIES__", json.dumps([
@@ -859,18 +890,12 @@ def menu_filter(mobile: bool, tags_with_artists: dict[Tag, list[Artist]]):
             item_display = tag_display(tag)
             item_active = "active" if tag == T_ALL else ""
             item_header = "header" if tag in TAGS_HEADER else ""
-            item_attributes = (
-                {"data_discover_view": "style"} if tag == T_DISCOVER
-                else {"data_discover_view": "none"} if family and tag == family.discover
-                else {}
-            )
 
             # menu item
             with div(cls=f"{item_active} {item_header} link item nowrap",
                     data_tab=id(tag),
                     data_tab_name=tag.name,
                     tabindex="0",
-                    **item_attributes,
                 ):
                 if tag.icon:
                     span(tag.icon, cls="control-symbol", aria_hidden="true")
@@ -912,8 +937,8 @@ def list_controls():
 def sort_items():
     for index, (icon, label, description, attribute, order) in enumerate([
         ("music", "Name", "Name", "name", "asc"),
-        ("fire", "Popularity", "Artist popularity", "popularity", "desc"),
         ("user", "Followers", "Followers", "followers", "desc"),
+        ("fire", "Popularity", "Artist popularity", "popularity", "desc"),
         ("compact disc", "Albums", "Albums", "albums", "desc"),
         ("hourglass half", "Longevity", "Years since the first album", "first-release", "desc"),
         ("calendar alternate", "Release", "Last release", "last-release", "desc"),
@@ -926,18 +951,17 @@ def sort_items():
             span(label)
 
 def group_items():
-    # sort: the sort selected along with the grouping, if it has one
+    # sort: the grouping's default sort, until changed in a view
     for index, (icon, label, mode, sort) in enumerate([
-        ("th", "None", "none", None),
-        ("music", "Style", "style", None),
-        ("tags", "Substyle", "substyle", None),
+        ("th", "None", "none", "followers"),
+        ("music", "Style", "style", "name"),
+        ("tags", "Substyle", "substyle", "name"),
         ("user", "Followers", "followers", "followers"),
         ("hourglass half", "Longevity", "longevity", "first-release"),
         ("calendar alternate", "Release", "release", "last-release"),
     ]):
         active = "active" if index == 0 else ""
-        sort_attributes = {"data_group_sort": sort} if sort else {}
-        with div(cls=f"{active} link item nowrap", data_group=mode, onClick="groupArtists(this)", tabindex="0", **sort_attributes):
+        with div(cls=f"{active} link item nowrap", data_group=mode, data_group_sort=sort, onClick="groupArtists(this)", tabindex="0"):
             i(cls=f"{icon} icon control-icon", aria_hidden="true")
             span(label)
 
@@ -1104,7 +1128,7 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]) -> str:
                         family = find_family(tag)
                         if tag == T_DISCOVER:
                             artists = []
-                            tab_attributes = {"data_discover_per_family": str(DISCOVER_ARTISTS_PER_FAMILY)}
+                            tab_attributes = {"data_discover_per_family": str(DISCOVER_ARTISTS_PER_FAMILY), "data_default_group": "style"}
                         elif family and tag == family.discover:
                             artists = []
                             tab_attributes = {
