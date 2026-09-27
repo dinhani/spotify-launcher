@@ -26,7 +26,7 @@ Delight is an explicit product goal. Choosing an artist should feel inviting, pe
 
 Discover suggests artists to revisit from the artists already followed; it does not introduce new artists.
 
-4 artists per family: each family's Discover shows its 4, All's Discover shows all 12. Picked in the browser, seeded by period: morning (6h-12h), afternoon (12h-18h), night (18h-6h). Same picks within a period, no reroll.
+4 artists per family: each family's Discover shows its 4, All's Discover shows all 12. Picked in the browser, seeded by period: morning (6h-12h), afternoon (12h-18h), night (18h-6h). Same picks within a period, no reroll. Picks are drawn independently each period, so an artist may repeat; this is intended. Do not replace it with a rotation that walks through the whole library: a repeat is preferred over always cycling through everyone, and a clock-based rotation only covers the library if Discover is opened every period.
 
 Folk's Discover pool excludes any artist who also belongs to Rock or Alternative, regardless of whether that artist was selected for another family's Discover. This only affects Discover eligibility; family classifications, favorites and filters keep their overlaps.
 
