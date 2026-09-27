@@ -7,7 +7,7 @@ A personal launcher for the Spotify artists I follow: it helps me decide what to
 - The universe is artists I already follow, and I have listened to every one of them a lot at some point. The app helps me get back to them, not discover new artists.
 - Picking and playing must be fast: type to search, arrows to navigate, `Enter` opens the artist in Spotify, `Shift+Enter` opens it in Last.fm, `Esc` clears the search from anywhere and returns to it from a card, `Ctrl+1`, `Ctrl+2` and `Ctrl+3` cycle filter, sort and group (`Shift` goes back; the chosen option gets focus), `Ctrl+4` focuses the card grid, `Ctrl+Up/Down` cycle the filter and `Ctrl+Left/Right` the sort (not inside the search input, where they move by word). Mobile must stay comfortable to tap.
 - There are exactly two shared views, each a group and a sort, both persisted in `localStorage` with the last chosen tab (a URL hash wins over the saved tab): one for all Discover pages (default Style, Name) and one for every other page (default Followers, Followers). A change on any page applies to every page sharing its view; nothing else is remembered. Choosing a group also applies that group's default sort (Followers for None and Followers, Name for Style and Substyle, the matching sort for Longevity and Release). Search is not persisted.
-- Last.fm (`just lastfm`) only covers what I have listened to recently; there is no long-term history. Few or no plays means "not lately", never "unknown" or "disliked".
+- Last.fm (`just lastfm`) only covers what I have listened to recently; there is no long-term history. Few or no plays means "not lately", never "unknown" or "disliked". Listening history is deliberately not used in the page: the Spotify export does not update, and it is not worth the upkeep.
 - Favorites are curated by taste, not by play count.
 - When I say "the app should answer X" I mean a feature of this page, not an analysis by the agent.
 
@@ -30,9 +30,20 @@ Discover suggests artists to revisit from the artists already followed; it does 
 
 Folk's Discover pool excludes any artist who also belongs to Rock or Alt & Pop, regardless of whether that artist was selected for another family's Discover. This only affects Discover eligibility; family classifications, favorites and filters keep their overlaps.
 
+A Discover button opens All's Discover from outside the sidebar and is marked active while Discover is open. It is the only button on the page, so it reads as an emblem rather than another control: on desktop a small round blue compass (no text, tooltip "Discover") at the right end of the top bar, inside the Group control after its menu, so the bar keeps two blocks (Sort, Group) and wraps as before; on mobile a labeled full-width button under the search, matching the control height. The compass turns slightly on hover, focus or press, and an open Discover shows a soft blue halo.
+
 ## Grouping
 
-The Group control (top bar on desktop, accordion on mobile) offers None (default), Followers, Longevity, Release, Style and Substyle. Options shared with Sort appear in the same order as in Sort, for consistency (None mirrors Name first, Followers second in both); Style and Substyle exist only in Group, so they come last. Style uses Rock, Folk, Alt & Pop and Others; Substyle uses the granular tags of each family in `FAMILIES` order (Heavy Metal, Extreme Metal, Folk Metal, Rock, Folk, Steampunk, Atmospheric, Energetic, Vox/Guitar) plus Others, titled `Style › Substyle` (e.g. Rock › Heavy Metal; not a slash, which clashes with Vox/Guitar), with the family icon and the tag description from `data.py`; family filters show only that family's substyles; Followers uses the tiers below (see Followers tiers); Longevity uses years since the first album, newest first (under 5, then 5-year ranges up to 35–39, then 40–49 and 50+, and Unknown for artists without albums); Release uses calendar years since the last release, most recent first (this year, last year, 2–4, 5–9, 10–19, 20+ years ago, and Unknown). Year-based ranges are computed in the browser so artists move between ranges without re-rendering. With Release grouping, cards show the last release instead of the top song: the song line becomes the album name and the album cover becomes that album's cover (a `release-mode` class on `body` swaps them with CSS; artists without albums keep the top song). The selected sort applies within each section. Choosing a group applies its default sort (see Purpose). Search hides empty sections. Section headings stay on one line: the title, then a quiet summary (visible artists, favorites, and the style description or debut years), with no divider line; they must not add vertical space. Grouping does not change Discover picks. A Discover button opens All's Discover from outside the sidebar. It is the only button on the page, so it reads as an emblem rather than another control: on desktop a small round blue compass (no text, tooltip "Discover"), on mobile a labeled full-width button; the compass turns slightly on hover, focus or press, and an open Discover shows a soft blue halo. Placement: at the right end of the desktop top bar, inside the Group control after its menu, so the bar keeps two blocks (Sort, Group) and wraps as before, and full width under the search on mobile, matching the control height; it is marked active while Discover is open. Discover opens grouped by Style and sorted by Name through its view defaults. Use style in the interface; family is an internal classification term. Control labels use Title Case, matching the existing sidebar options.
+Sort and Group sit in the top bar on desktop and in the accordion on mobile. Control labels use Title Case, matching the sidebar options; use style in the interface (family is an internal classification term).
+
+- **Sort**: Name, Followers, Popularity, Longevity, Albums, Release, Followed: the neutral option, then reach, then career in career order (debut, discography, latest), then my relation to the artist.
+- **Group**: None, Followers, Longevity, Release, Style, Substyle. Options shared with Sort keep Sort's order (None mirrors Name first, Followers second in both); Style and Substyle exist only in Group, so they come last.
+- Do not keep an option that duplicates another: Top Song was removed because it ordered artists almost exactly like Popularity.
+- **Style**: Rock, Folk, Alt & Pop and Others. **Substyle**: each family's granular tags in `FAMILIES` order plus Others, titled `Style › Substyle` (e.g. Rock › Heavy Metal; not a slash, which clashes with Vox/Guitar), with the family icon and the tag description from `data.py`. A family filter shows only that family's sections.
+- **Followers**: the tiers below. **Longevity**: years since the first album, newest first (under 5, 5-year ranges up to 35–39, 40–49, 50+, Unknown). **Release**: calendar years since the last release, most recent first (this year, last year, 2–4, 5–9, 10–19, 20+ years ago, Unknown). Year-based ranges are computed in the browser so artists move between ranges without re-rendering.
+- With Release grouping, cards show the last release instead of the top song: the album name on the song line and that album's cover (a `release-mode` class on `body` swaps them with CSS; artists without albums keep the top song).
+- The selected sort applies within each section, and choosing a group applies its default sort (see Purpose). Grouping does not change Discover picks. Search hides empty sections.
+- Section headings stay on one line: the title, then a quiet summary (visible artists, favorites, and the description or year range), with no divider line; they must not add vertical space.
 
 ### Followers tiers
 
@@ -65,10 +76,6 @@ Rules that follow:
 - Work from first principles: define what the members of a group have in common before proposing names or cut points. Look at the actual artists, not at impressions of their genre.
 - When asked to analyse or define, do not answer with a menu of name suggestions. Offer one recommendation when a decision is asked for.
 - When wrong, say so plainly and move on; do not reintroduce the same argument in a new form.
-
-## Planned: long-term history
-
-Spotify extended streaming history requested on 2026-09-26. When it arrives, aggregate per artist (time listened, last played) into `data/`; commit only the aggregate.
 
 ## Pipeline
 
@@ -109,7 +116,14 @@ Tags reflect how I hear the artist, not Spotify's genre labels. A `+Name` or `-N
 
 Rules that currently have no effect (a `-Name` for a tag the artist doesn't get, a `+Name` already covered by a genre) are kept on purpose: Spotify genres change, and they were relevant when added.
 
-`Others` is a valid final place for artists that fit no family. Its icon is `🎶`, music in general, because the group has no identity of its own.
+`Others` is a valid final place for artists that fit no family, such as instrumental acts (Hollywood Burns, Escala, Lorien Testard). Its icon is `🎶`, music in general, because the group has no identity of its own.
+
+Precedents for new artists:
+
+- Power or symphonic metal that Spotify also labels `folk metal` goes to Heavy Metal, via `-Name` in Folk Metal (Nightwish, Epica, Rhapsody).
+- Pure death metal stays in Extreme Metal only, via `-Name` in Heavy Metal when a thrash or speed genre pulls it in (Death, Carcass, Vader).
+- Electronic acts with an old or ethereal feel go to Alt & Pop, not Folk (Leandra, ERA).
+- Theatrical packaging on pop production is Alt & Pop, not Steampunk (Haute & Freddy).
 
 After matching, `src/render/parser.py` applies:
 
@@ -146,7 +160,7 @@ The family icon is `🎻`: it represents this traditional and theatrical charact
 
 ### Alt & Pop
 
-Alternative and pop: indie, electronic, dream pop, singer-songwriters and mainstream pop. Named Alternative until 2026-09, when it had grown to include mainstream pop (Dua Lipa, Madonna, Sabrina Carpenter); briefly renamed Pop, which left out the alternative half. Alt comes first because it is still the core. Tags keep the short `Alt - ` prefix and the tab id is `alt-pop`. The family icon is `🎤`: like `🎸` and `🎻`, an instrument, here the voice that leads almost every artist in the family; instrumental acts (Hollywood Burns, Escala, Lorien Testard) go to Others.
+Alternative and pop: indie, electronic, dream pop, singer-songwriters and mainstream pop (Dua Lipa, Madonna). Neither word alone covers it; Alt comes first because it is still the core. Tags use the short `Alt - ` prefix. The family icon is `🎤`: like `🎸` and `🎻`, an instrument, here the voice that leads almost every artist in the family.
 
 - **Atmospheric**: layered arrangements: strings, electronics, ambience.
 - **Vox/Guitar**: minimalist: voice with guitar or piano.
