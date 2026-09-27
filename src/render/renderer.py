@@ -961,7 +961,7 @@ def card(artist: Artist):
             with div(cls="meta"):
                 with div(cls="artist-song"):
                     span(artist.top_song or "-", cls="top-song-text")
-                    release_text = f"{artist.last_release[:4]} · {artist.last_release_name}" if artist.last_release_name else artist.top_song or "-"
+                    release_text = artist.last_release_name or artist.top_song or "-"
                     span(release_text, cls="release-text", title=artist.last_release)
 
         # links
