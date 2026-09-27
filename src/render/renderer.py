@@ -939,8 +939,8 @@ def sort_items():
         ("music", "Name", "Name", "name", "asc"),
         ("user", "Followers", "Followers", "followers", "desc"),
         ("fire", "Popularity", "Artist popularity", "popularity", "desc"),
-        ("compact disc", "Albums", "Albums", "albums", "desc"),
         ("hourglass half", "Longevity", "Years since the first album", "first-release", "desc"),
+        ("compact disc", "Albums", "Albums", "albums", "desc"),
         ("calendar alternate", "Release", "Last release", "last-release", "desc"),
         ("bell", "Followed", "Last followed", "last-follow", "asc"),
     ]):
