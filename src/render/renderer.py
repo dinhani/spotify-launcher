@@ -110,7 +110,16 @@ html {
     margin: 0 10px;
 }
 .list-control > .discover-button {
-    margin-left: 1.25rem;
+    margin: 0 0 0 1.25rem;
+}
+.discover-button .compass.icon {
+    transition: transform 0.45s ease;
+}
+.discover-button:hover .compass.icon, .discover-button:focus-visible .compass.icon, .discover-button:active .compass.icon {
+    transform: rotate(45deg);
+}
+.ui.blue.button.discover-button.active {
+    box-shadow: 0 0 0 3px rgba(33, 133, 208, 0.3) !important;
 }
 .list-control {
     display: flex;
@@ -878,10 +887,15 @@ def menu_group():
         group_items()
 
 def discover_button(fluid: bool):
-    """Render the Discover shortcut, the most visible way into Discover."""
-    with button(cls=f"ui {'fluid' if fluid else 'small'} blue button discover-button", type="button", onClick="openDiscover()"):
-        i(cls="compass icon", aria_hidden="true")
-        span("Discover")
+    """Render the Discover shortcut: a round compass emblem on desktop, a labeled full-width button on mobile."""
+    if fluid:
+        with button(cls="ui fluid blue button discover-button", type="button", onClick="openDiscover()"):
+            i(cls="compass icon", aria_hidden="true")
+            span("Discover")
+    else:
+        with button(cls="ui small circular blue icon button discover-button", type="button", onClick="openDiscover()",
+                    title="Discover", aria_label="Discover"):
+            i(cls="compass icon", aria_hidden="true")
 
 def list_controls():
     with div(cls="list-controls"):
