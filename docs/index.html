@@ -756,6 +756,17 @@ html {
     border-right: 0;
     border-bottom: 0;
 }
+.ui.menu.sidebar-options .active.item,
+.ui.menu.sidebar-options .active.item:hover {
+    background: #2185d0;
+    color: #fff;
+    font-weight: bold;
+}
+.ui.menu.sidebar-options .active.item > .ui.basic.label.artist-count {
+    border-color: #fff !important;  /* Fomantic basic colored labels use !important */
+    background: #fff !important;
+    color: #2185d0 !important;
+}
 .ui.menu .item > .label.artist-count {
     width: 3.5em;
     text-align: center;
