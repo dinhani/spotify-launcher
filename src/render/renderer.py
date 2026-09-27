@@ -954,11 +954,11 @@ def group_items():
     # sort: the grouping's default sort, until changed in a view
     for index, (icon, label, mode, sort) in enumerate([
         ("th", "None", "none", "followers"),
-        ("music", "Style", "style", "name"),
-        ("tags", "Substyle", "substyle", "name"),
         ("user", "Followers", "followers", "followers"),
         ("hourglass half", "Longevity", "longevity", "first-release"),
         ("calendar alternate", "Release", "release", "last-release"),
+        ("music", "Style", "style", "name"),
+        ("tags", "Substyle", "substyle", "name"),
     ]):
         active = "active" if index == 0 else ""
         with div(cls=f"{active} link item nowrap", data_group=mode, data_group_sort=sort, onClick="groupArtists(this)", tabindex="0"):
