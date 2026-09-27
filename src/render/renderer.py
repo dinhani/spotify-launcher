@@ -693,6 +693,16 @@ var followersRanges = [
     {label: 'Niche', description: '20K–110K followers', from: 20000, to: 109999},
     {label: 'Underground', description: 'Under 20K followers', from: 0, to: 19999},
 ];
+var albumsRanges = [
+    {label: '20+ Albums', description: 'Monumental, a lifetime of releases', from: 20, to: Infinity},
+    {label: '15–19 Albums', description: 'Prolific, decades of nonstop releases', from: 15, to: 19},
+    {label: '10–14 Albums', description: 'Veteran, a long and steady career', from: 10, to: 14},
+    {label: '7–9 Albums', description: 'Established, well past the early years', from: 7, to: 9},
+    {label: '4–6 Albums', description: 'Consolidated, a solid identity', from: 4, to: 6},
+    {label: '2–3 Albums', description: 'Early, an early career or a band that ended soon', from: 2, to: 3},
+    {label: '1 Album', description: 'Debut, the only album so far', from: 1, to: 1},
+    {label: 'No Albums', description: 'Singles and EPs only', from: 0, to: 0},
+];
 var releaseRanges = [
     {label: 'This Year', from: 0, to: 0},
     {label: 'Last Year', from: 1, to: 1},
@@ -718,6 +728,9 @@ function uniqueArtists(grid) {
 function groupSections(grid) {
     if (grouping === 'followers') {
         return rangeSections(followersRanges, function(cell) { return Number(cell.dataset.followers); });
+    }
+    if (grouping === 'albums') {
+        return rangeSections(albumsRanges, function(cell) { return Number(cell.dataset.albums); });
     }
     if (grouping === 'style' || grouping === 'substyle') {
         // a style filter shows only its own sections; Others shows only without one
@@ -989,8 +1002,8 @@ $(document).on('keydown', function(e) {
     }
     var kind = {
         Digit1: 'tab', ArrowUp: 'tab', ArrowDown: 'tab',
-        Digit2: 'sort',
-        Digit3: 'group', ArrowLeft: 'group', ArrowRight: 'group',
+        Digit2: 'group', ArrowLeft: 'group', ArrowRight: 'group',
+        Digit3: 'sort',
     }[e.code];
     if (!kind || !e.ctrlKey || e.altKey || e.metaKey) return;
     if ((e.code === 'ArrowLeft' || e.code === 'ArrowRight') && $(e.target).is('input')) return;
@@ -1386,13 +1399,13 @@ def discover_button(fluid: bool):
 def list_controls():
     with div(cls="list-controls"):
         with div(cls="list-control"):
-            span("Sort", cls="ui blue text list-control-label", title="Ctrl+2 next, Ctrl+Shift+2 previous")
-            with div(cls="ui small compact blue secondary menu"):
-                sort_items()
-        with div(cls="list-control"):
-            span("Group", cls="ui blue text list-control-label", title="Ctrl+3 or Ctrl+Right next, Ctrl+Shift+3 or Ctrl+Left previous")
+            span("Group", cls="ui blue text list-control-label", title="Ctrl+2 or Ctrl+Right next, Ctrl+Shift+2 or Ctrl+Left previous")
             with div(cls="ui small compact blue secondary menu"):
                 group_items()
+        with div(cls="list-control"):
+            span("Sort", cls="ui blue text list-control-label", title="Ctrl+3 next, Ctrl+Shift+3 previous")
+            with div(cls="ui small compact blue secondary menu"):
+                sort_items()
             discover_button(fluid=False)
 
 def sort_items():
@@ -1418,6 +1431,7 @@ def group_items():
         ("tags", "Substyle", "substyle", "name", "Sections by substyle"),
         ("user", "Followers", "followers", "followers", "Sections by audience reach"),
         ("hourglass half", "Longevity", "longevity", "first-release", "Sections by years since the first album"),
+        ("compact disc", "Albums", "albums", "albums", "Sections by number of albums"),
         ("calendar alternate", "Release", "release", "last-release", "Sections by years since the last release"),
     ]:
         with div(cls="link item nowrap", data_group=mode, data_group_sort=sort, title=description, data_command_description=description,
@@ -1561,8 +1575,8 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]) -> str:
                     discover_button(fluid=True)
                     with div(cls="ui fluid styled mobile accordion"):
                         menu_filter(mobile=True, tags_with_artists=tags_with_artists)
-                        menu_sort()
                         menu_group()
+                        menu_sort()
 
                 # ------------------------------------------------------------------
                 # Menu (desktop)
