@@ -1350,11 +1350,11 @@ def group_items():
     # sort: applied when the grouping is chosen
     for icon, label, mode, sort, description in [
         ("th", "None", "none", "followers", "No sections"),
+        ("music", "Style", "style", "name", f"Sections by {', '.join(family.tag.name for family in FAMILIES)} and {T_OTHERS.name}"),
+        ("tags", "Substyle", "substyle", "name", "Sections by substyle"),
         ("user", "Followers", "followers", "followers", "Sections by audience reach"),
         ("hourglass half", "Longevity", "longevity", "first-release", "Sections by years since the first album"),
         ("calendar alternate", "Release", "release", "last-release", "Sections by years since the last release"),
-        ("music", "Style", "style", "name", f"Sections by {', '.join(family.tag.name for family in FAMILIES)} and {T_OTHERS.name}"),
-        ("tags", "Substyle", "substyle", "name", "Sections by substyle"),
     ]:
         with div(cls="link item nowrap", data_group=mode, data_group_sort=sort, title=description, data_command_description=description,
                  onClick="groupArtists(this)", tabindex="0"):
