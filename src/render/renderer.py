@@ -542,7 +542,7 @@ function groupArtists(element) {
     {"name": family.name, "icon": family.icon, "description": family.description, "fallback": family == T_OTHERS}
     for family in [*(family.tag for family in FAMILIES), T_OTHERS]
 ], ensure_ascii=False)).replace("__ARTIST_SUBSTYLES__", json.dumps([
-    {"tag": tag.name, "name": tag.name.split(" - ")[-1].strip(), "family": family.tag.name, "icon": family.tag.icon, "description": tag.description}
+    {"tag": tag.name, "name": f"{family.tag.name} › {tag.name.split(' - ')[-1].strip()}", "family": family.tag.name, "icon": family.tag.icon, "description": tag.description}
     for family in FAMILIES for tag in family.granular
 ], ensure_ascii=False))
 
