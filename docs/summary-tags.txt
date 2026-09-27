@@ -15,7 +15,6 @@ Rock - Heavy Metal:
 * Borknagar
 * Charon
 * Circle II Circle
-* Cradle Of Filth
 * Deathstars
 * Demons & Wizards
 * Detonator
@@ -65,7 +64,6 @@ Rock - Heavy Metal:
 * Pain of Salvation
 * Pantera
 * Paradise Lost
-* Poison
 * Queensrÿche
 * Rammstein
 * Rata Blanca
@@ -85,11 +83,13 @@ Rock - Heavy Metal:
 * Storm Corrosion
 * Stratovarius
 * Stress
-* Suldusk
 * Symphony X
 * System Of A Down
+* Sólstafir
 * Type O Negative
 * Van Canto
+* Volbeat
+* Wintersun
 * Zonata
 
 Rock - Extreme Metal:
@@ -126,7 +126,6 @@ Rock - Extreme Metal:
 * Soilwork
 * SuidAkrA
 * Suldusk
-* Sólstafir
 * Torture Squad
 * Vader
 * Vintersorg
@@ -138,27 +137,24 @@ Rock - Folk Metal:
 * Arkona
 * Cruachan
 * Diablo Swing Orchestra
-* Eldhrimnir
 * Eluveitie
 * Elvenking
-* Faun
 * Finntroll
 * Haggard
 * Heidevolk
 * In Extremo
 * Korpiklaani
 * Mägo de Oz
-* OMNIA
 * Orphaned Land
 * Otyg
 * SuidAkrA
+* Suldusk
 * The HU
 * Therion
 * Tuatha de Danann
 * Turisas
 * Týr
 * Vintersorg
-* Wintersun
 
 Rock - Rock:
 * Alvvays
@@ -178,8 +174,8 @@ Rock - Rock:
 * Muse
 * Pearl Jam
 * Poets of the Fall
+* Poison
 * Queen
-* Queensrÿche
 * Red Hot Chili Peppers
 * Scorpions
 * Syd Matters
@@ -196,11 +192,9 @@ Folk - Folk:
 * Caprice
 * Celtic Woman
 * Confraria da Costa
-* Cruachan
 * Deolinda
 * Eivør
 * Eldhrimnir
-* Eluveitie
 * Faun
 * Hildegard von Blingin'
 * Madredeus
