@@ -864,7 +864,6 @@ def list_controls():
 def sort_items():
     for index, (icon, label, description, attribute, order) in enumerate([
         ("music", "Name", "Name", "name", "asc"),
-        ("trophy", "Top Song", "Top song popularity", "song-popularity", "desc"),
         ("fire", "Popularity", "Artist popularity", "popularity", "desc"),
         ("user", "Followers", "Followers", "followers", "desc"),
         ("compact disc", "Albums", "Albums", "albums", "desc"),
@@ -915,7 +914,6 @@ def card_cell(artist: Artist, tabs: list[str]):
         data_name=artist.name,
         data_followers=str(artist.followers),
         data_popularity=str(artist.popularity),
-        data_song_popularity=str(artist.top_song_popularity),
         data_albums=str(artist.albums),
         data_first_release=artist.first_release,
         data_last_release=artist.last_release,
