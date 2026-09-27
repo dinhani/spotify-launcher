@@ -207,7 +207,10 @@ TAG_RULES = {
         "-In Mourning",
         "-Scorpions",
         "-Torture Squad",
+        "-Vader",
+        "+Detonator",
         "+Massacration",
+        "+Rata Blanca",
         "+Stress",
         "-Whitesnake",
         "christian rock",
@@ -218,7 +221,7 @@ TAG_RULES = {
         "power metal",
         "progressive metal",
         "thrash metal",
-        "doom metal"
+        "doom metal",
     ],
     T_ROCK_FOLK_METAL: [
         "-Amon Amarth",
@@ -226,25 +229,29 @@ TAG_RULES = {
         "-Blind Guardian",
         "-Borknagar",
         "-Braia",
+        "-Epica",
         "-HammerFall",
         "-Kamelot",
         "-Leaves' Eyes",
         "-Nightwish",
+        "-Orden Ogan",
         "-Rhapsody",
+        "-Rhapsody Of Fire",
         "-Sabaton",
         "-Sólstafir",
         "-Sonata Arctica",
         "-Ye Banished Privateers",
         "+Diablo Swing Orchestra",
-        "folk metal"
+        "folk metal",
     ],
     T_ROCK_EXTREME_METAL: [
         "-Sentenced",
+        "-Sinergy",
         "-Therion",
         "+Ahab",
         "black metal",
         "death metal",
-        "melodic death metal"
+        "melodic death metal",
     ],
     T_ROCK_ROCK: [
         "-Dio",
@@ -256,6 +263,7 @@ TAG_RULES = {
         "+Barns Courtney",
         "+Boz Scaggs",
         "+Camp Claude",
+        "+CPM 22",
         "+Creedence Clearwater Revival",
         "+Daughter",
         "+Imagine Dragons",
@@ -269,7 +277,7 @@ TAG_RULES = {
         "hard rock",
         "post-grunge",
         "rock",
-        "shoegaze"
+        "shoegaze",
     ],
     # --------------------------------------------------------------------------
     # Folk / Steampunk
@@ -285,6 +293,7 @@ TAG_RULES = {
         "+Eldhrimnir",
         "+Hildegard von Blingin'",
         "+Madredeus",
+        "+O Bardo E O Banjo",
         "+The Dead South",
         "+Ye Banished Privateers",
         "celtic",
@@ -292,6 +301,7 @@ TAG_RULES = {
     T_FOLK_STEAMPUNK: [
         "-Diablo Swing Orchestra",
         "-Leandra",
+        "+Abney Park",
         "+AlicebanD",
         "+Amanda Palmer",
         "+American Murder Song",
@@ -305,10 +315,10 @@ TAG_RULES = {
         "+Steam Powered Giraffe",
         "+The Cog is Dead",
         "+The Dresden Dolls",
-        "+Unwoman"
+        "+Unwoman",
     ],
     # --------------------------------------------------------------------------
-    # Alternativo
+    # Pop
     # --------------------------------------------------------------------------
     T_POP_ALL: [
         T_POP_ATMOSPHERIC,
@@ -316,6 +326,9 @@ TAG_RULES = {
         T_POP_VOICE_GUITAR,
     ],
     T_POP_ATMOSPHERIC: [
+        "+Elsiane",
+        "+Escala",
+        "+Girls In Hawaii",
         "+Klergy",
         "+aeseaes",
         "+Agnes Obel",
@@ -338,6 +351,7 @@ TAG_RULES = {
         "+Lor",
         "+Lorien Testard",
         "+lùisa",
+        "+MS MR",
         "+Oh Land",
         "+Oh Wonder",
         "+Paris Paloma",
@@ -351,9 +365,11 @@ TAG_RULES = {
         "+Sóley",
         "+Susanne Sundfør",
         "+The xx",
-        "+Vaults"
+        "+Vaults",
+        "+Warpaint",
     ],
     T_POP_ENERGETIC: [
+        "+Addison Rae",
         "+Allie X",
         "+AURORA",
         "+Britney Spears",
@@ -373,9 +389,11 @@ TAG_RULES = {
         "+Lorde",
         "+Madonna",
         "+MARINA",
+        "+Miley Cyrus",
         "+Of Monsters and Men",
         "+P!nk",
         "+Prudence",
+        "+RAYE",
         "+Robyn",
         "+Röyksopp",
         "+Sabrina Carpenter",
@@ -392,13 +410,16 @@ TAG_RULES = {
     ],
     T_POP_VOICE_GUITAR: [
         "-Of Monsters and Men",
+        "+Adna",
         "+Alela Diane",
         "+Angus & Julia Stone",
         "+Billie Marten",
+        "+CLOVES",
         "+Cocoon",
         "+Fish in a Birdcage",
         "+Frøkedal",
         "+Gabrielle Shonk",
+        "+Jill Andrews",
         "+LAUREL",
         "+Marika Hackman",
         "+Michelle Gurevich",
