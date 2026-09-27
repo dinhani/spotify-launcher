@@ -343,7 +343,7 @@ function savePreference(name, value) {
 
 function applyPreferences() {
     var preferences = loadPreferences();
-    sort($('.item[data-sort="' + preferences.sort + '"]')[0] || $('.item[data-sort]')[0]);
+    orderArtists($('.item[data-sort="' + preferences.sort + '"]')[0] || $('.item[data-sort]')[0]);
     groupArtists($('.item[data-group="' + preferences.group + '"]')[0] || $('.item[data-group]')[0]);
     if (!location.hash && $('.item[data-tab="' + preferences.tab + '"]').length) {
         history.replaceState(null, '', '#/' + preferences.tab);
@@ -353,28 +353,35 @@ function applyPreferences() {
 
 JS_FUNC_SORT = """
 function sort(element) {
+    orderArtists(element);
+    applyGrouping();
+}
+
+function orderArtists(element) {
     selectOption(element, 'sort', 'Sort');
     savePreference('sort', element.dataset.sort);
     var attribute = element.dataset.sort;
     var order = element.dataset.order;
 
-    // reorder
+    // read each value once; applyGrouping places the cells by viewOrder
     $('.artists').each(function(_, artists) {
-        var sorted = uniqueArtists(artists).sort(function(a, b) {
-            var valA = $(a).data(attribute);
-            var valB = $(b).data(attribute);
+        var keyed = uniqueArtists(artists).map(function(cell) {
+            var value = cell.getAttribute('data-' + attribute) || '';
+            return {cell: cell, value: $.isNumeric(value) ? Number(value) : value};
+        });
+        keyed.sort(function(a, b) {
+            var valA = a.value;
+            var valB = b.value;
 
             // Check if the values are numeric
-            if ($.isNumeric(valA)) {
+            if (typeof valA === 'number') {
                 return order === 'asc' ? valA - valB : valB - valA; // Numeric comparison
             } else {
                 return order === 'asc' ? String(valA).localeCompare(String(valB)) : String(valB).localeCompare(String(valA)); // String comparison
             }
         });
-        sorted.forEach(function(cell, index) { cell.dataset.viewOrder = index; });
-        $(artists).empty().append(sorted);
+        keyed.forEach(function(item, index) { item.cell.dataset.viewOrder = index; });
     });
-    applyGrouping();
 }
 """
 
