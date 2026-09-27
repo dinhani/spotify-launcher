@@ -331,6 +331,40 @@ body.release-mode .release-text {
         height: 140px !important;
     }
 }
+/* Back to top arrow (mobile) */
+.scroll-top {
+    display: none;
+}
+@media only screen and (max-width: 991.9px) {
+    .scroll-top {
+        position: fixed;
+        right: 1rem;
+        bottom: calc(1rem + env(safe-area-inset-bottom));
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.75rem;
+        height: 2.75rem;
+        border: none;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        color: rgba(0, 0, 0, 0.55);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+        cursor: pointer;
+    }
+    .scroll-top.visible {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .scroll-top > i.icon {
+        margin: 0;
+    }
+}
+
 /* Command palette (Ctrl+P) */
 .ui.modal.command-palette {
     overflow: hidden;
@@ -1028,6 +1062,13 @@ $(document).on('keydown', '.ui.card', function(e) {
 });
 """
 
+JS_SCROLL_TOP = """
+// the back to top arrow shows once the page has scrolled past one screen (mobile; desktop scrolls inside the grid)
+$(window).on('scroll', function() {
+    $('.scroll-top').toggleClass('visible', window.scrollY > window.innerHeight);
+});
+"""
+
 JS_COMMAND_PALETTE = """
 // Ctrl+P lists every sidebar and top bar option; choosing one clicks it, so it follows the same rules.
 var paletteCommands = [];
@@ -1307,6 +1348,12 @@ def menu_group():
     with menu_wrapper("Group", "group"):
         group_items()
 
+def scroll_top_button():
+    """Render the discreet mobile arrow that returns to the top once the page has scrolled past a screen."""
+    with button(cls="scroll-top", type="button", title="Back to top", aria_label="Back to top",
+                onClick="window.scrollTo({top: 0, behavior: 'smooth'})"):
+        i(cls="arrow up icon", aria_hidden="true")
+
 def command_palette():
     """Render the Ctrl+P command palette; its options are listed in the browser from the sidebar and top bar."""
     with div(cls="ui tiny modal command-palette"):
@@ -1495,6 +1542,7 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]) -> str:
             script(raw(JS_FUNC_MARK_RECENT_RELEASES))
             script(raw(JS_KEYBOARD_NAVIGATION))
             script(raw(JS_COMMAND_PALETTE))
+            script(raw(JS_SCROLL_TOP))
 
             # style
             link(href=f"{FOMANTIC_UI}.css", rel="stylesheet")
@@ -1565,11 +1613,10 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]) -> str:
 
                 command_palette()
 
-                # ------------------------------------------------------------------
-                # Scroll to top
-                # ------------------------------------------------------------------
-                with div(cls="sixteen wide column mobile tablet only app-column"):
-                    div("⬆️ Back to top", cls="ui fluid button", onClick="window.scrollTo({top:0})")
+            # ------------------------------------------------------------------
+            # Scroll to top (mobile)
+            # ------------------------------------------------------------------
+            scroll_top_button()
 
         # ----------------------------------------------------------------------
         # Script initialization

@@ -20,6 +20,7 @@ Delight is an explicit product goal. Choosing an artist should feel inviting, pe
 - Stats are secondary, passive information. Keep them legible and quiet; avoid turning them into prominent panels or covering photos unnecessarily.
 - Use spacing, typography, contrast and subtle treatments deliberately. More boxes, bars, borders or colorful icons do not automatically make a design better.
 - Card photo corners: a small star at top left marks favorites; a green corner label at top right marks a last release within 90 days, computed in the browser.
+- On mobile, going back to the top is a discreet floating arrow (small translucent white circle, bottom right, safe-area aware) that fades in once the page has scrolled past one screen; no button at the end of the page.
 - Consider the whole composition on desktop and mobile, including long genre labels, favorites and dense cards. Avoid overlaps and preserve comfortable interactions.
 
 ## Discover
@@ -99,7 +100,7 @@ Rules that follow:
 
 After any change, re-render and commit it (source and generated `docs/` together) without asking. Commits are authored by me, Renato Dinhani <renatodinhani@gmail.com>, with Claude only as `Co-Authored-By`: I guide the work. Set `git config user.name` and `user.email` accordingly at the start of a session. In remote sessions without the Python dependencies, do not try to render: commit the source only; I render and commit `docs/` myself.
 
-Renderer functions such as `menu_filter`, `menu_sort`, `menu_group`, `list_controls`, `discover_button`, `command_palette` and `card` are page components; keep them as functions even with a single caller.
+Renderer functions such as `menu_filter`, `menu_sort`, `menu_group`, `list_controls`, `discover_button`, `command_palette`, `scroll_top_button` and `card` are page components; keep them as functions even with a single caller.
 
 The page renders in standards mode (`render_html` emits the HTML5 doctype); keep it. Quirks mode made line heights inside inline content ignore their parent.
 
