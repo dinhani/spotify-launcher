@@ -41,11 +41,11 @@ Tiers describe how far an artist's audience reaches, measured by Spotify followe
 - **Superstar** (8M+): the biggest names overall, known to everyone (Queen, Metallica, Madonna, Ozzy Osbourne, Chappell Roan). The cut sits below the 8.5M–12M block of legends so the block stays together.
 - **Mainstream** (4.5M–8M): known to the general public (Florence + The Machine, Pantera, Lynyrd Skynyrd, Judas Priest, Mägo de Oz).
 - **Beyond Niche** (1M–4.5M): the audience is larger than a niche sustains, so people outside the niche listen to them, whatever the genre, metal included (Paris Paloma, Birdy, Whitesnake, Sabaton, Opeth).
-- **Niche Star** (110K–1M): well known by everyone within their niche, meaning the audience of a specific taste (power metal, fado, dream pop). Niche audiences top out around 800K–1M (Blind Guardian, Stratovarius, HammerFall, ANGRA, Madredeus, Agnes Obel).
+- **Niche Reference** (110K–1M): a reference within their niche, relevant and known by everyone in it without necessarily being a star, meaning the audience of a specific taste (power metal, fado, dream pop). Niche audiences top out around 800K–1M (Blind Guardian, Stratovarius, HammerFall, ANGRA, Madredeus, Agnes Obel).
 - **Niche** (20K–110K): part of a niche, but not its stars (HÆLOS, Jorn, Bitter Ruin).
 - **Underground** (under 20K): barely on the radar, even within their niche (Confraria da Costa, Stress). Few followers mean small reach, not a data error.
 
-Trust the numbers over impressions of who "really" left their niche. Followers cannot tell where an audience came from: pre-streaming hits and sync placements (Vengaboys, Aqua, Boz Scaggs, Ruelle) land in Niche Star, which is accepted.
+Trust the numbers over impressions of who "really" left their niche. Followers cannot tell where an audience came from: pre-streaming hits and sync placements (Vengaboys, Aqua, Boz Scaggs, Ruelle) land in Niche Reference, which is accepted.
 
 Breakpoints sit in gaps between neighbouring artists, where an artist really changes tier (found with natural breaks on log followers in 2026-09, then checked by looking at the artists on each side). Prefer the roundest number inside the gap, even over a slightly wider gap (1M over 950K); never cut through a dense stretch, since 10K and 11K are equally unknown. Re-check the gaps when followers change a lot.
 
