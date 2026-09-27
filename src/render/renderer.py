@@ -390,6 +390,7 @@ function orderArtists(element) {
 JS_FUNC_GROUP = """
 var grouping = 'none';
 var artistFamilies = __ARTIST_FAMILIES__;
+var artistSubstyles = __ARTIST_SUBSTYLES__;
 var longevityRanges = [
     {label: 'Under 5 Years', from: 0, to: 4},
     {label: '5–9 Years', from: 5, to: 9},
@@ -433,8 +434,23 @@ function uniqueArtists(grid) {
 }
 
 function groupSections(grid) {
+    var scope = $(grid).closest('.ui.tab').attr('data-group-family');
+    if (grouping === 'substyle') {
+        var others = artistFamilies.filter(function(family) { return family.fallback && !scope; });
+        return artistSubstyles
+            .filter(function(substyle) { return !scope || substyle.family === scope; })
+            .map(function(substyle) {
+                return {label: substyle.name, icon: substyle.icon, description: substyle.description, includes: function(cell) {
+                    return cell.dataset.substyles.split('|').includes(substyle.tag);
+                }};
+            })
+            .concat(others.map(function(family) {
+                return {label: family.name, icon: family.icon, description: family.description, includes: function(cell) {
+                    return familiesOf(cell).length === 0;
+                }};
+            }));
+    }
     if (grouping === 'style') {
-        var scope = $(grid).closest('.ui.tab').attr('data-group-family');
         return artistFamilies
             .filter(function(family) { return !scope || family.name === scope; })
             .map(function(family) {
@@ -525,6 +541,9 @@ function groupArtists(element) {
 """.replace("__ARTIST_FAMILIES__", json.dumps([
     {"name": family.name, "icon": family.icon, "description": family.description, "fallback": family == T_OTHERS}
     for family in [*(family.tag for family in FAMILIES), T_OTHERS]
+], ensure_ascii=False)).replace("__ARTIST_SUBSTYLES__", json.dumps([
+    {"tag": tag.name, "name": tag.name.split(" - ")[-1].strip(), "family": family.tag.name, "icon": family.tag.icon, "description": tag.description}
+    for family in FAMILIES for tag in family.granular
 ], ensure_ascii=False))
 
 JS_FUNC_FILL_TAB = """
@@ -844,6 +863,7 @@ def group_items():
     for index, (icon, label, mode) in enumerate([
         ("th", "None", "none"),
         ("music", "Style", "style"),
+        ("tags", "Substyle", "substyle"),
         ("user", "Followers", "followers"),
         ("hourglass half", "Longevity", "longevity"),
         ("calendar alternate", "Release", "release"),
@@ -880,6 +900,7 @@ def card_cell(artist: Artist, tabs: list[str]):
         data_last_release=artist.last_release,
         data_last_follow=str(artist.last_follow),
         data_families="|".join(family.tag.name for family in FAMILIES if family.tag in artist.tags),
+        data_substyles="|".join(tag.name for tag in artist.tags_granular),
         data_tabs=" ".join(tabs),
     )
 
