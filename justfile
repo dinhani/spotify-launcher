@@ -34,7 +34,7 @@ export:
 lastfm:
     python src/artists-lastfm.py
 
-# Extract Spotify extended streaming history to data/spotify-history.csv
+# Extract Spotify extended streaming history to data/spotify-history.tsv
 [group("run")]
 history *export_dir:
     python src/spotify-history.py {{export_dir}}

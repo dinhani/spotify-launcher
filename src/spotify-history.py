@@ -5,7 +5,7 @@ from pathlib import Path
 import polars
 
 EXPORT_DIR = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("Z:/pessoal/redes-sociais/spotify-2026-09")
-OUT = Path(__file__).parent.parent / "data" / "spotify-history.csv"
+OUT = Path(__file__).parent.parent / "data" / "spotify-history.tsv"
 TIMEZONE = "America/Sao_Paulo"
 
 DEVICE = polars.Enum(["desktop", "phone", "tablet", "speaker", "tv", "unknown"])
@@ -72,5 +72,5 @@ history = (
 )
 
 OUT.parent.mkdir(exist_ok=True)
-history.write_csv(file=OUT, datetime_format="%Y-%m-%dT%H:%M:%S%:z")
+history.write_csv(file=OUT, separator="\t", datetime_format="%Y-%m-%dT%H:%M:%S%:z")
 print(f"Wrote {OUT}: {len(history)} tracks ({len(streams) - len(history)} podcasts and empty streams dropped)")
