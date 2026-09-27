@@ -43,7 +43,8 @@ class Artist:
                 id: str, name: str, image: str,
                 genres: str | list[str], popularity: int, followers: int, albums: int,
                 first_release: str | None, last_release: str | None, last_follow: str, top_song: str, top_song_popularity: int,
-                top_album_name: str, top_album_image: str):
+                top_album_name: str, top_album_image: str,
+                last_release_name: str | None = None, last_release_image: str | None = None):
 
         self.id = id
         self.name = name
@@ -61,6 +62,8 @@ class Artist:
 
         self.first_release = first_release or ""
         self.last_release = last_release or ""
+        self.last_release_name = last_release_name or ""
+        self.last_release_image = last_release_image or ""
         self.last_follow = last_follow
         self.top_song = top_song
         self.top_song_popularity = top_song_popularity

@@ -44,6 +44,13 @@ for artist in artists:
         if not any(title.startswith(other + " ") and ALBUM_EDITION_WORDS.search(title[len(other):]) for other in album_release_dates)
     }
 
+    # find last album (original edition of the latest studio album)
+    last_title = max(album_release_dates_original, key=lambda title: album_release_dates_original[title], default=None)
+    last_album = min(
+        (album for album in albums_studio if parse_album_title(album["name"]) == last_title and album.get("images")),
+        key=lambda album: album["release_date"], default=None,
+    )
+
     # find top album
     top_albums = [
         track["album"] for track in tracks
@@ -64,6 +71,8 @@ for artist in artists:
         "albums": len(album_release_dates_original),
         "first_release": FIRST_RELEASE_OVERRIDES.get(artist["name"]) or min(album_release_dates_original.values(), default=""),
         "last_release": max(album_release_dates_original.values(), default=""),
+        "last_release_name": last_album["name"] if last_album else "",
+        "last_release_image": last_album["images"][0]["url"] if last_album else "",
         "top_song": tracks[0]["name"] if tracks else "",
         "top_song_popularity": tracks[0]["popularity"] if tracks else 0,
         "last_follow": rank[artist["id"]],

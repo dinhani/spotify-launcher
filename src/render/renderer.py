@@ -168,6 +168,21 @@ html {
 .artist-image-caption.has-album-cover {
     padding-right: 3.25rem;
 }
+/* Release grouping shows the last release instead of the top song and album */
+.release-text {
+    display: none;
+}
+.ui.card > .image > img.album-cover.release-cover,
+body.release-mode .ui.card > .image > img.album-cover.top-cover,
+body.release-mode .top-song-text {
+    display: none;
+}
+body.release-mode .ui.card > .image > img.album-cover.release-cover {
+    display: block;
+}
+body.release-mode .release-text {
+    display: inline;
+}
 .ui.card > .image > img.album-cover {
     position: absolute;
     right: 0.35rem;
@@ -536,6 +551,7 @@ function groupArtists(element) {
     selectOption(element, 'group', 'Group');
     savePreference('group', element.dataset.group);
     grouping = element.dataset.group;
+    $('body').toggleClass('release-mode', grouping === 'release');
     applyGrouping();
 }
 """.replace("__ARTIST_FAMILIES__", json.dumps([
@@ -918,7 +934,8 @@ def card(artist: Artist):
             img(src=artist.image, cls="ui image artist-image", alt=artist.name, loading="lazy")
             if T_FAVORITES in artist.tags:
                 i(cls="star icon favorite-star", role="img", aria_label="Favorite")
-            caption_class = "artist-image-caption has-album-cover" if artist.top_album_image else "artist-image-caption"
+            release_image = artist.last_release_image or artist.top_album_image
+            caption_class = "artist-image-caption has-album-cover" if artist.top_album_image or release_image else "artist-image-caption"
             with div(cls=caption_class):
                 div(artist_tags, cls="artist-tags")
                 with div(cls="artist-stats"):
@@ -931,14 +948,21 @@ def card(artist: Artist):
                             i(cls=f"{icon} icon", aria_hidden="true")
                             span(value)
             if artist.top_album_image:
-                img(src=artist.top_album_image, cls="album-cover", alt=f"Album cover — {artist.top_album_name}", title=artist.top_album_name,
+                img(src=artist.top_album_image, cls="album-cover top-cover", alt=f"Album cover — {artist.top_album_name}", title=artist.top_album_name,
+                    loading="lazy", width="40", height="40")
+            if release_image:
+                release_title = artist.last_release_name or artist.top_album_name
+                img(src=release_image, cls="album-cover release-cover", alt=f"Album cover — {release_title}", title=release_title,
                     loading="lazy", width="40", height="40")
 
         # header
         with a(cls="content", href=spotify_url, tabindex="-1"):
             div(artist.name, cls="ui small header artist-name")
             with div(cls="meta"):
-                div(artist.top_song or "-", cls="artist-song")
+                with div(cls="artist-song"):
+                    span(artist.top_song or "-", cls="top-song-text")
+                    release_text = f"{artist.last_release[:4]} · {artist.last_release_name}" if artist.last_release_name else artist.top_song or "-"
+                    span(release_text, cls="release-text", title=artist.last_release)
 
         # links
         with div(cls="ui two bottom attached mini basic buttons"):
