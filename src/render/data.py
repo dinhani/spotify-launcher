@@ -84,7 +84,7 @@ TAGS_UMBRELLA = [
 # ------------------------------------------------------------------------------
 # Tags to be show as header in the menu
 # ------------------------------------------------------------------------------
-TAGS_HEADER = [T_ALL, *(family.tag for family in FAMILIES)]
+TAGS_HEADER = [T_ALL, *(family.tag for family in FAMILIES), T_OTHERS]
 
 # ------------------------------------------------------------------------------
 # Tag order to be displayed in the menu
@@ -94,8 +94,8 @@ TAGS_MENU_ORDER = [
     T_DISCOVER,
     T_FAVORITES,
     T_NON_FAVORITES,
-    T_OTHERS,
     *(tag for family in FAMILIES for tag in family.tags_menu),
+    T_OTHERS,
 ]
 
 # ------------------------------------------------------------------------------

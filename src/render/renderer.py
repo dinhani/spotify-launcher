@@ -1098,9 +1098,9 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]) -> str:
                     menu_search()
                     discover_button(fluid=True)
                     with div(cls="ui fluid styled mobile accordion"):
-                        menu_group()
-                        menu_sort()
                         menu_filter(mobile=True, tags_with_artists=tags_with_artists)
+                        menu_sort()
+                        menu_group()
 
                 # ------------------------------------------------------------------
                 # Menu (desktop)
