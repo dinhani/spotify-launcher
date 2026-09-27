@@ -70,6 +70,16 @@ html {
     border-right: 0;
     border-bottom: 0;
 }
+.ui.menu.sidebar-options .active.item,
+.ui.menu.sidebar-options .active.item:hover {
+    background: #eaf3fb;
+    color: #1a69a4;
+}
+.ui.menu.sidebar-options .active.item > .label.artist-count {
+    border-color: #2185d0;
+    background: #2185d0;
+    color: #fff;
+}
 .ui.menu .item > .label.artist-count {
     width: 3.5em;
     text-align: center;
