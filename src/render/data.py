@@ -31,13 +31,13 @@ T_FOLK_NON_FAVORITES = Tag("Folk - Non-Favorites", "")
 T_FOLK_FOLK = Tag("Folk - Folk", "", "Celtic, medieval, fado, shanties")
 T_FOLK_STEAMPUNK = Tag("Folk - Steampunk", "", "Steampunk and dark cabaret")
 #
-T_ALT_ALL = Tag("Alternative", "🎧", "Alternative and indie pop")
-T_ALT_DISCOVER = Tag("Alt - Discover", "")
-T_ALT_FAVORITES = Tag("Alt - Favorites", "")
-T_ALT_NON_FAVORITES = Tag("Alt - Non-Favorites", "")
-T_ALT_ATMOSPHERIC = Tag("Alt - Atmospheric", "", "Strings, electronics, ambience")
-T_ALT_ENERGETIC = Tag("Alt - Energetic", "", "Upbeat, danceable")
-T_ALT_VOICE_GUITAR = Tag("Alt - Vox/Guitar", "", "Voice with guitar or piano")
+T_POP_ALL = Tag("Pop", "🎤", "Pop, indie pop and singer-songwriters")
+T_POP_DISCOVER = Tag("Pop - Discover", "")
+T_POP_FAVORITES = Tag("Pop - Favorites", "")
+T_POP_NON_FAVORITES = Tag("Pop - Non-Favorites", "")
+T_POP_ATMOSPHERIC = Tag("Pop - Atmospheric", "", "Strings, electronics, ambience")
+T_POP_ENERGETIC = Tag("Pop - Energetic", "", "Upbeat, danceable")
+T_POP_VOICE_GUITAR = Tag("Pop - Vox/Guitar", "", "Voice with guitar or piano")
 
 # ------------------------------------------------------------------------------
 # Families
@@ -56,18 +56,18 @@ FAMILY_FOLK = Family(
     non_favorites=T_FOLK_NON_FAVORITES,
     granular=(T_FOLK_FOLK, T_FOLK_STEAMPUNK),
 )
-FAMILY_ALT = Family(
-    tag=T_ALT_ALL,
-    discover=T_ALT_DISCOVER,
-    favorites=T_ALT_FAVORITES,
-    non_favorites=T_ALT_NON_FAVORITES,
-    granular=(T_ALT_ATMOSPHERIC, T_ALT_ENERGETIC, T_ALT_VOICE_GUITAR),
+FAMILY_POP = Family(
+    tag=T_POP_ALL,
+    discover=T_POP_DISCOVER,
+    favorites=T_POP_FAVORITES,
+    non_favorites=T_POP_NON_FAVORITES,
+    granular=(T_POP_ATMOSPHERIC, T_POP_ENERGETIC, T_POP_VOICE_GUITAR),
 )
-FAMILIES = [FAMILY_ROCK, FAMILY_FOLK, FAMILY_ALT]
+FAMILIES = [FAMILY_ROCK, FAMILY_FOLK, FAMILY_POP]
 
 # Exclude artists in these families from the corresponding Discover pool.
 FAMILY_DISCOVER_EXCLUSIONS = {
-    FAMILY_FOLK: [FAMILY_ROCK, FAMILY_ALT],
+    FAMILY_FOLK: [FAMILY_ROCK, FAMILY_POP],
 }
 
 def find_family(tag: Tag) -> Family | None:
@@ -311,12 +311,12 @@ TAG_RULES = {
     # --------------------------------------------------------------------------
     # Alternativo
     # --------------------------------------------------------------------------
-    T_ALT_ALL: [
-        T_ALT_ATMOSPHERIC,
-        T_ALT_ENERGETIC,
-        T_ALT_VOICE_GUITAR,
+    T_POP_ALL: [
+        T_POP_ATMOSPHERIC,
+        T_POP_ENERGETIC,
+        T_POP_VOICE_GUITAR,
     ],
-    T_ALT_ATMOSPHERIC: [
+    T_POP_ATMOSPHERIC: [
         "+Klergy",
         "+aeseaes",
         "+Agnes Obel",
@@ -354,7 +354,7 @@ TAG_RULES = {
         "+The xx",
         "+Vaults"
     ],
-    T_ALT_ENERGETIC: [
+    T_POP_ENERGETIC: [
         "+Allie X",
         "+AURORA",
         "+Britney Spears",
@@ -390,7 +390,7 @@ TAG_RULES = {
         "eurodance",
         "synthpop",
     ],
-    T_ALT_VOICE_GUITAR: [
+    T_POP_VOICE_GUITAR: [
         "-Of Monsters and Men",
         "+Alela Diane",
         "+Angus & Julia Stone",
