@@ -125,7 +125,7 @@ All rules live in `TAG_RULES` in `src/render/data.py`. Each tag lists patterns t
 
 Artists without Spotify genres must be placed via `+Name`.
 
-Tags reflect how I hear the artist, not Spotify's genre labels. A `+Name` or `-Name` that contradicts the genres is usually intentional; flag only isolated cases that look like real mistakes, never a whole tag based on genre names.
+Tags reflect how I hear the artist, not Spotify's genre labels. Spotify genres are unreliable: they are attached loosely (folk metal on Nightwish, Sabaton and OMNIA; progressive metal on Storm Corrosion), which is why so many manual rules exist. When reviewing or proposing classifications, judge each artist by what their music actually is, from knowledge of their work; never use their Spotify genres as evidence, and never justify a classification by the genre that pulled the artist in. Genre patterns are only a convenience for the initial placement. A `+Name` or `-Name` that contradicts the genres is usually intentional; flag only isolated cases that look like real mistakes, never a whole tag based on genre names.
 
 Rules that currently have no effect (a `-Name` for a tag the artist doesn't get, a `+Name` already covered by a genre) are kept on purpose: Spotify genres change, and they were relevant when added.
 
