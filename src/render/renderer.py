@@ -320,6 +320,142 @@ body.release-mode .release-text {
         height: 140px !important;
     }
 }
+/* Command palette (Ctrl+P) */
+.ui.modal.command-palette {
+    overflow: hidden;
+    border-radius: 0.75rem;
+}
+.ui.modal.command-palette > .content {
+    padding: 0;
+}
+.command-palette .ui.input {
+    padding: 0.9rem 1.1rem;
+    border-bottom: 1px solid rgba(34, 36, 38, 0.1);
+}
+.command-palette .ui.input > input.command-input {
+    font-size: 1.15rem;
+}
+.command-list {
+    max-height: 55vh;
+    padding: 0.35rem 0.5rem 0.5rem;
+    overflow-y: auto;
+}
+.command-section {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+    padding: 0.75rem 0.6rem 0.35rem;
+    border-top: 1px solid rgba(34, 36, 38, 0.08);
+    color: #2185d0;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+.command-section:first-child {
+    margin-top: 0;
+    border-top: none;
+}
+.command-section > i.icon {
+    margin: 0;
+}
+.command-item {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.5rem 0.6rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+}
+.command-item:hover {
+    background: #f5f6f7;
+}
+.command-item.selected {
+    background: #eaf3fb;
+    color: #1a69a4;
+}
+.command-item > i.icon {
+    width: 1.18em;
+    margin: 0 0.35rem 0 0;
+    opacity: 0.6;
+}
+.command-item .command-label {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.group-heading .section-parent {
+    margin-right: 0.35em;
+    color: rgba(0, 0, 0, 0.4);
+    font-weight: normal;
+}
+.command-item .command-parent {
+    margin-right: 0.45em;
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 0.9em;
+}
+.command-item.selected .command-parent {
+    color: rgba(26, 105, 164, 0.6);
+}
+.command-item.style-row .command-name {
+    font-weight: bold;
+}
+.command-item .command-tag {
+    display: inline-block;
+    margin-right: 0.45rem;
+    padding: 0.05rem 0.35rem;
+    border-radius: 0.25rem;
+    background: rgba(0, 0, 0, 0.05);
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 0.65rem;
+    font-weight: bold;
+    letter-spacing: 0.06em;
+    line-height: 1.3;
+    text-transform: uppercase;
+    vertical-align: 0.15em;
+}
+.command-item.selected .command-tag {
+    background: rgba(33, 133, 208, 0.12);
+    color: #1a69a4;
+}
+.command-item .command-title, .command-item .command-subtitle {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.command-item .command-subtitle {
+    margin-top: 0.1rem;
+    color: rgba(0, 0, 0, 0.45);
+    font-size: 0.8rem;
+}
+.command-item.selected .command-subtitle {
+    color: rgba(26, 105, 164, 0.7);
+}
+.command-item .command-count {
+    min-width: 2.5em;
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 0.85rem;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+.command-empty {
+    padding: 1rem 0.6rem;
+    color: rgba(0, 0, 0, 0.45);
+}
+.command-hints {
+    padding: 0.5rem 1.1rem;
+    border-top: 1px solid rgba(34, 36, 38, 0.06);
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 0.8rem;
+}
+.command-hints kbd {
+    font-family: inherit;
+    font-weight: bold;
+}
+
 /* Focus and hover */
 .menu .item:focus-visible {
     outline: 3px solid #2185d0;
@@ -523,7 +659,7 @@ function groupSections(grid) {
                 }};
             })
             : artistSubstyles.filter(function(substyle) { return !scope || substyle.family === scope; }).map(function(substyle) {
-                return {label: substyle.name, icon: substyle.icon, description: substyle.description, includes: function(cell) {
+                return {label: substyle.name, parent: substyle.family, icon: substyle.icon, description: substyle.description, includes: function(cell) {
                     return cell.dataset.substyles.split('|').includes(substyle.tag);
                 }};
             });
@@ -584,6 +720,7 @@ function groupGrid(grid) {
             var heading = $('<div>', {class: 'sixteen wide column group-heading'});
             var title = $('<h2>', {class: 'ui medium header'});
             if (section.icon) title.append($('<span>', {class: 'control-symbol', 'aria-hidden': 'true', text: section.icon}));
+            if (section.parent) title.append($('<span>', {class: 'section-parent', text: section.parent}));
             title.append(document.createTextNode(section.label));
             heading.append(title);
             heading.append($('<span>', {class: 'group-summary', 'data-description': section.description}));
@@ -615,7 +752,7 @@ function groupArtists(element) {
     {"name": family.name, "icon": family.icon, "description": family.description, "fallback": family == T_OTHERS}
     for family in [*(family.tag for family in FAMILIES), T_OTHERS]
 ], ensure_ascii=False)).replace("__ARTIST_SUBSTYLES__", json.dumps([
-    {"tag": tag.name, "name": f"{family.tag.name} › {tag.name.split(' - ')[-1].strip()}", "family": family.tag.name, "icon": family.tag.icon, "description": tag.description}
+    {"tag": tag.name, "name": tag.name.split(' - ')[-1].strip(), "family": family.tag.name, "icon": family.tag.icon, "description": tag.description}
     for family in FAMILIES for tag in family.granular
 ], ensure_ascii=False))
 
@@ -790,6 +927,7 @@ $(document).on('keydown', function(e) {
 });
 
 $(document).on('keydown', function(e) {
+    if ($(e.target).closest('.command-palette').length) return;
     if (e.key === 'Escape') search('');
     if (e.key.length !== 1 || e.key === ' ' || e.ctrlKey || e.metaKey || e.altKey) return;
     if ($(e.target).is('input')) return;
@@ -843,6 +981,175 @@ $(document).on('keydown', '.ui.card', function(e) {
 });
 """
 
+JS_COMMAND_PALETTE = """
+// Ctrl+P lists every sidebar and top bar option; choosing one clicks it, so it follows the same rules.
+var paletteCommands = [];
+var paletteSelected = 0;
+
+var PALETTE_SECTIONS = {
+    Filter: {title: 'Filters', icon: 'filter'},
+    Group: {title: 'Group', icon: 'object group outline'},
+    Sort: {title: 'Sort', icon: 'sort amount down'},
+};
+var PALETTE_KINDS = ['Filter', 'Group', 'Sort'];
+
+// lower is better: exact name, then name start, then word start, then anywhere; shorter names win ties
+function paletteScore(command, words) {
+    if (!words.length) return 0;
+    var label = normalizeText(fullLabel(command));
+    var labelWords = label.split(/[^\\p{L}\\p{N}]+/u).filter(Boolean);
+    var score = words.reduce(function(total, word) {
+        if (label === word) return total;
+        if (label.startsWith(word)) return total + 1;
+        if (labelWords.some(function(labelWord) { return labelWord.startsWith(word); })) return total + 2;
+        if (label.includes(word)) return total + 3;
+        return total + 4;  // matched only the section name
+    }, 0);
+    return score * 1000 + label.length;
+}
+
+function paletteItems() {
+    var filters = $('.ui.vertical.desktop.menu .item[data-tab]').toArray().map(function(item) {
+        return {kind: 'Filter', label: item.dataset.commandLabel, parent: item.dataset.commandParent,
+                description: item.dataset.commandDescription, symbol: item.dataset.commandIcon, header: $(item).hasClass('header'),
+                tag: item.dataset.commandTag,
+                count: $(item).find('.artist-count').text(), item: item};
+    });
+    var controls = function(kind, attribute) {
+        return $('.list-controls .item[data-' + attribute + ']').toArray().map(function(item) {
+            return {kind: kind, tag: kind, label: $(item).text().trim(), description: item.dataset.commandDescription,
+                    icon: $(item).find('i.icon').attr('class'), item: item};
+        });
+    };
+    return filters.concat(controls('Group', 'group'), controls('Sort', 'sort'));
+}
+
+// a substyle reads as its style, then its own name
+function fullLabel(command) {
+    return command.parent ? command.parent + ' ' + command.label : command.label;
+}
+
+// text with the characters matching the query in bold, ignoring accents and case
+function highlightMatches(label, words, className) {
+    var normalized = '';
+    var origin = [];
+    Array.from(label).forEach(function(char, index) {
+        var part = normalizeText(char);
+        normalized += part;
+        for (var i = 0; i < part.length; i++) origin.push(index);
+    });
+    var chars = Array.from(label);
+    var marked = chars.map(function() { return false; });
+    words.forEach(function(word) {
+        for (var at = normalized.indexOf(word); at !== -1; at = normalized.indexOf(word, at + 1)) {
+            for (var i = at; i < at + word.length; i++) marked[origin[i]] = true;
+        }
+    });
+    var fragment = $('<span>', {class: className});
+    chars.forEach(function(char, index) {
+        var last = fragment.contents().last();
+        var bold = marked[index];
+        if (last.length && last.is('b') === bold && (bold || last[0].nodeType === 3)) {
+            if (bold) last.append(document.createTextNode(char)); else last[0].textContent += char;
+        } else {
+            fragment.append(bold ? $('<b>').text(char) : document.createTextNode(char));
+        }
+    });
+    return fragment;
+}
+
+function renderPalette() {
+    var words = normalizeText($('.command-input').val()).split(/\\s+/).filter(Boolean);
+    paletteCommands = paletteItems().filter(function(command) {
+        var text = normalizeText(command.kind + ' ' + PALETTE_SECTIONS[command.kind].title + ' ' + fullLabel(command));
+        return words.every(function(word) { return text.includes(word); });
+    }).map(function(command, order) {
+        return {command: command, order: order, score: paletteScore(command, words)};
+    }).sort(function(a, b) {
+        return PALETTE_KINDS.indexOf(a.command.kind) - PALETTE_KINDS.indexOf(b.command.kind) || a.score - b.score || a.order - b.order;
+    }).map(function(ranked) { return ranked.command; });
+    paletteSelected = Math.min(paletteSelected, Math.max(0, paletteCommands.length - 1));
+    var list = $('.command-list').empty();
+    var section = null;
+    paletteCommands.forEach(function(command, index) {
+        if (command.kind !== section) {
+            section = command.kind;
+            var heading = $('<div>', {class: 'command-section'});
+            heading.append($('<i>', {class: PALETTE_SECTIONS[section].icon + ' icon', 'aria-hidden': 'true'}));
+            heading.append(document.createTextNode(PALETTE_SECTIONS[section].title));
+            list.append(heading);
+        }
+        var row = $('<div>', {class: 'command-item' + (index === paletteSelected ? ' selected' : ''), role: 'option'}).data('index', index);
+        if (command.icon) row.append($('<i>', {class: command.icon, 'aria-hidden': 'true'}));
+        else row.append($('<span>', {class: 'control-symbol', 'aria-hidden': 'true', text: command.symbol || ''}));
+        // first line says exactly what the option is: a whole style in bold (like the sidebar headers),
+        // an option inside a style with the style in quiet gray first; the second line describes it
+        var label = $('<span>', {class: 'command-label'});
+        var title = $('<span>', {class: 'command-title'});
+        if (command.parent) title.append($('<span>', {class: 'command-parent', text: command.parent}));
+        title.append(highlightMatches(command.label, words, 'command-name'));
+        label.append(title);
+        var subtitle = $('<span>', {class: 'command-subtitle'});
+        subtitle.append($('<span>', {class: 'command-tag', text: command.tag}));
+        if (command.description) subtitle.append(document.createTextNode(command.description));
+        label.append(subtitle);
+        row.append(label);
+        if (command.header) row.addClass('style-row');
+        if (command.count) row.append($('<span>', {class: 'command-count', text: command.count}));
+        list.append(row);
+    });
+    if (!paletteCommands.length) list.append($('<div>', {class: 'command-empty', text: 'No option matches'}));
+}
+
+function selectPaletteItem(index) {
+    paletteSelected = index;
+    var rows = $('.command-list .command-item').removeClass('selected');
+    var row = rows.eq(index).addClass('selected')[0];
+    if (row) row.scrollIntoView({block: 'nearest'});
+}
+
+function runPaletteItem(index) {
+    var command = paletteCommands[index];
+    if (!command) return;
+    $('.command-palette').modal('hide');
+    $(command.item).click();
+}
+
+function openPalette() {
+    paletteSelected = 0;
+    $('.command-input').val('');
+    renderPalette();
+    $('.command-palette').modal({centered: false, blurring: true, duration: 180, onVisible: function() { $('.command-input').focus(); }}).modal('show');
+}
+
+$(document).on('keydown', function(e) {
+    if ((e.ctrlKey || e.metaKey) && !e.altKey && !e.shiftKey && e.code === 'KeyP') {
+        e.preventDefault();
+        openPalette();
+    }
+});
+
+$(document).on('input', '.command-input', function() {
+    paletteSelected = 0;
+    renderPalette();
+});
+
+$(document).on('keydown', '.command-input', function(e) {
+    var step = {ArrowDown: 1, ArrowUp: -1}[e.key];
+    if (step && paletteCommands.length) {
+        e.preventDefault();
+        selectPaletteItem((paletteSelected + step + paletteCommands.length) % paletteCommands.length);
+    } else if (e.key === 'Enter') {
+        e.preventDefault();
+        runPaletteItem(paletteSelected);
+    }
+});
+
+$(document).on('click', '.command-list .command-item', function() {
+    runPaletteItem($(this).data('index'));
+});
+"""
+
 # ------------------------------------------------------------------------------
 # Functions
 # ------------------------------------------------------------------------------
@@ -883,11 +1190,35 @@ def menu_filter(mobile: bool, tags_with_artists: dict[Tag, list[Artist]]):
             item_display = tag_display(tag)
             item_active = "active" if tag == T_ALL else ""
             item_header = "header" if tag in TAGS_HEADER else ""
+            command_parent = family.tag.name if family and tag != family.tag else ""
+            # what the entry is, and what it holds, for the command palette's second line
+            if tag == T_OTHERS or (family and tag == family.tag):
+                command_tag, command_description = "Style", tag.description
+            elif family and tag in family.granular:
+                command_tag, command_description = "Substyle", tag.description
+            else:
+                command_tag = "Filter"
+                command_description = {
+                    T_ALL: "Every followed artist",
+                    T_DISCOVER: f"{DISCOVER_ARTISTS_PER_FAMILY} picks per style, new each period",
+                    T_FAVORITES: "Curated favorites",
+                    T_NON_FAVORITES: "Everyone not in Favorites",
+                }.get(tag) or {
+                    family.discover: f"{DISCOVER_ARTISTS_PER_FAMILY} {family.tag.name} picks, new each period",
+                    family.favorites: f"{family.tag.name} favorites",
+                    family.non_favorites: f"{family.tag.name} artists not in Favorites",
+                }.get(tag, "")
+            command_icon = family.tag.icon if family else tag.icon
 
             # menu item
             with div(cls=f"{item_active} {item_header} link item nowrap",
                     data_tab=id(tag),
                     data_tab_name=tag.name,
+                    data_command_label=item_display,
+                    data_command_parent=command_parent,
+                    data_command_tag=command_tag,
+                    data_command_description=command_description,
+                    data_command_icon=command_icon,
                     tabindex="0",
                 ):
                 if tag.icon:
@@ -903,6 +1234,22 @@ def menu_sort():
 def menu_group():
     with menu_wrapper("Group", "group"):
         group_items()
+
+def command_palette():
+    """Render the Ctrl+P command palette; its options are listed in the browser from the sidebar and top bar."""
+    with div(cls="ui tiny modal command-palette"):
+        with div(cls="content"):
+            with div(cls="ui fluid large transparent left icon input"):
+                input_(cls="command-input", type="text", placeholder="Filter, group or sort…", aria_label="Command palette", autocomplete="off")
+                i(cls="search icon")
+            div(cls="command-list", role="listbox")
+            with div(cls="command-hints"):
+                kbd("↑↓")
+                span(" navigate · ")
+                kbd("↵")
+                span(" apply · ")
+                kbd("esc")
+                span(" close")
 
 def discover_button(fluid: bool):
     """Render the Discover shortcut: a round compass emblem on desktop, a labeled full-width button on mobile."""
@@ -929,30 +1276,31 @@ def list_controls():
 
 def sort_items():
     for icon, label, description, attribute, order in [
-        ("music", "Name", "Name", "name", "asc"),
-        ("user", "Followers", "Followers", "followers", "desc"),
-        ("fire", "Popularity", "Artist popularity", "popularity", "desc"),
-        ("hourglass half", "Longevity", "Years since the first album", "first-release", "desc"),
-        ("compact disc", "Albums", "Albums", "albums", "desc"),
-        ("calendar alternate", "Release", "Last release", "last-release", "desc"),
-        ("bell", "Followed", "Last followed", "last-follow", "asc"),
+        ("music", "Name", "A to Z", "name", "asc"),
+        ("user", "Followers", "Most followed first", "followers", "desc"),
+        ("fire", "Popularity", "Most played right now first", "popularity", "desc"),
+        ("hourglass half", "Longevity", "Longest career first", "first-release", "desc"),
+        ("compact disc", "Albums", "Most albums first", "albums", "desc"),
+        ("calendar alternate", "Release", "Newest release first", "last-release", "desc"),
+        ("bell", "Followed", "Most recently followed first", "last-follow", "asc"),
     ]:
-        with div(cls="link item nowrap", data_sort=attribute, data_order=order, title=description,
+        with div(cls="link item nowrap", data_sort=attribute, data_order=order, title=description, data_command_description=description,
                  onClick="sort(this)", tabindex="0"):
             i(cls=f"{icon} icon control-icon", aria_hidden="true")
             span(label)
 
 def group_items():
     # sort: applied when the grouping is chosen
-    for icon, label, mode, sort in [
-        ("th", "None", "none", "followers"),
-        ("user", "Followers", "followers", "followers"),
-        ("hourglass half", "Longevity", "longevity", "first-release"),
-        ("calendar alternate", "Release", "release", "last-release"),
-        ("music", "Style", "style", "name"),
-        ("tags", "Substyle", "substyle", "name"),
+    for icon, label, mode, sort, description in [
+        ("th", "None", "none", "followers", "No sections"),
+        ("user", "Followers", "followers", "followers", "Sections by audience reach"),
+        ("hourglass half", "Longevity", "longevity", "first-release", "Sections by years since the first album"),
+        ("calendar alternate", "Release", "release", "last-release", "Sections by years since the last release"),
+        ("music", "Style", "style", "name", f"Sections by {', '.join(family.tag.name for family in FAMILIES)} and {T_OTHERS.name}"),
+        ("tags", "Substyle", "substyle", "name", "Sections by substyle"),
     ]:
-        with div(cls="link item nowrap", data_group=mode, data_group_sort=sort, onClick="groupArtists(this)", tabindex="0"):
+        with div(cls="link item nowrap", data_group=mode, data_group_sort=sort, title=description, data_command_description=description,
+                 onClick="groupArtists(this)", tabindex="0"):
             i(cls=f"{icon} icon control-icon", aria_hidden="true")
             span(label)
 
@@ -1072,6 +1420,7 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]) -> str:
             script(raw(JS_FUNC_PICK_DISCOVER))
             script(raw(JS_FUNC_MARK_RECENT_RELEASES))
             script(raw(JS_KEYBOARD_NAVIGATION))
+            script(raw(JS_COMMAND_PALETTE))
 
             # style
             link(href=f"{FOMANTIC_UI}.css", rel="stylesheet")
@@ -1139,6 +1488,8 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]) -> str:
 
                         with div(cls="ui active tab" if tag == T_ALL else "ui tab", data_tab=id(tag), **tab_attributes):
                             cards(sorted(artists, key=lambda x: x.name.lower()), tabs_by_artist)
+
+                command_palette()
 
                 # ------------------------------------------------------------------
                 # Scroll to top
