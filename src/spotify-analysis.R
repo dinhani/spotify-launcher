@@ -13,10 +13,12 @@ streams <- fread("../data/streams.tsv") |>
 
 # -- ANALYSE DATA ---
 streams |>
+  filter(!following) |> 
   group_by(artist, following) |>
   summarise(
     plays = n(),
     songs = unique(track) |> length(),
     hours = sum(played_ms) / 3.6e6
   ) |>
+  arrange(desc(plays)) |> 
   View("Spotify Streams")
