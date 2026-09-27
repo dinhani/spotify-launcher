@@ -72,13 +72,14 @@ html {
 }
 .ui.menu.sidebar-options .active.item,
 .ui.menu.sidebar-options .active.item:hover {
-    background: #eaf3fb;
-    color: #1a69a4;
+    background: #2185d0;
+    color: #fff;
+    font-weight: bold;
 }
 .ui.menu.sidebar-options .active.item > .ui.basic.label.artist-count {
-    border-color: #2185d0 !important;  /* Fomantic basic colored labels use !important */
-    background: #2185d0 !important;
-    color: #fff !important;
+    border-color: #fff !important;  /* Fomantic basic colored labels use !important */
+    background: #fff !important;
+    color: #2185d0 !important;
 }
 .ui.menu .item > .label.artist-count {
     width: 3.5em;
