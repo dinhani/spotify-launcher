@@ -101,7 +101,7 @@ html {
     margin-bottom: 0.5rem;
 }
 .ui.fluid.button.discover-button {
-    margin-bottom: 0.5rem;
+    margin: 0.5rem 0 0;  /* below the accordion, the same gap as between the search and the accordion */
     font-size: var(--control-font-size);
     line-height: var(--control-line-height);
     padding-top: var(--control-padding);
@@ -1716,11 +1716,11 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]) -> str:
                 # ------------------------------------------------------------------
                 with div(cls="sixteen wide mobile tablet only   column app-column"):
                     menu_search()
-                    discover_button(fluid=True)
                     with div(cls="ui fluid styled mobile accordion"):
                         menu_filter(mobile=True, tags_with_artists=tags_with_artists)
                         menu_group()
                         menu_direction()
+                    discover_button(fluid=True)
 
                 # ------------------------------------------------------------------
                 # Menu (desktop)
