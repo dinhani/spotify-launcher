@@ -347,6 +347,15 @@ body.release-mode .release-text {
     .artist-image {
         height: 200px !important;
     }
+    /* a phone has no room for the summary beside the title: it goes under it, as one block */
+    .ui.grid.artists > .group-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.2rem;
+    }
+    .group-heading .ui.header {
+        white-space: normal;
+    }
     .list-controls {
         display: none;
     }
