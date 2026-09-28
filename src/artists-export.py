@@ -38,17 +38,22 @@ album_sizes = polars.DataFrame(
     ],
     schema={"artist_key": polars.String, "album": polars.String, "album_title": polars.String, "size": polars.Int64},
 )
-streams = (
-    polars.read_csv(source=DATA_DIR / "streams.tsv", separator="	", try_parse_dates=True)
-    .sort("ended_at")
+listens = (
+    polars.concat([
+        polars.read_csv(source=DATA_DIR / "streams.tsv", separator="\t", try_parse_dates=True)
+        .select("artist", "album", "track", listened_at="ended_at", source=polars.lit("spotify")),
+        polars.read_csv(source=DATA_DIR / "scrobbles.tsv", separator="\t", try_parse_dates=True)
+        .select("artist", "album", "track", "listened_at", source=polars.lit("lastfm")),
+    ])
+    .sort("source", "listened_at")
     .with_columns(
         artist_key=polars.col("artist").map_elements(str.casefold, return_dtype=polars.String),
         album_title=polars.col("album").map_elements(parse_album_title, return_dtype=polars.String),
     )
-    .with_columns(session=polars.struct("artist_key", "album_title").rle_id())
+    .with_columns(session=polars.struct("source", "artist_key", "album_title").rle_id())
 )
 album_sessions = (
-    streams
+    listens
     .group_by("session", "artist_key", "album_title")
     .agg(album=polars.col("album").mode().first(), tracks=polars.col("track").n_unique())
     .join(album_sizes.select("artist_key", "album", size_album="size"), on=["artist_key", "album"], how="left")

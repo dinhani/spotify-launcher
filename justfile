@@ -36,5 +36,10 @@ lastfm:
 
 # Extract Spotify extended streaming history to data/streams.tsv
 [group("run")]
-history *export_dir:
+spotify-history *export_dir:
     python src/spotify-history.py {{export_dir}}
+
+# Fetch Last.fm scrobbles to data/scrobbles.tsv (only new ones after the first run)
+[group("run")]
+lastfm-history:
+    python src/lastfm-history.py
