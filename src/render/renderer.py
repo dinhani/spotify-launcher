@@ -725,6 +725,12 @@ var followedRanges = [
     {label: 'Latest 16', description: 'The most recent follows', from: 1, to: 16},
     {label: 'Earlier', description: 'Everyone followed before', from: 17, to: Infinity},
 ];
+var listenedRanges = [
+    {label: '4+ Albums', description: 'Heard album by album', from: 4, to: Infinity},
+    {label: '2–3 Albums', description: 'A few albums heard whole', from: 2, to: 3},
+    {label: '1 Album', description: 'One album heard whole', from: 1, to: 1},
+    {label: 'Random Only', description: 'Only loose tracks, never a whole album', from: 0, to: 0},
+];
 var releaseRanges = [
     {label: 'This Year', from: 0, to: 0},
     {label: 'Last Year', from: 1, to: 1},
@@ -753,6 +759,9 @@ function groupSections(grid) {
     }
     if (grouping === 'followed') {
         return rangeSections(followedRanges, function(cell) { return Number(cell.dataset.lastFollow); });
+    }
+    if (grouping === 'listened') {
+        return rangeSections(listenedRanges, function(cell) { return Number(cell.dataset.albumsListened); });
     }
     if (grouping === 'albums') {
         return rangeSections(albumsRanges, function(cell) { return Number(cell.dataset.albums); });
@@ -1474,6 +1483,8 @@ def group_items():
          "Oldest release first", "Newest release first"),
         ("bell", "Followed", "followed", "last-follow", "asc", "The latest follows apart from the rest",
          "Followed longest ago first", "Most recently followed first"),
+        ("headphones", "Listened", "listened", "albums-listened", "desc", "Sections by albums heard as albums",
+         "Most albums heard first", "Fewest albums heard first"),
     ]:
         with div(cls="link item nowrap", data_group=mode, data_group_sort=sort, data_group_order=order,
                  data_desc_description=desc_description, data_asc_description=asc_description,
@@ -1505,6 +1516,7 @@ def card_cell(artist: Artist, tabs: list[str]):
         data_first_release=artist.first_release,
         data_last_release=artist.last_release,
         data_last_follow=str(artist.last_follow),
+        data_albums_listened=str(len(artist.albums_listened)),
         data_families="|".join(family.tag.name for family in FAMILIES if family.tag in artist.tags),
         data_substyles="|".join(tag.name for tag in artist.tags_granular),
         data_tabs=" ".join(tabs),
