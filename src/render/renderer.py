@@ -593,8 +593,12 @@ function onTab(tabPath) {
     $('#mobile-menu-header-filter').text('Filter: ' + title);
     savePreference('tab', tabPath);
     var inDiscover = tabPath === 'discover';
+    // the button names where it goes: All from Discover, Discover from anywhere else
     $('.discover-button').toggleClass('active', inDiscover)
-        .attr('title', inDiscover ? 'Back to All' : $('.discover-button').data('discover-title') || 'Discover');
+        .attr('title', inDiscover ? 'Back to All' : $('.discover-button').data('discover-title') || 'Discover')
+        .attr('aria-label', inDiscover ? 'Back to All' : 'Discover');
+    $('.discover-button > i.icon').attr('class', (inDiscover ? 'th large' : 'compass') + ' icon');
+    $('.discover-button .discover-label').text(inDiscover ? 'All' : 'Discover');
 }
 
 // Discover and All toggle: from Discover back to All, from anywhere else to Discover
@@ -1522,7 +1526,7 @@ def discover_button(fluid: bool):
     if fluid:
         with button(cls="ui fluid blue button discover-button", type="button", onClick="toggleDiscover()"):
             i(cls="compass icon", aria_hidden="true")
-            span("Discover")
+            span("Discover", cls="discover-label")
     else:
         with button(cls="ui small circular blue icon button discover-button", type="button", onClick="toggleDiscover()",
                     title="Discover", aria_label="Discover"):
