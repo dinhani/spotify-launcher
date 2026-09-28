@@ -783,13 +783,16 @@ var listenedRanges = [
     {label: '1 Album', description: 'Heard in full', from: 1, to: 1},
     {label: 'Random', description: 'Loose tracks only', from: 0, to: 0},
 ];
+// ranks: 0 this month, 1 last month, 2 earlier this year, then calendar years ago + 2
 var releaseRanges = [
-    {label: 'This Year', from: 0, to: 0},
-    {label: 'Last Year', from: 1, to: 1},
-    {label: '2–4 Years Ago', from: 2, to: 4},
-    {label: '5–9 Years Ago', from: 5, to: 9},
-    {label: '10–19 Years Ago', from: 10, to: 19},
-    {label: '20+ Years Ago', from: 20, to: Infinity},
+    {label: 'This Month', from: 0, to: 0},
+    {label: 'Last Month', from: 1, to: 1},
+    {label: 'This Year', from: 2, to: 2},
+    {label: 'Last Year', from: 3, to: 3},
+    {label: '2–4 Years Ago', from: 4, to: 6},
+    {label: '5–9 Years Ago', from: 7, to: 11},
+    {label: '10–19 Years Ago', from: 12, to: 21},
+    {label: '20+ Years Ago', from: 22, to: Infinity},
 ];
 
 function familiesOf(cell) {
@@ -853,7 +856,25 @@ function groupSections(grid) {
         };
     };
     if (grouping === 'release') {
-        return rangeSections(releaseRanges, function(cell) { return yearsSince(cell.dataset.lastRelease); }, years('Released'));
+        var now = new Date();
+        var monthsAgo = function(date) {  // null for a year-only date
+            return date.length >= 7 ? (currentYear - Number(date.slice(0, 4))) * 12 + now.getMonth() + 1 - Number(date.slice(5, 7)) : null;
+        };
+        var releaseRank = function(date) {
+            if (!date) return null;
+            var months = monthsAgo(date);
+            if (months === 0 || months === 1) return months;
+            return yearsSince(date) === 0 ? 2 : yearsSince(date) + 2;
+        };
+        var monthName = function(back) {
+            return new Date(currentYear, now.getMonth() - back, 1).toLocaleString('en', {month: 'long', year: 'numeric'});
+        };
+        var releasedYears = years('Released');
+        return rangeSections(releaseRanges, function(cell) { return releaseRank(cell.dataset.lastRelease); }, function(range) {
+            if (range.from < 2) return 'Released ' + monthName(range.from);
+            if (range.from === 2) return 'Released earlier in ' + currentYear;
+            return releasedYears({from: range.from - 2, to: range.to - 2});
+        });
     }
     return rangeSections(longevityRanges, function(cell) { return yearsSince(cell.dataset.firstRelease); }, years('Debut'));
 }
@@ -1539,7 +1560,7 @@ def group_items():
         ("compact disc", "Albums", "albums", "albums", "desc", "By number of albums", "Most albums first", "Fewest albums first"),
         ("headphones", "Listened", "listened", "albums-listened", "desc", "By albums listened in full",
          "Most albums listened first", "Fewest albums listened first"),
-        ("calendar alternate", "Release", "release", "last-release", "asc", "By years since the last release",
+        ("calendar alternate", "Release", "release", "last-release", "asc", "By time since the last release",
          "Oldest release first", "Newest release first"),
         ("bell", "Followed", "followed", "last-follow", "asc", "Latest 16 follows, then the rest",
          "Followed longest ago first", "Most recently followed first"),
