@@ -132,6 +132,14 @@ html {
 .ui.blue.button.discover-button.active {
     box-shadow: 0 0 0 3px rgba(33, 133, 208, 0.3) !important;
 }
+/* the period of the current picks: in the button on mobile, in the grid's corner on desktop */
+.fluid.discover-button .discover-period {
+    font-weight: normal;
+    opacity: 0.85;
+}
+.fluid.discover-button .discover-period::before {
+    content: " · ";
+}
 .list-control {
     display: flex;
     align-items: center;
@@ -274,11 +282,29 @@ body.release-mode .release-text {
     padding: 0.5rem 0;
 }
 
-/* Discover period: when the current picks started and when new ones come */
-.discover-period {
-    padding: 0 0.5rem 0.5rem;
-    color: rgba(0, 0, 0, 0.5);
-    font-size: 0.92857143rem;
+/* Discover period, out of the flow in the bottom right corner of the grid (desktop) */
+.ui.tab[data-discover-per-family], .ui.tab[data-discover-family] {
+    position: relative;
+}
+.ui.tab > .discover-period {
+    position: absolute;
+    right: 0.75rem;
+    bottom: 0.5rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 0.5rem;
+    background: rgba(243, 244, 246, 0.9);
+    color: rgba(0, 0, 0, 0.45);
+    font-size: 0.85714286rem;
+    white-space: nowrap;
+    pointer-events: none;
+}
+.ui.tab > .discover-period > i.icon {
+    margin-right: 0.35rem;
+}
+@media only screen and (max-width: 991.9px) {
+    .ui.tab > .discover-period {
+        display: none;
+    }
 }
 
 /* Group headings */
@@ -930,8 +956,10 @@ function pickDiscover() {
     var period = shifted.getHours() < 6 ? 0 : shifted.getHours() < 12 ? 1 : 2;
     var periodName = ['Morning', 'Afternoon', 'Night'][period];
     var periodHours = ['06:00–12:00', '12:00–18:00', '18:00–06:00'][period];
-    $('.discover-period').text(periodName + ' picks · ' + periodHours);
-    $('.discover-button').attr('title', 'Discover · ' + periodName.toLowerCase() + ' picks, ' + periodHours);
+    var periodIcon = ['coffee', 'sun outline', 'moon outline'][period];
+    $('.discover-button .discover-period').text(periodName + ' · ' + periodHours);
+    $('.ui.tab > .discover-period').empty().append($('<i>', {class: periodIcon + ' icon'}), periodName + ' · ' + periodHours);
+    $('.discover-button').attr('title', 'Discover · new picks at ' + periodHours.split('–')[1]);
     var seed = (shifted.getFullYear() * 10000 + (shifted.getMonth() + 1) * 100 + shifted.getDate()) * 10 + period;
     var random = function() {
         seed = (seed + 0x6D2B79F5) | 0;
@@ -1450,6 +1478,7 @@ def discover_button(fluid: bool):
         with button(cls="ui fluid blue button discover-button", type="button", onClick="openDiscover()"):
             i(cls="compass icon", aria_hidden="true")
             span("Discover")
+            span(cls="discover-period")
     else:
         with button(cls="ui small circular blue icon button discover-button", type="button", onClick="openDiscover()",
                     title="Discover", aria_label="Discover"):
@@ -1686,9 +1715,9 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]) -> str:
                                 tab_attributes["data_group_family"] = family.tag.name
 
                         with div(cls="ui active tab" if tag == T_ALL else "ui tab", data_tab=id(tag), **tab_attributes):
+                            cards(sorted(artists, key=lambda x: x.name.lower()), tabs_by_artist)
                             if tag == T_DISCOVER or (family and tag == family.discover):
                                 div(cls="discover-period")
-                            cards(sorted(artists, key=lambda x: x.name.lower()), tabs_by_artist)
 
                 command_palette()
 
