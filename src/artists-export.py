@@ -28,7 +28,7 @@ artists = json.loads(s=(DATA_DIR / "followed.json").read_text(encoding="utf-8"))
 rank = {artist["id"]: i + 1 for i, artist in enumerate(artists)}
 
 # ------------------------------------------------------------------------------
-# Find albums listened as albums: 2+ sessions of 5+ distinct tracks in a row
+# Find albums listened as albums: 5+ distinct tracks of the same album in a row
 # ------------------------------------------------------------------------------
 album_sessions = (
     polars.read_csv(source=DATA_DIR / "streams.tsv", separator="	", try_parse_dates=True)
@@ -46,7 +46,6 @@ albums_listened = dict(
     album_sessions
     .group_by("artist_key", "album_title")
     .agg(sessions=polars.len(), album=polars.col("album").list.explode(keep_nulls=False, empty_as_null=False).mode().first())
-    .filter(polars.col("sessions") >= 2)
     .sort("sessions", "album", descending=[True, False])
     .group_by("artist_key", maintain_order=True)
     .agg(polars.col("album").str.join("|"))
