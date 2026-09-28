@@ -28,9 +28,17 @@ artists = json.loads(s=(DATA_DIR / "followed.json").read_text(encoding="utf-8"))
 rank = {artist["id"]: i + 1 for i, artist in enumerate(artists)}
 
 # ------------------------------------------------------------------------------
-# Find albums listened as albums: 5+ distinct tracks of the same album in a row
+# Find albums listened as albums: 5+ distinct tracks of the same album in a row, covering 80%+ of the album
 # ------------------------------------------------------------------------------
-album_sessions = (
+album_sizes = polars.DataFrame(
+    data=[
+        {"artist_key": artist["name"].casefold(), "album": album["name"], "album_title": parse_album_title(album["name"]), "size": album["total_tracks"]}
+        for artist in artists
+        for album in json.loads(s=(CACHE_DIR / f"{artist['id']}.json").read_text(encoding="utf-8"))["albums"]
+    ],
+    schema={"artist_key": polars.String, "album": polars.String, "album_title": polars.String, "size": polars.Int64},
+)
+streams = (
     polars.read_csv(source=DATA_DIR / "streams.tsv", separator="	", try_parse_dates=True)
     .sort("ended_at")
     .with_columns(
@@ -38,14 +46,21 @@ album_sessions = (
         album_title=polars.col("album").map_elements(parse_album_title, return_dtype=polars.String),
     )
     .with_columns(session=polars.struct("artist_key", "album_title").rle_id())
+)
+album_sessions = (
+    streams
     .group_by("session", "artist_key", "album_title")
-    .agg(polars.col("album"), tracks=polars.col("track").n_unique())
-    .filter(polars.col("tracks") >= 5)
+    .agg(album=polars.col("album").mode().first(), tracks=polars.col("track").n_unique())
+    .join(album_sizes.select("artist_key", "album", size_album="size"), on=["artist_key", "album"], how="left")
+    .join(album_sizes.group_by("artist_key", "album_title").agg(size_title=polars.col("size").min()), on=["artist_key", "album_title"], how="left")
+    .join(streams.group_by("artist_key", "album_title").agg(size_history=polars.col("track").n_unique()), on=["artist_key", "album_title"], how="left")
+    .with_columns(size=polars.coalesce("size_album", "size_title", "size_history"))
+    .filter(polars.col("tracks") >= 5, polars.col("tracks") >= 0.8 * polars.col("size"))
 )
 albums_listened = dict(
     album_sessions
     .group_by("artist_key", "album_title")
-    .agg(sessions=polars.len(), album=polars.col("album").list.explode(keep_nulls=False, empty_as_null=False).mode().first())
+    .agg(sessions=polars.len(), album=polars.col("album").mode().first())
     .sort("sessions", "album", descending=[True, False])
     .group_by("artist_key", maintain_order=True)
     .agg(polars.col("album").str.join("|"))
