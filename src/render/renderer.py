@@ -123,12 +123,23 @@ html {
 .list-control > .discover-button {
     margin: 0 0 0 1.25rem;
 }
-/* in Discover the compass gives way to All's folder, a Fomantic icon like it, so the button keeps its size */
+/* in Discover the compass gives way to All's folder, a Fomantic icon like it, so the button keeps its size;
+   the folder opens on hover, focus or press */
 .discover-button > .folder.icon,
 .discover-button.active > .compass.icon {
     display: none;
 }
-.discover-button.active > .folder.icon {
+.discover-button.active > .folder.icon:not(.open) {
+    display: inline-block;
+}
+.discover-button.active:hover > .folder.icon:not(.open),
+.discover-button.active:focus-visible > .folder.icon:not(.open),
+.discover-button.active:active > .folder.icon:not(.open) {
+    display: none;
+}
+.discover-button.active:hover > .folder.open.icon,
+.discover-button.active:focus-visible > .folder.open.icon,
+.discover-button.active:active > .folder.open.icon {
     display: inline-block;
 }
 .ui.blue.button.discover-button.active {
@@ -1527,12 +1538,14 @@ def discover_button(fluid: bool):
     if fluid:
         with button(cls="ui fluid blue button discover-button", type="button", onClick="toggleDiscover()"):
             i(cls="compass icon", aria_hidden="true")
+            i(cls="folder icon", aria_hidden="true")
             i(cls="folder open icon", aria_hidden="true")
             span("Discover", cls="discover-label")
     else:
         with button(cls="ui small circular blue icon button discover-button", type="button", onClick="toggleDiscover()",
                     title="Discover", aria_label="Discover"):
             i(cls="compass icon", aria_hidden="true")
+            i(cls="folder icon", aria_hidden="true")
             i(cls="folder open icon", aria_hidden="true")
 
 def list_controls():
