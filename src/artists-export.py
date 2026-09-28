@@ -40,9 +40,9 @@ album_sizes = polars.DataFrame(
 )
 listens = (
     polars.concat([
-        polars.read_csv(source=DATA_DIR / "streams.tsv", separator="\t", try_parse_dates=True)
+        polars.read_csv(source=DATA_DIR / "spotify-history.tsv", separator="\t", try_parse_dates=True)
         .select("artist", "album", "track", listened_at="ended_at", source=polars.lit("spotify")),
-        polars.read_csv(source=DATA_DIR / "scrobbles.tsv", separator="\t", try_parse_dates=True)
+        polars.read_csv(source=DATA_DIR / "lastfm-history.tsv", separator="\t", try_parse_dates=True)
         .select("artist", "album", "track", "listened_at", source=polars.lit("lastfm")),
     ])
     .sort("source", "listened_at")

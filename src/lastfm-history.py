@@ -7,7 +7,7 @@ import pylast
 
 from render.data import LASTFM_USER
 
-OUT = Path(__file__).parent.parent / "data" / "scrobbles.tsv"
+OUT = Path(__file__).parent.parent / "data" / "lastfm-history.tsv"
 TIMEZONE = "America/Sao_Paulo"
 
 # ------------------------------------------------------------------------------

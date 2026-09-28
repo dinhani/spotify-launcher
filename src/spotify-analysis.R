@@ -5,7 +5,7 @@ options(scipen = 999)
 
 # -- READ DATA ---
 artists <- fread("../data/artists.tsv")
-streams <- fread("../data/streams.tsv") |>
+streams <- fread("../data/spotify-history.tsv") |>
   arrange(ended_at) |>
   mutate(
     following = str_to_lower(artist) %in% str_to_lower(artists$name),

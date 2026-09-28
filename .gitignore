@@ -1,4 +1,4 @@
 __pycache__
 .spotipy-cache
-data/streams.tsv
-data/scrobbles.tsv
+data/spotify-history.tsv
+data/lastfm-history.tsv

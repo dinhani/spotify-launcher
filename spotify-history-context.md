@@ -12,8 +12,8 @@ Usar o histórico estendido de streams do Spotify (pedido em 2026-09-26, ver "Pl
 ## Dados
 
 - Export bruto: `Z:/pessoal/redes-sociais/spotify-2026-09` (`Streaming_History_Audio_*.json`, `Streaming_History_Video_*.json`, 2015–2026).
-- Extração: `just spotify-history` → `src/spotify-history.py` → `data/streams.tsv`.
-- `data/streams.tsv` está no `.gitignore`: **os dados não são commitados** por enquanto. Só o script, a receita e o `.gitignore` foram commitados.
+- Extração: `just spotify-history` → `src/spotify-history.py` → `data/spotify-history.tsv`.
+- `data/spotify-history.tsv` está no `.gitignore`: **os dados não são commitados** por enquanto. Só o script, a receita e o `.gitignore` foram commitados.
 
 ### Decisões da extração
 
@@ -62,7 +62,7 @@ Eu decidir quais seguir no Spotify; depois `just download`, `just export`, `just
 ```python
 import polars as pl
 
-h = pl.read_csv("data/streams.tsv", separator="\t", try_parse_dates=True).with_columns(
+h = pl.read_csv("data/spotify-history.tsv", separator="\t", try_parse_dates=True).with_columns(
     pl.col("ended_at").dt.convert_time_zone("America/Sao_Paulo"),
     year=pl.col("ended_at").dt.convert_time_zone("America/Sao_Paulo").dt.year(),
 )
