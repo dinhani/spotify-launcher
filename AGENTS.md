@@ -63,7 +63,7 @@ Trust the numbers over impressions of who "really" left their niche. Followers c
 
 Breakpoints sit in gaps between neighbouring artists, where an artist really changes tier (found with natural breaks on log followers in 2026-09, then checked by looking at the artists on each side). Prefer the roundest number inside the gap, even over a slightly wider gap (1M over 950K); never cut through a dense stretch, since 10K and 11K are equally unknown. The breakpoints are deliberate decisions, discussed artist by artist: new artists or refreshed numbers do not move them, and they are not recomputed from the data.
 
-Descriptions (styles, substyles, filters, groups, sections) say plainly and precisely what is in them, in a few words: common terms, no genre jargon or catalogue of subgenres, no flourishes ("a solid identity", "decades of nonstop releases"). The career stage name is enough for an Albums section.
+Descriptions (styles, substyles, filters, groups, sections) say plainly and precisely what is in them, as short as possible (two to five words; drop what the title already says): common terms, no genre jargon or catalogue of subgenres, no flourishes ("a solid identity", "decades of nonstop releases"). The career stage name is enough for an Albums section.
 
 Generate browser grouping names, icons and descriptions from the tags in `data.py` (`FAMILIES`, their granular tags and `T_OTHERS`); do not maintain a separate hardcoded JavaScript list.
 

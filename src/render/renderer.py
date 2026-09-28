@@ -769,19 +769,19 @@ var albumsRanges = [
     {label: '10–14 Albums', description: 'Veteran career', from: 10, to: 14},
     {label: '7–9 Albums', description: 'Established career', from: 7, to: 9},
     {label: '4–6 Albums', description: 'Consolidated career', from: 4, to: 6},
-    {label: '2–3 Albums', description: 'Early career, or a band that ended early', from: 2, to: 3},
-    {label: '1 Album', description: 'Debut, the only album so far', from: 1, to: 1},
+    {label: '2–3 Albums', description: 'Early career', from: 2, to: 3},
+    {label: '1 Album', description: 'Debut', from: 1, to: 1},
     {label: 'No Albums', description: 'Singles and EPs only', from: 0, to: 0},
 ];
 // Spotify gives no follow date, only the order: 1 is the latest follow
 var followedRanges = [
-    {label: 'Latest 16', description: 'The most recent follows', from: 1, to: 16},
-    {label: 'Earlier', description: 'Everyone followed earlier', from: 17, to: Infinity},
+    {label: 'Latest 16', description: 'Most recent follows', from: 1, to: 16},
+    {label: 'Earlier', description: 'Followed earlier', from: 17, to: Infinity},
 ];
 var listenedRanges = [
-    {label: 'Multiple Albums', description: 'More than one album listened to in full', from: 2, to: Infinity},
-    {label: '1 Album', description: 'One album listened to in full', from: 1, to: 1},
-    {label: 'Random', description: 'Only loose tracks, no album in full', from: 0, to: 0},
+    {label: 'Multiple Albums', description: '2+ albums in full', from: 2, to: Infinity},
+    {label: '1 Album', description: '1 album in full', from: 1, to: 1},
+    {label: 'Random', description: 'Loose tracks only', from: 0, to: 0},
 ];
 var releaseRanges = [
     {label: 'This Year', from: 0, to: 0},
@@ -1434,13 +1434,13 @@ def menu_filter(mobile: bool, tags_with_artists: dict[Tag, list[Artist]]):
                 command_tag = "Filter"
                 command_description = {
                     T_ALL: "All followed artists",
-                    T_DISCOVER: f"{DISCOVER_ARTISTS_PER_FAMILY} random picks per style, new every 6 hours",
-                    T_FAVORITES: "Favorite artists, chosen by hand",
-                    T_NON_FAVORITES: "Artists not in Favorites",
+                    T_DISCOVER: f"{DISCOVER_ARTISTS_PER_FAMILY} per style, new every 6h",
+                    T_FAVORITES: "Hand-picked favorites",
+                    T_NON_FAVORITES: "Not in Favorites",
                 }.get(tag) or {
-                    family.discover: f"{DISCOVER_ARTISTS_PER_FAMILY} random {family.tag.name} picks, new every 6 hours",
+                    family.discover: f"{DISCOVER_ARTISTS_PER_FAMILY} picks, new every 6h",
                     family.favorites: f"{family.tag.name} favorites",
-                    family.non_favorites: f"{family.tag.name} artists not in Favorites",
+                    family.non_favorites: "Not in Favorites",
                 }.get(tag, "")
             command_icon = family.tag.icon if family else tag.icon
 
@@ -1529,19 +1529,19 @@ def direction_items():
 def group_items():
     # sort and order: how artists are ordered, inside and across sections, until the direction is reversed
     for icon, label, mode, sort, order, description, desc_description, asc_description in [
-        ("ban", "None", "none", "name", "asc", "No sections, by name", "Z to A", "A to Z"),
-        ("music", "Style", "style", "name", "asc", "One section per style",
+        ("ban", "None", "none", "name", "asc", "By name", "Z to A", "A to Z"),
+        ("music", "Style", "style", "name", "asc", "By style",
          "Z to A in each style", "A to Z in each style"),
-        ("tags", "Substyle", "substyle", "name", "asc", "One section per substyle", "Z to A in each substyle", "A to Z in each substyle"),
-        ("user", "Followers", "followers", "followers", "desc", "Sections by Spotify followers", "Most followed first", "Least followed first"),
-        ("hourglass half", "Longevity", "longevity", "first-release", "asc", "Sections by years since the first album",
+        ("tags", "Substyle", "substyle", "name", "asc", "By substyle", "Z to A in each substyle", "A to Z in each substyle"),
+        ("user", "Followers", "followers", "followers", "desc", "By Spotify followers", "Most followed first", "Least followed first"),
+        ("hourglass half", "Longevity", "longevity", "first-release", "asc", "By years since the first album",
          "Longest career first", "Shortest career first"),
-        ("compact disc", "Albums", "albums", "albums", "desc", "Sections by number of albums", "Most albums first", "Fewest albums first"),
-        ("headphones", "Listened", "listened", "albums-listened", "desc", "Sections by albums listened to in full",
+        ("compact disc", "Albums", "albums", "albums", "desc", "By number of albums", "Most albums first", "Fewest albums first"),
+        ("headphones", "Listened", "listened", "albums-listened", "desc", "By albums listened in full",
          "Most albums listened first", "Fewest albums listened first"),
-        ("calendar alternate", "Release", "release", "last-release", "asc", "Sections by years since the last release",
+        ("calendar alternate", "Release", "release", "last-release", "asc", "By years since the last release",
          "Oldest release first", "Newest release first"),
-        ("bell", "Followed", "followed", "last-follow", "asc", "The 16 latest follows, then everyone else",
+        ("bell", "Followed", "followed", "last-follow", "asc", "Latest 16 follows, then the rest",
          "Followed longest ago first", "Most recently followed first"),
     ]:
         with div(cls="link item nowrap", data_group=mode, data_group_sort=sort, data_group_order=order,
