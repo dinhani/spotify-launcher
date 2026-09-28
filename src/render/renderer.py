@@ -131,12 +131,6 @@ html {
 .discover-button.active > .folder.icon {
     display: inline-block;
 }
-.discover-button .compass.icon {
-    transition: transform 0.45s ease;
-}
-.discover-button:hover .compass.icon, .discover-button:focus-visible .compass.icon, .discover-button:active .compass.icon {
-    transform: rotate(45deg);
-}
 .ui.blue.button.discover-button.active {
     box-shadow: 0 0 0 3px rgba(33, 133, 208, 0.3) !important;
 }
