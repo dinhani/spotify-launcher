@@ -12,7 +12,7 @@ Usar o histórico estendido de streams do Spotify (pedido em 2026-09-26, ver "Pl
 ## Dados
 
 - Export bruto: `Z:/pessoal/redes-sociais/spotify-2026-09` (`Streaming_History_Audio_*.json`, `Streaming_History_Video_*.json`, 2015–2026).
-- Extração: `just history` → `src/spotify-history.py` → `data/streams.tsv`.
+- Extração: `just spotify-history` → `src/spotify-history.py` → `data/streams.tsv`.
 - `data/streams.tsv` está no `.gitignore`: **os dados não são commitados** por enquanto. Só o script, a receita e o `.gitignore` foram commitados.
 
 ### Decisões da extração
