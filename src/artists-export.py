@@ -28,6 +28,32 @@ artists = json.loads(s=(DATA_DIR / "followed.json").read_text(encoding="utf-8"))
 rank = {artist["id"]: i + 1 for i, artist in enumerate(artists)}
 
 # ------------------------------------------------------------------------------
+# Find albums listened as albums: 2+ sessions of 5+ distinct tracks in a row
+# ------------------------------------------------------------------------------
+album_sessions = (
+    polars.read_csv(source=DATA_DIR / "streams.tsv", separator="	", try_parse_dates=True)
+    .sort("ended_at")
+    .with_columns(
+        artist_key=polars.col("artist").map_elements(str.casefold, return_dtype=polars.String),
+        album_title=polars.col("album").map_elements(parse_album_title, return_dtype=polars.String),
+    )
+    .with_columns(session=polars.struct("artist_key", "album_title").rle_id())
+    .group_by("session", "artist_key", "album_title")
+    .agg(polars.col("album"), tracks=polars.col("track").n_unique())
+    .filter(polars.col("tracks") >= 5)
+)
+albums_listened = dict(
+    album_sessions
+    .group_by("artist_key", "album_title")
+    .agg(sessions=polars.len(), album=polars.col("album").list.explode(keep_nulls=False, empty_as_null=False).mode().first())
+    .filter(polars.col("sessions") >= 2)
+    .sort("sessions", "album", descending=[True, False])
+    .group_by("artist_key", maintain_order=True)
+    .agg(polars.col("album").str.join("|"))
+    .iter_rows()
+)
+
+# ------------------------------------------------------------------------------
 # Parse cached data → TSV
 # ------------------------------------------------------------------------------
 rows = []
@@ -69,6 +95,7 @@ for artist in artists:
         "top_album_name": top_album["name"] if top_album else "",
         "top_album_image": top_album["images"][0]["url"] if top_album else "",
         "albums": len(album_release_dates_original),
+        "albums_listened": albums_listened.get(artist["name"].casefold(), ""),
         "first_release": FIRST_RELEASE_OVERRIDES.get(artist["name"]) or min(album_release_dates_original.values(), default=""),
         "last_release": max(album_release_dates_original.values(), default=""),
         "last_release_name": last_album["name"] if last_album else "",

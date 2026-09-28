@@ -44,7 +44,8 @@ class Artist:
                 genres: str | list[str], popularity: int, followers: int, albums: int,
                 first_release: str | None, last_release: str | None, last_follow: str, top_song: str, top_song_popularity: int,
                 top_album_name: str, top_album_image: str,
-                last_release_name: str | None = None, last_release_image: str | None = None):
+                last_release_name: str | None = None, last_release_image: str | None = None,
+                albums_listened: str | None = None):
 
         self.id = id
         self.name = name
@@ -56,6 +57,7 @@ class Artist:
         self.popularity = popularity
         self.followers = followers
         self.albums = albums
+        self.albums_listened = albums_listened.split("|") if albums_listened else []
 
         self.tags: set[Tag] = set()
         self.tags_granular: list[Tag] = []
