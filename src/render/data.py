@@ -31,7 +31,7 @@ T_FOLK_NON_FAVORITES = Tag("Folk - Non-Favorites", "")
 T_FOLK_FOLK = Tag("Folk - Folk", "", "Traditional music, mostly celtic and medieval")
 T_FOLK_STEAMPUNK = Tag("Folk - Steampunk", "", "Steampunk and dark cabaret")
 #
-T_ALT_ALL = Tag("Alt & Pop", "🎤", "Indie, electronic, singer-songwriters and pop")
+T_ALT_ALL = Tag("Alt & Pop", "🎤", "Indie, electronic and pop")
 T_ALT_DISCOVER = Tag("Alt - Discover", "")
 T_ALT_FAVORITES = Tag("Alt - Favorites", "")
 T_ALT_NON_FAVORITES = Tag("Alt - Non-Favorites", "")

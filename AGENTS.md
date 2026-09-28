@@ -178,7 +178,7 @@ The family icon is `🎻`: it represents this traditional and theatrical charact
 
 ### Alt & Pop
 
-Alternative and pop: indie, electronic, singer-songwriters and mainstream pop (Dua Lipa, Madonna). Neither word alone covers it; Alt comes first because it is still the core. Tags use the short `Alt - ` prefix. The family icon is `🎤`: like `🎸` and `🎻`, an instrument, here the voice that leads almost every artist in the family.
+Alternative and pop: indie, electronic and mainstream pop (Dua Lipa, Madonna). Neither word alone covers it; Alt comes first because it is still the core. Tags use the short `Alt - ` prefix. The family icon is `🎤`: like `🎸` and `🎻`, an instrument, here the voice that leads almost every artist in the family.
 
 - **Atmospheric**: layered arrangements: strings, electronics, ambience.
 - **Vox/Guitar**: minimalist: voice with guitar or piano.
