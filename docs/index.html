@@ -20,11 +20,17 @@ function onTab(tabPath) {
     var title = $('.item[data-tab="' + tabPath + '"]').data('tab-name');
     $('#mobile-menu-header-filter').text('Filter: ' + title);
     savePreference('tab', tabPath);
-    $('.discover-button').toggleClass('active', tabPath === 'discover');
+    var inDiscover = tabPath === 'discover';
+    // the button names where it goes: All from Discover, Discover from anywhere else
+    $('.discover-button').toggleClass('active', inDiscover)
+        .attr('title', inDiscover ? 'Back to All' : $('.discover-button').data('discover-title') || 'Discover')
+        .attr('aria-label', inDiscover ? 'Back to All' : 'Discover');
+    $('.discover-button .discover-label').text(inDiscover ? 'All' : 'Discover');
 }
 
-function openDiscover() {
-    $('.item[data-tab="discover"]').first().click();
+// Discover and All toggle: from Discover back to All, from anywhere else to Discover
+function toggleDiscover() {
+    $('.item[data-tab="' + (activeTab === 'discover' ? 'all' : 'discover') + '"]').first().click();
 }
 </script>
     <script>
@@ -406,7 +412,8 @@ function pickDiscover() {
     var periodHours = ['06:00–12:00', '12:00–18:00', '18:00–00:00', '00:00–06:00'][period];
     var periodIcon = ['coffee', 'sun outline', 'moon outline', 'star outline'][period];
     discoverPeriod = {icon: periodIcon, text: periodName + ' · ' + periodHours};
-    $('.discover-button').attr('title', 'Discover · new picks at ' + periodHours.split('–')[1]);
+    $('.discover-button').data('discover-title', 'Discover · new picks at ' + periodHours.split('–')[1])
+        .attr('title', 'Discover · new picks at ' + periodHours.split('–')[1]);
     var seed = (shifted.getFullYear() * 10000 + (shifted.getMonth() + 1) * 100 + shifted.getDate()) * 10 + period;
     var random = function() {
         seed = (seed + 0x6D2B79F5) | 0;
@@ -922,11 +929,13 @@ html {
 .list-control > .discover-button {
     margin: 0 0 0 1.25rem;
 }
-.discover-button .compass.icon {
-    transition: transform 0.45s ease;
+/* in Discover the compass gives way to All's folder, a Fomantic icon like it, so the button keeps its size */
+.discover-button > .folder.icon,
+.discover-button.active > .compass.icon {
+    display: none;
 }
-.discover-button:hover .compass.icon, .discover-button:focus-visible .compass.icon, .discover-button:active .compass.icon {
-    transform: rotate(45deg);
+.discover-button.active > .folder.icon {
+    display: inline-block;
 }
 .ui.blue.button.discover-button.active {
     box-shadow: 0 0 0 3px rgba(33, 133, 208, 0.3) !important;
@@ -1384,8 +1393,8 @@ body.release-mode .release-text {
         <div class="ui fluid icon input search-control">
           <input class="artist-search" oninput="search(this.value)" placeholder="Search artist" type="search"><i class="search icon"></i>
         </div>
-        <button class="ui fluid blue button discover-button" onClick="openDiscover()" type="button"><i aria-hidden="true" class="compass icon"></i>
-          <span>Discover</span>
+        <button class="ui fluid blue button discover-button" onClick="toggleDiscover()" type="button"><i aria-hidden="true" class="compass icon"></i><i aria-hidden="true" class="folder open icon"></i>
+          <span class="discover-label">Discover</span>
         </button>
         <div class="ui fluid styled mobile accordion">
           <div class="title">
@@ -1719,7 +1728,7 @@ body.release-mode .release-text {
                 <span class="direction-description"></span>
               </div>
             </div>
-            <button aria-label="Discover" class="ui small circular blue icon button discover-button" onClick="openDiscover()" title="Discover" type="button"><i aria-hidden="true" class="compass icon"></i></button>
+            <button aria-label="Discover" class="ui small circular blue icon button discover-button" onClick="toggleDiscover()" title="Discover" type="button"><i aria-hidden="true" class="compass icon"></i><i aria-hidden="true" class="folder open icon"></i></button>
           </div>
         </div>
         <div class="ui active tab" data-all-artists="true" data-tab="all">
