@@ -132,14 +132,6 @@ html {
 .ui.blue.button.discover-button.active {
     box-shadow: 0 0 0 3px rgba(33, 133, 208, 0.3) !important;
 }
-/* the period of the current picks: in the button on mobile, in the grid's corner on desktop */
-.fluid.discover-button .discover-period {
-    font-weight: normal;
-    opacity: 0.85;
-}
-.fluid.discover-button .discover-period::before {
-    content: " · ";
-}
 .list-control {
     display: flex;
     align-items: center;
@@ -282,7 +274,7 @@ body.release-mode .release-text {
     padding: 0.5rem 0;
 }
 
-/* Discover period, out of the flow in the top right corner of the grid (desktop) */
+/* Discover period, out of the flow in the top right corner of the grid */
 .ui.tab[data-discover-per-family], .ui.tab[data-discover-family] {
     position: relative;
 }
@@ -310,9 +302,19 @@ body.release-mode .release-text {
 .grouping-none .ui.tab[data-discover-family] > .artists-wrapper {
     padding-top: 2.5rem;
 }
+/* on mobile the first heading has no room beside it, so the grid always gets the top strip */
 @media only screen and (max-width: 991.9px) {
     .ui.tab > .discover-period {
-        display: none;
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+    .ui.tab[data-discover-per-family] > .artists-wrapper,
+    .ui.tab[data-discover-family] > .artists-wrapper {
+        padding-top: 2.25rem;
+    }
+    .ui.tab[data-discover-per-family] .group-heading:first-child,
+    .ui.tab[data-discover-family] .group-heading:first-child {
+        padding-right: 0.5rem;
     }
 }
 
@@ -967,7 +969,6 @@ function pickDiscover() {
     var periodName = ['Morning', 'Afternoon', 'Night'][period];
     var periodHours = ['06:00–12:00', '12:00–18:00', '18:00–06:00'][period];
     var periodIcon = ['coffee', 'sun outline', 'moon outline'][period];
-    $('.discover-button .discover-period').text(periodName + ' · ' + periodHours);
     $('.ui.tab > .discover-period').empty().append($('<i>', {class: periodIcon + ' icon'}), periodName + ' · ' + periodHours);
     $('.discover-button').attr('title', 'Discover · new picks at ' + periodHours.split('–')[1]);
     var seed = (shifted.getFullYear() * 10000 + (shifted.getMonth() + 1) * 100 + shifted.getDate()) * 10 + period;
@@ -1488,7 +1489,6 @@ def discover_button(fluid: bool):
         with button(cls="ui fluid blue button discover-button", type="button", onClick="openDiscover()"):
             i(cls="compass icon", aria_hidden="true")
             span("Discover")
-            span(cls="discover-period")
     else:
         with button(cls="ui small circular blue icon button discover-button", type="button", onClick="openDiscover()",
                     title="Discover", aria_label="Discover"):
