@@ -116,6 +116,7 @@ for artist in artists:
         "albums_listened": albums_listened.get(artist["name"].casefold(), ""),
         "first_release": FIRST_RELEASE_OVERRIDES.get(artist["name"]) or min(album_release_dates_original.values(), default=""),
         "last_release": max(album_release_dates_original.values(), default=""),
+        "last_release_id": last_album["id"] if last_album else "",
         "last_release_name": last_album["name"] if last_album else "",
         "last_release_image": last_album["images"][0]["url"] if last_album else "",
         "top_song": tracks[0]["name"] if tracks else "",
