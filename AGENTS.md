@@ -48,6 +48,10 @@ Group and sort are one thing: each group is a dimension that both splits the art
 - Grouping does not change Discover picks. Search hides empty sections.
 - Section headings: the title, then a quiet summary (visible artists, favorites, and the description or year range), with no divider line. On desktop they stay on one line and must not add vertical space; on mobile the summary goes on a second line under the title, close to it so both read as one block, since beside the title it wrapped awkwardly.
 
+Descriptions (styles, substyles, filters, groups, sections) say plainly and precisely what is in them, efficiently: every relevant fact (which subgenres, random, every 6h, which style), no word more, and nothing the title already says. Common terms, no obscure genre jargon, no flourishes ("a solid identity", "decades of nonstop releases"). Cutting to the bone lost information and was rejected. Describe the rule, not the exceptions: name what most members share, never a subgenre that one or two artists bring (bluegrass, fado and shanties in Folk; grunge in Rock).
+
+Generate browser grouping names, icons and descriptions from the tags in `data.py` (`FAMILIES`, their granular tags and `T_OTHERS`); do not maintain a separate hardcoded JavaScript list.
+
 ### Followers tiers
 
 Tiers describe how far an artist's audience reaches, measured by Spotify followers. They never describe career age (that is Longevity), stage billing or how an artist became known. Largest first; the tier name is the section title and the range goes in the summary:
@@ -62,10 +66,6 @@ Tiers describe how far an artist's audience reaches, measured by Spotify followe
 Trust the numbers over impressions of who "really" left their niche. Followers cannot tell where an audience came from: pre-streaming hits and sync placements (Vengaboys, Aqua, Boz Scaggs, Ruelle) land in Niche Reference, which is accepted.
 
 Breakpoints sit in gaps between neighbouring artists, where an artist really changes tier (found with natural breaks on log followers in 2026-09, then checked by looking at the artists on each side). Prefer the roundest number inside the gap, even over a slightly wider gap (1M over 950K); never cut through a dense stretch, since 10K and 11K are equally unknown. The breakpoints are deliberate decisions, discussed artist by artist: new artists or refreshed numbers do not move them, and they are not recomputed from the data.
-
-Descriptions (styles, substyles, filters, groups, sections) say plainly and precisely what is in them, efficiently: every relevant fact (which subgenres, random, every 6h, which style), no word more, and nothing the title already says. Common terms, no obscure genre jargon, no flourishes ("a solid identity", "decades of nonstop releases"). Cutting to the bone lost information and was rejected. Describe the rule, not the exceptions: name what most members share, never a subgenre that one or two artists bring (bluegrass, fado and shanties in Folk; grunge in Rock).
-
-Generate browser grouping names, icons and descriptions from the tags in `data.py` (`FAMILIES`, their granular tags and `T_OTHERS`); do not maintain a separate hardcoded JavaScript list.
 
 ## Command palette
 
@@ -163,15 +163,15 @@ Metal and rock.
 - **Heavy Metal**: non-extreme metal: power, progressive, thrash, gothic, industrial, nu metal, glam metal.
 - **Extreme Metal**: death, black, doom/drone.
 - **Folk Metal**: metal with folk, celtic or medieval elements.
-- **Rock**: rock without metal: classic, hard rock, grunge, alternative and indie rock.
+- **Rock**: rock without metal, from classic and hard rock to alternative and indie rock.
 
 ### Folk
 
-Traditional, storytelling and theatrical music. The family's identity brings together celtic and medieval music, maritime/pirate songs, fado, and steampunk/dark cabaret. It evokes old-world settings and staged characters, without requiring strictly acoustic instruments or historically authentic music. Traditional music and steampunk belong together here on purpose.
+Traditional, storytelling and theatrical music. The family's identity brings together traditional music, mostly celtic and medieval, and steampunk/dark cabaret. It evokes old-world settings and staged characters, without requiring strictly acoustic instruments or historically authentic music. Traditional music and steampunk belong together here on purpose.
 
 The family icon is `🎻`: it represents this traditional and theatrical character. A banjo (`🪕`) overemphasizes American bluegrass/country, which is only one part of this family, not its defining identity. Choose visual cues from the actual artists in the family, including its curated favorites, rather than from the generic meaning of “folk”.
 
-- **Folk**: traditional and roots music: celtic, medieval, fado, bluegrass, pirate songs and shanties.
+- **Folk**: traditional music, mostly celtic and medieval.
 - **Steampunk**: steampunk and dark cabaret, theatrical songs.
 
 `indie folk` is not Folk; it goes to Alt - Vox/Guitar.
