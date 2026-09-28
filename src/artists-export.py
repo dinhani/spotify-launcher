@@ -28,7 +28,7 @@ artists = json.loads(s=(DATA_DIR / "followed.json").read_text(encoding="utf-8"))
 rank = {artist["id"]: i + 1 for i, artist in enumerate(artists)}
 
 # ------------------------------------------------------------------------------
-# Find albums listened as albums: 5+ distinct tracks of the same album in a row, covering 80%+ of the album
+# Find albums listened as albums: distinct tracks of the same album in a row covering 80%+ of the album
 # ------------------------------------------------------------------------------
 album_sizes = polars.DataFrame(
     data=[
@@ -55,7 +55,7 @@ album_sessions = (
     .join(album_sizes.group_by("artist_key", "album_title").agg(size_title=polars.col("size").min()), on=["artist_key", "album_title"], how="left")
     .join(streams.group_by("artist_key", "album_title").agg(size_history=polars.col("track").n_unique()), on=["artist_key", "album_title"], how="left")
     .with_columns(size=polars.coalesce("size_album", "size_title", "size_history"))
-    .filter(polars.col("tracks") >= 5, polars.col("tracks") >= 0.8 * polars.col("size"))
+    .filter(polars.col("tracks") >= 0.8 * polars.col("size"))
 )
 albums_listened = dict(
     album_sessions
