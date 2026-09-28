@@ -592,11 +592,14 @@ function onTab(tabPath) {
     var title = $('.item[data-tab="' + tabPath + '"]').data('tab-name');
     $('#mobile-menu-header-filter').text('Filter: ' + title);
     savePreference('tab', tabPath);
-    $('.discover-button').toggleClass('active', tabPath === 'discover');
+    var inDiscover = tabPath === 'discover';
+    $('.discover-button').toggleClass('active', inDiscover)
+        .attr('title', inDiscover ? 'Back to All' : $('.discover-button').data('discover-title') || 'Discover');
 }
 
-function openDiscover() {
-    $('.item[data-tab="discover"]').first().click();
+// Discover and All toggle: from Discover back to All, from anywhere else to Discover
+function toggleDiscover() {
+    $('.item[data-tab="' + (activeTab === 'discover' ? 'all' : 'discover') + '"]').first().click();
 }
 """
 
@@ -991,7 +994,8 @@ function pickDiscover() {
     var periodHours = ['06:00–12:00', '12:00–18:00', '18:00–00:00', '00:00–06:00'][period];
     var periodIcon = ['coffee', 'sun outline', 'moon outline', 'star outline'][period];
     discoverPeriod = {icon: periodIcon, text: periodName + ' · ' + periodHours};
-    $('.discover-button').attr('title', 'Discover · new picks at ' + periodHours.split('–')[1]);
+    $('.discover-button').data('discover-title', 'Discover · new picks at ' + periodHours.split('–')[1])
+        .attr('title', 'Discover · new picks at ' + periodHours.split('–')[1]);
     var seed = (shifted.getFullYear() * 10000 + (shifted.getMonth() + 1) * 100 + shifted.getDate()) * 10 + period;
     var random = function() {
         seed = (seed + 0x6D2B79F5) | 0;
@@ -1516,11 +1520,11 @@ def command_palette():
 def discover_button(fluid: bool):
     """Render the Discover shortcut: a round compass emblem on desktop, a labeled full-width button on mobile."""
     if fluid:
-        with button(cls="ui fluid blue button discover-button", type="button", onClick="openDiscover()"):
+        with button(cls="ui fluid blue button discover-button", type="button", onClick="toggleDiscover()"):
             i(cls="compass icon", aria_hidden="true")
             span("Discover")
     else:
-        with button(cls="ui small circular blue icon button discover-button", type="button", onClick="openDiscover()",
+        with button(cls="ui small circular blue icon button discover-button", type="button", onClick="toggleDiscover()",
                     title="Discover", aria_label="Discover"):
             i(cls="compass icon", aria_hidden="true")
 
