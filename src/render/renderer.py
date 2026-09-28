@@ -123,22 +123,12 @@ html {
 .list-control > .discover-button {
     margin: 0 0 0 1.25rem;
 }
-/* in Discover the compass gives way to All's own symbol, in the same fixed box, so the button keeps its size */
-.discover-button > .all-symbol {
-    display: none;
-    width: 1.18em;
-    height: 1em;
-    line-height: 1;
-    text-align: center;
-    filter: grayscale(1);
-}
-.ui.fluid.button.discover-button > .all-symbol {
-    margin: 0 0.42857143em 0 -0.21428571em;  /* Fomantic's margin for a button icon */
-}
+/* in Discover the compass gives way to All's folder, a Fomantic icon like it, so the button keeps its size */
+.discover-button > .folder.icon,
 .discover-button.active > .compass.icon {
     display: none;
 }
-.discover-button.active > .all-symbol {
+.discover-button.active > .folder.icon {
     display: inline-block;
 }
 .discover-button .compass.icon {
@@ -1543,13 +1533,13 @@ def discover_button(fluid: bool):
     if fluid:
         with button(cls="ui fluid blue button discover-button", type="button", onClick="toggleDiscover()"):
             i(cls="compass icon", aria_hidden="true")
-            span(T_ALL.icon, cls="all-symbol", aria_hidden="true")
+            i(cls="folder open icon", aria_hidden="true")
             span("Discover", cls="discover-label")
     else:
         with button(cls="ui small circular blue icon button discover-button", type="button", onClick="toggleDiscover()",
                     title="Discover", aria_label="Discover"):
             i(cls="compass icon", aria_hidden="true")
-            span(T_ALL.icon, cls="all-symbol", aria_hidden="true")
+            i(cls="folder open icon", aria_hidden="true")
 
 def list_controls():
     with div(cls="list-controls"):
