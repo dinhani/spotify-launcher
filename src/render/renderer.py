@@ -1157,6 +1157,15 @@ $(document).on('keydown', function(e) {
     $('.artist-search:visible').focus();
 });
 
+function cardSpotify(card) {
+    return grouping === 'release' && card.dataset.spotifyRelease || card.dataset.spotify;
+}
+
+$(document).on('click', '.ui.card a[href^="spotify:"]', function(e) {
+    e.preventDefault();
+    window.location.href = cardSpotify($(this).closest('.ui.card')[0]);
+});
+
 $(document).on('keydown', '.ui.card', function(e) {
     if (e.ctrlKey || e.altKey) return;
     if (e.key === 'Escape') {
@@ -1169,7 +1178,7 @@ $(document).on('keydown', '.ui.card', function(e) {
         return;
     }
     if (e.key === 'Enter') {
-        window.location.href = $(this).data('spotify');
+        window.location.href = cardSpotify(this);
         return;
     }
 
@@ -1607,9 +1616,10 @@ def card(artist: Artist):
     artist_tags = ", ".join([tag_display(t) for t in artist.tags_granular])
 
     spotify_url = f"spotify:artist:{artist.id}"
+    spotify_release_url = f"spotify:album:{artist.last_release_id}" if artist.last_release_id else ""
     lastfm_url = f"https://www.last.fm/user/{LASTFM_USER}/library/music/{quote_plus(artist.name)}"
 
-    with div(cls="ui card artist-card", tabindex="0", data_spotify=spotify_url, data_lastfm=lastfm_url):
+    with div(cls="ui card artist-card", tabindex="0", data_spotify=spotify_url, data_spotify_release=spotify_release_url, data_lastfm=lastfm_url):
         # image
         with a(cls="image", href=spotify_url, tabindex="-1"):
             img(src=artist.image, cls="ui image artist-image", alt=artist.name, loading="lazy")
