@@ -282,14 +282,14 @@ body.release-mode .release-text {
     padding: 0.5rem 0;
 }
 
-/* Discover period, out of the flow in the bottom right corner of the grid (desktop) */
+/* Discover period, out of the flow in the top right corner of the grid (desktop) */
 .ui.tab[data-discover-per-family], .ui.tab[data-discover-family] {
     position: relative;
 }
 .ui.tab > .discover-period {
     position: absolute;
-    right: 0.75rem;
-    bottom: 0.5rem;
+    top: 1.2rem;
+    right: calc(10px + 0.5rem);
     padding: 0.15rem 0.5rem;
     border-radius: 0.5rem;
     background: rgba(243, 244, 246, 0.9);
@@ -300,6 +300,15 @@ body.release-mode .release-text {
 }
 .ui.tab > .discover-period > i.icon {
     margin-right: 0.35rem;
+}
+/* keep the first heading's summary clear of the period; without headings, give the period its own strip */
+.ui.tab[data-discover-per-family] .group-heading:first-child,
+.ui.tab[data-discover-family] .group-heading:first-child {
+    padding-right: 13rem;
+}
+.grouping-none .ui.tab[data-discover-per-family] > .artists-wrapper,
+.grouping-none .ui.tab[data-discover-family] > .artists-wrapper {
+    padding-top: 2.5rem;
 }
 @media only screen and (max-width: 991.9px) {
     .ui.tab > .discover-period {
@@ -899,6 +908,7 @@ function setGrouping(element) {
     groupSort = element.dataset.groupSort;
     groupOrder = element.dataset.groupOrder;
     $('body').toggleClass('release-mode', grouping === 'release');
+    $('body').toggleClass('grouping-none', grouping === 'none');
     setDirection(groupOrder);
 }
 
