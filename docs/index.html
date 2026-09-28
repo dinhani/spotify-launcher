@@ -141,8 +141,8 @@ var grouping = 'none';
 var groupSort = 'name';
 var groupOrder = 'asc';
 var direction = 'asc';
-var artistFamilies = [{"name": "Rock", "icon": "🎸", "description": "Metal and rock", "fallback": false}, {"name": "Folk", "icon": "🎻", "description": "Traditional, storytelling and theatrical", "fallback": false}, {"name": "Alt & Pop", "icon": "🎤", "description": "Alternative and pop: indie, electronic, dream pop, singer-songwriters and mainstream pop", "fallback": false}, {"name": "Others", "icon": "🎶", "description": "Everything else", "fallback": true}];
-var artistSubstyles = [{"tag": "Rock - Heavy Metal", "name": "Heavy Metal", "family": "Rock", "icon": "🎸", "description": "Power, progressive, thrash, gothic"}, {"tag": "Rock - Extreme Metal", "name": "Extreme Metal", "family": "Rock", "icon": "🎸", "description": "Death, black, doom"}, {"tag": "Rock - Folk Metal", "name": "Folk Metal", "family": "Rock", "icon": "🎸", "description": "Metal with folk, celtic or medieval elements"}, {"tag": "Rock - Rock", "name": "Rock", "family": "Rock", "icon": "🎸", "description": "Rock without metal"}, {"tag": "Folk - Folk", "name": "Folk", "family": "Folk", "icon": "🎻", "description": "Celtic, medieval, fado, shanties"}, {"tag": "Folk - Steampunk", "name": "Steampunk", "family": "Folk", "icon": "🎻", "description": "Steampunk and dark cabaret"}, {"tag": "Alt - Atmospheric", "name": "Atmospheric", "family": "Alt & Pop", "icon": "🎤", "description": "Strings, electronics, ambience"}, {"tag": "Alt - Energetic", "name": "Energetic", "family": "Alt & Pop", "icon": "🎤", "description": "Upbeat, danceable"}, {"tag": "Alt - Vox/Guitar", "name": "Vox/Guitar", "family": "Alt & Pop", "icon": "🎤", "description": "Voice with guitar or piano"}];
+var artistFamilies = [{"name": "Rock", "icon": "🎸", "description": "Metal and rock", "fallback": false}, {"name": "Folk", "icon": "🎻", "description": "Traditional music and theatrical songs", "fallback": false}, {"name": "Alt & Pop", "icon": "🎤", "description": "Indie, electronic and pop", "fallback": false}, {"name": "Others", "icon": "🎶", "description": "Instrumental, fits no style", "fallback": true}];
+var artistSubstyles = [{"tag": "Rock - Heavy Metal", "name": "Heavy Metal", "family": "Rock", "icon": "🎸", "description": "Power, progressive, thrash, gothic"}, {"tag": "Rock - Extreme Metal", "name": "Extreme Metal", "family": "Rock", "icon": "🎸", "description": "Death, black, doom"}, {"tag": "Rock - Folk Metal", "name": "Folk Metal", "family": "Rock", "icon": "🎸", "description": "Metal with folk, celtic or medieval elements"}, {"tag": "Rock - Rock", "name": "Rock", "family": "Rock", "icon": "🎸", "description": "Rock without metal, from classic to indie"}, {"tag": "Folk - Folk", "name": "Folk", "family": "Folk", "icon": "🎻", "description": "Traditional music, mostly celtic and medieval"}, {"tag": "Folk - Steampunk", "name": "Steampunk", "family": "Folk", "icon": "🎻", "description": "Steampunk and dark cabaret"}, {"tag": "Alt - Atmospheric", "name": "Atmospheric", "family": "Alt & Pop", "icon": "🎤", "description": "Layered: strings, electronics, ambience"}, {"tag": "Alt - Energetic", "name": "Energetic", "family": "Alt & Pop", "icon": "🎤", "description": "Upbeat, danceable"}, {"tag": "Alt - Vox/Guitar", "name": "Vox/Guitar", "family": "Alt & Pop", "icon": "🎤", "description": "Voice with guitar or piano"}];
 var longevityRanges = [
     {label: 'Under 5 Years', from: 0, to: 4},
     {label: '5–9 Years', from: 5, to: 9},
@@ -164,24 +164,24 @@ var followersRanges = [
     {label: 'Underground', description: 'Under 20K followers', from: 0, to: 19999},
 ];
 var albumsRanges = [
-    {label: '20+ Albums', description: 'Monumental, a lifetime of releases', from: 20, to: Infinity},
-    {label: '15–19 Albums', description: 'Prolific, decades of nonstop releases', from: 15, to: 19},
-    {label: '10–14 Albums', description: 'Veteran, a long and steady career', from: 10, to: 14},
-    {label: '7–9 Albums', description: 'Established, well past the early years', from: 7, to: 9},
-    {label: '4–6 Albums', description: 'Consolidated, a solid identity', from: 4, to: 6},
-    {label: '2–3 Albums', description: 'Early, an early career or a band that ended soon', from: 2, to: 3},
-    {label: '1 Album', description: 'Debut, the only album so far', from: 1, to: 1},
+    {label: '20+ Albums', description: 'Monumental career', from: 20, to: Infinity},
+    {label: '15–19 Albums', description: 'Prolific career', from: 15, to: 19},
+    {label: '10–14 Albums', description: 'Veteran career', from: 10, to: 14},
+    {label: '7–9 Albums', description: 'Established career', from: 7, to: 9},
+    {label: '4–6 Albums', description: 'Consolidated career', from: 4, to: 6},
+    {label: '2–3 Albums', description: 'Early career or short-lived band', from: 2, to: 3},
+    {label: '1 Album', description: 'Debut, only album so far', from: 1, to: 1},
     {label: 'No Albums', description: 'Singles and EPs only', from: 0, to: 0},
 ];
 // Spotify gives no follow date, only the order: 1 is the latest follow
 var followedRanges = [
-    {label: 'Latest 16', description: 'The most recent follows', from: 1, to: 16},
-    {label: 'Earlier', description: 'Everyone followed before', from: 17, to: Infinity},
+    {label: 'Latest 16', description: 'Most recent follows', from: 1, to: 16},
+    {label: 'Earlier', description: 'Followed earlier', from: 17, to: Infinity},
 ];
 var listenedRanges = [
-    {label: 'Multiple Albums', description: 'More than one album heard whole', from: 2, to: Infinity},
-    {label: '1 Album', description: 'One album heard whole', from: 1, to: 1},
-    {label: 'Random', description: 'Only loose tracks, never a whole album', from: 0, to: 0},
+    {label: 'Multiple Albums', description: 'Heard in full', from: 2, to: Infinity},
+    {label: '1 Album', description: 'Heard in full', from: 1, to: 1},
+    {label: 'Random', description: 'Loose tracks only', from: 0, to: 0},
 ];
 var releaseRanges = [
     {label: 'This Year', from: 0, to: 0},
@@ -1374,20 +1374,20 @@ body.release-mode .release-text {
           </div>
           <div class="content">
             <div class="ui fluid vertical attached menu sidebar-options">
-              <div class="active header link item nowrap" data-command-description="Every followed artist" data-command-icon="🗂️" data-command-label="All" data-command-parent="" data-command-tag="Filter" data-tab="all" data-tab-name="All" tabindex="0">
+              <div class="active header link item nowrap" data-command-description="All followed artists" data-command-icon="🗂️" data-command-label="All" data-command-parent="" data-command-tag="Filter" data-tab="all" data-tab-name="All" tabindex="0">
                 <span aria-hidden="true" class="control-symbol">🗂️</span>
                 <span>All</span>
                 <span class="ui tiny basic blue label artist-count">290</span>
               </div>
-              <div class="  link item nowrap" data-command-description="4 picks per style, new each period" data-command-icon="" data-command-label="Discover" data-command-parent="" data-command-tag="Filter" data-tab="discover" data-tab-name="Discover" tabindex="0">
+              <div class="  link item nowrap" data-command-description="4 random picks per style, new every 6h" data-command-icon="" data-command-label="Discover" data-command-parent="" data-command-tag="Filter" data-tab="discover" data-tab-name="Discover" tabindex="0">
                 <span>Discover</span>
                 <span class="ui tiny basic blue label artist-count">12</span>
               </div>
-              <div class="  link item nowrap" data-command-description="Curated favorites" data-command-icon="" data-command-label="Favorites" data-command-parent="" data-command-tag="Filter" data-tab="favorites" data-tab-name="Favorites" tabindex="0">
+              <div class="  link item nowrap" data-command-description="Hand-picked favorites" data-command-icon="" data-command-label="Favorites" data-command-parent="" data-command-tag="Filter" data-tab="favorites" data-tab-name="Favorites" tabindex="0">
                 <span>Favorites</span>
                 <span class="ui tiny basic blue label artist-count">79</span>
               </div>
-              <div class="  link item nowrap" data-command-description="Everyone not in Favorites" data-command-icon="" data-command-label="Non-Favorites" data-command-parent="" data-command-tag="Filter" data-tab="non-favorites" data-tab-name="Non-Favorites" tabindex="0">
+              <div class="  link item nowrap" data-command-description="Not in Favorites" data-command-icon="" data-command-label="Non-Favorites" data-command-parent="" data-command-tag="Filter" data-tab="non-favorites" data-tab-name="Non-Favorites" tabindex="0">
                 <span>Non-Favorites</span>
                 <span class="ui tiny basic blue label artist-count">211</span>
               </div>
@@ -1396,7 +1396,7 @@ body.release-mode .release-text {
                 <span>Rock</span>
                 <span class="ui tiny basic blue label artist-count">164</span>
               </div>
-              <div class="  link item nowrap" data-command-description="4 Rock picks, new each period" data-command-icon="🎸" data-command-label="Discover" data-command-parent="Rock" data-command-tag="Filter" data-tab="rock-discover" data-tab-name="Rock - Discover" tabindex="0">
+              <div class="  link item nowrap" data-command-description="4 random Rock picks, new every 6h" data-command-icon="🎸" data-command-label="Discover" data-command-parent="Rock" data-command-tag="Filter" data-tab="rock-discover" data-tab-name="Rock - Discover" tabindex="0">
                 <span>Discover</span>
                 <span class="ui tiny basic blue label artist-count">4</span>
               </div>
@@ -1420,16 +1420,16 @@ body.release-mode .release-text {
                 <span>Folk Metal</span>
                 <span class="ui tiny basic blue label artist-count">23</span>
               </div>
-              <div class="  link item nowrap" data-command-description="Rock without metal" data-command-icon="🎸" data-command-label="Rock" data-command-parent="Rock" data-command-tag="Substyle" data-tab="rock-rock" data-tab-name="Rock - Rock" tabindex="0">
+              <div class="  link item nowrap" data-command-description="Rock without metal, from classic to indie" data-command-icon="🎸" data-command-label="Rock" data-command-parent="Rock" data-command-tag="Substyle" data-tab="rock-rock" data-tab-name="Rock - Rock" tabindex="0">
                 <span>Rock</span>
                 <span class="ui tiny basic blue label artist-count">28</span>
               </div>
-              <div class=" header link item nowrap" data-command-description="Traditional, storytelling and theatrical" data-command-icon="🎻" data-command-label="Folk" data-command-parent="" data-command-tag="Style" data-tab="folk" data-tab-name="Folk" tabindex="0">
+              <div class=" header link item nowrap" data-command-description="Traditional music and theatrical songs" data-command-icon="🎻" data-command-label="Folk" data-command-parent="" data-command-tag="Style" data-tab="folk" data-tab-name="Folk" tabindex="0">
                 <span aria-hidden="true" class="control-symbol">🎻</span>
                 <span>Folk</span>
                 <span class="ui tiny basic blue label artist-count">30</span>
               </div>
-              <div class="  link item nowrap" data-command-description="4 Folk picks, new each period" data-command-icon="🎻" data-command-label="Discover" data-command-parent="Folk" data-command-tag="Filter" data-tab="folk-discover" data-tab-name="Folk - Discover" tabindex="0">
+              <div class="  link item nowrap" data-command-description="4 random Folk picks, new every 6h" data-command-icon="🎻" data-command-label="Discover" data-command-parent="Folk" data-command-tag="Filter" data-tab="folk-discover" data-tab-name="Folk - Discover" tabindex="0">
                 <span>Discover</span>
                 <span class="ui tiny basic blue label artist-count">4</span>
               </div>
@@ -1441,7 +1441,7 @@ body.release-mode .release-text {
                 <span>Non-Favorites</span>
                 <span class="ui tiny basic blue label artist-count">23</span>
               </div>
-              <div class="  link item nowrap" data-command-description="Celtic, medieval, fado, shanties" data-command-icon="🎻" data-command-label="Folk" data-command-parent="Folk" data-command-tag="Substyle" data-tab="folk-folk" data-tab-name="Folk - Folk" tabindex="0">
+              <div class="  link item nowrap" data-command-description="Traditional music, mostly celtic and medieval" data-command-icon="🎻" data-command-label="Folk" data-command-parent="Folk" data-command-tag="Substyle" data-tab="folk-folk" data-tab-name="Folk - Folk" tabindex="0">
                 <span>Folk</span>
                 <span class="ui tiny basic blue label artist-count">15</span>
               </div>
@@ -1449,12 +1449,12 @@ body.release-mode .release-text {
                 <span>Steampunk</span>
                 <span class="ui tiny basic blue label artist-count">15</span>
               </div>
-              <div class=" header link item nowrap" data-command-description="Alternative and pop: indie, electronic, dream pop, singer-songwriters and mainstream pop" data-command-icon="🎤" data-command-label="Alt &amp; Pop" data-command-parent="" data-command-tag="Style" data-tab="alt-pop" data-tab-name="Alt &amp; Pop" tabindex="0">
+              <div class=" header link item nowrap" data-command-description="Indie, electronic and pop" data-command-icon="🎤" data-command-label="Alt &amp; Pop" data-command-parent="" data-command-tag="Style" data-tab="alt-pop" data-tab-name="Alt &amp; Pop" tabindex="0">
                 <span aria-hidden="true" class="control-symbol">🎤</span>
                 <span>Alt &amp; Pop</span>
                 <span class="ui tiny basic blue label artist-count">95</span>
               </div>
-              <div class="  link item nowrap" data-command-description="4 Alt &amp; Pop picks, new each period" data-command-icon="🎤" data-command-label="Discover" data-command-parent="Alt &amp; Pop" data-command-tag="Filter" data-tab="alt-discover" data-tab-name="Alt - Discover" tabindex="0">
+              <div class="  link item nowrap" data-command-description="4 random Alt &amp; Pop picks, new every 6h" data-command-icon="🎤" data-command-label="Discover" data-command-parent="Alt &amp; Pop" data-command-tag="Filter" data-tab="alt-discover" data-tab-name="Alt - Discover" tabindex="0">
                 <span>Discover</span>
                 <span class="ui tiny basic blue label artist-count">4</span>
               </div>
@@ -1466,7 +1466,7 @@ body.release-mode .release-text {
                 <span>Non-Favorites</span>
                 <span class="ui tiny basic blue label artist-count">56</span>
               </div>
-              <div class="  link item nowrap" data-command-description="Strings, electronics, ambience" data-command-icon="🎤" data-command-label="Atmospheric" data-command-parent="Alt &amp; Pop" data-command-tag="Substyle" data-tab="alt-atmospheric" data-tab-name="Alt - Atmospheric" tabindex="0">
+              <div class="  link item nowrap" data-command-description="Layered: strings, electronics, ambience" data-command-icon="🎤" data-command-label="Atmospheric" data-command-parent="Alt &amp; Pop" data-command-tag="Substyle" data-tab="alt-atmospheric" data-tab-name="Alt - Atmospheric" tabindex="0">
                 <span>Atmospheric</span>
                 <span class="ui tiny basic blue label artist-count">40</span>
               </div>
@@ -1478,7 +1478,7 @@ body.release-mode .release-text {
                 <span>Vox/Guitar</span>
                 <span class="ui tiny basic blue label artist-count">18</span>
               </div>
-              <div class=" header link item nowrap" data-command-description="Everything else" data-command-icon="🎶" data-command-label="Others" data-command-parent="" data-command-tag="Style" data-tab="others" data-tab-name="Others" tabindex="0">
+              <div class=" header link item nowrap" data-command-description="Instrumental, fits no style" data-command-icon="🎶" data-command-label="Others" data-command-parent="" data-command-tag="Style" data-tab="others" data-tab-name="Others" tabindex="0">
                 <span aria-hidden="true" class="control-symbol">🎶</span>
                 <span>Others</span>
                 <span class="ui tiny basic blue label artist-count">3</span>
@@ -1492,31 +1492,31 @@ body.release-mode .release-text {
           </div>
           <div class="content">
             <div class="ui fluid vertical attached menu sidebar-options">
-              <div class="link item nowrap" data-asc-description="A to Z" data-command-description="No sections" data-desc-description="Z to A" data-group="none" data-group-order="asc" data-group-sort="name" onClick="groupArtists(this)" tabindex="0" title="No sections"><i aria-hidden="true" class="ban icon control-icon"></i>
+              <div class="link item nowrap" data-asc-description="A to Z" data-command-description="No sections, by name" data-desc-description="Z to A" data-group="none" data-group-order="asc" data-group-sort="name" onClick="groupArtists(this)" tabindex="0" title="No sections, by name"><i aria-hidden="true" class="ban icon control-icon"></i>
                 <span>None</span>
               </div>
-              <div class="link item nowrap" data-asc-description="A to Z in each style" data-command-description="Sections by Rock, Folk, Alt &amp; Pop and Others" data-desc-description="Z to A in each style" data-group="style" data-group-order="asc" data-group-sort="name" onClick="groupArtists(this)" tabindex="0" title="Sections by Rock, Folk, Alt &amp; Pop and Others"><i aria-hidden="true" class="music icon control-icon"></i>
+              <div class="link item nowrap" data-asc-description="A to Z in each style" data-command-description="By style: Rock, Folk, Alt &amp; Pop, Others" data-desc-description="Z to A in each style" data-group="style" data-group-order="asc" data-group-sort="name" onClick="groupArtists(this)" tabindex="0" title="By style: Rock, Folk, Alt &amp; Pop, Others"><i aria-hidden="true" class="music icon control-icon"></i>
                 <span>Style</span>
               </div>
-              <div class="link item nowrap" data-asc-description="A to Z in each substyle" data-command-description="Sections by substyle" data-desc-description="Z to A in each substyle" data-group="substyle" data-group-order="asc" data-group-sort="name" onClick="groupArtists(this)" tabindex="0" title="Sections by substyle"><i aria-hidden="true" class="tags icon control-icon"></i>
+              <div class="link item nowrap" data-asc-description="A to Z in each substyle" data-command-description="By substyle, within each style" data-desc-description="Z to A in each substyle" data-group="substyle" data-group-order="asc" data-group-sort="name" onClick="groupArtists(this)" tabindex="0" title="By substyle, within each style"><i aria-hidden="true" class="tags icon control-icon"></i>
                 <span>Substyle</span>
               </div>
-              <div class="link item nowrap" data-asc-description="Least followed first" data-command-description="Sections by audience reach" data-desc-description="Most followed first" data-group="followers" data-group-order="desc" data-group-sort="followers" onClick="groupArtists(this)" tabindex="0" title="Sections by audience reach"><i aria-hidden="true" class="user icon control-icon"></i>
+              <div class="link item nowrap" data-asc-description="Least followed first" data-command-description="By audience reach (Spotify followers)" data-desc-description="Most followed first" data-group="followers" data-group-order="desc" data-group-sort="followers" onClick="groupArtists(this)" tabindex="0" title="By audience reach (Spotify followers)"><i aria-hidden="true" class="user icon control-icon"></i>
                 <span>Followers</span>
               </div>
-              <div class="link item nowrap" data-asc-description="Shortest career first" data-command-description="Sections by years since the first album" data-desc-description="Longest career first" data-group="longevity" data-group-order="asc" data-group-sort="first-release" onClick="groupArtists(this)" tabindex="0" title="Sections by years since the first album"><i aria-hidden="true" class="hourglass half icon control-icon"></i>
+              <div class="link item nowrap" data-asc-description="Shortest career first" data-command-description="By years since the first album" data-desc-description="Longest career first" data-group="longevity" data-group-order="asc" data-group-sort="first-release" onClick="groupArtists(this)" tabindex="0" title="By years since the first album"><i aria-hidden="true" class="hourglass half icon control-icon"></i>
                 <span>Longevity</span>
               </div>
-              <div class="link item nowrap" data-asc-description="Fewest albums first" data-command-description="Sections by number of albums" data-desc-description="Most albums first" data-group="albums" data-group-order="desc" data-group-sort="albums" onClick="groupArtists(this)" tabindex="0" title="Sections by number of albums"><i aria-hidden="true" class="compact disc icon control-icon"></i>
+              <div class="link item nowrap" data-asc-description="Fewest albums first" data-command-description="By number of albums" data-desc-description="Most albums first" data-group="albums" data-group-order="desc" data-group-sort="albums" onClick="groupArtists(this)" tabindex="0" title="By number of albums"><i aria-hidden="true" class="compact disc icon control-icon"></i>
                 <span>Albums</span>
               </div>
-              <div class="link item nowrap" data-asc-description="Fewest albums heard first" data-command-description="Sections by albums heard as albums" data-desc-description="Most albums heard first" data-group="listened" data-group-order="desc" data-group-sort="albums-listened" onClick="groupArtists(this)" tabindex="0" title="Sections by albums heard as albums"><i aria-hidden="true" class="headphones icon control-icon"></i>
+              <div class="link item nowrap" data-asc-description="Fewest albums listened first" data-command-description="By albums listened in full" data-desc-description="Most albums listened first" data-group="listened" data-group-order="desc" data-group-sort="albums-listened" onClick="groupArtists(this)" tabindex="0" title="By albums listened in full"><i aria-hidden="true" class="headphones icon control-icon"></i>
                 <span>Listened</span>
               </div>
-              <div class="link item nowrap" data-asc-description="Newest release first" data-command-description="Sections by years since the last release" data-desc-description="Oldest release first" data-group="release" data-group-order="asc" data-group-sort="last-release" onClick="groupArtists(this)" tabindex="0" title="Sections by years since the last release"><i aria-hidden="true" class="calendar alternate icon control-icon"></i>
+              <div class="link item nowrap" data-asc-description="Newest release first" data-command-description="By years since the last release" data-desc-description="Oldest release first" data-group="release" data-group-order="asc" data-group-sort="last-release" onClick="groupArtists(this)" tabindex="0" title="By years since the last release"><i aria-hidden="true" class="calendar alternate icon control-icon"></i>
                 <span>Release</span>
               </div>
-              <div class="link item nowrap" data-asc-description="Most recently followed first" data-command-description="The latest follows apart from the rest" data-desc-description="Followed longest ago first" data-group="followed" data-group-order="asc" data-group-sort="last-follow" onClick="groupArtists(this)" tabindex="0" title="The latest follows apart from the rest"><i aria-hidden="true" class="bell icon control-icon"></i>
+              <div class="link item nowrap" data-asc-description="Most recently followed first" data-command-description="Latest 16 follows, then the rest" data-desc-description="Followed longest ago first" data-group="followed" data-group-order="asc" data-group-sort="last-follow" onClick="groupArtists(this)" tabindex="0" title="Latest 16 follows, then the rest"><i aria-hidden="true" class="bell icon control-icon"></i>
                 <span>Followed</span>
               </div>
             </div>
@@ -1543,20 +1543,20 @@ body.release-mode .release-text {
           <input class="artist-search" oninput="search(this.value)" placeholder="Search artist" type="search"><i class="search icon"></i>
         </div>
         <div class="ui fluid vertical desktop menu sidebar-options">
-          <div class="active header link item nowrap" data-command-description="Every followed artist" data-command-icon="🗂️" data-command-label="All" data-command-parent="" data-command-tag="Filter" data-tab="all" data-tab-name="All" tabindex="0">
+          <div class="active header link item nowrap" data-command-description="All followed artists" data-command-icon="🗂️" data-command-label="All" data-command-parent="" data-command-tag="Filter" data-tab="all" data-tab-name="All" tabindex="0">
             <span aria-hidden="true" class="control-symbol">🗂️</span>
             <span>All</span>
             <span class="ui tiny basic blue label artist-count">290</span>
           </div>
-          <div class="  link item nowrap" data-command-description="4 picks per style, new each period" data-command-icon="" data-command-label="Discover" data-command-parent="" data-command-tag="Filter" data-tab="discover" data-tab-name="Discover" tabindex="0">
+          <div class="  link item nowrap" data-command-description="4 random picks per style, new every 6h" data-command-icon="" data-command-label="Discover" data-command-parent="" data-command-tag="Filter" data-tab="discover" data-tab-name="Discover" tabindex="0">
             <span>Discover</span>
             <span class="ui tiny basic blue label artist-count">12</span>
           </div>
-          <div class="  link item nowrap" data-command-description="Curated favorites" data-command-icon="" data-command-label="Favorites" data-command-parent="" data-command-tag="Filter" data-tab="favorites" data-tab-name="Favorites" tabindex="0">
+          <div class="  link item nowrap" data-command-description="Hand-picked favorites" data-command-icon="" data-command-label="Favorites" data-command-parent="" data-command-tag="Filter" data-tab="favorites" data-tab-name="Favorites" tabindex="0">
             <span>Favorites</span>
             <span class="ui tiny basic blue label artist-count">79</span>
           </div>
-          <div class="  link item nowrap" data-command-description="Everyone not in Favorites" data-command-icon="" data-command-label="Non-Favorites" data-command-parent="" data-command-tag="Filter" data-tab="non-favorites" data-tab-name="Non-Favorites" tabindex="0">
+          <div class="  link item nowrap" data-command-description="Not in Favorites" data-command-icon="" data-command-label="Non-Favorites" data-command-parent="" data-command-tag="Filter" data-tab="non-favorites" data-tab-name="Non-Favorites" tabindex="0">
             <span>Non-Favorites</span>
             <span class="ui tiny basic blue label artist-count">211</span>
           </div>
@@ -1565,7 +1565,7 @@ body.release-mode .release-text {
             <span>Rock</span>
             <span class="ui tiny basic blue label artist-count">164</span>
           </div>
-          <div class="  link item nowrap" data-command-description="4 Rock picks, new each period" data-command-icon="🎸" data-command-label="Discover" data-command-parent="Rock" data-command-tag="Filter" data-tab="rock-discover" data-tab-name="Rock - Discover" tabindex="0">
+          <div class="  link item nowrap" data-command-description="4 random Rock picks, new every 6h" data-command-icon="🎸" data-command-label="Discover" data-command-parent="Rock" data-command-tag="Filter" data-tab="rock-discover" data-tab-name="Rock - Discover" tabindex="0">
             <span>Discover</span>
             <span class="ui tiny basic blue label artist-count">4</span>
           </div>
@@ -1589,16 +1589,16 @@ body.release-mode .release-text {
             <span>Folk Metal</span>
             <span class="ui tiny basic blue label artist-count">23</span>
           </div>
-          <div class="  link item nowrap" data-command-description="Rock without metal" data-command-icon="🎸" data-command-label="Rock" data-command-parent="Rock" data-command-tag="Substyle" data-tab="rock-rock" data-tab-name="Rock - Rock" tabindex="0">
+          <div class="  link item nowrap" data-command-description="Rock without metal, from classic to indie" data-command-icon="🎸" data-command-label="Rock" data-command-parent="Rock" data-command-tag="Substyle" data-tab="rock-rock" data-tab-name="Rock - Rock" tabindex="0">
             <span>Rock</span>
             <span class="ui tiny basic blue label artist-count">28</span>
           </div>
-          <div class=" header link item nowrap" data-command-description="Traditional, storytelling and theatrical" data-command-icon="🎻" data-command-label="Folk" data-command-parent="" data-command-tag="Style" data-tab="folk" data-tab-name="Folk" tabindex="0">
+          <div class=" header link item nowrap" data-command-description="Traditional music and theatrical songs" data-command-icon="🎻" data-command-label="Folk" data-command-parent="" data-command-tag="Style" data-tab="folk" data-tab-name="Folk" tabindex="0">
             <span aria-hidden="true" class="control-symbol">🎻</span>
             <span>Folk</span>
             <span class="ui tiny basic blue label artist-count">30</span>
           </div>
-          <div class="  link item nowrap" data-command-description="4 Folk picks, new each period" data-command-icon="🎻" data-command-label="Discover" data-command-parent="Folk" data-command-tag="Filter" data-tab="folk-discover" data-tab-name="Folk - Discover" tabindex="0">
+          <div class="  link item nowrap" data-command-description="4 random Folk picks, new every 6h" data-command-icon="🎻" data-command-label="Discover" data-command-parent="Folk" data-command-tag="Filter" data-tab="folk-discover" data-tab-name="Folk - Discover" tabindex="0">
             <span>Discover</span>
             <span class="ui tiny basic blue label artist-count">4</span>
           </div>
@@ -1610,7 +1610,7 @@ body.release-mode .release-text {
             <span>Non-Favorites</span>
             <span class="ui tiny basic blue label artist-count">23</span>
           </div>
-          <div class="  link item nowrap" data-command-description="Celtic, medieval, fado, shanties" data-command-icon="🎻" data-command-label="Folk" data-command-parent="Folk" data-command-tag="Substyle" data-tab="folk-folk" data-tab-name="Folk - Folk" tabindex="0">
+          <div class="  link item nowrap" data-command-description="Traditional music, mostly celtic and medieval" data-command-icon="🎻" data-command-label="Folk" data-command-parent="Folk" data-command-tag="Substyle" data-tab="folk-folk" data-tab-name="Folk - Folk" tabindex="0">
             <span>Folk</span>
             <span class="ui tiny basic blue label artist-count">15</span>
           </div>
@@ -1618,12 +1618,12 @@ body.release-mode .release-text {
             <span>Steampunk</span>
             <span class="ui tiny basic blue label artist-count">15</span>
           </div>
-          <div class=" header link item nowrap" data-command-description="Alternative and pop: indie, electronic, dream pop, singer-songwriters and mainstream pop" data-command-icon="🎤" data-command-label="Alt &amp; Pop" data-command-parent="" data-command-tag="Style" data-tab="alt-pop" data-tab-name="Alt &amp; Pop" tabindex="0">
+          <div class=" header link item nowrap" data-command-description="Indie, electronic and pop" data-command-icon="🎤" data-command-label="Alt &amp; Pop" data-command-parent="" data-command-tag="Style" data-tab="alt-pop" data-tab-name="Alt &amp; Pop" tabindex="0">
             <span aria-hidden="true" class="control-symbol">🎤</span>
             <span>Alt &amp; Pop</span>
             <span class="ui tiny basic blue label artist-count">95</span>
           </div>
-          <div class="  link item nowrap" data-command-description="4 Alt &amp; Pop picks, new each period" data-command-icon="🎤" data-command-label="Discover" data-command-parent="Alt &amp; Pop" data-command-tag="Filter" data-tab="alt-discover" data-tab-name="Alt - Discover" tabindex="0">
+          <div class="  link item nowrap" data-command-description="4 random Alt &amp; Pop picks, new every 6h" data-command-icon="🎤" data-command-label="Discover" data-command-parent="Alt &amp; Pop" data-command-tag="Filter" data-tab="alt-discover" data-tab-name="Alt - Discover" tabindex="0">
             <span>Discover</span>
             <span class="ui tiny basic blue label artist-count">4</span>
           </div>
@@ -1635,7 +1635,7 @@ body.release-mode .release-text {
             <span>Non-Favorites</span>
             <span class="ui tiny basic blue label artist-count">56</span>
           </div>
-          <div class="  link item nowrap" data-command-description="Strings, electronics, ambience" data-command-icon="🎤" data-command-label="Atmospheric" data-command-parent="Alt &amp; Pop" data-command-tag="Substyle" data-tab="alt-atmospheric" data-tab-name="Alt - Atmospheric" tabindex="0">
+          <div class="  link item nowrap" data-command-description="Layered: strings, electronics, ambience" data-command-icon="🎤" data-command-label="Atmospheric" data-command-parent="Alt &amp; Pop" data-command-tag="Substyle" data-tab="alt-atmospheric" data-tab-name="Alt - Atmospheric" tabindex="0">
             <span>Atmospheric</span>
             <span class="ui tiny basic blue label artist-count">40</span>
           </div>
@@ -1647,7 +1647,7 @@ body.release-mode .release-text {
             <span>Vox/Guitar</span>
             <span class="ui tiny basic blue label artist-count">18</span>
           </div>
-          <div class=" header link item nowrap" data-command-description="Everything else" data-command-icon="🎶" data-command-label="Others" data-command-parent="" data-command-tag="Style" data-tab="others" data-tab-name="Others" tabindex="0">
+          <div class=" header link item nowrap" data-command-description="Instrumental, fits no style" data-command-icon="🎶" data-command-label="Others" data-command-parent="" data-command-tag="Style" data-tab="others" data-tab-name="Others" tabindex="0">
             <span aria-hidden="true" class="control-symbol">🎶</span>
             <span>Others</span>
             <span class="ui tiny basic blue label artist-count">3</span>
@@ -1659,31 +1659,31 @@ body.release-mode .release-text {
           <div class="list-control">
             <span class="ui blue text list-control-label" title="Ctrl+2, Ctrl+Right or Alt+Right next, Ctrl+Shift+2, Ctrl+Left or Alt+Left previous">Group</span>
             <div class="ui small compact blue secondary menu">
-              <div class="link item nowrap" data-asc-description="A to Z" data-command-description="No sections" data-desc-description="Z to A" data-group="none" data-group-order="asc" data-group-sort="name" onClick="groupArtists(this)" tabindex="0" title="No sections"><i aria-hidden="true" class="ban icon control-icon"></i>
+              <div class="link item nowrap" data-asc-description="A to Z" data-command-description="No sections, by name" data-desc-description="Z to A" data-group="none" data-group-order="asc" data-group-sort="name" onClick="groupArtists(this)" tabindex="0" title="No sections, by name"><i aria-hidden="true" class="ban icon control-icon"></i>
                 <span>None</span>
               </div>
-              <div class="link item nowrap" data-asc-description="A to Z in each style" data-command-description="Sections by Rock, Folk, Alt &amp; Pop and Others" data-desc-description="Z to A in each style" data-group="style" data-group-order="asc" data-group-sort="name" onClick="groupArtists(this)" tabindex="0" title="Sections by Rock, Folk, Alt &amp; Pop and Others"><i aria-hidden="true" class="music icon control-icon"></i>
+              <div class="link item nowrap" data-asc-description="A to Z in each style" data-command-description="By style: Rock, Folk, Alt &amp; Pop, Others" data-desc-description="Z to A in each style" data-group="style" data-group-order="asc" data-group-sort="name" onClick="groupArtists(this)" tabindex="0" title="By style: Rock, Folk, Alt &amp; Pop, Others"><i aria-hidden="true" class="music icon control-icon"></i>
                 <span>Style</span>
               </div>
-              <div class="link item nowrap" data-asc-description="A to Z in each substyle" data-command-description="Sections by substyle" data-desc-description="Z to A in each substyle" data-group="substyle" data-group-order="asc" data-group-sort="name" onClick="groupArtists(this)" tabindex="0" title="Sections by substyle"><i aria-hidden="true" class="tags icon control-icon"></i>
+              <div class="link item nowrap" data-asc-description="A to Z in each substyle" data-command-description="By substyle, within each style" data-desc-description="Z to A in each substyle" data-group="substyle" data-group-order="asc" data-group-sort="name" onClick="groupArtists(this)" tabindex="0" title="By substyle, within each style"><i aria-hidden="true" class="tags icon control-icon"></i>
                 <span>Substyle</span>
               </div>
-              <div class="link item nowrap" data-asc-description="Least followed first" data-command-description="Sections by audience reach" data-desc-description="Most followed first" data-group="followers" data-group-order="desc" data-group-sort="followers" onClick="groupArtists(this)" tabindex="0" title="Sections by audience reach"><i aria-hidden="true" class="user icon control-icon"></i>
+              <div class="link item nowrap" data-asc-description="Least followed first" data-command-description="By audience reach (Spotify followers)" data-desc-description="Most followed first" data-group="followers" data-group-order="desc" data-group-sort="followers" onClick="groupArtists(this)" tabindex="0" title="By audience reach (Spotify followers)"><i aria-hidden="true" class="user icon control-icon"></i>
                 <span>Followers</span>
               </div>
-              <div class="link item nowrap" data-asc-description="Shortest career first" data-command-description="Sections by years since the first album" data-desc-description="Longest career first" data-group="longevity" data-group-order="asc" data-group-sort="first-release" onClick="groupArtists(this)" tabindex="0" title="Sections by years since the first album"><i aria-hidden="true" class="hourglass half icon control-icon"></i>
+              <div class="link item nowrap" data-asc-description="Shortest career first" data-command-description="By years since the first album" data-desc-description="Longest career first" data-group="longevity" data-group-order="asc" data-group-sort="first-release" onClick="groupArtists(this)" tabindex="0" title="By years since the first album"><i aria-hidden="true" class="hourglass half icon control-icon"></i>
                 <span>Longevity</span>
               </div>
-              <div class="link item nowrap" data-asc-description="Fewest albums first" data-command-description="Sections by number of albums" data-desc-description="Most albums first" data-group="albums" data-group-order="desc" data-group-sort="albums" onClick="groupArtists(this)" tabindex="0" title="Sections by number of albums"><i aria-hidden="true" class="compact disc icon control-icon"></i>
+              <div class="link item nowrap" data-asc-description="Fewest albums first" data-command-description="By number of albums" data-desc-description="Most albums first" data-group="albums" data-group-order="desc" data-group-sort="albums" onClick="groupArtists(this)" tabindex="0" title="By number of albums"><i aria-hidden="true" class="compact disc icon control-icon"></i>
                 <span>Albums</span>
               </div>
-              <div class="link item nowrap" data-asc-description="Fewest albums heard first" data-command-description="Sections by albums heard as albums" data-desc-description="Most albums heard first" data-group="listened" data-group-order="desc" data-group-sort="albums-listened" onClick="groupArtists(this)" tabindex="0" title="Sections by albums heard as albums"><i aria-hidden="true" class="headphones icon control-icon"></i>
+              <div class="link item nowrap" data-asc-description="Fewest albums listened first" data-command-description="By albums listened in full" data-desc-description="Most albums listened first" data-group="listened" data-group-order="desc" data-group-sort="albums-listened" onClick="groupArtists(this)" tabindex="0" title="By albums listened in full"><i aria-hidden="true" class="headphones icon control-icon"></i>
                 <span>Listened</span>
               </div>
-              <div class="link item nowrap" data-asc-description="Newest release first" data-command-description="Sections by years since the last release" data-desc-description="Oldest release first" data-group="release" data-group-order="asc" data-group-sort="last-release" onClick="groupArtists(this)" tabindex="0" title="Sections by years since the last release"><i aria-hidden="true" class="calendar alternate icon control-icon"></i>
+              <div class="link item nowrap" data-asc-description="Newest release first" data-command-description="By years since the last release" data-desc-description="Oldest release first" data-group="release" data-group-order="asc" data-group-sort="last-release" onClick="groupArtists(this)" tabindex="0" title="By years since the last release"><i aria-hidden="true" class="calendar alternate icon control-icon"></i>
                 <span>Release</span>
               </div>
-              <div class="link item nowrap" data-asc-description="Most recently followed first" data-command-description="The latest follows apart from the rest" data-desc-description="Followed longest ago first" data-group="followed" data-group-order="asc" data-group-sort="last-follow" onClick="groupArtists(this)" tabindex="0" title="The latest follows apart from the rest"><i aria-hidden="true" class="bell icon control-icon"></i>
+              <div class="link item nowrap" data-asc-description="Most recently followed first" data-command-description="Latest 16 follows, then the rest" data-desc-description="Followed longest ago first" data-group="followed" data-group-order="asc" data-group-sort="last-follow" onClick="groupArtists(this)" tabindex="0" title="Latest 16 follows, then the rest"><i aria-hidden="true" class="bell icon control-icon"></i>
                 <span>Followed</span>
               </div>
             </div>
