@@ -965,9 +965,9 @@ function search(text) {
 JS_FUNC_PICK_DISCOVER = """
 function pickDiscover() {
     var shifted = new Date(Date.now() - 6 * 60 * 60 * 1000);
-    var period = shifted.getHours() < 6 ? 0 : shifted.getHours() < 12 ? 1 : 2;
+    var period = Math.floor(shifted.getHours() / 8);  // 06-14, 14-22, 22-06
     var periodName = ['Morning', 'Afternoon', 'Night'][period];
-    var periodHours = ['06:00–12:00', '12:00–18:00', '18:00–06:00'][period];
+    var periodHours = ['06:00–14:00', '14:00–22:00', '22:00–06:00'][period];
     var periodIcon = ['coffee', 'sun outline', 'moon outline'][period];
     $('.ui.tab > .discover-period').empty().append($('<i>', {class: periodIcon + ' icon'}), periodName + ' · ' + periodHours);
     $('.discover-button').attr('title', 'Discover · new picks at ' + periodHours.split('–')[1]);
