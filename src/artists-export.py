@@ -53,8 +53,7 @@ album_sessions = (
     .agg(album=polars.col("album").mode().first(), tracks=polars.col("track").n_unique())
     .join(album_sizes.select("artist_key", "album", size_album="size"), on=["artist_key", "album"], how="left")
     .join(album_sizes.group_by("artist_key", "album_title").agg(size_title=polars.col("size").min()), on=["artist_key", "album_title"], how="left")
-    .join(streams.group_by("artist_key", "album_title").agg(size_history=polars.col("track").n_unique()), on=["artist_key", "album_title"], how="left")
-    .with_columns(size=polars.coalesce("size_album", "size_title", "size_history"))
+    .with_columns(size=polars.coalesce("size_album", "size_title"))
     .filter(polars.col("tracks") >= 0.8 * polars.col("size"))
 )
 albums_listened = dict(
