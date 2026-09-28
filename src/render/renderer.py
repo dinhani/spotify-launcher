@@ -769,8 +769,8 @@ var albumsRanges = [
     {label: '10–14 Albums', description: 'Veteran career', from: 10, to: 14},
     {label: '7–9 Albums', description: 'Established career', from: 7, to: 9},
     {label: '4–6 Albums', description: 'Consolidated career', from: 4, to: 6},
-    {label: '2–3 Albums', description: 'Early career', from: 2, to: 3},
-    {label: '1 Album', description: 'Debut', from: 1, to: 1},
+    {label: '2–3 Albums', description: 'Early career or short-lived band', from: 2, to: 3},
+    {label: '1 Album', description: 'Debut, only album so far', from: 1, to: 1},
     {label: 'No Albums', description: 'Singles and EPs only', from: 0, to: 0},
 ];
 // Spotify gives no follow date, only the order: 1 is the latest follow
@@ -779,8 +779,8 @@ var followedRanges = [
     {label: 'Earlier', description: 'Followed earlier', from: 17, to: Infinity},
 ];
 var listenedRanges = [
-    {label: 'Multiple Albums', description: '2+ albums in full', from: 2, to: Infinity},
-    {label: '1 Album', description: '1 album in full', from: 1, to: 1},
+    {label: 'Multiple Albums', description: 'Heard in full', from: 2, to: Infinity},
+    {label: '1 Album', description: 'Heard in full', from: 1, to: 1},
     {label: 'Random', description: 'Loose tracks only', from: 0, to: 0},
 ];
 var releaseRanges = [
@@ -1434,13 +1434,13 @@ def menu_filter(mobile: bool, tags_with_artists: dict[Tag, list[Artist]]):
                 command_tag = "Filter"
                 command_description = {
                     T_ALL: "All followed artists",
-                    T_DISCOVER: f"{DISCOVER_ARTISTS_PER_FAMILY} per style, new every 6h",
+                    T_DISCOVER: f"{DISCOVER_ARTISTS_PER_FAMILY} random picks per style, new every 6h",
                     T_FAVORITES: "Hand-picked favorites",
                     T_NON_FAVORITES: "Not in Favorites",
                 }.get(tag) or {
-                    family.discover: f"{DISCOVER_ARTISTS_PER_FAMILY} picks, new every 6h",
+                    family.discover: f"{DISCOVER_ARTISTS_PER_FAMILY} random {family.tag.name} picks, new every 6h",
                     family.favorites: f"{family.tag.name} favorites",
-                    family.non_favorites: "Not in Favorites",
+                    family.non_favorites: f"{family.tag.name} artists not in Favorites",
                 }.get(tag, "")
             command_icon = family.tag.icon if family else tag.icon
 
@@ -1529,11 +1529,11 @@ def direction_items():
 def group_items():
     # sort and order: how artists are ordered, inside and across sections, until the direction is reversed
     for icon, label, mode, sort, order, description, desc_description, asc_description in [
-        ("ban", "None", "none", "name", "asc", "By name", "Z to A", "A to Z"),
-        ("music", "Style", "style", "name", "asc", "By style",
+        ("ban", "None", "none", "name", "asc", "No sections, by name", "Z to A", "A to Z"),
+        ("music", "Style", "style", "name", "asc", f"By style: {', '.join(family.tag.name for family in FAMILIES)}, {T_OTHERS.name}",
          "Z to A in each style", "A to Z in each style"),
-        ("tags", "Substyle", "substyle", "name", "asc", "By substyle", "Z to A in each substyle", "A to Z in each substyle"),
-        ("user", "Followers", "followers", "followers", "desc", "By Spotify followers", "Most followed first", "Least followed first"),
+        ("tags", "Substyle", "substyle", "name", "asc", "By substyle, within each style", "Z to A in each substyle", "A to Z in each substyle"),
+        ("user", "Followers", "followers", "followers", "desc", "By audience reach (Spotify followers)", "Most followed first", "Least followed first"),
         ("hourglass half", "Longevity", "longevity", "first-release", "asc", "By years since the first album",
          "Longest career first", "Shortest career first"),
         ("compact disc", "Albums", "albums", "albums", "desc", "By number of albums", "Most albums first", "Fewest albums first"),
