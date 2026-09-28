@@ -123,6 +123,11 @@ html {
 .list-control > .discover-button {
     margin: 0 0 0 1.25rem;
 }
+/* compass and grid share one icon box, so the button keeps its size when it toggles */
+.discover-button > i.icon {
+    width: 1.18em;
+    font-size: 1em;
+}
 .discover-button .compass.icon {
     transition: transform 0.45s ease;
 }
@@ -597,7 +602,7 @@ function onTab(tabPath) {
     $('.discover-button').toggleClass('active', inDiscover)
         .attr('title', inDiscover ? 'Back to All' : $('.discover-button').data('discover-title') || 'Discover')
         .attr('aria-label', inDiscover ? 'Back to All' : 'Discover');
-    $('.discover-button > i.icon').attr('class', (inDiscover ? 'th large' : 'compass') + ' icon');
+    $('.discover-button > i.icon').attr('class', (inDiscover ? 'th' : 'compass') + ' icon');
     $('.discover-button .discover-label').text(inDiscover ? 'All' : 'Discover');
 }
 
