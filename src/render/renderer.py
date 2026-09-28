@@ -274,48 +274,20 @@ body.release-mode .release-text {
     padding: 0.5rem 0;
 }
 
-/* Discover period, out of the flow in the top right corner of the grid */
-.ui.tab[data-discover-per-family], .ui.tab[data-discover-family] {
-    position: relative;
-}
-.ui.tab > .discover-period {
-    position: absolute;
-    top: 1.2rem;
-    right: calc(10px + 0.5rem);
-    padding: 0.15rem 0.5rem;
-    border-radius: 0.5rem;
-    background: rgba(243, 244, 246, 0.9);
+/* Discover period: at the right end of the first visible section heading, on the title's baseline;
+   without headings (grouping None), in a strip of its own */
+.discover-period {
+    margin-left: auto;
     color: rgba(0, 0, 0, 0.45);
     font-size: 0.85714286rem;
     white-space: nowrap;
-    pointer-events: none;
 }
-.ui.tab > .discover-period > i.icon {
+.discover-period > i.icon {
     margin-right: 0.35rem;
 }
-/* keep the first heading's summary clear of the period; without headings, give the period its own strip */
-.ui.tab[data-discover-per-family] .group-heading:first-child,
-.ui.tab[data-discover-family] .group-heading:first-child {
-    padding-right: 13rem;
-}
-.grouping-none .ui.tab[data-discover-per-family] > .artists-wrapper,
-.grouping-none .ui.tab[data-discover-family] > .artists-wrapper {
-    padding-top: 2.5rem;
-}
-/* on mobile the first heading has no room beside it, so the grid always gets the top strip */
-@media only screen and (max-width: 991.9px) {
-    .ui.tab > .discover-period {
-        top: 0.5rem;
-        right: 0.5rem;
-    }
-    .ui.tab[data-discover-per-family] > .artists-wrapper,
-    .ui.tab[data-discover-family] > .artists-wrapper {
-        padding-top: 2.25rem;
-    }
-    .ui.tab[data-discover-per-family] .group-heading:first-child,
-    .ui.tab[data-discover-family] .group-heading:first-child {
-        padding-right: 0.5rem;
-    }
+.ui.grid.artists > .discover-period-row {
+    display: flex;
+    padding: 0.5rem 0.5rem 0.25rem;
 }
 
 /* Group headings */
@@ -347,14 +319,18 @@ body.release-mode .release-text {
     .artist-image {
         height: 200px !important;
     }
-    /* a phone has no room for the summary beside the title: it goes under it, as one block */
+    /* a phone has no room for the summary beside the title: it goes under it, as one block,
+       while the Discover period stays on the title's line */
     .ui.grid.artists > .group-heading {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.2rem;
+        flex-wrap: wrap;
+        row-gap: 0.2rem;
     }
     .group-heading .ui.header {
         white-space: normal;
+    }
+    .group-heading .group-summary {
+        order: 1;
+        flex-basis: 100%;
     }
     .list-controls {
         display: none;
@@ -902,6 +878,7 @@ function refreshGroupHeadings() {
         if (favorites) summary.append(' · ', $('<i>', {class: 'yellow star icon'}), favorites);
         if (summary.data('description')) summary.append(' · ' + summary.data('description'));
     });
+    placeDiscoverPeriods();
 }
 
 function groupGrid(grid) {
@@ -940,7 +917,6 @@ function setGrouping(element) {
     groupSort = element.dataset.groupSort;
     groupOrder = element.dataset.groupOrder;
     $('body').toggleClass('release-mode', grouping === 'release');
-    $('body').toggleClass('grouping-none', grouping === 'none');
     setDirection(groupOrder);
 }
 
@@ -993,13 +969,28 @@ function search(text) {
 """
 
 JS_FUNC_PICK_DISCOVER = """
+var discoverPeriod = null;
+
+// the period follows the first visible section heading, so it stays on the title's line after grouping or search
+function placeDiscoverPeriods() {
+    if (!discoverPeriod) return;
+    $('.ui.tab[data-discover-per-family], .ui.tab[data-discover-family]').find('.artists').each(function(_, grid) {
+        $(grid).find('.discover-period-row, .discover-period').remove();
+        var period = $('<span>', {class: 'discover-period'})
+            .append($('<i>', {class: discoverPeriod.icon + ' icon'}), discoverPeriod.text);
+        var heading = $(grid).children('.group-heading').filter(function() { return this.style.display !== 'none'; }).first();
+        if (heading.length) heading.append(period);
+        else $(grid).prepend($('<div>', {class: 'sixteen wide column discover-period-row'}).append(period));
+    });
+}
+
 function pickDiscover() {
     var shifted = new Date(Date.now() - 6 * 60 * 60 * 1000);
     var period = Math.floor(shifted.getHours() / 6);  // 06-12, 12-18, 18-24, 00-06
     var periodName = ['Morning', 'Afternoon', 'Evening', 'Late Night'][period];
     var periodHours = ['06:00–12:00', '12:00–18:00', '18:00–00:00', '00:00–06:00'][period];
     var periodIcon = ['coffee', 'sun outline', 'moon outline', 'star outline'][period];
-    $('.ui.tab > .discover-period').empty().append($('<i>', {class: periodIcon + ' icon'}), periodName + ' · ' + periodHours);
+    discoverPeriod = {icon: periodIcon, text: periodName + ' · ' + periodHours};
     $('.discover-button').attr('title', 'Discover · new picks at ' + periodHours.split('–')[1]);
     var seed = (shifted.getFullYear() * 10000 + (shifted.getMonth() + 1) * 100 + shifted.getDate()) * 10 + period;
     var random = function() {
@@ -1766,8 +1757,6 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]) -> str:
 
                         with div(cls="ui active tab" if tag == T_ALL else "ui tab", data_tab=id(tag), **tab_attributes):
                             cards(sorted(artists, key=lambda x: x.name.lower()), tabs_by_artist)
-                            if tag == T_DISCOVER or (family and tag == family.discover):
-                                div(cls="discover-period")
 
                 command_palette()
 
