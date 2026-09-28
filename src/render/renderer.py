@@ -726,10 +726,9 @@ var followedRanges = [
     {label: 'Earlier', description: 'Everyone followed before', from: 17, to: Infinity},
 ];
 var listenedRanges = [
-    {label: '4+ Albums', description: 'Heard album by album', from: 4, to: Infinity},
-    {label: '2–3 Albums', description: 'A few albums heard whole', from: 2, to: 3},
+    {label: 'Multiple Albums', description: 'More than one album heard whole', from: 2, to: Infinity},
     {label: '1 Album', description: 'One album heard whole', from: 1, to: 1},
-    {label: 'Random Only', description: 'Only loose tracks, never a whole album', from: 0, to: 0},
+    {label: 'Random', description: 'Only loose tracks, never a whole album', from: 0, to: 0},
 ];
 var releaseRanges = [
     {label: 'This Year', from: 0, to: 0},
