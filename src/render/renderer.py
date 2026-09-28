@@ -274,6 +274,13 @@ body.release-mode .release-text {
     padding: 0.5rem 0;
 }
 
+/* Discover period: when the current picks started and when new ones come */
+.discover-period {
+    padding: 0 0.5rem 0.5rem;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 0.92857143rem;
+}
+
 /* Group headings */
 .ui.grid.artists > .group-heading {
     display: flex;
@@ -921,6 +928,10 @@ JS_FUNC_PICK_DISCOVER = """
 function pickDiscover() {
     var shifted = new Date(Date.now() - 6 * 60 * 60 * 1000);
     var period = shifted.getHours() < 6 ? 0 : shifted.getHours() < 12 ? 1 : 2;
+    var periodName = ['Morning', 'Afternoon', 'Night'][period];
+    var periodHours = ['06:00–12:00', '12:00–18:00', '18:00–06:00'][period];
+    $('.discover-period').text(periodName + ' picks · ' + periodHours);
+    $('.discover-button').attr('title', 'Discover · ' + periodName.toLowerCase() + ' picks, ' + periodHours);
     var seed = (shifted.getFullYear() * 10000 + (shifted.getMonth() + 1) * 100 + shifted.getDate()) * 10 + period;
     var random = function() {
         seed = (seed + 0x6D2B79F5) | 0;
@@ -1675,6 +1686,8 @@ def render_html(tags_with_artists: dict[Tag, list[Artist]]) -> str:
                                 tab_attributes["data_group_family"] = family.tag.name
 
                         with div(cls="ui active tab" if tag == T_ALL else "ui tab", data_tab=id(tag), **tab_attributes):
+                            if tag == T_DISCOVER or (family and tag == family.discover):
+                                div(cls="discover-period")
                             cards(sorted(artists, key=lambda x: x.name.lower()), tabs_by_artist)
 
                 command_palette()
