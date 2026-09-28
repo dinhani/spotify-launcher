@@ -183,13 +183,16 @@ var listenedRanges = [
     {label: '1 Album', description: 'Heard in full', from: 1, to: 1},
     {label: 'Random', description: 'Loose tracks only', from: 0, to: 0},
 ];
+// ranks: 0 this month, 1 last month, 2 earlier this year, then calendar years ago + 2
 var releaseRanges = [
-    {label: 'This Year', from: 0, to: 0},
-    {label: 'Last Year', from: 1, to: 1},
-    {label: '2–4 Years Ago', from: 2, to: 4},
-    {label: '5–9 Years Ago', from: 5, to: 9},
-    {label: '10–19 Years Ago', from: 10, to: 19},
-    {label: '20+ Years Ago', from: 20, to: Infinity},
+    {label: 'This Month', from: 0, to: 0},
+    {label: 'Last Month', from: 1, to: 1},
+    {label: 'This Year', from: 2, to: 2},
+    {label: 'Last Year', from: 3, to: 3},
+    {label: '2–4 Years Ago', from: 4, to: 6},
+    {label: '5–9 Years Ago', from: 7, to: 11},
+    {label: '10–19 Years Ago', from: 12, to: 21},
+    {label: '20+ Years Ago', from: 22, to: Infinity},
 ];
 
 function familiesOf(cell) {
@@ -253,7 +256,25 @@ function groupSections(grid) {
         };
     };
     if (grouping === 'release') {
-        return rangeSections(releaseRanges, function(cell) { return yearsSince(cell.dataset.lastRelease); }, years('Released'));
+        var now = new Date();
+        var monthsAgo = function(date) {  // null for a year-only date
+            return date.length >= 7 ? (currentYear - Number(date.slice(0, 4))) * 12 + now.getMonth() + 1 - Number(date.slice(5, 7)) : null;
+        };
+        var releaseRank = function(date) {
+            if (!date) return null;
+            var months = monthsAgo(date);
+            if (months === 0 || months === 1) return months;
+            return yearsSince(date) === 0 ? 2 : yearsSince(date) + 2;
+        };
+        var monthName = function(back) {
+            return new Date(currentYear, now.getMonth() - back, 1).toLocaleString('en', {month: 'long', year: 'numeric'});
+        };
+        var releasedYears = years('Released');
+        return rangeSections(releaseRanges, function(cell) { return releaseRank(cell.dataset.lastRelease); }, function(range) {
+            if (range.from < 2) return 'Released ' + monthName(range.from);
+            if (range.from === 2) return 'Released earlier in ' + currentYear;
+            return releasedYears({from: range.from - 2, to: range.to - 2});
+        });
     }
     return rangeSections(longevityRanges, function(cell) { return yearsSince(cell.dataset.firstRelease); }, years('Debut'));
 }
@@ -1513,7 +1534,7 @@ body.release-mode .release-text {
               <div class="link item nowrap" data-asc-description="Fewest albums listened first" data-command-description="By albums listened in full" data-desc-description="Most albums listened first" data-group="listened" data-group-order="desc" data-group-sort="albums-listened" onClick="groupArtists(this)" tabindex="0" title="By albums listened in full"><i aria-hidden="true" class="headphones icon control-icon"></i>
                 <span>Listened</span>
               </div>
-              <div class="link item nowrap" data-asc-description="Newest release first" data-command-description="By years since the last release" data-desc-description="Oldest release first" data-group="release" data-group-order="asc" data-group-sort="last-release" onClick="groupArtists(this)" tabindex="0" title="By years since the last release"><i aria-hidden="true" class="calendar alternate icon control-icon"></i>
+              <div class="link item nowrap" data-asc-description="Newest release first" data-command-description="By time since the last release" data-desc-description="Oldest release first" data-group="release" data-group-order="asc" data-group-sort="last-release" onClick="groupArtists(this)" tabindex="0" title="By time since the last release"><i aria-hidden="true" class="calendar alternate icon control-icon"></i>
                 <span>Release</span>
               </div>
               <div class="link item nowrap" data-asc-description="Most recently followed first" data-command-description="Latest 16 follows, then the rest" data-desc-description="Followed longest ago first" data-group="followed" data-group-order="asc" data-group-sort="last-follow" onClick="groupArtists(this)" tabindex="0" title="Latest 16 follows, then the rest"><i aria-hidden="true" class="bell icon control-icon"></i>
@@ -1680,7 +1701,7 @@ body.release-mode .release-text {
               <div class="link item nowrap" data-asc-description="Fewest albums listened first" data-command-description="By albums listened in full" data-desc-description="Most albums listened first" data-group="listened" data-group-order="desc" data-group-sort="albums-listened" onClick="groupArtists(this)" tabindex="0" title="By albums listened in full"><i aria-hidden="true" class="headphones icon control-icon"></i>
                 <span>Listened</span>
               </div>
-              <div class="link item nowrap" data-asc-description="Newest release first" data-command-description="By years since the last release" data-desc-description="Oldest release first" data-group="release" data-group-order="asc" data-group-sort="last-release" onClick="groupArtists(this)" tabindex="0" title="By years since the last release"><i aria-hidden="true" class="calendar alternate icon control-icon"></i>
+              <div class="link item nowrap" data-asc-description="Newest release first" data-command-description="By time since the last release" data-desc-description="Oldest release first" data-group="release" data-group-order="asc" data-group-sort="last-release" onClick="groupArtists(this)" tabindex="0" title="By time since the last release"><i aria-hidden="true" class="calendar alternate icon control-icon"></i>
                 <span>Release</span>
               </div>
               <div class="link item nowrap" data-asc-description="Most recently followed first" data-command-description="Latest 16 follows, then the rest" data-desc-description="Followed longest ago first" data-group="followed" data-group-order="asc" data-group-sort="last-follow" onClick="groupArtists(this)" tabindex="0" title="Latest 16 follows, then the rest"><i aria-hidden="true" class="bell icon control-icon"></i>
