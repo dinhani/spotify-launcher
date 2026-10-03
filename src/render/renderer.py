@@ -1117,25 +1117,27 @@ $(document).on('keydown', function(e) {
         focusVisibleCard();
         return;
     }
-    if (e.altKey && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
-        var groups = $('.list-controls .item[data-group]');
-        var groupStep = {ArrowLeft: -1, ArrowRight: 1}[e.code];
+    if (e.ctrlKey && !e.altKey && !e.metaKey && !e.shiftKey) {
         var directionFixed = {ArrowUp: 'asc', ArrowDown: 'desc'}[e.code];
-        if (!groupStep && !directionFixed) return;
-        e.preventDefault();  // Left and Right would also go back or forward in the browser
-        var chosen = directionFixed
-            ? $('.list-controls .item[data-direction="' + directionFixed + '"]')
-            : groups.eq((groups.index(groups.filter('.active')) + groupStep + groups.length) % groups.length);
-        chosen.click().focus();
-        return;
+        if (directionFixed) {
+            e.preventDefault();
+            $('.list-controls .item[data-direction="' + directionFixed + '"]').click().focus();
+            return;
+        }
     }
-    var kind = {
-        Digit1: 'tab', ArrowUp: 'tab', ArrowDown: 'tab',
+    var altShortcut = e.altKey && !e.ctrlKey && !e.metaKey && !e.shiftKey;
+    var ctrlShortcut = e.ctrlKey && !e.altKey && !e.metaKey;
+    if (!altShortcut && !ctrlShortcut) return;
+    var kind = altShortcut ? {
+        ArrowUp: 'tab', ArrowDown: 'tab',
+        ArrowLeft: 'group', ArrowRight: 'group',
+    }[e.code] : {
+        Digit1: 'tab',
         Digit2: 'group', ArrowLeft: 'group', ArrowRight: 'group',
         Digit3: 'direction',
     }[e.code];
-    if (!kind || !e.ctrlKey || e.altKey || e.metaKey) return;
-    if ((e.code === 'ArrowLeft' || e.code === 'ArrowRight') && $(e.target).is('input')) return;
+    if (!kind) return;
+    if (ctrlShortcut && (e.code === 'ArrowLeft' || e.code === 'ArrowRight') && $(e.target).is('input')) return;
     e.preventDefault();
     var items = $('.ui.vertical.desktop.menu, .list-controls').find('.item[data-' + kind + ']');
     var step = (e.shiftKey || e.code === 'ArrowUp' || e.code === 'ArrowLeft') ? -1 : 1;
@@ -1542,7 +1544,7 @@ def list_controls():
             with div(cls="ui small compact blue secondary menu"):
                 group_items()
         with div(cls="list-control"):
-            span("Order", cls="ui blue text list-control-label", title="Ctrl+3 switches, Alt+Up ascending, Alt+Down descending")
+            span("Order", cls="ui blue text list-control-label", title="Ctrl+3 switches, Ctrl+Up ascending, Ctrl+Down descending")
             with div(cls="ui small compact blue secondary menu"):
                 direction_items()
             discover_button(fluid=False)
