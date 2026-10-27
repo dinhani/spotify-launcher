@@ -1,5 +1,5 @@
 set windows-shell := ["pwsh.exe", "-NoLogo", "-Command"]
-export UV_PROJECT_ENVIRONMENT := if env("UV_ENVS", "") != "" { env("UV_ENVS") / "spotify-launcher" } else { ".venv" }
+export UV_PROJECT_ENVIRONMENT := data_local_directory() / "uv" / "envs" / "spotify-launcher"
 
 
 # List available tasks
