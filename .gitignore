@@ -2,3 +2,4 @@ __pycache__
 .spotipy-cache
 data/spotify-history.tsv
 data/lastfm-history.tsv
+.venv/
