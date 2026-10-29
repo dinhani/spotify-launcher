@@ -417,6 +417,9 @@ body.release-mode .release-text {
 .command-palette .ui.input > input.command-input {
     font-size: 1.15rem;
 }
+.command-palette .ui.input > i.icon {
+    left: 1.1rem;
+}
 .command-list {
     max-height: 55vh;
     padding: 0.35rem 0.5rem 0.5rem;
