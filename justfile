@@ -12,34 +12,34 @@ default:
 setup:
     uv sync
 
-# Render the page
+# Render page
 [group("run")]
 render:
     uv run src/artists-render.py
     Start-Process docs/index.html
 alias run := render
 
-# Update all data
+# Download all datasources
 [group("data")]
 update: spotify-download lastfm-download export
 
-# Download followed artists
+# Download Spotify artists
 [group("data")]
 spotify-download *args:
     uv run src/artists-download.py {{args}}
 alias sd := spotify-download
 
-# Import the streaming history export
+# Import Spotify history
 [group("data")]
 spotify-import *export_dir:
     uv run src/spotify-history.py {{export_dir}}
 
-# Download listening history
+# Download Last.fm history
 [group("data")]
 lastfm-download:
     uv run src/lastfm-history.py
 
-# Compare top artists with followed
+# Compare Last.fm artists with Spotify artists
 [group("data")]
 lastfm-compare:
     uv run src/artists-lastfm.py
