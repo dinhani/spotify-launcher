@@ -1,4 +1,5 @@
 {
+  "downloaded_at": "2026-10-30T03:28:31+00:00",
   "artist": {
     "external_urls": {
       "spotify": "https://open.spotify.com/artist/4SqTiwOEdYrNayaGMkc7ia"
@@ -1173,7 +1174,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "You and I",
-      "popularity": 61,
+      "popularity": 62,
       "preview_url": null,
       "track_number": 10,
       "type": "track",
@@ -2526,7 +2527,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Surround Me",
-      "popularity": 57,
+      "popularity": 56,
       "preview_url": null,
       "track_number": 4,
       "type": "track",
@@ -2977,7 +2978,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "In a Stranger's Arms",
-      "popularity": 56,
+      "popularity": 55,
       "preview_url": null,
       "track_number": 4,
       "type": "track",
@@ -4781,7 +4782,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Dancer",
-      "popularity": 51,
+      "popularity": 52,
       "preview_url": null,
       "track_number": 1,
       "type": "track",
@@ -5232,7 +5233,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Falling Apart",
-      "popularity": 50,
+      "popularity": 51,
       "preview_url": null,
       "track_number": 6,
       "type": "track",

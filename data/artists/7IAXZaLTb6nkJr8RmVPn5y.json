@@ -1,4 +1,5 @@
 {
+  "downloaded_at": "2026-10-30T03:28:55+00:00",
   "artist": {
     "external_urls": {
       "spotify": "https://open.spotify.com/artist/7IAXZaLTb6nkJr8RmVPn5y"
@@ -4424,24 +4425,24 @@
         "XK"
       ],
       "disc_number": 1,
-      "duration_ms": 317573,
+      "duration_ms": 292120,
       "explicit": false,
       "external_ids": {
-        "isrc": "BRBRI0500517"
+        "isrc": "BRBRI0500390"
       },
       "external_urls": {
-        "spotify": "https://open.spotify.com/track/1das0WEGlru6mxVx9wAuve"
+        "spotify": "https://open.spotify.com/track/5LS60Wzgi402hmYSoiNuBK"
       },
-      "href": "https://api.spotify.com/v1/tracks/1das0WEGlru6mxVx9wAuve",
-      "id": "1das0WEGlru6mxVx9wAuve",
+      "href": "https://api.spotify.com/v1/tracks/5LS60Wzgi402hmYSoiNuBK",
+      "id": "5LS60Wzgi402hmYSoiNuBK",
       "is_local": false,
       "is_playable": true,
-      "name": "Rebirth",
-      "popularity": 55,
+      "name": "Nova Era",
+      "popularity": 54,
       "preview_url": null,
-      "track_number": 7,
+      "track_number": 2,
       "type": "track",
-      "uri": "spotify:track:1das0WEGlru6mxVx9wAuve"
+      "uri": "spotify:track:5LS60Wzgi402hmYSoiNuBK"
     },
     {
       "album": {
@@ -4857,24 +4858,24 @@
         "XK"
       ],
       "disc_number": 1,
-      "duration_ms": 292120,
+      "duration_ms": 317573,
       "explicit": false,
       "external_ids": {
-        "isrc": "BRBRI0500390"
+        "isrc": "BRBRI0500517"
       },
       "external_urls": {
-        "spotify": "https://open.spotify.com/track/5LS60Wzgi402hmYSoiNuBK"
+        "spotify": "https://open.spotify.com/track/1das0WEGlru6mxVx9wAuve"
       },
-      "href": "https://api.spotify.com/v1/tracks/5LS60Wzgi402hmYSoiNuBK",
-      "id": "5LS60Wzgi402hmYSoiNuBK",
+      "href": "https://api.spotify.com/v1/tracks/1das0WEGlru6mxVx9wAuve",
+      "id": "1das0WEGlru6mxVx9wAuve",
       "is_local": false,
       "is_playable": true,
-      "name": "Nova Era",
-      "popularity": 55,
+      "name": "Rebirth",
+      "popularity": 53,
       "preview_url": null,
-      "track_number": 2,
+      "track_number": 7,
       "type": "track",
-      "uri": "spotify:track:5LS60Wzgi402hmYSoiNuBK"
+      "uri": "spotify:track:1das0WEGlru6mxVx9wAuve"
     },
     {
       "album": {
@@ -5303,7 +5304,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Bleeding Heart",
-      "popularity": 52,
+      "popularity": 51,
       "preview_url": null,
       "track_number": 2,
       "type": "track",
@@ -5736,7 +5737,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Heroes of Sand",
-      "popularity": 52,
+      "popularity": 50,
       "preview_url": null,
       "track_number": 5,
       "type": "track",
@@ -6169,7 +6170,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Spread Your Fire",
-      "popularity": 51,
+      "popularity": 50,
       "preview_url": null,
       "track_number": 2,
       "type": "track",
@@ -6602,7 +6603,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Nothing To Say",
-      "popularity": 49,
+      "popularity": 48,
       "preview_url": null,
       "track_number": 2,
       "type": "track",
@@ -7035,7 +7036,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Angels Cry",
-      "popularity": 48,
+      "popularity": 47,
       "preview_url": null,
       "track_number": 4,
       "type": "track",
@@ -7468,7 +7469,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "The Temple of Hate",
-      "popularity": 47,
+      "popularity": 46,
       "preview_url": null,
       "track_number": 6,
       "type": "track",

@@ -1,4 +1,5 @@
 {
+  "downloaded_at": "2026-10-30T03:26:50+00:00",
   "artist": {
     "external_urls": {
       "spotify": "https://open.spotify.com/artist/3t5X2CVDf5mrlIx1SdvWYM"
@@ -4124,7 +4125,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Heart of the Android",
-      "popularity": 47,
+      "popularity": 46,
       "preview_url": null,
       "track_number": 1,
       "type": "track",
@@ -4571,7 +4572,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "F.E.V.E.R",
-      "popularity": 47,
+      "popularity": 46,
       "preview_url": null,
       "track_number": 3,
       "type": "track",
@@ -5018,7 +5019,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Fields of Sorrow",
-      "popularity": 46,
+      "popularity": 45,
       "preview_url": null,
       "track_number": 2,
       "type": "track",
@@ -6359,7 +6360,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Vampire in Ghost Town",
-      "popularity": 41,
+      "popularity": 42,
       "preview_url": null,
       "track_number": 4,
       "type": "track",
@@ -6371,13 +6372,13 @@
         "artists": [
           {
             "external_urls": {
-              "spotify": "https://open.spotify.com/artist/3t5X2CVDf5mrlIx1SdvWYM"
+              "spotify": "https://open.spotify.com/artist/2Ct54gNxKnYLnXk9HhviMI"
             },
-            "href": "https://api.spotify.com/v1/artists/3t5X2CVDf5mrlIx1SdvWYM",
-            "id": "3t5X2CVDf5mrlIx1SdvWYM",
-            "name": "Orden Ogan",
+            "href": "https://api.spotify.com/v1/artists/2Ct54gNxKnYLnXk9HhviMI",
+            "id": "2Ct54gNxKnYLnXk9HhviMI",
+            "name": "Feuerschwanz",
             "type": "artist",
-            "uri": "spotify:artist:3t5X2CVDf5mrlIx1SdvWYM"
+            "uri": "spotify:artist:2Ct54gNxKnYLnXk9HhviMI"
           }
         ],
         "available_markets": [
@@ -6440,7 +6441,6 @@
           "LI",
           "MC",
           "ID",
-          "JP",
           "TH",
           "VN",
           "RO",
@@ -6456,6 +6456,7 @@
           "MA",
           "DZ",
           "TN",
+          "LB",
           "JO",
           "PS",
           "IN",
@@ -6559,6 +6560,7 @@
           "ZM",
           "CD",
           "CG",
+          "IQ",
           "LY",
           "TJ",
           "VE",
@@ -6566,36 +6568,56 @@
           "XK"
         ],
         "external_urls": {
-          "spotify": "https://open.spotify.com/album/4yyNmVBMtdAcCTo51u4hvz"
+          "spotify": "https://open.spotify.com/album/1HAn0kHacJd5gkWZySO27k"
         },
-        "href": "https://api.spotify.com/v1/albums/4yyNmVBMtdAcCTo51u4hvz",
-        "id": "4yyNmVBMtdAcCTo51u4hvz",
+        "href": "https://api.spotify.com/v1/albums/1HAn0kHacJd5gkWZySO27k",
+        "id": "1HAn0kHacJd5gkWZySO27k",
         "images": [
           {
-            "url": "https://i.scdn.co/image/ab67616d0000b2738f885ec0edbc7b14261b6eae",
+            "url": "https://i.scdn.co/image/ab67616d0000b2732dc0b0e42016c7b5c7ca1827",
             "height": 640,
             "width": 640
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d00001e028f885ec0edbc7b14261b6eae",
+            "url": "https://i.scdn.co/image/ab67616d00001e022dc0b0e42016c7b5c7ca1827",
             "height": 300,
             "width": 300
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d000048518f885ec0edbc7b14261b6eae",
+            "url": "https://i.scdn.co/image/ab67616d000048512dc0b0e42016c7b5c7ca1827",
             "height": 64,
             "width": 64
           }
         ],
         "is_playable": true,
-        "name": "Gunmen",
-        "release_date": "2017-07-07",
+        "name": "Warriors",
+        "release_date": "2024-05-03",
         "release_date_precision": "day",
-        "total_tracks": 10,
+        "total_tracks": 12,
         "type": "album",
-        "uri": "spotify:album:4yyNmVBMtdAcCTo51u4hvz"
+        "uri": "spotify:album:1HAn0kHacJd5gkWZySO27k"
       },
       "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/2Ct54gNxKnYLnXk9HhviMI"
+          },
+          "href": "https://api.spotify.com/v1/artists/2Ct54gNxKnYLnXk9HhviMI",
+          "id": "2Ct54gNxKnYLnXk9HhviMI",
+          "name": "Feuerschwanz",
+          "type": "artist",
+          "uri": "spotify:artist:2Ct54gNxKnYLnXk9HhviMI"
+        },
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/4Nm9FxM65RZa6EgFV2z8S9"
+          },
+          "href": "https://api.spotify.com/v1/artists/4Nm9FxM65RZa6EgFV2z8S9",
+          "id": "4Nm9FxM65RZa6EgFV2z8S9",
+          "name": "DOMINUM",
+          "type": "artist",
+          "uri": "spotify:artist:4Nm9FxM65RZa6EgFV2z8S9"
+        },
         {
           "external_urls": {
             "spotify": "https://open.spotify.com/artist/3t5X2CVDf5mrlIx1SdvWYM"
@@ -6667,7 +6689,6 @@
         "LI",
         "MC",
         "ID",
-        "JP",
         "TH",
         "VN",
         "RO",
@@ -6683,6 +6704,7 @@
         "MA",
         "DZ",
         "TN",
+        "LB",
         "JO",
         "PS",
         "IN",
@@ -6786,6 +6808,7 @@
         "ZM",
         "CD",
         "CG",
+        "IQ",
         "LY",
         "TJ",
         "VE",
@@ -6793,24 +6816,24 @@
         "XK"
       ],
       "disc_number": 1,
-      "duration_ms": 233600,
+      "duration_ms": 231735,
       "explicit": false,
       "external_ids": {
-        "isrc": "DEU601706956"
+        "isrc": "ATN262425302"
       },
       "external_urls": {
-        "spotify": "https://open.spotify.com/track/7BfF6RSpXN1gkRjveqsptr"
+        "spotify": "https://open.spotify.com/track/4bMklWsVXQE3hFqtloruWc"
       },
-      "href": "https://api.spotify.com/v1/tracks/7BfF6RSpXN1gkRjveqsptr",
-      "id": "7BfF6RSpXN1gkRjveqsptr",
+      "href": "https://api.spotify.com/v1/tracks/4bMklWsVXQE3hFqtloruWc",
+      "id": "4bMklWsVXQE3hFqtloruWc",
       "is_local": false,
       "is_playable": true,
-      "name": "Ashen Rain",
-      "popularity": 41,
+      "name": "The Unholy Grail (feat. Dominum, Orden Ogan)",
+      "popularity": 40,
       "preview_url": null,
-      "track_number": 7,
+      "track_number": 2,
       "type": "track",
-      "uri": "spotify:track:7BfF6RSpXN1gkRjveqsptr"
+      "uri": "spotify:track:4bMklWsVXQE3hFqtloruWc"
     }
   ]
 }

@@ -1,4 +1,5 @@
 {
+  "downloaded_at": "2026-10-30T03:27:33+00:00",
   "artist": {
     "external_urls": {
       "spotify": "https://open.spotify.com/artist/2ziB7fzrXBoh1HUPS6sVFn"
@@ -2943,7 +2944,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Cochise",
-      "popularity": 62,
+      "popularity": 61,
       "preview_url": null,
       "track_number": 1,
       "type": "track",
@@ -3386,7 +3387,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Doesn't Remind Me",
-      "popularity": 68,
+      "popularity": 67,
       "preview_url": null,
       "track_number": 4,
       "type": "track",
@@ -3831,7 +3832,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Shadow on the Sun",
-      "popularity": 58,
+      "popularity": 57,
       "preview_url": null,
       "track_number": 7,
       "type": "track",
@@ -4276,7 +4277,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Gasoline",
-      "popularity": 56,
+      "popularity": 55,
       "preview_url": null,
       "track_number": 3,
       "type": "track",
@@ -4721,7 +4722,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "What You Are",
-      "popularity": 55,
+      "popularity": 54,
       "preview_url": null,
       "track_number": 4,
       "type": "track",

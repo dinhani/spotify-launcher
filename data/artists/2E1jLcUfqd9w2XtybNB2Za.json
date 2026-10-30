@@ -1,4 +1,5 @@
 {
+  "downloaded_at": "2026-10-30T03:27:28+00:00",
   "artist": {
     "external_urls": {
       "spotify": "https://open.spotify.com/artist/2E1jLcUfqd9w2XtybNB2Za"
@@ -701,23 +702,23 @@
         "XK"
       ],
       "external_urls": {
-        "spotify": "https://open.spotify.com/album/3fi6uKI0YHsgnnn9YezPYh"
+        "spotify": "https://open.spotify.com/album/6Ozv8vaVaLCfgxuRJCMqie"
       },
-      "href": "https://api.spotify.com/v1/albums/3fi6uKI0YHsgnnn9YezPYh",
-      "id": "3fi6uKI0YHsgnnn9YezPYh",
+      "href": "https://api.spotify.com/v1/albums/6Ozv8vaVaLCfgxuRJCMqie",
+      "id": "6Ozv8vaVaLCfgxuRJCMqie",
       "images": [
         {
-          "url": "https://i.scdn.co/image/ab67616d0000b273f88a0dd7ae2350bdef24e03a",
+          "url": "https://i.scdn.co/image/ab67616d0000b27386da443ab63c49c2535ed515",
           "height": 640,
           "width": 640
         },
         {
-          "url": "https://i.scdn.co/image/ab67616d00001e02f88a0dd7ae2350bdef24e03a",
+          "url": "https://i.scdn.co/image/ab67616d00001e0286da443ab63c49c2535ed515",
           "height": 300,
           "width": 300
         },
         {
-          "url": "https://i.scdn.co/image/ab67616d00004851f88a0dd7ae2350bdef24e03a",
+          "url": "https://i.scdn.co/image/ab67616d0000485186da443ab63c49c2535ed515",
           "height": 64,
           "width": 64
         }
@@ -726,7 +727,7 @@
       "release_date": "2018-04-05",
       "release_date_precision": "day",
       "type": "album",
-      "uri": "spotify:album:3fi6uKI0YHsgnnn9YezPYh",
+      "uri": "spotify:album:6Ozv8vaVaLCfgxuRJCMqie",
       "artists": [
         {
           "external_urls": {
@@ -932,23 +933,23 @@
         "XK"
       ],
       "external_urls": {
-        "spotify": "https://open.spotify.com/album/12F8vVuF84XyOidzTwhq18"
+        "spotify": "https://open.spotify.com/album/6STxvKDr4rW5mifGoxhg3f"
       },
-      "href": "https://api.spotify.com/v1/albums/12F8vVuF84XyOidzTwhq18",
-      "id": "12F8vVuF84XyOidzTwhq18",
+      "href": "https://api.spotify.com/v1/albums/6STxvKDr4rW5mifGoxhg3f",
+      "id": "6STxvKDr4rW5mifGoxhg3f",
       "images": [
         {
-          "url": "https://i.scdn.co/image/ab67616d0000b2734bb50c6395b0268a89040f38",
+          "url": "https://i.scdn.co/image/ab67616d0000b2733282bdb4a4dc1bc9b9c86a57",
           "height": 640,
           "width": 640
         },
         {
-          "url": "https://i.scdn.co/image/ab67616d00001e024bb50c6395b0268a89040f38",
+          "url": "https://i.scdn.co/image/ab67616d00001e023282bdb4a4dc1bc9b9c86a57",
           "height": 300,
           "width": 300
         },
         {
-          "url": "https://i.scdn.co/image/ab67616d000048514bb50c6395b0268a89040f38",
+          "url": "https://i.scdn.co/image/ab67616d000048513282bdb4a4dc1bc9b9c86a57",
           "height": 64,
           "width": 64
         }
@@ -957,7 +958,7 @@
       "release_date": "2016-08-04",
       "release_date_precision": "day",
       "type": "album",
-      "uri": "spotify:album:12F8vVuF84XyOidzTwhq18",
+      "uri": "spotify:album:6STxvKDr4rW5mifGoxhg3f",
       "artists": [
         {
           "external_urls": {
@@ -1163,23 +1164,23 @@
         "XK"
       ],
       "external_urls": {
-        "spotify": "https://open.spotify.com/album/27pCdFBC0SeMG70mtIFNEu"
+        "spotify": "https://open.spotify.com/album/6TGyJNuhCRb25ZDJK8Jt3X"
       },
-      "href": "https://api.spotify.com/v1/albums/27pCdFBC0SeMG70mtIFNEu",
-      "id": "27pCdFBC0SeMG70mtIFNEu",
+      "href": "https://api.spotify.com/v1/albums/6TGyJNuhCRb25ZDJK8Jt3X",
+      "id": "6TGyJNuhCRb25ZDJK8Jt3X",
       "images": [
         {
-          "url": "https://i.scdn.co/image/ab67616d0000b273cf16db97d0759589b7da9e3d",
+          "url": "https://i.scdn.co/image/ab67616d0000b2737056830e5ef4ac8b512c0fd3",
           "height": 640,
           "width": 640
         },
         {
-          "url": "https://i.scdn.co/image/ab67616d00001e02cf16db97d0759589b7da9e3d",
+          "url": "https://i.scdn.co/image/ab67616d00001e027056830e5ef4ac8b512c0fd3",
           "height": 300,
           "width": 300
         },
         {
-          "url": "https://i.scdn.co/image/ab67616d00004851cf16db97d0759589b7da9e3d",
+          "url": "https://i.scdn.co/image/ab67616d000048517056830e5ef4ac8b512c0fd3",
           "height": 64,
           "width": 64
         }
@@ -1188,7 +1189,7 @@
       "release_date": "2013-10-21",
       "release_date_precision": "day",
       "type": "album",
-      "uri": "spotify:album:27pCdFBC0SeMG70mtIFNEu",
+      "uri": "spotify:album:6TGyJNuhCRb25ZDJK8Jt3X",
       "artists": [
         {
           "external_urls": {
@@ -1394,23 +1395,23 @@
         "XK"
       ],
       "external_urls": {
-        "spotify": "https://open.spotify.com/album/1KnZxcr44fRPdrWWcUdowZ"
+        "spotify": "https://open.spotify.com/album/0DkvWebxi0J1vpKmc033xe"
       },
-      "href": "https://api.spotify.com/v1/albums/1KnZxcr44fRPdrWWcUdowZ",
-      "id": "1KnZxcr44fRPdrWWcUdowZ",
+      "href": "https://api.spotify.com/v1/albums/0DkvWebxi0J1vpKmc033xe",
+      "id": "0DkvWebxi0J1vpKmc033xe",
       "images": [
         {
-          "url": "https://i.scdn.co/image/ab67616d0000b27357d1558bd8a93c000d42d189",
+          "url": "https://i.scdn.co/image/ab67616d0000b273033d23053614cc57b126277e",
           "height": 640,
           "width": 640
         },
         {
-          "url": "https://i.scdn.co/image/ab67616d00001e0257d1558bd8a93c000d42d189",
+          "url": "https://i.scdn.co/image/ab67616d00001e02033d23053614cc57b126277e",
           "height": 300,
           "width": 300
         },
         {
-          "url": "https://i.scdn.co/image/ab67616d0000485157d1558bd8a93c000d42d189",
+          "url": "https://i.scdn.co/image/ab67616d00004851033d23053614cc57b126277e",
           "height": 64,
           "width": 64
         }
@@ -1419,7 +1420,7 @@
       "release_date": "2012-06-18",
       "release_date_precision": "day",
       "type": "album",
-      "uri": "spotify:album:1KnZxcr44fRPdrWWcUdowZ",
+      "uri": "spotify:album:0DkvWebxi0J1vpKmc033xe",
       "artists": [
         {
           "external_urls": {
@@ -1625,23 +1626,23 @@
         "XK"
       ],
       "external_urls": {
-        "spotify": "https://open.spotify.com/album/3sS5tGdd1ZuVnZVT1WILJT"
+        "spotify": "https://open.spotify.com/album/09zSJuqcWNfL0u2zqWIDSw"
       },
-      "href": "https://api.spotify.com/v1/albums/3sS5tGdd1ZuVnZVT1WILJT",
-      "id": "3sS5tGdd1ZuVnZVT1WILJT",
+      "href": "https://api.spotify.com/v1/albums/09zSJuqcWNfL0u2zqWIDSw",
+      "id": "09zSJuqcWNfL0u2zqWIDSw",
       "images": [
         {
-          "url": "https://i.scdn.co/image/ab67616d0000b273ced9fd51708d028cec4afc73",
+          "url": "https://i.scdn.co/image/ab67616d0000b273664d64e6dd0190ce86b77532",
           "height": 640,
           "width": 640
         },
         {
-          "url": "https://i.scdn.co/image/ab67616d00001e02ced9fd51708d028cec4afc73",
+          "url": "https://i.scdn.co/image/ab67616d00001e02664d64e6dd0190ce86b77532",
           "height": 300,
           "width": 300
         },
         {
-          "url": "https://i.scdn.co/image/ab67616d00004851ced9fd51708d028cec4afc73",
+          "url": "https://i.scdn.co/image/ab67616d00004851664d64e6dd0190ce86b77532",
           "height": 64,
           "width": 64
         }
@@ -1650,7 +1651,7 @@
       "release_date": "2010-01-25",
       "release_date_precision": "day",
       "type": "album",
-      "uri": "spotify:album:3sS5tGdd1ZuVnZVT1WILJT",
+      "uri": "spotify:album:09zSJuqcWNfL0u2zqWIDSw",
       "artists": [
         {
           "external_urls": {
@@ -1856,23 +1857,23 @@
         "XK"
       ],
       "external_urls": {
-        "spotify": "https://open.spotify.com/album/1AIiTl5s1KYyYxmSKWTY0x"
+        "spotify": "https://open.spotify.com/album/7npdsYiqua2PEE1aVpwSoc"
       },
-      "href": "https://api.spotify.com/v1/albums/1AIiTl5s1KYyYxmSKWTY0x",
-      "id": "1AIiTl5s1KYyYxmSKWTY0x",
+      "href": "https://api.spotify.com/v1/albums/7npdsYiqua2PEE1aVpwSoc",
+      "id": "7npdsYiqua2PEE1aVpwSoc",
       "images": [
         {
-          "url": "https://i.scdn.co/image/ab67616d0000b2732a9a18a4c509f96263df9ae5",
+          "url": "https://i.scdn.co/image/ab67616d0000b273010e67a4adaab2c75d074cf8",
           "height": 640,
           "width": 640
         },
         {
-          "url": "https://i.scdn.co/image/ab67616d00001e022a9a18a4c509f96263df9ae5",
+          "url": "https://i.scdn.co/image/ab67616d00001e02010e67a4adaab2c75d074cf8",
           "height": 300,
           "width": 300
         },
         {
-          "url": "https://i.scdn.co/image/ab67616d000048512a9a18a4c509f96263df9ae5",
+          "url": "https://i.scdn.co/image/ab67616d00004851010e67a4adaab2c75d074cf8",
           "height": 64,
           "width": 64
         }
@@ -1881,7 +1882,7 @@
       "release_date": "2008-05-26",
       "release_date_precision": "day",
       "type": "album",
-      "uri": "spotify:album:1AIiTl5s1KYyYxmSKWTY0x",
+      "uri": "spotify:album:7npdsYiqua2PEE1aVpwSoc",
       "artists": [
         {
           "external_urls": {
@@ -2087,23 +2088,23 @@
         "XK"
       ],
       "external_urls": {
-        "spotify": "https://open.spotify.com/album/2g6Ur1ZU88NkBLPFZuyT6W"
+        "spotify": "https://open.spotify.com/album/5PCTB7yESvFoOuUcTf8UA9"
       },
-      "href": "https://api.spotify.com/v1/albums/2g6Ur1ZU88NkBLPFZuyT6W",
-      "id": "2g6Ur1ZU88NkBLPFZuyT6W",
+      "href": "https://api.spotify.com/v1/albums/5PCTB7yESvFoOuUcTf8UA9",
+      "id": "5PCTB7yESvFoOuUcTf8UA9",
       "images": [
         {
-          "url": "https://i.scdn.co/image/ab67616d0000b273a3ec908b7b40ed73df075128",
+          "url": "https://i.scdn.co/image/ab67616d0000b27310abdeaa35c7fccaef1a1f0d",
           "height": 640,
           "width": 640
         },
         {
-          "url": "https://i.scdn.co/image/ab67616d00001e02a3ec908b7b40ed73df075128",
+          "url": "https://i.scdn.co/image/ab67616d00001e0210abdeaa35c7fccaef1a1f0d",
           "height": 300,
           "width": 300
         },
         {
-          "url": "https://i.scdn.co/image/ab67616d00004851a3ec908b7b40ed73df075128",
+          "url": "https://i.scdn.co/image/ab67616d0000485110abdeaa35c7fccaef1a1f0d",
           "height": 64,
           "width": 64
         }
@@ -2112,7 +2113,7 @@
       "release_date": "2006-05-04",
       "release_date_precision": "day",
       "type": "album",
-      "uri": "spotify:album:2g6Ur1ZU88NkBLPFZuyT6W",
+      "uri": "spotify:album:5PCTB7yESvFoOuUcTf8UA9",
       "artists": [
         {
           "external_urls": {
@@ -2332,23 +2333,23 @@
           "XK"
         ],
         "external_urls": {
-          "spotify": "https://open.spotify.com/album/27pCdFBC0SeMG70mtIFNEu"
+          "spotify": "https://open.spotify.com/album/6TGyJNuhCRb25ZDJK8Jt3X"
         },
-        "href": "https://api.spotify.com/v1/albums/27pCdFBC0SeMG70mtIFNEu",
-        "id": "27pCdFBC0SeMG70mtIFNEu",
+        "href": "https://api.spotify.com/v1/albums/6TGyJNuhCRb25ZDJK8Jt3X",
+        "id": "6TGyJNuhCRb25ZDJK8Jt3X",
         "images": [
           {
-            "url": "https://i.scdn.co/image/ab67616d0000b273cf16db97d0759589b7da9e3d",
+            "url": "https://i.scdn.co/image/ab67616d0000b2737056830e5ef4ac8b512c0fd3",
             "height": 640,
             "width": 640
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d00001e02cf16db97d0759589b7da9e3d",
+            "url": "https://i.scdn.co/image/ab67616d00001e027056830e5ef4ac8b512c0fd3",
             "height": 300,
             "width": 300
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d00004851cf16db97d0759589b7da9e3d",
+            "url": "https://i.scdn.co/image/ab67616d000048517056830e5ef4ac8b512c0fd3",
             "height": 64,
             "width": 64
           }
@@ -2359,7 +2360,7 @@
         "release_date_precision": "day",
         "total_tracks": 10,
         "type": "album",
-        "uri": "spotify:album:27pCdFBC0SeMG70mtIFNEu"
+        "uri": "spotify:album:6TGyJNuhCRb25ZDJK8Jt3X"
       },
       "artists": [
         {
@@ -2567,18 +2568,18 @@
         "isrc": "GBADD1340604"
       },
       "external_urls": {
-        "spotify": "https://open.spotify.com/track/4bitIkRVjQdGaUVuMG61RJ"
+        "spotify": "https://open.spotify.com/track/7fWYLslJAOPNS9tcigjWwi"
       },
-      "href": "https://api.spotify.com/v1/tracks/4bitIkRVjQdGaUVuMG61RJ",
-      "id": "4bitIkRVjQdGaUVuMG61RJ",
+      "href": "https://api.spotify.com/v1/tracks/7fWYLslJAOPNS9tcigjWwi",
+      "id": "7fWYLslJAOPNS9tcigjWwi",
       "is_local": false,
       "is_playable": true,
       "name": "Pulse",
-      "popularity": 34,
+      "popularity": 29,
       "preview_url": null,
       "track_number": 4,
       "type": "track",
-      "uri": "spotify:track:4bitIkRVjQdGaUVuMG61RJ"
+      "uri": "spotify:track:7fWYLslJAOPNS9tcigjWwi"
     },
     {
       "album": {
@@ -2783,23 +2784,23 @@
           "XK"
         ],
         "external_urls": {
-          "spotify": "https://open.spotify.com/album/12F8vVuF84XyOidzTwhq18"
+          "spotify": "https://open.spotify.com/album/6STxvKDr4rW5mifGoxhg3f"
         },
-        "href": "https://api.spotify.com/v1/albums/12F8vVuF84XyOidzTwhq18",
-        "id": "12F8vVuF84XyOidzTwhq18",
+        "href": "https://api.spotify.com/v1/albums/6STxvKDr4rW5mifGoxhg3f",
+        "id": "6STxvKDr4rW5mifGoxhg3f",
         "images": [
           {
-            "url": "https://i.scdn.co/image/ab67616d0000b2734bb50c6395b0268a89040f38",
+            "url": "https://i.scdn.co/image/ab67616d0000b2733282bdb4a4dc1bc9b9c86a57",
             "height": 640,
             "width": 640
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d00001e024bb50c6395b0268a89040f38",
+            "url": "https://i.scdn.co/image/ab67616d00001e023282bdb4a4dc1bc9b9c86a57",
             "height": 300,
             "width": 300
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d000048514bb50c6395b0268a89040f38",
+            "url": "https://i.scdn.co/image/ab67616d000048513282bdb4a4dc1bc9b9c86a57",
             "height": 64,
             "width": 64
           }
@@ -2810,7 +2811,7 @@
         "release_date_precision": "day",
         "total_tracks": 11,
         "type": "album",
-        "uri": "spotify:album:12F8vVuF84XyOidzTwhq18"
+        "uri": "spotify:album:6STxvKDr4rW5mifGoxhg3f"
       },
       "artists": [
         {
@@ -3028,18 +3029,18 @@
         "isrc": "GBADD1650810"
       },
       "external_urls": {
-        "spotify": "https://open.spotify.com/track/2UNnDZyGFXrWSwSxDtmVEA"
+        "spotify": "https://open.spotify.com/track/3Hp5ZxOeThNvFpNNnlHClk"
       },
-      "href": "https://api.spotify.com/v1/tracks/2UNnDZyGFXrWSwSxDtmVEA",
-      "id": "2UNnDZyGFXrWSwSxDtmVEA",
+      "href": "https://api.spotify.com/v1/tracks/3Hp5ZxOeThNvFpNNnlHClk",
+      "id": "3Hp5ZxOeThNvFpNNnlHClk",
       "is_local": false,
       "is_playable": true,
-      "name": "Celestial Violence (feat. Einar Solberg)",
-      "popularity": 34,
+      "name": "Celestial Violence",
+      "popularity": 24,
       "preview_url": null,
       "track_number": 10,
       "type": "track",
-      "uri": "spotify:track:2UNnDZyGFXrWSwSxDtmVEA"
+      "uri": "spotify:track:3Hp5ZxOeThNvFpNNnlHClk"
     },
     {
       "album": {
@@ -3496,7 +3497,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Thorn (feat. Ihsahn)",
-      "popularity": 31,
+      "popularity": 30,
       "preview_url": null,
       "track_number": 4,
       "type": "track",
@@ -3955,7 +3956,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Contaminate Me (feat. Ihsahn)",
-      "popularity": 30,
+      "popularity": 29,
       "preview_url": null,
       "track_number": 8,
       "type": "track",
@@ -4164,23 +4165,23 @@
           "XK"
         ],
         "external_urls": {
-          "spotify": "https://open.spotify.com/album/12F8vVuF84XyOidzTwhq18"
+          "spotify": "https://open.spotify.com/album/6STxvKDr4rW5mifGoxhg3f"
         },
-        "href": "https://api.spotify.com/v1/albums/12F8vVuF84XyOidzTwhq18",
-        "id": "12F8vVuF84XyOidzTwhq18",
+        "href": "https://api.spotify.com/v1/albums/6STxvKDr4rW5mifGoxhg3f",
+        "id": "6STxvKDr4rW5mifGoxhg3f",
         "images": [
           {
-            "url": "https://i.scdn.co/image/ab67616d0000b2734bb50c6395b0268a89040f38",
+            "url": "https://i.scdn.co/image/ab67616d0000b2733282bdb4a4dc1bc9b9c86a57",
             "height": 640,
             "width": 640
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d00001e024bb50c6395b0268a89040f38",
+            "url": "https://i.scdn.co/image/ab67616d00001e023282bdb4a4dc1bc9b9c86a57",
             "height": 300,
             "width": 300
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d000048514bb50c6395b0268a89040f38",
+            "url": "https://i.scdn.co/image/ab67616d000048513282bdb4a4dc1bc9b9c86a57",
             "height": 64,
             "width": 64
           }
@@ -4191,7 +4192,7 @@
         "release_date_precision": "day",
         "total_tracks": 11,
         "type": "album",
-        "uri": "spotify:album:12F8vVuF84XyOidzTwhq18"
+        "uri": "spotify:album:6STxvKDr4rW5mifGoxhg3f"
       },
       "artists": [
         {
@@ -4399,18 +4400,18 @@
         "isrc": "GBADD1650804"
       },
       "external_urls": {
-        "spotify": "https://open.spotify.com/track/3tpaThc6f3WdBvEgMEC5ER"
+        "spotify": "https://open.spotify.com/track/1SGpINCkGhGOJLpZZA5kjS"
       },
-      "href": "https://api.spotify.com/v1/tracks/3tpaThc6f3WdBvEgMEC5ER",
-      "id": "3tpaThc6f3WdBvEgMEC5ER",
+      "href": "https://api.spotify.com/v1/tracks/1SGpINCkGhGOJLpZZA5kjS",
+      "id": "1SGpINCkGhGOJLpZZA5kjS",
       "is_local": false,
       "is_playable": true,
       "name": "South Winds",
-      "popularity": 30,
+      "popularity": 19,
       "preview_url": null,
       "track_number": 4,
       "type": "track",
-      "uri": "spotify:track:3tpaThc6f3WdBvEgMEC5ER"
+      "uri": "spotify:track:1SGpINCkGhGOJLpZZA5kjS"
     },
     {
       "album": {
@@ -4425,16 +4426,6 @@
             "name": "Ihsahn",
             "type": "artist",
             "uri": "spotify:artist:2E1jLcUfqd9w2XtybNB2Za"
-          },
-          {
-            "external_urls": {
-              "spotify": "https://open.spotify.com/artist/20xK8nEhn71rTjjBNoR5nv"
-            },
-            "href": "https://api.spotify.com/v1/artists/20xK8nEhn71rTjjBNoR5nv",
-            "id": "20xK8nEhn71rTjjBNoR5nv",
-            "name": "Einar Solberg",
-            "type": "artist",
-            "uri": "spotify:artist:20xK8nEhn71rTjjBNoR5nv"
           }
         ],
         "available_markets": [
@@ -4625,34 +4616,34 @@
           "XK"
         ],
         "external_urls": {
-          "spotify": "https://open.spotify.com/album/4XWjqYl9rYBoetKbiI1e2r"
+          "spotify": "https://open.spotify.com/album/78SxlHiZmIVsi2HKF6Q8zp"
         },
-        "href": "https://api.spotify.com/v1/albums/4XWjqYl9rYBoetKbiI1e2r",
-        "id": "4XWjqYl9rYBoetKbiI1e2r",
+        "href": "https://api.spotify.com/v1/albums/78SxlHiZmIVsi2HKF6Q8zp",
+        "id": "78SxlHiZmIVsi2HKF6Q8zp",
         "images": [
           {
-            "url": "https://i.scdn.co/image/ab67616d0000b273318faf696eeede113673e16d",
+            "url": "https://i.scdn.co/image/ab67616d0000b273c7f741291db329ca47f72097",
             "height": 640,
             "width": 640
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d00001e02318faf696eeede113673e16d",
+            "url": "https://i.scdn.co/image/ab67616d00001e02c7f741291db329ca47f72097",
             "height": 300,
             "width": 300
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d00004851318faf696eeede113673e16d",
+            "url": "https://i.scdn.co/image/ab67616d00004851c7f741291db329ca47f72097",
             "height": 64,
             "width": 64
           }
         ],
         "is_playable": true,
-        "name": "Manhattan Skyline (feat. Einar Solberg)",
+        "name": "Manhattan Skyline",
         "release_date": "2020-08-28",
         "release_date_precision": "day",
         "total_tracks": 1,
         "type": "album",
-        "uri": "spotify:album:4XWjqYl9rYBoetKbiI1e2r"
+        "uri": "spotify:album:78SxlHiZmIVsi2HKF6Q8zp"
       },
       "artists": [
         {
@@ -4870,18 +4861,18 @@
         "isrc": "GBUM72001686"
       },
       "external_urls": {
-        "spotify": "https://open.spotify.com/track/0fkRxas02SwQR9CLIHTcQP"
+        "spotify": "https://open.spotify.com/track/2ks4eFkpyBhl2cegPT3j9I"
       },
-      "href": "https://api.spotify.com/v1/tracks/0fkRxas02SwQR9CLIHTcQP",
-      "id": "0fkRxas02SwQR9CLIHTcQP",
+      "href": "https://api.spotify.com/v1/tracks/2ks4eFkpyBhl2cegPT3j9I",
+      "id": "2ks4eFkpyBhl2cegPT3j9I",
       "is_local": false,
       "is_playable": true,
-      "name": "Manhattan Skyline (feat. Einar Solberg)",
-      "popularity": 28,
+      "name": "Manhattan Skyline",
+      "popularity": 18,
       "preview_url": null,
       "track_number": 1,
       "type": "track",
-      "uri": "spotify:track:0fkRxas02SwQR9CLIHTcQP"
+      "uri": "spotify:track:2ks4eFkpyBhl2cegPT3j9I"
     },
     {
       "album": {
@@ -5338,7 +5329,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Splitting the Soul (feat. Ihsahn)",
-      "popularity": 27,
+      "popularity": 25,
       "preview_url": null,
       "track_number": 9,
       "type": "track",
@@ -5547,23 +5538,23 @@
           "XK"
         ],
         "external_urls": {
-          "spotify": "https://open.spotify.com/album/12F8vVuF84XyOidzTwhq18"
+          "spotify": "https://open.spotify.com/album/6STxvKDr4rW5mifGoxhg3f"
         },
-        "href": "https://api.spotify.com/v1/albums/12F8vVuF84XyOidzTwhq18",
-        "id": "12F8vVuF84XyOidzTwhq18",
+        "href": "https://api.spotify.com/v1/albums/6STxvKDr4rW5mifGoxhg3f",
+        "id": "6STxvKDr4rW5mifGoxhg3f",
         "images": [
           {
-            "url": "https://i.scdn.co/image/ab67616d0000b2734bb50c6395b0268a89040f38",
+            "url": "https://i.scdn.co/image/ab67616d0000b2733282bdb4a4dc1bc9b9c86a57",
             "height": 640,
             "width": 640
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d00001e024bb50c6395b0268a89040f38",
+            "url": "https://i.scdn.co/image/ab67616d00001e023282bdb4a4dc1bc9b9c86a57",
             "height": 300,
             "width": 300
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d000048514bb50c6395b0268a89040f38",
+            "url": "https://i.scdn.co/image/ab67616d000048513282bdb4a4dc1bc9b9c86a57",
             "height": 64,
             "width": 64
           }
@@ -5574,7 +5565,7 @@
         "release_date_precision": "day",
         "total_tracks": 11,
         "type": "album",
-        "uri": "spotify:album:12F8vVuF84XyOidzTwhq18"
+        "uri": "spotify:album:6STxvKDr4rW5mifGoxhg3f"
       },
       "artists": [
         {
@@ -5782,18 +5773,479 @@
         "isrc": "GBADD1650802"
       },
       "external_urls": {
-        "spotify": "https://open.spotify.com/track/1ztvB1wntbGNoDyziaVFqC"
+        "spotify": "https://open.spotify.com/track/4j0MkjBwFWe7wj3kaoL2yq"
       },
-      "href": "https://api.spotify.com/v1/tracks/1ztvB1wntbGNoDyziaVFqC",
-      "id": "1ztvB1wntbGNoDyziaVFqC",
+      "href": "https://api.spotify.com/v1/tracks/4j0MkjBwFWe7wj3kaoL2yq",
+      "id": "4j0MkjBwFWe7wj3kaoL2yq",
       "is_local": false,
       "is_playable": true,
       "name": "Mass Darkness",
-      "popularity": 26,
+      "popularity": 17,
       "preview_url": null,
       "track_number": 2,
       "type": "track",
-      "uri": "spotify:track:1ztvB1wntbGNoDyziaVFqC"
+      "uri": "spotify:track:4j0MkjBwFWe7wj3kaoL2yq"
+    },
+    {
+      "album": {
+        "album_type": "album",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/2E1jLcUfqd9w2XtybNB2Za"
+            },
+            "href": "https://api.spotify.com/v1/artists/2E1jLcUfqd9w2XtybNB2Za",
+            "id": "2E1jLcUfqd9w2XtybNB2Za",
+            "name": "Ihsahn",
+            "type": "artist",
+            "uri": "spotify:artist:2E1jLcUfqd9w2XtybNB2Za"
+          }
+        ],
+        "available_markets": [
+          "AR",
+          "AU",
+          "AT",
+          "BE",
+          "BO",
+          "BR",
+          "BG",
+          "CA",
+          "CL",
+          "CO",
+          "CR",
+          "CY",
+          "CZ",
+          "DK",
+          "DO",
+          "DE",
+          "EC",
+          "EE",
+          "SV",
+          "FI",
+          "FR",
+          "GR",
+          "GT",
+          "HN",
+          "HK",
+          "HU",
+          "IS",
+          "IE",
+          "IT",
+          "LV",
+          "LT",
+          "LU",
+          "MY",
+          "MT",
+          "MX",
+          "NL",
+          "NZ",
+          "NI",
+          "NO",
+          "PA",
+          "PY",
+          "PE",
+          "PH",
+          "PL",
+          "PT",
+          "SG",
+          "SK",
+          "ES",
+          "SE",
+          "CH",
+          "TW",
+          "TR",
+          "UY",
+          "US",
+          "GB",
+          "AD",
+          "LI",
+          "MC",
+          "ID",
+          "JP",
+          "TH",
+          "VN",
+          "RO",
+          "IL",
+          "ZA",
+          "SA",
+          "AE",
+          "BH",
+          "QA",
+          "OM",
+          "KW",
+          "EG",
+          "MA",
+          "DZ",
+          "TN",
+          "LB",
+          "JO",
+          "PS",
+          "IN",
+          "BY",
+          "KZ",
+          "MD",
+          "UA",
+          "AL",
+          "BA",
+          "HR",
+          "ME",
+          "MK",
+          "RS",
+          "SI",
+          "KR",
+          "BD",
+          "PK",
+          "LK",
+          "GH",
+          "KE",
+          "NG",
+          "TZ",
+          "UG",
+          "AG",
+          "AM",
+          "BS",
+          "BB",
+          "BZ",
+          "BT",
+          "BW",
+          "BF",
+          "CV",
+          "CW",
+          "DM",
+          "FJ",
+          "GM",
+          "GE",
+          "GD",
+          "GW",
+          "GY",
+          "HT",
+          "JM",
+          "KI",
+          "LS",
+          "LR",
+          "MW",
+          "MV",
+          "ML",
+          "MH",
+          "FM",
+          "NA",
+          "NR",
+          "NE",
+          "PW",
+          "PG",
+          "PR",
+          "WS",
+          "SM",
+          "ST",
+          "SN",
+          "SC",
+          "SL",
+          "SB",
+          "KN",
+          "LC",
+          "VC",
+          "SR",
+          "TL",
+          "TO",
+          "TT",
+          "TV",
+          "VU",
+          "AZ",
+          "BN",
+          "BI",
+          "KH",
+          "CM",
+          "TD",
+          "KM",
+          "GQ",
+          "SZ",
+          "GA",
+          "GN",
+          "KG",
+          "LA",
+          "MO",
+          "MR",
+          "MN",
+          "NP",
+          "RW",
+          "TG",
+          "UZ",
+          "ZW",
+          "BJ",
+          "MG",
+          "MU",
+          "MZ",
+          "AO",
+          "CI",
+          "DJ",
+          "ZM",
+          "CD",
+          "CG",
+          "IQ",
+          "LY",
+          "TJ",
+          "VE",
+          "ET",
+          "XK"
+        ],
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/7npdsYiqua2PEE1aVpwSoc"
+        },
+        "href": "https://api.spotify.com/v1/albums/7npdsYiqua2PEE1aVpwSoc",
+        "id": "7npdsYiqua2PEE1aVpwSoc",
+        "images": [
+          {
+            "url": "https://i.scdn.co/image/ab67616d0000b273010e67a4adaab2c75d074cf8",
+            "height": 640,
+            "width": 640
+          },
+          {
+            "url": "https://i.scdn.co/image/ab67616d00001e02010e67a4adaab2c75d074cf8",
+            "height": 300,
+            "width": 300
+          },
+          {
+            "url": "https://i.scdn.co/image/ab67616d00004851010e67a4adaab2c75d074cf8",
+            "height": 64,
+            "width": 64
+          }
+        ],
+        "is_playable": true,
+        "name": "angL",
+        "release_date": "2008-05-26",
+        "release_date_precision": "day",
+        "total_tracks": 9,
+        "type": "album",
+        "uri": "spotify:album:7npdsYiqua2PEE1aVpwSoc"
+      },
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/2E1jLcUfqd9w2XtybNB2Za"
+          },
+          "href": "https://api.spotify.com/v1/artists/2E1jLcUfqd9w2XtybNB2Za",
+          "id": "2E1jLcUfqd9w2XtybNB2Za",
+          "name": "Ihsahn",
+          "type": "artist",
+          "uri": "spotify:artist:2E1jLcUfqd9w2XtybNB2Za"
+        },
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/7ld5CeAR7LeaJ9sDEtlI3A"
+          },
+          "href": "https://api.spotify.com/v1/artists/7ld5CeAR7LeaJ9sDEtlI3A",
+          "id": "7ld5CeAR7LeaJ9sDEtlI3A",
+          "name": "Mikael Akerfeldt",
+          "type": "artist",
+          "uri": "spotify:artist:7ld5CeAR7LeaJ9sDEtlI3A"
+        }
+      ],
+      "available_markets": [
+        "AR",
+        "AU",
+        "AT",
+        "BE",
+        "BO",
+        "BR",
+        "BG",
+        "CA",
+        "CL",
+        "CO",
+        "CR",
+        "CY",
+        "CZ",
+        "DK",
+        "DO",
+        "DE",
+        "EC",
+        "EE",
+        "SV",
+        "FI",
+        "FR",
+        "GR",
+        "GT",
+        "HN",
+        "HK",
+        "HU",
+        "IS",
+        "IE",
+        "IT",
+        "LV",
+        "LT",
+        "LU",
+        "MY",
+        "MT",
+        "MX",
+        "NL",
+        "NZ",
+        "NI",
+        "NO",
+        "PA",
+        "PY",
+        "PE",
+        "PH",
+        "PL",
+        "PT",
+        "SG",
+        "SK",
+        "ES",
+        "SE",
+        "CH",
+        "TW",
+        "TR",
+        "UY",
+        "US",
+        "GB",
+        "AD",
+        "LI",
+        "MC",
+        "ID",
+        "JP",
+        "TH",
+        "VN",
+        "RO",
+        "IL",
+        "ZA",
+        "SA",
+        "AE",
+        "BH",
+        "QA",
+        "OM",
+        "KW",
+        "EG",
+        "MA",
+        "DZ",
+        "TN",
+        "LB",
+        "JO",
+        "PS",
+        "IN",
+        "BY",
+        "KZ",
+        "MD",
+        "UA",
+        "AL",
+        "BA",
+        "HR",
+        "ME",
+        "MK",
+        "RS",
+        "SI",
+        "KR",
+        "BD",
+        "PK",
+        "LK",
+        "GH",
+        "KE",
+        "NG",
+        "TZ",
+        "UG",
+        "AG",
+        "AM",
+        "BS",
+        "BB",
+        "BZ",
+        "BT",
+        "BW",
+        "BF",
+        "CV",
+        "CW",
+        "DM",
+        "FJ",
+        "GM",
+        "GE",
+        "GD",
+        "GW",
+        "GY",
+        "HT",
+        "JM",
+        "KI",
+        "LS",
+        "LR",
+        "MW",
+        "MV",
+        "ML",
+        "MH",
+        "FM",
+        "NA",
+        "NR",
+        "NE",
+        "PW",
+        "PG",
+        "PR",
+        "WS",
+        "SM",
+        "ST",
+        "SN",
+        "SC",
+        "SL",
+        "SB",
+        "KN",
+        "LC",
+        "VC",
+        "SR",
+        "TL",
+        "TO",
+        "TT",
+        "TV",
+        "VU",
+        "AZ",
+        "BN",
+        "BI",
+        "KH",
+        "CM",
+        "TD",
+        "KM",
+        "GQ",
+        "SZ",
+        "GA",
+        "GN",
+        "KG",
+        "LA",
+        "MO",
+        "MR",
+        "MN",
+        "NP",
+        "RW",
+        "TG",
+        "UZ",
+        "ZW",
+        "BJ",
+        "MG",
+        "MU",
+        "MZ",
+        "AO",
+        "CI",
+        "DJ",
+        "ZM",
+        "CD",
+        "CG",
+        "IQ",
+        "LY",
+        "TJ",
+        "VE",
+        "ET",
+        "XK"
+      ],
+      "disc_number": 1,
+      "duration_ms": 377560,
+      "explicit": false,
+      "external_ids": {
+        "isrc": "GBADD0821803"
+      },
+      "external_urls": {
+        "spotify": "https://open.spotify.com/track/5Ry4IZZlqBFNmbiLmUTMNP"
+      },
+      "href": "https://api.spotify.com/v1/tracks/5Ry4IZZlqBFNmbiLmUTMNP",
+      "id": "5Ry4IZZlqBFNmbiLmUTMNP",
+      "is_local": false,
+      "is_playable": true,
+      "name": "Unhealer",
+      "popularity": 16,
+      "preview_url": null,
+      "track_number": 3,
+      "type": "track",
+      "uri": "spotify:track:5Ry4IZZlqBFNmbiLmUTMNP"
     },
     {
       "album": {
@@ -6240,472 +6692,11 @@
       "is_local": false,
       "is_playable": true,
       "name": "PILGRIMAGE TO OBLIVION",
-      "popularity": 25,
+      "popularity": 23,
       "preview_url": null,
       "track_number": 3,
       "type": "track",
       "uri": "spotify:track:5iE8YiGRqD1NmFdk6RAvHq"
-    },
-    {
-      "album": {
-        "album_type": "album",
-        "artists": [
-          {
-            "external_urls": {
-              "spotify": "https://open.spotify.com/artist/2E1jLcUfqd9w2XtybNB2Za"
-            },
-            "href": "https://api.spotify.com/v1/artists/2E1jLcUfqd9w2XtybNB2Za",
-            "id": "2E1jLcUfqd9w2XtybNB2Za",
-            "name": "Ihsahn",
-            "type": "artist",
-            "uri": "spotify:artist:2E1jLcUfqd9w2XtybNB2Za"
-          }
-        ],
-        "available_markets": [
-          "AR",
-          "AU",
-          "AT",
-          "BE",
-          "BO",
-          "BR",
-          "BG",
-          "CA",
-          "CL",
-          "CO",
-          "CR",
-          "CY",
-          "CZ",
-          "DK",
-          "DO",
-          "DE",
-          "EC",
-          "EE",
-          "SV",
-          "FI",
-          "FR",
-          "GR",
-          "GT",
-          "HN",
-          "HK",
-          "HU",
-          "IS",
-          "IE",
-          "IT",
-          "LV",
-          "LT",
-          "LU",
-          "MY",
-          "MT",
-          "MX",
-          "NL",
-          "NZ",
-          "NI",
-          "NO",
-          "PA",
-          "PY",
-          "PE",
-          "PH",
-          "PL",
-          "PT",
-          "SG",
-          "SK",
-          "ES",
-          "SE",
-          "CH",
-          "TW",
-          "TR",
-          "UY",
-          "US",
-          "GB",
-          "AD",
-          "LI",
-          "MC",
-          "ID",
-          "JP",
-          "TH",
-          "VN",
-          "RO",
-          "IL",
-          "ZA",
-          "SA",
-          "AE",
-          "BH",
-          "QA",
-          "OM",
-          "KW",
-          "EG",
-          "MA",
-          "DZ",
-          "TN",
-          "LB",
-          "JO",
-          "PS",
-          "IN",
-          "BY",
-          "KZ",
-          "MD",
-          "UA",
-          "AL",
-          "BA",
-          "HR",
-          "ME",
-          "MK",
-          "RS",
-          "SI",
-          "KR",
-          "BD",
-          "PK",
-          "LK",
-          "GH",
-          "KE",
-          "NG",
-          "TZ",
-          "UG",
-          "AG",
-          "AM",
-          "BS",
-          "BB",
-          "BZ",
-          "BT",
-          "BW",
-          "BF",
-          "CV",
-          "CW",
-          "DM",
-          "FJ",
-          "GM",
-          "GE",
-          "GD",
-          "GW",
-          "GY",
-          "HT",
-          "JM",
-          "KI",
-          "LS",
-          "LR",
-          "MW",
-          "MV",
-          "ML",
-          "MH",
-          "FM",
-          "NA",
-          "NR",
-          "NE",
-          "PW",
-          "PG",
-          "PR",
-          "WS",
-          "SM",
-          "ST",
-          "SN",
-          "SC",
-          "SL",
-          "SB",
-          "KN",
-          "LC",
-          "VC",
-          "SR",
-          "TL",
-          "TO",
-          "TT",
-          "TV",
-          "VU",
-          "AZ",
-          "BN",
-          "BI",
-          "KH",
-          "CM",
-          "TD",
-          "KM",
-          "GQ",
-          "SZ",
-          "GA",
-          "GN",
-          "KG",
-          "LA",
-          "MO",
-          "MR",
-          "MN",
-          "NP",
-          "RW",
-          "TG",
-          "UZ",
-          "ZW",
-          "BJ",
-          "MG",
-          "MU",
-          "MZ",
-          "AO",
-          "CI",
-          "DJ",
-          "ZM",
-          "CD",
-          "CG",
-          "IQ",
-          "LY",
-          "TJ",
-          "VE",
-          "ET",
-          "XK"
-        ],
-        "external_urls": {
-          "spotify": "https://open.spotify.com/album/1AIiTl5s1KYyYxmSKWTY0x"
-        },
-        "href": "https://api.spotify.com/v1/albums/1AIiTl5s1KYyYxmSKWTY0x",
-        "id": "1AIiTl5s1KYyYxmSKWTY0x",
-        "images": [
-          {
-            "url": "https://i.scdn.co/image/ab67616d0000b2732a9a18a4c509f96263df9ae5",
-            "height": 640,
-            "width": 640
-          },
-          {
-            "url": "https://i.scdn.co/image/ab67616d00001e022a9a18a4c509f96263df9ae5",
-            "height": 300,
-            "width": 300
-          },
-          {
-            "url": "https://i.scdn.co/image/ab67616d000048512a9a18a4c509f96263df9ae5",
-            "height": 64,
-            "width": 64
-          }
-        ],
-        "is_playable": true,
-        "name": "angL",
-        "release_date": "2008-05-26",
-        "release_date_precision": "day",
-        "total_tracks": 9,
-        "type": "album",
-        "uri": "spotify:album:1AIiTl5s1KYyYxmSKWTY0x"
-      },
-      "artists": [
-        {
-          "external_urls": {
-            "spotify": "https://open.spotify.com/artist/2E1jLcUfqd9w2XtybNB2Za"
-          },
-          "href": "https://api.spotify.com/v1/artists/2E1jLcUfqd9w2XtybNB2Za",
-          "id": "2E1jLcUfqd9w2XtybNB2Za",
-          "name": "Ihsahn",
-          "type": "artist",
-          "uri": "spotify:artist:2E1jLcUfqd9w2XtybNB2Za"
-        },
-        {
-          "external_urls": {
-            "spotify": "https://open.spotify.com/artist/2B9AfTKnBclUFAnxS96Yan"
-          },
-          "href": "https://api.spotify.com/v1/artists/2B9AfTKnBclUFAnxS96Yan",
-          "id": "2B9AfTKnBclUFAnxS96Yan",
-          "name": "Mikael Åkerfeldt",
-          "type": "artist",
-          "uri": "spotify:artist:2B9AfTKnBclUFAnxS96Yan"
-        }
-      ],
-      "available_markets": [
-        "AR",
-        "AU",
-        "AT",
-        "BE",
-        "BO",
-        "BR",
-        "BG",
-        "CA",
-        "CL",
-        "CO",
-        "CR",
-        "CY",
-        "CZ",
-        "DK",
-        "DO",
-        "DE",
-        "EC",
-        "EE",
-        "SV",
-        "FI",
-        "FR",
-        "GR",
-        "GT",
-        "HN",
-        "HK",
-        "HU",
-        "IS",
-        "IE",
-        "IT",
-        "LV",
-        "LT",
-        "LU",
-        "MY",
-        "MT",
-        "MX",
-        "NL",
-        "NZ",
-        "NI",
-        "NO",
-        "PA",
-        "PY",
-        "PE",
-        "PH",
-        "PL",
-        "PT",
-        "SG",
-        "SK",
-        "ES",
-        "SE",
-        "CH",
-        "TW",
-        "TR",
-        "UY",
-        "US",
-        "GB",
-        "AD",
-        "LI",
-        "MC",
-        "ID",
-        "JP",
-        "TH",
-        "VN",
-        "RO",
-        "IL",
-        "ZA",
-        "SA",
-        "AE",
-        "BH",
-        "QA",
-        "OM",
-        "KW",
-        "EG",
-        "MA",
-        "DZ",
-        "TN",
-        "LB",
-        "JO",
-        "PS",
-        "IN",
-        "BY",
-        "KZ",
-        "MD",
-        "UA",
-        "AL",
-        "BA",
-        "HR",
-        "ME",
-        "MK",
-        "RS",
-        "SI",
-        "KR",
-        "BD",
-        "PK",
-        "LK",
-        "GH",
-        "KE",
-        "NG",
-        "TZ",
-        "UG",
-        "AG",
-        "AM",
-        "BS",
-        "BB",
-        "BZ",
-        "BT",
-        "BW",
-        "BF",
-        "CV",
-        "CW",
-        "DM",
-        "FJ",
-        "GM",
-        "GE",
-        "GD",
-        "GW",
-        "GY",
-        "HT",
-        "JM",
-        "KI",
-        "LS",
-        "LR",
-        "MW",
-        "MV",
-        "ML",
-        "MH",
-        "FM",
-        "NA",
-        "NR",
-        "NE",
-        "PW",
-        "PG",
-        "PR",
-        "WS",
-        "SM",
-        "ST",
-        "SN",
-        "SC",
-        "SL",
-        "SB",
-        "KN",
-        "LC",
-        "VC",
-        "SR",
-        "TL",
-        "TO",
-        "TT",
-        "TV",
-        "VU",
-        "AZ",
-        "BN",
-        "BI",
-        "KH",
-        "CM",
-        "TD",
-        "KM",
-        "GQ",
-        "SZ",
-        "GA",
-        "GN",
-        "KG",
-        "LA",
-        "MO",
-        "MR",
-        "MN",
-        "NP",
-        "RW",
-        "TG",
-        "UZ",
-        "ZW",
-        "BJ",
-        "MG",
-        "MU",
-        "MZ",
-        "AO",
-        "CI",
-        "DJ",
-        "ZM",
-        "CD",
-        "CG",
-        "IQ",
-        "LY",
-        "TJ",
-        "VE",
-        "ET",
-        "XK"
-      ],
-      "disc_number": 1,
-      "duration_ms": 377560,
-      "explicit": false,
-      "external_ids": {
-        "isrc": "GBADD0821803"
-      },
-      "external_urls": {
-        "spotify": "https://open.spotify.com/track/34IYs1PGPvRhjiJJ9Xayry"
-      },
-      "href": "https://api.spotify.com/v1/tracks/34IYs1PGPvRhjiJJ9Xayry",
-      "id": "34IYs1PGPvRhjiJJ9Xayry",
-      "is_local": false,
-      "is_playable": true,
-      "name": "Unhealer",
-      "popularity": 25,
-      "preview_url": null,
-      "track_number": 3,
-      "type": "track",
-      "uri": "spotify:track:34IYs1PGPvRhjiJJ9Xayry"
     }
   ]
 }

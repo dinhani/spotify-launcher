@@ -1,4 +1,5 @@
 {
+  "downloaded_at": "2026-10-30T03:27:48+00:00",
   "artist": {
     "external_urls": {
       "spotify": "https://open.spotify.com/artist/0UGvFl1tJ49Co99gaXZH9Z"
@@ -2339,7 +2340,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Crashland",
-      "popularity": 34,
+      "popularity": 33,
       "preview_url": null,
       "track_number": 2,
       "type": "track",
@@ -4143,7 +4144,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "To Thou Who Dwellest in the Night",
-      "popularity": 26,
+      "popularity": 27,
       "preview_url": null,
       "track_number": 1,
       "type": "track",
@@ -6398,7 +6399,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Radical Cut",
-      "popularity": 23,
+      "popularity": 22,
       "preview_url": null,
       "track_number": 6,
       "type": "track",

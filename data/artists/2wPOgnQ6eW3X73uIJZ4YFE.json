@@ -1,4 +1,5 @@
 {
+  "downloaded_at": "2026-10-30T03:29:04+00:00",
   "artist": {
     "external_urls": {
       "spotify": "https://open.spotify.com/artist/2wPOgnQ6eW3X73uIJZ4YFE"
@@ -3457,7 +3458,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Tanz mit mir",
-      "popularity": 58,
+      "popularity": 57,
       "preview_url": null,
       "track_number": 4,
       "type": "track",
@@ -3902,7 +3903,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Federkleid",
-      "popularity": 54,
+      "popularity": 53,
       "preview_url": null,
       "track_number": 2,
       "type": "track",
@@ -4335,7 +4336,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Walpurgisnacht",
-      "popularity": 51,
+      "popularity": 50,
       "preview_url": null,
       "track_number": 2,
       "type": "track",
@@ -4786,7 +4787,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Satyros",
-      "popularity": 50,
+      "popularity": 49,
       "preview_url": null,
       "track_number": 1,
       "type": "track",
@@ -4794,7 +4795,7 @@
     },
     {
       "album": {
-        "album_type": "single",
+        "album_type": "album",
         "artists": [
           {
             "external_urls": {
@@ -4805,16 +4806,6 @@
             "name": "In Extremo",
             "type": "artist",
             "uri": "spotify:artist:4MAvEYtgY8yNljGP697n4F"
-          },
-          {
-            "external_urls": {
-              "spotify": "https://open.spotify.com/artist/2wPOgnQ6eW3X73uIJZ4YFE"
-            },
-            "href": "https://api.spotify.com/v1/artists/2wPOgnQ6eW3X73uIJZ4YFE",
-            "id": "2wPOgnQ6eW3X73uIJZ4YFE",
-            "name": "Faun",
-            "type": "artist",
-            "uri": "spotify:artist:2wPOgnQ6eW3X73uIJZ4YFE"
           }
         ],
         "available_markets": [
@@ -5003,34 +4994,34 @@
           "XK"
         ],
         "external_urls": {
-          "spotify": "https://open.spotify.com/album/1iOqOGTjmi5brbBAXla1pH"
+          "spotify": "https://open.spotify.com/album/4syk53ygipYaeFFMTBFOCK"
         },
-        "href": "https://api.spotify.com/v1/albums/1iOqOGTjmi5brbBAXla1pH",
-        "id": "1iOqOGTjmi5brbBAXla1pH",
+        "href": "https://api.spotify.com/v1/albums/4syk53ygipYaeFFMTBFOCK",
+        "id": "4syk53ygipYaeFFMTBFOCK",
         "images": [
           {
-            "url": "https://i.scdn.co/image/ab67616d0000b273c73d19914bc376adb4281146",
+            "url": "https://i.scdn.co/image/ab67616d0000b2736469057350f63ef394e8152b",
             "height": 640,
             "width": 640
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d00001e02c73d19914bc376adb4281146",
+            "url": "https://i.scdn.co/image/ab67616d00001e026469057350f63ef394e8152b",
             "height": 300,
             "width": 300
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d00004851c73d19914bc376adb4281146",
+            "url": "https://i.scdn.co/image/ab67616d000048516469057350f63ef394e8152b",
             "height": 64,
             "width": 64
           }
         ],
         "is_playable": true,
-        "name": "Liam (feat. Laura Fella von Faun)",
-        "release_date": "2026-08-28",
+        "name": "Tranquilo II",
+        "release_date": "2026-10-23",
         "release_date_precision": "day",
-        "total_tracks": 1,
+        "total_tracks": 17,
         "type": "album",
-        "uri": "spotify:album:1iOqOGTjmi5brbBAXla1pH"
+        "uri": "spotify:album:4syk53ygipYaeFFMTBFOCK"
       },
       "artists": [
         {
@@ -5246,18 +5237,18 @@
         "isrc": "DEUM72603985"
       },
       "external_urls": {
-        "spotify": "https://open.spotify.com/track/13vDxwh1jjJW7D8nLZlUpH"
+        "spotify": "https://open.spotify.com/track/2o0pcS0MaP2R2ExKejJ9Mf"
       },
-      "href": "https://api.spotify.com/v1/tracks/13vDxwh1jjJW7D8nLZlUpH",
-      "id": "13vDxwh1jjJW7D8nLZlUpH",
+      "href": "https://api.spotify.com/v1/tracks/2o0pcS0MaP2R2ExKejJ9Mf",
+      "id": "2o0pcS0MaP2R2ExKejJ9Mf",
       "is_local": false,
       "is_playable": true,
       "name": "Liam (feat. Laura Fella von Faun)",
-      "popularity": 48,
+      "popularity": 38,
       "preview_url": null,
-      "track_number": 1,
+      "track_number": 4,
       "type": "track",
-      "uri": "spotify:track:13vDxwh1jjJW7D8nLZlUpH"
+      "uri": "spotify:track:2o0pcS0MaP2R2ExKejJ9Mf"
     },
     {
       "album": {
@@ -5700,7 +5691,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Diese kalte Nacht",
-      "popularity": 48,
+      "popularity": 47,
       "preview_url": null,
       "track_number": 2,
       "type": "track",
@@ -6161,7 +6152,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Gwydion",
-      "popularity": 45,
+      "popularity": 44,
       "preview_url": null,
       "track_number": 3,
       "type": "track",
@@ -6612,7 +6603,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Rhiannon",
-      "popularity": 45,
+      "popularity": 44,
       "preview_url": null,
       "track_number": 4,
       "type": "track",
@@ -6620,7 +6611,7 @@
     },
     {
       "album": {
-        "album_type": "album",
+        "album_type": "single",
         "artists": [
           {
             "external_urls": {
@@ -6661,6 +6652,7 @@
           "HK",
           "HU",
           "IS",
+          "IE",
           "IT",
           "LV",
           "LT",
@@ -6687,6 +6679,7 @@
           "TR",
           "UY",
           "US",
+          "GB",
           "AD",
           "LI",
           "MC",
@@ -6763,6 +6756,7 @@
           "NE",
           "PW",
           "PG",
+          "PR",
           "WS",
           "SM",
           "ST",
@@ -6818,34 +6812,34 @@
           "XK"
         ],
         "external_urls": {
-          "spotify": "https://open.spotify.com/album/04pvyQSyN6sbCvxxQUEoMH"
+          "spotify": "https://open.spotify.com/album/7B3Qy6vw8XzE7QO3plEaX6"
         },
-        "href": "https://api.spotify.com/v1/albums/04pvyQSyN6sbCvxxQUEoMH",
-        "id": "04pvyQSyN6sbCvxxQUEoMH",
+        "href": "https://api.spotify.com/v1/albums/7B3Qy6vw8XzE7QO3plEaX6",
+        "id": "7B3Qy6vw8XzE7QO3plEaX6",
         "images": [
           {
-            "url": "https://i.scdn.co/image/ab67616d0000b27388a4a50695d54e0b9c44f121",
+            "url": "https://i.scdn.co/image/ab67616d0000b27317fc01c25c7ace3becd5459d",
             "height": 640,
             "width": 640
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d00001e0288a4a50695d54e0b9c44f121",
+            "url": "https://i.scdn.co/image/ab67616d00001e0217fc01c25c7ace3becd5459d",
             "height": 300,
             "width": 300
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d0000485188a4a50695d54e0b9c44f121",
+            "url": "https://i.scdn.co/image/ab67616d0000485117fc01c25c7ace3becd5459d",
             "height": 64,
             "width": 64
           }
         ],
         "is_playable": true,
-        "name": "Midgard (Tour Edition)",
-        "release_date": "2017-03-03",
+        "name": "Witches Reel",
+        "release_date": "2026-10-23",
         "release_date_precision": "day",
-        "total_tracks": 23,
+        "total_tracks": 1,
         "type": "album",
-        "uri": "spotify:album:04pvyQSyN6sbCvxxQUEoMH"
+        "uri": "spotify:album:7B3Qy6vw8XzE7QO3plEaX6"
       },
       "artists": [
         {
@@ -6887,6 +6881,7 @@
         "HK",
         "HU",
         "IS",
+        "IE",
         "IT",
         "LV",
         "LT",
@@ -6913,6 +6908,7 @@
         "TR",
         "UY",
         "US",
+        "GB",
         "AD",
         "LI",
         "MC",
@@ -6989,6 +6985,7 @@
         "NE",
         "PW",
         "PG",
+        "PR",
         "WS",
         "SM",
         "ST",
@@ -7044,24 +7041,24 @@
         "XK"
       ],
       "disc_number": 1,
-      "duration_ms": 234173,
+      "duration_ms": 200723,
       "explicit": false,
       "external_ids": {
-        "isrc": "DEUM71602146"
+        "isrc": "DEBL62600161"
       },
       "external_urls": {
-        "spotify": "https://open.spotify.com/track/18bGxN8OwsyEA1IhbYIubv"
+        "spotify": "https://open.spotify.com/track/4Wr4RYDHa6B82gxPCgMhDu"
       },
-      "href": "https://api.spotify.com/v1/tracks/18bGxN8OwsyEA1IhbYIubv",
-      "id": "18bGxN8OwsyEA1IhbYIubv",
+      "href": "https://api.spotify.com/v1/tracks/4Wr4RYDHa6B82gxPCgMhDu",
+      "id": "4Wr4RYDHa6B82gxPCgMhDu",
       "is_local": false,
       "is_playable": true,
-      "name": "Sonnenreigen (Lughnasad)",
+      "name": "Witches Reel",
       "popularity": 43,
       "preview_url": null,
-      "track_number": 3,
+      "track_number": 1,
       "type": "track",
-      "uri": "spotify:track:18bGxN8OwsyEA1IhbYIubv"
+      "uri": "spotify:track:4Wr4RYDHa6B82gxPCgMhDu"
     },
     {
       "album": {
@@ -7508,7 +7505,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Halloween",
-      "popularity": 42,
+      "popularity": 43,
       "preview_url": null,
       "track_number": 2,
       "type": "track",

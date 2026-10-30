@@ -1,4 +1,5 @@
 {
+  "downloaded_at": "2026-10-30T03:26:47+00:00",
   "artist": {
     "external_urls": {
       "spotify": "https://open.spotify.com/artist/6wWVKhxIU2cEi0K81v7HvP"
@@ -4111,7 +4112,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Deutschland",
-      "popularity": 79,
+      "popularity": 78,
       "preview_url": null,
       "track_number": 1,
       "type": "track",
@@ -5874,24 +5875,24 @@
         "XK"
       ],
       "disc_number": 1,
-      "duration_ms": 188600,
+      "duration_ms": 279893,
       "explicit": false,
       "external_ids": {
-        "isrc": "DEN120100007"
+        "isrc": "DEN120100002"
       },
       "external_urls": {
-        "spotify": "https://open.spotify.com/track/5aNH8inF5BsbThDeOLs7zs"
+        "spotify": "https://open.spotify.com/track/5ArNGisLzrNOIVwWajRRdt"
       },
-      "href": "https://api.spotify.com/v1/tracks/5aNH8inF5BsbThDeOLs7zs",
-      "id": "5aNH8inF5BsbThDeOLs7zs",
+      "href": "https://api.spotify.com/v1/tracks/5ArNGisLzrNOIVwWajRRdt",
+      "id": "5ArNGisLzrNOIVwWajRRdt",
       "is_local": false,
       "is_playable": true,
-      "name": "Feuer frei!",
+      "name": "Mein Herz brennt",
       "popularity": 71,
       "preview_url": null,
-      "track_number": 5,
+      "track_number": 1,
       "type": "track",
-      "uri": "spotify:track:5aNH8inF5BsbThDeOLs7zs"
+      "uri": "spotify:track:5ArNGisLzrNOIVwWajRRdt"
     },
     {
       "album": {
@@ -6317,24 +6318,24 @@
         "XK"
       ],
       "disc_number": 1,
-      "duration_ms": 279893,
+      "duration_ms": 188600,
       "explicit": false,
       "external_ids": {
-        "isrc": "DEN120100002"
+        "isrc": "DEN120100007"
       },
       "external_urls": {
-        "spotify": "https://open.spotify.com/track/5ArNGisLzrNOIVwWajRRdt"
+        "spotify": "https://open.spotify.com/track/5aNH8inF5BsbThDeOLs7zs"
       },
-      "href": "https://api.spotify.com/v1/tracks/5ArNGisLzrNOIVwWajRRdt",
-      "id": "5ArNGisLzrNOIVwWajRRdt",
+      "href": "https://api.spotify.com/v1/tracks/5aNH8inF5BsbThDeOLs7zs",
+      "id": "5aNH8inF5BsbThDeOLs7zs",
       "is_local": false,
       "is_playable": true,
-      "name": "Mein Herz brennt",
-      "popularity": 72,
+      "name": "Feuer frei!",
+      "popularity": 71,
       "preview_url": null,
-      "track_number": 1,
+      "track_number": 5,
       "type": "track",
-      "uri": "spotify:track:5ArNGisLzrNOIVwWajRRdt"
+      "uri": "spotify:track:5aNH8inF5BsbThDeOLs7zs"
     },
     {
       "album": {

@@ -1,4 +1,5 @@
 {
+  "downloaded_at": "2026-10-30T03:26:52+00:00",
   "artist": {
     "external_urls": {
       "spotify": "https://open.spotify.com/artist/0yLwGBQiBqhXOvmTfH2A7n"
@@ -5094,7 +5095,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Hammer Smashed Face",
-      "popularity": 59,
+      "popularity": 58,
       "preview_url": null,
       "track_number": 1,
       "type": "track",
@@ -6892,7 +6893,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Inhumane Harvest",
-      "popularity": 51,
+      "popularity": 50,
       "preview_url": null,
       "track_number": 3,
       "type": "track",
@@ -8243,7 +8244,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Make Them Suffer",
-      "popularity": 47,
+      "popularity": 46,
       "preview_url": null,
       "track_number": 2,
       "type": "track",
@@ -9145,7 +9146,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Blood Blind",
-      "popularity": 44,
+      "popularity": 43,
       "preview_url": null,
       "track_number": 4,
       "type": "track",

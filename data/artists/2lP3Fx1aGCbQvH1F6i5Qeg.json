@@ -1,4 +1,5 @@
 {
+  "downloaded_at": "2026-10-30T03:28:51+00:00",
   "artist": {
     "external_urls": {
       "spotify": "https://open.spotify.com/artist/2lP3Fx1aGCbQvH1F6i5Qeg"
@@ -2007,7 +2008,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Party Girl",
-      "popularity": 49,
+      "popularity": 48,
       "preview_url": null,
       "track_number": 3,
       "type": "track",
@@ -2430,7 +2431,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "End of an Era",
-      "popularity": 47,
+      "popularity": 45,
       "preview_url": null,
       "track_number": 7,
       "type": "track",
@@ -2853,7 +2854,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "First Six Months of Love",
-      "popularity": 46,
+      "popularity": 45,
       "preview_url": null,
       "track_number": 1,
       "type": "track",
@@ -4557,7 +4558,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Feel More",
-      "popularity": 40,
+      "popularity": 41,
       "preview_url": null,
       "track_number": 3,
       "type": "track",
@@ -4980,7 +4981,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Russian Ballerina",
-      "popularity": 40,
+      "popularity": 39,
       "preview_url": null,
       "track_number": 1,
       "type": "track",
@@ -5081,7 +5082,6 @@
           "JO",
           "PS",
           "IN",
-          "BY",
           "KZ",
           "MD",
           "UA",
@@ -5090,7 +5090,6 @@
           "HR",
           "ME",
           "MK",
-          "RS",
           "SI",
           "KR",
           "BD",
@@ -5152,7 +5151,6 @@
           "VU",
           "AZ",
           "BN",
-          "BI",
           "KH",
           "CM",
           "TD",
@@ -5170,7 +5168,6 @@
           "RW",
           "TG",
           "UZ",
-          "ZW",
           "BJ",
           "MG",
           "MU",
@@ -5179,44 +5176,40 @@
           "CI",
           "DJ",
           "ZM",
-          "CD",
           "CG",
-          "IQ",
-          "LY",
           "TJ",
           "VE",
-          "ET",
-          "XK"
+          "ET"
         ],
         "external_urls": {
-          "spotify": "https://open.spotify.com/album/6OQcSaDo8AhmIkqcJCJ2zb"
+          "spotify": "https://open.spotify.com/album/265ZPUKJRxjObMzPZZNVHb"
         },
-        "href": "https://api.spotify.com/v1/albums/6OQcSaDo8AhmIkqcJCJ2zb",
-        "id": "6OQcSaDo8AhmIkqcJCJ2zb",
+        "href": "https://api.spotify.com/v1/albums/265ZPUKJRxjObMzPZZNVHb",
+        "id": "265ZPUKJRxjObMzPZZNVHb",
         "images": [
           {
-            "url": "https://i.scdn.co/image/ab67616d0000b2737f6e2b237e2d5ba96b5d4224",
+            "url": "https://i.scdn.co/image/ab67616d0000b27388070f72b25d5954a7e61165",
             "height": 640,
             "width": 640
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d00001e027f6e2b237e2d5ba96b5d4224",
+            "url": "https://i.scdn.co/image/ab67616d00001e0288070f72b25d5954a7e61165",
             "height": 300,
             "width": 300
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d000048517f6e2b237e2d5ba96b5d4224",
+            "url": "https://i.scdn.co/image/ab67616d0000485188070f72b25d5954a7e61165",
             "height": 64,
             "width": 64
           }
         ],
         "is_playable": true,
-        "name": "Boring",
-        "release_date": "2026-09-04",
+        "name": "Love from a Distance",
+        "release_date": "2020-03-22",
         "release_date_precision": "day",
         "total_tracks": 1,
         "type": "album",
-        "uri": "spotify:album:6OQcSaDo8AhmIkqcJCJ2zb"
+        "uri": "spotify:album:265ZPUKJRxjObMzPZZNVHb"
       },
       "artists": [
         {
@@ -5310,7 +5303,6 @@
         "JO",
         "PS",
         "IN",
-        "BY",
         "KZ",
         "MD",
         "UA",
@@ -5319,7 +5311,6 @@
         "HR",
         "ME",
         "MK",
-        "RS",
         "SI",
         "KR",
         "BD",
@@ -5381,7 +5372,6 @@
         "VU",
         "AZ",
         "BN",
-        "BI",
         "KH",
         "CM",
         "TD",
@@ -5399,7 +5389,6 @@
         "RW",
         "TG",
         "UZ",
-        "ZW",
         "BJ",
         "MG",
         "MU",
@@ -5408,34 +5397,30 @@
         "CI",
         "DJ",
         "ZM",
-        "CD",
         "CG",
-        "IQ",
-        "LY",
         "TJ",
         "VE",
-        "ET",
-        "XK"
+        "ET"
       ],
       "disc_number": 1,
-      "duration_ms": 336443,
+      "duration_ms": 171881,
       "explicit": false,
       "external_ids": {
-        "isrc": "QT6692620009"
+        "isrc": "TCAES2057463"
       },
       "external_urls": {
-        "spotify": "https://open.spotify.com/track/0BysvJfhS9uGoUG2i4rhek"
+        "spotify": "https://open.spotify.com/track/27f3eO5Pmkr5Pa258NPPJM"
       },
-      "href": "https://api.spotify.com/v1/tracks/0BysvJfhS9uGoUG2i4rhek",
-      "id": "0BysvJfhS9uGoUG2i4rhek",
+      "href": "https://api.spotify.com/v1/tracks/27f3eO5Pmkr5Pa258NPPJM",
+      "id": "27f3eO5Pmkr5Pa258NPPJM",
       "is_local": false,
       "is_playable": true,
-      "name": "Boring",
+      "name": "Love from a Distance",
       "popularity": 38,
       "preview_url": null,
       "track_number": 1,
       "type": "track",
-      "uri": "spotify:track:0BysvJfhS9uGoUG2i4rhek"
+      "uri": "spotify:track:27f3eO5Pmkr5Pa258NPPJM"
     },
     {
       "album": {

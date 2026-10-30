@@ -1,4 +1,5 @@
 {
+  "downloaded_at": "2026-10-30T03:27:52+00:00",
   "artist": {
     "external_urls": {
       "spotify": "https://open.spotify.com/artist/2NPduAUeLVsfIauhRwuft1"
@@ -7116,7 +7117,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Amaranth",
-      "popularity": 66,
+      "popularity": 65,
       "preview_url": null,
       "track_number": 3,
       "type": "track",
@@ -8461,7 +8462,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Bye Bye Beautiful",
-      "popularity": 61,
+      "popularity": 60,
       "preview_url": null,
       "track_number": 2,
       "type": "track",
@@ -8906,7 +8907,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Élan",
-      "popularity": 61,
+      "popularity": 60,
       "preview_url": null,
       "track_number": 3,
       "type": "track",
@@ -9353,7 +9354,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Last Ride of the Day",
-      "popularity": 61,
+      "popularity": 60,
       "preview_url": null,
       "track_number": 11,
       "type": "track",

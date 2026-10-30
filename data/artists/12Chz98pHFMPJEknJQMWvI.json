@@ -1,4 +1,5 @@
 {
+  "downloaded_at": "2026-10-30T03:28:32+00:00",
   "artist": {
     "external_urls": {
       "spotify": "https://open.spotify.com/artist/12Chz98pHFMPJEknJQMWvI"
@@ -3539,7 +3540,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Supermassive Black Hole",
-      "popularity": 86,
+      "popularity": 85,
       "preview_url": null,
       "track_number": 3,
       "type": "track",
@@ -4437,7 +4438,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Hysteria",
-      "popularity": 81,
+      "popularity": 80,
       "preview_url": null,
       "track_number": 8,
       "type": "track",
@@ -6235,7 +6236,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Knights of Cydonia",
-      "popularity": 74,
+      "popularity": 73,
       "preview_url": null,
       "track_number": 11,
       "type": "track",
@@ -6686,7 +6687,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Madness",
-      "popularity": 73,
+      "popularity": 72,
       "preview_url": null,
       "track_number": 2,
       "type": "track",

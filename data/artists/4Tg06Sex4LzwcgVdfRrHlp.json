@@ -1,4 +1,5 @@
 {
+  "downloaded_at": "2026-10-30T03:28:22+00:00",
   "artist": {
     "external_urls": {
       "spotify": "https://open.spotify.com/artist/4Tg06Sex4LzwcgVdfRrHlp"
@@ -1500,7 +1501,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Death Dies Hard",
-      "popularity": 32,
+      "popularity": 30,
       "preview_url": null,
       "track_number": 3,
       "type": "track",
@@ -1881,7 +1882,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Cyanide",
-      "popularity": 34,
+      "popularity": 33,
       "preview_url": null,
       "track_number": 4,
       "type": "track",
@@ -2262,7 +2263,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Blitzkrieg",
-      "popularity": 37,
+      "popularity": 36,
       "preview_url": null,
       "track_number": 2,
       "type": "track",
@@ -2713,7 +2714,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Ghost Reviver",
-      "popularity": 41,
+      "popularity": 40,
       "preview_url": null,
       "track_number": 4,
       "type": "track",
@@ -3094,7 +3095,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "The Last Ammunition",
-      "popularity": 29,
+      "popularity": 28,
       "preview_url": null,
       "track_number": 8,
       "type": "track",
@@ -3545,7 +3546,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Midnight Party",
-      "popularity": 38,
+      "popularity": 37,
       "preview_url": null,
       "track_number": 2,
       "type": "track",
@@ -3557,13 +3558,13 @@
         "artists": [
           {
             "external_urls": {
-              "spotify": "https://open.spotify.com/artist/28eLrVsohdXynlnIzQ2VvI"
+              "spotify": "https://open.spotify.com/artist/4Tg06Sex4LzwcgVdfRrHlp"
             },
-            "href": "https://api.spotify.com/v1/artists/28eLrVsohdXynlnIzQ2VvI",
-            "id": "28eLrVsohdXynlnIzQ2VvI",
-            "name": "Lord Of The Lost",
+            "href": "https://api.spotify.com/v1/artists/4Tg06Sex4LzwcgVdfRrHlp",
+            "id": "4Tg06Sex4LzwcgVdfRrHlp",
+            "name": "Deathstars",
             "type": "artist",
-            "uri": "spotify:artist:28eLrVsohdXynlnIzQ2VvI"
+            "uri": "spotify:artist:4Tg06Sex4LzwcgVdfRrHlp"
           }
         ],
         "available_markets": [
@@ -3754,46 +3755,36 @@
           "XK"
         ],
         "external_urls": {
-          "spotify": "https://open.spotify.com/album/30g6j2xuqynpAiohatDOW6"
+          "spotify": "https://open.spotify.com/album/6nP6RchzXbDsZsjq3IKk5b"
         },
-        "href": "https://api.spotify.com/v1/albums/30g6j2xuqynpAiohatDOW6",
-        "id": "30g6j2xuqynpAiohatDOW6",
+        "href": "https://api.spotify.com/v1/albums/6nP6RchzXbDsZsjq3IKk5b",
+        "id": "6nP6RchzXbDsZsjq3IKk5b",
         "images": [
           {
-            "url": "https://i.scdn.co/image/ab67616d0000b27322e8fe51124a59f85957aa1b",
+            "url": "https://i.scdn.co/image/ab67616d0000b2736b7cbd44fed21cf47fd9c051",
             "height": 640,
             "width": 640
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d00001e0222e8fe51124a59f85957aa1b",
+            "url": "https://i.scdn.co/image/ab67616d00001e026b7cbd44fed21cf47fd9c051",
             "height": 300,
             "width": 300
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d0000485122e8fe51124a59f85957aa1b",
+            "url": "https://i.scdn.co/image/ab67616d000048516b7cbd44fed21cf47fd9c051",
             "height": 64,
             "width": 64
           }
         ],
         "is_playable": true,
-        "name": "OPVS NOIR Vol. 1",
-        "release_date": "2025-08-08",
+        "name": "The Perfect Cult",
+        "release_date": "2014-06-13",
         "release_date_precision": "day",
-        "total_tracks": 11,
+        "total_tracks": 23,
         "type": "album",
-        "uri": "spotify:album:30g6j2xuqynpAiohatDOW6"
+        "uri": "spotify:album:6nP6RchzXbDsZsjq3IKk5b"
       },
       "artists": [
-        {
-          "external_urls": {
-            "spotify": "https://open.spotify.com/artist/28eLrVsohdXynlnIzQ2VvI"
-          },
-          "href": "https://api.spotify.com/v1/artists/28eLrVsohdXynlnIzQ2VvI",
-          "id": "28eLrVsohdXynlnIzQ2VvI",
-          "name": "Lord Of The Lost",
-          "type": "artist",
-          "uri": "spotify:artist:28eLrVsohdXynlnIzQ2VvI"
-        },
         {
           "external_urls": {
             "spotify": "https://open.spotify.com/artist/4Tg06Sex4LzwcgVdfRrHlp"
@@ -3993,24 +3984,24 @@
         "XK"
       ],
       "disc_number": 1,
-      "duration_ms": 224532,
+      "duration_ms": 295520,
       "explicit": false,
       "external_ids": {
-        "isrc": "ATN262528506"
+        "isrc": "DED831400157"
       },
       "external_urls": {
-        "spotify": "https://open.spotify.com/track/4kk1r46TxZSqmY1pt4sFWL"
+        "spotify": "https://open.spotify.com/track/1vBkduzEvY04zKB9xfoUWW"
       },
-      "href": "https://api.spotify.com/v1/tracks/4kk1r46TxZSqmY1pt4sFWL",
-      "id": "4kk1r46TxZSqmY1pt4sFWL",
+      "href": "https://api.spotify.com/v1/tracks/1vBkduzEvY04zKB9xfoUWW",
+      "id": "1vBkduzEvY04zKB9xfoUWW",
       "is_local": false,
       "is_playable": true,
-      "name": "Damage",
+      "name": "Explode",
       "popularity": 37,
       "preview_url": null,
-      "track_number": 6,
+      "track_number": 1,
       "type": "track",
-      "uri": "spotify:track:4kk1r46TxZSqmY1pt4sFWL"
+      "uri": "spotify:track:1vBkduzEvY04zKB9xfoUWW"
     },
     {
       "album": {
@@ -4908,7 +4899,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "The Perfect Cult",
-      "popularity": 37,
+      "popularity": 36,
       "preview_url": null,
       "track_number": 5,
       "type": "track",
@@ -4920,13 +4911,13 @@
         "artists": [
           {
             "external_urls": {
-              "spotify": "https://open.spotify.com/artist/4Tg06Sex4LzwcgVdfRrHlp"
+              "spotify": "https://open.spotify.com/artist/28eLrVsohdXynlnIzQ2VvI"
             },
-            "href": "https://api.spotify.com/v1/artists/4Tg06Sex4LzwcgVdfRrHlp",
-            "id": "4Tg06Sex4LzwcgVdfRrHlp",
-            "name": "Deathstars",
+            "href": "https://api.spotify.com/v1/artists/28eLrVsohdXynlnIzQ2VvI",
+            "id": "28eLrVsohdXynlnIzQ2VvI",
+            "name": "Lord Of The Lost",
             "type": "artist",
-            "uri": "spotify:artist:4Tg06Sex4LzwcgVdfRrHlp"
+            "uri": "spotify:artist:28eLrVsohdXynlnIzQ2VvI"
           }
         ],
         "available_markets": [
@@ -5117,36 +5108,46 @@
           "XK"
         ],
         "external_urls": {
-          "spotify": "https://open.spotify.com/album/6nP6RchzXbDsZsjq3IKk5b"
+          "spotify": "https://open.spotify.com/album/30g6j2xuqynpAiohatDOW6"
         },
-        "href": "https://api.spotify.com/v1/albums/6nP6RchzXbDsZsjq3IKk5b",
-        "id": "6nP6RchzXbDsZsjq3IKk5b",
+        "href": "https://api.spotify.com/v1/albums/30g6j2xuqynpAiohatDOW6",
+        "id": "30g6j2xuqynpAiohatDOW6",
         "images": [
           {
-            "url": "https://i.scdn.co/image/ab67616d0000b2736b7cbd44fed21cf47fd9c051",
+            "url": "https://i.scdn.co/image/ab67616d0000b27322e8fe51124a59f85957aa1b",
             "height": 640,
             "width": 640
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d00001e026b7cbd44fed21cf47fd9c051",
+            "url": "https://i.scdn.co/image/ab67616d00001e0222e8fe51124a59f85957aa1b",
             "height": 300,
             "width": 300
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d000048516b7cbd44fed21cf47fd9c051",
+            "url": "https://i.scdn.co/image/ab67616d0000485122e8fe51124a59f85957aa1b",
             "height": 64,
             "width": 64
           }
         ],
         "is_playable": true,
-        "name": "The Perfect Cult",
-        "release_date": "2014-06-13",
+        "name": "OPVS NOIR Vol. 1",
+        "release_date": "2025-08-08",
         "release_date_precision": "day",
-        "total_tracks": 23,
+        "total_tracks": 11,
         "type": "album",
-        "uri": "spotify:album:6nP6RchzXbDsZsjq3IKk5b"
+        "uri": "spotify:album:30g6j2xuqynpAiohatDOW6"
       },
       "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/28eLrVsohdXynlnIzQ2VvI"
+          },
+          "href": "https://api.spotify.com/v1/artists/28eLrVsohdXynlnIzQ2VvI",
+          "id": "28eLrVsohdXynlnIzQ2VvI",
+          "name": "Lord Of The Lost",
+          "type": "artist",
+          "uri": "spotify:artist:28eLrVsohdXynlnIzQ2VvI"
+        },
         {
           "external_urls": {
             "spotify": "https://open.spotify.com/artist/4Tg06Sex4LzwcgVdfRrHlp"
@@ -5346,24 +5347,24 @@
         "XK"
       ],
       "disc_number": 1,
-      "duration_ms": 295520,
+      "duration_ms": 224532,
       "explicit": false,
       "external_ids": {
-        "isrc": "DED831400157"
+        "isrc": "ATN262528506"
       },
       "external_urls": {
-        "spotify": "https://open.spotify.com/track/1vBkduzEvY04zKB9xfoUWW"
+        "spotify": "https://open.spotify.com/track/4kk1r46TxZSqmY1pt4sFWL"
       },
-      "href": "https://api.spotify.com/v1/tracks/1vBkduzEvY04zKB9xfoUWW",
-      "id": "1vBkduzEvY04zKB9xfoUWW",
+      "href": "https://api.spotify.com/v1/tracks/4kk1r46TxZSqmY1pt4sFWL",
+      "id": "4kk1r46TxZSqmY1pt4sFWL",
       "is_local": false,
       "is_playable": true,
-      "name": "Explode",
+      "name": "Damage",
       "popularity": 36,
       "preview_url": null,
-      "track_number": 1,
+      "track_number": 6,
       "type": "track",
-      "uri": "spotify:track:1vBkduzEvY04zKB9xfoUWW"
+      "uri": "spotify:track:4kk1r46TxZSqmY1pt4sFWL"
     }
   ]
 }

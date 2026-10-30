@@ -1,4 +1,5 @@
 {
+  "downloaded_at": "2026-10-30T03:27:31+00:00",
   "artist": {
     "external_urls": {
       "spotify": "https://open.spotify.com/artist/6QpbkfyEQJ3JiQw2AbTRUH"
@@ -2795,7 +2796,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Ride On",
-      "popularity": 38,
+      "popularity": 37,
       "preview_url": null,
       "track_number": 8,
       "type": "track",
@@ -3246,7 +3247,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "The Marching Song of Fiach Mac Hugh",
-      "popularity": 33,
+      "popularity": 31,
       "preview_url": null,
       "track_number": 5,
       "type": "track",
@@ -3693,7 +3694,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "The Morrigan's Call",
-      "popularity": 30,
+      "popularity": 29,
       "preview_url": null,
       "track_number": 7,
       "type": "track",
@@ -5493,7 +5494,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Some Say The Devil Is Dead",
-      "popularity": 24,
+      "popularity": 23,
       "preview_url": null,
       "track_number": 8,
       "type": "track",
@@ -6395,7 +6396,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Gae Bolga",
-      "popularity": 19,
+      "popularity": 18,
       "preview_url": null,
       "track_number": 7,
       "type": "track",
@@ -6403,7 +6404,7 @@
     },
     {
       "album": {
-        "album_type": "single",
+        "album_type": "album",
         "artists": [
           {
             "external_urls": {
@@ -6604,34 +6605,34 @@
           "XK"
         ],
         "external_urls": {
-          "spotify": "https://open.spotify.com/album/5QPXAvG4WAlo0sjcwk2Q3t"
+          "spotify": "https://open.spotify.com/album/6f9HgmGMSQjWgdQtmhx8L5"
         },
-        "href": "https://api.spotify.com/v1/albums/5QPXAvG4WAlo0sjcwk2Q3t",
-        "id": "5QPXAvG4WAlo0sjcwk2Q3t",
+        "href": "https://api.spotify.com/v1/albums/6f9HgmGMSQjWgdQtmhx8L5",
+        "id": "6f9HgmGMSQjWgdQtmhx8L5",
         "images": [
           {
-            "url": "https://i.scdn.co/image/ab67616d0000b273addfaa4f2359749e7edb3b33",
+            "url": "https://i.scdn.co/image/ab67616d0000b2736b74eca8c334a6b5962e98c1",
             "height": 640,
             "width": 640
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d00001e02addfaa4f2359749e7edb3b33",
+            "url": "https://i.scdn.co/image/ab67616d00001e026b74eca8c334a6b5962e98c1",
             "height": 300,
             "width": 300
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d00004851addfaa4f2359749e7edb3b33",
+            "url": "https://i.scdn.co/image/ab67616d000048516b74eca8c334a6b5962e98c1",
             "height": 64,
             "width": 64
           }
         ],
         "is_playable": true,
-        "name": "The Blacksmith",
-        "release_date": "2023-05-09",
+        "name": "The Middle Kingdom",
+        "release_date": "2000-06-01",
         "release_date_precision": "day",
-        "total_tracks": 1,
+        "total_tracks": 11,
         "type": "album",
-        "uri": "spotify:album:5QPXAvG4WAlo0sjcwk2Q3t"
+        "uri": "spotify:album:6f9HgmGMSQjWgdQtmhx8L5"
       },
       "artists": [
         {
@@ -6833,24 +6834,24 @@
         "XK"
       ],
       "disc_number": 1,
-      "duration_ms": 177032,
+      "duration_ms": 338040,
       "explicit": false,
       "external_ids": {
-        "isrc": "SEXTE2201501"
+        "isrc": "NLKRM0802702"
       },
       "external_urls": {
-        "spotify": "https://open.spotify.com/track/1BR7tj1UbWQ6u82mUee8Jp"
+        "spotify": "https://open.spotify.com/track/1vjBp7gAe2uxGWLeYL2s86"
       },
-      "href": "https://api.spotify.com/v1/tracks/1BR7tj1UbWQ6u82mUee8Jp",
-      "id": "1BR7tj1UbWQ6u82mUee8Jp",
+      "href": "https://api.spotify.com/v1/tracks/1vjBp7gAe2uxGWLeYL2s86",
+      "id": "1vjBp7gAe2uxGWLeYL2s86",
       "is_local": false,
       "is_playable": true,
-      "name": "The Blacksmith",
+      "name": "Celtica (Voice of Morrigan)",
       "popularity": 18,
       "preview_url": null,
-      "track_number": 1,
+      "track_number": 2,
       "type": "track",
-      "uri": "spotify:track:1BR7tj1UbWQ6u82mUee8Jp"
+      "uri": "spotify:track:1vjBp7gAe2uxGWLeYL2s86"
     }
   ]
 }

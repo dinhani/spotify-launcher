@@ -1,4 +1,5 @@
 {
+  "downloaded_at": "2026-10-30T03:28:56+00:00",
   "artist": {
     "external_urls": {
       "spotify": "https://open.spotify.com/artist/5Vj7LABYdzz3ZBt1EhDIoQ"
@@ -1374,24 +1375,24 @@
         "XK"
       ],
       "disc_number": 1,
-      "duration_ms": 196600,
+      "duration_ms": 260813,
       "explicit": false,
       "external_ids": {
-        "isrc": "CA0611600004"
+        "isrc": "CA0611600001"
       },
       "external_urls": {
-        "spotify": "https://open.spotify.com/track/23zhiszsn2ljGb4tzVJ6IL"
+        "spotify": "https://open.spotify.com/track/3luDEQNZ3pVoMe134J4Xru"
       },
-      "href": "https://api.spotify.com/v1/tracks/23zhiszsn2ljGb4tzVJ6IL",
-      "id": "23zhiszsn2ljGb4tzVJ6IL",
+      "href": "https://api.spotify.com/v1/tracks/3luDEQNZ3pVoMe134J4Xru",
+      "id": "3luDEQNZ3pVoMe134J4Xru",
       "is_local": false,
       "is_playable": true,
-      "name": "Trop tard",
-      "popularity": 17,
+      "name": "Free",
+      "popularity": 19,
       "preview_url": null,
-      "track_number": 4,
+      "track_number": 1,
       "type": "track",
-      "uri": "spotify:track:23zhiszsn2ljGb4tzVJ6IL"
+      "uri": "spotify:track:3luDEQNZ3pVoMe134J4Xru"
     },
     {
       "album": {
@@ -1823,24 +1824,24 @@
         "XK"
       ],
       "disc_number": 1,
-      "duration_ms": 260813,
+      "duration_ms": 196600,
       "explicit": false,
       "external_ids": {
-        "isrc": "CA0611600001"
+        "isrc": "CA0611600004"
       },
       "external_urls": {
-        "spotify": "https://open.spotify.com/track/3luDEQNZ3pVoMe134J4Xru"
+        "spotify": "https://open.spotify.com/track/23zhiszsn2ljGb4tzVJ6IL"
       },
-      "href": "https://api.spotify.com/v1/tracks/3luDEQNZ3pVoMe134J4Xru",
-      "id": "3luDEQNZ3pVoMe134J4Xru",
+      "href": "https://api.spotify.com/v1/tracks/23zhiszsn2ljGb4tzVJ6IL",
+      "id": "23zhiszsn2ljGb4tzVJ6IL",
       "is_local": false,
       "is_playable": true,
-      "name": "Free",
+      "name": "Trop tard",
       "popularity": 18,
       "preview_url": null,
-      "track_number": 1,
+      "track_number": 4,
       "type": "track",
-      "uri": "spotify:track:3luDEQNZ3pVoMe134J4Xru"
+      "uri": "spotify:track:23zhiszsn2ljGb4tzVJ6IL"
     },
     {
       "album": {
@@ -2281,7 +2282,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "How We Used To Be",
-      "popularity": 13,
+      "popularity": 12,
       "preview_url": null,
       "track_number": 1,
       "type": "track",
@@ -2726,7 +2727,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Aftertaste",
-      "popularity": 10,
+      "popularity": 9,
       "preview_url": null,
       "track_number": 6,
       "type": "track",
@@ -3175,7 +3176,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Raindrops",
-      "popularity": 13,
+      "popularity": 12,
       "preview_url": null,
       "track_number": 6,
       "type": "track",
@@ -3620,7 +3621,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "5AM",
-      "popularity": 13,
+      "popularity": 12,
       "preview_url": null,
       "track_number": 8,
       "type": "track",
@@ -4069,7 +4070,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "When We Were Young",
-      "popularity": 12,
+      "popularity": 11,
       "preview_url": null,
       "track_number": 3,
       "type": "track",
@@ -4518,7 +4519,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Pars plus sans moi",
-      "popularity": 10,
+      "popularity": 9,
       "preview_url": null,
       "track_number": 10,
       "type": "track",
@@ -4963,7 +4964,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "People Pleaser",
-      "popularity": 9,
+      "popularity": 8,
       "preview_url": null,
       "track_number": 9,
       "type": "track",

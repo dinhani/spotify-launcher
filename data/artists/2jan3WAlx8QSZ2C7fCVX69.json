@@ -1,4 +1,5 @@
 {
+  "downloaded_at": "2026-10-30T03:28:02+00:00",
   "artist": {
     "external_urls": {
       "spotify": "https://open.spotify.com/artist/2jan3WAlx8QSZ2C7fCVX69"
@@ -471,7 +472,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Evelyn",
-      "popularity": 38,
+      "popularity": 36,
       "preview_url": null,
       "track_number": 1,
       "type": "track",
@@ -914,7 +915,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Pony Boy",
-      "popularity": 3,
+      "popularity": 4,
       "preview_url": null,
       "track_number": 1,
       "type": "track",

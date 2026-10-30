@@ -1,4 +1,5 @@
 {
+  "downloaded_at": "2026-10-30T03:27:39+00:00",
   "artist": {
     "external_urls": {
       "spotify": "https://open.spotify.com/artist/5baLALm4KxY0I4z4OjumiZ"
@@ -2320,7 +2321,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Heart of Hickory",
-      "popularity": 29,
+      "popularity": 28,
       "preview_url": null,
       "track_number": 1,
       "type": "track",
@@ -2781,7 +2782,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Superdad",
-      "popularity": 18,
+      "popularity": 16,
       "preview_url": null,
       "track_number": 3,
       "type": "track",
@@ -3232,7 +3233,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Death in the Candystore",
-      "popularity": 24,
+      "popularity": 23,
       "preview_url": null,
       "track_number": 9,
       "type": "track",
@@ -3683,7 +3684,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Impermanence",
-      "popularity": 24,
+      "popularity": 23,
       "preview_url": null,
       "track_number": 2,
       "type": "track",
@@ -4098,7 +4099,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Madeleine Crumbles",
-      "popularity": 20,
+      "popularity": 19,
       "preview_url": null,
       "track_number": 6,
       "type": "track",
@@ -4559,7 +4560,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Father Superior",
-      "popularity": 22,
+      "popularity": 21,
       "preview_url": null,
       "track_number": 4,
       "type": "track",
@@ -5010,7 +5011,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Munchausen by Proxy",
-      "popularity": 22,
+      "popularity": 21,
       "preview_url": null,
       "track_number": 1,
       "type": "track",
@@ -5415,7 +5416,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Night Hitcher",
-      "popularity": 17,
+      "popularity": 16,
       "preview_url": null,
       "track_number": 2,
       "type": "track",
@@ -5866,7 +5867,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Viva the Apocalypse!",
-      "popularity": 19,
+      "popularity": 16,
       "preview_url": null,
       "track_number": 5,
       "type": "track",
@@ -6075,34 +6076,34 @@
           "XK"
         ],
         "external_urls": {
-          "spotify": "https://open.spotify.com/album/6z4h0DkJyi2uUHuvttapY7"
+          "spotify": "https://open.spotify.com/album/5AnIJlSj0uZutoXcbf8iAM"
         },
-        "href": "https://api.spotify.com/v1/albums/6z4h0DkJyi2uUHuvttapY7",
-        "id": "6z4h0DkJyi2uUHuvttapY7",
+        "href": "https://api.spotify.com/v1/albums/5AnIJlSj0uZutoXcbf8iAM",
+        "id": "5AnIJlSj0uZutoXcbf8iAM",
         "images": [
           {
-            "url": "https://i.scdn.co/image/ab67616d0000b27325e918942d3e990d66930182",
+            "url": "https://i.scdn.co/image/ab67616d0000b27384347ce4105ce4d865643e69",
             "height": 640,
             "width": 640
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d00001e0225e918942d3e990d66930182",
+            "url": "https://i.scdn.co/image/ab67616d00001e0284347ce4105ce4d865643e69",
             "height": 300,
             "width": 300
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d0000485125e918942d3e990d66930182",
+            "url": "https://i.scdn.co/image/ab67616d0000485184347ce4105ce4d865643e69",
             "height": 64,
             "width": 64
           }
         ],
         "is_playable": true,
-        "name": "Jonah (Prequel)",
-        "release_date": "2020-01-03",
+        "name": "Euthanasia Roller Coaster",
+        "release_date": "2013-06-14",
         "release_date_precision": "day",
         "total_tracks": 1,
         "type": "album",
-        "uri": "spotify:album:6z4h0DkJyi2uUHuvttapY7"
+        "uri": "spotify:album:5AnIJlSj0uZutoXcbf8iAM"
       },
       "artists": [
         {
@@ -6304,24 +6305,24 @@
         "XK"
       ],
       "disc_number": 1,
-      "duration_ms": 324133,
+      "duration_ms": 282884,
       "explicit": false,
       "external_ids": {
-        "isrc": "NO2MD2001010"
+        "isrc": "NO2MD1302010"
       },
       "external_urls": {
-        "spotify": "https://open.spotify.com/track/6BxSbnDyLz16WN0BoUwIWf"
+        "spotify": "https://open.spotify.com/track/4SQZyfplpQS6XSuCNnZKxF"
       },
-      "href": "https://api.spotify.com/v1/tracks/6BxSbnDyLz16WN0BoUwIWf",
-      "id": "6BxSbnDyLz16WN0BoUwIWf",
+      "href": "https://api.spotify.com/v1/tracks/4SQZyfplpQS6XSuCNnZKxF",
+      "id": "4SQZyfplpQS6XSuCNnZKxF",
       "is_local": false,
       "is_playable": true,
-      "name": "Jonah - Prequel",
-      "popularity": 18,
+      "name": "Euthanasia Roller Coaster",
+      "popularity": 16,
       "preview_url": null,
       "track_number": 1,
       "type": "track",
-      "uri": "spotify:track:6BxSbnDyLz16WN0BoUwIWf"
+      "uri": "spotify:track:4SQZyfplpQS6XSuCNnZKxF"
     }
   ]
 }

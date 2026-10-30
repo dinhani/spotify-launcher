@@ -1,4 +1,5 @@
 {
+  "downloaded_at": "2026-10-30T03:28:09+00:00",
   "artist": {
     "external_urls": {
       "spotify": "https://open.spotify.com/artist/5ZNxiPcbKgaNcBrERMpqeu"
@@ -7092,7 +7093,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Molinos De Viento",
-      "popularity": 73,
+      "popularity": 72,
       "preview_url": null,
       "track_number": 5,
       "type": "track",
@@ -7537,7 +7538,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Haste Que El Cuerpo Aguante",
-      "popularity": 70,
+      "popularity": 69,
       "preview_url": null,
       "track_number": 5,
       "type": "track",
@@ -8427,7 +8428,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "La danza del fuego",
-      "popularity": 66,
+      "popularity": 65,
       "preview_url": null,
       "track_number": 4,
       "type": "track",
@@ -9329,7 +9330,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "La posada de los muertos",
-      "popularity": 64,
+      "popularity": 63,
       "preview_url": null,
       "track_number": 7,
       "type": "track",

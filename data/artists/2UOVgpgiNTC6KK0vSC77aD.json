@@ -1,4 +1,5 @@
 {
+  "downloaded_at": "2026-10-30T03:28:21+00:00",
   "artist": {
     "external_urls": {
       "spotify": "https://open.spotify.com/artist/2UOVgpgiNTC6KK0vSC77aD"
@@ -6023,7 +6024,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "The Bee",
-      "popularity": 52,
+      "popularity": 51,
       "preview_url": null,
       "track_number": 1,
       "type": "track",
@@ -6474,7 +6475,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "House of Sleep",
-      "popularity": 51,
+      "popularity": 50,
       "preview_url": null,
       "track_number": 2,
       "type": "track",
@@ -6925,7 +6926,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Silver Bride",
-      "popularity": 48,
+      "popularity": 47,
       "preview_url": null,
       "track_number": 2,
       "type": "track",
@@ -7374,7 +7375,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Light And Shadow",
-      "popularity": 47,
+      "popularity": 46,
       "preview_url": null,
       "track_number": 7,
       "type": "track",
@@ -7823,7 +7824,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Dancing Shadow",
-      "popularity": 46,
+      "popularity": 45,
       "preview_url": null,
       "track_number": 3,
       "type": "track",
@@ -8272,7 +8273,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Amongst Stars",
-      "popularity": 46,
+      "popularity": 45,
       "preview_url": null,
       "track_number": 9,
       "type": "track",
@@ -8721,7 +8722,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Bones",
-      "popularity": 45,
+      "popularity": 44,
       "preview_url": null,
       "track_number": 2,
       "type": "track",
@@ -8968,6 +8969,16 @@
           "name": "Amorphis",
           "type": "artist",
           "uri": "spotify:artist:2UOVgpgiNTC6KK0vSC77aD"
+        },
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/0PkK11vtn8vezX0cHLEMSC"
+          },
+          "href": "https://api.spotify.com/v1/artists/0PkK11vtn8vezX0cHLEMSC",
+          "id": "0PkK11vtn8vezX0cHLEMSC",
+          "name": "Hellscore",
+          "type": "artist",
+          "uri": "spotify:artist:0PkK11vtn8vezX0cHLEMSC"
         }
       ],
       "available_markets": [
@@ -9170,7 +9181,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Wrong Direction",
-      "popularity": 45,
+      "popularity": 43,
       "preview_url": null,
       "track_number": 5,
       "type": "track",
@@ -9619,7 +9630,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Fog To Fog",
-      "popularity": 44,
+      "popularity": 43,
       "preview_url": null,
       "track_number": 4,
       "type": "track",
@@ -10070,7 +10081,7 @@
       "is_local": false,
       "is_playable": true,
       "name": "Sky Is Mine",
-      "popularity": 43,
+      "popularity": 42,
       "preview_url": null,
       "track_number": 4,
       "type": "track",
