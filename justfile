@@ -19,6 +19,10 @@ render:
     Start-Process docs/index.html
 alias run := render
 
+# Download and export all data for a new render
+[group("data")]
+update: spotify-download lastfm-download export
+
 # Download Spotify data
 [group("data")]
 spotify-download *args:
