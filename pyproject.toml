@@ -9,4 +9,5 @@ dependencies = [
     "pylast==7.1.0",
     "spotipy==2.26.0",
     "tqdm==4.67.3",
+    "tzdata==2026.6",
 ]
