@@ -20,27 +20,27 @@ render:
 alias run := render
 
 # Download Spotify data
-[group("run")]
-download *args:
+[group("data")]
+spotify-download *args:
     uv run src/artists-download.py {{args}}
-alias dl := download
-
-# Export Spotify data to TSV
-[group("run")]
-export:
-    uv run src/artists-export.py
-
-# Compare Last.fm top artists with followed artists
-[group("run")]
-lastfm:
-    uv run src/artists-lastfm.py
+alias sd := spotify-download
 
 # Extract Spotify extended streaming history to data/spotify-history.tsv
-[group("run")]
-spotify-history *export_dir:
+[group("data")]
+spotify-import *export_dir:
     uv run src/spotify-history.py {{export_dir}}
 
 # Fetch Last.fm scrobbles to data/lastfm-history.tsv (only new ones after the first run)
-[group("run")]
-lastfm-history:
+[group("data")]
+lastfm-download:
     uv run src/lastfm-history.py
+
+# Compare Last.fm top artists with followed artists
+[group("data")]
+lastfm-compare:
+    uv run src/artists-lastfm.py
+
+# Export Spotify data to TSV
+[group("data")]
+export:
+    uv run src/artists-export.py

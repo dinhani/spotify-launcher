@@ -12,7 +12,7 @@ Usar o histórico estendido de streams do Spotify (pedido em 2026-09-26, ver "Pl
 ## Dados
 
 - Export bruto: `Z:/pessoal/redes-sociais/spotify-2026-09` (`Streaming_History_Audio_*.json`, `Streaming_History_Video_*.json`, 2015–2026).
-- Extração: `just spotify-history` → `src/spotify-history.py` → `data/spotify-history.tsv`.
+- Extração: `just spotify-import` → `src/spotify-history.py` → `data/spotify-history.tsv`.
 - `data/spotify-history.tsv` está no `.gitignore`: **os dados não são commitados** por enquanto. Só o script, a receita e o `.gitignore` foram commitados.
 
 ### Decisões da extração
@@ -55,7 +55,7 @@ Métricas usadas por artista (só não seguidos, ≥ 1h): horas, faixas distinta
 
 ### Próximo passo da frente 1
 
-Eu decidir quais seguir no Spotify; depois `just download`, `just export`, `just render` e classificar os novos em `TAG_RULES`.
+Eu decidir quais seguir no Spotify; depois `just spotify-download`, `just export`, `just render` e classificar os novos em `TAG_RULES`.
 
 ### Script da análise
 
@@ -93,4 +93,4 @@ unfollowed = (
 
 ## Frente 2: pendente
 
-Integrar o histórico ao app. O `AGENTS.md` já previa: agregar por artista (tempo ouvido, última vez ouvido) em `data/` e commitar só o agregado. Lembrar que Last.fm (`just lastfm`) só cobre o recente; o histórico do Spotify cobre 2015–2026. Nada decidido ainda: discutir antes de implementar.
+Integrar o histórico ao app. O `AGENTS.md` já previa: agregar por artista (tempo ouvido, última vez ouvido) em `data/` e commitar só o agregado. Lembrar que Last.fm (`just lastfm-compare`) só cobre o recente; o histórico do Spotify cobre 2015–2026. Nada decidido ainda: discutir antes de implementar.
