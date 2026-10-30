@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 306797
+      "total": 308773
     },
     "genres": [
       "power metal",
@@ -17,23 +17,23 @@
     "id": "3N1B1g6JtIgd6ClRkzD4yT",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5eb28ce3420531dadeaea4d8aef",
+        "url": "https://i.scdn.co/image/ab6761610000e5ebb91b8bd7d0db56c0b5779312",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000517428ce3420531dadeaea4d8aef",
+        "url": "https://i.scdn.co/image/ab67616100005174b91b8bd7d0db56c0b5779312",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f17828ce3420531dadeaea4d8aef",
+        "url": "https://i.scdn.co/image/ab6761610000f178b91b8bd7d0db56c0b5779312",
         "height": 160,
         "width": 160
       }
     ],
     "name": "Savatage",
-    "popularity": 50,
+    "popularity": 49,
     "type": "artist",
     "uri": "spotify:artist:3N1B1g6JtIgd6ClRkzD4yT"
   },

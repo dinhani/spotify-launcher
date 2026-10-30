@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 130600
+      "total": 131076
     },
     "genres": [
       "power metal",
@@ -34,7 +34,7 @@
       }
     ],
     "name": "Elvenking",
-    "popularity": 44,
+    "popularity": 43,
     "type": "artist",
     "uri": "spotify:artist:09b5OcuIELTdD7FfzQzcdB"
   },

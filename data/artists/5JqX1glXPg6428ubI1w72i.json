@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 416930
+      "total": 423739
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/5JqX1glXPg6428ubI1w72i",
@@ -28,7 +28,7 @@
       }
     ],
     "name": "The Dresden Dolls",
-    "popularity": 60,
+    "popularity": 59,
     "type": "artist",
     "uri": "spotify:artist:5JqX1glXPg6428ubI1w72i"
   },

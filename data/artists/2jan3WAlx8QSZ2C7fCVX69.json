@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 1630
+      "total": 1643
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/2jan3WAlx8QSZ2C7fCVX69",
@@ -28,7 +28,7 @@
       }
     ],
     "name": "Kim Tillman",
-    "popularity": 19,
+    "popularity": 18,
     "type": "artist",
     "uri": "spotify:artist:2jan3WAlx8QSZ2C7fCVX69"
   },

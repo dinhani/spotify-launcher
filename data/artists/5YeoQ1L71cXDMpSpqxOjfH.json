@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 685733
+      "total": 689043
     },
     "genres": [
       "power metal",
@@ -35,7 +35,7 @@
       }
     ],
     "name": "Sonata Arctica",
-    "popularity": 55,
+    "popularity": 54,
     "type": "artist",
     "uri": "spotify:artist:5YeoQ1L71cXDMpSpqxOjfH"
   },

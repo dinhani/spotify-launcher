@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 2869646
+      "total": 2880041
     },
     "genres": [
       "rock",
@@ -31,7 +31,7 @@
       }
     ],
     "name": "Volbeat",
-    "popularity": 71,
+    "popularity": 70,
     "type": "artist",
     "uri": "spotify:artist:0L5fC7Ogm2YwgqVCRcF1bT"
   },

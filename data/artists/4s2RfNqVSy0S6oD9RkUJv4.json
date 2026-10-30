@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 13125
+      "total": 13153
     },
     "genres": [
       "french indie pop",
@@ -31,7 +31,7 @@
       }
     ],
     "name": "Burning Peacocks",
-    "popularity": 26,
+    "popularity": 25,
     "type": "artist",
     "uri": "spotify:artist:4s2RfNqVSy0S6oD9RkUJv4"
   },

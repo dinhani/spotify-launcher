@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 223858
+      "total": 226079
     },
     "genres": [
       "death metal",
@@ -34,7 +34,7 @@
       }
     ],
     "name": "Septicflesh",
-    "popularity": 45,
+    "popularity": 44,
     "type": "artist",
     "uri": "spotify:artist:5MlEt7qqXqNSReeX76xK6b"
   },

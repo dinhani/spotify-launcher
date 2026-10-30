@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 60699267
+      "total": 60890473
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/53XhwfbYqKCa1cC15pYq2q",
@@ -28,7 +28,7 @@
       }
     ],
     "name": "Imagine Dragons",
-    "popularity": 87,
+    "popularity": 86,
     "type": "artist",
     "uri": "spotify:artist:53XhwfbYqKCa1cC15pYq2q"
   },

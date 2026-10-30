@@ -5,24 +5,24 @@
     },
     "followers": {
       "href": null,
-      "total": 1775206
+      "total": 1775380
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/6beUvFUlKliUYJdLOXNj9C",
     "id": "6beUvFUlKliUYJdLOXNj9C",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5eb93aabf622c4b901548712c02",
+        "url": "https://i.scdn.co/image/ab6761610000e5ebe5730c743662c4a6fbdfdcd4",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000517493aabf622c4b901548712c02",
+        "url": "https://i.scdn.co/image/ab67616100005174e5730c743662c4a6fbdfdcd4",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f17893aabf622c4b901548712c02",
+        "url": "https://i.scdn.co/image/ab6761610000f178e5730c743662c4a6fbdfdcd4",
         "height": 160,
         "width": 160
       }

@@ -5,13 +5,13 @@
     },
     "followers": {
       "href": null,
-      "total": 128678
+      "total": 129335
     },
     "genres": [
       "power metal",
       "symphonic metal",
-      "progressive metal",
       "speed metal",
+      "progressive metal",
       "heavy metal",
       "metal"
     ],

@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 1357538
+      "total": 1363214
     },
     "genres": [
       "melodic death metal",
@@ -32,7 +32,7 @@
       }
     ],
     "name": "In Flames",
-    "popularity": 65,
+    "popularity": 64,
     "type": "artist",
     "uri": "spotify:artist:57ylwQTnFnIhJh4nu4rxCs"
   },

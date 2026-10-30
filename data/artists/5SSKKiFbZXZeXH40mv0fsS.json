@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 11364
+      "total": 11414
     },
     "genres": [
       "power metal",
@@ -32,7 +32,7 @@
       }
     ],
     "name": "Altaria",
-    "popularity": 22,
+    "popularity": 21,
     "type": "artist",
     "uri": "spotify:artist:5SSKKiFbZXZeXH40mv0fsS"
   },

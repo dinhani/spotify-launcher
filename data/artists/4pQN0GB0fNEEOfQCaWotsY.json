@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 1486423
+      "total": 1496046
     },
     "genres": [
       "power metal",
@@ -34,7 +34,7 @@
       }
     ],
     "name": "Helloween",
-    "popularity": 62,
+    "popularity": 61,
     "type": "artist",
     "uri": "spotify:artist:4pQN0GB0fNEEOfQCaWotsY"
   },

@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 49048985
+      "total": 49376563
     },
     "genres": [
       "pop"
@@ -30,7 +30,7 @@
       }
     ],
     "name": "Dua Lipa",
-    "popularity": 90,
+    "popularity": 89,
     "type": "artist",
     "uri": "spotify:artist:6M2wZ9GZgrQXHCFfjv46we"
   },

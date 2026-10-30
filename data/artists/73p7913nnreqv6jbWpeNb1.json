@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 54148
+      "total": 54922
     },
     "genres": [
       "progressive rock",
@@ -36,7 +36,7 @@
       }
     ],
     "name": "Storm Corrosion",
-    "popularity": 22,
+    "popularity": 24,
     "type": "artist",
     "uri": "spotify:artist:73p7913nnreqv6jbWpeNb1"
   },

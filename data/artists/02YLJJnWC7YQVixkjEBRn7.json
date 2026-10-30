@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 379317
+      "total": 381097
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/02YLJJnWC7YQVixkjEBRn7",
@@ -28,7 +28,7 @@
       }
     ],
     "name": "Billie Marten",
-    "popularity": 57,
+    "popularity": 56,
     "type": "artist",
     "uri": "spotify:artist:02YLJJnWC7YQVixkjEBRn7"
   },

@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 32874
+      "total": 33051
     },
     "genres": [
       "power metal",
@@ -31,7 +31,7 @@
       }
     ],
     "name": "Hangar",
-    "popularity": 31,
+    "popularity": 30,
     "type": "artist",
     "uri": "spotify:artist:073v2aQjS8tVeaUsp86lkd"
   },

@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 48591
+      "total": 49014
     },
     "genres": [
       "christian rock",
@@ -31,7 +31,7 @@
       }
     ],
     "name": "Narnia",
-    "popularity": 32,
+    "popularity": 31,
     "type": "artist",
     "uri": "spotify:artist:5bodTAJqKphEDB3ItIq4Hc"
   },

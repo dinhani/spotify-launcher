@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 1115883
+      "total": 1125335
     },
     "genres": [
       "folk metal"
@@ -30,7 +30,7 @@
       }
     ],
     "name": "The HU",
-    "popularity": 60,
+    "popularity": 59,
     "type": "artist",
     "uri": "spotify:artist:0b2B3PwcYzQAhuJacmcYgc"
   },

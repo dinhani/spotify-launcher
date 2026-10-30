@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 27998
+      "total": 28322
     },
     "genres": [
       "christian rock",
@@ -32,7 +32,7 @@
       }
     ],
     "name": "Holy Soldier",
-    "popularity": 29,
+    "popularity": 28,
     "type": "artist",
     "uri": "spotify:artist:0KoQJScvMD3v4ArOGiX0MJ"
   },

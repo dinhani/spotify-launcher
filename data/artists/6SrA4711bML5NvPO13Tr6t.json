@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 275738
+      "total": 281170
     },
     "genres": [
       "baroque pop"
@@ -30,7 +30,7 @@
       }
     ],
     "name": "Princess Chelsea",
-    "popularity": 65,
+    "popularity": 64,
     "type": "artist",
     "uri": "spotify:artist:6SrA4711bML5NvPO13Tr6t"
   },

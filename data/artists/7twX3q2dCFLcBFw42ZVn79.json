@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 5336
+      "total": 5369
     },
     "genres": [
       "power metal",
@@ -31,7 +31,7 @@
       }
     ],
     "name": "Hellish War",
-    "popularity": 16,
+    "popularity": 15,
     "type": "artist",
     "uri": "spotify:artist:7twX3q2dCFLcBFw42ZVn79"
   },

@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 1457081
+      "total": 1462278
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/46CitWgnWrvF9t70C2p1Me",
@@ -28,7 +28,7 @@
       }
     ],
     "name": "Daughter",
-    "popularity": 61,
+    "popularity": 60,
     "type": "artist",
     "uri": "spotify:artist:46CitWgnWrvF9t70C2p1Me"
   },

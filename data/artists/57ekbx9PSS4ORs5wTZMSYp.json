@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 316053
+      "total": 318773
     },
     "genres": [
       "gothic metal",
@@ -33,7 +33,7 @@
       }
     ],
     "name": "Lacrimosa",
-    "popularity": 50,
+    "popularity": 49,
     "type": "artist",
     "uri": "spotify:artist:57ekbx9PSS4ORs5wTZMSYp"
   },

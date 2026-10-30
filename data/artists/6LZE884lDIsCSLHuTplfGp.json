@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 326588
+      "total": 328178
     },
     "genres": [
       "power metal",
@@ -39,7 +39,7 @@
       }
     ],
     "name": "Gamma Ray",
-    "popularity": 48,
+    "popularity": 47,
     "type": "artist",
     "uri": "spotify:artist:6LZE884lDIsCSLHuTplfGp"
   },

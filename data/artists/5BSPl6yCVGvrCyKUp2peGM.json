@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 84035
+      "total": 85482
     },
     "genres": [
       "medieval",
@@ -31,7 +31,7 @@
       }
     ],
     "name": "Hildegard von Blingin'",
-    "popularity": 43,
+    "popularity": 42,
     "type": "artist",
     "uri": "spotify:artist:5BSPl6yCVGvrCyKUp2peGM"
   },

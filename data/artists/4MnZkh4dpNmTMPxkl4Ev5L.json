@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 318755
+      "total": 320476
     },
     "genres": [
       "progressive metal",
@@ -13,8 +13,7 @@
       "symphonic metal",
       "progressive rock",
       "metal",
-      "neoclassical",
-      "speed metal"
+      "neoclassical"
     ],
     "href": "https://api.spotify.com/v1/artists/4MnZkh4dpNmTMPxkl4Ev5L",
     "id": "4MnZkh4dpNmTMPxkl4Ev5L",
@@ -36,7 +35,7 @@
       }
     ],
     "name": "Symphony X",
-    "popularity": 48,
+    "popularity": 47,
     "type": "artist",
     "uri": "spotify:artist:4MnZkh4dpNmTMPxkl4Ev5L"
   },

@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 26022
+      "total": 26273
     },
     "genres": [
       "southern gothic"
@@ -30,7 +30,7 @@
       }
     ],
     "name": "American Murder Song",
-    "popularity": 35,
+    "popularity": 38,
     "type": "artist",
     "uri": "spotify:artist:49BGpXXAji2jAYv0Ob6Dff"
   },

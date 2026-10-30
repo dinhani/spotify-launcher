@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 160878
+      "total": 162025
     },
     "genres": [
       "progressive metal",
@@ -35,7 +35,7 @@
       }
     ],
     "name": "Nevermore",
-    "popularity": 43,
+    "popularity": 42,
     "type": "artist",
     "uri": "spotify:artist:1wUArE0NhHB8M1bU2WSplY"
   },

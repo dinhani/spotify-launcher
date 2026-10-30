@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 890059
+      "total": 893446
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/0wnYgCeP013HkKoOyC5V32",
@@ -28,7 +28,7 @@
       }
     ],
     "name": "Allie X",
-    "popularity": 54,
+    "popularity": 55,
     "type": "artist",
     "uri": "spotify:artist:0wnYgCeP013HkKoOyC5V32"
   },

@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 35197034
+      "total": 35730971
     },
     "genres": [
       "pop"
@@ -30,7 +30,7 @@
       }
     ],
     "name": "Sabrina Carpenter",
-    "popularity": 89,
+    "popularity": 88,
     "type": "artist",
     "uri": "spotify:artist:74KM79TiuVKeVCqs8QtB0B"
   },

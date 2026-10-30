@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 143531
+      "total": 146228
     },
     "genres": [
       "death metal"
@@ -14,23 +14,23 @@
     "id": "0w1xNkvjKVskWP7GvbiwRB",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5ebc604561e34a1d8ee6605965c",
+        "url": "https://i.scdn.co/image/ab6761610000e5ebb709283e9986778715c2ce6f",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab67616100005174c604561e34a1d8ee6605965c",
+        "url": "https://i.scdn.co/image/ab67616100005174b709283e9986778715c2ce6f",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f178c604561e34a1d8ee6605965c",
+        "url": "https://i.scdn.co/image/ab6761610000f178b709283e9986778715c2ce6f",
         "height": 160,
         "width": 160
       }
     ],
     "name": "Crypta",
-    "popularity": 35,
+    "popularity": 37,
     "type": "artist",
     "uri": "spotify:artist:0w1xNkvjKVskWP7GvbiwRB"
   },

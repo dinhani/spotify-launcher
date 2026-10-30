@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 11057833
+      "total": 11125269
     },
     "genres": [
       "heavy metal",
@@ -17,17 +17,17 @@
     "id": "6mdiAmATAx73kdxrNrnlao",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5ebf9978ad4808f6f2723124d19",
+        "url": "https://i.scdn.co/image/ab6761610000e5ebf04a01764d3c387adb8429f1",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab67616100005174f9978ad4808f6f2723124d19",
+        "url": "https://i.scdn.co/image/ab67616100005174f04a01764d3c387adb8429f1",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f178f9978ad4808f6f2723124d19",
+        "url": "https://i.scdn.co/image/ab6761610000f178f04a01764d3c387adb8429f1",
         "height": 160,
         "width": 160
       }

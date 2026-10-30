@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 430477
+      "total": 432588
     },
     "genres": [
       "power metal",
@@ -36,7 +36,7 @@
       }
     ],
     "name": "Kamelot",
-    "popularity": 56,
+    "popularity": 54,
     "type": "artist",
     "uri": "spotify:artist:7gTbq5nTZGQIUgjEGXQpOS"
   },

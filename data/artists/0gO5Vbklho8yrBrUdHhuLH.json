@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 872819
+      "total": 875402
     },
     "genres": [
       "christian rock",
@@ -32,7 +32,7 @@
       }
     ],
     "name": "Oficina G3",
-    "popularity": 55,
+    "popularity": 54,
     "type": "artist",
     "uri": "spotify:artist:0gO5Vbklho8yrBrUdHhuLH"
   },

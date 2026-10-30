@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 138911
+      "total": 166401
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/66T34XqGkEWbzKWALSBDuR",
@@ -28,7 +28,7 @@
       }
     ],
     "name": "Haute & Freddy",
-    "popularity": 60,
+    "popularity": 63,
     "type": "artist",
     "uri": "spotify:artist:66T34XqGkEWbzKWALSBDuR"
   },

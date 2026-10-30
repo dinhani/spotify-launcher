@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 2613331
+      "total": 2627662
     },
     "genres": [
       "power metal",
@@ -34,7 +34,7 @@
       }
     ],
     "name": "Sabaton",
-    "popularity": 73,
+    "popularity": 72,
     "type": "artist",
     "uri": "spotify:artist:3o2dn2O0FCVsWDFSh8qxgG"
   },

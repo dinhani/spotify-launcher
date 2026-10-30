@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 44680
+      "total": 45263
     },
     "genres": [
       "progressive metal",
@@ -17,23 +17,23 @@
     "id": "0J2gE1fVwnMhsh0OxUpUPT",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5ebced2e88aa31aa30faa6727f6",
+        "url": "https://i.scdn.co/image/ab6761610000e5eb44b06210a7db92c5b608bf9c",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab67616100005174ced2e88aa31aa30faa6727f6",
+        "url": "https://i.scdn.co/image/ab6761610000517444b06210a7db92c5b608bf9c",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f178ced2e88aa31aa30faa6727f6",
+        "url": "https://i.scdn.co/image/ab6761610000f17844b06210a7db92c5b608bf9c",
         "height": 160,
         "width": 160
       }
     ],
     "name": "Klone",
-    "popularity": 35,
+    "popularity": 36,
     "type": "artist",
     "uri": "spotify:artist:0J2gE1fVwnMhsh0OxUpUPT"
   },

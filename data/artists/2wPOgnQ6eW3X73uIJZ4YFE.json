@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 442136
+      "total": 444271
     },
     "genres": [
       "medieval",
@@ -19,17 +19,17 @@
     "id": "2wPOgnQ6eW3X73uIJZ4YFE",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5eb11ca0c0a8c59dffb940bb762",
+        "url": "https://i.scdn.co/image/ab6761610000e5ebef2cd5ff77d6d24fb58d7498",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000517411ca0c0a8c59dffb940bb762",
+        "url": "https://i.scdn.co/image/ab67616100005174ef2cd5ff77d6d24fb58d7498",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f17811ca0c0a8c59dffb940bb762",
+        "url": "https://i.scdn.co/image/ab6761610000f178ef2cd5ff77d6d24fb58d7498",
         "height": 160,
         "width": 160
       }

@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 8562430
+      "total": 8679128
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/7GlBOeep6PqTfFi59PTUUN",
@@ -28,7 +28,7 @@
       }
     ],
     "name": "Chappell Roan",
-    "popularity": 82,
+    "popularity": 83,
     "type": "artist",
     "uri": "spotify:artist:7GlBOeep6PqTfFi59PTUUN"
   },

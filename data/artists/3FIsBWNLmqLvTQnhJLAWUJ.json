@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 98445
+      "total": 100371
     },
     "genres": [
       "art pop"
@@ -30,7 +30,7 @@
       }
     ],
     "name": "Ex:Re",
-    "popularity": 40,
+    "popularity": 43,
     "type": "artist",
     "uri": "spotify:artist:3FIsBWNLmqLvTQnhJLAWUJ"
   },

@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 526793
+      "total": 528391
     },
     "genres": [
       "dream pop"
@@ -14,17 +14,17 @@
     "id": "3AmgGrYHXqgbmZ2yKoIVzO",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5ebf763c4f2a03f7af93ef6a7d4",
+        "url": "https://i.scdn.co/image/ab6761610000e5eb88d5b9c2caddb3f153ac625d",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab67616100005174f763c4f2a03f7af93ef6a7d4",
+        "url": "https://i.scdn.co/image/ab6761610000517488d5b9c2caddb3f153ac625d",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f178f763c4f2a03f7af93ef6a7d4",
+        "url": "https://i.scdn.co/image/ab6761610000f17888d5b9c2caddb3f153ac625d",
         "height": 160,
         "width": 160
       }

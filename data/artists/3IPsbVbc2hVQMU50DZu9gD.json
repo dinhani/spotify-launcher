@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 39852
+      "total": 40260
     },
     "genres": [
       "thrash metal",
@@ -31,7 +31,7 @@
       }
     ],
     "name": "Korzus",
-    "popularity": 29,
+    "popularity": 27,
     "type": "artist",
     "uri": "spotify:artist:3IPsbVbc2hVQMU50DZu9gD"
   },

@@ -5,24 +5,24 @@
     },
     "followers": {
       "href": null,
-      "total": 11017972
+      "total": 11057779
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/163tK9Wjr9P9DmM0AVK7lm",
     "id": "163tK9Wjr9P9DmM0AVK7lm",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5eb678a3a4bc2d8a84074f22c71",
+        "url": "https://i.scdn.co/image/ab6761610000e5eb69f12b4d25517a2a8e9ba6e5",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab67616100005174678a3a4bc2d8a84074f22c71",
+        "url": "https://i.scdn.co/image/ab6761610000517469f12b4d25517a2a8e9ba6e5",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f178678a3a4bc2d8a84074f22c71",
+        "url": "https://i.scdn.co/image/ab6761610000f17869f12b4d25517a2a8e9ba6e5",
         "height": 160,
         "width": 160
       }

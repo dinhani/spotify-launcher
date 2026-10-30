@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 154391
+      "total": 154594
     },
     "genres": [
       "dansk pop"
@@ -30,7 +30,7 @@
       }
     ],
     "name": "Oh Land",
-    "popularity": 39,
+    "popularity": 38,
     "type": "artist",
     "uri": "spotify:artist:46CuxapoPjUfIOiXdNq7qM"
   },

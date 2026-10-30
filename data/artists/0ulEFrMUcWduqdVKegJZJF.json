@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 13729
+      "total": 13734
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/0ulEFrMUcWduqdVKegJZJF",
@@ -28,7 +28,7 @@
       }
     ],
     "name": "Unwoman",
-    "popularity": 5,
+    "popularity": 4,
     "type": "artist",
     "uri": "spotify:artist:0ulEFrMUcWduqdVKegJZJF"
   },

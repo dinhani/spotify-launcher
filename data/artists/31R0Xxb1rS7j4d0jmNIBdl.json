@@ -5,13 +5,14 @@
     },
     "followers": {
       "href": null,
-      "total": 12753
+      "total": 12830
     },
     "genres": [
       "doom metal",
       "power metal",
       "sludge metal",
       "stoner metal",
+      "drone metal",
       "heavy metal"
     ],
     "href": "https://api.spotify.com/v1/artists/31R0Xxb1rS7j4d0jmNIBdl",

@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 40169
+      "total": 40393
     },
     "genres": [
       "thrash metal",
@@ -32,7 +32,7 @@
       }
     ],
     "name": "Torture Squad",
-    "popularity": 24,
+    "popularity": 23,
     "type": "artist",
     "uri": "spotify:artist:6E3iq1WfZbw2YEeTKVZYJR"
   },

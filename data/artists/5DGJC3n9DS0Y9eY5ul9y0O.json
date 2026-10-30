@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 152845
+      "total": 153963
     },
     "genres": [
       "southern gothic",
@@ -15,23 +15,23 @@
     "id": "5DGJC3n9DS0Y9eY5ul9y0O",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5eb25e0d38b941335ddcf8724e0",
+        "url": "https://i.scdn.co/image/ab6761610000e5ebe32f0e7dc63a56522190a213",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000517425e0d38b941335ddcf8724e0",
+        "url": "https://i.scdn.co/image/ab67616100005174e32f0e7dc63a56522190a213",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f17825e0d38b941335ddcf8724e0",
+        "url": "https://i.scdn.co/image/ab6761610000f178e32f0e7dc63a56522190a213",
         "height": 160,
         "width": 160
       }
     ],
     "name": "Marika Hackman",
-    "popularity": 44,
+    "popularity": 46,
     "type": "artist",
     "uri": "spotify:artist:5DGJC3n9DS0Y9eY5ul9y0O"
   },

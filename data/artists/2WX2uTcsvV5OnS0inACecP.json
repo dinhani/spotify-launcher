@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 3830462
+      "total": 3840414
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/2WX2uTcsvV5OnS0inACecP",
@@ -28,7 +28,7 @@
       }
     ],
     "name": "Birdy",
-    "popularity": 71,
+    "popularity": 72,
     "type": "artist",
     "uri": "spotify:artist:2WX2uTcsvV5OnS0inACecP"
   },

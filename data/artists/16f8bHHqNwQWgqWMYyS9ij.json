@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 58315
+      "total": 58527
     },
     "genres": [
       "sea shanties",
@@ -34,7 +34,7 @@
       }
     ],
     "name": "Ye Banished Privateers",
-    "popularity": 42,
+    "popularity": 41,
     "type": "artist",
     "uri": "spotify:artist:16f8bHHqNwQWgqWMYyS9ij"
   },

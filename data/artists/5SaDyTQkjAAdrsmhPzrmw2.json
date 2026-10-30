@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 101848
+      "total": 103623
     },
     "genres": [
       "power metal",
@@ -34,7 +34,7 @@
       }
     ],
     "name": "Jorn",
-    "popularity": 50,
+    "popularity": 55,
     "type": "artist",
     "uri": "spotify:artist:5SaDyTQkjAAdrsmhPzrmw2"
   },

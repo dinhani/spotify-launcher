@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 1386296
+      "total": 1392762
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/4tvKz56Tr39bkhcQUTO0Xr",
@@ -28,7 +28,7 @@
       }
     ],
     "name": "Angus & Julia Stone",
-    "popularity": 67,
+    "popularity": 66,
     "type": "artist",
     "uri": "spotify:artist:4tvKz56Tr39bkhcQUTO0Xr"
   },

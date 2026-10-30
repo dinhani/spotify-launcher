@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 133810
+      "total": 134330
     },
     "genres": [
       "french indie pop",
@@ -31,7 +31,7 @@
       }
     ],
     "name": "Cocoon",
-    "popularity": 50,
+    "popularity": 51,
     "type": "artist",
     "uri": "spotify:artist:15h5B5quwDm2C1rhbtvUPD"
   },

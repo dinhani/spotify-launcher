@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 2012790
+      "total": 2023064
     },
     "genres": [
       "thrash metal",
@@ -35,7 +35,7 @@
       }
     ],
     "name": "Anthrax",
-    "popularity": 61,
+    "popularity": 59,
     "type": "artist",
     "uri": "spotify:artist:3JysSUOyfVs1UQ0UaESheP"
   },

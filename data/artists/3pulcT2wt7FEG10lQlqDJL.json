@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 1306500
+      "total": 1315849
     },
     "genres": [
       "melodic death metal",
@@ -19,23 +19,23 @@
     "id": "3pulcT2wt7FEG10lQlqDJL",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5ebe0ed6357e133abef229c44a3",
+        "url": "https://i.scdn.co/image/ab6761610000e5ebaa1f5afddb0f5c389febf8be",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab67616100005174e0ed6357e133abef229c44a3",
+        "url": "https://i.scdn.co/image/ab67616100005174aa1f5afddb0f5c389febf8be",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f178e0ed6357e133abef229c44a3",
+        "url": "https://i.scdn.co/image/ab6761610000f178aa1f5afddb0f5c389febf8be",
         "height": 160,
         "width": 160
       }
     ],
     "name": "Amon Amarth",
-    "popularity": 62,
+    "popularity": 64,
     "type": "artist",
     "uri": "spotify:artist:3pulcT2wt7FEG10lQlqDJL"
   },

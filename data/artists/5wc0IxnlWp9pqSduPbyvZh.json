@@ -5,15 +5,15 @@
     },
     "followers": {
       "href": null,
-      "total": 9301
+      "total": 9353
     },
     "genres": [
       "neoclassical",
       "neofolk",
       "medieval",
       "celtic",
-      "darkwave",
-      "traditional folk"
+      "traditional folk",
+      "darkwave"
     ],
     "href": "https://api.spotify.com/v1/artists/5wc0IxnlWp9pqSduPbyvZh",
     "id": "5wc0IxnlWp9pqSduPbyvZh",
@@ -35,7 +35,7 @@
       }
     ],
     "name": "Caprice",
-    "popularity": 26,
+    "popularity": 27,
     "type": "artist",
     "uri": "spotify:artist:5wc0IxnlWp9pqSduPbyvZh"
   },

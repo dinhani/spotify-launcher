@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 323858
+      "total": 325608
     },
     "genres": [
       "power metal",
@@ -40,7 +40,7 @@
       }
     ],
     "name": "Edguy",
-    "popularity": 50,
+    "popularity": 49,
     "type": "artist",
     "uri": "spotify:artist:3AGFqPP3gt5rMSvhR87Xxu"
   },

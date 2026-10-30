@@ -5,11 +5,12 @@
     },
     "followers": {
       "href": null,
-      "total": 64
+      "total": 65
     },
     "genres": [
       "roots rock",
-      "speed metal"
+      "speed metal",
+      "power metal"
     ],
     "href": "https://api.spotify.com/v1/artists/7CBWyowmR42IU3HTrUVbfB",
     "id": "7CBWyowmR42IU3HTrUVbfB",

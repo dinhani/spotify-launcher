@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 11883
+      "total": 11936
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/5F9t2eiVfkS6nfRwyH2WjS",
@@ -28,7 +28,7 @@
       }
     ],
     "name": "Wussy",
-    "popularity": 22,
+    "popularity": 21,
     "type": "artist",
     "uri": "spotify:artist:5F9t2eiVfkS6nfRwyH2WjS"
   },

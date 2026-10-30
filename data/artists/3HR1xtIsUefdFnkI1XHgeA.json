@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 975621
+      "total": 981234
     },
     "genres": [
       "bluegrass",
@@ -16,23 +16,23 @@
     "id": "3HR1xtIsUefdFnkI1XHgeA",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5ebffc2572ce3c7ecf75d683a6f",
+        "url": "https://i.scdn.co/image/ab6761610000e5ebd95597090f6949081d174803",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab67616100005174ffc2572ce3c7ecf75d683a6f",
+        "url": "https://i.scdn.co/image/ab67616100005174d95597090f6949081d174803",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f178ffc2572ce3c7ecf75d683a6f",
+        "url": "https://i.scdn.co/image/ab6761610000f178d95597090f6949081d174803",
         "height": 160,
         "width": 160
       }
     ],
     "name": "The Dead South",
-    "popularity": 61,
+    "popularity": 60,
     "type": "artist",
     "uri": "spotify:artist:3HR1xtIsUefdFnkI1XHgeA"
   },

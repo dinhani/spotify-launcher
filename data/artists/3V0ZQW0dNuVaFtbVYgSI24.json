@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 547027
+      "total": 550779
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/3V0ZQW0dNuVaFtbVYgSI24",
@@ -28,7 +28,7 @@
       }
     ],
     "name": "Claire Rosinkranz",
-    "popularity": 61,
+    "popularity": 60,
     "type": "artist",
     "uri": "spotify:artist:3V0ZQW0dNuVaFtbVYgSI24"
   },

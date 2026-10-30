@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 76836
+      "total": 77151
     },
     "genres": [
       "french indie pop"
@@ -14,17 +14,17 @@
     "id": "5TEGxYftTkeKmLXkZjHNUE",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5eb32796fde17e62b8b605f4767",
+        "url": "https://i.scdn.co/image/ab6761610000e5eb5d4c5a1804a62854d3c1d457",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000517432796fde17e62b8b605f4767",
+        "url": "https://i.scdn.co/image/ab676161000051745d4c5a1804a62854d3c1d457",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f17832796fde17e62b8b605f4767",
+        "url": "https://i.scdn.co/image/ab6761610000f1785d4c5a1804a62854d3c1d457",
         "height": 160,
         "width": 160
       }

@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 25632
+      "total": 25699
     },
     "genres": [
       "brazilian rock"
@@ -30,7 +30,7 @@
       }
     ],
     "name": "Detonator",
-    "popularity": 20,
+    "popularity": 19,
     "type": "artist",
     "uri": "spotify:artist:70eVjtsWclbYHphLeGQG3D"
   },

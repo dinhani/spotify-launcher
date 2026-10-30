@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 1030315
+      "total": 1041311
     },
     "genres": [
       "swedish pop"
@@ -30,7 +30,7 @@
       }
     ],
     "name": "Robyn",
-    "popularity": 73,
+    "popularity": 72,
     "type": "artist",
     "uri": "spotify:artist:6UE7nl9mha6s8z0wFQFIZ2"
   },

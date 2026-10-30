@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 6069
+      "total": 6082
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/5fW9KCIPGotzaUDLkWfoa7",
@@ -28,7 +28,7 @@
       }
     ],
     "name": "Ghost Quartet",
-    "popularity": 24,
+    "popularity": 25,
     "type": "artist",
     "uri": "spotify:artist:5fW9KCIPGotzaUDLkWfoa7"
   },

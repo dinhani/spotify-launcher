@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 986542
+      "total": 996844
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/1rKrEdI6GKirxWHxIUPYms",
@@ -28,7 +28,7 @@
       }
     ],
     "name": "Agnes Obel",
-    "popularity": 62,
+    "popularity": 63,
     "type": "artist",
     "uri": "spotify:artist:1rKrEdI6GKirxWHxIUPYms"
   },

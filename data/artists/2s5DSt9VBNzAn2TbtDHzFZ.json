@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 278741
+      "total": 279626
     },
     "genres": [
       "death metal",
@@ -35,7 +35,7 @@
       }
     ],
     "name": "Vader",
-    "popularity": 42,
+    "popularity": 41,
     "type": "artist",
     "uri": "spotify:artist:2s5DSt9VBNzAn2TbtDHzFZ"
   },

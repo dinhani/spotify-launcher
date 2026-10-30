@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 143195
+      "total": 145264
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/6y6iXD929Jqq0xc6lgwhl1",
@@ -28,7 +28,7 @@
       }
     ],
     "name": "LAUREL",
-    "popularity": 56,
+    "popularity": 59,
     "type": "artist",
     "uri": "spotify:artist:6y6iXD929Jqq0xc6lgwhl1"
   },

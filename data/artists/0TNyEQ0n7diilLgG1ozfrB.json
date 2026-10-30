@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 54814
+      "total": 55084
     },
     "genres": [
       "french indie pop"
@@ -30,7 +30,7 @@
       }
     ],
     "name": "Camp Claude",
-    "popularity": 40,
+    "popularity": 39,
     "type": "artist",
     "uri": "spotify:artist:0TNyEQ0n7diilLgG1ozfrB"
   },

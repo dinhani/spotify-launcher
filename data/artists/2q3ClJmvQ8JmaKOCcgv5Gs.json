@@ -5,9 +5,11 @@
     },
     "followers": {
       "href": null,
-      "total": 1306
+      "total": 1392
     },
-    "genres": [],
+    "genres": [
+      "slowcore"
+    ],
     "href": "https://api.spotify.com/v1/artists/2q3ClJmvQ8JmaKOCcgv5Gs",
     "id": "2q3ClJmvQ8JmaKOCcgv5Gs",
     "images": [
@@ -28,7 +30,7 @@
       }
     ],
     "name": "Anastasia Minster",
-    "popularity": 12,
+    "popularity": 14,
     "type": "artist",
     "uri": "spotify:artist:2q3ClJmvQ8JmaKOCcgv5Gs"
   },

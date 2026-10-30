@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 2574471
+      "total": 2590575
     },
     "genres": [
       "symphonic metal",
@@ -19,23 +19,23 @@
     "id": "2NPduAUeLVsfIauhRwuft1",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5ebf3284e60d4e43c9a7b52c08d",
+        "url": "https://i.scdn.co/image/ab6761610000e5eb63dc6c7fbe001772104f5829",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab67616100005174f3284e60d4e43c9a7b52c08d",
+        "url": "https://i.scdn.co/image/ab6761610000517463dc6c7fbe001772104f5829",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f178f3284e60d4e43c9a7b52c08d",
+        "url": "https://i.scdn.co/image/ab6761610000f17863dc6c7fbe001772104f5829",
         "height": 160,
         "width": 160
       }
     ],
     "name": "Nightwish",
-    "popularity": 67,
+    "popularity": 68,
     "type": "artist",
     "uri": "spotify:artist:2NPduAUeLVsfIauhRwuft1"
   },

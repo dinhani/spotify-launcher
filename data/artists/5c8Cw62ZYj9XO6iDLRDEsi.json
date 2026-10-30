@@ -5,17 +5,16 @@
     },
     "followers": {
       "href": null,
-      "total": 387009
+      "total": 389428
     },
     "genres": [
       "symphonic metal",
       "gothic metal",
       "power metal",
       "metal",
-      "death metal",
       "folk metal",
-      "doom metal",
-      "progressive metal"
+      "death metal",
+      "doom metal"
     ],
     "href": "https://api.spotify.com/v1/artists/5c8Cw62ZYj9XO6iDLRDEsi",
     "id": "5c8Cw62ZYj9XO6iDLRDEsi",

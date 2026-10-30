@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 457183
+      "total": 458871
     },
     "genres": [
       "folk metal",
@@ -34,7 +34,7 @@
       }
     ],
     "name": "Korpiklaani",
-    "popularity": 51,
+    "popularity": 50,
     "type": "artist",
     "uri": "spotify:artist:521Yl3LUvD7G9dMRO4fpCy"
   },

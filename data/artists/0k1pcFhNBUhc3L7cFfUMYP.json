@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 2225
+      "total": 2232
     },
     "genres": [
       "darkwave",
@@ -31,7 +31,7 @@
       }
     ],
     "name": "Leandra",
-    "popularity": 9,
+    "popularity": 8,
     "type": "artist",
     "uri": "spotify:artist:0k1pcFhNBUhc3L7cFfUMYP"
   },

@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 20166788
+      "total": 20376738
     },
     "genres": [
       "pop"
@@ -14,17 +14,17 @@
     "id": "26dSoYclwsYLMAKD3tpOr4",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5eb8cf8f7cab75b0e44dd4e0ea8",
+        "url": "https://i.scdn.co/image/ab6761610000e5eba82576e3d9f02b310e15a262",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab676161000051748cf8f7cab75b0e44dd4e0ea8",
+        "url": "https://i.scdn.co/image/ab67616100005174a82576e3d9f02b310e15a262",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f1788cf8f7cab75b0e44dd4e0ea8",
+        "url": "https://i.scdn.co/image/ab6761610000f178a82576e3d9f02b310e15a262",
         "height": 160,
         "width": 160
       }

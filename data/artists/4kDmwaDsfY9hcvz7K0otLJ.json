@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 163025
+      "total": 166343
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/4kDmwaDsfY9hcvz7K0otLJ",
@@ -28,7 +28,7 @@
       }
     ],
     "name": "Syd Matters",
-    "popularity": 57,
+    "popularity": 56,
     "type": "artist",
     "uri": "spotify:artist:4kDmwaDsfY9hcvz7K0otLJ"
   },

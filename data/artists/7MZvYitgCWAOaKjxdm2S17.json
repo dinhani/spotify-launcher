@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 37758
+      "total": 37810
     },
     "genres": [],
     "href": "https://api.spotify.com/v1/artists/7MZvYitgCWAOaKjxdm2S17",
@@ -28,7 +28,7 @@
       }
     ],
     "name": "Rosemary & Garlic",
-    "popularity": 33,
+    "popularity": 34,
     "type": "artist",
     "uri": "spotify:artist:7MZvYitgCWAOaKjxdm2S17"
   },

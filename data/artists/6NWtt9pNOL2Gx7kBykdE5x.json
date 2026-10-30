@@ -5,7 +5,7 @@
     },
     "followers": {
       "href": null,
-      "total": 593591
+      "total": 597213
     },
     "genres": [
       "celtic",
@@ -16,23 +16,23 @@
     "id": "6NWtt9pNOL2Gx7kBykdE5x",
     "images": [
       {
-        "url": "https://i.scdn.co/image/ab6761610000e5eb61c636e5170b2fb5f541565d",
+        "url": "https://i.scdn.co/image/ab6761610000e5eb92b49de22e77ba91250dac60",
         "height": 640,
         "width": 640
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000517461c636e5170b2fb5f541565d",
+        "url": "https://i.scdn.co/image/ab6761610000517492b49de22e77ba91250dac60",
         "height": 320,
         "width": 320
       },
       {
-        "url": "https://i.scdn.co/image/ab6761610000f17861c636e5170b2fb5f541565d",
+        "url": "https://i.scdn.co/image/ab6761610000f17892b49de22e77ba91250dac60",
         "height": 160,
         "width": 160
       }
     ],
     "name": "Celtic Woman",
-    "popularity": 56,
+    "popularity": 57,
     "type": "artist",
     "uri": "spotify:artist:6NWtt9pNOL2Gx7kBykdE5x"
   },
