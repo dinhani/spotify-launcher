@@ -16,7 +16,7 @@ setup:
 [group("run")]
 render:
     uv run src/artists-render.py
-    Start-Process docs/index.html
+    Start-Process Z:/apps/web/spotify-launcher.html
 alias run := render
 
 # Download all datasources

@@ -20,6 +20,7 @@ import render.renderer as renderer
 # ------------------------------------------------------------------------------
 INPUT_ARTISTS = "data/artists.tsv"
 OUTPUT_LAUNCHER = "docs/index.html"
+OUTPUT_LAUNCHER_LOCAL = "Z:/apps/web/spotify-launcher.html"
 OUTPUT_SUMMARY_FAVORITES = "docs/summary-favorites.txt"
 OUTPUT_SUMMARY_TAGS = "docs/summary-tags.txt"
 
@@ -31,9 +32,10 @@ artists, tags_with_artists = parser.parse(INPUT_ARTISTS)
 doc = renderer.render_html(tags_with_artists)
 
 # write html to file
-logging.info(f"💾 Writing: {OUTPUT_LAUNCHER}")
-with open(OUTPUT_LAUNCHER, "w", encoding="utf-8", newline="\n") as f_launcher:
-    f_launcher.write(str(doc))
+for output_launcher in [OUTPUT_LAUNCHER, OUTPUT_LAUNCHER_LOCAL]:
+    logging.info(f"💾 Writing: {output_launcher}")
+    with open(output_launcher, "w", encoding="utf-8", newline="\n") as f_launcher:
+        f_launcher.write(str(doc))
 
 # write summaries to file
 logging.info(f"💾 Writing: {OUTPUT_SUMMARY_TAGS}")
