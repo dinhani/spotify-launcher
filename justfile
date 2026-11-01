@@ -12,6 +12,11 @@ default:
 setup:
     uv sync
 
+# List line counts
+[group("project")]
+cloc:
+    cloc src
+
 # Render page
 [group("run")]
 render:
